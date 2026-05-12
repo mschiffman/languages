@@ -1,0 +1,324 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Phonetic Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <style>
+      .sub {
+        font-weight: bold;
+        background-color: #e9ffff;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-enun.js?v=260225"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French /ø/</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Spacer preserved after removing the audio player -->
+        <div class="mb-2" aria-hidden="true"></div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em; margin-top: 0">
+          <i>Click on the words to hear the pronunciation.</i>
+        </p>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> &nbsp;eu</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td onclick="playAudio('audio1')">affreux /afʀø/</td>
+                <td>awful</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio2')">ceux /sø/</td>
+                <td>the ones</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio3')">chanceux /ʃɑ̃sø/</td>
+                <td>lucky</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio4')">curieux /kyʀjø/</td>
+                <td>curious</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio5')">deux /dø/</td>
+                <td>two</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio6')">euphorie /øfɔʀi/</td>
+                <td>euphoria</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio7')">euro /øʀo/</td>
+                <td>euro</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio8')">eux /ø/</td>
+                <td>them</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio9')">fameux /famø/</td>
+                <td>famous</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio10')">feu /fø/</td>
+                <td>fire / traffic / heat</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio11')">gazeux /ɡɑzø/</td>
+                <td>gas</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio12')">heureux /øʀø/</td>
+                <td>happy</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio13')">jeu /ʒø/</td>
+                <td>game</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio14')">jeudi /ʒødi/</td>
+                <td>Thursday</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio15')">jeûne /ʒøn/</td>
+                <td>fast</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio16')">joyeux /ʒwajø/</td>
+                <td>happy</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio17')">leucémie /løsemi/</td>
+                <td>leukaemia</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio18')">lieu /ljø/</td>
+                <td>place</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio19')">lumineux /lyminø/</td>
+                <td>light / bright</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio20')">
+                  malheureusement /maløʀøzmɑ̃/
+                </td>
+                <td>unfortunately</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio21')">mieux /mjø/</td>
+                <td>better</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio22')">nerveux /nɛʀvø/</td>
+                <td>nervous</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio23')">neutre /nøtʀ/</td>
+                <td>neutral</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio24')">peu /pø/</td>
+                <td>not much</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio25')">peut /pø/</td>
+                <td>can</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio26')">précieux /pʀesjø/</td>
+                <td>precious</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio27')">queue /kø/</td>
+                <td>tail / rear / bottom / stalk</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio28')">veut /vø/</td>
+                <td>want</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio29')">vieux /vjø/</td>
+                <td>old</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio30')">yeux /jø/</td>
+                <td>eyes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /œ/ vs /ø/ -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title">
+            🗣️Pronunciation pairs &nbsp;/œ/ vs /ø/
+          </div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #2d9de7; font-weight: 600">
+                <th style="padding: 12px 8px; border-bottom: 1px solid #f88b8b">
+                  /œ/
+                  <span class="comment"
+                    >(mouth more open with tongue lower)</span
+                  >
+                </th>
+                <th style="padding: 12px 8px; border-bottom: 1px solid #f88b8b">
+                  /ø/
+                  <span class="comment"
+                    >(mouth more closed and tongue higher)</span
+                  >
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td onclick="playAudio('audio31')">cœur /kœʀ/</td>
+                <td onclick="playAudio('audio32')">queue /kø/</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio33')">heure /œʀ/</td>
+                <td onclick="playAudio('audio34')">eux /ø/</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio35')">jeune /ʒœn/</td>
+                <td onclick="playAudio('audio36')">jeûne /ʒøn/</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio37')">peur /pœʀ/</td>
+                <td onclick="playAudio('audio38')">peu /pø/</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio39')">sœur /sœʀ/</td>
+                <td onclick="playAudio('audio40')">ceux /sø/</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio41')">veulent /vœl/</td>
+                <td onclick="playAudio('audio42')">veule /vøl/</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="audio1" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/01-affreux.m4a"></audio>
+    <audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/02-ceux.m4a"></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/03-chanceux.m4a"></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/04-curieux.m4a"></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/05-deux.m4a"></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/06-euphorie.m4a"></audio>
+    <audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/07-euro.m4a"></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/08-eux.m4a"></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/09-fameux.m4a"></audio>
+    <audio id="audio10" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/10-feu.m4a"></audio>
+    <audio id="audio11" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/11-gazeux.m4a"></audio>
+    <audio id="audio12" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/12-heureux.m4a"></audio>
+    <audio id="audio13" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/13-jeu.m4a"></audio>
+    <audio id="audio14" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/14-jeudi.m4a"></audio>
+    <audio id="audio15" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/15-jeûne.m4a"></audio>
+    <audio id="audio16" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/16-joyeux.m4a"></audio>
+    <audio id="audio17" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/17-leucémie.m4a"></audio>
+    <audio id="audio18" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/18-lieu.m4a"></audio>
+    <audio id="audio19" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/19-lumineux.m4a"></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/20-malheureusement.m4a"></audio>
+    <audio id="audio21" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/21-mieux.m4a"></audio>
+    <audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/22-nerveux.m4a"></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/23-neutre.m4a"></audio>
+    <audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/24-peu.m4a"></audio>
+    <audio id="audio25" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/25-peut.m4a"></audio>
+    <audio id="audio26" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/26-précieux.m4a"></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/27-queue.m4a"></audio>
+    <audio id="audio28" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/28-veut.m4a"></audio>
+    <audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/29-vieux.m4a"></audio>
+    <audio id="audio30" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/30-yeux.m4a"></audio>
+    <audio id="audio31" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/31-cœur.m4a"></audio>
+    <audio id="audio32" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/32-queue.m4a"></audio>
+    <audio id="audio33" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/33-heure.m4a"></audio>
+    <audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/34-eux.m4a"></audio>
+    <audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/35-jeune.m4a"></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/36-jeûne.m4a"></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/37-peur.m4a"></audio>
+    <audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/38-peu.m4a"></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/39-sœur.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/40-ceux.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/41-veulent.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ø/42-veule.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/phonetic.js"></script>
+  </body>
+</html>

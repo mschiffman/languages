@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landforms - match</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <style>
+      .drag-item {
+        cursor: grab;
+        padding: 10px;
+        margin-bottom: 8px;
+        background: #fff;
+        border: 2px solid #0d6efd;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .drop-zone {
+        min-height: 50px;
+        border: 2px dashed #ccc;
+        border-radius: 5px;
+        background: #f8f9fa;
+        padding: 5px;
+      }
+      .correct-match {
+        border-color: #198754 !important;
+        background-color: #e8f5e9 !important;
+        cursor: default;
+      }
+      .definition-text {
+        font-style: italic;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card shadow border-0">
+            <div class="card-header bg-primary text-white text-center py-4">
+              <h2 class="mb-0">Associez les termes géographiques</h2>
+              <p class="mb-0 mt-2">
+                Faites glisser le mot français vers sa définition correcte.
+              </p>
+            </div>
+
+            <div class="card-body p-4">
+              <div class="row">
+                <div class="col-md-4">
+                  <h5 class="text-center mb-3">Mots à placer</h5>
+                  <div
+                    id="wordBank"
+                    class="p-3 bg-white border rounded shadow-sm"
+                    style="min-height: 400px"
+                  ></div>
+                </div>
+
+                <div class="col-md-8">
+                  <h5 class="text-center mb-3">Définitions</h5>
+                  <div id="definitionList"></div>
+                </div>
+              </div>
+
+              <div class="text-center mt-5">
+                <button
+                  onclick="location.reload()"
+                  class="btn btn-outline-secondary"
+                >
+                  Réinitialiser l'exercice
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const data = [
+        {
+          word: "le volcan",
+          def: "A mountain or hill having a crater through which lava and gas are erupted.",
+        },
+        {
+          word: "le fleuve",
+          def: "A river that flows into the sea or the ocean.",
+        },
+        { word: "la rivière", def: "A river that flows into another river." },
+        {
+          word: "la falaise",
+          def: "A steep rock face, especially at the edge of the sea.",
+        },
+        { word: "l'île", def: "A piece of land surrounded by water." },
+        {
+          word: "la grotte",
+          def: "A natural underground chamber or series of chambers.",
+        },
+      ];
+
+      function init() {
+        const wordBank = document.getElementById("wordBank");
+        const definitionList = document.getElementById("definitionList");
+
+        // Shuffle words for the bank
+        const shuffledData = [...data].sort(() => Math.random() - 0.5);
+
+        shuffledData.forEach((item) => {
+          const wordEl = document.createElement("div");
+          wordEl.className = "drag-item";
+          wordEl.innerText = item.word;
+          wordEl.setAttribute("data-id", item.word);
+          wordBank.appendChild(wordEl);
+        });
+
+        // Create definition rows
+        data.forEach((item) => {
+          const row = document.createElement("div");
+          row.className =
+            "row mb-3 align-items-center bg-white p-2 rounded border-bottom";
+          row.innerHTML = `
+                <div class="col-sm-5">
+                    <div class="drop-zone" data-match="${item.word}"></div>
+                </div>
+                <div class="col-sm-7">
+                    <span class="definition-text">${item.def}</span>
+                </div>
+            `;
+          definitionList.appendChild(row);
+        });
+
+        setupSorting();
+      }
+
+      function setupSorting() {
+        // Initialize Word Bank
+        new Sortable(document.getElementById("wordBank"), {
+          group: "shared",
+          animation: 150,
+        });
+
+        // Initialize each Drop Zone
+        document.querySelectorAll(".drop-zone").forEach((zone) => {
+          new Sortable(zone, {
+            group: "shared",
+            animation: 150,
+            onAdd: function (evt) {
+              const itemEl = evt.item;
+              const expected = zone.getAttribute("data-match");
+              const actual = itemEl.getAttribute("data-id");
+
+              if (actual === expected) {
+                // Correct Drop
+                itemEl.classList.add("correct-match");
+                itemEl.classList.remove("drag-item");
+                // Disable further dragging for this item
+                this.options.disabled = true;
+                zone.style.borderStyle = "solid";
+                zone.style.borderColor = "#198754";
+              } else {
+                // Wrong Drop - send it back to the bank
+                document.getElementById("wordBank").appendChild(itemEl);
+                alert("Désolé, ce n'est pas la bonne définition !");
+              }
+            },
+          });
+        });
+      }
+
+      window.onload = init;
+    </script>
+  </body>
+</html>

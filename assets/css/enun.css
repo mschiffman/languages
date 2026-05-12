@@ -1,0 +1,225 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+.main-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.subtitle {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.section-header {
+  background: linear-gradient(135deg, #6ba3d4 0%, #4a8bc2 100%);
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.section-header:hover {
+  opacity: 0.9;
+}
+.collapse-content {
+  background: #e8f4f8;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+.icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+.vowel-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 1.5rem;
+}
+.green-box {
+  background: linear-gradient(135deg, #90c695 0%, #e4fae6 100%);
+  padding: 1px;
+  border-radius: 12px;
+  color: #1a1a1a;
+}
+.red-box {
+  background: linear-gradient(135deg, #f3d4d4 0%, #e89797 100%);
+  padding: 1px;
+  border-radius: 12px;
+  color: #1a1a1a;
+}
+.purple-box {
+  background: linear-gradient(135deg, #a890c6 0%, #f1e8fc 100%);
+  padding: 1px;
+  border-radius: 12px;
+  color: white;
+}
+.box-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.box-subtitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  color: rgb(2, 2, 132);
+}
+.collapsible-box {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+.box-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+.box-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+.box-body {
+  padding: 20px;
+}
+.box-header .arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.section-header .arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.chevron-up {
+  display: none;
+}
+.section-header:not(.collapsed) .chevron-up,
+.box-header:not(.collapsed) .chevron-up {
+  display: inline-block;
+}
+.section-header:not(.collapsed) .chevron-down,
+.box-header:not(.collapsed) .chevron-down {
+  display: none;
+}
+.emoji {
+  font-size: 1.8rem;
+  margin-right: 8px;
+}
+.tips-box {
+  background: #f5f5dc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+.note-box {
+  background: #dcf5e0;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+.supplement-box {
+  background: #f5dcea;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+.tips-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+ul {
+  margin-bottom: 0.5rem;
+}
+.green-box .box-header {
+  background: #90c695;
+  color: #1a1a1a;
+}
+.green-box .box-body {
+  background: #e8faea;
+  color: #1a1a1a;
+}
+.red-box .box-header {
+  background: #fab0b0;
+  color: #1a1a1a;
+}
+.red-box .box-body {
+  background: #fbdede;
+  color: #1a1a1a;
+}
+.purple-box .box-header {
+  background: #dcc4fc;
+  color: rgb(0, 0, 0);
+}
+.purple-box .box-body {
+  background: #f4eefa;
+  color: rgb(0, 0, 0);
+}
+.orange-box .box-header {
+  background: #feca57;
+  color: #333;
+}
+.orange-box .box-body {
+  background: #fff2d9;
+  color: #333;
+}
+.cyan-box .box-header {
+  background: #48dbfb;
+  color: #333;
+}
+.cyan-box .box-body {
+  background: #dff9ff;
+  color: #333;
+}
+.pink-box .box-header {
+  background: #ff9ff3;
+  color: #333;
+}
+.pink-box .box-body {
+  background: #ffeafb;
+  color: #333;
+}
+p {
+  font-size: 1.1em;
+}
+strong {
+  font-size: 1.2em;
+  color: rgb(255, 0, 0);
+}
+em {
+  font-weight: 600;
+  color: rgb(1, 1, 151);
+}
+mark {
+  color: red;
+  font-style: italic;
+}

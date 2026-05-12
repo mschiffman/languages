@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../../assets/js/nav-pron.js?v=260507"
+    ></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - February 2, 2026</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" data-clip="1">150 personnes</span>
+            <span class="chunk" data-clip="2"> seraient concernées,</span>
+            <span class="chunk" data-clip="3"> principalement des malades</span>
+            <span class="chunk" data-clip="4"> et des blessés,</span>
+            <span class="chunk" data-clip="5">
+              annoncent les autorités égyptiennes.</span
+            >
+            <span class="chunk" data-clip="6"> Sur le continent africain,</span>
+            <span class="chunk" data-clip="7"> Madagascar a été balayée,</span>
+            <span class="chunk" data-clip="8"> ce week-end,</span>
+            <span class="chunk" data-clip="9"> par un cyclone.</span>
+            <span class="chunk" data-clip="10"> Des vents à 210 km/h</span>
+            <span class="chunk" data-clip="11"> ont traversé l'île,</span>
+            <span class="chunk" data-clip="12">
+              laissant derrière eux des victimes.</span
+            >
+            <span class="chunk" data-clip="13"> Au moins sept personnes</span>
+            <span class="chunk" data-clip="14"> ont été tuées.</span>
+            <span class="chunk" data-clip="15"> Et puis, au Niger,</span>
+            <span class="chunk" data-clip="16">
+              nous avons appris que le camp</span
+            >
+            <span class="chunk" data-clip="17">
+              de la garde nationale d'Ayorou,</span
+            >
+            <span class="chunk" data-clip="18">
+              à une vingtaine de kilomètres</span
+            >
+            <span class="chunk" data-clip="19">
+              de la frontière malienne,
+            </span>
+            <span class="chunk" data-clip="20"> a été la cible,</span>
+            <span class="chunk" data-clip="21"> tôt ce matin,</span>
+            <span class="chunk" data-clip="22"> d'une attaque,</span>
+            <span class="chunk" data-clip="23">
+              attaque par des hommes armés.</span
+            >
+            <span class="chunk" data-clip="24"> Pas de bilan officiel,</span>
+            <span class="chunk" data-clip="25"> pour le moment.</span>
+            <span class="chunk" data-clip="26">
+              Mais des sources sécuritaires</span
+            >
+            <span class="chunk" data-clip="27"> évoquent au moins</span>
+            <span class="chunk" data-clip="28"> trois soldats tués.</span>
+            <span class="chunk" data-clip="29">
+              Il fait tellement froid en Pologne</span
+            >
+            <span class="chunk" data-clip="30">
+              que la mer Baltique est gelée –</span
+            >
+            <span class="chunk" data-clip="31"> ce qui est très rare.</span>
+            <span class="chunk" data-clip="32"> Un froid glacial s'abat,</span>
+            <span class="chunk" data-clip="33"> en ce moment,</span>
+            <span class="chunk" data-clip="34">
+              sur le nord et l'est du pays,
+            </span>
+            <span class="chunk" data-clip="35"> jusqu'à -30 °C </span>
+            <span class="chunk" data-clip="36"> la nuit dernière.</span>
+            <span class="chunk" data-clip="37"> Alors, à Varsovie</span>
+            <span class="chunk" data-clip="38"> – la capitale –,</span>
+            <span class="chunk" data-clip="39"> au plus chaud</span>
+            <span class="chunk" data-clip="40"> de la journée,</span>
+            <span class="chunk" data-clip="41">
+              les températures ne dépassent pas</span
+            >
+            <span class="chunk" data-clip="42"> les -15 °C.</span>
+            <span class="chunk" data-clip="43">
+              Notre correspondant en Pologne,</span
+            >
+            <span class="chunk" data-clip="44"> Adrien Sarlat,</span>
+            <span class="chunk" data-clip="45"> s'est rendu, ce matin,</span>
+            <span class="chunk" data-clip="46"> sous des tentes</span>
+            <span class="chunk" data-clip="47"> mises en place</span>
+            <span class="chunk" data-clip="48"> par la mairie de Varsovie</span>
+            <span class="chunk" data-clip="49">
+              afin d'apporter un peu de chaleur</span
+            >
+            <span class="chunk" data-clip="50"> aux habitants.</span>
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Around 150 people are reportedly affected, mainly sick and injured
+              individuals, Egyptian authorities announced. On the African
+              continent, Madagascar was swept this weekend by a cyclone. Winds
+              of 210 km/h (130 mph) passed through the island, leaving victims
+              in their wake. At least seven people were killed. And in Niger, we
+              have learned that the National Guard camp at Ayorou, about twenty
+              kilometers from the Malian border, was targeted early this morning
+              by an attack carried out by armed men. There is no official death
+              toll at this time, but security sources report at least three
+              soldiers killed. It is so cold in Poland that the Baltic Sea has
+              frozen over — which is extremely rare. A bitter freeze is
+              currently gripping the north and east of the country, dropping to
+              -30°C (-22°F) last night. In Warsaw — the capital — even at the
+              warmest point of the day, temperatures do not rise above -15°C
+              (5°F). Our correspondent in Poland, Adrien Sarlat, went this
+              morning to tents set up by the Warsaw city hall to bring a little
+              warmth to residents.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" data-clip="51">concerner /kɔ̃sɛʀne/</td>
+                <td>to concern</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="52">
+                  principalement /pʀɛ̃sipalmɑ̃/
+                </td>
+                <td>mainly</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="53">blessé /blese/</td>
+                <td>injured peson</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="54">
+                  Égyptien, Égyptienne /eʒipsjɛ̃, εn/
+                </td>
+                <td>Egyptian</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="55">Madagascar /madaɡaskaʀ/</td>
+                <td>Madagascar</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="56">balayer /baleje/</td>
+                <td>to sweep/swept up</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="57">traverser /tʀavɛʀse/</td>
+                <td>to cross / to go through</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="58">laissant /lɛsɑ̃/</td>
+                <td>leaving</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="59">derrière /dɛʀjɛʀ/</td>
+                <td>behind</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="60">tuer /tɥe/</td>
+                <td>to get killed</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="61">camp /kɑ̃/</td>
+                <td>camp</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="62">national /nasjɔnal/</td>
+                <td>national</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="63">frontière /fʀɔ̃tjɛʀ/</td>
+                <td>border</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="64">malien /maljɛ̃/</td>
+                <td>Malian</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="65">cible /sibl/</td>
+                <td>target</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="66">attaque /atak/</td>
+                <td>attack</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="67">officiel /ɔfisjɛl/</td>
+                <td>official</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="68">sources /suʀs/</td>
+                <td>source</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="69">sécuritaires /sekyʀitεʀ/</td>
+                <td>security</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="70">évoquer /evɔke/</td>
+                <td>to mention</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="71">soldat /sɔlda/</td>
+                <td>soldier</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="72">Baltique /baltik/</td>
+                <td>Baltique</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="73">gelée /ʒ(ə)le/</td>
+                <td>frozen</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="74">rare /ʀɑʀ/</td>
+                <td>rare</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="75">capital(e) /kapital/</td>
+                <td>capital</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="76">dépasser /depɑse/</td>
+                <td>to exceed/pass</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="77">mairie /meʀi/</td>
+                <td>town hall</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="78">afin /afɛ̃/</td>
+                <td>so that</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="79">apporter /apɔʀte/</td>
+                <td>to bring</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Page Navigation -->
+      <div style="text-align: center; margin: 24px 0 8px">
+        <a
+          href="index.html"
+          class="btn btn-outline-primary"
+          style="margin: 0 6px; min-width: 42px"
+          >1</a
+        >
+        <a
+          href="2.html"
+          class="btn btn-primary"
+          style="margin: 0 6px; min-width: 42px"
+          >2</a
+        >
+      </div>
+    </div>
+
+    <!-- Single reusable audio element for clips -->
+    <audio id="clipPlayer"></audio>
+
+    <!-- Audio configuration for this page -->
+    <script>
+      window.AUDIO_CONFIG = {
+        basePath: "https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI260202/2",
+        fullAudio: "audio.m4a",
+      };
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron2.js"></script>
+  </body>
+</html>

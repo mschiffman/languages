@@ -1,0 +1,502 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 400px !important;
+        height: auto;
+      }
+      b {
+        color: rgb(181, 1, 181);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/geothermal.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>L’énergie géothermique</h1>
+      </div>
+      <h5>L’un des plus anciens cadeaux de la nature</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="french-text-img" src="/img/geothermal.png" alt="" />
+          <!-- Text with tooltips -->
+          L'<span data-bs-toggle="tooltip" title="/enɛʀʒi/">énergie</span>
+          <span data-bs-toggle="tooltip" title="/ʒeotɛʀmik/">géothermique</span>
+          est l’un des plus anciens et des plus
+          <span data-bs-toggle="tooltip" title="/ʒeneʀø/">généreux</span>
+          cadeaux de la Terre — une
+          <span data-bs-toggle="tooltip" title="/ʃalœʀ/">chaleur</span> douce et
+          <span data-bs-toggle="tooltip" title="/kɔ̃stɑ̃t/">constante</span> qui
+          <span data-bs-toggle="tooltip" title="/ʀ(ə)mɔ̃t/">remonte</span> des
+          <span data-bs-toggle="tooltip" title="/pʀɔfɔ̃dœʀ/">profondeurs</span>
+          de la planète, alimentée depuis des milliards d’années par la lente
+          <span data-bs-toggle="tooltip" title="/dezɛ̃tegʀasjɔ̃/"
+            >désintégration</span
+          >
+          d’<span data-bs-toggle="tooltip" title="/elemɑ̃/">éléments </span>
+          <span data-bs-toggle="tooltip" title="/ʀadjɔaktif/">radioactifs</span>
+          nichés loin sous nos pieds. Depuis plus de
+          <span data-bs-toggle="tooltip" title="dix mille/dis.mil/"
+            >10 000</span
+          >
+          ans, les humains
+          <span data-bs-toggle="tooltip" title="/ʃeʀis/">chérissent</span>
+          cette chaleur
+          <span data-bs-toggle="tooltip" title="/kaʃe/">cachée</span> : les
+          <span data-bs-toggle="tooltip" title="/pɶpl/">peuples</span> anciens
+          se
+          <span data-bs-toggle="tooltip" title="/ʀasɑ̃blɛ/">rassemblaient</span>
+          autour des
+          <span data-bs-toggle="tooltip" title="/surs/">sources</span> chaudes
+          pour <span data-bs-toggle="tooltip" title="/gerir/">guérir</span> ou
+          cuisiner, et les
+          <span data-bs-toggle="tooltip" title="/rɔmε̃/">Romains</span>,
+          <span data-bs-toggle="tooltip" title="/ɛ̃ʒenjø/">ingénieux</span>,
+          <span data-bs-toggle="tooltip" title="/fəzɛ/">faisaient</span>
+          <span data-bs-toggle="tooltip" title="/kule/">couler</span> l’eau
+          géothermique jusque dans leurs
+          <span data-bs-toggle="tooltip" title="/sɔ̃ptɥø/">somptueux</span
+          ><span data-bs-toggle="tooltip" title="/tɛʀm/"> thermes</span
+          >.<br /><br />
+
+          Aujourd’hui, nous l’utilisons de manière bien plus
+          <span data-bs-toggle="tooltip" title="/sɔfistike/">sophistiquée</span>
+          : des
+          <span data-bs-toggle="tooltip" title="/ʀezɛʀvwaʀ/">réservoirs </span
+          ><span data-bs-toggle="tooltip" title="/pʀɔfɔ̃/">profonds </span>
+          <span data-bs-toggle="tooltip" title="/prɔdɥi/">produisent</span> de
+          l’électricité, et des
+          <span data-bs-toggle="tooltip" title="/ʀezo/">réseaux</span> de
+          chaleur géothermique
+          <span data-bs-toggle="tooltip" title="/ʀeʃof/">réchauffent</span> des
+          villes entières. Mais l’une des
+          <span data-bs-toggle="tooltip" title="/ɛ̃nɔvasjɔ̃/">innovations</span>
+          les plus magiques, c’est la
+          <span data-bs-toggle="tooltip" title="/pɔ̃p/">pompe</span> à chaleur
+          géothermique. Elle ne dépend ni des
+          <span data-bs-toggle="tooltip" title="/vɔlkɑ̃/">volcans</span> ni des
+          <span data-bs-toggle="tooltip" title="/ʒɛzœʀ/">geysers</span> — juste
+          de ce
+          <span data-bs-toggle="tooltip" title="/miʀakl/">miracle</span>
+          discret qu’est la Terre : une température
+          <span data-bs-toggle="tooltip" title="/sutεrε̃/">souterraine</span>
+          <span data-bs-toggle="tooltip" title="/stabl/"> stable</span>,
+          <span data-bs-toggle="tooltip" title="/fʀɛʃ/">fraîche</span> en été et
+          douce en hiver, grâce au pouvoir
+          <span data-bs-toggle="tooltip" title="/izɔlɑ̃/">isolant</span> du sol
+          et des
+          <span data-bs-toggle="tooltip" title="/ʀɔʃ/">roches</span
+          >.<br /><br />
+
+          En
+          <span data-bs-toggle="tooltip" title="/fεzɑ̃/">faisant</span> circuler
+          un <span data-bs-toggle="tooltip" title="/flɥid/">fluide</span> dans
+          des <span data-bs-toggle="tooltip" title="/bukl/">boucles </span
+          ><span data-bs-toggle="tooltip" title="/ɑ̃teʀe/">enterrées</span>, ces
+          pompes <span data-bs-toggle="tooltip" title="/kapt/">captent</span> la
+          chaleur de la Terre en hiver et y
+          <span data-bs-toggle="tooltip" title="/ʀəʒɛt/">rejettent</span>
+          l’<span data-bs-toggle="tooltip" title="/εksε/">excès</span> en été —
+          comme un
+          <span data-bs-toggle="tooltip" title="/tɛʀmɔstat/">thermostat</span>
+          naturel,
+          <span data-bs-toggle="tooltip" title="/ekɔnɔm/">économe</span> et
+          <span data-bs-toggle="tooltip" title="/silɑ̃sjø/">silencieux</span>.
+          Propre,
+          <span data-bs-toggle="tooltip" title="/pezibl/">paisible</span> et
+          <span data-bs-toggle="tooltip" title="/inepɥizabl/">inépuisable</span
+          >, la
+          <span data-bs-toggle="tooltip" title="/ʒeotɛʀmi/">géothermie</span>
+          transforme le
+          <span data-bs-toggle="tooltip" title="/ritm/">rythme</span>
+          <span data-bs-toggle="tooltip" title="/kɔ̃stɑ̃/"> constant </span>
+          de notre planète en
+          <span data-bs-toggle="tooltip" title="/kɔ̃fɔʀ/">confort</span> toute
+          l’année.
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Geothermal energy is one of Earth's oldest and most generous gifts—a
+          gentle, constant heat that rises from the depths of the planet, fueled
+          for billions of years by the slow decay of radioactive elements
+          nestled far beneath our feet. For more than 10,000 years, humans have
+          cherished this hidden warmth: ancient peoples gathered around hot
+          springs to heal or cook, and the ingenious Romans piped geothermal
+          water into their lavish baths.<br /><br />Today, we use it in much
+          more sophisticated ways: deep reservoirs generate electricity, and
+          geothermal heating networks warm entire cities. But one of the most
+          magical innovations is the geothermal heat pump. It doesn't rely on
+          volcanoes or geysers—just the quiet miracle that is the Earth: a
+          stable underground temperature, cool in summer and mild in winter,
+          thanks to the insulating power of soil and rock.<br /><br />By
+          circulating a fluid through underground loops, these pumps capture the
+          Earth's heat in winter and release excess heat in summer—like a
+          natural, economical, and silent thermostat. Clean, peaceful, and
+          inexhaustible, geothermal energy transforms the constant rhythm of our
+          planet into year-round comfort.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">
+                nature <span class="pho"> /natyʀ/</span>
+              </td>
+              <td></td>
+              <td>nature</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">chaleur</td>
+              <td></td>
+              <td>heat</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">constante</td>
+              <td></td>
+              <td>constant / steady</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">remonter</td>
+              <td></td>
+              <td>to go back up</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">profondeur</td>
+              <td></td>
+              <td>depths / deep places</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">des milliards d’années</td>
+              <td></td>
+              <td>billions of years</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">désintégration</td>
+              <td></td>
+              <td>disintegration / decay</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">éléments radioactifs</td>
+              <td></td>
+              <td>radioactive elements</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                chérir <span class="pho"> /ʃerir]/</span>
+              </td>
+              <td></td>
+              <td>to cherish</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cachée</td>
+              <td></td>
+              <td>hidden</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">rassembler <span> /rasɑ̃ble/</span></td>
+              <td></td>
+              <td>to gather</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">autour <span> /otur/</span></td>
+              <td></td>
+              <td>around</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">guérir</td>
+              <td></td>
+              <td>to heal</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">ingénieux</td>
+              <td></td>
+              <td>ingenious</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">couler</td>
+              <td></td>
+              <td>to channel / to flow</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">somptueux</td>
+              <td></td>
+              <td>lavish</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">thermes</td>
+              <td></td>
+              <td>thermal baths</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">sophistiquée</td>
+              <td></td>
+              <td>sophisticated</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">réservoirs profonds</td>
+              <td></td>
+              <td>deep reservoirs</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">réseaux</td>
+              <td></td>
+              <td>networks / systems</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                réchauffer <span class="pho"> /reʃofe/</span>
+              </td>
+              <td></td>
+              <td>to heat or warm up</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">innovation</td>
+              <td></td>
+              <td>innovation</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">pompe</td>
+              <td></td>
+              <td>pump</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">volcan</td>
+              <td></td>
+              <td>volcanoe</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">geyser</td>
+              <td></td>
+              <td>geyser</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">miracle</td>
+              <td></td>
+              <td>miracle</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">souterraine</td>
+              <td></td>
+              <td>underground / subterranean</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">stable</td>
+              <td></td>
+              <td>stable</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">fraîche</td>
+              <td></td>
+              <td>cool</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">pouvoir isolant</td>
+              <td></td>
+              <td>insulating power</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">roche</td>
+              <td></td>
+              <td>rock</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">fluide</td>
+              <td></td>
+              <td>fluid</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">boucles</td>
+              <td></td>
+              <td>loop</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">enterrer <span> /ɑ̃tere/</span></td>
+              <td></td>
+              <td>to bury</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">capter <span> /kapte/</span></td>
+              <td></td>
+              <td>to capture</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                rejeter <span class="pho"> /rəʒte/</span>
+              </td>
+              <td></td>
+              <td>to release / to send back</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">excès</td>
+              <td></td>
+              <td>excess / surplus</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">thermostat</td>
+              <td></td>
+              <td>thermostat</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">économe</td>
+              <td></td>
+              <td>energy-saving / economical</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">silencieux</td>
+              <td></td>
+              <td>quiet / silent</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">paisible</td>
+              <td></td>
+              <td>peaceful</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">inépuisable</td>
+              <td></td>
+              <td>inexhaustible / endless</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">rythme constant</td>
+              <td></td>
+              <td>steady rhythm / continuous pulse</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">confort</td>
+              <td></td>
+              <td>comfort</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!--     <div class="bottom-nav">
+      <a class="btn btn-outline-primary" href="index.html">Page One</a>
+      <a class="btn btn-primary" href="dimanche.html">Page Two</a>
+    </div>
+    <p></p>
+    <p></p> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

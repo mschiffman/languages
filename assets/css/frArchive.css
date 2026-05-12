@@ -1,0 +1,296 @@
+:root {
+  --ink: #2c3e50; /* deep header */
+  --bg: #f8f4ef; /* paper */
+  --flag-blue: #002395;
+  --flag-white: #ffffff;
+  --flag-red: #ed2939;
+  --line: #ecf0f1; /* light line */
+  --txt-muted: #555;
+  --b-blue: #3498db;
+  --b-red: #e74c3c;
+  --b-violet: #9b59b6;
+  --b-orange: #f39c12;
+  --b-teal: #1abc9c;
+  --b-pumpkin: #e67e22;
+  --b-crimson: #c0392b;
+  --b-green: #27ae60;
+  --b-yellow: #f1c40f;
+  --b-pink: #e91e63;
+  --b-indigo: #5e35b1;
+  --b-cyan: #00bcd4;
+  --b-lime: #8bc34a;
+  --b-amber: #ff9800;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--bg);
+  color: var(--ink);
+  position: relative;
+}
+
+/* Header bar mimicking the SVG */
+.hero {
+  position: relative;
+  background: var(--ink);
+  min-height: 180px;
+  padding: 2.25rem 1rem 2.75rem;
+  overflow: hidden;
+}
+.hero .flag {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 30px;
+  height: 180px;
+  display: flex;
+  flex-direction: row;
+}
+.hero .flag span {
+  display: block;
+  width: 10px;
+}
+.hero .flag .b {
+  background: var(--flag-blue);
+}
+.hero .flag .w {
+  background: var(--flag-white);
+}
+.hero .flag .r {
+  background: var(--flag-red);
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+.hero p.sub {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #ecf0f1;
+  text-align: center;
+  margin: 0.25rem 0 1rem;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+}
+.hero .divider {
+  height: 2px;
+  background: var(--line);
+  width: min(560px, 90%);
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+/* Layout */
+/* Sidebar: vertical scroll */
+.sidebar {
+  position: sticky;
+  top: 1rem;
+  max-height: 80vh; /* keeps it within the viewport height */
+  overflow-y: auto; /* enables vertical scrolling */
+  scrollbar-width: thin; /* Firefox: slimmer scrollbar */
+  scrollbar-color: #bbb #f8f4ef; /* Firefox: thumb + track color */
+}
+
+/* Chrome, Edge, Safari scrollbar styling */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: #f8f4ef;
+  border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 10px;
+  border: 2px solid #f8f4ef;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+.col-md-6[id] {
+  scroll-margin-top: 150px; /* keep anchor targets visible below the header */
+}
+.sidebar .list-group-item {
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  padding: 0.5rem 0.25rem;
+  transition:
+    color 0.2s ease,
+    font-weight 0.2s ease;
+}
+.sidebar .list-group-item:focus,
+.sidebar .list-group-item:focus-visible {
+  color: #0d6efd;
+  font-weight: 700;
+  outline: none;
+}
+.sidebar .list-group-item:focus {
+  text-decoration: none;
+}
+
+/* Card styling inspired by the SVG rectangles */
+.fx-card {
+  position: relative;
+  border-width: 3px !important;
+  border-radius: 10px;
+  background: #fff;
+  height: 100%;
+}
+.fx-card .emoji-dot {
+  position: absolute;
+  top: -14px;
+  left: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.fx-card .emoji-dot i {
+  font-size: 18px;
+}
+.fx-card .card-title {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1.35rem;
+  margin-left: 2.4rem;
+}
+.fx-card .list {
+  color: var(--txt-muted);
+  font-size: 0.975rem;
+}
+.fx-card .list li {
+  margin: 0.35rem 0;
+}
+
+/* Border color helpers + matching emoji-dot bg */
+/* Border color helpers + matching emoji-dot bg */
+.b-blue {
+  border-color: var(--b-blue) !important;
+}
+.b-red {
+  border-color: var(--b-red) !important;
+}
+.b-violet {
+  border-color: var(--b-violet) !important;
+}
+.b-orange {
+  border-color: var(--b-orange) !important;
+}
+.b-teal {
+  border-color: var(--b-teal) !important;
+}
+.b-pumpkin {
+  border-color: var(--b-pumpkin) !important;
+}
+.b-crimson {
+  border-color: var(--b-crimson) !important;
+}
+.b-green {
+  border-color: var(--b-green) !important;
+}
+.b-yellow {
+  border-color: var(--b-yellow) !important;
+}
+.b-pink {
+  border-color: var(--b-pink) !important;
+}
+.b-indigo {
+  border-color: var(--b-indigo) !important;
+}
+.b-cyan {
+  border-color: var(--b-cyan) !important;
+}
+.b-lime {
+  border-color: var(--b-lime) !important;
+}
+.b-amber {
+  border-color: var(--b-amber) !important;
+}
+
+.dot-blue {
+  background: var(--b-blue);
+}
+.dot-red {
+  background: var(--b-red);
+}
+.dot-violet {
+  background: var(--b-violet);
+}
+.dot-orange {
+  background: var(--b-orange);
+}
+.dot-teal {
+  background: var(--b-teal);
+}
+.dot-pumpkin {
+  background: var(--b-pumpkin);
+}
+.dot-crimson {
+  background: var(--b-crimson);
+}
+.dot-green {
+  background: var(--b-green);
+}
+.dot-yellow {
+  background: var(--b-yellow);
+}
+.dot-pink {
+  background: var(--b-pink);
+}
+.dot-indigo {
+  background: var(--b-indigo);
+}
+.dot-cyan {
+  background: var(--b-cyan);
+}
+.dot-lime {
+  background: var(--b-lime);
+}
+.dot-amber {
+  background: var(--b-amber);
+}
+
+/* Footer bar */
+.footer-band {
+  background: #ecf0f1;
+  padding: 1.1rem 0 1.4rem;
+}
+.footer-band p {
+  margin: 0;
+  text-align: center;
+}
+.footer-band .line1 {
+  font-style: italic;
+  color: #7f8c8d;
+  font-family: Georgia, serif;
+}
+.footer-band .line2 {
+  color: #95a5a6;
+  font-size: 0.95rem;
+}
+
+/* Niceties */
+.card-body {
+  padding: 1.25rem 1.25rem 1.1rem 1.25rem;
+}
+.fx-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+}
+
+@media (max-width: 575.98px) {
+  .fx-card .card-title {
+    margin-left: 2.1rem;
+  }
+}

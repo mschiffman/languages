@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Present Tense - Flash Cards</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <!-- offline enabler -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/flashcards.css" />
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <nav
+      class="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top"
+    >
+      <div class="container-lg">
+        <button
+          class="btn btn-outline-secondary me-2"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+          aria-label="Open menu"
+        >
+          <i class="bi bi-list" style="font-size: 1.5rem"></i>
+        </button>
+        <a class="navbar-brand fw-semibold" href="#">Present Tense - Flash Cards</a>
+      </div>
+    </nav>
+
+    <!-- Offcanvas Sidebar -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="sidebarMenu"
+      aria-labelledby="sidebarMenuLabel"
+    >
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column pt-3">
+        <div class="list-group list-group-flush" id="sidebar-accordion">
+          <!-- Sidebar content populated dynamically via nav-tense.js -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="thumbnail-section">
+            <h6 class="fw-bold mb-2">Jump to card</h6>
+            <div class="thumbnail-strip" id="thumbnailStrip"></div>
+          </div>
+          <h4>Choose the correct Present Tense conjugation.</h4>
+          <div class="flashcard-container" id="flashcard">
+            <div class="flashcard-inner">
+              <div
+                class="flashcard-front d-flex align-items-center justify-content-center bg-white border shadow-sm rounded p-4"
+              >
+                <h3 id="card-front-text">Loading...</h3>
+                <p class="text-muted small position-absolute bottom-0 mb-3">
+                  (Click to Flip)
+                </p>
+              </div>
+
+              <div
+                class="flashcard-back d-flex align-items-center justify-content-center bg-primary text-white shadow-sm rounded p-4"
+              >
+                <h3 id="card-back-text">...</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Randomization -->
+          <div class="d-flex justify-content-center gap-2 mb-3">
+            <button class="btn btn-warning" onclick="shuffleDeck()">
+              <i class="bi bi-shuffle"></i> Shuffle Cards
+            </button>
+            <button class="btn btn-outline-warning" onclick="reorderDeck()">
+              Reorder Cards
+            </button>
+          </div>
+
+          <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-outline-secondary" onclick="prevCard()">
+              Previous
+            </button>
+            <span id="card-count" class="align-self-center text-muted"
+              >1 / 5</span
+            >
+            <button class="btn btn-outline-primary" onclick="nextCard()">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="../../../assets/js/nav-tense.js?v=260215"></script>
+
+    <script>
+      // 1. Your Data (This acts as your "Database")
+      const baseDeck = [
+        {
+          front: "Je (<u>aller</u>) bien.",
+          back: "Je <u>vais</u> bien. - (<i>I am doing well.</i>)",
+        },
+        {
+          front: "Tu (<u>aller</u>) où ?",
+          back: "Tu <u>vas</u> où ? - (<i>Where are you going?</i>)",
+        },
+        {
+          front: "Comment il (<u>aller</u>) ?",
+          back: "Comment il <u>va</u> ? - (<i>How is he?</i>)",
+        },
+        {
+          front: "Nous (<u>aller</u>) à Paris.",
+          back: "Nous <u>allons</u> à Paris. - (<i>We are going to Paris.</i>)",
+        },
+        {
+          front: "Vous (<u>aller</u>) mal ?",
+          back: "Vous <u>avez</u> mal ? - (<i>Are you in pain?</i>)",
+        },
+        {
+          front: "Tu me (<u>parler</u>) ?",
+          back: "Tu me <u>parles</u> ? - (<i>Are you talking to me?</i>)",
+        },
+        {
+          front: "Je (<u>manger</u>) de tout.",
+          back: "Je <u>mange</u> de tout. - (<i>I eat everything.</i>)",
+        },
+        {
+          front: "Je ne sais pas ce que tu (<u>aimer</u>).",
+          back: "Je ne sais pas ce que tu <u>aimes</u>. - (<i>I don't know what you like.</i>)",
+        },
+        {
+          front: "Vous (<u>prendre</u>) la carte ?",
+          back: "Vous <u>prenez</u> la carte ? - (<i>Do you take the (credit) card?</i>)",
+        },
+        {
+          front: "Tu (<u>comprendre</u>) ?",
+          back: "Tu <u>comprends</u> ? - (<i>Do you understand?</i>)",
+        },
+        {
+          front: "Je (<u>être</u>) mariée<sup>f</sup>.",
+          back: "Je <u>suis</u> mariée. - (<i>I am married.</i>)",
+        },
+        {
+          front: "C'est comme ça qu'on (<u>apprendre</u>).",
+          back: " C'est comme ça qu'on <u>apprend</u>  - (<i>That's how we learn.</i>)",
+        },
+        {
+          front: "Tu m'(<u>écouter</u>) ?",
+          back: "Tu m'<u>écoutes</u> ? - (<i>Are you listening to me?</i>)",
+        },
+        {
+          front: "Il (<u>finir</u>) à 16 h.",
+          back: "Il <u>finit</u> à 16 h. - (<i>It ends at 4 pm.</i>)",
+        },
+        {
+          front: "Nous (<u>avoir</u>) un accord.",
+          back: "Nous <u>avons</u> un accord. - (<i>We have an agreement.</i>)",
+        },
+        {
+          front: "Avoue que tu (<u>avoir</u>) peur.",
+          back: " Avoue que tu <u>as</u> peur. - (<i>Admit that you're scared.</i>)",
+        },
+        {
+          front: "Ils (<u>avoir</u>) des enfants ?",
+          back: "Ils <u>ont</u> des enfants ? - (<i>Do they have children?</i>)",
+        },
+        {
+          front: "Tu (<u>grandir</u>) vite.",
+          back: "Tu <u>grandis</u> vite. - (<i>You're growing up fast.</i>)",
+        },
+        {
+          front: "Vous me (<u>donner</u>) du champagne ? ",
+          back: "Vous me <u>donnez</u> du champagne ? - (<i>Will you give me champagne?</i>)",
+        },
+        {
+          front: "Je vous (<u>attendre</u>). ",
+          back: "Je vous <u>attends</u>.  - (<i>I'm waiting for you.</i>)",
+        },
+        {
+          front: "Tu (<u>choisir</u>) lequel te plaît.",
+          back: "Tu <u>choisis</u> lequel te plaît. - (<i>You choose which one you like.</i>)",
+        },
+      ];
+
+      let deck = baseDeck.map((card, index) => ({ ...card, id: index }));
+      let currentIndex = 0;
+      const cardElement = document.getElementById("flashcard");
+      const frontText = document.getElementById("card-front-text");
+      const backText = document.getElementById("card-back-text");
+      const countLabel = document.getElementById("card-count");
+      const thumbnailStrip = document.getElementById("thumbnailStrip");
+
+      // 2. Load the content
+      function loadCard() {
+        // Reset flip if it's currently flipped
+        cardElement.classList.remove("is-flipped");
+
+        // Wait slightly for flip reset, then change text
+        setTimeout(() => {
+          frontText.innerHTML = deck[currentIndex].front;
+          backText.innerHTML = deck[currentIndex].back;
+          countLabel.innerHTML = `${currentIndex + 1} / ${deck.length}`;
+          updateActiveThumbnail();
+        }, 200);
+      }
+
+      function renderThumbnails() {
+        thumbnailStrip.innerHTML = "";
+        baseDeck.forEach((card, idx) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "thumb-card";
+          btn.dataset.cardId = idx;
+          btn.innerHTML = `
+            <div class="thumb-number">#${idx + 1}</div>
+            <div class="thumb-preview">${card.front}</div>
+          `;
+          btn.addEventListener("click", () => {
+            const targetIndex = deck.findIndex((item) => item.id === idx);
+            if (targetIndex !== -1) {
+              currentIndex = targetIndex;
+              loadCard();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          });
+          thumbnailStrip.appendChild(btn);
+        });
+        updateActiveThumbnail();
+      }
+
+      function updateActiveThumbnail() {
+        const activeId = deck[currentIndex].id;
+        const buttons = thumbnailStrip.querySelectorAll(".thumb-card");
+        buttons.forEach((btn) => {
+          const btnId = Number(btn.dataset.cardId);
+          btn.classList.toggle("is-active", btnId === activeId);
+        });
+      }
+
+      // 3. Flip Interaction
+      cardElement.addEventListener("click", function () {
+        this.classList.toggle("is-flipped");
+      });
+
+      // 4. Navigation
+      function nextCard() {
+        if (currentIndex < deck.length - 1) {
+          currentIndex++;
+          loadCard();
+        }
+      }
+
+      function prevCard() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          loadCard();
+        }
+      }
+
+      // Initialize
+      renderThumbnails();
+      loadCard();
+
+      function shuffleDeck() {
+        // 1. The Fisher-Yates Shuffle Algorithm
+        // (This loops backward through the deck and swaps each card with a random one)
+        for (let i = deck.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+
+        // 2. Reset the user to the start of the newly shuffled deck
+        currentIndex = 0;
+
+        // 3. Reload the display
+        loadCard();
+
+        // Optional: Give visual feedback (e.g., update the button text briefly)
+        const btn = document.querySelector('button[onclick="shuffleDeck()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Deck Shuffled!";
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 1000);
+      }
+
+      function reorderDeck() {
+        // Restore the deck to its original sequential order
+        deck = baseDeck.map((card, index) => ({ ...card, id: index }));
+        currentIndex = 0;
+        loadCard();
+
+        const btn = document.querySelector('button[onclick="reorderDeck()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Deck Reordered!";
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

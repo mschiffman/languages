@@ -1,0 +1,676 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - May 26, 2025</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')"
+              >16 heures temps universel.</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')"
+              >Nous sommes le lundi 26 mai.</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')"
+              >Et au sommaire de cette édition :
+            </span>
+            <span class="chunk" onclick="playAudio('audio4')">
+              La France signe 9 milliards d'euros
+            </span>
+            <span class="chunk" onclick="playAudio('audio5')"
+              >de contrats avec le Vietnam.
+            </span>
+            <span class="chunk" onclick="playAudio('audio6')"
+              >Nous retrouverons, dans un instant,
+            </span>
+            <span class="chunk" onclick="playAudio('audio7')"
+              >notre envoyé spécial à Hanoï.
+            </span>
+            <span class="chunk" onclick="playAudio('audio8')"
+              >La guerre à Gaza :
+            </span>
+            <span class="chunk" onclick="playAudio('audio9')"
+              >plus de 50 morts
+            </span>
+            <span class="chunk" onclick="playAudio('audio10')"
+              >dans les derniers bombardements israéliens.
+            </span>
+            <span class="chunk" onclick="playAudio('audio11')">
+              L'actualité en France.
+            </span>
+            <span class="chunk" onclick="playAudio('audio12')"
+              >Nous serons au procès
+            </span>
+            <span class="chunk" onclick="playAudio('audio13')"
+              >de Joël Le Scouarnec,
+            </span>
+            <span class="chunk" onclick="playAudio('audio14')"
+              >du nom de cet ancien médecin
+            </span>
+            <span class="chunk" onclick="playAudio('audio15')"
+              >accusé de viols et d'agressions sexuelles
+            </span>
+            <span class="chunk" onclick="playAudio('audio16')"
+              >sur près de 300 patients.
+            </span>
+            <span class="chunk" onclick="playAudio('audio17')"
+              >Et puis, enfin,
+            </span>
+            <span class="chunk" onclick="playAudio('audio18')"
+              >nous prendrons des nouvelles
+            </span>
+            <span class="chunk" onclick="playAudio('audio19')"
+              >du tournoi de tennis
+            </span>
+            <span class="chunk" onclick="playAudio('audio20')"
+              >de Roland-Garros
+            </span>
+            <span class="chunk" onclick="playAudio('audio21')"
+              >à la fin de cette édition.
+            </span>
+            <span class="chunk" onclick="playAudio('audio22')"
+              >Emmanuel Macron est
+            </span>
+            <span class="chunk" onclick="playAudio('audio23')"
+              >arrivé en Asie du Sud-Est.
+            </span>
+            <span class="chunk" onclick="playAudio('audio24')"
+              >Le président français
+            </span>
+            <span class="chunk" onclick="playAudio('audio25')"
+              >entame une tournée asiatique
+            </span>
+            <span class="chunk" onclick="playAudio('audio26')"
+              >au Vietnam.
+            </span>
+            <span class="chunk" onclick="playAudio('audio27')"
+              >Dès son arrivée
+            </span>
+            <span class="chunk" onclick="playAudio('audio28')"
+              >dans ce pays d'environ
+            </span>
+            <span class="chunk" onclick="playAudio('audio29')"
+              >100 millions d'habitants,
+            </span>
+            <span class="chunk" onclick="playAudio('audio30')"
+              >Emmanuel Macron a présenté la France
+            </span>
+            <span class="chunk" onclick="playAudio('audio31')"
+              >comme un partenaire, je cite,
+            </span>
+            <span class="chunk" onclick="playAudio('audio32')"
+              >sûr et fiable du Vietnam.
+            </span>
+            <span class="chunk" onclick="playAudio('audio33')"
+              >Parmi les objectifs
+            </span>
+            <span class="chunk" onclick="playAudio('audio34')"
+              >de cette visite,
+            </span>
+            <span class="chunk" onclick="playAudio('audio35')"
+              >le commerce.
+            </span>
+            <span class="chunk" onclick="playAudio('audio36')"
+              >Les signatures
+            </span>
+            <span class="chunk" onclick="playAudio('audio37')"
+              >d'une trentaine de contrats prévues,
+            </span>
+            <span class="chunk" onclick="playAudio('audio38')"
+              >que ce soit dans l'aéronautique,
+            </span>
+            <span class="chunk" onclick="playAudio('audio39')"
+              >le transport maritime
+            </span>
+            <span class="chunk" onclick="playAudio('audio40')"
+              >ou encore la santé.
+            </span>
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              4:00 p.m. Universal Time. It is Monday, May 26. And in the
+              headlines of this edition: France signs 9 billion euros worth of
+              contracts with Vietnam. We will join our special correspondent in
+              Hanoi in just a moment. The war in Gaza: more than 50 dead in the
+              latest Israeli bombings. News in France: We will be at the trial
+              of Joël Le Scouarnec, the name of the former doctor accused of
+              rapes and sexual assaults on nearly 300 patients. And finally, we
+              will get updates from the Roland-Garros tennis tournament at the
+              end of this edition. Emmanuel Macron has arrived in Southeast
+              Asia. The French president is beginning an Asian tour in Vietnam.
+              Upon his arrival in this country of about 100 million inhabitants,
+              Emmanuel Macron presented France as a, I quote, "safe and reliable
+              partner" of Vietnam. Among the goals of this visit: trade. Around
+              thirty contracts are set to be signed, whether in aeronautics,
+              maritime transport, or healthcare.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  signe /siɲ/
+                </td>
+                <td>sign</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  milliard /miljaʀ/
+                </td>
+                <td>billion</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  contrat /kɔ̃tʀa/
+                </td>
+                <td>contract</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  Vietnam /vjɛtnam/
+                </td>
+                <td>Vietnam</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  retrouverons /ʀətʀuvʀɔ̃/
+                </td>
+                <td>to find</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  envoyé /ɑ̃vwaje/
+                </td>
+                <td>envoy / correspondent</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  spécial /spesjal/
+                </td>
+                <td>special</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  derniers /dɛʀnje/
+                </td>
+                <td>last</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  bombardement /bɔ̃baʀdəmɑ̃/
+                </td>
+                <td>bombing</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  serons /səʀɔ̃/
+                </td>
+                <td>are</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  accusé /akyze/
+                </td>
+                <td>accused</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  viol /vjɔl/
+                </td>
+                <td>rape</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  ancien /ɑ̃sjɛ̃/
+                </td>
+                <td>old</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  médecin /med(ə)sɛ̃/
+                </td>
+                <td>doctor</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  agression /aɡʀesjɔ̃/
+                </td>
+                <td>attack</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  sexuelle /sɛksɥɛl/
+                </td>
+                <td>sexual</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  patient /pasjɑ̃/
+                </td>
+                <td>patient</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  prendrons /pʀɑ̃dʀɔ̃/
+                </td>
+                <td>to take</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  nouvelle /nuvɛl/
+                </td>
+                <td>new</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  tournoi /tuʀnwa/
+                </td>
+                <td>tournament</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  Roland-Garros /ʀɔlɑ̃ ɡaʀos/
+                </td>
+                <td>The French Open for tennis</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">Asie /azi/</td>
+                <td>Asia</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  Sud-Est /sydɛst/
+                </td>
+                <td>southest</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">
+                  entame /ɑ̃tam/
+                </td>
+                <td>to begin</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio65')">
+                  tournée /tuʀne/
+                </td>
+                <td>tour</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio66')">
+                  asiatique /azjatik/
+                </td>
+                <td>Asian</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio67')">
+                  million /miljɔ̃/
+                </td>
+                <td>million</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio68')">
+                  partenaire /paʀtənɛʀ/
+                </td>
+                <td>partner</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio69')">
+                  citer /site/
+                </td>
+                <td>to quote</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio70')">
+                  fiable /fjabl/
+                </td>
+                <td>reliable</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio71')">
+                  parmi /paʀmi/
+                </td>
+                <td>among</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio72')">
+                  objectif /ɔbʒɛktif/
+                </td>
+                <td>objective</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio73')">
+                  visite /vizit/
+                </td>
+                <td>visit</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio74')">
+                  commerce /kɔmɛʀs/
+                </td>
+                <td>trade</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio75')">
+                  signature /siɲatyʀ/
+                </td>
+                <td>signature</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio76')">
+                  prevoir /pʀevwaʀ/
+                </td>
+                <td>to expect</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio77')">
+                  aéronautique /aeʀonotik/
+                </td>
+                <td>aeronautical</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio78')">
+                  maritime /maʀitim/
+                </td>
+                <td>maritime</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/01-16 heures temps universel.m4a"
+    ></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/02-Nous sommes le lundi 26 mai.m4a"
+    ></audio>
+    <audio
+      id="audio3"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/03-Et au sommaire de cette édition.m4a"
+    ></audio>
+    <audio
+      id="audio4"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/04-La France signe 9 milliards d'euros.m4a"
+    ></audio>
+    <audio
+      id="audio5"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/05-de contrats avec le Vietnam.m4a"
+    ></audio>
+    <audio
+      id="audio6"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/06-Nous retrouverons, dans un instant.m4a"
+    ></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/07-notre envoyé spécial à Hanoï.m4a"
+    ></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/08-La guerre à Gaza.m4a"></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/09-plus de 50 morts.m4a"></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/10-dans les derniers bombardements israéliens.m4a"
+    ></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/11-L'actualité en France.m4a"
+    ></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/12-Nous serons au procès.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/13-de Joël Le Scouarnec.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/14-du nom de cet ancien médecin.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/15-accusé de viols et d'agressions sexuelles.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/16-sur près de 300 patients.m4a"
+    ></audio>
+    <audio id="audio17" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/17-Et puis, enfin.m4a"></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/18-nous prendrons des nouvelles.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/19-du tournoi de tennis.m4a"
+    ></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/20-de Roland-Garros.m4a"></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/21-à la fin de cette édition.m4a"
+    ></audio>
+    <audio
+      id="audio22"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/22-Emmanuel Macron est.m4a"
+    ></audio>
+    <audio
+      id="audio23"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/23-arrivé en Asie du Sud-Est.m4a"
+    ></audio>
+    <audio
+      id="audio24"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/24-Le président français.m4a"
+    ></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/25-entame une tournée asiatique.m4a"
+    ></audio>
+    <audio id="audio26" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/26-au Vietnam.m4a"></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/27-Dès son arrivée.m4a"></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/28-dans ce pays d'environ.m4a"
+    ></audio>
+    <audio
+      id="audio29"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/29-100 millions d'habitants.m4a"
+    ></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/30-Emmanuel Macron a présenté la France.m4a"
+    ></audio>
+    <audio
+      id="audio31"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/31-comme un partenaire, je cite.m4a"
+    ></audio>
+    <audio
+      id="audio32"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/32-sûr et fiable du Vietnam.m4a"
+    ></audio>
+    <audio
+      id="audio33"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/33-Parmi les objectifs.m4a"
+    ></audio>
+    <audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/34-de cette visite.m4a"></audio>
+    <audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/35-le commerce.m4a"></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/36-Les signatures.m4a"></audio>
+    <audio
+      id="audio37"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/37-d'une trentaine de contrats prévues.m4a"
+    ></audio>
+    <audio
+      id="audio38"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/38-que ce soit dans l'aéronautique.m4a"
+    ></audio>
+    <audio
+      id="audio39"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/39-le transport maritime.m4a"
+    ></audio>
+    <audio
+      id="audio40"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/40-ou encore la santé.m4a"
+    ></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/41-signe.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/42-milliard.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/43-contrat.m4a"></audio>
+    <audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/44-Vietnam.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/45-retrouverons.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/46-envoyé.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/47-spécial.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/48-derniers.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/49-bombardement.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/50-serons.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/51-accusé.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/52-viol.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/53-ancien.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/54-médecin.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/55-agression.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/56-sexuelle.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/57-patient.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/58-prendrons.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/59-nouvelle.m4a"></audio>
+    <audio id="audio60" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/60-tournoi.m4a"></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/61-Roland-Garros.m4a"></audio>
+    <audio id="audio62" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/62-Asie.m4a"></audio>
+    <audio id="audio63" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/63-Sud-Est.m4a"></audio>
+    <audio id="audio64" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/64-entame.m4a"></audio>
+    <audio id="audio65" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/65-tournée.m4a"></audio>
+    <audio id="audio66" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/66-asiatique.m4a"></audio>
+    <audio id="audio67" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/67-million.m4a"></audio>
+    <audio id="audio68" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/68-partenaire.m4a"></audio>
+    <audio id="audio69" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/69-citer.m4a"></audio>
+    <audio id="audio70" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/70-fiable.m4a"></audio>
+    <audio id="audio71" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/71-parmi.m4a"></audio>
+    <audio id="audio72" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/72-objectif.m4a"></audio>
+    <audio id="audio73" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/73-visite.m4a"></audio>
+    <audio id="audio74" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/74-commerce.m4a"></audio>
+    <audio id="audio75" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/75-signature.m4a"></audio>
+    <audio id="audio76" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/76-prevoir.m4a"></audio>
+    <audio id="audio77" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/77-aéronautique.m4a"></audio>
+    <audio id="audio78" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/78-maritime.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250526/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

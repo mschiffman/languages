@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Collocation Web: La Fourchette</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="../../../../assets/css/octopus.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">🇫🇷 French Collocation Web</span>
+      </div>
+    </nav>
+
+    <div class="container-fluid px-4">
+      <div class="d-flex gap-2 mb-3">
+        <a href="collo-cooktop.html" class="btn btn-sm btn-outline-dark"
+          >Cooktop</a
+        >
+        <a href="collo-kettle.html" class="btn btn-sm btn-outline-dark"
+          >Kettle</a
+        >
+        <a href="collo-microwave.html" class="btn btn-sm btn-outline-dark"
+          >Microwave</a
+        >
+        <a href="collo-oven.html" class="btn btn-sm btn-outline-dark">Oven</a>
+        <a href="collo-range hood.html" class="btn btn-sm btn-outline-dark"
+          >Range hood</a
+        >
+        <a href="collo-rice cooker.html" class="btn btn-sm btn-outline-dark"
+          >Rice cooker</a
+        >
+        <a href="collo-toaster.html" class="btn btn-sm btn-outline-dark"
+          >Toaster</a
+        >
+        <a href="collo-toaster oven.html" class="btn btn-sm btn-outline-dark"
+          >Toaster oven</a
+        >
+      </div>
+      <div class="row">
+        <div class="col-lg-9 mb-4">
+          <div id="graph-container"></div>
+          <div id="tooltip" class="tooltip"></div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              Selection Details
+            </div>
+            <div class="card-body" id="info-panel">
+              <h5 class="card-title text-muted">Hover or Click a Node</h5>
+              <p class="card-text">
+                Select a word in the web to see its English translation and
+                details here.
+              </p>
+            </div>
+          </div>
+
+          <div class="card mt-3 shadow-sm">
+            <div class="card-header">Legend</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #e63946"></span>
+                Verbs (Actions)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #457b9d"></span>
+                Adjectives (Description)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #9b5de5"></span>
+                Idioms (Expressions)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #2a9d8f"></span>
+                Associations (Nouns)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #d32fcc"></span>
+                Parts
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script>
+      // --- 1. DATA PREPARATION ---
+      // Embedded JSON data for "Le Couteau"
+      const dataset = {
+        nodes: [
+          // Center
+          {
+            id: "La cuisinière à riz",
+            group: "center",
+            radius: 30,
+            translation: "The rice cooker",
+            example:
+              "Tu peux lancer la cuisinière à riz ?<br><em>Can you start the rice cooker?</em>",
+          },
+
+          // Categories
+          { id: "Verbes", group: "category", radius: 0 },
+          { id: "Adjectifs", group: "category", radius: 0 },
+          { id: "Associations", group: "category", radius: 0 },
+          { id: "Expressions", group: "category", radius: 0 },
+          { id: "Parts", group: "category", radius: 0 },
+
+          // Verbs
+          {
+            id: "Mesurer",
+            group: "verb",
+            translation: "to measure",
+            example:
+              "Mesure le riz avec le gobelet doseur.<br><em>Measure the rice with the measuring cup.</em>",
+          },
+          {
+            id: "Rincer",
+            group: "verb",
+            translation: "to rinse",
+            example:
+              "Rince le riz avant de le cuire.<br><em>Rinse the rice before cooking it.</em>",
+          },
+          {
+            id: "Ajouter",
+            group: "verb",
+            translation: "to add",
+            example:
+              "Ajoute de l'eau jusqu'au repère.<br><em>Add water up to the mark.</em>",
+          },
+          {
+            id: "Verser",
+            group: "verb",
+            translation: "to pour",
+            example:
+              "Verse le riz dans la cuve.<br><em>Pour the rice into the inner pot.</em>",
+          },
+          {
+            id: "Lancer",
+            group: "verb",
+            translation: "to start",
+            example: "Lance la cuisson.<br><em>Start the cooking cycle.</em>",
+          },
+          {
+            id: "Cuire",
+            group: "verb",
+            translation: "to cook",
+            example:
+              "Le riz cuit en vingt minutes.<br><em>The rice cooks in twenty minutes.</em>",
+          },
+          {
+            id: "Laisser",
+            group: "verb",
+            translation: "to let/leave",
+            example:
+              "Laisse reposer le riz cinq minutes.<br><em>Let the rice rest for five minutes.</em>",
+          },
+          {
+            id: "Réchauffer",
+            group: "verb",
+            translation: "to reheat",
+            example:
+              "Tu peux réchauffer le riz avec la fonction 'maintien au chaud'.<br><em>You can reheat the rice with the 'keep warm' function.</em>",
+          },
+          {
+            id: "Débrancher",
+            group: "verb",
+            translation: "to unplug",
+            example:
+              "Débranche la cuisinière à riz après usage.<br><em>Unplug the rice cooker after use.</em>",
+          },
+          {
+            id: "Nettoyer",
+            group: "verb",
+            translation: "to clean",
+            example:
+              "Nettoie la cuve après chaque utilisation.<br><em>Clean the inner pot after each use.</em>",
+          },
+
+          // Adjectives
+          {
+            id: "Automatique",
+            group: "adjective",
+            translation: "automatic",
+            example:
+              "C'est une cuisinière à riz automatique.<br><em>It’s an automatic rice cooker.</em>",
+          },
+          {
+            id: "Antiadhésive",
+            group: "adjective",
+            translation: "non-stick",
+            example:
+              "La cuve est antiadhésive.<br><em>The inner pot is non-stick.</em>",
+          },
+          {
+            id: "En mode maintien au chaud",
+            group: "adjective",
+            translation: "on keep-warm mode",
+            example:
+              "Elle est en mode maintien au chaud.<br><em>It’s on keep-warm mode.</em>",
+          },
+          {
+            id: "Pleine",
+            group: "adjective",
+            translation: "full",
+            example:
+              "La cuisinière à riz est pleine.<br><em>The rice cooker is full.</em>",
+          },
+          {
+            id: "Sale",
+            group: "adjective",
+            translation: "dirty",
+            example: "La cuve est sale.<br><em>The inner pot is dirty.</em>",
+          },
+
+          // Associations
+          {
+            id: "Le riz",
+            group: "noun",
+            translation: "rice",
+            example:
+              "On fait du riz ce soir.<br><em>We’re making rice tonight.</em>",
+          },
+          {
+            id: "L'eau",
+            group: "noun",
+            translation: "water",
+            example:
+              "Ajoute un peu plus d'eau.<br><em>Add a bit more water.</em>",
+          },
+          {
+            id: "Le gobelet doseur",
+            group: "noun",
+            translation: "measuring cup",
+            example:
+              "Le gobelet doseur est dans le tiroir.<br><em>The measuring cup is in the drawer.</em>",
+          },
+          {
+            id: "Le panier vapeur",
+            group: "noun",
+            translation: "steam basket/tray",
+            example:
+              "On peut cuire des légumes au panier vapeur.<br><em>You can steam vegetables in the steam basket.</em>",
+          },
+          {
+            id: "Les légumes",
+            group: "noun",
+            translation: "vegetables",
+            example:
+              "Je fais des légumes à la vapeur.<br><em>I’m steaming vegetables.</em>",
+          },
+
+          // Expressions
+          {
+            id: "C'est prêt",
+            group: "idiom",
+            translation: "It’s ready",
+            example: "Ça y est, c'est prêt !<br><em>Alright, it’s ready!</em>",
+          },
+          {
+            id: "Il manque de l'eau",
+            group: "idiom",
+            translation: "It needs more water",
+            example:
+              "Il manque de l'eau, le riz colle.<br><em>It needs more water; the rice is sticking.</em>",
+          },
+          {
+            id: "Le riz colle",
+            group: "idiom",
+            translation: "The rice is sticking",
+            example:
+              "Le riz colle au fond.<br><em>The rice is sticking to the bottom.</em>",
+          },
+          {
+            id: "Le riz est trop cuit",
+            group: "idiom",
+            translation: "The rice is overcooked",
+            example:
+              "Oups, le riz est trop cuit.<br><em>Oops, the rice is overcooked.</em>",
+          },
+
+          // Parts
+          {
+            id: "La cuve",
+            group: "part",
+            translation: "inner pot/bowl",
+            example:
+              "Sors la cuve et lave-la.<br><em>Take out the inner pot and wash it.</em>",
+          },
+          {
+            id: "Le couvercle",
+            group: "part",
+            translation: "lid",
+            example:
+              "Ferme bien le couvercle.<br><em>Close the lid properly.</em>",
+          },
+          {
+            id: "Le bouton",
+            group: "part",
+            translation: "button",
+            example:
+              "Appuie sur le bouton 'cuisson'.<br><em>Press the 'cook' button.</em>",
+          },
+          {
+            id: "La soupape",
+            group: "part",
+            translation: "steam vent/valve",
+            example:
+              "Nettoie la soupape de vapeur.<br><em>Clean the steam vent.</em>",
+          },
+          {
+            id: "Le panier vapeur",
+            group: "part",
+            translation: "steam basket/tray",
+            example:
+              "Mets le panier vapeur au-dessus du riz.<br><em>Put the steam basket above the rice.</em>",
+          },
+          {
+            id: "Le cordon",
+            group: "part",
+            translation: "power cord",
+            example:
+              "Le cordon est trop court.<br><em>The cord is too short.</em>",
+          },
+        ],
+
+        links: [
+          // Center Connections
+          { source: "La cuisinière à riz", target: "Verbes" },
+          { source: "La cuisinière à riz", target: "Adjectifs" },
+          { source: "La cuisinière à riz", target: "Associations" },
+          { source: "La cuisinière à riz", target: "Expressions" },
+          { source: "La cuisinière à riz", target: "Parts" },
+
+          // Verbs
+          { source: "Verbes", target: "Mesurer" },
+          { source: "Verbes", target: "Rincer" },
+          { source: "Verbes", target: "Ajouter" },
+          { source: "Verbes", target: "Verser" },
+          { source: "Verbes", target: "Lancer" },
+          { source: "Verbes", target: "Cuire" },
+          { source: "Verbes", target: "Laisser" },
+          { source: "Verbes", target: "Réchauffer" },
+          { source: "Verbes", target: "Débrancher" },
+          { source: "Verbes", target: "Nettoyer" },
+
+          // Adjectives
+          { source: "Adjectifs", target: "Automatique" },
+          { source: "Adjectifs", target: "Antiadhésive" },
+          { source: "Adjectifs", target: "En mode maintien au chaud" },
+          { source: "Adjectifs", target: "Pleine" },
+          { source: "Adjectifs", target: "Sale" },
+
+          // Associations
+          { source: "Associations", target: "Le riz" },
+          { source: "Associations", target: "L'eau" },
+          { source: "Associations", target: "Le gobelet doseur" },
+          { source: "Associations", target: "Le panier vapeur" },
+          { source: "Associations", target: "Les légumes" },
+
+          // Expressions
+          { source: "Expressions", target: "C'est prêt" },
+          { source: "Expressions", target: "Il manque de l'eau" },
+          { source: "Expressions", target: "Le riz colle" },
+          { source: "Expressions", target: "Le riz est trop cuit" },
+
+          // Parts
+          { source: "Parts", target: "La cuve" },
+          { source: "Parts", target: "Le couvercle" },
+          { source: "Parts", target: "Le bouton" },
+          { source: "Parts", target: "La soupape" },
+          { source: "Parts", target: "Le panier vapeur" },
+          { source: "Parts", target: "Le cordon" },
+        ],
+      };
+
+      // --- 2. CONFIGURATION ---
+      const width = document.getElementById("graph-container").clientWidth;
+      const height = 600;
+
+      // Color Palette
+      const colors = {
+        center: "#212529", // Dark Grey
+        category: "#adb5bd", // Light Grey (connectors)
+        verb: "#e63946", // Red
+        adjective: "#457b9d", // Blue
+        noun: "#2a9d8f", // Teal/Green
+        idiom: "#9b5de5", // Purple
+        part: "#d32fcc", // Pink
+      };
+
+      // --- 3. D3 SETUP ---
+      const svg = d3
+        .select("#graph-container")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .call(
+          d3.zoom().on("zoom", (event) => {
+            g.attr("transform", event.transform);
+          }),
+        );
+
+      const g = svg.append("g");
+
+      // Force Simulation
+      const simulation = d3
+        .forceSimulation(dataset.nodes)
+        .force(
+          "link",
+          d3
+            .forceLink(dataset.links)
+            .id((d) => d.id)
+            .distance(70),
+        )
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force(
+          "collide",
+          d3.forceCollide().radius((d) => (d.radius || 20) + 10),
+        );
+
+      // Draw Links
+      const link = g
+        .append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(dataset.links)
+        .enter()
+        .append("line")
+        .attr("class", "link");
+
+      // Draw Nodes (Circles)
+      const node = g
+        .append("g")
+        .attr("class", "nodes")
+        .selectAll("g")
+        .data(dataset.nodes)
+        .enter()
+        .append("g")
+        .call(
+          d3
+            .drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended),
+        );
+
+      node
+        .append("circle")
+        .attr("r", (d) => d.radius || 15) // Default radius 15 if not specified
+        .attr("fill", (d) => colors[d.group] || "#ccc")
+        // Hover Events
+        .on("mouseover", function (event, d) {
+          // Show Tooltip
+          const tooltip = d3.select("#tooltip");
+          tooltip.transition().duration(200).style("opacity", 0.9);
+
+          // Content of Tooltip
+          let content = `<strong>${d.id}</strong>`;
+          if (d.translation) {
+            content += `<br/><span style="color:#ccc; font-size:12px">"${d.translation}"</span>`;
+          }
+
+          tooltip
+            .html(content)
+            .style("left", event.pageX + 10 + "px")
+            .style("top", event.pageY - 28 + "px");
+
+          // Highlight Node
+          d3.select(this).attr("stroke", "#333").attr("stroke-width", 3);
+        })
+        .on("mouseout", function (d) {
+          d3.select("#tooltip").transition().duration(500).style("opacity", 0);
+          d3.select(this).attr("stroke", "#fff").attr("stroke-width", 2);
+        })
+        .on("click", function (event, d) {
+          updateInfoPanel(d);
+
+          // Only speak the French word (the ID), not the category names
+          if (d.group !== "category") {
+            speakWord(d.id);
+          }
+        });
+
+      // Add Text Labels
+      node
+        .append("text")
+        .attr("dy", (d) => (d.radius || 15) + 15) // Position text below the circle
+        .text((d) => (d.group === "category" ? "" : d.id)) // Don't label the category nodes (cleaner look)
+        .style("font-size", (d) => (d.group === "center" ? "16px" : "12px"))
+        .style("font-weight", (d) =>
+          d.group === "center" ? "bold" : "normal",
+        );
+
+      // --- 4. SIMULATION UPDATE ---
+      simulation.on("tick", () => {
+        link
+          .attr("x1", (d) => d.source.x)
+          .attr("y1", (d) => d.source.y)
+          .attr("x2", (d) => d.target.x)
+          .attr("y2", (d) => d.target.y);
+
+        node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+      });
+
+      // --- 5. DRAG FUNCTIONS ---
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+
+      // --- 6. INFO PANEL UPDATE ---
+      function updateInfoPanel(d) {
+        const panel = document.getElementById("info-panel");
+
+        // If a category node (grey dot) is clicked, clear the panel or show instructions
+        if (d.group === "category") {
+          panel.innerHTML = `<h5 class="card-title text-muted">Select a Word</h5><p class="card-text">Click a colored node to see details.</p>`;
+          return;
+        }
+
+        // Capitalize the type (e.g., "verb" -> "Verb")
+        let typeLabel = d.group.charAt(0).toUpperCase() + d.group.slice(1);
+
+        // Handle missing data gracefully
+        let translationText = d.translation ? `"${d.translation}"` : "";
+
+        // THIS IS THE NEW PART: Check for the example sentence
+        let exampleHtml = "";
+        if (d.example) {
+          // Extract the French part (before the <br>) and escape single quotes for the onclick handler
+          const frenchPart = d.example.split("<br>")[0].replace(/'/g, "\\'");
+          exampleHtml = `
+                <div class="alert alert-light border mt-3" style="background-color: #f8f9fa; cursor: pointer;" onclick="speakWord('${frenchPart}')" title="Click to listen">
+                    <small class="text-uppercase text-muted" style="font-size: 0.75rem; letter-spacing: 1px;">Context 🔊</small>
+                    <p class="mb-0 fst-italic text-dark">"${d.example}"</p>
+                </div>`;
+        } else {
+          // Fallback if you haven't added an example yet
+          exampleHtml = `
+                <div class="alert alert-warning border mt-3 p-2">
+                    <small class="text-muted">No example sentence available.</small>
+                </div>`;
+        }
+
+        // Render the panel
+        panel.innerHTML = `
+            <h3 class="card-title" style="color:${colors[d.group]}">${d.id}</h3>
+            <h6 class="card-subtitle mb-2 text-muted">${typeLabel}</h6>
+            <p class="card-text fs-5">${translationText}</p>
+            <hr>
+            ${exampleHtml}
+        `;
+      }
+
+      function speakWord(word) {
+        // Check if the browser supports speech synthesis
+        if ("speechSynthesis" in window) {
+          const utterance = new SpeechSynthesisUtterance(word);
+
+          // Set language to French
+          utterance.lang = "fr-FR";
+
+          // Optional: Adjust speed (0.5 is slower, 1 is normal)
+          utterance.rate = 0.9;
+
+          // Speak!
+          window.speechSynthesis.speak(utterance);
+        } else {
+          console.log("Browser does not support text-to-speech");
+        }
+      }
+    </script>
+    <script type="module" src="../../../../assets/js/nav-step.js"></script>
+  </body>
+</html>

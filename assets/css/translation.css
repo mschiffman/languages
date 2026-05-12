@@ -1,0 +1,111 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.translation-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.question-block {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 5px solid #bdc3c7; /* Default Grey */
+  transition: all 0.3s;
+}
+
+.english-prompt {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #34495e;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.user-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #dfe6e9;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Keeps padding inside width */
+  font-family: "Segoe UI", sans-serif;
+}
+
+.user-input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+/* Validation Styles */
+.correct-block {
+  border-left-color: #2ecc71;
+  background-color: #eafaf1;
+}
+
+.wrong-block {
+  border-left-color: #e74c3c;
+  background-color: #fdedec;
+}
+
+.feedback-msg {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  display: none; /* Hidden by default */
+}
+
+.btn-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-verify {
+  background-color: #3498db;
+  color: white;
+}
+.btn-verify:hover {
+  background-color: #2980b9;
+}
+
+.btn-reset {
+  background-color: #95a5a6;
+  color: white;
+}
+.btn-reset:hover {
+  background-color: #7f8c8d;
+}

@@ -1,0 +1,86 @@
+.thumbnail-section {
+  margin-bottom: 1rem;
+}
+.thumbnail-strip {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem;
+}
+.thumb-card {
+  border: 1px solid #dee2e6;
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  min-width: 90px;
+  max-width: 120px;
+  flex: 0 0 auto;
+  cursor: pointer;
+  box-shadow: 0 2px 6px #0000000a;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.thumb-card.is-active {
+  border-color: #0d6efd;
+  box-shadow: 0 4px 12px #0d6efd29;
+}
+.thumb-number {
+  font-size: 0.75rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+.thumb-preview {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-height: 40px;
+  overflow: hidden;
+  font-size: 0.7rem;
+  line-height: 1.2;
+  text-align: left;
+}
+.thumb-preview * {
+  font-size: 0.7rem !important;
+  line-height: 1.2 !important;
+}
+.thumb-preview img {
+  width: 60px;
+  height: auto;
+}
+.flashcard-container {
+  background-color: transparent;
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+i {
+  font-size: 1.4rem;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flashcard-container.is-flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+.flashcard-front,
+.flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+img {
+  width: 190px;
+  height: auto;
+}

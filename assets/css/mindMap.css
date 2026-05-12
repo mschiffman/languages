@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: #8f8f8f;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+}
+
+#map-container {
+  width: 100%;
+  max-width: 100%;
+  height: 97vh;
+  min-height: 600px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  position: relative;
+}
+
+#map-container::before {
+  content: attr(data-title);
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+  z-index: 2;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+#consonant-svg {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+}
+
+/* SVG text and hover effects */
+svg text {
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  user-select: none;
+}
+
+svg circle,
+svg rect,
+svg path {
+  transition: all 0.3s ease;
+}
+
+svg .node:hover circle,
+svg .node:hover rect {
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.6));
+  transform: scale(1.1);
+}
+
+/* svg-pan-zoom controls */
+/* .svg-pan-zoom-control {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.svg-pan-zoom-control:hover {
+  background: white !important;
+  border-color: #6366f1 !important;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3) !important;
+}
+
+.svg-pan-zoom-control-background {
+  fill: #6366f1 !important;
+  fill-opacity: 0.8 !important;
+}
+
+.svg-pan-zoom-control svg,
+.svg-pan-zoom-control line,
+.svg-pan-zoom-control path {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+} */
+/* 1. The Button Container - Dark Blue Background */
+.svg-pan-zoom-control {
+  background: #1e3a8a !important; /* Dark Blue */
+  border: 2px solid #1e3a8a !important; /* Matching border */
+  border-radius: 8px !important;
+  color: #ffffff !important; /* Makes HTML text (RESET) white */
+  transition: all 0.3s ease !important;
+}
+
+/* 2. Hover State - Slightly Lighter Blue */
+.svg-pan-zoom-control:hover {
+  background: #2563eb !important; /* Lighter blue on hover */
+  border-color: #2563eb !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4) !important;
+}
+
+.svg-pan-zoom-control-background {
+  fill: #01037e !important;
+  fill-opacity: 0.8 !important;
+}
+
+/* 3. The Icons and Text inside SVG - Force White */
+.svg-pan-zoom-control svg,
+.svg-pan-zoom-control line,
+.svg-pan-zoom-control path,
+.svg-pan-zoom-control text {
+  /* Added 'text' to catch the RESET label */
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}

@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../../assets/js/nav-pron.js?v=260507"
+    ></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - May 4, 2026</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" data-clip="1"
+              >Voici les titres de cette édition :</span
+            >
+            <span class="chunk" data-clip="2"> Un navire est en feu</span>
+            <span class="chunk" data-clip="3"> dans le détroit d'Ormuz.</span>
+            <span class="chunk" data-clip="4">
+              Il s'agit d'un bateau sud-coréen.</span
+            >
+            <span class="chunk" data-clip="5"> Depuis ce matin,</span>
+            <span class="chunk" data-clip="6"> les États-Unis annoncent</span>
+            <span class="chunk" data-clip="7">
+              débloquer ce lieu de passage.</span
+            >
+            <span class="chunk" data-clip="8">
+              L'Iran, [lui], affirme, de son côté,
+            </span>
+            <span class="chunk" data-clip="9"> tirer des missiles</span>
+            <span class="chunk" data-clip="10">
+              sur les navires américains.</span
+            >
+            <span class="chunk" data-clip="11">
+              Nous tenterons d'y voir plus clair</span
+            >
+            <span class="chunk" data-clip="12">
+              sur cette situation dans un instant,</span
+            >
+            <span class="chunk" data-clip="13"> avec Oriane Verdier.</span>
+            <span class="chunk" data-clip="14">
+              L'Arménie accueille, en ce moment,</span
+            >
+            <span class="chunk" data-clip="15"> plusieurs pays européens.</span>
+            <span class="chunk" data-clip="16">
+              Et, parmi les pays présents à Erevan – la capitale –,</span
+            >
+            <span class="chunk" data-clip="17">
+              un pays du continent américain,</span
+            >
+            <span class="chunk" data-clip="18"> le Canada.</span>
+            <span class="chunk" data-clip="19">
+              Nous appellerons notre correspondante
+            </span>
+            <span class="chunk" data-clip="20"> à Montréal.</span>
+            <span class="chunk" data-clip="21"> Et puis, enfin,</span>
+            <span class="chunk" data-clip="22"> quel est le point </span>
+            <span class="chunk" data-clip="23">
+              commun entre ces trois mots ?</span
+            >
+            <span class="chunk" data-clip="24"> Un vocal.</span>
+            <span class="chunk" data-clip="25"> Un crush.</span>
+            <span class="chunk" data-clip="26"> Une dinguerie.</span>
+            <span class="chunk" data-clip="27"> Ces mots font leur entrée</span>
+            <span class="chunk" data-clip="28">
+              dans le dictionnaire Larousse</span
+            >
+            <span class="chunk" data-clip="29"> et nous en parlerons</span>
+            <span class="chunk" data-clip="30">
+              à la fin de cette édition.
+            </span>
+            <span class="chunk" data-clip="31"> Voilà pour les titres.</span>
+            <span class="chunk" data-clip="32"> Soyez les bienvenus.</span>
+            <span class="chunk" data-clip="33">
+              Une guerre de communication</span
+            >
+            <span class="chunk" data-clip="34">
+              entre l'Iran et les États-Unis</span
+            >
+            <span class="chunk" data-clip="35">
+              sur ce qui se passe, en ce moment,</span
+            >
+            <span class="chunk" data-clip="36"> dans le détroit d'Ormuz,</span>
+            <span class="chunk" data-clip="37"> haut lieu de passage</span>
+            <span class="chunk" data-clip="38"> du pétrole mondial. </span>
+            <span class="chunk" data-clip="39">
+              Aujourd'hui, l'Iran affirme avoir tiré</span
+            >
+            <span class="chunk" data-clip="40"> deux missiles</span>
+            <span class="chunk" data-clip="41">
+              contre un navire de l'armée américaine.</span
+            >
+            <span class="chunk" data-clip="42">
+              Les États-Unis démentent –
+            </span>
+            <span class="chunk" data-clip="43">
+              disent que ce n'est pas vrai.</span
+            >
+            <span class="chunk" data-clip="44"> Oriane Verdier,</span>
+            <span class="chunk" data-clip="45">
+              comme depuis le début de cette guerre,</span
+            >
+            <span class="chunk" data-clip="46">
+              il est rare que les deux pays</span
+            >
+            <span class="chunk" data-clip="47"> disent la même chose.</span>
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Here are the headlines for this edition: A ship is on fire in the
+              Strait of Hormuz. It is a South Korean vessel. Since this morning,
+              the United States has announced it will unblock this passage.
+              Iran, for its part, claims to be firing missiles at American
+              ships. We will try to get a clearer picture of this situation in a
+              moment with Oriane Verdier. Armenia is currently hosting several
+              European countries. And among the countries present in Yerevan –
+              the capital – is a country from the American continent: Canada. We
+              will be calling our correspondent in Montreal. And finally, what
+              do these three words have in common? A vocal. A crush. A crazy
+              thing. These words are making their entrance into the Larousse
+              dictionary and we will discuss them at the end of this edition.
+              That's all for the headlines. Welcome. A communication war between
+              Iran and the United States over what is happening right now in the
+              Strait of Hormuz, a major passage for the world's oil. Today, Iran
+              claims to have fired two missiles against a US military vessel.
+              The United States denies it – says it is not true. Oriane Verdier,
+              as has been the case since the beginning of this war, it is rare
+              for the two countries to say the same thing.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" data-clip="48">navire /naviʀ/</td>
+                <td>ship, vessel</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="49">être en feu /ɛtʀ.ɑ̃.fø/</td>
+                <td>to be on fire</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="50">détroit /detʀwa/</td>
+                <td>strait</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="51">bateau /bato/</td>
+                <td>boat</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="52">sud-coréen /sydkɔʀeɛ̃/</td>
+                <td>south Korean</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="53">Arménie /aʀmeni/</td>
+                <td>Armenia</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="54">il s’agit de /il.sa.ʒi.də/</td>
+                <td>it is / it concerns</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="55">débloquer /deblɔke/</td>
+                <td>to unblock, open up</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="56">
+                  lieu de passage /ljø.də.pa.saʒ/
+                </td>
+                <td>transit point, passage</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="57">affirmer /afirme/</td>
+                <td>to claim, assert</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="58">tirer /tiʀe/</td>
+                <td>to fire, shoot</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="59">de son côté /də.sɔ̃.kote/</td>
+                <td>for its part, on its side</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="60">tenter /tɑ̃te/</td>
+                <td>to try, attempt</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="61">accueillir /akœjiʀ/</td>
+                <td>to host, welcome</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="62">
+                  correspondant(e) /kɔʀɛspɔ̃dɑ̃/
+                </td>
+                <td>correspondent</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="63">
+                  faire son entrée /fɛʀ.sɔ̃.ɑ̃tʀe/
+                </td>
+                <td>to make one’s entrance</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="64">dictionnaire /diksjɔnɛʀ/</td>
+                <td>dictionary</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="65">guerre /ɡɛʀ/</td>
+                <td>war</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="66">
+                  communication /kɔmynikasjɔ̃/
+                </td>
+                <td>communication</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="67">pétrole /petʀɔl/</td>
+                <td>oil, petroleum</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="68">mondial(e) /mɔ̃djal/</td>
+                <td>global, worldwide</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="69">démentir /demɑ̃tiʀ/</td>
+                <td>to deny</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="70">rare /ʀaʀ/</td>
+                <td>rare</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Page Navigation -->
+      <div style="text-align: center; margin: 24px 0 8px">
+        <a
+          href="index.html"
+          class="btn btn-primary"
+          style="margin: 0 6px; min-width: 42px"
+          >1</a
+        >
+        <a
+          href="2.html"
+          class="btn btn-outline-primary"
+          style="margin: 0 6px; min-width: 42px"
+          >2</a
+        >
+      </div>
+    </div>
+
+    <!-- Single reusable audio element for clips -->
+    <audio id="clipPlayer"></audio>
+
+    <!-- Audio configuration for this page -->
+    <script>
+      window.AUDIO_CONFIG = {
+        basePath: "https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI260504/1",
+        fullAudio: "audio.mp3",
+      };
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron2.js"></script>
+  </body>
+</html>

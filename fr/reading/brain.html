@@ -1,0 +1,1039 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 400px !important;
+        height: auto;
+      }
+      b {
+        color: rgb(181, 1, 181);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/brain.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Le cerveau et les langues</h1>
+      </div>
+      <h5>Une histoire d’amour</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img
+            class="french-text-img"
+            src="/img/brain.jpg"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+          Franchement, plus on
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dekuvʀ(ə)/"
+            data-meaning="to discover"
+            data-origin="découvrir /dekuvʀiʀ/"
+            >découvre</span
+          >
+          le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɛʀvo/"
+            data-meaning="brain"
+            >cerveau</span
+          >, plus il ressemble à un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sypɛʀeʀo/"
+            data-meaning="superheros"
+            >super-héros</span
+          >
+          discret. Trois petites livres de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/matjɛʀ/"
+            data-meaning="matter"
+            >matière</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vivɑ̃t/"
+            data-meaning="living"
+            >vivante</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kapabl/"
+            data-meaning="capable"
+            >capables</span
+          >
+          de tout
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʒeʀe/"
+            data-meaning="to manage"
+            >gérer</span
+          >
+          :
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/emosjɔ̃/"
+            data-meaning="emotions"
+            >émotions</span
+          >
+          ,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/suvəniʀ/"
+            data-meaning="memories"
+            >souvenirs</span
+          >
+          ,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/desizjɔ̃/"
+            data-meaning="decisions"
+            >décisions</span
+          >
+          ,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔɔʀdinasjɔ̃/"
+            data-meaning="coordination"
+            >coordination</span
+          >
+          ,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀɛspiʀasjɔ̃/"
+            data-meaning="breathing"
+            >respiration</span
+          >… et même nos plus grandes
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fɔli/"
+            data-meaning="madness/follies"
+            >folies</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀeativ/"
+            data-meaning="creative"
+            >créatives</span
+          >
+          . Le plus fou ? Il peut stocker
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/døviʀgylsɛ̃k.miljɔ̃/"
+            data-meaning="25 million"
+            data-origin="deux virgule cinq million"
+            >2,5 millions</span
+          >
+          de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʒigaɔktɛ/"
+            data-meaning="gigabytes"
+            >gigaoctets</span
+          >
+          de souvenirs — oui, un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʃifʀ/"
+            data-meaning="figure/number"
+            >chiffre</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/diɲ/"
+            data-meaning="worthy"
+            >digne</span
+          >
+          d’un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/data.sɛntœʀ/"
+            data-meaning="data center"
+            >data center</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʒeɑ̃/"
+            data-meaning="giant"
+            >géant</span
+          >
+          .
+        </p>
+        <p>Le cerveau fonctionne grâce à toute une équipe :</p>
+        <ul>
+          <li>
+            Le
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/kɔʀtɛks/"
+              data-meaning="cortex"
+              >cortex</span
+            >
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/seʀebʀal/"
+              data-meaning="cerebral"
+              >cérébral</span
+            >
+            , pour penser,
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ʀɛzɔne/"
+              data-meaning="to reason"
+              >raisonner</span
+            >
+            ,
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/kʀee/"
+              data-meaning="to create"
+              >créer</span
+            >
+            , comprendre.
+          </li>
+          <li>
+            Le
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/sɛʀvəlɛ/"
+              data-meaning="cerebellum"
+              >cervelet</span
+            >
+            , pour l’<span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ekilibʀ/"
+              data-meaning="balance"
+              >équilibre</span
+            >
+            et les gestes fluides.
+          </li>
+          <li>
+            Le
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/sistɛm/"
+              data-meaning="system"
+              >système</span
+            >
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/lɛ̃bik/"
+              data-meaning="limbic"
+              >limbique</span
+            >
+            , pour les émotions et la
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/memwaʀ/"
+              data-meaning="memory"
+              >mémoire</span
+            >
+            .
+          </li>
+        </ul>
+        <p>
+          Et tout ce beau monde
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔmynik/"
+            data-meaning="to communicate"
+            data-origin="communiquer /kɔmynike/"
+            >communique</span
+          >
+          en
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɛʀmanɑ̃s/"
+            data-meaning="permanence"
+            >permanence</span
+          >
+          , comme un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀezo/"
+            data-meaning="network"
+            >réseau</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/yltʀa/"
+            data-meaning="ultra"
+            >ultra</span
+          >-rapide. Mais là où la magie
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɔpɛʀ/"
+            data-meaning="to happen"
+            data-origin="opérer /ɔpeʀe/"
+            >opère</span
+          >
+          vraiment, c’est quand on apprend une nouvelle langue. Les études
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mɔ̃tʀ/"
+            data-meaning="to show"
+            data-origin="montrer /mɔ̃tʀe/"
+            >montrent</span
+          >
+          que ce simple acte
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/stimyl/"
+            data-meaning="to stimulate"
+            data-origin="stimuler /stimyle/"
+            >stimule</span
+          >
+          la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀwasɑ̃s/"
+            data-meaning="growth"
+            >croissance</span
+          >
+          de certaines
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/zon/"
+            data-meaning="zone / area"
+            >zones</span
+          >
+          du cerveau,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/nɔtamɑ̃/"
+            data-meaning="notably"
+            >notamment</span
+          >
+          l’<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ipɔkɑ̃p/"
+            data-meaning="hippocampus"
+            >hippocampe</span
+          >
+          et les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀeʒjɔ̃/"
+            data-meaning="region"
+            >régions</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lje/"
+            data-meaning="to link"
+            data-origin="lier /lje/"
+            >liées</span
+          >
+          au langage. C’est
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/liteʀalmɑ̃/"
+            data-meaning="literally"
+            >littéralement</span
+          >
+          un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃tʀɛnmɑ̃/"
+            data-meaning="training"
+            >entraînement</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/myskylɛʀ/"
+            data-meaning="muscular"
+            >musculaire</span
+          >
+          … mais pour les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/nøʀɔn/"
+            data-meaning="neurons"
+            >neurones</span
+          >
+          ! Mieux encore : parler plusieurs langues
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀɑ̃fɔʀs/"
+            data-meaning="to strengthen"
+            data-origin="renforcer /ʀɑ̃fɔʀse/"
+            >renforce</span
+          >
+          l’<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/atɑ̃sjɔ̃/"
+            data-meaning="attention"
+            >attention</span
+          >
+          ,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ameljɔʀ/"
+            data-meaning="to improve"
+            data-origin="améliorer /ameljɔʀe/"
+            >améliore</span
+          >
+          la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/flɛksibilite/"
+            data-meaning="flexibility"
+            >flexibilité</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mɑ̃tal/"
+            data-meaning="mental"
+            >mentale</span
+          >
+          et crée une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀezɛʀv/"
+            data-meaning="reserve"
+            >réserve</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔgnitiv/"
+            data-meaning="cognitive"
+            >cognitive</span
+          >
+          capable de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀətaʀde/"
+            data-meaning="to delay"
+            >retarder</span
+          >
+          les signes du
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vjejismɑ̃/"
+            data-meaning="aging"
+            >vieillissement</span
+          >
+          cérébral.
+        </p>
+        <p>
+          En bref : apprendre une langue, c’est
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɔfʀiʀ/"
+            data-meaning="to offer"
+            >offrir</span
+          >
+          à son cerveau un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/spa/"
+            data-meaning="spa"
+            >spa</span
+          >
+          , une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sal.də.spɔʀ/"
+            data-meaning="gym"
+            >salle de sport</span
+          >
+          et une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/aʀmyʀ/"
+            data-meaning="armor"
+            >armure</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃tiaʒ/"
+            data-meaning="anti-aging"
+            >anti-âge</span
+          >
+          . Et ça, c’est franchement génial. 🧠✨
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Honestly, the more we discover about the brain, the more it feels like
+          a discreet superhero. Three pounds of living matter that can manage
+          everything — emotions, memories, decisions, coordination, breathing…
+          and even our wildest creative ideas. The craziest part? It can store
+          2.5 million gigabytes of memories — yep, a number worthy of a giant
+          data center.
+        </p>
+        <p>The brain works thanks to an entire team:</p>
+        <ul>
+          <li>
+            The cerebral cortex, for thinking, reasoning, creating, and
+            understanding.
+          </li>
+          <li>The cerebellum, for balance and smooth movements.</li>
+          <li>The limbic system, for emotions and memory.</li>
+        </ul>
+        <p>
+          And this whole team is in constant communication — like a high-speed
+          network. But the real magic happens when we learn a new language.
+          Studies show that this simple act makes certain parts of the brain
+          grow — especially the hippocampus and areas linked to language. It’s
+          literally a workout… for your neurons! Even better: speaking multiple
+          languages strengthens attention, improves mental flexibility, and
+          builds cognitive reserves that can delay signs of brain aging.
+        </p>
+        <p>
+          In short: learning a language is like giving your brain a spa day, a
+          gym membership, and anti-aging armor. And honestly, that’s just
+          awesome.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">découvrir</td>
+              <td style="width: 40px"></td>
+              <td>to discover</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cerveau</td>
+              <td style="width: 40px"></td>
+              <td>brain</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">super-héros</td>
+              <td style="width: 40px"></td>
+              <td>superhero</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">matière</td>
+              <td style="width: 40px"></td>
+              <td>matter</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">vivant</td>
+              <td style="width: 40px"></td>
+              <td>living</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">capable</td>
+              <td style="width: 40px"></td>
+              <td>capable</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">gérer</td>
+              <td style="width: 40px"></td>
+              <td>to manage</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">émotion</td>
+              <td style="width: 40px"></td>
+              <td>emotion</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">souvenir</td>
+              <td style="width: 40px"></td>
+              <td>memory</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">décision</td>
+              <td style="width: 40px"></td>
+              <td>decision</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">coordination</td>
+              <td style="width: 40px"></td>
+              <td>coordination</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">respiration</td>
+              <td style="width: 40px"></td>
+              <td>breathing</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">folie</td>
+              <td style="width: 40px"></td>
+              <td>madness / folly</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">créatif</td>
+              <td style="width: 40px"></td>
+              <td>creative</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">2,5 millions</td>
+              <td style="width: 40px"></td>
+              <td>2.5 million</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">gigaoctet</td>
+              <td style="width: 40px"></td>
+              <td>gigabyte</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">chiffre</td>
+              <td style="width: 40px"></td>
+              <td>figure / number</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">digne</td>
+              <td style="width: 40px"></td>
+              <td>worthy</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">data center</td>
+              <td style="width: 40px"></td>
+              <td>data center</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">géant</td>
+              <td style="width: 40px"></td>
+              <td>giant</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cortex</td>
+              <td style="width: 40px"></td>
+              <td>cortex</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cérébral</td>
+              <td style="width: 40px"></td>
+              <td>cerebral</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">raisonner</td>
+              <td style="width: 40px"></td>
+              <td>to reason</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">créer</td>
+              <td style="width: 40px"></td>
+              <td>to create</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cervelet</td>
+              <td style="width: 40px"></td>
+              <td>cerebellum</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">équilibre</td>
+              <td style="width: 40px"></td>
+              <td>balance</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">système</td>
+              <td style="width: 40px"></td>
+              <td>system</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">limbique</td>
+              <td style="width: 40px"></td>
+              <td>limbic</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">mémoire</td>
+              <td style="width: 40px"></td>
+              <td>memory</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">communiquer</td>
+              <td style="width: 40px"></td>
+              <td>to communicate</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">permanence</td>
+              <td style="width: 40px"></td>
+              <td>permanence</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">réseau</td>
+              <td style="width: 40px"></td>
+              <td>network</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">ultra</td>
+              <td style="width: 40px"></td>
+              <td>ultra</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">opérer</td>
+              <td style="width: 40px"></td>
+              <td>to happen</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">montrer</td>
+              <td style="width: 40px"></td>
+              <td>to show</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">stimuler</td>
+              <td style="width: 40px"></td>
+              <td>to stimulate</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">croissance</td>
+              <td style="width: 40px"></td>
+              <td>growth</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">zone</td>
+              <td style="width: 40px"></td>
+              <td>zone</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">notamment</td>
+              <td style="width: 40px"></td>
+              <td>notably</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">hippocampe</td>
+              <td style="width: 40px"></td>
+              <td>hippocampus</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">régions</td>
+              <td style="width: 40px"></td>
+              <td>region</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">lier</td>
+              <td style="width: 40px"></td>
+              <td>to link</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">littéralement</td>
+              <td style="width: 40px"></td>
+              <td>literally</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">entraînement</td>
+              <td style="width: 40px"></td>
+              <td>training</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">musculaire</td>
+              <td style="width: 40px"></td>
+              <td>muscular</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">neurone</td>
+              <td style="width: 40px"></td>
+              <td>neuron</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">renforcer</td>
+              <td style="width: 40px"></td>
+              <td>to strengthen</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">attention</td>
+              <td style="width: 40px"></td>
+              <td>attention</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">améliorer</td>
+              <td style="width: 40px"></td>
+              <td>to improve</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">flexibilité</td>
+              <td style="width: 40px"></td>
+              <td>flexibility</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">mental</td>
+              <td style="width: 40px"></td>
+              <td>mental</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">réserve</td>
+              <td style="width: 40px"></td>
+              <td>reserve</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cognitif</td>
+              <td style="width: 40px"></td>
+              <td>cognitive</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">retarder</td>
+              <td style="width: 40px"></td>
+              <td>to delay</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">vieillissement</td>
+              <td style="width: 40px"></td>
+              <td>aging</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">offrir</td>
+              <td style="width: 40px"></td>
+              <td>to offer</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">spa</td>
+              <td style="width: 40px"></td>
+              <td>spa</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">salle de sport</td>
+              <td style="width: 40px"></td>
+              <td>gym</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">armure</td>
+              <td style="width: 40px"></td>
+              <td>armor</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">anti-âge</td>
+              <td style="width: 40px"></td>
+              <td>anti-aging</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

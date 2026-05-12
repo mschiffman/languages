@@ -1,0 +1,758 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - February 14, 2025</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              Bonjour à toutes et à tous,</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              et bienvenue à l'écoute de RFI -</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              Radio France Internationale,</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              en direct de Paris.</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              Il est 17 heures.</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              Nous sommes le vendredi 14 février.</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              Au sommaire de cette édition :</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              Volodymyr Zelensky</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              est en Allemagne.</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              Le président ukrainien</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              participe à une réunion</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              internationale pour tenter d'arrêter</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              la guerre avec la Russie.</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              L'actualité au Proche-Orient.</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              Israël attend la libération demain, samedi,</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              de trois otages retenus à Gaza.</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              Sur le continent africain,</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              en RDC, des affrontements</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              à l'aéroport de Kavumu</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              nous sont rapportés.</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              Le pape François</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              est hospitalisé à Rome.</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              Et puis, enfin,</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              nous
+              <span data-bs-toggle="tooltip" title="/ʀ(ə)fɛʀmeʀɔ̃/"
+                >refermerons</span
+              >
+              ce
+              <span data-bs-toggle="tooltip" title="/ʒuʀnal/"
+                >journal</span
+              ></span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              en musique avec la grand-messe</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              de la chanson française.</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              Ce sont, ce soir,</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              les Victoires de la musique.</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              Voilà pour les titres.</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              Soyez les bienvenus.</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              Après trois ans de guerre,</span
+            >
+            <span class="chunk" onclick="playAudio('audio32')">
+              l'avenir de l'Ukraine se joue,</span
+            >
+            <span class="chunk" onclick="playAudio('audio33')">
+              peut-être, en ce moment.</span
+            >
+            <span class="chunk" onclick="playAudio('audio34')">
+              Car, aujourd'hui, en Allemagne,</span
+            >
+            <span class="chunk" onclick="playAudio('audio35')">
+              à Munich, une réunion internationale</span
+            >
+            <span class="chunk" onclick="playAudio('audio36')">
+              rassemble Européens, Américains,</span
+            >
+            <span class="chunk" onclick="playAudio('audio37')">
+              Africains et Ukrainiens,</span
+            >
+            <span class="chunk" onclick="playAudio('audio38')">
+              mais pas les Russes.</span
+            >
+            <span class="chunk" onclick="playAudio('audio39')">
+              La guerre en Ukraine,</span
+            >
+            <span class="chunk" onclick="playAudio('audio40')">
+              ou comment mettre un terme</span
+            >
+            <span class="chunk" onclick="playAudio('audio41')">
+              à ce conflit,</span
+            >
+            <span class="chunk" onclick="playAudio('audio42')">
+              est au cœur de cette conférence</span
+            >
+            <span class="chunk" onclick="playAudio('audio43')">
+              dite de sécurité.</span
+            >
+            <span class="chunk" onclick="playAudio('audio44')">
+              Les annonces de Donald Trump</span
+            >
+            <span class="chunk" onclick="playAudio('audio45')">
+              sur l'ouverture de négociations</span
+            >
+            <span class="chunk" onclick="playAudio('audio46')">
+              avec Vladimir Poutine,</span
+            >
+            <span class="chunk" onclick="playAudio('audio47')">
+              cette semaine, ont pris de court</span
+            >
+            <span class="chunk" onclick="playAudio('audio48')">
+              les Européens.</span
+            >
+            <span class="chunk" onclick="playAudio('audio49')">
+              Les Européens craignent</span
+            >
+            <span class="chunk" onclick="playAudio('audio50')">
+              d'être tenus à l'écart</span
+            >
+            <span class="chunk" onclick="playAudio('audio51')">
+              de ces négociations.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Hello everyone, and welcome to RFI – Radio France Internationale,
+              live from Paris. It’s 5 p.m. We’re on Friday, February 14. Here
+              are the headlines for this edition: Volodymyr Zelensky is in
+              Germany. The Ukrainian president is taking part in an
+              international meeting aimed at trying to end the war with Russia.
+              In the Middle East, Israel is expecting the release tomorrow,
+              Saturday, of three hostages held in Gaza. In Africa, in the
+              Democratic Republic of Congo, clashes have been reported at Kavumu
+              Airport. Pope Francis has been hospitalized in Rome. And finally,
+              we’ll close this news bulletin with music, as France celebrates
+              its biggest night in song — the Victoires de la Musique awards.
+              Those are the headlines. Welcome everyone. After three years of
+              war, Ukraine’s future may be at stake right now. Because today, in
+              Germany, in Munich, an international meeting is bringing together
+              Europeans, Americans, Africans, and Ukrainians — but not the
+              Russians. The war in Ukraine, and how to bring an end to this
+              conflict, is at the heart of this so-called security conference.
+              Donald Trump’s announcement this week about opening negotiations
+              with Vladimir Putin has taken the Europeans by surprise. They fear
+              being left out of those negotiations.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  sommaire /sɔmɛʀ/
+                </td>
+                <td>summary</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  Allemagne /almaɲ/
+                </td>
+                <td>Germany</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  Ukraine /ykʀɛn/
+                </td>
+                <td>Ukraine</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  Ukrainien /ykʀɛnjɛ̃/
+                </td>
+                <td>Ukrainian</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  participer /paʀtisipe/
+                </td>
+                <td>to take part</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  participe /paʀtisip/
+                </td>
+                <td>to take part</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  réunion /ʀeynjɔ̃/
+                </td>
+                <td>meeting</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  guerre /ɡɛʀ/
+                </td>
+                <td>war</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  Proche-Orient /pʀɔʃɔʀjɑ̃/
+                </td>
+                <td>the Near-East</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  libération /libeʀasjɔ̃/
+                </td>
+                <td>release</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">
+                  retenir /ʀ(ə)t(ə)niʀ/
+                </td>
+                <td>to retain / hold back</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  retenus //ʀ(ə)t(ə)ny/
+                </td>
+                <td>to retain / hold back</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">
+                  affrontement /afʀɔ̃tmɑ̃/
+                </td>
+                <td>confrontation</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio65')">
+                  aéroport /aeʀopɔʀ/
+                </td>
+                <td>airport</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio66')">
+                  rapporter /ʀapɔʀte/
+                </td>
+                <td>to bring back</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio67')">pape /pap/</td>
+                <td>pope</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio68')">
+                  hospitaliser /ɔspitalize/
+                </td>
+                <td>to hospitalize</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio69')">
+                  grand-messe /ɡʀɑ̃mɛs/
+                </td>
+                <td>high mass / grand tradition</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio70')">
+                  chanson /ʃɑ̃sɔ̃/
+                </td>
+                <td>song</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio71')">
+                  victoire /viktwaʀ/
+                </td>
+                <td>victory</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio72')">
+                  avenir /av(ə)niʀ/
+                </td>
+                <td>the future</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio73')">
+                  jouer /ʒwe/
+                </td>
+                <td>to play</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio74')">joue /ʒu/</td>
+                <td>to play</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio75')">
+                  rassembler /ʀasɑ̃ble/
+                </td>
+                <td>to assemble/gather together</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio76')">
+                  Européen /øʀɔpeɛ̃/
+                </td>
+                <td>European</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio77')">
+                  mettre un terme /tɛʀm/
+                </td>
+                <td>to put an end</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio78')">
+                  conflit /kɔ̃fli/
+                </td>
+                <td>conflict</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio79')">cœur /kœʀ/</td>
+                <td>heart</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio80')">
+                  conférence /kɔ̃feʀɑ̃s/
+                </td>
+                <td>conference</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio81')">
+                  annoncer /anɔ̃se/
+                </td>
+                <td>to announce</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio82')">
+                  ouverture /uvɛʀtyʀ/
+                </td>
+                <td>opening</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio83')">
+                  négociation /neɡɔsjasjɔ̃/
+                </td>
+                <td>negotiation</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio84')">
+                  pris de court
+                </td>
+                <td>taken by surprise</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio85')">
+                  craindre /kʀɛ̃dʀ/
+                </td>
+                <td>to fear</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio86')">
+                  craignent /kʀɛɲ/
+                </td>
+                <td>to fear</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio87')">
+                  tenir /t(ə)niʀ/
+                </td>
+                <td>to hold</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio88')">
+                  écart /ekaʀ/
+                </td>
+                <td>gap</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio89')">
+                  d'être tenus à l'écart
+                </td>
+                <td>be left out</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio id="audio1" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/01-Bonjour à toutes.m4a"></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/02-et bienvenue à l'écoute de RFI.m4a"
+    ></audio>
+    <audio
+      id="audio3"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/03-Radio France Internationale.m4a"
+    ></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/04-en direct de Paris.m4a"></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/05-Il est 17 heures.m4a"></audio>
+    <audio
+      id="audio6"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/06-Nous sommes le vendredi 14 février.m4a"
+    ></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/07-Au sommaire de cette édition.m4a"
+    ></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/08-Volodymyr Zelensky.m4a"></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/09-est en Allemagne.m4a"></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/10-Le président ukrainien.m4a"
+    ></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/11-participe à une réunion.m4a"
+    ></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/12-internationale pour tenter d'arrêter.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/13-la guerre avec la Russie.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/14-L'actualité au Proche-Orient.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/15-Israël attend la libération demain, samedi.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/16-de trois otages retenus à Gaza.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/17-Sur le continent africain.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/18-en RDC, des affrontements.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/19-à l'aéroport de Kavumu.m4a"
+    ></audio>
+    <audio
+      id="audio20"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/20-nous sont rapportés.m4a"
+    ></audio>
+    <audio id="audio21" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/21-Le pape François.m4a"></audio>
+    <audio
+      id="audio22"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/22-est hospitalisé à Rome.m4a"
+    ></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/23-Et puis, enfin.m4a"></audio>
+    <audio
+      id="audio24"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/24-nous refermerons ce journal.m4a"
+    ></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/25-en musique avec la grand-messe.m4a"
+    ></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/26-de la chanson française.m4a"
+    ></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/27-Ce sont, ce soir.m4a"></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/28-les Victoires de la musique.m4a"
+    ></audio>
+    <audio
+      id="audio29"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/29-Voilà pour les titres.m4a"
+    ></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/30-Soyez les bienvenus.m4a"
+    ></audio>
+    <audio
+      id="audio31"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/31-Après trois ans de guerre.m4a"
+    ></audio>
+    <audio
+      id="audio32"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/32-l'avenir de l'Ukraine se joue.m4a"
+    ></audio>
+    <audio
+      id="audio33"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/33-peut-être, en ce moment.m4a"
+    ></audio>
+    <audio
+      id="audio34"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/34-Car, aujourd'hui, en Allemagne.m4a"
+    ></audio>
+    <audio
+      id="audio35"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/35-à Munich, une réunion internationale.m4a"
+    ></audio>
+    <audio
+      id="audio36"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/36-rassemble Européens, Américains.m4a"
+    ></audio>
+    <audio
+      id="audio37"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/37-Africains et Ukrainiens.m4a"
+    ></audio>
+    <audio
+      id="audio38"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/38-mais pas les Russes.m4a"
+    ></audio>
+    <audio
+      id="audio39"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/39-La guerre en Ukraine.m4a"
+    ></audio>
+    <audio
+      id="audio40"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/40-ou comment mettre un terme.m4a"
+    ></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/41-à ce conflit.m4a"></audio>
+    <audio
+      id="audio42"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/42-est au cœur de cette conférence.m4a"
+    ></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/43-dite de sécurité.m4a"></audio>
+    <audio
+      id="audio44"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/44-Les annonces de Donald Trump.m4a"
+    ></audio>
+    <audio
+      id="audio45"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/45-sur l'ouverture de négociations.m4a"
+    ></audio>
+    <audio
+      id="audio46"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/46-avec Vladimir Poutine.m4a"
+    ></audio>
+    <audio
+      id="audio47"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/47-cette semaine, ont pris de court.m4a"
+    ></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/48-les Européens.m4a"></audio>
+    <audio
+      id="audio49"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/49-Les Européens craignent.m4a"
+    ></audio>
+    <audio
+      id="audio50"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/50-d'être tenus à l'écart.m4a"
+    ></audio>
+    <audio
+      id="audio51"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/51-de ces négociations.m4a"
+    ></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/52-sommaire.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/53-Allemagne.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/54-Ukraine.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/55-Ukrainien.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/56-participer.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/57-participe.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/58-réunion.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/59-guerre.m4a"></audio>
+    <audio id="audio60" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/60-Proche-Orient.m4a"></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/61-libération.m4a"></audio>
+    <audio id="audio62" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/62-retenir.m4a"></audio>
+    <audio id="audio63" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/63-retenus.m4a"></audio>
+    <audio id="audio64" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/64-affrontement.m4a"></audio>
+    <audio id="audio65" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/65-aéroport.m4a"></audio>
+    <audio id="audio66" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/66-rapporter.m4a"></audio>
+    <audio id="audio67" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/67-pape.m4a"></audio>
+    <audio id="audio68" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/68-hospitaliser.m4a"></audio>
+    <audio id="audio69" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/69-grand-messe.m4a"></audio>
+    <audio id="audio70" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/70-chanson.m4a"></audio>
+    <audio id="audio71" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/71-victoire.m4a"></audio>
+    <audio id="audio72" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/72-avenir.m4a"></audio>
+    <audio id="audio73" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/73-jouer.m4a"></audio>
+    <audio id="audio74" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/74-joue.m4a"></audio>
+    <audio id="audio75" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/75-rassembler.m4a"></audio>
+    <audio id="audio76" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/76-Européen.m4a"></audio>
+    <audio id="audio77" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/77-mettre un terme.m4a"></audio>
+    <audio id="audio78" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/78-conflit.m4a"></audio>
+    <audio id="audio79" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/79-cœur.m4a"></audio>
+    <audio id="audio80" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/80-conférence.m4a"></audio>
+    <audio id="audio81" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/81-annoncer.m4a"></audio>
+    <audio id="audio82" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/82-ouverture.m4a"></audio>
+    <audio id="audio83" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/83-négociation.m4a"></audio>
+    <audio id="audio84" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/84-pris de court.m4a"></audio>
+    <audio id="audio85" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/85-craindre.m4a"></audio>
+    <audio id="audio86" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/86-craignent.m4a"></audio>
+    <audio id="audio87" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/87-tenir.m4a"></audio>
+    <audio id="audio88" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/88-écart.m4a"></audio>
+    <audio
+      id="audio89"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/89-d'être tenus à l'écart.m4a"
+    ></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250214/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

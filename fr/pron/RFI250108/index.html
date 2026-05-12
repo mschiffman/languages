@@ -1,0 +1,590 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - January 8, 2025</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              Nous sommes le mercredi</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              8 janvier et à la une</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              de cette édition :</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              C'est la bonne nouvelle</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              du jour en Italie.</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              La journaliste italienne</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              Cecilia Sala,</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              détenue en Iran</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              depuis trois semaines,</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              a été libérée aujourd'hui.</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              Elle vient de revenir</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              dans son pays d'origine, l'Italie.</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              Nous sommes à Rome</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              dans ce journal.</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              La Syrie est aussi</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              à la une de cette édition.</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              Un mois après la chute</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              du président Bachar el-Assad,</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              le témoignage d'un habitant heureux,</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              ému de pouvoir parler librement</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              à un média étranger.</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              Vous l'entendrez.</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              Annexer, s'accaparer le Groenland</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              et le canal du Panama,</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              y compris par la force.</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              Les idées de Donald Trump</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              font réagir jusqu'en Europe.</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              Et puis, dix ans après</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              les attentats qui ont frappé la France,</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              hommage, aujourd'hui,</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              à la policière</span
+            >
+            <span class="chunk" onclick="playAudio('audio32')">
+              Clarissa Jean-Philippe,</span
+            >
+            <span class="chunk" onclick="playAudio('audio33')">
+              tombée sous les balles</span
+            >
+            <span class="chunk" onclick="playAudio('audio34')">
+              d'un terroriste.
+            </span>
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              It’s Wednesday, January 8, and here are the headlines for this
+              edition: It’s the good news of the day in Italy — Italian
+              journalist Cecilia Sala, who had been detained in Iran for three
+              weeks, was released today. She has just returned to her home
+              country, Italy. We are in Rome for this broadcast. Syria is also
+              making headlines in this edition. One month after the fall of
+              President Bashar al-Assad, we hear the testimony of a resident who
+              is happy and moved to be able to speak freely to a foreign media
+              outlet. You will hear him. Annexing and taking control of
+              Greenland and the Panama Canal — even by force. The ideas of
+              Donald Trump are sparking reactions all the way to Europe. And
+              finally, ten years after the attacks that struck France, there is
+              a tribute today to police officer Clarissa Jean-Philippe, who was
+              killed by a terrorist’s gunfire.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio35')">
+                  Italie /itali/
+                </td>
+                <td>summary</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio36')">
+                  italien /italjɛ̃/
+                </td>
+                <td>Italian (male)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio37')">
+                  italienne /italjɛn/
+                </td>
+                <td>Italian (female)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio38')">
+                  journaliste /ʒuʀnalist/
+                </td>
+                <td>journalist (female)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  détenir /det(ə)niʀ/
+                </td>
+                <td>to be in possession of/hold/detain</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">Iran /iʀɑ̃/</td>
+                <td>Iran</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  libéré /libeʀe/
+                </td>
+                <td>liberated</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  revenir /ʀ(ə)v(ə)niʀ/
+                </td>
+                <td>to come back</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  origine /ɔʀiʒin/
+                </td>
+                <td>origin</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">Rome /ʀɔm/</td>
+                <td>Rome</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  Syrie /siʀi/
+                </td>
+                <td>Syria</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  chute /ʃyt/
+                </td>
+                <td>fall</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  heureux /øʀø/
+                </td>
+                <td>happy</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">ému /emy/</td>
+                <td>touched / moved / felt deeply</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  librement /libʀəmɑ̃/
+                </td>
+                <td>freely</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  média /medja/
+                </td>
+                <td>media</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  étranger /etʀɑ̃ʒe/
+                </td>
+                <td>foreign / strange</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  annexer /anɛkse/
+                </td>
+                <td>to annex</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  accaparer /akapaʀe/
+                </td>
+                <td>to monopolize</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  Groenland /ɡʀɔɛnlɑ̃d/
+                </td>
+                <td>Greenland</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  canal /kanal/
+                </td>
+                <td>canal</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  force /fɔʀs/
+                </td>
+                <td>strength / force</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  réagir /ʀeaʒiʀ/
+                </td>
+                <td>to react</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  jusque /ʒysk/
+                </td>
+                <td>as far as / to / until</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  Europe /øʀɔp/
+                </td>
+                <td>Europe</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  attentat /atɑ̃ta/
+                </td>
+                <td>attacks</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  frappé /fʀape/
+                </td>
+                <td>hit</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">
+                  hommage /ɔmaʒ/
+                </td>
+                <td>homage / tribute</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  policier /pɔlisje/
+                </td>
+                <td>police officer (male)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">
+                  policière /pɔlisjɛ/
+                </td>
+                <td>police officer (female)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio65')">
+                  balle /bal/
+                </td>
+                <td>bullet / ball</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio66')">
+                  terroriste /teʀɔʀist/
+                </td>
+                <td>terrorist</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/01-Nous sommes le mercredi.m4a"
+    ></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/02-8 janvier et à la une.m4a"
+    ></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/03-de cette édition.m4a"></audio>
+    <audio
+      id="audio4"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/04-C'est la bonne nouvelle.m4a"
+    ></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/05-du jour en Italie.m4a"></audio>
+    <audio
+      id="audio6"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/06-La journaliste italienne.m4a"
+    ></audio>
+    <audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/07-Cecilia Sala.m4a"></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/08-détenue en Iran.m4a"></audio>
+    <audio
+      id="audio9"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/09-depuis trois semaines.m4a"
+    ></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/10-a été libérée aujourd'hui.m4a"
+    ></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/11-Elle vient de revenir.m4a"
+    ></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/12-dans son pays d'origine, l'Italie.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/13-Nous sommes à Rome.m4a"
+    ></audio>
+    <audio id="audio14" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/14-dans ce journal.m4a"></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/15-La Syrie est aussi.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/16-à la une de cette édition.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/17-Un mois après la chute.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/18-du président Bachar el-Assad.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/19-le témoignage d'un habitant heureux.m4a"
+    ></audio>
+    <audio
+      id="audio20"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/20-ému de pouvoir parler librement.m4a"
+    ></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/21-à un média étranger.m4a"
+    ></audio>
+    <audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/22-Vous l'entendrez.m4a"></audio>
+    <audio
+      id="audio23"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/23-Annexer, s'accaparer le Groenland.m4a"
+    ></audio>
+    <audio
+      id="audio24"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/24-et le canal du Panama.m4a"
+    ></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/25-y compris par la force.m4a"
+    ></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/26-Les idées de Donald Trump.m4a"
+    ></audio>
+    <audio
+      id="audio27"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/27-font réagir jusqu'en Europe.m4a"
+    ></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/28-Et puis, dix ans après.m4a"
+    ></audio>
+    <audio
+      id="audio29"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/29-les attentats qui ont frappé la France.m4a"
+    ></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/30-hommage, aujourd'hui.m4a"
+    ></audio>
+    <audio id="audio31" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/31-à la policière.m4a"></audio>
+    <audio
+      id="audio32"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/32-Clarissa Jean-Philippe.m4a"
+    ></audio>
+    <audio
+      id="audio33"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/33-tombée sous les balles.m4a"
+    ></audio>
+    <audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/34-d'un terroriste.m4a"></audio>
+    <audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/35-Italie.m4a"></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/36-italien.m4a"></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/37-italienne.m4a"></audio>
+    <audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/38-journaliste.m4a"></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/39-détenir.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/40-Iran.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/41-libéré.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/42-revenir.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/43-origine.m4a"></audio>
+    <audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/44-Rome.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/45-Syrie.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/46-chute.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/47-heureux.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/48-ému.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/49-librement.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/50-média.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/51-étranger.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/52-annexer.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/53-accaparer.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/54-Groenland.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/55-canal.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/56-force.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/57-réagir.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/58-jusque.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/59-Europe.m4a"></audio>
+    <audio id="audio60" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/60-attentat.m4a"></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/61-frappé.m4a"></audio>
+    <audio id="audio62" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/62-hommage.m4a"></audio>
+    <audio id="audio63" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/63-réagir.m4a"></audio>
+    <audio id="audio64" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/64-policière.m4a"></audio>
+    <audio id="audio65" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/65-balle.m4a"></audio>
+    <audio id="audio66" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/66-terroriste.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250108/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Présent de l'indicatif</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../assets/css/tense.css" />
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Cardo:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .sound-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        color: #6c757d;
+        font-size: 1rem;
+        vertical-align: middle;
+        margin-right: 0.35rem;
+        opacity: 0.7;
+        transition:
+          opacity 0.15s,
+          color 0.15s;
+        line-height: 1;
+      }
+      .sound-btn:hover {
+        opacity: 1;
+        color: #0d6efd;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <nav
+      class="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top"
+    >
+      <div class="container-lg">
+        <button
+          class="btn btn-outline-secondary me-2"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+          aria-label="Open menu"
+        >
+          <i class="bi bi-list" style="font-size: 1.5rem"></i>
+        </button>
+        <a class="navbar-brand fw-semibold" href="#">Présent de l'indicatif</a>
+        <div class="ms-auto d-none d-lg-flex gap-2">
+          <a class="btn btn-ghost" href="#uses">Uses</a>
+          <a class="btn btn-ghost" href="#formation">Formation</a>
+          <a class="btn btn-ghost" href="#signals">Signal words</a>
+          <a class="btn btn-ghost" href="#negation">Negation</a>
+          <a class="btn btn-ghost" href="#questions">Questions</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Offcanvas Sidebar (same retractable menu) -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="sidebarMenu"
+      aria-labelledby="sidebarMenuLabel"
+    >
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column pt-3">
+        <div class="list-group list-group-flush" id="sidebar-accordion">
+          <!-- Sidebar content populated dynamically via nav-tense.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <main class="container-lg py-5">
+      <!-- Intro -->
+      <section class="mb-5" data-aos="fade-up">
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h1 class="display-6 mb-2">Présent de l'indicatif</h1>
+          <p style="font-size: 1.1rem">
+            Describes current actions, general truths, habits, and sometimes
+            near-future plans. It's the most commonly used tense in French.
+          </p>
+        </div>
+      </section>
+
+      <!-- Uses with ≥3 examples each -->
+      <section id="uses" class="stack-gap">
+        <div class="col-12" data-aos="zoom-in-up">
+          <div class="p-4 bg-ivory section-card rule">
+            <h2 class="h5 d-flex align-items-center gap-2 mb-2">
+              <span class="badge text-bg-ivory badge-use">Current action</span>
+              What's happening now
+            </h2>
+            <ul class="mb-0 list-clean">
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/1.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                J'y <strong>travaille</strong> encore.
+                <span class="eng">I'm still working on it.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/2.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Il <strong>pleut</strong> dehors.
+                <span class="eng">It's raining outside.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/3.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Tu <strong>parles</strong> trop vite !
+                <span class="eng">You're speaking too fast!</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/4.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Il <strong>commence</strong> à fatiguer.
+                <span class="eng">He's starting to get tired.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12" data-aos="zoom-in-up" data-aos-delay="50">
+          <div class="p-4 bg-blue section-card rule">
+            <h2 class="h5 d-flex align-items-center gap-2 mb-2">
+              <span class="badge text-bg-blue badge-use">Habit</span>
+              Routine or repeated action
+            </h2>
+            <ul class="mb-0 list-clean">
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/5.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                On <strong>se lève</strong> tôt tous les jours.
+                <span class="eng">We get up early every day.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/6.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Il <strong>marche</strong> tous les jours.
+                <span class="eng">He walks every day.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/7.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Ils <strong>déjeunent</strong> toujours ensemble.
+                <span class="eng">They always have lunch together.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/8.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Ça <strong>passe</strong> souvent.
+                <span class="eng">It happens a lot.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="p-4 bg-lpink section-card rule">
+            <h2 class="h5 d-flex align-items-center gap-2 mb-2">
+              <span class="badge text-bg-lpink badge-use">General truth</span>
+              Facts or universal statements
+            </h2>
+            <ul class="mb-0 list-clean">
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/9.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                L'eau <strong>gèle</strong> à zéro degré.
+                <span class="eng">Water freezes at zero degrees.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/10.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Le soleil <strong>se lève</strong> à l'est.
+                <span class="eng">The sun rises in the east.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/11.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Les humains <strong>sont</strong> imparfaits.
+                <span class="eng">Humans are imperfect.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/12.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Les actes <strong>valent</strong> mieux que les paroles.
+                <span class="eng">Actions are worth more than words.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12" data-aos="zoom-in-up" data-aos-delay="150">
+          <div class="p-4 bg-emerald section-card rule">
+            <h2 class="h5 d-flex align-items-center gap-2 mb-2">
+              <span class="badge text-bg-emerald badge-use">Near future</span>
+              Future events expressed with the present
+            </h2>
+            <ul class="mb-0 list-clean">
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/13.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Tu <strong>sors</strong> comme ça ce soir ?
+                <span class="eng">You are going out like that tonight?</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/14.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                On <strong>mange</strong> dans une minute.
+                <span class="eng">We are eating in a minute.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/15.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                Le film <strong>commence</strong> à huit heures.
+                <span class="eng">The movie starts at eight o'clock.</span>
+              </li>
+              <li>
+                <button
+                  class="sound-btn"
+                  data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/16.mp3"
+                  title="Play audio"
+                >
+                  <i class="bi bi-play-circle-fill"></i>
+                </button>
+                On <strong>part</strong> en vacances la semaine prochaine.
+                <span class="eng">We're going on vacation next week.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Formation -->
+      <section id="formation" class="mt-5" data-aos="fade-up">
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4 mb-3">Formation</h2>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <h3 class="h6">Regular conjugation patterns</h3>
+              <p class="code">subject + verb stem + present endings</p>
+              <ul class="mini list-clean">
+                <li>
+                  -ER → <strong>-e, -es, -e, -ons, -ez, -ent</strong> :
+                  <em>parler</em> → je parle, tu parles, il parle, nous parlons,
+                  vous parlez, ils parlent.
+                </li>
+                <li>
+                  -IR →
+                  <strong>-is, -is, -it, -issons, -issez, -issent</strong> :
+                  <em>finir</em> → je finis, tu finis, il finit, nous finissons,
+                  vous finissez, ils finissent.
+                </li>
+                <li>
+                  -RE → <strong>-s, -s, -, -ons, -ez, -ent</strong> :
+                  <em>vendre</em> → je vends, tu vends, il vend, nous vendons,
+                  vous vendez, ils vendent.
+                </li>
+              </ul>
+              <div class="note mini">
+                The endings depend on the verb group. The stem is obtained by
+                removing the infinitive ending (-er, -ir, -re). For many
+                irregular verbs, the stem changes but endings often follow these
+                same patterns.
+              </div>
+            </div>
+            <div class="col-md-6" id="etre">
+              <h3 class="h6">Common irregular verbs</h3>
+              <p class="code">
+                être → je suis, tu es, il est, nous sommes, vous êtes, ils
+                sont<br />
+                avoir → j'ai, tu as, il a, nous avons, vous avez, ils ont<br />
+                aller → je vais, tu vas, il va, nous allons, vous allez, ils
+                vont<br />
+                faire → je fais, tu fais, il fait, nous faisons, vous faites,
+                ils font<br />
+                venir → je viens, tu viens, il vient, nous venons, vous venez,
+                ils viennent
+              </p>
+              <ul class="mini list-clean">
+                <li>
+                  <button
+                    class="sound-btn"
+                    data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/17.mp3"
+                    title="Play audio"
+                  >
+                    <i class="bi bi-play-circle-fill"></i>
+                  </button>
+                  Je <strong>suis</strong> fatiguée.
+                  <span class="eng">I'm tired.</span>
+                </li>
+                <li>
+                  <button
+                    class="sound-btn"
+                    data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/18.mp3"
+                    title="Play audio"
+                  >
+                    <i class="bi bi-play-circle-fill"></i>
+                  </button>
+                  Il <strong>a</strong> deux frères.
+                  <span class="eng">He has two brothers.</span>
+                </li>
+                <li>
+                  <button
+                    class="sound-btn"
+                    data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/19.mp3"
+                    title="Play audio"
+                  >
+                    <i class="bi bi-play-circle-fill"></i>
+                  </button>
+                  On <strong>va</strong> au cinéma.
+                  <span class="eng">We're going to the movies.</span>
+                </li>
+                <li>
+                  <button
+                    class="sound-btn"
+                    data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/20.mp3"
+                    title="Play audio"
+                  >
+                    <i class="bi bi-play-circle-fill"></i>
+                  </button>
+                  À pied, ça <strong>fait</strong> loin.
+                  <span class="eng">On foot, it's a long way.</span>
+                </li>
+                <li>
+                  <button
+                    class="sound-btn"
+                    data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/21.mp3"
+                    title="Play audio"
+                  >
+                    <i class="bi bi-play-circle-fill"></i>
+                  </button>
+                  Ils viennent jamais !
+                  <span class="eng">They never come!</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signal Words, Negation, Questions -->
+      <section id="signals" class="mt-4" data-aos="fade-up">
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4">Signal words</h2>
+          <p class="mb-0 mini">
+            aujourd'hui, maintenant, en ce moment, souvent, toujours, tous les
+            jours, chaque semaine, parfois, d'habitude, ce soir, demain (for
+            near future) …
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="negation"
+        class="mt-4"
+        data-aos="fade-up"
+        data-aos-delay="50"
+      >
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4">Negation — ne … pas / jamais / plus</h2>
+          <ul class="mb-0 mini list-clean">
+            <li>
+              <button
+                class="sound-btn"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/22.mp3"
+                title="Play audio"
+              >
+                <i class="bi bi-play-circle-fill"></i>
+              </button>
+              Je <strong>(ne)</strong> travaille <strong>pas</strong> le
+              week-end.
+              <span class="eng">I don't work on weekends.</span>
+            </li>
+            <li>
+              <button
+                class="sound-btn"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/23.mp3"
+                title="Play audio"
+              >
+                <i class="bi bi-play-circle-fill"></i>
+              </button>
+              Il <strong>(ne)</strong> mange <strong>jamais</strong> de viande.
+              <span class="eng">He never eats meat.</span>
+            </li>
+            <li>
+              <button
+                class="sound-btn"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/24.mp3"
+                title="Play audio"
+              >
+                <i class="bi bi-play-circle-fill"></i>
+              </button>
+              On <strong>(ne)</strong> sort <strong>plus</strong> tard le soir.
+              <span class="eng">We no longer go out late at night.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        id="questions"
+        class="mt-4"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4">Questions — intonation / est-ce que / inversion</h2>
+          <ul class="mb-0 mini list-clean">
+            <li>
+              <button
+                class="sound-btn"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/25.mp3"
+                title="Play audio"
+              >
+                <i class="bi bi-play-circle-fill"></i>
+              </button>
+              Tu viens demain ?
+              <span class="eng">Are you coming tomorrow?</span>
+            </li>
+            <li>
+              <button
+                class="sound-btn"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/26.mp3"
+                title="Play audio"
+              >
+                <i class="bi bi-play-circle-fill"></i>
+              </button>
+              Est-ce que tu comprends ?
+              <span class="eng">Do you understand?</span>
+            </li>
+            <li>
+              <button
+                class="sound-btn"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/27.mp3"
+                title="Play audio"
+              >
+                <i class="bi bi-play-circle-fill"></i>
+              </button>
+              Comprends-tu ?
+              <span class="eng">Do you understand?</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contrast section replaced with contextual use -->
+      <section id="contrast" class="mt-4" data-aos="fade-up">
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4">Présent vs. Futur proche</h2>
+          <ul class="mini list-clean">
+            <li>
+              <button
+                class="sound-btn"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/28.mp3"
+                title="Play audio"
+              >
+                <i class="bi bi-play-circle-fill"></i>
+              </button>
+              <strong>Présent</strong>: Used when the context clearly shows the
+              action will happen soon. <br /><em
+                >Je mange dans quelques minutes.</em
+              >
+              <span class="eng">I'm eating in a few minutes.</span>
+            </li>
+            <li>
+              <button
+                class="sound-btn"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/present/29.mp3"
+                title="Play audio"
+              >
+                <i class="bi bi-play-circle-fill"></i>
+              </button>
+              <strong>Futur proche</strong>: Used when you explicitly want to
+              emphasize an upcoming or planned action.<br />
+              <em>Je vais partir demain matin.</em
+              ><span class="eng"> I'm going to leave tomorrow morning.</span>
+            </li>
+          </ul>
+
+          <!-- Sticky CTA: open sidebar -->
+          <button
+            class="btn btn-primary rounded-circle sticky-cta d-lg-none"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarMenu"
+            aria-label="Open menu"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </section>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="me-present.html" target="_blank"><li>Mind Map</li></a>
+          <a
+            href="https://drive.google.com/file/d/1P0UurzdsJy8kbJF_sUlCXOJgRO7wt_vu/view?usp=drive_link"
+            target="_blank"
+            ><li>Infographic</li></a
+          >
+          <a href="slides-present.html" target="_blank"><li>Slide Deck</li></a>
+          <a href="fc-present.html" target="_blank"><li>Flash Cards</li></a>
+          <a href="video-present.html" target="_blank"
+            ><li>Present tense video (NotebookLM)</li></a
+          >
+          <a
+            href="https://drive.google.com/file/d/1S-BTpUwqGDw_QJM5X1gPWUOBK34sHSqm/view?usp=drive_link"
+            target="_blank"
+            ><li>Present tense video transcript (English & French)</li></a
+          >
+          <a href="ex-present.html" target="_blank"><li>Exercises</li></a>
+        </ul>
+      </div>
+    </main>
+
+    <button
+      type="button"
+      class="btn btn-primary scroll-top-btn"
+      id="scrollTopBtn"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script
+      type="module"
+      src="../../../assets/js/nav-tense.js?v=260215"
+    ></script>
+    <script type="module" src="../../../assets/js/tense.js"></script>
+    <script>
+      AOS.init({ once: true, duration: 600, easing: "ease-out-cubic" });
+
+      document.querySelectorAll(".sound-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          new Audio(btn.dataset.audio).play();
+        });
+      });
+    </script>
+  </body>
+</html>

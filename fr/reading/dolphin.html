@@ -1,0 +1,257 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/bourdon.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Les animaux</h1>
+      </div>
+      <h5>Les castors : bâtisseurs de barrages</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <a
+            href="https://photo.caminteresse.fr/amitie-injustice-empathie-les-animaux-ressentent-aussi-des-emotions-64357#le-loup-des-expressions-d-affection-8svvm"
+            target="_blank"
+          >
+            <img
+              class="french-text-img"
+              src="/img/dolphin.svg"
+              alt=""
+          /></a>
+          Les <span data-bs-toggle="tooltip" title="/bɛvʁ/">castors</span> sont
+          de petits
+          <span data-bs-toggle="tooltip" title="/tʁavajœʁ/">travailleurs</span>
+          admirables et pleins de
+          <span data-bs-toggle="tooltip" title="/dɛvwasjɔ̃/">dévotion</span>.
+          Avec leurs dents puissantes, ils abattent des arbres et construisent
+          des
+          <span data-bs-toggle="tooltip" title="/bɑ̃dam/">barrages</span>
+          ingénieux qui ralentissent les cours d’eau et créent des
+          <span data-bs-toggle="tooltip" title="/etɑ̃/">étangs</span> paisibles.
+          Ces oasis deviennent des abris pour d’innombrables créatures :
+          poissons,
+          <span data-bs-toggle="tooltip" title="/zanimo/">amphibiens</span>,
+          oiseaux et insectes. En travaillant sans relâche, le castor purifie
+          l’eau, prévient les inondations et aide la
+          <span data-bs-toggle="tooltip" title="/biodivɛʁsite/"
+            >biodiversité</span
+          >
+          à s’épanouir. Il façonne la nature avec une tendresse et une patience
+          qui forcent l’admiration. Même après son départ, son œuvre continue de
+          nourrir la vie. Les castors nous rappellent que la
+          <span data-bs-toggle="tooltip" title="/kɔlabɔʁasjɔ̃/"
+            >collaboration</span
+          >
+          avec la nature n’est pas un effort, mais une
+          <span data-bs-toggle="tooltip" title="/istwaʁ/">histoire</span>
+          d’amour durable entre toutes les formes de vie.
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Beavers are admirable little workers, full of devotion. With their
+          powerful teeth, they fell trees and build ingenious dams that slow
+          down waterways and create peaceful ponds. These oases become shelters
+          for countless creatures: fish, amphibians, birds, and insects. Working
+          tirelessly, the beaver purifies water, prevents floods, and helps
+          biodiversity flourish. It shapes nature with a tenderness and patience
+          that command admiration. Even after its departure, its work continues
+          to nourish life. Beavers remind us that collaboration with nature is
+          not an effort, but a lasting love story between all forms of life.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">castor</td>
+              <td style="width: 40px"></td>
+              <td>beaver</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">travailleur</td>
+              <td></td>
+              <td>worker / hardworking</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">dévotion</td>
+              <td></td>
+              <td>devotion / dedication</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">barrage</td>
+              <td></td>
+              <td>dam</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">étang</td>
+              <td></td>
+              <td>pond</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">amphibien</td>
+              <td></td>
+              <td>amphibian (frog, toad, etc.)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">biodiversité</td>
+              <td></td>
+              <td>biodiversity</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">s’épanouir</td>
+              <td></td>
+              <td>to flourish / to thrive</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">collaboration</td>
+              <td></td>
+              <td>collaboration / working together</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">œuvre</td>
+              <td></td>
+              <td>work / creation</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">histoire</td>
+              <td></td>
+              <td>story / tale</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">durable</td>
+              <td></td>
+              <td>sustainable / lasting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!--     <div class="bottom-nav">
+      <a class="btn btn-outline-primary" href="index.html">Page One</a>
+      <a class="btn btn-primary" href="dimanche.html">Page Two</a>
+    </div>
+    <p></p>
+    <p></p> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

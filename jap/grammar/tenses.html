@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mastering Japanese Tenses: Interactive Lesson</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Chosen Palette: Warm Neutrals (Beige background, Soft Peach accents, Muted Terracotta highlights, Charcoal text) -->
+    <!-- Application Structure Plan: A linear, progressive interactive tutorial. 1. Foundations (Mental Model & Verb Distribution Chart), 2. Interactive Conjugation Matrix (Exploratory Data), 3. The Te-Form Bridge (Process visualization), 4. Active Practice (Interactive Flashcards for knowledge testing), 5. Pitfalls & Homework (Wrap-up). This structure translates a static teacher-led lesson plan into a self-paced, active learning digital experience. -->
+    <!-- Visualization & Content Choices: Verb Group Distribution -> Goal: Inform -> Pie Chart (Chart.js) -> Hover tooltip interaction -> Justification: Shows learners the statistical importance of mastering Group 1 verbs. Conjugation Tables -> Goal: Compare/Organize -> Interactive Toggle Matrix -> Click Polite/Casual -> Justification: Reduces cognitive load by not overwhelming the user with all forms at once. Practice Phase -> Goal: Engage -> CSS/JS Flip Cards -> Click to flip -> Justification: Replicates the 'Flashcard Drill' active recall technique mentioned in the source report. Confirming NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Nunito:wght@400;600;700&display=swap");
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background-color: #faf9f6;
+        color: #333333;
+      }
+
+      .jp-text {
+        font-family: "Noto Sans JP", sans-serif;
+      }
+
+      .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 300px;
+        max-height: 350px;
+      }
+
+      .flip-card {
+        background-color: transparent;
+        width: 100%;
+        height: 250px;
+        perspective: 1000px;
+        cursor: pointer;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        padding: 1.5rem;
+      }
+
+      .flip-card-front {
+        background-color: #ffffff;
+        border: 2px solid #e8c3b0;
+      }
+
+      .flip-card-back {
+        background-color: #d97757;
+        color: white;
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <nav
+      class="fixed top-0 w-full bg-white shadow-sm z-50 border-b border-gray-200"
+    >
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="font-bold text-xl text-[#d97757]">🇯🇵 Nihongo Mastery</div>
+          <div
+            class="hidden md:flex space-x-6 text-sm font-semibold text-gray-600"
+          >
+            <a
+              href="#foundations"
+              class="hover:text-[#d97757] transition-colors"
+              >Foundations</a
+            >
+            <a
+              href="#conjugation"
+              class="hover:text-[#d97757] transition-colors"
+              >Conjugation Matrix</a
+            >
+            <a href="#te-form" class="hover:text-[#d97757] transition-colors"
+              >Te-Form Bridge</a
+            >
+            <a href="#practice" class="hover:text-[#d97757] transition-colors"
+              >Practice</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="pt-32 pb-16 bg-[#e8c3b0] bg-opacity-20">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <span class="text-sm font-bold tracking-widest uppercase text-[#d97757]"
+          >JLPT N5 Level Lesson</span
+        >
+        <h1 class="text-4xl md:text-5xl font-bold mt-4 mb-6 text-gray-800">
+          Mastering Japanese Tenses
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          Unlock the core logic of Japanese verbs. In this interactive module,
+          you will learn to distinguish between the "Non-Past" and "Past"
+          tenses, understand Politeness registers, and dynamically conjugate
+          Group 1, Group 2, and Irregular verbs.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-12 space-y-24">
+      <section id="foundations" class="scroll-mt-24">
+        <div class="mb-8">
+          <h2
+            class="text-3xl font-bold border-b-4 border-[#d97757] inline-block pb-2 mb-4"
+          >
+            1. The Foundations
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed max-w-3xl">
+            Before memorizing tables, we must understand the conceptual building
+            blocks of the Japanese language. This section introduces the unique
+            "Non-Past" concept and visualizes the distribution of verb groups
+            you will encounter in your studies, helping you prioritize your
+            learning efforts.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
+          >
+            <div class="text-4xl mb-4">⏳</div>
+            <h3 class="text-2xl font-bold mb-3">The "Non-Past" Concept</h3>
+            <p class="text-gray-600 mb-4">
+              In Japanese, there is no separate "future" tense structurally
+              built into the verb. The present tense is inherently a
+              <strong>"Non-Past"</strong> tense. It represents both habitual
+              current actions and future intent.
+            </p>
+            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-[#d97757]">
+              <p class="font-bold mb-1">
+                Example: <span class="jp-text text-xl">食べる (Taberu)</span>
+              </p>
+              <p class="text-gray-700">
+                Can translate to: "I eat" (habitual) OR "I will eat" (future).
+              </p>
+              <p class="text-sm text-gray-500 mt-2">
+                Context and time adverbs (like <em>ashita</em> - tomorrow) do
+                the heavy lifting to distinguish future intent.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
+          >
+            <h3 class="text-2xl font-bold mb-6 text-center">
+              Verb Group Distribution
+            </h3>
+            <div class="chart-container">
+              <canvas id="verbChart"></canvas>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-4">
+              Understanding Group 1 (U-verbs) rules is critical, as they make up
+              the vast majority of the language.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="conjugation" class="scroll-mt-24">
+        <div class="mb-8 text-center max-w-3xl mx-auto">
+          <h2
+            class="text-3xl font-bold border-b-4 border-[#d97757] inline-block pb-2 mb-4"
+          >
+            2. Interactive Conjugation Matrix
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Japanese verb endings change based on two primary factors:
+            <strong>Tense</strong> (When did it happen?) and
+            <strong>Politeness</strong> (Who are you talking to?). Use the
+            toggle below to explore the transformation rules between Polite
+            (*Teineigo*) and Casual (*Futsuugo*) forms across the three verb
+            groups.
+          </p>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
+        >
+          <div
+            class="bg-gray-50 p-6 border-b border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-gray-800" id="matrix-title">
+                Polite Form (*Teineigo*)
+              </h3>
+              <p class="text-sm text-gray-500" id="matrix-subtitle">
+                Used with strangers, superiors, or in formal settings (Desu/Masu
+                form).
+              </p>
+            </div>
+            <div class="flex bg-gray-200 p-1 rounded-lg">
+              <button
+                id="btn-polite"
+                class="px-6 py-2 rounded-md font-semibold bg-white shadow text-[#d97757] transition-all"
+              >
+                Polite Form
+              </button>
+              <button
+                id="btn-casual"
+                class="px-6 py-2 rounded-md font-semibold text-gray-500 hover:text-gray-800 transition-all"
+              >
+                Casual Form
+              </button>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-[#faf9f6]">
+                  <th
+                    class="p-4 border-b border-gray-200 font-bold text-gray-700"
+                  >
+                    Tense
+                  </th>
+                  <th
+                    class="p-4 border-b border-gray-200 font-bold text-[#d97757]"
+                  >
+                    Group 1 (U-verbs)<br /><span
+                      class="text-xs text-gray-500 font-normal"
+                      >e.g., Iku (to go)</span
+                    >
+                  </th>
+                  <th
+                    class="p-4 border-b border-gray-200 font-bold text-[#d97757]"
+                  >
+                    Group 2 (Ru-verbs)<br /><span
+                      class="text-xs text-gray-500 font-normal"
+                      >e.g., Taberu (to eat)</span
+                    >
+                  </th>
+                  <th
+                    class="p-4 border-b border-gray-200 font-bold text-[#d97757]"
+                  >
+                    Irregular<br /><span
+                      class="text-xs text-gray-500 font-normal"
+                      >e.g., Suru (to do)</span
+                    >
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="conjugation-body"></tbody>
+            </table>
+          </div>
+
+          <div
+            class="p-6 bg-[#faf9f6] border-t border-gray-200"
+            id="rule-explanation"
+          ></div>
+        </div>
+      </section>
+
+      <section
+        id="te-form"
+        class="scroll-mt-24 bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-[#e8c3b0]"
+      >
+        <div class="mb-10 text-center">
+          <h2
+            class="text-3xl font-bold border-b-4 border-[#d97757] inline-block pb-2 mb-4"
+          >
+            3. The "Te-form" Bridge
+          </h2>
+          <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+            A crucial structural insight for learners: The
+            <strong>Casual Past (+)</strong> tense follows the exact same
+            phonetic alteration rules as the <em>Te-form</em> (the connective
+            form). Mastering one unlocks the other automatically.
+          </p>
+        </div>
+
+        <div class="flex flex-col space-y-6 max-w-4xl mx-auto">
+          <div
+            class="flex flex-col md:flex-row items-center justify-between bg-[#faf9f6] p-6 rounded-xl border border-gray-200"
+          >
+            <div class="text-center w-full md:w-1/4 mb-4 md:mb-0">
+              <span class="text-sm font-bold text-gray-500 uppercase"
+                >Dictionary</span
+              >
+              <div class="text-2xl font-bold mt-1 jp-text">行く (Iku)</div>
+              <div class="text-sm text-gray-500">To go</div>
+            </div>
+            <div class="text-3xl text-gray-300 hidden md:block">&#10142;</div>
+            <div class="text-3xl text-gray-300 md:hidden">&#11015;</div>
+            <div class="text-center w-full md:w-1/4 mb-4 md:mb-0">
+              <span class="text-sm font-bold text-blue-500 uppercase"
+                >Te-Form</span
+              >
+              <div class="text-2xl font-bold mt-1 text-blue-600 jp-text">
+                行って (Itte)
+              </div>
+            </div>
+            <div class="text-3xl text-[#d97757] hidden md:block">&#10142;</div>
+            <div class="text-3xl text-[#d97757] md:hidden">&#11015;</div>
+            <div class="text-center w-full md:w-1/4">
+              <span class="text-sm font-bold text-[#d97757] uppercase"
+                >Casual Past (+)</span
+              >
+              <div class="text-2xl font-bold mt-1 text-[#d97757] jp-text">
+                行った (Itta)
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col md:flex-row items-center justify-between bg-[#faf9f6] p-6 rounded-xl border border-gray-200"
+          >
+            <div class="text-center w-full md:w-1/4 mb-4 md:mb-0">
+              <span class="text-sm font-bold text-gray-500 uppercase"
+                >Dictionary</span
+              >
+              <div class="text-2xl font-bold mt-1 jp-text">食べる (Taberu)</div>
+              <div class="text-sm text-gray-500">To eat</div>
+            </div>
+            <div class="text-3xl text-gray-300 hidden md:block">&#10142;</div>
+            <div class="text-3xl text-gray-300 md:hidden">&#11015;</div>
+            <div class="text-center w-full md:w-1/4 mb-4 md:mb-0">
+              <span class="text-sm font-bold text-blue-500 uppercase"
+                >Te-Form</span
+              >
+              <div class="text-2xl font-bold mt-1 text-blue-600 jp-text">
+                食べて (Tabete)
+              </div>
+            </div>
+            <div class="text-3xl text-[#d97757] hidden md:block">&#10142;</div>
+            <div class="text-3xl text-[#d97757] md:hidden">&#11015;</div>
+            <div class="text-center w-full md:w-1/4">
+              <span class="text-sm font-bold text-[#d97757] uppercase"
+                >Casual Past (+)</span
+              >
+              <div class="text-2xl font-bold mt-1 text-[#d97757] jp-text">
+                食べた (Tabeta)
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="practice" class="scroll-mt-24">
+        <div class="mb-10 text-center">
+          <h2
+            class="text-3xl font-bold border-b-4 border-[#d97757] inline-block pb-2 mb-4"
+          >
+            4. Active Practice Drill
+          </h2>
+          <p
+            class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-2"
+          >
+            Time to test your knowledge based on Phase 4 of our lesson plan.
+            Read the prompt on the card, determine the correct conjugation, and
+            click the card to flip and reveal the answer.
+          </p>
+          <p class="text-sm font-bold text-[#d97757]">
+            Sentence Building Formula: Time Marker + Conjugated Verb
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span
+                  class="text-sm text-gray-400 font-bold uppercase tracking-wider mb-2"
+                  >Prompt 1</span
+                >
+                <h3 class="text-xl font-bold text-gray-800 text-center">
+                  Yesterday + Nomu (to drink)
+                </h3>
+                <p class="text-sm text-[#d97757] mt-4 font-semibold">
+                  Convert to: Polite Past
+                </p>
+                <span
+                  class="mt-4 text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-500"
+                  >Click to flip &#8635;</span
+                >
+              </div>
+              <div class="flip-card-back">
+                <span class="text-sm opacity-80 uppercase tracking-wider mb-2"
+                  >Answer</span
+                >
+                <h3 class="text-2xl font-bold jp-text">Kinoo nomimashita</h3>
+                <p class="text-sm mt-4 opacity-90">きのう、飲みました。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span
+                  class="text-sm text-gray-400 font-bold uppercase tracking-wider mb-2"
+                  >Prompt 2</span
+                >
+                <h3 class="text-xl font-bold text-gray-800 text-center">
+                  Tomorrow + Iku (to go)
+                </h3>
+                <p class="text-sm text-[#d97757] mt-4 font-semibold">
+                  Convert to: Polite Non-Past
+                </p>
+                <span
+                  class="mt-4 text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-500"
+                  >Click to flip &#8635;</span
+                >
+              </div>
+              <div class="flip-card-back">
+                <span class="text-sm opacity-80 uppercase tracking-wider mb-2"
+                  >Answer</span
+                >
+                <h3 class="text-2xl font-bold jp-text">Ashita ikimasu</h3>
+                <p class="text-sm mt-4 opacity-90">あした、行きます。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <span
+                  class="text-sm text-gray-400 font-bold uppercase tracking-wider mb-2"
+                  >Prompt 3</span
+                >
+                <h3 class="text-xl font-bold text-gray-800 text-center">
+                  Did not do (Suru)
+                </h3>
+                <p class="text-sm text-[#d97757] mt-4 font-semibold">
+                  Convert to: Polite Past Negative
+                </p>
+                <span
+                  class="mt-4 text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-500"
+                  >Click to flip &#8635;</span
+                >
+              </div>
+              <div class="flip-card-back">
+                <span class="text-sm opacity-80 uppercase tracking-wider mb-2"
+                  >Answer</span
+                >
+                <h3 class="text-2xl font-bold jp-text">Shimasen deshita</h3>
+                <p class="text-sm mt-4 opacity-90">しませんでした。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-12">
+        <div class="bg-red-50 p-8 rounded-2xl border border-red-100">
+          <h3 class="text-2xl font-bold text-red-800 mb-6 flex items-center">
+            <span class="text-3xl mr-3">&#9888;&#65039;</span> Common Pitfalls
+          </h3>
+          <ul class="space-y-4">
+            <li
+              class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-400"
+            >
+              <strong class="text-gray-800 block mb-1"
+                >Over-complicating Future</strong
+              >
+              <span class="text-gray-600 text-sm"
+                >Do not look for a "will" particle in Japanese. The present
+                tense verb itself handles future intent.</span
+              >
+            </li>
+            <li
+              class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-400"
+            >
+              <strong class="text-gray-800 block mb-1"
+                >Irregular Verbs Mix-up</strong
+              >
+              <span class="text-gray-600 text-sm"
+                >Students often try to conjugate <em>Suru</em> (to do) as a
+                Group 1 verb. It is completely irregular and must be memorized
+                (Suru &#10142; Shimasu).</span
+              >
+            </li>
+            <li
+              class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-400"
+            >
+              <strong class="text-gray-800 block mb-1"
+                >Forgetting "Deshita"</strong
+              >
+              <span class="text-gray-600 text-sm"
+                >In the Polite Negative Past, beginners often say
+                <em>~masen</em> instead of the full
+                <em>~masen deshita</em>.</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100">
+          <h3 class="text-2xl font-bold text-blue-800 mb-6 flex items-center">
+            <span class="text-3xl mr-3">&#128221;</span> Wrap-up & Homework
+          </h3>
+          <div class="space-y-6">
+            <div class="bg-white p-5 rounded-lg shadow-sm">
+              <h4 class="font-bold text-gray-800 mb-2">Summary Rule:</h4>
+              <p class="text-gray-600 text-sm">
+                Remember: <strong>~masu</strong> is for now/future, and
+                <strong>~mashita</strong> is for the past.
+              </p>
+            </div>
+
+            <div>
+              <h4
+                class="font-bold text-blue-800 mb-3 border-b border-blue-200 pb-2"
+              >
+                Assignments:
+              </h4>
+              <ul class="space-y-3 text-sm text-gray-700">
+                <li class="flex items-start">
+                  <span class="text-blue-500 font-bold mr-2">1.</span>
+                  <div>
+                    <strong>Diary Entry:</strong> Write 5 sentences in Japanese
+                    about your day using the polite past tense
+                    (<em>~mashita</em>).
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 font-bold mr-2">2.</span>
+                  <div>
+                    <strong>Transformation:</strong> Take 10 verbs from your
+                    vocabulary list and write their Non-Past Negative
+                    (<em>~masen</em>) and Past Negative (<em>~masen deshita</em
+                    >) forms.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8 text-center text-sm">
+      <p>
+        Interactive Lesson based on the "Mastering Japanese Tenses" Source
+        Report.
+      </p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const ctx = document.getElementById("verbChart").getContext("2d");
+        new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: [
+              "Group 1 (U-verbs)",
+              "Group 2 (Ru-verbs)",
+              "Irregular Verbs",
+            ],
+            datasets: [
+              {
+                data: [70, 25, 5],
+                backgroundColor: ["#d97757", "#e8c3b0", "#4a5568"],
+                borderWidth: 0,
+                hoverOffset: 4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: {
+                  font: {
+                    family: "'Nunito', sans-serif",
+                    size: 13,
+                  },
+                },
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return (
+                      " " +
+                      context.label +
+                      ": ~" +
+                      context.parsed +
+                      "% of usage"
+                    );
+                  },
+                },
+              },
+            },
+            cutout: "65%",
+          },
+        });
+
+        const conjugationData = {
+          polite: {
+            title: "Polite Form (*Teineigo*)",
+            subtitle:
+              "Used with strangers, superiors, or in formal settings (Desu/Masu form).",
+            rows: [
+              {
+                label: "Non-Past (+)",
+                g1: "Ikimasu",
+                g2: "Tabemasu",
+                irr: "Shimasu",
+              },
+              {
+                label: "Non-Past (-)",
+                g1: "Ikimasen",
+                g2: "Tabemasen",
+                irr: "Shimasen",
+              },
+              {
+                label: "Past (+)",
+                g1: "Ikimashita",
+                g2: "Tabemashita",
+                irr: "Shimashita",
+              },
+              {
+                label: "Past (-)",
+                g1: "Ikimasen deshita",
+                g2: "Tabemasen deshita",
+                irr: "Shimasen deshita",
+              },
+            ],
+            rules: `
+                        <p class="font-bold text-gray-800 mb-2">Polite Conjugation Rules:</p>
+                        <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                            <li><strong>Group 1:</strong> Change the final <em>~u</em> sound to <em>~i</em> and add <em>~masu</em>.</li>
+                            <li><strong>Group 2:</strong> Drop <em>~ru</em> and add <em>~masu</em>.</li>
+                        </ul>
+                    `,
+          },
+          casual: {
+            title: "Casual Form (*Futsuugo*)",
+            subtitle:
+              "Used with close friends, family, or in informal settings (Dictionary/Ta form).",
+            rows: [
+              { label: "Non-Past (+)", g1: "Iku", g2: "Taberu", irr: "Suru" },
+              {
+                label: "Non-Past (-)",
+                g1: "Ikunai",
+                g2: "Tabenai",
+                irr: "Shinai",
+              },
+              { label: "Past (+)", g1: "Itta", g2: "Tabeta", irr: "Shita" },
+              {
+                label: "Past (-)",
+                g1: "Ikanakatta",
+                g2: "Tabenakatta",
+                irr: "Shinakatta",
+              },
+            ],
+            rules: `
+                        <p class="font-bold text-gray-800 mb-2">Casual Conjugation Note:</p>
+                        <p class="text-sm text-gray-600">The Casual form relies heavily on the dictionary form for Non-Past(+), the <em>Nai-form</em> for negatives, and phonetic shifts similar to the <em>Te-form</em> for the past tense.</p>
+                    `,
+          },
+        };
+
+        const tbody = document.getElementById("conjugation-body");
+        const titleEl = document.getElementById("matrix-title");
+        const subtitleEl = document.getElementById("matrix-subtitle");
+        const ruleEl = document.getElementById("rule-explanation");
+        const btnPolite = document.getElementById("btn-polite");
+        const btnCasual = document.getElementById("btn-casual");
+
+        function renderTable(type) {
+          const data = conjugationData[type];
+
+          titleEl.innerHTML = data.title;
+          subtitleEl.innerHTML = data.subtitle;
+          ruleEl.innerHTML = data.rules;
+
+          tbody.innerHTML = "";
+          data.rows.forEach((row, index) => {
+            const tr = document.createElement("tr");
+            tr.className = index % 2 === 0 ? "bg-white" : "bg-gray-50";
+            tr.innerHTML = `
+                        <td class="p-4 border-b border-gray-100 font-bold text-gray-800">${row.label}</td>
+                        <td class="p-4 border-b border-gray-100 text-gray-600 jp-text">${row.g1}</td>
+                        <td class="p-4 border-b border-gray-100 text-gray-600 jp-text">${row.g2}</td>
+                        <td class="p-4 border-b border-gray-100 text-gray-600 jp-text">${row.irr}</td>
+                    `;
+            tbody.appendChild(tr);
+          });
+
+          if (type === "polite") {
+            btnPolite.className =
+              "px-6 py-2 rounded-md font-semibold bg-white shadow text-[#d97757] transition-all";
+            btnCasual.className =
+              "px-6 py-2 rounded-md font-semibold text-gray-500 hover:text-gray-800 transition-all";
+          } else {
+            btnCasual.className =
+              "px-6 py-2 rounded-md font-semibold bg-white shadow text-[#d97757] transition-all";
+            btnPolite.className =
+              "px-6 py-2 rounded-md font-semibold text-gray-500 hover:text-gray-800 transition-all";
+          }
+        }
+
+        btnPolite.addEventListener("click", () => renderTable("polite"));
+        btnCasual.addEventListener("click", () => renderTable("casual"));
+
+        renderTable("polite");
+      });
+    </script>
+  </body>
+</html>

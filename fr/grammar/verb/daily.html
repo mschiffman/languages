@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Collocation Web: Les Actions du Quotidien</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="../../../../assets/css/octopus.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">🇫🇷 French Collocation Web</span>
+      </div>
+    </nav>
+
+    <div class="container-fluid px-4">
+      <div class="d-flex gap-2 mb-3 flex-wrap">
+        <a href="index.html" class="btn btn-sm btn-outline-dark">Housechores</a>
+        <a href="daily.html" class="btn btn-sm btn-outline-dark"
+          >Daily Actions</a
+        >
+        <a href="daily.html" class="btn btn-sm btn-outline-dark">Routine</a>
+      </div>
+      <div class="row">
+        <div class="col-lg-9 mb-4">
+          <div id="graph-container"></div>
+          <div id="tooltip" class="tooltip"></div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              Selection Details
+            </div>
+            <div class="card-body" id="info-panel">
+              <h5 class="card-title text-muted">Hover or Click a Node</h5>
+              <p class="card-text">
+                Select a word in the web to see its English translation and
+                details here.
+              </p>
+            </div>
+          </div>
+
+          <div class="card mt-3 shadow-sm">
+            <div class="card-header">Legend</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #e76f51"></span>
+                Se préparer (Getting ready)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #f4a261"></span>
+                Le matin (Morning)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #e9c46a"></span>
+                L'après-midi (Afternoon)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #2a9d8f"></span>
+                Le soir (Evening)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #264653"></span>
+                La nuit (Night)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #457b9d"></span>
+                Les tâches (Chores)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #90be6d"></span>
+                Les loisirs (Leisure)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #9b5de5"></span>
+                Les sorties (Outings)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script>
+      // --- 1. DATA PREPARATION ---
+      const dataset = {
+        nodes: [
+          // Center
+          {
+            id: "Les Actions du Quotidien",
+            group: "center",
+            radius: 40,
+            translation: "Daily Routines",
+            example:
+              "Les actions du quotidien structurent notre journée.<br><em>Daily routines structure our day.</em>",
+          },
+
+          // Categories (connector nodes)
+          { id: "Se préparer", group: "category", radius: 0 },
+          { id: "Le matin", group: "category", radius: 0 },
+          { id: "L'après-midi", group: "category", radius: 0 },
+          { id: "Le soir", group: "category", radius: 0 },
+          { id: "La nuit", group: "category", radius: 0 },
+          { id: "Les tâches", group: "category", radius: 0 },
+          { id: "Les loisirs", group: "category", radius: 0 },
+          { id: "Les sorties", group: "category", radius: 0 },
+
+          // Se préparer (Getting ready - personal care)
+          {
+            id: "Se réveiller",
+            group: "preparer",
+            translation: "to wake up",
+            example:
+              "Je me réveille à six heures du matin.<br><em>I wake up at six in the morning.</em>",
+          },
+          {
+            id: "Se lever",
+            group: "preparer",
+            translation: "to get up",
+            example:
+              "Il se lève dès que le réveil sonne.<br><em>He gets up as soon as the alarm rings.</em>",
+          },
+          {
+            id: "S'étirer",
+            group: "preparer",
+            translation: "to stretch",
+            example:
+              "Je m'étire avant de sortir du lit.<br><em>I stretch before getting out of bed.</em>",
+          },
+          {
+            id: "Prendre une douche",
+            group: "preparer",
+            translation: "to take a shower",
+            example:
+              "Je prends une douche chaude le matin.<br><em>I take a hot shower in the morning.</em>",
+          },
+          {
+            id: "Prendre un bain",
+            group: "preparer",
+            translation: "to take a bath",
+            example:
+              "Le soir, je préfère prendre un bain relaxant.<br><em>In the evening, I prefer to take a relaxing bath.</em>",
+          },
+          {
+            id: "Se sécher",
+            group: "preparer",
+            translation: "to dry oneself",
+            example:
+              "Je me sèche avec une grande serviette.<br><em>I dry myself with a large towel.</em>",
+          },
+          {
+            id: "Se brosser les dents",
+            group: "preparer",
+            translation: "to brush one's teeth",
+            example:
+              "Je me brosse les dents trois fois par jour.<br><em>I brush my teeth three times a day.</em>",
+          },
+          {
+            id: "Se peigner",
+            group: "preparer",
+            translation: "to comb one's hair",
+            example:
+              "Elle se peigne devant le miroir.<br><em>She combs her hair in front of the mirror.</em>",
+          },
+          {
+            id: "Se coiffer",
+            group: "preparer",
+            translation: "to do one's hair",
+            example:
+              "Je me coiffe avant de partir.<br><em>I do my hair before leaving.</em>",
+          },
+          {
+            id: "Se raser",
+            group: "preparer",
+            translation: "to shave",
+            example:
+              "Mon père se rase tous les matins.<br><em>My father shaves every morning.</em>",
+          },
+          {
+            id: "Se maquiller",
+            group: "preparer",
+            translation: "to put on makeup",
+            example:
+              "Elle se maquille légèrement pour le travail.<br><em>She puts on light makeup for work.</em>",
+          },
+          {
+            id: "S'habiller",
+            group: "preparer",
+            translation: "to get dressed",
+            example:
+              "Habille-toi vite, on va être en retard !<br><em>Get dressed quickly, we're going to be late!</em>",
+          },
+          {
+            id: "Mettre ses chaussures",
+            group: "preparer",
+            translation: "to put on one's shoes",
+            example:
+              "Mets tes chaussures, on part dans cinq minutes.<br><em>Put on your shoes, we're leaving in five minutes.</em>",
+          },
+
+          // Le matin (Morning activities)
+          {
+            id: "Prendre le petit déjeuner",
+            group: "matin",
+            translation: "to have breakfast",
+            example:
+              "On prend le petit déjeuner en famille.<br><em>We have breakfast as a family.</em>",
+          },
+          {
+            id: "Lire le journal",
+            group: "matin",
+            translation: "to read the newspaper",
+            example:
+              "Mon grand-père lit le journal chaque matin.<br><em>My grandfather reads the newspaper every morning.</em>",
+          },
+          {
+            id: "Consulter ses e-mails",
+            group: "matin",
+            translation: "to check one's emails",
+            example:
+              "Je consulte mes e-mails avant de partir.<br><em>I check my emails before leaving.</em>",
+          },
+          {
+            id: "Aller au travail",
+            group: "matin",
+            translation: "to go to work",
+            example:
+              "Je vais au travail en métro.<br><em>I go to work by metro.</em>",
+          },
+          {
+            id: "Aller à l'école",
+            group: "matin",
+            translation: "to go to school",
+            example:
+              "Les enfants vont à l'école à pied.<br><em>The children walk to school.</em>",
+          },
+          {
+            id: "Conduire",
+            group: "matin",
+            translation: "to drive",
+            example:
+              "Il conduit une heure pour aller au bureau.<br><em>He drives an hour to get to the office.</em>",
+          },
+          {
+            id: "Prendre les transports",
+            group: "matin",
+            translation: "to take public transport",
+            example:
+              "Je prends les transports en commun.<br><em>I take public transport.</em>",
+          },
+
+          // L'après-midi (Afternoon)
+          {
+            id: "Déjeuner",
+            group: "apresmidi",
+            translation: "to have lunch",
+            example:
+              "Je déjeune à midi avec mes collègues.<br><em>I have lunch at noon with my colleagues.</em>",
+          },
+          {
+            id: "Faire une pause",
+            group: "apresmidi",
+            translation: "to take a break",
+            example:
+              "On fait une pause café à quinze heures.<br><em>We take a coffee break at 3 PM.</em>",
+          },
+          {
+            id: "Téléphoner",
+            group: "apresmidi",
+            translation: "to make a phone call",
+            example:
+              "Je dois téléphoner à ma mère cet après-midi.<br><em>I need to call my mother this afternoon.</em>",
+          },
+          {
+            id: "Rentrer chez soi",
+            group: "apresmidi",
+            translation: "to go back home",
+            example:
+              "Je rentre chez moi vers dix-huit heures.<br><em>I go back home around 6 PM.</em>",
+          },
+          {
+            id: "Faire une sieste",
+            group: "apresmidi",
+            translation: "to take a nap",
+            example:
+              "Le dimanche, je fais une petite sieste.<br><em>On Sundays, I take a little nap.</em>",
+          },
+          {
+            id: "Prendre le goûter",
+            group: "apresmidi",
+            translation: "to have an afternoon snack",
+            example:
+              "Les enfants prennent le goûter à seize heures.<br><em>The children have their snack at 4 PM.</em>",
+          },
+          {
+            id: "Promener le chien",
+            group: "apresmidi",
+            translation: "to walk the dog",
+            example:
+              "Je promène le chien tous les après-midis.<br><em>I walk the dog every afternoon.</em>",
+          },
+
+          // Le soir (Evening)
+          {
+            id: "Rentrer à la maison",
+            group: "soir",
+            translation: "to come home",
+            example:
+              "Je rentre à la maison fatigué.<br><em>I come home tired.</em>",
+          },
+          {
+            id: "Se reposer",
+            group: "soir",
+            translation: "to rest",
+            example:
+              "J'ai besoin de me reposer après le travail.<br><em>I need to rest after work.</em>",
+          },
+          {
+            id: "Préparer le dîner",
+            group: "soir",
+            translation: "to prepare dinner",
+            example:
+              "Ma femme prépare le dîner pendant que je mets la table.<br><em>My wife prepares dinner while I set the table.</em>",
+          },
+          {
+            id: "Mettre la table",
+            group: "soir",
+            translation: "to set the table",
+            example:
+              "Les enfants mettent la table avant le dîner.<br><em>The children set the table before dinner.</em>",
+          },
+          {
+            id: "Dîner",
+            group: "soir",
+            translation: "to have dinner",
+            example:
+              "On dîne ensemble à vingt heures.<br><em>We have dinner together at 8 PM.</em>",
+          },
+          {
+            id: "Débarrasser la table",
+            group: "soir",
+            translation: "to clear the table",
+            example:
+              "Qui va débarrasser la table ce soir ?<br><em>Who's going to clear the table tonight?</em>",
+          },
+          {
+            id: "Commander à domicile",
+            group: "soir",
+            translation: "to order delivery",
+            example:
+              "Ce soir, on commande à domicile.<br><em>Tonight, we're ordering delivery.</em>",
+          },
+          {
+            id: "Faire les devoirs",
+            group: "soir",
+            translation: "to do homework",
+            example:
+              "Les enfants font leurs devoirs après le dîner.<br><em>The children do their homework after dinner.</em>",
+          },
+          {
+            id: "Passer du temps en famille",
+            group: "soir",
+            translation: "to spend time with family",
+            example:
+              "Le soir, on passe du temps en famille.<br><em>In the evening, we spend time with family.</em>",
+          },
+          {
+            id: "Lire une histoire",
+            group: "soir",
+            translation: "to read a story",
+            example:
+              "Je lis une histoire aux enfants avant de dormir.<br><em>I read a story to the children before bed.</em>",
+          },
+          {
+            id: "Regarder la télé",
+            group: "soir",
+            translation: "to watch TV",
+            example:
+              "On regarde la télé après le dîner.<br><em>We watch TV after dinner.</em>",
+          },
+          {
+            id: "Naviguer sur internet",
+            group: "soir",
+            translation: "to browse the internet",
+            example:
+              "Je navigue sur internet pour me détendre.<br><em>I browse the internet to relax.</em>",
+          },
+          {
+            id: "Se relaxer",
+            group: "soir",
+            translation: "to relax",
+            example:
+              "J'aime me relaxer sur le canapé.<br><em>I like to relax on the sofa.</em>",
+          },
+
+          // La nuit (Night / bedtime)
+          {
+            id: "Se déshabiller",
+            group: "nuit",
+            translation: "to undress",
+            example:
+              "Je me déshabille avant de prendre une douche.<br><em>I undress before taking a shower.</em>",
+          },
+          {
+            id: "Mettre son pyjama",
+            group: "nuit",
+            translation: "to put on pajamas",
+            example:
+              "Les enfants mettent leur pyjama à vingt heures.<br><em>The children put on their pajamas at 8 PM.</em>",
+          },
+          {
+            id: "Se mettre au lit",
+            group: "nuit",
+            translation: "to get into bed",
+            example:
+              "Je me mets au lit vers vingt-deux heures.<br><em>I get into bed around 10 PM.</em>",
+          },
+          {
+            id: "Se coucher",
+            group: "nuit",
+            translation: "to go to bed",
+            example:
+              "Je me couche tôt en semaine.<br><em>I go to bed early on weekdays.</em>",
+          },
+          {
+            id: "Dormir",
+            group: "nuit",
+            translation: "to sleep",
+            example:
+              "Je dors huit heures par nuit.<br><em>I sleep eight hours a night.</em>",
+          },
+
+          // Les tâches (Household chores)
+          {
+            id: "Faire le ménage",
+            group: "taches",
+            translation: "to do housework",
+            example:
+              "Je fais le ménage le samedi matin.<br><em>I do housework on Saturday morning.</em>",
+          },
+          {
+            id: "Faire la vaisselle",
+            group: "taches",
+            translation: "to do the dishes",
+            example:
+              "C'est à ton tour de faire la vaisselle.<br><em>It's your turn to do the dishes.</em>",
+          },
+          {
+            id: "Faire la lessive",
+            group: "taches",
+            translation: "to do the laundry",
+            example:
+              "Je fais la lessive une fois par semaine.<br><em>I do the laundry once a week.</em>",
+          },
+          {
+            id: "Repasser",
+            group: "taches",
+            translation: "to iron",
+            example:
+              "Je déteste repasser les chemises.<br><em>I hate ironing shirts.</em>",
+          },
+          {
+            id: "Passer l'aspirateur",
+            group: "taches",
+            translation: "to vacuum",
+            example:
+              "Je passe l'aspirateur dans toute la maison.<br><em>I vacuum the whole house.</em>",
+          },
+          {
+            id: "Sortir les poubelles",
+            group: "taches",
+            translation: "to take out the trash",
+            example:
+              "N'oublie pas de sortir les poubelles.<br><em>Don't forget to take out the trash.</em>",
+          },
+          {
+            id: "Faire les courses",
+            group: "taches",
+            translation: "to do the grocery shopping",
+            example:
+              "On fait les courses le samedi.<br><em>We do the grocery shopping on Saturday.</em>",
+          },
+          {
+            id: "Jardiner",
+            group: "taches",
+            translation: "to garden",
+            example:
+              "Ma mère aime jardiner le week-end.<br><em>My mother likes to garden on the weekend.</em>",
+          },
+          {
+            id: "Payer les factures",
+            group: "taches",
+            translation: "to pay the bills",
+            example:
+              "Je paie les factures en ligne.<br><em>I pay the bills online.</em>",
+          },
+          {
+            id: "Faire le plein",
+            group: "taches",
+            translation: "to fill up (gas)",
+            example:
+              "Je dois faire le plein d'essence.<br><em>I need to fill up with gas.</em>",
+          },
+
+          // Les loisirs (Leisure activities)
+          {
+            id: "Faire du sport",
+            group: "loisir",
+            translation: "to do sports / exercise",
+            example:
+              "Je fais du sport trois fois par semaine.<br><em>I exercise three times a week.</em>",
+          },
+          {
+            id: "Faire du vélo",
+            group: "loisir",
+            translation: "to ride a bike",
+            example:
+              "Je fais du vélo le dimanche matin.<br><em>I ride my bike on Sunday mornings.</em>",
+          },
+          {
+            id: "Faire du skate",
+            group: "loisir",
+            translation: "to skateboard",
+            example:
+              "Mon fils fait du skate au parc.<br><em>My son skateboards at the park.</em>",
+          },
+          {
+            id: "Faire une promenade",
+            group: "loisir",
+            translation: "to go for a walk",
+            example:
+              "On fait une promenade après le dîner.<br><em>We go for a walk after dinner.</em>",
+          },
+          {
+            id: "Faire de la randonnée",
+            group: "loisir",
+            translation: "to go hiking",
+            example:
+              "On fait de la randonnée en montagne.<br><em>We go hiking in the mountains.</em>",
+          },
+          {
+            id: "Danser",
+            group: "loisir",
+            translation: "to dance",
+            example:
+              "Elle adore danser le week-end.<br><em>She loves to dance on weekends.</em>",
+          },
+          {
+            id: "Jouer",
+            group: "loisir",
+            translation: "to play",
+            example:
+              "Les enfants jouent dans le jardin.<br><em>The children play in the garden.</em>",
+          },
+
+          // Les sorties (Outings)
+          {
+            id: "Aller au parc",
+            group: "sortie",
+            translation: "to go to the park",
+            example:
+              "On va au parc le dimanche.<br><em>We go to the park on Sundays.</em>",
+          },
+          {
+            id: "Aller chez le médecin",
+            group: "sortie",
+            translation: "to go to the doctor",
+            example:
+              "Je dois aller chez le médecin demain.<br><em>I have to go to the doctor tomorrow.</em>",
+          },
+          {
+            id: "Aller à la pharmacie",
+            group: "sortie",
+            translation: "to go to the pharmacy",
+            example:
+              "Je passe à la pharmacie après le travail.<br><em>I'll stop by the pharmacy after work.</em>",
+          },
+          {
+            id: "Retrouver des amis",
+            group: "sortie",
+            translation: "to meet up with friends",
+            example:
+              "Je retrouve des amis ce soir.<br><em>I'm meeting up with friends tonight.</em>",
+          },
+          {
+            id: "Manger au restaurant",
+            group: "sortie",
+            translation: "to eat at a restaurant",
+            example:
+              "On mange au restaurant pour son anniversaire.<br><em>We're eating at a restaurant for her birthday.</em>",
+          },
+          {
+            id: "Aller au cinéma",
+            group: "sortie",
+            translation: "to go to the cinema",
+            example:
+              "On va au cinéma ce week-end.<br><em>We're going to the cinema this weekend.</em>",
+          },
+        ],
+        links: [
+          // Center to categories
+          { source: "Les Actions du Quotidien", target: "Se préparer" },
+          { source: "Les Actions du Quotidien", target: "Le matin" },
+          { source: "Les Actions du Quotidien", target: "L'après-midi" },
+          { source: "Les Actions du Quotidien", target: "Le soir" },
+          { source: "Les Actions du Quotidien", target: "La nuit" },
+          { source: "Les Actions du Quotidien", target: "Les tâches" },
+          { source: "Les Actions du Quotidien", target: "Les loisirs" },
+          { source: "Les Actions du Quotidien", target: "Les sorties" },
+
+          // Se préparer
+          { source: "Se préparer", target: "Se réveiller" },
+          { source: "Se préparer", target: "Se lever" },
+          { source: "Se préparer", target: "S'étirer" },
+          { source: "Se préparer", target: "Prendre une douche" },
+          { source: "Se préparer", target: "Prendre un bain" },
+          { source: "Se préparer", target: "Se sécher" },
+          { source: "Se préparer", target: "Se brosser les dents" },
+          { source: "Se préparer", target: "Se peigner" },
+          { source: "Se préparer", target: "Se coiffer" },
+          { source: "Se préparer", target: "Se raser" },
+          { source: "Se préparer", target: "Se maquiller" },
+          { source: "Se préparer", target: "S'habiller" },
+          { source: "Se préparer", target: "Mettre ses chaussures" },
+
+          // Le matin
+          { source: "Le matin", target: "Prendre le petit déjeuner" },
+          { source: "Le matin", target: "Lire le journal" },
+          { source: "Le matin", target: "Consulter ses e-mails" },
+          { source: "Le matin", target: "Aller au travail" },
+          { source: "Le matin", target: "Aller à l'école" },
+          { source: "Le matin", target: "Conduire" },
+          { source: "Le matin", target: "Prendre les transports" },
+
+          // L'après-midi
+          { source: "L'après-midi", target: "Déjeuner" },
+          { source: "L'après-midi", target: "Faire une pause" },
+          { source: "L'après-midi", target: "Téléphoner" },
+          { source: "L'après-midi", target: "Rentrer chez soi" },
+          { source: "L'après-midi", target: "Faire une sieste" },
+          { source: "L'après-midi", target: "Prendre le goûter" },
+          { source: "L'après-midi", target: "Promener le chien" },
+
+          // Le soir
+          { source: "Le soir", target: "Rentrer à la maison" },
+          { source: "Le soir", target: "Se reposer" },
+          { source: "Le soir", target: "Préparer le dîner" },
+          { source: "Le soir", target: "Mettre la table" },
+          { source: "Le soir", target: "Dîner" },
+          { source: "Le soir", target: "Débarrasser la table" },
+          { source: "Le soir", target: "Commander à domicile" },
+          { source: "Le soir", target: "Faire les devoirs" },
+          { source: "Le soir", target: "Passer du temps en famille" },
+          { source: "Le soir", target: "Lire une histoire" },
+          { source: "Le soir", target: "Regarder la télé" },
+          { source: "Le soir", target: "Naviguer sur internet" },
+          { source: "Le soir", target: "Se relaxer" },
+
+          // La nuit
+          { source: "La nuit", target: "Se déshabiller" },
+          { source: "La nuit", target: "Mettre son pyjama" },
+          { source: "La nuit", target: "Se mettre au lit" },
+          { source: "La nuit", target: "Se coucher" },
+          { source: "La nuit", target: "Dormir" },
+
+          // Les tâches
+          { source: "Les tâches", target: "Faire le ménage" },
+          { source: "Les tâches", target: "Faire la vaisselle" },
+          { source: "Les tâches", target: "Faire la lessive" },
+          { source: "Les tâches", target: "Repasser" },
+          { source: "Les tâches", target: "Passer l'aspirateur" },
+          { source: "Les tâches", target: "Sortir les poubelles" },
+          { source: "Les tâches", target: "Faire les courses" },
+          { source: "Les tâches", target: "Jardiner" },
+          { source: "Les tâches", target: "Payer les factures" },
+          { source: "Les tâches", target: "Faire le plein" },
+
+          // Les loisirs
+          { source: "Les loisirs", target: "Faire du sport" },
+          { source: "Les loisirs", target: "Faire du vélo" },
+          { source: "Les loisirs", target: "Faire du skate" },
+          { source: "Les loisirs", target: "Faire une promenade" },
+          { source: "Les loisirs", target: "Faire de la randonnée" },
+          { source: "Les loisirs", target: "Danser" },
+          { source: "Les loisirs", target: "Jouer" },
+
+          // Les sorties
+          { source: "Les sorties", target: "Aller au parc" },
+          { source: "Les sorties", target: "Aller chez le médecin" },
+          { source: "Les sorties", target: "Aller à la pharmacie" },
+          { source: "Les sorties", target: "Retrouver des amis" },
+          { source: "Les sorties", target: "Manger au restaurant" },
+          { source: "Les sorties", target: "Aller au cinéma" },
+        ],
+      };
+
+      // --- 2. CONFIGURATION ---
+      const width = document.getElementById("graph-container").clientWidth;
+      const height = 850;
+
+      // Color Palette
+      const colors = {
+        center: "#212529",
+        category: "#adb5bd",
+        preparer: "#e76f51",
+        matin: "#f4a261",
+        apresmidi: "#e9c46a",
+        soir: "#2a9d8f",
+        nuit: "#264653",
+        taches: "#457b9d",
+        loisir: "#90be6d",
+        sortie: "#9b5de5",
+      };
+
+      // --- 3. D3 SETUP ---
+      const svg = d3
+        .select("#graph-container")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .call(
+          d3.zoom().on("zoom", (event) => {
+            g.attr("transform", event.transform);
+          }),
+        );
+
+      const g = svg.append("g");
+
+      // Force Simulation
+      const simulation = d3
+        .forceSimulation(dataset.nodes)
+        .force(
+          "link",
+          d3
+            .forceLink(dataset.links)
+            .id((d) => d.id)
+            .distance(90),
+        )
+        .force("charge", d3.forceManyBody().strength(-450))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force(
+          "collide",
+          d3.forceCollide().radius((d) => (d.radius || 20) + 15),
+        );
+
+      // Draw Links
+      const link = g
+        .append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(dataset.links)
+        .enter()
+        .append("line")
+        .attr("class", "link");
+
+      // Draw Nodes (Circles)
+      const node = g
+        .append("g")
+        .attr("class", "nodes")
+        .selectAll("g")
+        .data(dataset.nodes)
+        .enter()
+        .append("g")
+        .call(
+          d3
+            .drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended),
+        );
+
+      node
+        .append("circle")
+        .attr("r", (d) => d.radius || 15)
+        .attr("fill", (d) => colors[d.group] || "#ccc")
+        .on("mouseover", function (event, d) {
+          const tooltip = d3.select("#tooltip");
+          tooltip.transition().duration(200).style("opacity", 0.9);
+
+          let content = `<strong>${d.id}</strong>`;
+          if (d.translation) {
+            content += `<br/><span style="color:#ccc; font-size:12px">"${d.translation}"</span>`;
+          }
+
+          tooltip
+            .html(content)
+            .style("left", event.pageX + 10 + "px")
+            .style("top", event.pageY - 28 + "px");
+
+          d3.select(this).attr("stroke", "#333").attr("stroke-width", 3);
+        })
+        .on("mouseout", function (d) {
+          d3.select("#tooltip").transition().duration(500).style("opacity", 0);
+          d3.select(this).attr("stroke", "#fff").attr("stroke-width", 2);
+        })
+        .on("click", function (event, d) {
+          updateInfoPanel(d);
+
+          if (d.group !== "category") {
+            speakWord(d.id);
+          }
+        });
+
+      // Add Text Labels
+      node
+        .append("text")
+        .attr("dy", (d) => (d.radius || 15) + 15)
+        .text((d) => (d.group === "category" ? "" : d.id))
+        .style("font-size", (d) => (d.group === "center" ? "12px" : "9px"))
+        .style("font-weight", (d) =>
+          d.group === "center" ? "bold" : "normal",
+        );
+
+      // --- 4. SIMULATION UPDATE ---
+      simulation.on("tick", () => {
+        link
+          .attr("x1", (d) => d.source.x)
+          .attr("y1", (d) => d.source.y)
+          .attr("x2", (d) => d.target.x)
+          .attr("y2", (d) => d.target.y);
+
+        node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+      });
+
+      // --- 5. DRAG FUNCTIONS ---
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+
+      // --- 6. INFO PANEL UPDATE ---
+      function updateInfoPanel(d) {
+        const panel = document.getElementById("info-panel");
+
+        if (d.group === "category") {
+          panel.innerHTML = `<h5 class="card-title text-muted">Select a Word</h5><p class="card-text">Click a colored node to see details.</p>`;
+          return;
+        }
+
+        const groupLabels = {
+          center: "Core Concept",
+          preparer: "Se préparer (Getting Ready)",
+          matin: "Le matin (Morning)",
+          apresmidi: "L'après-midi (Afternoon)",
+          soir: "Le soir (Evening)",
+          nuit: "La nuit (Night)",
+          taches: "Les tâches (Chores)",
+          loisir: "Les loisirs (Leisure)",
+          sortie: "Les sorties (Outings)",
+        };
+
+        let typeLabel = groupLabels[d.group] || d.group;
+        let translationText = d.translation ? `"${d.translation}"` : "";
+
+        let exampleHtml = "";
+        if (d.example) {
+          const frenchPart = d.example.split("<br>")[0].replace(/'/g, "\\'");
+          exampleHtml = `
+                <div class="alert alert-light border mt-3" style="background-color: #f8f9fa; cursor: pointer;" onclick="speakWord('${frenchPart}')" title="Click to listen">
+                    <small class="text-uppercase text-muted" style="font-size: 0.75rem; letter-spacing: 1px;">Context 🔊</small>
+                    <p class="mb-0 fst-italic text-dark">"${d.example}"</p>
+                </div>`;
+        } else {
+          exampleHtml = `
+                <div class="alert alert-warning border mt-3 p-2">
+                    <small class="text-muted">No example sentence available.</small>
+                </div>`;
+        }
+
+        panel.innerHTML = `
+            <h3 class="card-title" style="color:${colors[d.group]}">${d.id}</h3>
+            <h6 class="card-subtitle mb-2 text-muted">${typeLabel}</h6>
+            <p class="card-text fs-5">${translationText}</p>
+            <hr>
+            ${exampleHtml}
+        `;
+      }
+
+      function speakWord(word) {
+        if ("speechSynthesis" in window) {
+          const utterance = new SpeechSynthesisUtterance(word);
+          utterance.lang = "fr-FR";
+          utterance.rate = 0.9;
+          window.speechSynthesis.speak(utterance);
+        } else {
+          console.log("Browser does not support text-to-speech");
+        }
+      }
+    </script>
+  </body>
+</html>

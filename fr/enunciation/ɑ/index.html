@@ -1,0 +1,268 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Phonetic Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <style>
+      .sub {
+        font-weight: bold;
+        background-color: #e9ffff;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-enun.js?v=260225"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French /ɑ/</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Spacer preserved after removing the audio player -->
+        <div class="mb-2" aria-hidden="true"></div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em; margin-top: 0">
+          <i>Click on the words to hear the pronunciation.</i>
+        </p>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title">
+            <i class="bi bi-book"></i> &nbsp;â, -as ending
+          </div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2" class="blue">â</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio1')">âge /ɑʒ/</td>
+                <td>age</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio2')">âme /ɑm/</td>
+                <td>soul</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio3')">bâtard /bɑtaʀ/</td>
+                <td>bastard</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio4')">bâtiment /bɑtimɑ̃/</td>
+                <td>building</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio5')">bâton /bɑtɔ̃/</td>
+                <td>stick</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio6')">câble /kɑbl/</td>
+                <td>cable</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio7')">câlin /kɑlɛ̃/</td>
+                <td>cuddly</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio8')">château /ʃɑto/</td>
+                <td>castle</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio9')">crânien /kʀɑnjɛ̃/</td>
+                <td>skull</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio10')">dégâts /deɡɑ/</td>
+                <td>damage</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio11')">gâteau /ɡɑto/</td>
+                <td>cake</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio12')">gâter /ɡɑte/</td>
+                <td>to spoil</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio13')">hâte /ɑt/</td>
+                <td>to be eager / in a hurry</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio14')">lâcher /lɑʃe/</td>
+                <td>to let go of / fail / drop</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio15')">mâché /mɑʃe/</td>
+                <td>chewed</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio16')">mâle /mɑl/</td>
+                <td>male</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio17')">pâte /pɑt/</td>
+                <td>pastry / dough</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio18')">plâtre /plɑtʀ/</td>
+                <td>plaster</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio19')">râpé /ʀɑpe/</td>
+                <td>grated</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio20')">râteau /ʀɑto/</td>
+                <td>rake</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio21')">tâter /tɑte/</td>
+                <td>to feel</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio22')">théâtre /teɑtʀ/</td>
+                <td>theatre</td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="2" class="blue">-as endings</td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio23')">bas /bɑ/</td>
+                <td>low / bottom</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio24')">cas /kɑ/</td>
+                <td>case</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio25')">las /lɑ/</td>
+                <td>tired</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio26')">mas /mɑ(s)/</td>
+                <td>farmhouse</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio27')">pas /pɑ/</td>
+                <td>not</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio28')">passe /pɑs/</td>
+                <td>pass</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio29')">tas /tɑ/</td>
+                <td>heap</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="audio1" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/01-âge.m4a"></audio>
+    <audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/02-âme.m4a"></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/03-bâtard.m4a"></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/04-bâtiment.m4a"></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/05-bâton.m4a"></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/06-câble.m4a"></audio>
+    <audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/07-câlin.m4a"></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/08-château.m4a"></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/09-crânien.m4a"></audio>
+    <audio id="audio10" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/10-dégâts.m4a"></audio>
+    <audio id="audio11" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/11-gâteau.m4a"></audio>
+    <audio id="audio12" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/12-gâter.m4a"></audio>
+    <audio id="audio13" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/13-hâte.m4a"></audio>
+    <audio id="audio14" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/14-lâcher.m4a"></audio>
+    <audio id="audio15" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/15-mâché.m4a"></audio>
+    <audio id="audio16" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/16-mâle.m4a"></audio>
+    <audio id="audio17" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/17-pâte.m4a"></audio>
+    <audio id="audio18" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/18-plâtre.m4a"></audio>
+    <audio id="audio19" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/19-râpé.m4a"></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/20-râteau.m4a"></audio>
+    <audio id="audio21" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/21-tâter.m4a"></audio>
+    <audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/22-théâtre.m4a"></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/23-bas.m4a"></audio>
+    <audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/24-cas.m4a"></audio>
+    <audio id="audio25" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/25-las.m4a"></audio>
+    <audio id="audio26" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/26-mas.m4a"></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/27-pas.m4a"></audio>
+    <audio id="audio28" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/28-passe.m4a"></audio>
+    <audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ/29-tas.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/phonetic.js"></script>
+  </body>
+</html>

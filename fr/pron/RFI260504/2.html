@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../../assets/js/nav-pron.js?v=260507"
+    ></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - May 4, 2026</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" data-clip="1"
+              >Par ailleurs, nous avons appris</span
+            >
+            <span class="chunk" data-clip="2"> qu'une explosion,</span>
+            <span class="chunk" data-clip="3"> suivie d'un incendie,</span>
+            <span class="chunk" data-clip="4"> a frappé, dans la journée,</span>
+            <span class="chunk" data-clip="5">
+              un navire sud-coréen qui naviguait</span
+            >
+            <span class="chunk" data-clip="6"> dans le détroit d'Ormuz.</span>
+            <span class="chunk" data-clip="7">
+              C'est ce qu'annonce le ministère</span
+            >
+            <span class="chunk" data-clip="8">
+              des Affaires étrangères de la Corée du Sud.
+            </span>
+            <span class="chunk" data-clip="9"> Il n'y a pas de victimes</span>
+            <span class="chunk" data-clip="10"> à l'heure actuelle.</span>
+            <span class="chunk" data-clip="11"> Pas plus d'informations.</span>
+            <span class="chunk" data-clip="12">
+              Depuis le début de cette guerre,</span
+            >
+            <span class="chunk" data-clip="13"> des milliers de morts,</span>
+            <span class="chunk" data-clip="14">
+              surtout en Iran et au Liban.</span
+            >
+            <span class="chunk" data-clip="15"> À l'heure actuelle,</span>
+            <span class="chunk" data-clip="16">
+              des combats sont en cours dans une localité</span
+            >
+            <span class="chunk" data-clip="17">
+              frontalière du sud-Liban avec Israël,</span
+            >
+            <span class="chunk" data-clip="18">
+              la localité de Deir Seryan;</span
+            >
+            <span class="chunk" data-clip="19">
+              combats entre le Hezbollah
+            </span>
+            <span class="chunk" data-clip="20"> et l'armée israélienne.</span>
+            <span class="chunk" data-clip="21">
+              C'est le pays le plus européen</span
+            >
+            <span class="chunk" data-clip="22">
+              parmi les pays non européens.</span
+            >
+            <span class="chunk" data-clip="23"> C'est avec ces mots,</span>
+            <span class="chunk" data-clip="24"> cette expression,</span>
+            <span class="chunk" data-clip="25">
+              que Mark Carney décrit son pays, le Canada.
+            </span>
+            <span class="chunk" data-clip="26">
+              Une formule qui prend, aujourd'hui,</span
+            >
+            <span class="chunk" data-clip="27"> tout son sens.</span>
+            <span class="chunk" data-clip="28">
+              Le Premier ministre canadien</span
+            >
+            <span class="chunk" data-clip="29"> participe au sommet</span>
+            <span class="chunk" data-clip="30">
+              de la communauté politique européenne.
+            </span>
+            <span class="chunk" data-clip="31">
+              C'est en Arménie, à Erevan.</span
+            >
+            <span class="chunk" data-clip="32">
+              Une première pour un dirigeant</span
+            >
+            <span class="chunk" data-clip="33"> non européen.</span>
+            <span class="chunk" data-clip="34"> À Montréal pour RFI,</span>
+            <span class="chunk" data-clip="35"> le récit de Nafi Alibert.</span>
+            <span class="chunk" data-clip="36">
+              Dans l'actualité internationale,</span
+            >
+            <span class="chunk" data-clip="37">
+              ces élections locales en Inde.</span
+            >
+            <span class="chunk" data-clip="38">
+              Plus de 36 millions d'électeurs</span
+            >
+            <span class="chunk" data-clip="39"> appelés à élire leurs</span>
+            <span class="chunk" data-clip="40"> 294 représentants</span>
+            <span class="chunk" data-clip="41"> au Bengale occidental.</span>
+            <span class="chunk" data-clip="42">
+              Le Premier ministre indien affirme, déjà,
+            </span>
+            <span class="chunk" data-clip="43">
+              que son mouvement politique,</span
+            >
+            <span class="chunk" data-clip="44">
+              le BJP, a remporté cette élection.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Furthermore, we have learned that an explosion, followed by a
+              fire, struck during the day a South Korean ship that was sailing
+              in the Strait of Hormuz. That is what the South Korean Ministry of
+              Foreign Affairs is announcing. There are no casualties at this
+              time. No further information. Since the beginning of this war,
+              thousands of deaths, mostly in Iran and Lebanon. At this time,
+              fighting is ongoing in a border town in southern Lebanon near
+              Israel, the town of Deir Seryan; fighting between Hezbollah and
+              the Israeli army. It is the most European country among
+              non-European countries. It is with these words, this expression,
+              that Mark Carney describes his country, Canada. A phrase that
+              today takes on its full meaning. The Canadian Prime Minister is
+              taking part in the summit of the European Political Community. It
+              is being held in Armenia, in Yerevan. A first for a non-European
+              leader. From Montreal for RFI, the report of Nafi Alibert. In
+              international news, these local elections in India. More than 36
+              million voters called to elect their 294 representatives in West
+              Bengal. The Indian Prime Minister already claims that his
+              political movement, the BJP, has won this election.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" data-clip="45">par ailleurs /paʀ.a.jœʀ/</td>
+                <td>moreover, furthermore</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="46">apprendre (que) /a.pʀɑ̃.dʀ/</td>
+                <td>to learn (that), to find out</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="47">explosion /ɛksplozjɔ̃/</td>
+                <td>explosion</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="48">suivre /sɥivʀ/</td>
+                <td>to follow</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="49">incendie /ɛ̃.sɑ̃.di/</td>
+                <td>(large) fire</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="50">frappé /fʀape/</td>
+                <td>struck</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="51">naviguer /na.vi.ɡe/</td>
+                <td>to sail</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="52">annoncer /anɔ̃se/</td>
+                <td>announce</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="53">ministère /mi.nis.tɛʀ/</td>
+                <td>ministry</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="54">
+                  Affaires étrangères /a.fɛʀ.ze.tʀɑ̃.ʒɛʀ/
+                </td>
+                <td>Foreign Affairs</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="55">Corée du Sud /kɔʀe.dy.syd/</td>
+                <td>South Korea</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="56">victime /vik.tim/</td>
+                <td>victim, casualty</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="57">
+                  à l’heure actuelle /a.lœʀ.ak.tɥɛl/
+                </td>
+                <td>currently, at this time</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="58">
+                  des milliers de /de.mi.je.də/
+                </td>
+                <td>thousands of</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="59">surtout /syʀ.tu/</td>
+                <td>mainly, especially, above all</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="60">en cours /ɑ̃.kuʀ/</td>
+                <td>ongoing, in progress</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="61">localité /lɔkalite/</td>
+                <td>locality</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="62">
+                  frontalier(ère) /fʀɔ̃.ta.lje/
+                </td>
+                <td>border (adj.), frontier</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="63">combat /kɔ̃ba/</td>
+                <td>fighting</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="64">parmi /paʀ.mi/</td>
+                <td>among</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="65">décrire /dekʀiʀ/</td>
+                <td>to describe</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="66">formule /fɔʀ.myl/</td>
+                <td>expression, phrase</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="67">
+                  prendre tout son sens /pʀɑ̃dʀ.tu.sɔ̃.sɑ̃s/
+                </td>
+                <td>to take on its full meaning</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="68">sommet /sɔ.mɛ/</td>
+                <td>summit</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="69">communauté /kɔ.my.no.te/</td>
+                <td>community</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="70">dirigeant(e) /di.ʀi.ʒɑ̃/</td>
+                <td>leader</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="71">récit /ʀesi/</td>
+                <td>story</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="72">électeur /elɛktœʀ/</td>
+                <td>voter</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="73">élire /e.liʀ/</td>
+                <td>to elect</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="74">représentant /ʀ(ə)pʀezɑ̃tɑ̃/</td>
+                <td>rep</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="75">occidental /ɔksidɑ̃tal/</td>
+                <td>western</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="76">mouvement /muvmɑ̃/</td>
+                <td>movement</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="77">remporter /ʀɑ̃.pɔʀ.te/</td>
+                <td>to win</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Page Navigation -->
+      <div style="text-align: center; margin: 24px 0 8px">
+        <a
+          href="index.html"
+          class="btn btn-outline-primary"
+          style="margin: 0 6px; min-width: 42px"
+          >1</a
+        >
+        <a
+          href="2.html"
+          class="btn btn-primary"
+          style="margin: 0 6px; min-width: 42px"
+          >2</a
+        >
+      </div>
+    </div>
+
+    <!-- Single reusable audio element for clips -->
+    <audio id="clipPlayer"></audio>
+
+    <!-- Audio configuration for this page -->
+    <script>
+      window.AUDIO_CONFIG = {
+        basePath: "https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI260504/2",
+        fullAudio: "audio.mp3",
+      };
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,563 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - January 30, 2025</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              L'autre actualité américaine,</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              c'est cette collision aérienne</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              entre un avion de ligne</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              et un hélicoptère, hier soir, à Washington.</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              Le bilan potentiel s'élève, désormais,</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              à 67 morts.</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              Donald Trump, président américain,</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              doit prendre la parole</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              d'un moment à l'autre à ce sujet.</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              Refermons ce journal</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              en Australie,</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              où l'Australie vient de franchir</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              un cap symbolique</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              dans la lutte contre</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              le réchauffement climatique.</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              Pour la première fois de son histoire,</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              moins de 50 %</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              de l'électricité</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              produite en Australie</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              provient de centrales à charbon,</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              tandis que la part</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              des énergies renouvelables, elle,</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              atteint un niveau record</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')"> de 46 %.</span>
+            <span class="chunk" onclick="playAudio('audio25')">
+              Des résultats</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              très encourageants</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              pour le gouvernement.</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              Grégory Plesse est à Sydney pour RFI.
+            </span>
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              The other American news is the mid-air collision between an
+              airliner and a helicopter last night in Washington. The potential
+              death toll now stands at 67. Donald Trump, the American president,
+              is due to speak on this subject at any moment. Let's close this
+              newspaper in Australia, where Australia has just reached a
+              symbolic milestone in the fight against global warming. For the
+              first time in its history, less than 50% of Australia's
+              electricity comes from coal-fired power plants, while the share of
+              renewables is at a record high of 46%. These are very encouraging
+              results for the government. Grégory Plesse is in Sydney for RFI.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio29')">
+                  collision /kɔlizjɔ̃/
+                </td>
+                <td>collision</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio30')">
+                  aérienne /aeʀjɛn/
+                </td>
+                <td>air / airline</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio31')">
+                  ligne /liɲ/
+                </td>
+                <td>line</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio32')">
+                  potentiel /pɔtɑ̃sjɛl/
+                </td>
+                <td>potential</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio33')">
+                  élever /el(ə)ve/
+                </td>
+                <td>to raise</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio34')">
+                  élève /elɛv/
+                </td>
+                <td>to raise</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio35')">
+                  désormais /dezɔʀmɛ/
+                </td>
+                <td>from now on</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio36')">
+                  parole /paʀɔl/
+                </td>
+                <td>speech</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio37')">
+                  refermer /ʀ(ə)fɛʀme/
+                </td>
+                <td>to close again</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio38')">
+                  Refermons /ʀ(ə)fɛʀmɑ̃/
+                </td>
+                <td>Let's close</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  Australie /ostʀali/
+                </td>
+                <td>Australia</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">
+                  franchir /fʀɑ̃ʃiʀ/
+                </td>
+                <td>to cross/get over</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">cap /kap/</td>
+                <td>milestone</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  symbolique /sɛ̃bɔlik/
+                </td>
+                <td>symbolic</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  lutte /lyt/
+                </td>
+                <td>fight</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44a')">
+                  réchauffement /ʀeʃofmɑ̃/
+                </td>
+                <td>warming</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  climatique /klimatik/
+                </td>
+                <td>climate</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  histoire /istwaʀ/
+                </td>
+                <td>history / story</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  produire /pʀɔdɥiʀ/
+                </td>
+                <td>to produce</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  produite /pʀɔdɥit/
+                </td>
+                <td>to produce</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  provenir /pʀɔv(ə)niʀ/
+                </td>
+                <td>to come from</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  provient /pʀɔvjɛ̃/
+                </td>
+                <td>to come from</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  centrale /sɑ̃tʀal/
+                </td>
+                <td>power station</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  charbon /ʃaʀbɔ̃/
+                </td>
+                <td>coal</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  tandis /tɑ̃di/
+                </td>
+                <td>while</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">part /paʀ/</td>
+                <td>share</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  énergie /enɛʀʒi/
+                </td>
+                <td>energy / power</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  renouvelable /ʀ(ə)nuv(ə)labl/
+                </td>
+                <td>renewable</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  atteindre /atɛ̃dʀ/
+                </td>
+                <td>to reach</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  atteint /atɛ̃/
+                </td>
+                <td>to reach</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  niveau /nivo/
+                </td>
+                <td>level</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  résultat /ʀezylta/
+                </td>
+                <td>result</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  encourageant /ɑ̃kuʀaʒɑ̃/
+                </td>
+                <td>encouraging</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/01-L'autre actualité américaine.m4a"
+    ></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/02-c'est cette collision aérienne.m4a"
+    ></audio>
+    <audio
+      id="audio3"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/03-entre un avion de ligne.m4a"
+    ></audio>
+    <audio
+      id="audio4"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/04-et un hélicoptère, hier soir, à Washington.m4a"
+    ></audio>
+    <audio
+      id="audio5"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/05-Le bilan potentiel s'élève, désormais.m4a"
+    ></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/06-à 67 morts.m4a"></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/07-Donald Trump, président américain.m4a"
+    ></audio>
+    <audio
+      id="audio8"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/08-doit prendre la parole.m4a"
+    ></audio>
+    <audio
+      id="audio9"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/09-d'un moment à l'autre à ce sujet.m4a"
+    ></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/10-Refermons ce journal.m4a"
+    ></audio>
+    <audio id="audio11" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/11-en Australie.m4a"></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/12-où l'Australie vient de franchir.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/13-un cap symbolique.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/14-dans la lutte contre.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/15-le réchauffement climatique.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/16-Pour la première fois de son histoire.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/17-moins de 50 pour cent.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/18-de l'électricité.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/19-produite en Australie.m4a"
+    ></audio>
+    <audio
+      id="audio20"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/20-provient de centrales à charbon.m4a"
+    ></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/21-tandis que la part.m4a"
+    ></audio>
+    <audio
+      id="audio22"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/22-des énergies renouvelables, elle.m4a"
+    ></audio>
+    <audio
+      id="audio23"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/23-atteint un niveau record.m4a"
+    ></audio>
+    <audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/24-de 46 pour cent.m4a"></audio>
+    <audio id="audio25" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/25-Des résultats.m4a"></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/26-très encourageants.m4a"
+    ></audio>
+    <audio
+      id="audio27"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/27-pour le gouvernement.m4a"
+    ></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/28-Grégory Plesse est à Sydney pour RFI.m4a"
+    ></audio>
+    <audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/29-collision.m4a"></audio>
+    <audio id="audio30" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/30-aérienne.m4a"></audio>
+    <audio id="audio31" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/31-ligne.m4a"></audio>
+    <audio id="audio32" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/32-potentiel.m4a"></audio>
+    <audio id="audio33" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/33-élever.m4a"></audio>
+    <audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/34-élève.m4a"></audio>
+    <audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/35-désormais.m4a"></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/36-parole.m4a"></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/37-refermer.m4a"></audio>
+    <audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/38-Refermons.m4a"></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/39-Australie.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/40-franchir.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/41-cap.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/42-symbolique.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/43-lutte.m4a"></audio>
+    <audio id="audio44a" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/44a-réchauffement.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/45-climatique.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/46-histoire.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/47-produire.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/48-produite.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/49-provenir.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/50-provient.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/51-centrale.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/52-charbon.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/53-tandis.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/54-part.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/55-energie.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/56-renouvelable.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/57-atteindre.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/58-atteint.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/59-niveau.m4a"></audio>
+    <audio id="audio60" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/60-résultat.m4a"></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/61-encourageant.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130-2/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

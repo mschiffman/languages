@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cloze Test: Table Manners</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../../assets/css/cloze.css" />
+  </head>
+  <body>
+    <div class="quiz-container">
+      <h2>🍽️ À Table ! (Quiz)</h2>
+      <p class="text-center text-muted mb-4">
+        Fill in the missing noun, verb, or adjective.
+      </p>
+
+      <div id="quiz-form">
+        <div class="sentence-item">
+          1. Pour piquer la viande, j'utilise ma
+          <input type="text" class="cloze-input" data-answer="fourchette" />.
+        </div>
+
+        <div class="sentence-item">
+          2. Le couteau sert à
+          <input type="text" class="cloze-input" data-answer="couper" />
+          le steak.
+        </div>
+
+        <div class="sentence-item">
+          3. Je mange ma soupe avec une
+          <input type="text" class="cloze-input" data-answer="cuillère" />.
+        </div>
+
+        <div class="sentence-item">
+          4. Au Japon, on mange souvent avec des
+          <input type="text" class="cloze-input" data-answer="baguettes" />.
+        </div>
+
+        <div class="sentence-item">
+          5. Je prends le couteau pour
+          <input type="text" class="cloze-input" data-answer="tartiner" />
+          du beurre sur mon pain.
+        </div>
+
+        <div class="sentence-item">
+          6. Attention, la
+          <input type="text" class="cloze-input" data-answer="lame" />
+          du couteau est très coupante (sharp).
+        </div>
+
+        <div class="sentence-item">
+          7. Une fourchette a généralement quatre
+          <input type="text" class="cloze-input" data-answer="dents" />.
+        </div>
+
+        <div class="sentence-item">
+          8. "Mettre la table" signifie placer les
+          <input type="text" class="cloze-input" data-answer="couverts" />.
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <button class="btn btn-success" onclick="checkAnswers()">
+          Check Answers
+        </button>
+        <button class="btn btn-secondary" onclick="resetQuiz()">Reset</button>
+      </div>
+
+      <div
+        id="score-display"
+        style="
+          text-align: center;
+          margin-top: 20px;
+          font-weight: bold;
+          color: #2c3e50;
+        "
+      ></div>
+    </div>
+
+    <script>
+      function checkAnswers() {
+        const inputs = document.querySelectorAll(".cloze-input");
+        let correctCount = 0;
+
+        inputs.forEach((input) => {
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswer = input.getAttribute("data-answer").toLowerCase();
+
+          // Handle "cuillère" vs "cuillere" (accent forgiveness)
+          const cleanUser = userAnswer
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+          const cleanCorrect = correctAnswer
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+
+          if (cleanUser === cleanCorrect) {
+            input.classList.add("correct");
+            input.classList.remove("wrong");
+            correctCount++;
+          } else {
+            input.classList.add("wrong");
+            input.classList.remove("correct");
+          }
+        });
+
+        const scoreDiv = document.getElementById("score-display");
+        if (correctCount === inputs.length) {
+          scoreDiv.innerHTML = "🎉 Excellent! 8/8 Correct.";
+          scoreDiv.style.color = "#27ae60";
+        } else {
+          scoreDiv.innerHTML = `Score: ${correctCount} / ${inputs.length}`;
+          scoreDiv.style.color = "#c0392b";
+        }
+      }
+
+      function resetQuiz() {
+        const inputs = document.querySelectorAll(".cloze-input");
+        inputs.forEach((input) => {
+          input.value = "";
+          input.classList.remove("correct", "wrong");
+        });
+        document.getElementById("score-display").innerHTML = "";
+      }
+    </script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

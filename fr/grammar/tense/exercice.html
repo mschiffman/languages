@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" prêt="width=device-width, initial-scale=1.0" />
+    <title>French Sentence Builder</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      .fade-in {
+        animation: fadeIn 0.5s ease-in;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .section-divider {
+        border-top: 2px solid #dee2e6;
+        margin: 2rem 0;
+        padding-top: 1.5rem;
+      }
+      .incorrect-word {
+        color: #dc3545;
+        text-decoration: line-through;
+      }
+      .correct-answer {
+        color: #198754;
+        font-weight: 500;
+      }
+      .error-feedback {
+        margin-top: 0.5rem;
+      }
+      img {
+        max-width: 900px;
+        width: 100%;
+        height: auto;
+      }
+      .pic {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        border-left: 4px solid #6735dc;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <!-- Top Navbar -->
+    <nav
+      class="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top"
+    >
+      <div class="container-lg">
+        <button
+          class="btn btn-outline-secondary me-2"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+          aria-label="Open menu"
+        >
+          <i class="bi bi-list" style="font-size: 1.5rem"></i>
+        </button>
+        <a class="navbar-brand fw-semibold" href="#"
+          >French Tenses - Exercise</a
+        >
+      </div>
+    </nav>
+
+    <!-- Offcanvas Sidebar -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="sidebarMenu"
+      aria-labelledby="sidebarMenuLabel"
+    >
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column pt-3">
+        <div class="list-group list-group-flush" id="sidebar-accordion">
+          <!-- Sidebar prêt populated dynamically via nav-tense.js -->
+        </div>
+      </div>
+    </div>
+
+    <main class="container-lg py-5">
+      <h3>Revision</h3>
+      <p class="pic">
+        <img src="/img/timeline.jpg" alt="" />
+      </p>
+      <div
+        class="container bg-white p-4 rounded shadow-sm"
+        style="max-width: 600px"
+      >
+        <h3 class="mb-4 border-bottom pb-2">French Tenses - Exercise</h3>
+
+        <!-- Section 1 -->
+        <div id="section-1">
+          <h5 class="text-muted mb-3">Section 1</h5>
+          <div id="exercise-container-1"></div>
+          <div id="more-btn-1" class="text-center mt-4 d-none">
+            <button class="btn btn-primary" onclick="loadSection(2)">
+              More
+            </button>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div id="section-2" class="d-none section-divider">
+          <h5 class="text-muted mb-3">Section 2</h5>
+          <div id="exercise-container-2"></div>
+          <div id="more-btn-2" class="text-center mt-4 d-none">
+            <button class="btn btn-primary" onclick="loadSection(3)">
+              More
+            </button>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div id="section-3" class="d-none section-divider">
+          <h5 class="text-muted mb-3">Section 3</h5>
+          <div id="exercise-container-3"></div>
+        </div>
+
+        <!-- Final completion message -->
+        <div id="final-completion" class="text-center mt-4 d-none">
+          <h4 class="text-success">
+            Excellent! You've completed all exercises!
+          </h4>
+          <button
+            class="btn btn-outline-primary btn-sm mt-2"
+            onclick="restartAll()"
+          >
+            Restart All
+          </button>
+        </div>
+      </div>
+
+      <script>
+        const allExerciseData = {
+          // 1. ÊTRE (To Be) - Context: Being ready
+          1: [
+            {
+              label: "Step 1 (Présent): Say 'I am ready.'",
+              answers: ["Je suis prêt.", "Je suis prête."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je suis</span> prêt.",
+            },
+            {
+              label: "Step 2 (Passé Composé): Say 'I was ready.'",
+              answers: ["J'ai été prêt.", "J'ai été prête."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'ai été</span> prêt.",
+            },
+            {
+              label: "Step 3 (Imparfait): Say 'I used to be ready.'",
+              answers: ["J'étais prêt.", "J'étais prête."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'étais</span> prêt.",
+            },
+            {
+              label: "Step 4 (Plus-que-parfait): Say 'I had been ready.'",
+              answers: ["J'avais été prêt.", "J'avais été prête."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'avais été</span> prêt.",
+            },
+            {
+              label: "Step 5 (Futur): Say 'I will be ready.'",
+              answers: ["Je serai prêt.", "Je serai prête."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je serai</span> prêt.",
+            },
+            {
+              label: "Step 6 (Futur proche): Say 'I will be ready.'",
+              answers: ["Je vais être prêt.", "Je vais être prête."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je vais être</span> prêt.",
+            },
+            {
+              label: "Step 7 (Conditional): Say 'I would be ready.'",
+              answers: ["Je serais prêt.", "Je serais prête."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je serais</span> prêt.",
+            },
+            {
+              label: "Step 8 (Subjunctive): Say '...that I be ready.'",
+              answers: ["que je sois prêt.", "que je sois prête."],
+              formatted:
+                "...<span class='text-primary fw-bold'>que je sois</span> prêt.",
+            },
+          ],
+
+          // 2. AVOIR (To Have) - Context: Having a cat
+          2: [
+            {
+              label: "Step 1 (Present): Say 'I have a cat.'",
+              answers: ["J'ai un chat."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'ai</span> un chat.",
+            },
+            {
+              label: "Step 2 (Passé Composé): Say 'I had a cat.'",
+              answers: ["J'ai eu un chat."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'ai eu</span> un chat.",
+            },
+            {
+              label: "Step 3 (Imperfect): Say 'I used to have a cat.'",
+              answers: ["J'avais un chat."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'avais</span> un chat.",
+            },
+            {
+              label: "Step 4 (Plus-que-parfait): Say 'I had had a cat.'",
+              answers: ["J'avais eu un chat."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'avais eu</span> un chat.",
+            },
+            {
+              label: "Step 5 (Future): Say 'I will have a cat.'",
+              answers: ["J'aurai un chat."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'aurai</span> un chat.",
+            },
+            {
+              label: "Step 6 (Conditional): Say 'I would have a cat.'",
+              answers: ["J'aurais un chat."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'aurais</span> un chat.",
+            },
+            {
+              label: "Step 7 (Subjunctive): Say '...that I have a cat.'",
+              answers: ["que j'aie un chat", "que j'aie un chat."],
+              formatted:
+                "...<span class='text-primary fw-bold'>que j'aie</span> un chat.",
+            },
+          ],
+
+          // 3. ALLER (To Go) - Context: Going to the park
+          3: [
+            {
+              label: "Step 1 (Present): Say 'I am going to the park.'",
+              answers: ["Je vais au parc."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je vais</span> au parc.",
+            },
+            {
+              label: "Step 2 (Passé Composé): Say 'I went to the park.'",
+              answers: ["Je suis allé au parc.", "Je suis allée au parc."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je suis allé</span> au parc.",
+            },
+            {
+              label: "Step 3 (Imperfect): Say 'I was going to the park.'",
+              answers: ["J'allais au parc."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'allais</span> au parc.",
+            },
+            {
+              label: "Step 4 (Plus-que-parfait): Say 'I had gone to the park.'",
+              answers: ["J'étais allé au parc.", "J'étais allée au parc."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'étais allé</span> au parc.",
+            },
+            {
+              label: "Step 5 (Future): Say 'I will go to the park.'",
+              answers: ["J'irai au parc."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'irai</span> au parc.",
+            },
+            {
+              label: "Step 6 (Conditional): Say 'I would go to the park.'",
+              answers: ["J'irais au parc."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'irais</span> au parc.",
+            },
+            {
+              label: "Step 7 (Subjunctive): Say '...that I go to the park.'",
+              answers: ["que j'aille au parc", "que j'aille au parc."],
+              formatted:
+                "...<span class='text-primary fw-bold'>que j'aille</span> au parc.",
+            },
+          ],
+
+          // 4. FAIRE (To Do/Make) - Context: Making a cake
+          4: [
+            {
+              label: "Step 1 (Present): Say 'I am making a cake.'",
+              answers: ["Je fais un gâteau."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je fais</span> un gâteau.",
+            },
+            {
+              label: "Step 2 (Passé Composé): Say 'I made a cake.'",
+              answers: ["J'ai fait un gâteau."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'ai fait</span> un gâteau.",
+            },
+            {
+              label: "Step 3 (Imperfect): Say 'I was making a cake.'",
+              answers: ["Je faisais un gâteau."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je faisais</span> un gâteau.",
+            },
+            {
+              label: "Step 4 (Plus-que-parfait): Say 'I had made a cake.'",
+              answers: ["J'avais fait un gâteau."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'avais fait</span> un gâteau.",
+            },
+            {
+              label: "Step 5 (Future): Say 'I will make a cake.'",
+              answers: ["Je ferai un gâteau."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je ferai</span> un gâteau.",
+            },
+            {
+              label: "Step 6 (Conditional): Say 'I would make a cake.'",
+              answers: ["Je ferais un gâteau."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je ferais</span> un gâteau.",
+            },
+            {
+              label: "Step 7 (Subjunctive): Say '...that I make a cake.'",
+              answers: ["que je fasse un gâteau", "que je fasse un gâteau."],
+              formatted:
+                "...<span class='text-primary fw-bold'>que je fasse</span> un gâteau.",
+            },
+          ],
+
+          // 5. POUVOIR (To Can/Be Able) - Context: Coming
+          5: [
+            {
+              label: "Step 1 (Present): Say 'I can come.'",
+              answers: ["Je peux venir."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je peux</span> venir.",
+            },
+            {
+              label: "Step 2 (Passé Composé): Say 'I was able to come.'",
+              answers: ["J'ai pu venir."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'ai pu</span> venir.",
+            },
+            {
+              label:
+                "Step 3 (Imperfect): Say 'I could (used to be able to) come.'",
+              answers: ["Je pouvais venir."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je pouvais</span> venir.",
+            },
+            {
+              label:
+                "Step 4 (Plus-que-parfait): Say 'I had been able to come.'",
+              answers: ["J'avais pu venir."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'avais pu</span> venir.",
+            },
+            {
+              label: "Step 5 (Future): Say 'I will be able to come.'",
+              answers: ["Je pourrai venir."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je pourrai</span> venir.",
+            },
+            {
+              label:
+                "Step 6 (Conditional): Say 'I could (would be able to) come.'",
+              answers: ["Je pourrais venir."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je pourrais</span> venir.",
+            },
+            {
+              label: "Step 7 (Subjunctive): Say '...that I can come.'",
+              answers: ["que je puisse venir", "que je puisse venir."],
+              formatted:
+                "...<span class='text-primary fw-bold'>que je puisse</span> venir.",
+            },
+          ],
+
+          // 6. FINIR (To Finish) - Context: Finishing work (matches timeline.png)
+          6: [
+            {
+              label: "Step 1 (Présent): Say 'I am finishing the work.'",
+              answers: ["Je finis le travail."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je finis</span> le travail.",
+            },
+            {
+              label: "Step 2 (Passé Composé): Say 'I finished the work.'",
+              answers: ["J'ai fini le travail."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'ai fini</span> le travail.",
+            },
+            {
+              label:
+                "Step 3 (Imparfait): Say 'I was finishing the work (when…).'",
+              answers: ["Je finissais le travail."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je finissais</span> le travail.",
+            },
+            {
+              label:
+                "Step 4 (Plus-que-parfait): Say 'I had finished the work.'",
+              answers: ["J'avais fini le travail."],
+              formatted:
+                "<span class='text-primary fw-bold'>J'avais fini</span> le travail.",
+            },
+            {
+              label:
+                "Step 5 (Futur proche): Say 'I am going to finish the work.'",
+              answers: ["Je vais finir le travail."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je vais finir</span> le travail.",
+            },
+            {
+              label: "Step 6 (Futur simple): Say 'I will finish the work.'",
+              answers: ["Je finirai le travail."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je finirai</span> le travail.",
+            },
+            {
+              label:
+                "Step 7 (Conditionnel): Say 'I would finish the work (if…).'",
+              answers: ["Je finirais le travail."],
+              formatted:
+                "<span class='text-primary fw-bold'>Je finirais</span> le travail.",
+            },
+            {
+              label: "Step 8 (Subjonctif): Say '...that I finish the work.'",
+              answers: [
+                "que je finisse le travail",
+                "que je finisse le travail.",
+              ],
+              formatted:
+                "...<span class='text-primary fw-bold'>que je finisse</span> le travail.",
+            },
+          ],
+        };
+        const sectionState = {
+          1: { currentIndex: 0 },
+          2: { currentIndex: 0 },
+          3: { currentIndex: 0 },
+        };
+
+        /**
+         * Normalize input so answers are:
+         * - case-insensitive
+         * - apostrophe-insensitive (’ and ' treated the same)
+         * - punctuation-tolerant for '.' and '?'
+         * - whitespace-normalized
+         */
+        function normalizeAnswer(s) {
+          return (
+            (s ?? "")
+              .toLowerCase()
+              .trim()
+              // normalize apostrophes (curly → straight)
+              .replace(/[’‘]/g, "'")
+              // remove dots and question marks anywhere (so "..." or "??" won't matter)
+              .replace(/[.?]/g, "")
+              // collapse whitespace
+              .replace(/\s+/g, " ")
+              // remove spaces before punctuation that might remain (defensive)
+              .replace(/\s+([,;:!])/g, "$1")
+              .trim()
+          );
+        }
+
+        function getAcceptedAnswers(data) {
+          // Backward-compatible: if you ever leave "answer" as a string, we’ll accept it.
+          if (Array.isArray(data.answers)) return data.answers;
+          if (typeof data.answer === "string") return [data.answer];
+          return [];
+        }
+
+        function isCorrect(userAnswerRaw, data) {
+          const user = normalizeAnswer(userAnswerRaw);
+          const accepted = getAcceptedAnswers(data).map(normalizeAnswer);
+          return accepted.includes(user);
+        }
+
+        function loadSection(sectionNum) {
+          const sectionDiv = document.getElementById(`section-${sectionNum}`);
+          sectionDiv.classList.remove("d-none");
+          sectionDiv.classList.add("fade-in");
+          renderStep(sectionNum, 0);
+          sectionDiv.scrollIntoView({ behavior: "smooth" });
+        }
+
+        function renderStep(sectionNum, index) {
+          const exerciseData = allExerciseData[sectionNum];
+          const container = document.getElementById(
+            `exercise-container-${sectionNum}`,
+          );
+
+          if (index >= exerciseData.length) {
+            onSectionComplete(sectionNum);
+            return;
+          }
+
+          const data = exerciseData[index];
+          const stepId = `step-${sectionNum}-${index}`;
+
+          const rowHtml = `
+      <div class="mb-4 fade-in" id="row-${sectionNum}-${index}">
+        <label class="form-label text-muted small text-uppercase fw-bold">${data.label}</label>
+        <div class="input-group" id="group-${sectionNum}-${index}">
+          <input type="text"
+                 class="form-control form-control-lg"
+                 id="${stepId}"
+                 placeholder="Type here..."
+                 autocomplete="off">
+          <button class="btn btn-primary" type="button" onclick="checkAnswer(${sectionNum}, ${index})">Check</button>
+        </div>
+        <div id="success-${sectionNum}-${index}" class="d-none p-2 border rounded bg-light fs-4 text-center">
+          ${data.formatted}
+        </div>
+        <div id="feedback-${sectionNum}-${index}" class="invalid-feedback d-block"></div>
+      </div>
+    `;
+
+          container.insertAdjacentHTML("beforeend", rowHtml);
+
+          const input = document.getElementById(stepId);
+          input.focus();
+
+          input.addEventListener("input", function () {
+            // Clear invalid state as soon as the learner starts correcting.
+            input.classList.remove("is-invalid");
+            document.getElementById(
+              `feedback-${sectionNum}-${index}`,
+            ).innerHTML = "";
+          });
+
+          input.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              checkAnswer(sectionNum, index);
+            }
+          });
+        }
+
+        function generateErrorFeedback(userAnswer, correctAnswer) {
+          const userWords = userAnswer.trim().split(/\s+/);
+          const correctWords = correctAnswer.trim().split(/\s+/);
+
+          let markedUserHtml = "";
+          const maxLen = Math.max(userWords.length, correctWords.length);
+
+          for (let i = 0; i < userWords.length; i++) {
+            const userWord = userWords[i] || "";
+            const correctWord = correctWords[i] || "";
+
+            // Normalize for comparison (but display original)
+            const normalizedUser = normalizeAnswer(userWord);
+            const normalizedCorrect = normalizeAnswer(correctWord);
+
+            if (normalizedUser !== normalizedCorrect) {
+              markedUserHtml += `<span class="incorrect-word">${userWord}</span> `;
+            } else {
+              markedUserHtml += `${userWord} `;
+            }
+          }
+
+          return `
+      <div class="error-feedback">
+        <div>${markedUserHtml.trim()}</div>
+        <div class="correct-answer">${correctAnswer}</div>
+      </div>
+    `;
+        }
+
+        function checkAnswer(sectionNum, index) {
+          const input = document.getElementById(`step-${sectionNum}-${index}`);
+          const group = document.getElementById(`group-${sectionNum}-${index}`);
+          const successDiv = document.getElementById(
+            `success-${sectionNum}-${index}`,
+          );
+          const feedback = document.getElementById(
+            `feedback-${sectionNum}-${index}`,
+          );
+          const data = allExerciseData[sectionNum][index];
+
+          const userAnswer = input.value;
+
+          if (isCorrect(userAnswer, data)) {
+            group.classList.add("d-none");
+            successDiv.classList.remove("d-none");
+            feedback.innerHTML = "";
+            sectionState[sectionNum].currentIndex = index + 1;
+            renderStep(sectionNum, index + 1);
+          } else {
+            input.classList.add("is-invalid");
+            const correctAnswer = getAcceptedAnswers(data)[0]; // Use first accepted answer for comparison
+            feedback.innerHTML = generateErrorFeedback(
+              userAnswer,
+              correctAnswer,
+            );
+          }
+        }
+
+        function onSectionComplete(sectionNum) {
+          if (sectionNum < 3) {
+            const moreBtn = document.getElementById(`more-btn-${sectionNum}`);
+            moreBtn.classList.remove("d-none");
+            moreBtn.classList.add("fade-in");
+          } else {
+            const finalMsg = document.getElementById("final-completion");
+            finalMsg.classList.remove("d-none");
+            finalMsg.classList.add("fade-in");
+          }
+        }
+
+        function restartAll() {
+          for (let i = 1; i <= 3; i++) {
+            const container = document.getElementById(
+              `exercise-container-${i}`,
+            );
+            container.innerHTML = "";
+            sectionState[i].currentIndex = 0;
+
+            if (i > 1) {
+              document.getElementById(`section-${i}`).classList.add("d-none");
+            }
+
+            const moreBtn = document.getElementById(`more-btn-${i}`);
+            if (moreBtn) moreBtn.classList.add("d-none");
+          }
+          document.getElementById("final-completion").classList.add("d-none");
+          renderStep(1, 0);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        // Initialize Section 1
+        renderStep(1, 0);
+      </script>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script
+      type="module"
+      src="../../../assets/js/nav-tense.js?v=260131"
+    ></script>
+  </body>
+</html>

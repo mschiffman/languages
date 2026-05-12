@@ -1,0 +1,21 @@
+# Node dependencies
+node_modules/
+
+# Vite build output
+dist/
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment / config files
+.env
+.env.*
+
+# Optional: Editor or system cache
+.vscode/
+
+.gitmessage.txt

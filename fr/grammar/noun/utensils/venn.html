@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interactive Venn (Drag & Drop)</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Bootstrap + Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../../assets/css/venn.css" />
+  </head>
+
+  <body class="bg-light">
+    <div class="container py-4">
+      <h1 class="h3 mb-2">Drag & Drop Venn</h1>
+      <p class="text-muted mb-3">
+        Drag each word into <strong>Left</strong>,
+        <strong>Middle</strong> (overlap), or <strong>Right</strong>. You can
+        rearrange anytime.
+      </p>
+
+      <!-- WORD BANK -->
+      <div class="mb-3">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <div class="fw-semibold">Word bank</div>
+          <div class="small text-muted">
+            Tip: You can drag words back here too.
+          </div>
+        </div>
+        <div id="bank" class="bank" data-zone="bank"></div>
+      </div>
+
+      <!-- VENN -->
+      <div class="card shadow-sm mb-3">
+        <div class="card-body">
+          <div class="venn-wrap">
+            <div class="circle left">Fourchette</div>
+            <div class="circle right">Couteau</div>
+
+            <!-- Drop zones (hit areas) -->
+            <div
+              class="drop-zone zone-left"
+              data-zone="left"
+              aria-label="Drop zone left"
+            ></div>
+            <div
+              class="drop-zone zone-mid"
+              data-zone="mid"
+              aria-label="Drop zone middle"
+            ></div>
+            <div
+              class="drop-zone zone-right"
+              data-zone="right"
+              aria-label="Drop zone right"
+            ></div>
+
+            <!-- Actual piles where items appear -->
+            <div id="pile-left" class="pile pile-left" data-zone="left"></div>
+            <div id="pile-mid" class="pile pile-mid" data-zone="mid"></div>
+            <div
+              id="pile-right"
+              class="pile pile-right"
+              data-zone="right"
+            ></div>
+
+            <div class="hint">Left-only • Overlap (Middle) • Right-only</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="d-flex gap-2">
+        <button id="checkBtn" class="btn btn-primary px-4">
+          <i class="bi bi-check2-circle me-2"></i>Check answers
+        </button>
+        <button id="resetBtn" class="btn btn-secondary px-4">
+          <i class="bi bi-arrow-counterclockwise me-2"></i>Reset
+        </button>
+      </div>
+
+      <p class="small text-muted mt-3 mb-0">
+        Note: This uses HTML5 drag/drop (great on desktop). If you want
+        **reliable mobile touch dragging**, tell me and I’ll give you a tiny
+        add-on using a lightweight library.
+      </p>
+    </div>
+
+    <script>
+      /***************
+       * CONFIG
+       ***************/
+      const words = [
+        "quatre dents",
+        "ustensile",
+        "couper",
+        "les couverts",
+        "tartiner",
+        "aiguiser",
+        "enrouler",
+        "en inox",
+        "la lame",
+        "piquer",
+        "pâtes",
+      ];
+
+      // Answer key: left | mid | right
+      // Adjust freely to match your lesson.
+      const answerKey = {
+        "quatre dents": "left",
+        "la lame": "right",
+        couper: "right",
+        tartiner: "right",
+        aiguiser: "right",
+        enrouler: "left",
+        ustensile: "mid",
+        "les couverts": "mid",
+        "en inox": "mid",
+        piquer: "left",
+        pâtes: "left",
+      };
+
+      /***************
+       * HELPERS
+       ***************/
+      const bank = document.getElementById("bank");
+      const piles = {
+        left: document.getElementById("pile-left"),
+        mid: document.getElementById("pile-mid"),
+        right: document.getElementById("pile-right"),
+        bank: bank,
+      };
+
+      function makePill(text) {
+        const pill = document.createElement("div");
+        pill.className = "word-pill";
+        pill.draggable = true;
+        pill.dataset.word = text;
+
+        const label = document.createElement("span");
+        label.textContent = text;
+
+        const mark = document.createElement("span");
+        mark.className = "mark";
+        mark.innerHTML = ""; // ✅/❌ goes here
+
+        pill.appendChild(label);
+        pill.appendChild(mark);
+
+        pill.addEventListener("dragstart", (e) => {
+          e.dataTransfer.setData("text/plain", text);
+          e.dataTransfer.effectAllowed = "move";
+        });
+
+        return pill;
+      }
+
+      function clearMarks() {
+        document.querySelectorAll(".word-pill").forEach((pill) => {
+          pill.classList.remove("is-correct", "is-wrong");
+          const mark = pill.querySelector(".mark");
+          mark.innerHTML = "";
+        });
+      }
+
+      function zoneOfWord(word) {
+        const pill = document.querySelector(
+          `.word-pill[data-word="${CSS.escape(word)}"]`,
+        );
+        if (!pill) return "bank";
+        const parent = pill.parentElement;
+        return parent?.dataset?.zone || "bank";
+      }
+
+      function moveWordToZone(word, zone) {
+        const pill = document.querySelector(
+          `.word-pill[data-word="${CSS.escape(word)}"]`,
+        );
+        if (!pill) return;
+        piles[zone].appendChild(pill);
+      }
+
+      /***************
+       * DRAG/DROP WIRING
+       ***************/
+      function wireDropTarget(el, zoneName) {
+        el.addEventListener("dragover", (e) => {
+          e.preventDefault();
+          el.classList.add("drag-over");
+          e.dataTransfer.dropEffect = "move";
+        });
+
+        el.addEventListener("dragleave", () =>
+          el.classList.remove("drag-over"),
+        );
+
+        el.addEventListener("drop", (e) => {
+          e.preventDefault();
+          el.classList.remove("drag-over");
+          const word = e.dataTransfer.getData("text/plain");
+          if (!word) return;
+
+          // dropping into venn zones should place into the visible pile containers
+          if (
+            zoneName === "left" ||
+            zoneName === "mid" ||
+            zoneName === "right"
+          ) {
+            piles[zoneName].appendChild(
+              document.querySelector(
+                `.word-pill[data-word="${CSS.escape(word)}"]`,
+              ),
+            );
+          } else {
+            bank.appendChild(
+              document.querySelector(
+                `.word-pill[data-word="${CSS.escape(word)}"]`,
+              ),
+            );
+          }
+
+          // moving things clears previous check marks (so students can retry)
+          clearMarks();
+        });
+      }
+
+      // Venn hit areas
+      document
+        .querySelectorAll(".drop-zone")
+        .forEach((z) => wireDropTarget(z, z.dataset.zone));
+
+      // Also allow dropping directly onto the piles and bank
+      Object.values(piles).forEach((p) => wireDropTarget(p, p.dataset.zone));
+
+      /***************
+       * BUTTONS
+       ***************/
+      document.getElementById("checkBtn").addEventListener("click", () => {
+        clearMarks();
+        document.querySelectorAll(".word-pill").forEach((pill) => {
+          const word = pill.dataset.word;
+          const placedZone = pill.parentElement?.dataset?.zone || "bank";
+          const correctZone = answerKey[word];
+
+          const mark = pill.querySelector(".mark");
+
+          if (!correctZone) {
+            // If a word isn't in the key, don't mark it (keeps you safe while editing keys)
+            mark.innerHTML = "";
+            return;
+          }
+
+          if (placedZone === correctZone) {
+            pill.classList.add("is-correct");
+            mark.innerHTML = `<i class="bi bi-check-circle-fill text-success" aria-label="Correct"></i>`;
+          } else {
+            pill.classList.add("is-wrong");
+            mark.innerHTML = `<i class="bi bi-x-circle-fill text-danger" aria-label="Wrong"></i>`;
+          }
+        });
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        clearMarks();
+        // Return everything to bank in original order
+        words.forEach((w) => moveWordToZone(w, "bank"));
+      });
+
+      /***************
+       * INIT
+       ***************/
+      // Populate bank
+      words.forEach((w) => bank.appendChild(makePill(w)));
+    </script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

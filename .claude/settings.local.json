@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(node -e:*)",
+      "Bash(python:*)",
+      "Bash(py:*)",
+      "Bash(xxd \"c:/Users/Owner/Desktop/MAIN/WEBSITE/My Website/rmlives/media/everyday/260417/27.mp3\")",
+      "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\(\"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\rmlives\\\\media\\\\jap\\\\1\\\\12.mp3\"\\) | Select-Object -First 4; $bytes | ForEach-Object { \"{0:X2}\" -f $_ })",
+      "PowerShell($bytes11 = [System.IO.File]::ReadAllBytes\\(\"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\rmlives\\\\media\\\\jap\\\\1\\\\11.mp3\"\\) | Select-Object -First 4; $bytes11 | ForEach-Object { \"{0:X2}\" -f $_ })",
+      "Bash(grep -E \"^.{0,50}[0-9]+\\\\.[0-9]+ .*[0-9]+\\\\.mp3\")",
+      "Bash(Rename-Item \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\rmlives\\\\media\\\\everyday\\\\260502\" \"2605027\")",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\rmlives\\\\fr\\\\listen\\\\\" -Recurse -File | Select-Object FullName)",
+      "Bash(htpasswd -nb mschiffm 'Kyunthit1$')",
+      "Bash(openssl passwd *)",
+      "Bash(Rename-Item \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\rmlives\\\\media\\\\RFI260504\\\\2\\\\1.mp3\" \"01.mp3\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Owner\\\\Desktop\\\\rmlives\" -Recurse -File)",
+      "Bash(Select-Object FullName)",
+      "Bash(Sort-Object FullName)"
+    ],
+    "additionalDirectories": [
+      "\\tmp",
+      "C:\\",
+      "c:\\Users\\Owner\\Desktop\\MAIN\\WEBSITE\\My Website\\rmlives\\media\\everyday\\260502",
+      "c:\\Users\\Owner\\Desktop\\MAIN\\WEBSITE\\My Website\\rmlives\\media\\RFI260504\\2"
+    ]
+  }
+}

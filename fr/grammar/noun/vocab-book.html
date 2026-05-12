@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Collocation Web: Le Couteau</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      #graph-container {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: 600px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* D3 Elements */
+      .node circle {
+        stroke: #fff;
+        stroke-width: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .node:hover circle {
+        stroke: #333;
+        stroke-width: 3px;
+      }
+
+      .node text {
+        font-size: 12px;
+        pointer-events: none; /* Let mouse events pass through text to the circle */
+        text-anchor: middle;
+        font-weight: 500;
+        fill: #333;
+        text-shadow:
+          1px 1px 1px white,
+          -1px -1px 1px white;
+      }
+
+      .link {
+        stroke: #999;
+        stroke-opacity: 0.6;
+        stroke-width: 1.5px;
+      }
+
+      /* Tooltip Style */
+      .tooltip {
+        position: absolute;
+        text-align: center;
+        padding: 8px;
+        font-size: 14px;
+        background: #333;
+        color: #fff;
+        border-radius: 4px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        z-index: 10;
+      }
+
+      /* Legend Dots */
+      .legend-dot {
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      em {
+        font-size: 0.9em;
+        font-style: normal !important;
+        color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">🇫🇷 French Collocation Web</span>
+      </div>
+    </nav>
+
+    <div class="container-fluid px-4">
+      <div class="row">
+        <div class="col-lg-9 mb-4">
+          <div id="graph-container"></div>
+          <div id="tooltip" class="tooltip"></div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              Selection Details
+            </div>
+            <div class="card-body" id="info-panel">
+              <h5 class="card-title text-muted">Hover or Click a Node</h5>
+              <p class="card-text">
+                Select a word in the web to see its English translation and
+                details here.
+              </p>
+            </div>
+          </div>
+
+          <div class="card mt-3 shadow-sm">
+            <div class="card-header">Legend</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #e63946"></span>
+                Verbs (Actions)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #0083d6"></span>
+                Adjectives (Description)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #9b5de5"></span>
+                Family (derivations)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #2a9d8f"></span>
+                Associations (Nouns)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script>
+      // --- 1. DATA PREPARATION ---
+      // Embedded JSON data for "Le Couteau"
+      const dataset = {
+        nodes: [
+          // Center
+          {
+            id: "Le Livre",
+            group: "center",
+            radius: 30,
+            translation: "The Book",
+            example:
+              "J'adore l'odeur d'un vieux livre.<br><em>I love the smell of an old book.</em>",
+          },
+
+          // Categories (New structure!)
+          { id: "Verbes", group: "category", radius: 0 },
+          { id: "Adjectifs", group: "category", radius: 0 },
+          { id: "Famille", group: "category", radius: 0 }, // Replaces Idioms
+          { id: "Parties", group: "category", radius: 0 }, // New Category
+
+          // Verbs
+          {
+            id: "lire",
+            group: "verb",
+            translation: "to read",
+            example: "Lis ton dernier e-mail.</em>",
+          },
+          {
+            id: "Bouquiner",
+            group: "verb",
+            translation: "to read (casual)",
+            example:
+              "Je bouquine dans mon lit.<br><em>I'm reading in my bed.</em>",
+          },
+          {
+            id: "Feuilleter",
+            group: "verb",
+            translation: "to flip through",
+            example:
+              "Il feuillette le magazine.<br><em>He is flipping through the magazine.</em>",
+          },
+          {
+            id: "Emprunter",
+            group: "verb",
+            translation: "to borrow",
+            example:
+              "J'ai emprunté ce livre à la bibliothèque.<br><em>I borrowed this book from the library.</em>",
+          },
+
+          // Adjectives
+          {
+            id: "Passionnant",
+            group: "adjective",
+            translation: "gripping/exciting",
+            example:
+              "Ce roman est passionnant !<br><em>This novel is gripping!</em>",
+          },
+          {
+            id: "Épais",
+            group: "adjective",
+            translation: "thick",
+            example: "Un livre très épais.<br><em>A very thick book.</em>",
+          },
+          {
+            id: "Numérique",
+            group: "adjective",
+            translation: "digital (ebook)",
+            example:
+              "Je préfère les livres papier aux livres numériques.<br><em>I prefer paper books to ebooks.</em>",
+          },
+
+          // Famille (Word Family)
+          {
+            id: "La Librairie",
+            group: "family",
+            translation: "bookshop",
+            example:
+              "J'achète mes livres à la librairie.<br><em>I buy my books at the bookshop.</em>",
+          },
+          {
+            id: "Le Livret",
+            group: "family",
+            translation: "booklet",
+            example:
+              "Le livret d'instructions.<br><em>The instruction booklet.</em>",
+          },
+          {
+            id: "Le Marque-page",
+            group: "family",
+            translation: "bookmark",
+            example: "Utilise un marque-page !<br><em>Use a bookmark!</em>",
+          },
+
+          // Parties (Parts of a book)
+          {
+            id: "La Couverture",
+            group: "noun",
+            translation: "cover",
+            example:
+              "La couverture est abîmée.<br><em>The cover is damaged.</em>",
+          },
+          {
+            id: "Le Chapitre",
+            group: "noun",
+            translation: "chapter",
+            example:
+              "Je lis un chapitre par soir.<br><em>I read one chapter a night.</em>",
+          },
+          {
+            id: "La Page",
+            group: "noun",
+            translation: "page",
+            example: "Tournez la page.<br><em>Turn the page.</em>",
+          },
+        ],
+        links: [
+          { source: "Le Livre", target: "Verbes" },
+          { source: "Le Livre", target: "Adjectifs" },
+          { source: "Le Livre", target: "Famille" },
+          { source: "Le Livre", target: "Parties" },
+
+          { source: "Verbes", target: "lire" },
+          { source: "Verbes", target: "Bouquiner" },
+          { source: "Verbes", target: "Feuilleter" },
+          { source: "Verbes", target: "Emprunter" },
+
+          { source: "Adjectifs", target: "Passionnant" },
+          { source: "Adjectifs", target: "Épais" },
+          { source: "Adjectifs", target: "Numérique" },
+
+          { source: "Famille", target: "La Librairie" },
+          { source: "Famille", target: "Le Livret" },
+          { source: "Famille", target: "Le Marque-page" },
+
+          { source: "Parties", target: "La Couverture" },
+          { source: "Parties", target: "Le Chapitre" },
+          { source: "Parties", target: "La Page" },
+        ],
+      };
+
+      // --- 2. CONFIGURATION ---
+      const width = document.getElementById("graph-container").clientWidth;
+      const height = 600;
+
+      // Color Palette
+      const colors = {
+        center: "#212529", // Dark Grey
+        category: "#adb5bd", // Light Grey (connectors)
+        verb: "#e63946", // Red
+        adjective: "#0083d6", // Blue
+        noun: "#2a9d8f", // Teal/Green
+        family: "#9b5de5", // Purple
+      };
+
+      // --- 3. D3 SETUP ---
+      const svg = d3
+        .select("#graph-container")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .call(
+          d3.zoom().on("zoom", (event) => {
+            g.attr("transform", event.transform);
+          })
+        );
+
+      const g = svg.append("g");
+
+      // Force Simulation
+      const simulation = d3
+        .forceSimulation(dataset.nodes)
+        .force(
+          "link",
+          d3
+            .forceLink(dataset.links)
+            .id((d) => d.id)
+            .distance(70)
+        )
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force(
+          "collide",
+          d3.forceCollide().radius((d) => (d.radius || 20) + 10)
+        );
+
+      // Draw Links
+      const link = g
+        .append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(dataset.links)
+        .enter()
+        .append("line")
+        .attr("class", "link");
+
+      // Draw Nodes (Circles)
+      const node = g
+        .append("g")
+        .attr("class", "nodes")
+        .selectAll("g")
+        .data(dataset.nodes)
+        .enter()
+        .append("g")
+        .call(
+          d3
+            .drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended)
+        );
+
+      node
+        .append("circle")
+        .attr("r", (d) => d.radius || 15) // Default radius 15 if not specified
+        .attr("fill", (d) => colors[d.group] || "#ccc")
+        // Hover Events
+        .on("mouseover", function (event, d) {
+          // Show Tooltip
+          const tooltip = d3.select("#tooltip");
+          tooltip.transition().duration(200).style("opacity", 0.9);
+
+          // Content of Tooltip
+          let content = `<strong>${d.id}</strong>`;
+          if (d.translation) {
+            content += `<br/><span style="color:#ccc; font-size:12px">"${d.translation}"</span>`;
+          }
+
+          tooltip
+            .html(content)
+            .style("left", event.pageX + 10 + "px")
+            .style("top", event.pageY - 28 + "px");
+
+          // Highlight Node
+          d3.select(this).attr("stroke", "#333").attr("stroke-width", 3);
+        })
+        .on("mouseout", function (d) {
+          d3.select("#tooltip").transition().duration(500).style("opacity", 0);
+          d3.select(this).attr("stroke", "#fff").attr("stroke-width", 2);
+        })
+        .on("click", function (event, d) {
+          updateInfoPanel(d);
+
+          // Only speak the French word (the ID), not the category names
+          if (d.group !== "category") {
+            speakWord(d.id);
+          }
+        });
+
+      // Add Text Labels
+      node
+        .append("text")
+        .attr("dy", (d) => (d.radius || 15) + 15) // Position text below the circle
+        .text((d) => (d.group === "category" ? "" : d.id)) // Don't label the category nodes (cleaner look)
+        .style("font-size", (d) => (d.group === "center" ? "16px" : "12px"))
+        .style("font-weight", (d) =>
+          d.group === "center" ? "bold" : "normal"
+        );
+
+      // --- 4. SIMULATION UPDATE ---
+      simulation.on("tick", () => {
+        link
+          .attr("x1", (d) => d.source.x)
+          .attr("y1", (d) => d.source.y)
+          .attr("x2", (d) => d.target.x)
+          .attr("y2", (d) => d.target.y);
+
+        node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+      });
+
+      // --- 5. DRAG FUNCTIONS ---
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+
+      // --- 6. INFO PANEL UPDATE ---
+      function updateInfoPanel(d) {
+        const panel = document.getElementById("info-panel");
+
+        // If a category node (grey dot) is clicked, clear the panel or show instructions
+        if (d.group === "category") {
+          panel.innerHTML = `<h5 class="card-title text-muted">Select a Word</h5><p class="card-text">Click a colored node to see details.</p>`;
+          return;
+        }
+
+        // Capitalize the type (e.g., "verb" -> "Verb")
+        let typeLabel = d.group.charAt(0).toUpperCase() + d.group.slice(1);
+
+        // Handle missing data gracefully
+        let translationText = d.translation ? `"${d.translation}"` : "";
+
+        // THIS IS THE NEW PART: Check for the example sentence
+        let exampleHtml = "";
+        if (d.example) {
+          // Extract the French part (before the <br>) and escape single quotes for the onclick handler
+          const frenchPart = d.example.split("<br>")[0].replace(/'/g, "\\'");
+          exampleHtml = `
+                <div class="alert alert-light border mt-3" style="background-color: #f8f9fa; cursor: pointer;" onclick="speakWord('${frenchPart}')" title="Click to listen">
+                    <small class="text-uppercase text-muted" style="font-size: 0.75rem; letter-spacing: 1px;">Context 🔊</small>
+                    <p class="mb-0 fst-italic text-dark">"${d.example}"</p>
+                </div>`;
+        } else {
+          // Fallback if you haven't added an example yet
+          exampleHtml = `
+                <div class="alert alert-warning border mt-3 p-2">
+                    <small class="text-muted">No example sentence available.</small>
+                </div>`;
+        }
+
+        // Render the panel
+        panel.innerHTML = `
+            <h3 class="card-title" style="color:${colors[d.group]}">${d.id}</h3>
+            <h6 class="card-subtitle mb-2 text-muted">${typeLabel}</h6>
+            <p class="card-text fs-5">${translationText}</p>
+            <hr>
+            ${exampleHtml}
+        `;
+      }
+
+      function speakWord(word) {
+        // Check if the browser supports speech synthesis
+        if ("speechSynthesis" in window) {
+          const utterance = new SpeechSynthesisUtterance(word);
+
+          // Set language to French
+          utterance.lang = "fr-FR";
+
+          // Optional: Adjust speed (0.5 is slower, 1 is normal)
+          utterance.rate = 0.9;
+
+          // Speak!
+          window.speechSynthesis.speak(utterance);
+        } else {
+          console.log("Browser does not support text-to-speech");
+        }
+      }
+    </script>
+  </body>
+</html>

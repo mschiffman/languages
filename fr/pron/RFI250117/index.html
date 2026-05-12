@@ -1,0 +1,616 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - January 17, 2025</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" class="words" onclick="playAudio('audio1')">
+              Nous sommes le vendredi</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio2')">
+              17 janvier.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio3')">
+              À la une de cette édition.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio4')">
+              Cet accord trouvé</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio5')">
+              entre Israël et le Hamas.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio6')">
+              Il manquait le feu vert</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio7')">
+              du cabinet de sécurité israélien.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio8')">
+              C'est désormais chose faite.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio9')">
+              Nous sommes pour cela</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio10')">
+              à Jérusalem.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio11')">
+              Le cessez-le-feu devrait être appliqué</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio12')">
+              à partir de dimanche.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio13')">
+              Ce qui n'empêche pas</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio14')">
+              l'armée israélienne de bombarder, encore</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio15')">
+              aujourd'hui, Gaza.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio16')">
+              88 morts en 24 heures,</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio17')">
+              d'après le ministère</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio18')">
+              de la Santé du Hamas.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio19')">
+              Pendant ce temps-là,</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio20')">
+              Emmanuel Macron est au Liban voisin.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio21')">
+              Le chef de l'État français</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio22')">
+              est le premier président</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio23')">
+              venu à Beyrouth</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio24')">
+              soutenir les nouveaux</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio25')">
+              dirigeants libanais.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio26')">
+              Dans ce journal, aussi,</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio27')">
+              après de nouvelles accusations</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio28')">
+              d'agressions sexuelles</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio29')">
+              de l'abbé Pierre,</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio30')">
+              l'Église demande l'ouverture</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio31')">
+              d'une enquête à la justice.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio32')">
+              Et puis, enfin, le prochain président</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio33')">
+              des États-Unis</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio34')">
+              demande à trois stars</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio35')">
+              d'être ses yeux et ses oreilles à Hollywood.</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio36')">
+              Trois acteurs nommés ambassadeurs spéciaux</span
+            >
+            <span class="chunk" class="words" onclick="playAudio('audio37')">
+              de Donald Trump.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              It is Friday, January 17. On the front page of this edition. This
+              agreement was reached between Israel and Hamas. The green light
+              from the Israeli security cabinet was missing. This has now been
+              done. We are in Jerusalem for that. The ceasefire is expected to
+              be applied from Sunday. This does not prevent the Israeli army
+              from bombing Gaza even today. 88 dead in 24 hours, according to
+              Hamas' Ministry of Health. Meanwhile, Emmanuel Macron is in
+              neighboring Lebanon. The French head of state is the first
+              president to come to Beirut to support the new Lebanese leaders.
+              In this newspaper, too, after new accusations of sexual abuse by
+              Abbé Pierre, the Church asks for the opening of an investigation
+              by the courts. And then, finally, the next president of the United
+              States asks three stars to be his eyes and ears in Hollywood.
+              Three actors appointed special ambassadors to Donald Trump.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio38')">
+                  accord /akɔʀ/
+                </td>
+                <td>agreement</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  Israël /isʀaɛl/
+                </td>
+                <td>Israel</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">
+                  israélien /isʀaeljɛ̃/
+                </td>
+                <td>Israeli</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  manquer /mɑ̃ke/
+                </td>
+                <td>to miss</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">feu /fø/</td>
+                <td>fire / traffic light</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  cabinet /kabinɛ/
+                </td>
+                <td>surgery / office</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  sécurité /sekyʀite/
+                </td>
+                <td>security</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  désormais /dezɔʀmɛ/
+                </td>
+                <td>from now on / now</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  cessez-le-feu /sesel(ə)fø/
+                </td>
+                <td>ceasefire</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  appliqué /aplike/
+                </td>
+                <td>applied</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  à partir de
+                </td>
+                <td>from then on / from</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  empêcher /ɑ̃peʃe/
+                </td>
+                <td>to prevent</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  armée /aʀme/
+                </td>
+                <td>army</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  bombarder /bɔ̃baʀde/
+                </td>
+                <td>to bomb</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  d'après /dapʀɛ/
+                </td>
+                <td>according to</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  ministère /ministɛʀ/
+                </td>
+                <td>ministry</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  Pendant ce temps-là
+                </td>
+                <td>meanwhile</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  Beyrouth /beʀut/
+                </td>
+                <td>Beirut</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  soutenir /sut(ə)niʀ/
+                </td>
+                <td>to support</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  dirigeants /diʀiʒɑ̃/
+                </td>
+                <td>leader</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  libanais /libanɛ/
+                </td>
+                <td>Lebanese</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  accusation /akyzasjɔ̃/
+                </td>
+                <td>accusation</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  agression /aɡʀesjɔ̃/
+                </td>
+                <td>aggression / attacl</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  sexuelle /sɛksɥɛl/
+                </td>
+                <td>sexual</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">abbé /abe/</td>
+                <td>priest</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  église /eɡliz/
+                </td>
+                <td>church</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">
+                  ouverture /uvɛʀtyʀ/
+                </td>
+                <td>opening</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio65')">
+                  enquête /ɑ̃kɛt/
+                </td>
+                <td>investigation</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio66')">
+                  justice /ʒystis/
+                </td>
+                <td>fairness / justice</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio67')">
+                  nommer /nɔme/
+                </td>
+                <td>to call/name</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio68')">
+                  ambassadeur /ɑ̃basadœʀ/
+                </td>
+                <td>ambassador</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio69')">
+                  spécial /spesjal/
+                </td>
+                <td>special</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/01-Nous sommes le vendredi.m4a"
+    ></audio>
+    <audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/02-17 janvier.m4a"></audio>
+    <audio
+      id="audio3"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/03-À la une de cette édition.m4a"
+    ></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/04-Cet accord trouvé.m4a"></audio>
+    <audio
+      id="audio5"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/05-entre Israël et le Hamas.m4a"
+    ></audio>
+    <audio
+      id="audio6"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/06-Il manquait le feu vert.m4a"
+    ></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/07-du cabinet de sécurité israélien.m4a"
+    ></audio>
+    <audio
+      id="audio8"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/08-C'est désormais chose faite.m4a"
+    ></audio>
+    <audio
+      id="audio9"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/09-Nous sommes pour cela.m4a"
+    ></audio>
+    <audio id="audio10" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/10-à Jérusalem.m4a"></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/11-Le cessez-le-feu devrait être appliqué.m4a"
+    ></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/12-à partir de dimanche.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/13-Ce qui n'empêche pas.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/14-l'armée israélienne de bombarder, encore.m4a"
+    ></audio>
+    <audio id="audio15" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/15-aujourd'hui, Gaza.m4a"></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/16-88 morts en 24 heures.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/17-d'après le ministère.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/18-de la Santé du Hamas.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/19-Pendant ce temps-là.m4a"
+    ></audio>
+    <audio
+      id="audio20"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/20-Emmanuel Macron est au Liban voisin.m4a"
+    ></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/21-Le chef de l'État français.m4a"
+    ></audio>
+    <audio
+      id="audio22"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/22-est le premier président.m4a"
+    ></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/23-venu à Beyrouth.m4a"></audio>
+    <audio
+      id="audio24"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/24-soutenir les nouveaux.m4a"
+    ></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/25-dirigeants libanais.m4a"
+    ></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/26-Dans ce journal, aussi.m4a"
+    ></audio>
+    <audio
+      id="audio27"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/27-après de nouvelles accusations.m4a"
+    ></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/28-d'agressions sexuelles.m4a"
+    ></audio>
+    <audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/29-de l'abbé Pierre.m4a"></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/30-l'Église demande l'ouverture.m4a"
+    ></audio>
+    <audio
+      id="audio31"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/31-d'une enquête à la justice.m4a"
+    ></audio>
+    <audio
+      id="audio32"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/32-Et puis, enfin, le prochain président.m4a"
+    ></audio>
+    <audio id="audio33" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/33-des États-Unis.m4a"></audio>
+    <audio
+      id="audio34"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/34-demande à trois stars.m4a"
+    ></audio>
+    <audio
+      id="audio35"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/35-d'être ses yeux et ses oreilles à Hollywood.m4a"
+    ></audio>
+    <audio
+      id="audio36"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/36-Trois acteurs nommés ambassadeurs spéciaux.m4a"
+    ></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/37-de Donald Trump.m4a"></audio>
+    <audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/38-accord.m4a"></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/39-Israël.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/40-israélien.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/41-manquer.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/42-feu.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/43-cabinet.m4a"></audio>
+    <audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/44-sécurité.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/45-désormais.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/46-cessez-le-feu.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/47-appliqué.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/48-à partir de.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/49-empêcher.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/50-armée.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/51-bombarder.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/52-d'après.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/53-ministère.m4a"></audio>
+    <audio
+      id="audio54"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/54-Pendant ce temps-là.m4a"
+    ></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/55-Beyrouth.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/56-soutenir.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/57-dirigeants.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/58-libanais.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/59-accusation.m4a"></audio>
+    <audio id="audio60" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/60-agression.m4a"></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/61-sexuelle.m4a"></audio>
+    <audio id="audio62" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/62-abbé.m4a"></audio>
+    <audio id="audio63" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/63-église.m4a"></audio>
+    <audio id="audio64" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/64-ouverture.m4a"></audio>
+    <audio id="audio65" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/65-enquête.m4a"></audio>
+    <audio id="audio66" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/66-justice.m4a"></audio>
+    <audio id="audio67" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/67-nommer.m4a"></audio>
+    <audio id="audio68" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/68-ambassadeur.m4a"></audio>
+    <audio id="audio69" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/69-spécial.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250117/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

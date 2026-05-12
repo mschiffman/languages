@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recap - Oral Vowels</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="stylesheet" href="../../assets/css/recap.css" />
+  </head>
+  <body>
+    <div class="container">
+      <svg viewBox="0 0 800 800" id="main-svg">
+        <defs>
+          <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+            <feOffset dx="0" dy="4" result="offsetblur" />
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="0.3" />
+            </feComponentTransfer>
+            <feMerge>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <g id="viewport">
+          <!-- Connection lines from center to each circle -->
+          <g id="connections"></g>
+
+          <!-- Outer circles -->
+          <g id="circles"></g>
+
+          <!-- Center circle -->
+          <circle
+            class="center-circle"
+            cx="400"
+            cy="400"
+            r="180"
+            filter="url(#shadow)"
+          />
+          <foreignObject x="230" y="250" width="340" height="300">
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              id="center-content"
+              style="
+                color: white;
+                text-align: center;
+                padding: 20px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <h2 style="margin: 0 0 15px 0; font-size: 24px">
+                Select an Item
+              </h2>
+              <p style="margin: 0; font-size: 16px; line-height: 1.5">
+                Click on any circle to see its description here.
+              </p>
+            </div>
+          </foreignObject>
+        </g>
+      </svg>
+    </div>
+
+    <script>
+      const numCircles = 12;
+      const centerX = 400;
+      const centerY = 400;
+      const radius = 250;
+      const circleRadius = 45;
+      const iconSize = 48; // Adjust this value to change the icon size
+
+      // Customize your items here - add labels and SVG paths/images
+      // You can use inline SVG strings (starting with <) or file paths (e.g., 'icons/home.svg')
+      const itemData = [
+        {
+          label: "Front A",
+          svg: "/img/recap/vowel/a.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/a.mp3",
+          description: "<b>a + consonant</b/> <br> <i>chat, table, avec</i>",
+        },
+        {
+          label: "Back A",
+          svg: "/img/recap/vowel/ar.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/ar.mp3",
+          description: "<b>â</b> <br> <i>âge, pâte, château</i>",
+        },
+        {
+          label: "Closed E",
+          svg: "/img/recap/vowel/e.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/e.mp3",
+          description:
+            "<b><ul><li>é</li><li>e + single consonant</li><li>-er/-ez</li><li>-es (grammatical words)</li></ul></b> <br> <i>café, nez, des</i>",
+        },
+        {
+          label: "Open E",
+          svg: "/img/recap/vowel/air.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/air.mp3",
+          description:
+            "<b><ul><li>è, ê, ë</li><li>e + double consonant</li><li>e + final consonant</li><li>ai, ei</li></ul></b> <br> <i>père, fête, Noël, belle,<br>sec, maison, neige</i>",
+        },
+        {
+          label: "Schwa",
+          svg: "/img/recap/vowel/schwa.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/schwa.mp3",
+          description:
+            "<b>unstressed positions</b> <br><i>le, je, de, demander, appeler, venir</i>",
+        },
+        {
+          label: "The I sound",
+          svg: "/img/recap/vowel/i.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/i.mp3",
+          description:
+            "<b><ul><li>i, î, ï</li><li>y</li></ul></b> <br> <i>si, île, maïs, gym</i>",
+        },
+        {
+          label: "Closed O",
+          svg: "/img/recap/vowel/o.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/o.mp3",
+          description:
+            "<b><ul><li>ô</li><li>au, eau</li><li>final -o</li></ul></b> <br> <i>hôtel, auto, beau, métro</i>",
+        },
+        {
+          label: "Open O",
+          svg: "/img/recap/vowel/or.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/or.mp3",
+          description: "<b>o + consonant</b> <br> <i>porte, sol, homme</i>",
+        },
+        {
+          label: "U sound",
+          svg: "/img/recap/vowel/u.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/u.mp3",
+          description: "<b>u, û</b> <br> <i>tu, sûr</i>",
+        },
+        {
+          label: "OU sound",
+          svg: "/img/recap/vowel/ou.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/ou.mp3",
+          description: "<b>ou, où, oû</b> <br> <i>vous, où, coûter</i>",
+        },
+        {
+          label: "Closed EU",
+          svg: "/img/recap/vowel/euc.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/euc.mp3",
+          description:
+            "<b><ul><li>eu at word end</li><li>eu in open syllables</li><li>-euse (final)</li><li>œu (similar context)</li></ul></b> <br> <i>peu, deux, heureuse, vœu</i>",
+        },
+        {
+          label: "Open EU",
+          svg: "/img/recap/vowel/euo.svg",
+          sound: "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/enun/recap/euo.mp3",
+          description:
+            "<b><ul><li>eu in closed syllables</li><li>œu + consonant</li></ul></b> <br> <i>peur, neuf, jeune, sœur, œuf</i>",
+        },
+      ];
+
+      const circlesContainer = document.getElementById("circles");
+      const connectionsContainer = document.getElementById("connections");
+      const centerContent = document.getElementById("center-content");
+
+      let isDragging = false; // Flag to distinguish between click and drag
+
+      // Calculate positions and create circles
+      for (let i = 0; i < numCircles; i++) {
+        const angle = (((i * 360) / numCircles - 90) * Math.PI) / 180;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+
+        // Create connection line
+        const line = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "line"
+        );
+        line.setAttribute("class", "connector-line");
+        line.setAttribute("x1", centerX);
+        line.setAttribute("y1", centerY);
+        line.setAttribute("x2", x);
+        line.setAttribute("y2", y);
+        connectionsContainer.appendChild(line);
+
+        // Create service group
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("class", "service-circle");
+        g.setAttribute("data-index", i);
+
+        // Create circle
+        const circle = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "circle"
+        );
+        circle.setAttribute("cx", x);
+        circle.setAttribute("cy", y);
+        circle.setAttribute("r", circleRadius);
+        circle.setAttribute("filter", "url(#shadow)");
+
+        // Create SVG icon container
+        const iconGroup = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "g"
+        );
+        iconGroup.setAttribute("class", "service-icon");
+        iconGroup.setAttribute(
+          "transform",
+          `translate(${x - iconSize / 2}, ${y - iconSize / 2}) scale(1)`
+        );
+
+        // Check if the content is an SVG string or a file path
+        if (itemData[i].svg.trim().startsWith("<")) {
+          iconGroup.innerHTML = `<svg viewBox="0 0 24 24" width="${iconSize}" height="${iconSize}">${itemData[i].svg}</svg>`;
+        } else {
+          // It's a file path, use an image tag
+          const image = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "image"
+          );
+          image.setAttribute("href", itemData[i].svg);
+          image.setAttribute("width", iconSize);
+          image.setAttribute("height", iconSize);
+          iconGroup.appendChild(image);
+        }
+
+        // Create text label BELOW the circle
+        const text = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "text"
+        );
+        text.setAttribute("x", x);
+        text.setAttribute("y", y + circleRadius + 20);
+        text.textContent = itemData[i].label;
+
+        g.appendChild(circle);
+        g.appendChild(iconGroup);
+        g.appendChild(text);
+        circlesContainer.appendChild(g);
+
+        // Add click handler to update center content
+        g.addEventListener("click", function (e) {
+          if (isDragging) return; // Don't select if the user was dragging
+
+          const index = parseInt(this.getAttribute("data-index"));
+
+          // Remove active class from all circles
+          document.querySelectorAll(".service-circle").forEach((el) => {
+            el.classList.remove("active");
+          });
+
+          // Add active class to clicked circle
+          this.classList.add("active");
+
+          // Update center content
+          centerContent.innerHTML = `
+          <h2 style="margin: 0 0 15px 0; font-size: 28px;">${itemData[index].label}</h2>
+          <hr style="width: 100%; border: 0; border-top: 1px solid rgba(255, 255, 255, 0.5); margin: 0 0 15px 0;">
+          <p style="margin: 0; font-size: 16px; line-height: 1.6;">
+            ${itemData[index].description}
+            <span onclick="new Audio('${itemData[index].sound}').play()" style="cursor: pointer; vertical-align: middle; margin-left: 10px; display: inline-block;" title="Play Sound">
+              <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.03zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+              </svg>
+            </span>
+          </p>
+        `;
+        });
+      }
+
+      // --- Zoom and Pan Logic ---
+      const svg = document.getElementById("main-svg");
+      const viewport = document.getElementById("viewport");
+
+      let isPanning = false;
+      let startPoint = { x: 0, y: 0 };
+      let endPoint = { x: 0, y: 0 };
+      let scale = 1;
+      let viewBox = { x: 0, y: 0 };
+
+      // Touch state
+      let lastTouchDist = 0;
+
+      // Helper to get SVG coordinates
+      function getSVGPoint(event) {
+        const point = svg.createSVGPoint();
+        if (event.touches && event.touches.length > 0) {
+          point.x = event.touches[0].clientX;
+          point.y = event.touches[0].clientY;
+        } else {
+          point.x = event.clientX;
+          point.y = event.clientY;
+        }
+        // Transform screen coordinate to SVG coordinate
+        return point.matrixTransform(svg.getScreenCTM().inverse());
+      }
+
+      function updateTransform() {
+        viewport.setAttribute(
+          "transform",
+          `translate(${viewBox.x}, ${viewBox.y}) scale(${scale})`
+        );
+      }
+
+      // Mouse Down / Touch Start
+      svg.addEventListener("mousedown", onPointerDown);
+      svg.addEventListener("touchstart", onPointerDown, { passive: false });
+
+      function onPointerDown(e) {
+        // Allow text selection in foreignObject if not dragging
+        if (e.target.closest("foreignObject")) {
+          // Optional: allow default behavior if needed, but here we want to pan usually
+        }
+
+        if (e.type === "touchstart" && e.touches.length === 2) {
+          // Pinch start
+          isPanning = false;
+          const dx = e.touches[0].clientX - e.touches[1].clientX;
+          const dy = e.touches[0].clientY - e.touches[1].clientY;
+          lastTouchDist = Math.sqrt(dx * dx + dy * dy);
+          return;
+        }
+
+        isPanning = true;
+        isDragging = false; // Reset drag flag
+        startPoint = getSVGPoint(e);
+        svg.style.cursor = "grabbing";
+      }
+
+      // Mouse Move / Touch Move
+      svg.addEventListener("mousemove", onPointerMove);
+      svg.addEventListener("touchmove", onPointerMove, { passive: false });
+
+      function onPointerMove(e) {
+        e.preventDefault(); // Prevent scrolling
+
+        if (e.type === "touchmove" && e.touches.length === 2) {
+          // Pinch Zoom
+          const dx = e.touches[0].clientX - e.touches[1].clientX;
+          const dy = e.touches[0].clientY - e.touches[1].clientY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (lastTouchDist > 0) {
+            const zoomFactor = dist / lastTouchDist;
+
+            // Calculate center of pinch
+            const cx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+            const cy = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+
+            // Apply zoom relative to center (simplified logic similar to wheel)
+            // For precise pinch zoom, we'd map the center point.
+            // Here we just scale.
+            const oldScale = scale;
+            scale *= zoomFactor;
+            scale = Math.min(Math.max(0.1, scale), 10); // Clamp scale
+
+            // Adjust translation to zoom towards center
+            // This is a rough approximation for pinch center
+            // Ideally reuse the wheel logic with the pinch center point
+          }
+          lastTouchDist = dist;
+          updateTransform();
+          return;
+        }
+
+        if (!isPanning) return;
+
+        endPoint = getSVGPoint(e);
+        const dx = endPoint.x - startPoint.x;
+        const dy = endPoint.y - startPoint.y;
+
+        // If moved significantly, mark as dragging
+        if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+          isDragging = true;
+        }
+
+        // Update viewBox translation
+        // Note: We don't divide by scale because getSVGPoint returns coords in root SVG space
+        // and translate is applied in that same space before scaling (in the transform string order logic for this implementation)
+        // Actually, with transform="translate() scale()", the translation is in the parent system.
+        viewBox.x += dx;
+        viewBox.y += dy;
+
+        // We need to re-read startPoint because the coordinate system of the mouse relative to the SVG hasn't changed,
+        // but we want continuous delta.
+        // Actually, simpler: just update startPoint to new position for next frame
+        // But getSVGPoint is based on screen pixels.
+        // If we move the object, the mouse is now over a different part of the object, but getSVGPoint returns the same SVG coord?
+        // getSVGPoint returns coords in the *root* SVG viewport (0..800).
+        // So yes, dx is correct in root units.
+
+        // However, if we update viewBox, the visual moves.
+        // We should NOT update startPoint to endPoint here if we want standard drag behavior
+        // because we are moving the "camera".
+        // Standard drag:
+        // dx = current - start.
+        // newPos = oldPos + dx.
+        // But we need to reset start for the next event to avoid compounding.
+        startPoint = endPoint;
+
+        updateTransform();
+      }
+
+      // Mouse Up / Touch End
+      svg.addEventListener("mouseup", onPointerUp);
+      svg.addEventListener("mouseleave", onPointerUp);
+      svg.addEventListener("touchend", onPointerUp);
+
+      function onPointerUp(e) {
+        isPanning = false;
+        svg.style.cursor = "grab";
+        lastTouchDist = 0;
+
+        // Reset dragging flag after a short delay to ensure click events fire first if needed
+        // or rather, click fires after mouseup. We keep isDragging true so click handler sees it.
+        setTimeout(() => {
+          isDragging = false;
+        }, 100);
+      }
+
+      // Wheel Zoom
+      svg.addEventListener(
+        "wheel",
+        function (e) {
+          e.preventDefault();
+
+          const xs =
+            (e.clientX - svg.getBoundingClientRect().left) *
+            (800 / svg.getBoundingClientRect().width);
+          const ys =
+            (e.clientY - svg.getBoundingClientRect().top) *
+            (800 / svg.getBoundingClientRect().height);
+
+          const delta = e.deltaY > 0 ? 0.9 : 1.1;
+          const oldScale = scale;
+          const newScale = scale * delta;
+
+          // Clamp scale
+          if (newScale < 0.1 || newScale > 10) return;
+
+          scale = newScale;
+
+          // Zoom towards mouse pointer
+          // P_new = P_old * delta + T_old * (1 - delta) ?
+          // Formula: translate -= (mouseX - translate) * (factor - 1)
+
+          // We want the point (xs, ys) to remain at the same screen location.
+          // Local point P_local = (xs - tx) / s
+          // New world point = P_local * new_s + new_tx
+          // We want New world point = xs
+          // xs = ((xs - tx) / s) * new_s + new_tx
+          // new_tx = xs - (xs - tx) * (new_s / s)
+
+          viewBox.x = xs - (xs - viewBox.x) * (scale / oldScale);
+          viewBox.y = ys - (ys - viewBox.y) * (scale / oldScale);
+
+          updateTransform();
+        },
+        { passive: false }
+      );
+    </script>
+  </body>
+</html>

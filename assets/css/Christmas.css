@@ -1,0 +1,159 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #8b0000;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 215, 0, 0.6) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.5) 2px, transparent 2px);
+  background-size:
+    50px 50px,
+    80px 80px,
+    130px 130px;
+  background-position:
+    0 0,
+    40px 60px,
+    130px 270px;
+  animation: sparkle 20s linear infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    background-position:
+      0 0,
+      40px 60px,
+      130px 270px;
+  }
+  100% {
+    background-position:
+      50px 50px,
+      120px 140px,
+      260px 400px;
+  }
+}
+
+.header {
+  text-align: left;
+  padding: 40px 0 20px;
+}
+
+.header small {
+  color: #6c757d;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.header h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+nav {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ff69b4;
+}
+
+.masonry {
+  column-count: 3;
+  column-gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: visible;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.masonry-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.5s ease;
+}
+
+.masonry-item:hover img {
+  transform: scale(1.1);
+}
+
+.photo-description {
+  position: static;
+  margin-top: 12px;
+  padding: 0 20px;
+  background-color: #ffffff;
+  color: #111111;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    max-height 0.3s ease,
+    padding 0.3s ease;
+}
+
+.masonry-item:hover .photo-description {
+  opacity: 1;
+  max-height: 800px;
+  padding: 20px;
+  transform: translateY(0);
+}
+
+.photo-description h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.photo-description p {
+  font-size: 14px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Different heights for variety */
+.masonry-item.tall {
+  height: auto;
+}
+
+.container-custom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+h1,
+.header {
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  color: rgb(255, 255, 255);
+}

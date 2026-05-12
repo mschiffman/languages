@@ -1,0 +1,554 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - September 4, 2024</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')"
+              >Au sommaire de cette édition:</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              Des nuages noirs</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              au-dessus du Sahara
+            </span>
+            <span class="chunk" onclick="playAudio('audio4')">
+              et des pluies record</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              qui s'abattent sur cette région du monde.</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')"> Au Niger,</span>
+            <span class="chunk" onclick="playAudio('audio7')">
+              la mosquée de Zinder</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              n'a pas résisté.</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              Toujours sur le continent africain,</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              200 000 doses de vaccin</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              contre la maladie Mpox</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              l'ancienne variole du singe -</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              arrivent dès demain</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              en République démocratique du Congo.</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              Dans ce journal, aussi,</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              les excuses du Premier</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              ministre britannique</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              aux victimes</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              d'un incendie meurtrier.</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              Il y a sept ans,</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              dans une tour de Londres,</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              72 personnes</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              mouraient brûlées.</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              Et puis enfin, en France :</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              la France toujours dans l'attente</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              de connaître son nouveau gouvernement.</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              Dès ce soir,</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              le secrétaire général de l'Élysée</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              pourrait donner les noms des ministres.</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              Voilà pour les titres.</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              Soyez les bienvenus.
+            </span>
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              In this edition’s summary: Dark clouds are gathering over the
+              Sahara, and record rainfall is hitting that part of the world. In
+              Niger, the mosque of Zinder has not withstood the impact. Still on
+              the African continent, 200,000 doses of vaccine against the Mpox
+              disease — formerly known as monkeypox — will arrive as early as
+              tomorrow in the Democratic Republic of Congo. In this news
+              bulletin as well, the British Prime Minister’s apology to the
+              victims of a deadly fire. Seven years ago, in a London tower, 72
+              people died in the blaze. And finally, in France: the country is
+              still waiting to learn who will make up its new government. As
+              early as this evening, the Secretary General of the Élysée could
+              announce the names of the ministers. That’s the headline summary.
+              Welcome to the news.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio32')">
+                  sommaire /sɔmɛʀ/
+                </td>
+                <td>summary</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio33')">
+                  au-dessus /od(ə)sy/
+                </td>
+                <td>above</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio34')">
+                  abbattre /abatʀ/
+                </td>
+                <td>to bring down</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio35')">
+                  région /ʀeʒjɔ̃/
+                </td>
+                <td>region</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio36')">
+                  mosquée /mɔske/
+                </td>
+                <td>mosque</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio37')">
+                  résister /ʀeziste/
+                </td>
+                <td>to resist</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio38')">
+                  continent /kɔ̃tinɑ̃/
+                </td>
+                <td>continent</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  Africain /afʀikɛ̃/
+                </td>
+                <td>African</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">dose /doz/</td>
+                <td>dose</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  vaccin /vaksɛ̃/
+                </td>
+                <td>vaccine</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  contre /kɔ̃tʀ/
+                </td>
+                <td>against</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  maladie /maladi/
+                </td>
+                <td>illness</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  ancien /ɑ̃sjɛ̃/
+                </td>
+                <td>ancient / old</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  variole /vaʀjɔl/
+                </td>
+                <td>smallpox</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  singe /sɛ̃ʒ/
+                </td>
+                <td>monkey</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  démocratique /demɔkʀatik/
+                </td>
+                <td>democratic</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  Congo /kɔ̃ɡo/
+                </td>
+                <td>Congo</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  excuse /ɛkskyz/
+                </td>
+                <td>excuse / apology</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  britannique /bʀitanik/
+                </td>
+                <td>British</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  victime /viktim/
+                </td>
+                <td>victim</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  incendie /ɛ̃sɑ̃di/
+                </td>
+                <td>fire</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  meurtrier /mœʀtʀije/
+                </td>
+                <td>deadly / fatal</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">tour /tuʀ/</td>
+                <td>tower / turn</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  mourir /muʀiʀ/
+                </td>
+                <td>to die</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  brûlé /bʀyle/
+                </td>
+                <td>burnt</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  attente /atɑ̃t/
+                </td>
+                <td>wait</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  connaître /kɔnɛtʀ/
+                </td>
+                <td>to know</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  secrétaire /s(ə)kʀetɛʀ/
+                </td>
+                <td>secretary</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  général /ʒeneʀal/
+                </td>
+                <td>general</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  Élysée /elize/
+                </td>
+                <td>Élysée Palace - the residence of the French President</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/01-Au sommaire de cette édition.m4a"
+    ></audio>
+    <audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/02-Des nuages noirs.m4a"></audio>
+    <audio
+      id="audio3"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/03-au-dessus du Sahara.m4a"
+    ></audio>
+    <audio
+      id="audio4"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/04-et des pluies record.m4a"
+    ></audio>
+    <audio
+      id="audio5"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/05-qui s'abattent sur cette région du monde.m4a"
+    ></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/06-Au Niger.m4a"></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/07-la mosquée de Zinder.m4a"
+    ></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/08-n'a pas résisté.m4a"></audio>
+    <audio
+      id="audio9"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/09-Toujours sur le continent africain.m4a"
+    ></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/10-200 000 doses de vaccin.m4a"
+    ></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/11-contre la maladie Mpox.m4a"
+    ></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/12-l'ancienne variole du singe.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/13-arrivent dès demain.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/14-en République démocratique du Congo.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/15-Dans ce journal, aussi.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/16-les excuses du Premier.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/17-ministre britannique.m4a"
+    ></audio>
+    <audio id="audio18" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/18-aux victimes.m4a"></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/19-d'un incendie meurtrier.m4a"
+    ></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/20-Il y a sept ans.m4a"></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/21-dans une tour de Londres.m4a"
+    ></audio>
+    <audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/22-72 personnes.m4a"></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/23-mouraient brûlées.m4a"></audio>
+    <audio
+      id="audio24"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/24-Et puis enfin, en France.m4a"
+    ></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/25-la France toujours dans l'attente.m4a"
+    ></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/26-de connaître son nouveau gouvernement.m4a"
+    ></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/27-Dès ce soir.m4a"></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/28-le secrétaire général de l'Élysée.m4a"
+    ></audio>
+    <audio
+      id="audio29"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/29-pourrait donner les noms des ministres.m4a"
+    ></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/30-Voilà pour les titres.m4a"
+    ></audio>
+    <audio
+      id="audio31"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/31-Soyez les bienvenus.m4a"
+    ></audio>
+    <audio id="audio32" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/32-sommaire.m4a"></audio>
+    <audio id="audio33" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/33-au-dessus.m4a"></audio>
+    <audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/34-abbattre.m4a"></audio>
+    <audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/35-région.m4a"></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/36-mosquée.m4a"></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/37-résister.m4a"></audio>
+    <audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/38-continent.m4a"></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/39-Afracain.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/40-dose.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/41-vaccin.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/42-contre.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/43-maladie.m4a"></audio>
+    <audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/44-ancien.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/45-variole.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/46-singe.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/47-démocratique.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/48-Congo.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/49-excuse.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/50-britannique.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/51-victime.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/52-incendie.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/53-meurtrier.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/54-tour.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/55-mourir.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/56-brûlé.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/57-attente.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/58-connaître.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/59-secrétaire.m4a"></audio>
+    <audio id="audio60" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/60-général.m4a"></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/61-Élysée.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240904/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

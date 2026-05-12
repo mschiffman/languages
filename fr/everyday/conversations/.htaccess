@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Restricted"
+AuthUserFile /home/u752780370/domains/rmlives.com/public_html/.htpasswd
+Require valid-user

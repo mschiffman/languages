@@ -1,0 +1,448 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 150px !important;
+        height: auto;
+      }
+      b {
+        color: rgb(181, 1, 181);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/cholesterol.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Trop de cholestérol ?</h1>
+      </div>
+      <h5>Mangez mieux, pas plus de pilules</h5>
+
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="french-text-img" src="/img/cholesterol.svg" alt="" />À un
+          certain âge — souvent à la
+          <span data-bs-toggle="tooltip" title="/kaʀɑ̃tɛn/">quarantaine</span>
+          ou à la
+          <span data-bs-toggle="tooltip" title="/sɛ̃kɑ̃tɛn/">cinquantaine</span> —
+          votre médecin vous annonce que votre
+          <span data-bs-toggle="tooltip" title="/to/">taux</span> de
+          <span data-bs-toggle="tooltip" title="/kɔlɛsteʀɔl/">cholestérol</span
+          >, surtout le LDL (<span data-bs-toggle="tooltip" title="/mɔvɛ/"
+            ><i>mauvais</i></span
+          >
+          cholestérol), est trop
+          <span data-bs-toggle="tooltip" title="/elve/">élevé</span>, ce qui
+          <span data-bs-toggle="tooltip" title="/ogmɑ̃t/">augmente</span> le
+          risque de maladies
+          <span data-bs-toggle="tooltip" title="/kardjak/">cardiaques</span> ou
+          d’<span data-bs-toggle="tooltip" title="/aksidɑ̃/">accident</span>
+          <span data-bs-toggle="tooltip" title="/vaskylεr/">vasculaire</span>
+          <span data-bs-toggle="tooltip" title="/serebral/">cérébral</span>.
+          <span data-bs-toggle="tooltip" title="/ɶrøzmɑ̃/">Heureusement</span>,
+          un
+          <span data-bs-toggle="tooltip" title="/ʃɑ̃ʒmɑ̃/">changement</span>
+          d’alimentation peut être aussi
+          <span data-bs-toggle="tooltip" title="/efikas/">efficace</span> que
+          les
+          <span data-bs-toggle="tooltip" title="/medikamɑ̃/">médicaments</span>.
+          Le cholestérol est
+          <span data-bs-toggle="tooltip" title="/esɑ̃sjɛl/">essentiel</span> pour
+          les
+          <span data-bs-toggle="tooltip" title="/mɑ̃bran/">membranes</span>
+          <span data-bs-toggle="tooltip" title="/selylɛʀ/">cellulaires</span> et
+          la
+          <span data-bs-toggle="tooltip" title="/pʀɔdyksjɔ̃/">production</span>
+          d’<span data-bs-toggle="tooltip" title="/ɔʀmɔn/">hormones</span>, mais
+          un <span data-bs-toggle="tooltip" title="/ɛksɛ/">excès</span> de LDL
+          s’<span data-bs-toggle="tooltip" title="/akymyl/">accumule</span>
+          quand le foie ne
+          <span data-bs-toggle="tooltip" title="/pɔsɛd/">possède</span> pas
+          assez de
+          <span data-bs-toggle="tooltip" title="/ʀesɛptœʀ/">récepteurs</span>
+          pour l’<span data-bs-toggle="tooltip" title="/elimine/">éliminer</span
+          >. Les <span data-bs-toggle="tooltip" title="/ɡʀɛs/">graisses</span>
+          <span data-bs-toggle="tooltip" title="/satyʀe/">saturées</span>
+          (beurre, fromage,
+          <span data-bs-toggle="tooltip" title="/ɥil.də.kɔko/"
+            >huile de coco</span
+          >, viande grasse)
+          <span data-bs-toggle="tooltip" title="/ʀedɥiz/">réduisent</span> ces
+          récepteurs,
+          <span data-bs-toggle="tooltip" title="/tɑ̃di/">tandis</span> qu’une
+          alimentation plus
+          <span data-bs-toggle="tooltip" title="/leʒe/">légère</span> les
+          augmente. Certains aliments
+          <span data-bs-toggle="tooltip" title="/blɔk/">bloquent</span> la
+          <span data-bs-toggle="tooltip" title="/ʀeapsɔʀpsjɔ̃/"
+            >réabsorption</span
+          >
+          du cholestérol dans l’<span data-bs-toggle="tooltip" title="/ɛ̃tɛstɛ̃/"
+            >intestin</span
+          >
+          : les
+          <span data-bs-toggle="tooltip" title="/fibʀ.sɔlybl/"
+            >fibres solubles</span
+          >
+          (avoine,
+          <span data-bs-toggle="tooltip" title="/ɔʀʒ/">orge</span>, pommes) et
+          les
+          <span data-bs-toggle="tooltip" title="/fitɔsteʀɔl/"
+            >phytostérols</span
+          >
+          présents dans les
+          <span data-bs-toggle="tooltip" title="/nwa/">noix</span> et les
+          <span data-bs-toggle="tooltip" title="/ɡʀɛn/">graines</span>. Le
+          <span data-bs-toggle="tooltip" title="/ʀeʒim/">régime </span
+          ><span data-bs-toggle="tooltip" title="/pɔʀtfɔljo/">Portfolio</span>,
+          <span data-bs-toggle="tooltip" title="/kree/">créé</span> par le
+          <span data-bs-toggle="tooltip" title="/nytrisjɔnist/"
+            >nutritionniste</span
+          >
+          David Jenkins,
+          <span data-bs-toggle="tooltip" title="/kɔ̃bin/">combine</span> ces
+          aliments. En un mois, il peut réduire le LDL de près de 30 %, comme
+          les <span data-bs-toggle="tooltip" title="/statin/">statines</span>.
+          <span data-bs-toggle="tooltip" title="/flεksibl/">Flexible</span> et
+          <span data-bs-toggle="tooltip" title="/savurø/">savoureux</span>, il
+          aide à rester en bonne santé sans
+          <span data-bs-toggle="tooltip" title="/frystrasjɔ̃/">frustration</span
+          >.
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          At a certain age — often in your forties or fifties — your doctor
+          tells you that your cholesterol level, especially LDL (<i>bad</i>
+          cholesterol), is too high, which increases the risk of heart disease
+          or stroke. Fortunately, a dietary change can be as effective as
+          medication. Cholesterol is essential for cell membranes and hormone
+          production, but excess LDL accumulates when the liver doesn't have
+          enough receptors to eliminate it. Saturated fats (butter, cheese,
+          coconut oil, fatty meat) reduce these receptors, while a lighter diet
+          increases them. Certain foods block the reabsorption of cholesterol in
+          the intestine: soluble fiber (oats, barley, apples) and phytosterols
+          found in nuts and seeds. The Portfolio diet, created by nutritionist
+          David Jenkins, combines these foods. In one month, it can reduce LDL
+          by nearly 30%, like statins. Flexible and flavorful, it helps you stay
+          healthy without frustration.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">
+                pilule <span class="pho"> /pilyl/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>pill</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">quarantaine</td>
+              <td style="width: 40px"></td>
+              <td>about forty</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cinquantaine</td>
+              <td style="width: 40px"></td>
+              <td>about fifty</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">taux</td>
+              <td style="width: 40px"></td>
+              <td>rate</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                augmenter <span class="pho"> /ogmɑ̃te/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>to increase</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cardiaque</td>
+              <td style="width: 40px"></td>
+              <td>cardiac</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">accident vasculaire cérébral</td>
+              <td style="width: 40px"></td>
+              <td>stroke</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">efficace</td>
+              <td style="width: 40px"></td>
+              <td>effective / efficient</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">médicaments</td>
+              <td style="width: 40px"></td>
+              <td>medicine</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">membranes cellulaires</td>
+              <td style="width: 40px"></td>
+              <td>cell membranes</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">excès</td>
+              <td style="width: 40px"></td>
+              <td>excess / surplus</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                accumuler <span class="pho"> /akymyle/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>to accumulate / to pile up</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                posséder <span class="pho"> /pɔsede/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>to possess</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">récepteurs</td>
+              <td style="width: 40px"></td>
+              <td>receiver / receiving</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">éliminer</td>
+              <td style="width: 40px"></td>
+              <td>to eliminate</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">graisse</td>
+              <td style="width: 40px"></td>
+              <td>fat</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">saturé</td>
+              <td style="width: 40px"></td>
+              <td>saturated</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">huile de coco</td>
+              <td style="width: 40px"></td>
+              <td>coconut oil</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">viande grasse</td>
+              <td style="width: 40px"></td>
+              <td>fatty meat</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                réduire <span class="pho"> /ʀedɥiʀ/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>to become</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">tandis que</td>
+              <td style="width: 40px"></td>
+              <td>while</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">légère</td>
+              <td style="width: 40px"></td>
+              <td>light / slight</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                bloquer <span class="pho"> /blɔke/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>to block</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">réabsorption</td>
+              <td style="width: 40px"></td>
+              <td>reabsorption</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">fibres solubles</td>
+              <td style="width: 40px"></td>
+              <td>soluable fibres</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">orge</td>
+              <td style="width: 40px"></td>
+              <td>barley</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">phytostérol</td>
+              <td style="width: 40px"></td>
+              <td>phytosterol</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">noix</td>
+              <td style="width: 40px"></td>
+              <td>walnut</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">graine</td>
+              <td style="width: 40px"></td>
+              <td>seed</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">régime</td>
+              <td style="width: 40px"></td>
+              <td>diet</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                créer <span class="pho"> /kree/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>to create</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">nutritionniste</td>
+              <td style="width: 40px"></td>
+              <td>nutritionist</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">combine</td>
+              <td style="width: 40px"></td>
+              <td>scheme / trick</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">savoureux</td>
+              <td style="width: 40px"></td>
+              <td>tasty</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!--     <div class="bottom-nav">
+      <a class="btn btn-outline-primary" href="index.html">Page One</a>
+      <a class="btn btn-primary" href="dimanche.html">Page Two</a>
+    </div>
+    <p></p>
+    <p></p> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

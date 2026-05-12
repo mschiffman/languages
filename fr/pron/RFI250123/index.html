@@ -1,0 +1,298 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Pronunciation Practice</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-CHXHM9CZKM");
+  </script>
+
+  <!-- Favicons -->
+  <link href="/img/favicon.png" rel="icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+  rel="stylesheet"
+  />
+
+  <!-- Bootstrap CSS -->
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  />
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+  rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../assets/css/pron.css" />
+</head>
+
+<body>
+  <!-- Hamburger Menu Button -->
+  <button class="hamburger-btn" id="hamburgerBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+<!-- Main Content Area -->
+<div class="main-content">
+  <div class="top-header">
+    <h1>French News - January 23, 2025</h1>
+  </div>
+
+  <div class="content-container">
+    <!-- Audio Player Button -->
+    <div class="mb-4">
+      <button id="openAudio" class="btn-audio">
+        <i class="bi bi-play-circle"></i> Open Audio Player
+      </button>
+    </div>
+
+    <!-- Draggable Audio Player Window -->
+    <div id="audioPlayerWindow">
+      <div id="audioPlayerHeader">
+        <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+        <button id="closeAudio">&times;</button>
+      </div>
+      <div id="audioPlayerControls">
+        <button id="playBtn" title="Play">&#9658;</button>
+        <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+        <button id="stopBtn" title="Stop">&#9632;</button>
+      </div>
+      <div id="progressContainer">
+        <input
+        type="range"
+        id="progressBar"
+        min="0"
+        max="100"
+        step="0.1"
+        value="0"
+        class="form-range"
+        />
+      </div>
+      <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/audio.m4a"></audio>
+    </div>
+
+    <!-- Main Text Content -->
+
+    <p style="color:brown;font-size: 1.1em;"><i>Click anywhere in the paragraph to hear the pronunciation</i>.</p>
+
+    <div class="content-box" id="main-text">
+      <p class="text-content">
+        <span class="chunk" onclick="playAudio('audio1')"> Bonjour à toutes et à tous.</span>
+        <span class="chunk" onclick="playAudio('audio2')"> Ravi de vous retrouver</span>
+        <span class="chunk" onclick="playAudio('audio3')"> à l'écoute de RFI</span>
+        <span class="chunk" onclick="playAudio('audio4')"> - Radio France Internationale</span>
+        <span class="chunk" onclick="playAudio('audio5')"> en direct de Paris.</span>
+        <span class="chunk" onclick="playAudio('audio6')"> Il est 17 heures.</span>
+        <span class="chunk" onclick="playAudio('audio7')"> Nous sommes le jeudi 23 janvier.</span>
+        <span class="chunk" onclick="playAudio('audio8')"> Au sommaire de cette édition :</span>
+        <span class="chunk" onclick="playAudio('audio9')"> Nous sommes, dans un instant,</span>
+        <span class="chunk" onclick="playAudio('audio10')"> en République démocratique du Congo,</span>
+        <span class="chunk" onclick="playAudio('audio11')"> dans l'est du pays.</span>
+        <span class="chunk" onclick="playAudio('audio12')"> De violents combats</span>
+        <span class="chunk" onclick="playAudio('audio13')"> se poursuivent à l'heure actuelle,</span>
+        <span class="chunk" onclick="playAudio('audio14')"> à une vingtaine de kilomètres de Goma.</span>
+        <span class="chunk" onclick="playAudio('audio15')"> Témoignage à suivre.</span>
+        <span class="chunk" onclick="playAudio('audio16')"> Reportage, dans ce journal,</span>
+        <span class="chunk" onclick="playAudio('audio17')"> à Strasbourg,</span>
+        <span class="chunk" onclick="playAudio('audio18')"> devant le Parlement européen,</span>
+        <span class="chunk" onclick="playAudio('audio19')"> où des familles d'otages</span>
+        <span class="chunk" onclick="playAudio('audio20')"> veulent faire pression sur l'Iran.</span>
+        <span class="chunk" onclick="playAudio('audio21')"> Donald Trump s'exprime au Forum</span>
+        <span class="chunk" onclick="playAudio('audio22')"> économique de Davos</span>
+        <span class="chunk" onclick="playAudio('audio23')"> d'une minute à l'autre.</span>
+        <span class="chunk" onclick="playAudio('audio24')"> Et puis nous parlerons</span>
+        <span class="chunk" onclick="playAudio('audio25')"> basket-ball.</span>
+        <span class="chunk" onclick="playAudio('audio26')"> Du basket, ce soir, en France,</span>
+        <span class="chunk" onclick="playAudio('audio27')"> avec de grandes équipes américaines</span>
+        <span class="chunk" onclick="playAudio('audio28')"> qui se rencontrent ce soir, à Paris.</span>
+      </p>
+
+      <hr />
+
+      <p class="text-content">
+          Hello everyone. Nice to find you listening to RFI - Radio France Internationale live from Paris. It is 5 p.m. It is Thursday, January 23rd. In this edition: We are in a moment in the Democratic Republic of the Congo, in the east of the country. Heavy fighting continues at the moment, about twenty kilometers from Goma. Testimony to follow. Report, in this newspaper, in Strasbourg, in front of the European Parliament, where families of hostages want to put pressure on Iran. Donald Trump is speaking at the Davos Economic Forum any minute. And then we'll talk about basketball. Basketball tonight in France, with big American teams meeting tonight in Paris.
+        </span>
+      </p>
+    </div>
+
+    <!-- Glossary Section -->
+    <div class="content-box" id="glossary">
+      <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+      <table class="glossary-table">
+        <thead>
+          <tr style="color: #3498db; font-weight: 600">
+            <th style="padding: 12px 8px">FRENCH</th>
+            <th style="padding: 12px 8px">ENGLISH</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr>
+           <td class="words" onclick="playAudio('audio29')">ravi /ʀavi/</td>
+           <td>delighted</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio30')">radio /ʀadjo/</td>
+           <td>radio</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio31')">international /ɛ̃tɛʀnasjɔnal/</td>
+           <td>international</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio32')">direct /diʀɛkt/</td>
+           <td>direct</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio33')">est /ɛst/</td>
+           <td>east</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio34')">combat /kɔ̃ba/</td>
+           <td>combat / fighting</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio35')">poursuivre /puʀsɥivʀ/</td>
+           <td>to carry on with</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio36')">kilomètre /kilɔmɛtʀ/</td>
+           <td>kilometre</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio37')">reportage /ʀ(ə)pɔʀtaʒ/</td>
+           <td>report</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio38')">parlement /paʀləmɑ̃/</td>
+           <td>paliament</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio39')">européen /øʀɔpeɛ̃/</td>
+           <td>European</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio40')">otage /ɔtaʒ/</td>
+           <td>hostage</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio41')">veulent /vœl/ from "vouloir"</td>
+           <td>to want</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio42')">pression /pʀesjɔ̃/</td>
+           <td>pressure</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio43')">Iran /iʀɑ̃/</td>
+           <td>Iran</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio44')">forum /fɔʀɔm/</td>
+           <td>forum</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio45')">économique /ekɔnɔmik/</td>
+           <td>economic</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio46')">basket-ball /baskɛtbol/</td>
+           <td>basketball</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio47')">équipe /ekip/</td>
+           <td>team</td>
+         </tr>
+         <tr>
+           <td class="words" onclick="playAudio('audio48')">rencontrer /ʀɑ̃kɔ̃tʀe/</td>
+           <td>to meet</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+ </div>
+</div>
+
+<!-- Audio files -->
+<audio id="audio1" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/01-Bonjour à toutes et à tous.m4a"></audio>
+<audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/02-Ravi de vous retrouver.m4a"></audio>
+<audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/03-à l'écoute de RFI.m4a"></audio>
+<audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/04-Radio France Internationale.m4a"></audio>
+<audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/05-en direct de Paris.m4a"></audio>
+<audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/06-Il est 17 heures.m4a"></audio>
+<audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/07-Nous sommes le jeudi 23 janvier.m4a"></audio>
+<audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/08-Au sommaire de cette édition.m4a"></audio>
+<audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/09-Nous sommes, dans un instant.m4a"></audio>
+<audio id="audio10" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/10-en République démocratique du Congo.m4a"></audio>
+<audio id="audio11" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/11-dans l'est du pays.m4a"></audio>
+<audio id="audio12" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/12-De violents combats.m4a"></audio>
+<audio id="audio13" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/13-se poursuivent à l'heure actuelle.m4a"></audio>
+<audio id="audio14" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/14-à une vingtaine de kilomètres de Goma.m4a"></audio>
+<audio id="audio15" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/15-Témoignage à suivre.m4a"></audio>
+<audio id="audio16" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/16-Reportage, dans ce journal.m4a"></audio>
+<audio id="audio17" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/17-à Strasbourg.m4a"></audio>
+<audio id="audio18" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/18-devant le Parlement européen.m4a"></audio>
+<audio id="audio19" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/19-où des familles d'otages.m4a"></audio>
+<audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/20-veulent faire pression sur l'Iran.m4a"></audio>
+<audio id="audio21" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/21-Donald Trump s'exprime au Forum.m4a"></audio>
+<audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/22-économique de Davos.m4a"></audio>
+<audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/23-d'une minute à l'autre.m4a"></audio>
+<audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/24-Et puis nous parlerons.m4a"></audio>
+<audio id="audio25" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/25-basket-ball.m4a"></audio>
+<audio id="audio26" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/26-Du basket, ce soir, en France.m4a"></audio>
+<audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/27-avec de grandes équipes américaines.m4a"></audio>
+<audio id="audio28" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/28-qui se rencontrent ce soir, à Paris.m4a"></audio>
+<audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/29-ravi.m4a"></audio>
+<audio id="audio30" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/30-radio.m4a"></audio>
+<audio id="audio31" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/31-international.m4a"></audio>
+<audio id="audio32" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/32-direct.m4a"></audio>
+<audio id="audio33" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/33-est.m4a"></audio>
+<audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/34-combat.m4a"></audio>
+<audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/35-poursuivre.m4a"></audio>
+<audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/36-kilomètre.m4a"></audio>
+<audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/37-reportage.m4a"></audio>
+<audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/38-parlement.m4a"></audio>
+<audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/39-européen.m4a"></audio>
+<audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/40-otage.m4a"></audio>
+<audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/41-veulent.m4a"></audio>
+<audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/42-pression.m4a"></audio>
+<audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/43-Iran.m4a"></audio>
+<audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/44-forum.m4a"></audio>
+<audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/45-économique.m4a"></audio>
+<audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/46-basket-ball.m4a"></audio>
+<audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/47-équipe.m4a"></audio>
+<audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/48-rencontrer.m4a"></audio>
+
+<audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250123/audio.m4a"></audio>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script type="module" src="../../../assets/js/pron.js"></script>
+</body>
+</html>

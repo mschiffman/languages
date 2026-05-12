@@ -1,0 +1,370 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 400px !important;
+        height: auto;
+      }
+      b {
+        color: rgb(181, 1, 181);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/water.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Le temps</h1>
+      </div>
+      <h5>Le cycle de l’eau</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="french-text-img" src="/img/water.svg" alt="" />
+          Le <span data-bs-toggle="tooltip" title="/sikl/">cycle</span> de l’eau
+          est un
+          <span data-bs-toggle="tooltip" title="/pʀɔsesys/">processus</span>
+          <span data-bs-toggle="tooltip" title="/natyʀɛl/">naturel</span>
+          <span data-bs-toggle="tooltip" title="/kɔ̃tiny/">continu</span> qui
+          fait
+          <span data-bs-toggle="tooltip" title="/siʀkyle/">circuler</span> l’eau
+          sur Terre. Sous l’<span data-bs-toggle="tooltip" title="/efɛ/"
+            >effet</span
+          >
+          du <span data-bs-toggle="tooltip" title="/sɔlɛj/">soleil</span>, l’eau
+          des <span data-bs-toggle="tooltip" title="/ɔseɑ̃/">océans</span> et des
+          lacs s'<span data-bs-toggle="tooltip" title="/evapɔʀ/">évapore</span>
+          et forme de la
+          <span data-bs-toggle="tooltip" title="/vapœʀ/">vapeur</span> d’eau. En
+          <span data-bs-toggle="tooltip" title="/mɔ̃tɑ̃/">montant</span> dans
+          l’<span data-bs-toggle="tooltip" title="/atmɔsfɛʀ/">atmosphère</span>,
+          elle
+          <span data-bs-toggle="tooltip" title="/kɔ̃dɑ̃se/">se condense</span> en
+          <span data-bs-toggle="tooltip" title="/nyɑʒ/">nuages</span
+          >.<br /><br />Quand les
+          <span data-bs-toggle="tooltip" title="/ɡut(ə)lɛt/">gouttelettes</span>
+          sont trop <span data-bs-toggle="tooltip" title="/luʀ/">lourdes</span>,
+          elles
+          <span data-bs-toggle="tooltip" title="/ʀ(ə)tɔ̃b/">retombent</span> en
+          <span data-bs-toggle="tooltip" title="/pʀesipitasjɔ̃/"
+            >précipitations</span
+          >
+          : <span data-bs-toggle="tooltip" title="/plɥi/">pluie</span>,
+          <span data-bs-toggle="tooltip" title="/nɛʒ/">neige</span> ou
+          <span data-bs-toggle="tooltip" title="/gʀɛl/">grêle</span>. Une partie
+          s'<span data-bs-toggle="tooltip" title="/ɛ̃filtʀ/">infiltre</span> et
+          <span data-bs-toggle="tooltip" title="/alimɑ̃t/">alimente</span> les
+          <span data-bs-toggle="tooltip" title="/nap/">nappes</span>
+          <span data-bs-toggle="tooltip" title="/sutɛʀɛn/">souterraines</span> ;
+          le reste
+          <span data-bs-toggle="tooltip" title="/ʀ(ə)ʒwɛ̃/">rejoint</span> les
+          <span data-bs-toggle="tooltip" title="/ʀivjɛʀ/">rivières</span> vers
+          les océans. Les plantes
+          <span data-bs-toggle="tooltip" title="/libɛʀ/">libèrent</span> aussi
+          de l’eau par
+          <span data-bs-toggle="tooltip" title="/evapɔtʀɑ̃spiʀasjɔ̃/"
+            >évapotranspiration</span
+          >. <span data-bs-toggle="tooltip" title="/ɛ̃si/">Ainsi</span>, l’eau
+          revient sans
+          <span data-bs-toggle="tooltip" title="/sɛs/">cesse</span> à son point
+          de départ et
+          <span data-bs-toggle="tooltip" title="/sutjɛ̃/">soutient</span> la vie
+          sur notre
+          <span data-bs-toggle="tooltip" title="/planɛt/">planète</span>.
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          The water cycle is a continuous natural process that allows water to
+          circulate on Earth. Under the effect of the sun, water from oceans and
+          lakes evaporates and forms water vapor. This rises into the
+          atmosphere, cools down, and condenses into clouds.<br /><br />When the
+          droplets become too heavy, they fall back as precipitation: rain,
+          snow, or hail. The water then seeps into the ground to replenish
+          underground water tables or joins rivers that flow toward the oceans.
+          Part of the water is also released by plants through
+          evapotranspiration. Thus, water constantly returns to its starting
+          point, sustaining life on our planet.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">cycle</td>
+              <td style="width: 40px"></td>
+              <td>cycle</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">processus</td>
+              <td></td>
+              <td>process / phenomenon</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">naturel</td>
+              <td></td>
+              <td>natural</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">continu</td>
+              <td></td>
+              <td>continuous</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">circuler</td>
+              <td></td>
+              <td>to circulate / move around</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">s’évaporer</td>
+              <td></td>
+              <td>to evaporate</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">vapeur</td>
+              <td></td>
+              <td>steam / vapor</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">montant</td>
+              <td></td>
+              <td>rising</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">atmosphère</td>
+              <td></td>
+              <td>atmosphere</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">se condenser</td>
+              <td></td>
+              <td>to condense</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">nuage</td>
+              <td></td>
+              <td>cloud</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">gouttelette</td>
+              <td></td>
+              <td>droplet</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">lourd</td>
+              <td></td>
+              <td>heavy</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">retomber</td>
+              <td></td>
+              <td>to fall back / to land</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">grêle</td>
+              <td></td>
+              <td>hail</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">précipitations</td>
+              <td></td>
+              <td>precipitation</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">s’infiltrer</td>
+              <td></td>
+              <td>to seep / infiltrate</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                alimenter <span class="pho"> /alimɑ̃te/</span>
+              </td>
+              <td></td>
+              <td>to supply / to feed</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">nappe</td>
+              <td></td>
+              <td>(geology) a sheet or layer of water</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">souterrain</td>
+              <td></td>
+              <td>underground / subterranean</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                rejoindre <span class="pho"> /ʀ(ə)ʒwɛ̃dʀ/</span>
+              </td>
+              <td></td>
+              <td>to meet / to go back to</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">rivière</td>
+              <td></td>
+              <td>river</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                libérer <span class="pho"> /libeʀe/</span>
+              </td>
+              <td></td>
+              <td>to release</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">évapotranspiration</td>
+              <td></td>
+              <td>evapotranspiration (evaporation + transpiration)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">ainsi</td>
+              <td></td>
+              <td>thus / so</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cesse</td>
+              <td></td>
+              <td>continually</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                soutenir <span class="pho"> /sut(ə)niʀ/</span>
+              </td>
+              <td></td>
+              <td>to support</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">planète</td>
+              <td></td>
+              <td>planet</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!--     <div class="bottom-nav">
+      <a class="btn btn-outline-primary" href="index.html">Page One</a>
+      <a class="btn btn-primary" href="dimanche.html">Page Two</a>
+    </div>
+    <p></p>
+    <p></p> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

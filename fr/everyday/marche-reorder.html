@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sentence Scramble: Le Marché</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../../assets/css/reorder.css" />
+  </head>
+  <body>
+    <div class="scramble-container">
+      <h2>🧩 Reorder the Sentences</h2>
+      <p class="text-center text-muted mb-5">
+        Click words to build the sentence. Capital letters start the sentence!
+      </p>
+
+      <div id="exercises-area"></div>
+
+      <div class="controls">
+        <button class="btn-verify" onclick="checkAll()">Check Answers</button>
+        <button class="btn-reset" onclick="resetAll()">Reset</button>
+      </div>
+    </div>
+
+    <script>
+      // 1. The Data: 10 Simple Sentences using your vocabulary
+      // 1. Data: Sentences from marche.md
+      const sentences = [
+        "Il y a un marché en plein air",
+        "Le marché est entouré d'arbres",
+        "Un vendeur vend des légumes",
+        "Une vendeuse vend du pain",
+        "Un client parle avec un vendeur",
+        "Une femme achète des légumes",
+        "Une cliente porte un sac de courses",
+        "Les stands ont des auvents colorés",
+        "Il y a des paniers sur les tables",
+        "L'ambiance est calme et conviviale",
+        "Les gens discutent et font leurs courses",
+        "Je voudrais un kilo de tomates",
+        "Vous avez de la monnaie",
+        "Ça se conserve combien de temps",
+        "Un vendeur vend du fromage et des produits artisanaux",
+      ];
+
+      const container = document.getElementById("exercises-area");
+
+      // 2. Init: Render the DOM
+      function init() {
+        container.innerHTML = ""; // Clear
+        sentences.forEach((sentence, index) => {
+          createExerciseRow(sentence, index);
+        });
+      }
+
+      function createExerciseRow(sentence, index) {
+        // Create HTML structure
+        const row = document.createElement("div");
+        row.className = "exercise-row";
+
+        // Prepare words
+        // Handle punctuation attached to words if necessary,
+        // but simple split is usually fine for basic exercises
+        const words = sentence.split(" ");
+        const shuffled = [...words].sort(() => 0.5 - Math.random()); // Shuffle
+
+        // HTML Template
+        row.innerHTML = `
+      <div class="prompt">Exercise ${index + 1}</div>
+      <div class="sentence-line" id="line-${index}" onclick="moveWordBack(event, ${index})"></div>
+      <div class="word-bank" id="bank-${index}">
+      </div>
+      <div class="feedback-text" id="fb-${index}"></div>
+  `;
+
+        container.appendChild(row);
+
+        // Inject Buttons into the Bank
+        const bank = document.getElementById(`bank-${index}`);
+        shuffled.forEach((word) => {
+          const btn = document.createElement("div");
+          btn.className = "word-chip";
+          btn.innerText = word;
+          btn.onclick = function () {
+            moveWordToLine(this, index);
+          };
+          bank.appendChild(btn);
+        });
+      }
+
+      // 3. Logic: Moving Words
+      function moveWordToLine(element, index) {
+        const line = document.getElementById(`line-${index}`);
+        line.appendChild(element); // Moves DOM element from Bank to Line
+      }
+
+      function moveWordBack(event, index) {
+        // Only move if clicking the word chip, not the gray box itself
+        if (event.target.classList.contains("word-chip")) {
+          const bank = document.getElementById(`bank-${index}`);
+          bank.appendChild(event.target); // Moves DOM element back to Bank
+        }
+      }
+
+      // 4. Check Logic
+      function checkAll() {
+        sentences.forEach((correctSentence, index) => {
+          const line = document.getElementById(`line-${index}`);
+          const fb = document.getElementById(`fb-${index}`);
+
+          // Get user's current order
+          const userWords = Array.from(line.children).map(
+            (chip) => chip.innerText,
+          );
+          const userSentence = userWords.join(" ");
+
+          // Validation
+          if (userSentence === correctSentence) {
+            line.classList.add("correct-line");
+            line.classList.remove("wrong-line");
+            fb.style.display = "block";
+            fb.style.color = "#27ae60";
+            fb.innerText = "✅ Correct";
+          } else {
+            line.classList.add("wrong-line");
+            line.classList.remove("correct-line");
+            fb.style.display = "block";
+            fb.style.color = "#c0392b";
+            fb.innerText = "❌ Incorrect order";
+          }
+        });
+      }
+
+      // Initialize on load
+      init();
+
+      // 5. Reset Logic
+      function resetAll() {
+        init(); // Just re-render everything from scratch
+      }
+
+      // Start
+      init();
+    </script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

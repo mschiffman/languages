@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ladder of Language Mastery</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+
+    <style>
+      /* CONTAINER */
+      .interactive-map {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .base-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+      }
+
+      /* THE MARKER (The "Hotspot") */
+      .marker {
+        position: absolute;
+        width: 30px; /* Fixed size for the button */
+        height: 30px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 2px solid #0d6efd; /* Bootstrap primary blue */
+        border-radius: 50%; /* Makes it a perfect circle */
+        cursor: pointer;
+        z-index: 10;
+        transform: translate(
+          -50%,
+          -50%
+        ); /* Centers the dot on the coordinate */
+        transition: all 0.3s ease;
+
+        /* Center the icon inside */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #0d6efd;
+        font-family: sans-serif;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      /* PULSING EFFECT (Animation) */
+      @keyframes pulse-ring {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0.7;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(2);
+          opacity: 0;
+        }
+      }
+
+      .marker::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.6);
+        z-index: -1;
+        animation: pulse-ring 2s infinite;
+      }
+
+      /* HOVER STATE */
+      .marker:hover {
+        background-color: #0d6efd;
+        color: white;
+        transform: translate(-50%, -50%) scale(1.2); /* Grow slightly */
+      }
+
+      /* ACTIVE STATE (Selected) */
+      .marker.active {
+        background-color: #0d6efd;
+        color: white;
+        box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.3); /* Blue glowing ring */
+      }
+
+      /* POSITIONING
+           Adjust 'top' and 'left' percentages to move the dots exactly where you want them.
+           I estimated these positions to be slightly to the LEFT of the center text.
+        */
+      #marker-create {
+        top: 13%;
+        left: 24%;
+      }
+      #marker-input {
+        top: 28%;
+        left: 21%;
+      }
+      #marker-supplements {
+        top: 42%;
+        left: 20%;
+      }
+      #marker-hotspots {
+        top: 50%;
+        left: 18%;
+      }
+      #marker-IPA {
+        top: 63%;
+        left: 15%;
+      }
+      #marker-anki {
+        top: 80%;
+        left: 12%;
+      }
+
+      /* Sticky Panel */
+      .sticky-panel {
+        position: sticky;
+        top: 2rem;
+      }
+
+      /* NEW: Style for the Description Text */
+      #panel-desc {
+        font-weight: 550; /* The requested boldness */
+        color: #333; /* Slightly darker for better readability */
+      }
+
+      /* Optional: Make the lists pop a bit more */
+      #panel-desc ul {
+        margin-top: 10px;
+        padding-left: 1.2rem;
+      }
+
+      #panel-desc li {
+        margin-bottom: 5px; /* Breathing room between bullets */
+      }
+
+      .card-title {
+        color: #fd0db9;
+      }
+
+      em {
+        color: #fd0db9;
+      }
+
+      /* Sidebar Hover Effects */
+      #sidebar-nav a {
+        display: block;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: all 0.2s ease-in-out;
+      }
+      #sidebar-nav a:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        padding-left: 16px;
+        color: #fff !important;
+      }
+      b {
+        color: #01aaa4;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container-fluid py-5">
+      <div class="row">
+        <div class="col-lg-7 mb-4">
+          <!-- <h2 class="text-center mb-4 text-secondary fw-bold">
+            Language Mastery Blueprint
+          </h2> -->
+
+          <div class="interactive-map">
+            <img
+              src="/img/steps/bloom.svg"
+              alt="Ladder Diagram"
+              class="base-image"
+            />
+
+            <div id="marker-create" class="marker" data-target="step-create">
+              +
+            </div>
+            <div id="marker-input" class="marker" data-target="step-input">
+              +
+            </div>
+            <div
+              id="marker-supplements"
+              class="marker"
+              data-target="step-supplements"
+            >
+              +
+            </div>
+            <div
+              id="marker-hotspots"
+              class="marker"
+              data-target="step-hotspots"
+            >
+              +
+            </div>
+            <div id="marker-IPA" class="marker" data-target="step-IPA">+</div>
+            <div id="marker-anki" class="marker" data-target="step-anki">+</div>
+          </div>
+
+          <p class="text-center text-muted mt-3">
+            <small
+              >Click the pulsing <strong>+</strong> markers for details.</small
+            >
+          </p>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card shadow border-0 sticky-panel" id="info-card">
+            <div class="card-header bg-dark text-white">
+              <h5 class="mb-0" id="panel-header">Select a Step</h5>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="panel-title">Start Here</h3>
+              <h6 class="card-subtitle mb-3 text-muted" id="panel-subtitle">
+                Interactive Guide
+              </h6>
+              <hr />
+              <p class="card-text lead fs-6" id="panel-desc">
+                <em
+                  >Click on the <strong>+</strong> markers on the diagram to
+                  reveal the techniques for that specific level of the
+                  ladder.</em
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 1. DATA OBJECT (Now using HTML inside backticks `...`)
+      const ladderData = {
+        "step-anki": {
+          title: "Anki & Collocation Web",
+          subtitle: "Auditory, visual, & motor channel",
+          desc: `<b>ANKI</b>:<br>
+            <p>Engaging all three channels of learning:</p>
+            <ul>
+              <li>auditory (hearing the sound)</li>
+              <li>visual (seeing images and words)</li>
+              <li>motor (mouth movement when repeating after audio)</li>
+            </ul>
+            <p>leads to better memory retention than relying on a single channel. In this step, pronounce the word aloud before flipping the card, then repeat after the audio. This process builds the foundational neural connections between sound, form, and recognition.</p>
+            <hr>
+            <b>COLLOCATION WEB</b>:<br>
+            <p><em>The key insight: fluency is not vocabulary size</em>.</p>
+            <p>Novices learn isolated words (The "Lego Brick" approach). Experts learn "Chunks" (Pre-built walls).</p>
+            <ul>
+              <li><strong>The Principle</strong>: The brain's working memory can only hold about 7 items.
+                <ul>
+                  <li>Novice: "Je" + "ne" + "sais" + "pas" = 4 items. (High cognitive load).</li>
+                  <li>Expert: "Je ne sais pas" = 1 item. (Low cognitive load).</li>
+                </ul>
+              </li>
+              <li><strong>The Learning Tactic</strong>: Stop learning lists of nouns. Learn Collocations (the collocation web). Learn "Prendre une décision" as a single unit, not three separate words.</li>
+              <li><strong>The Collocation Web</strong>: It forces the user to see the "social circle" of the word, effectively "chunking" the word with its related words.</li>
+            </ul>`,
+          color: "#7D5BA6",
+        },
+        "step-IPA": {
+          title: "Phonetics & Shadowing",
+          subtitle: "Knowing a word and using it",
+          desc: `
+            <p><em>The key insight: Bad grammar is forgiven; bad pronunciation stops a conversation.</em></p>
+            <ul>
+              <li><b>Phonetics</b>: The "source code" of pronunciation.
+                <ul>
+                  <li>It removes the ambiguity of spelling.</li>
+                  <li>You don't guess how "oiseau" is pronounced; you read the IPA /wa.zo/ and know the pronunciation.</li>
+                </ul>
+              </li>
+              <li><b>Shadowing</b>: This is the gym for your mouth.
+              <ul>
+                <li>You listen to a native speaker and repeat exactly what they say.</li>
+                <li>You mimic not just the words, but the melody, the pauses, and the intonation.</li>
+                </li>
+              </ul>
+              <li><b>Hearing</b>: If you can't pronounce a sound, your brain often filters it out when listening. Mastering phonetics "unlocks" your hearing.</li>
+            </ul>`,
+          color: "#C0458A",
+        },
+        "step-hotspots": {
+          title: "Hotspots & Cloze Tests",
+          subtitle: "Memory retrieval",
+          desc: `
+            <p>This step triggers <strong>Active Recall</strong>.</p>
+            <ul>
+              <li><b>The Principle (The Testing Effect)</b>: Pulling information out of your brain (Retrieval) strengthens connections far more than putting information in (Reading).</li>
+              <li><b>The Output Hypothesis (Merrill Swain)</b>: You don't truly notice your gaps until you try to speak or write and hit a wall.</li>
+            </ul>
+            <p>These brain retrieval techniques:</p>
+            <ul>
+              <li>Hotspots and cloze tests create productive struggle and reinforce vocabulary in context.</li>
+              <li>Strengthen neural pathways through struggle.</li>
+              <li>Test vocabulary in context, not lists.</li>
+            </ul>`,
+          color: "#5D73B4",
+        },
+        "step-supplements": {
+          title: "Supplements",
+          subtitle: "Grammar and exercises",
+          desc: `
+            <p>While immersion provides the <strong>data</strong>, grammar provides the <strong>algorithm</strong> to sort it.</p>
+            <ul>
+              <li><b>The Principle</b>: This layer is not about memorizing but understanding the architecture of the sentence so you can build your own thoughts on the fly.</li>
+              <li><b>Translation Exercises (L1 ↔ L2)</b>: This forces your brain to confront the gap between how L1 works and how L2 works. It prevents you from translating word-for-word and forces you to translate meaning-for-meaning.</li>
+              <li><b>Sentence Reordering</b>: This targets syntax. By physically moving words into the correct order (Subject → Object pronoun → Verb), you debug your internal sentence builder. It turns abstract rules into a mechanical process.</li>
+            </ul>`,
+          color: "#8CBA41",
+        },
+        "step-input": {
+          title: "Read, Listen, & Speak (i + 1)",
+          subtitle: "Comprehensive input and output",
+          desc: `
+            <p>This is the largest time investment (60-70% of study time)</p>
+            <ul>
+              <li><strong>Input:</strong> Read/Listen to material one level above you (i+1).</li>
+              <li><strong>Output:</strong> Speak to solidify understanding.</li>
+            </ul>
+            <p>This challenges and grows your context naturally.</p>`,
+        },
+        "step-translate": {
+          title: "Translation",
+          subtitle: "Native language to target language",
+          desc: `
+            <p>The "Stress Test" for fluency. It forces you to confront gaps in:</p>
+            <ul>
+              <li>Prepositions</li>
+              <li>Conjugations</li>
+              <li>Cultural Nuances</li>
+            </ul>`,
+          color: "#F4C430",
+        },
+        "step-create": {
+          title: "Create",
+          subtitle: "Create sentences in target language",
+          desc: `
+            <p><strong>Synthesis</strong> (The highest form of mastery).</p>
+            <ul>
+              <li>Spontaneous generation of thought.</li>
+              <li>No reliance on prompts or translation.</li>
+              <li>Thinking directly in the target language.</li>
+            </ul>`,
+          color: "#E69138",
+        },
+      };
+
+      // 2. LOGIC
+      document.querySelectorAll(".marker").forEach((marker) => {
+        marker.addEventListener("click", function () {
+          const targetId = this.getAttribute("data-target");
+          const content = ladderData[targetId];
+
+          if (content) {
+            // Update Text Elements
+            document.getElementById("panel-header").textContent =
+              "Level: " + content.title;
+            document.getElementById("panel-title").textContent = content.title;
+            document.getElementById("panel-subtitle").textContent =
+              content.subtitle;
+
+            // *** CRITICAL CHANGE HERE: .innerHTML instead of .textContent ***
+            document.getElementById("panel-desc").innerHTML = content.desc;
+
+            // Update Colors
+            document.getElementById("panel-title").style.color = content.color;
+            document.querySelector(".card-header").style.backgroundColor =
+              content.color;
+            document.getElementById("info-card").style.borderLeft =
+              `8px solid ${content.color}`;
+
+            // Handle Active State
+            document.querySelectorAll(".marker").forEach((m) => {
+              m.classList.remove("active");
+              m.textContent = "+";
+            });
+            this.classList.add("active");
+            this.textContent = "✓";
+          }
+        });
+      });
+    </script>
+    <script type="module" src="../../assets/js/nav-step.js?v=260118"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

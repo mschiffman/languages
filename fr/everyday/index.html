@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Everyday Banter — Conversations de tous les jours</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --bg: #f8f9fb;
+        --card: #ffffff;
+        --border: #e9ecef;
+      }
+      body {
+        background: var(--bg);
+      }
+      .navbar {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      }
+      .offcanvas-start {
+        width: 320px;
+      }
+      .sidebar-section h6 {
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 0.02em;
+      }
+      .category-link {
+        display: block;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        color: #0d6efd;
+      }
+      .category-link:hover {
+        background: #eef5ff;
+      }
+      .toggle-btn {
+        margin: 0.25rem 0.25rem 0.25rem 0;
+      }
+      .conversation-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+      }
+      .conversation-block h5 {
+        font-weight: 700;
+        font-size: 1rem;
+        margin-top: 0.75rem;
+      }
+      .stamp {
+        font-size: 0.85rem;
+        color: #6c757d;
+      }
+      .lead-intro {
+        max-width: 900px;
+      }
+      .badge-dot {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .badge-dot::before {
+        content: "";
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 999px;
+        background: currentColor;
+        display: inline-block;
+      }
+      /* Nice focus ring */
+      .btn:focus,
+      .btn:focus-visible,
+      .category-link:focus {
+        outline: 3px solid rgba(13, 110, 253, 0.35) !important;
+        outline-offset: 2px;
+      }
+
+      .tooltip-inner {
+        background-color: #fff !important; /* white background */
+        color: #000 !important; /* black text */
+        font-size: 1.1rem; /* increase font size (adjust as needed) */
+        padding: 0.5rem 0.75rem; /* optional: adjust padding */
+        border: 1px solid rgba(0, 0, 0, 0.15); /* optional: add a subtle border */
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 2;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-light bg-white sticky-top">
+      <div class="container-fluid">
+        <button
+          class="btn btn-outline-primary d-inline-flex align-items-center"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebar"
+          aria-controls="sidebar"
+        >
+          <i class="bi bi-list me-2"></i> Menu
+        </button>
+        <span class="navbar-brand ms-2 fw-semibold"
+          >Everyday Banter — Conversations de tous les jours</span
+        >
+        <div class="d-none d-sm-flex align-items-center gap-2">
+          <a href="../index.html" class="btn btn-outline-dark">Home</a>
+          <div class="dropdown">
+            <button
+              class="btn btn-outline-secondary dropdown-toggle"
+              type="button"
+              id="otherResources"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Other French Resources
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="otherResources"
+            >
+              <li>
+                <a class="dropdown-item" href="../expression/archive.html"
+                  >French expressions</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="../pron/RFI251009/index.html"
+                  >French pronunciation</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="../enunciation/r/index.html"
+                  >French phonetic</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="../../comedy/index.html"
+                  >French jokes</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar (Offcanvas) -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="sidebar"
+      aria-labelledby="sidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarLabel">Categories</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="sidebar-section mb-4">
+          <h6 class="text-uppercase text-muted mb-2">Themes</h6>
+          <a
+            class="category-link"
+            href="#affection"
+            data-bs-dismiss="offcanvas"
+          >
+            😂 Playful Banter
+          </a>
+          <a class="category-link" href="#everyday" data-bs-dismiss="offcanvas">
+            🚿 Everyday Life
+          </a>
+          <a class="category-link" href="#morning" data-bs-dismiss="offcanvas">
+            🥐 Eating & Drinking
+          </a>
+          <a class="category-link" href="#evening" data-bs-dismiss="offcanvas">
+            🌙 Evening Talk
+          </a>
+        </div>
+
+        <div class="sidebar-section">
+          <h6 class="text-uppercase text-muted mb-2">Filters</h6>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="badge rounded-pill text-bg-primary badge-dot"
+              >neutral</span
+            >
+            <span class="badge rounded-pill text-bg-secondary badge-dot"
+              >spoken</span
+            >
+            <span class="badge rounded-pill text-bg-success badge-dot"
+              >humor</span
+            >
+            <span class="badge rounded-pill text-bg-warning text-dark badge-dot"
+              >teasing</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container py-4 py-lg-5">
+      <header class="mb-4" data-aos="fade-up">
+        <h1 class="mb-2">Everyday Banter — Conversations de tous les jours</h1>
+        <p class="lead lead-intro">
+          Real-life exchanges between couples — humorous, teasing, and
+          affectionate — translated into natural French you’d actually hear.
+          Click a button to reveal each mini-dialogue in English, neutral
+          French, and spoken French.
+        </p>
+      </header>
+
+      <!-- Category: Everyday Life -->
+      <section id="everyday" class="mb-5" data-aos="fade-up">
+        <h2 class="h4 mb-3">🍽️ Everyday Life</h2>
+
+        <!-- Toggle Button -->
+        <button
+          class="btn btn-outline-primary toggle-btn"
+          data-bs-toggle="collapse"
+          data-bs-target="#dinnerTalk"
+          aria-expanded="false"
+          aria-controls="dinnerTalk"
+        >
+          🍽️ Dinner Talk — “Your word is my command”
+        </button>
+
+        <!-- Conversation Card -->
+        <div id="dinnerTalk" class="collapse mt-3" data-aos="fade-up">
+          <div class="conversation-card p-3 p-lg-4">
+            <div class="conversation-block">
+              <h5>💬 English</h5>
+              <p class="mb-3">
+                — When do you want dinner?<br />
+                — Whenever you want. Your word is my command. See how obedient I
+                am! Ask around. No wife says that. Think about it. Who would say
+                such a thing!<br />
+                — Ah, a bullshitter.
+              </p>
+
+              <h5>🇫🇷 French (Neutral)</h5>
+              <p class="mb-3">
+                — Tu veux dîner à quelle heure ?<br />
+                — Quand tu voudras. Ta parole est mon commandement. Tu vois
+                comme je suis
+                <span data-bs-toggle="tooltip" title="/ɔbeisɑ̃, ɑ̃t/"
+                  >obéissant(e)</span
+                >
+                !
+                <span data-bs-toggle="tooltip" title="/rɑ̃seɲ/">Renseigne</span
+                >-toi, aucune femme ne dit ça. Réfléchis un peu. Qui dirait un
+                truc pareil !<br />
+                — Ah, un beau
+                <span data-bs-toggle="tooltip" title="/paʀlœʀ/">parleur</span> !
+              </p>
+
+              <h5>🗣️ Spoken French</h5>
+              <p class="mb-0">
+                — Tu veux dîner quand ?<br />
+                — Quand tu veux. Ta parole, c’est un ordre. T’as vu comme j’suis
+                obéissant(e) ! Renseigne-toi, y’a aucune femme qui dit ça.
+                Sérieux, qui dirait un truc pareil !<br />
+                — Ah, un
+                <span data-bs-toggle="tooltip" title="/baʀatinœʀ/"
+                  >baratineur</span
+                >
+                ! 😏
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category: Morning Talk -->
+      <section id="morning" class="mb-5" data-aos="fade-up">
+        <h2 class="h4 mb-3">😴 Morning Talk</h2>
+
+        <button
+          class="btn btn-outline-secondary toggle-btn"
+          data-bs-toggle="collapse"
+          data-bs-target="#youreUpEarly"
+          aria-expanded="false"
+          aria-controls="youreUpEarly"
+        >
+          🌅 You’re up early / You’re rubbing off on me / Drink your orange
+          juice
+        </button>
+
+        <div id="youreUpEarly" class="collapse mt-3" data-aos="fade-up">
+          <div class="conversation-card p-3 p-lg-4">
+            <div class="conversation-block">
+              <h5>💬 English</h5>
+              <p class="mb-3">
+                — You’re up early.<br />
+                — You’re rubbing off on me. Now I wake up early. I’m not getting
+                my eight hours of beauty sleep.<br />
+                — Drink your orange juice.
+              </p>
+
+              <h5>🇫🇷 French (Neutral)</h5>
+              <p class="mb-3">
+                — Tu es levé(e) tôt.<br />
+                — Tu déteins sur moi. Maintenant, je me réveille tôt. Je n’ai
+                plus mes huit heures de sommeil de beauté.<br />
+                — Bois ton jus d’orange.
+              </p>
+
+              <h5>🗣️ Spoken French</h5>
+              <p class="mb-0">
+                — T’es déjà levé(e) ?<br />
+                — T’es en train de déteindre sur moi. Maintenant, j’me réveille
+                tôt. J’ai plus mes huit heures de sommeil de beauté !<br />
+                — Allez, bois ton jus !
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category: Affectionate Banter (placeholder) -->
+      <section id="affection" class="mb-5" data-aos="fade-up">
+        <h2 class="h4 mb-3">💞 Affectionate Banter</h2>
+        <p class="text-muted">
+          Add your cute lines here — e.g., “Fais-moi un bisou”, “Fais-moi un
+          câlin”.
+        </p>
+      </section>
+
+      <!-- Category: Playful Arguments (placeholder) -->
+      <section id="arguments" class="mb-5" data-aos="fade-up">
+        <h2 class="h4 mb-3">😂 Playful Arguments</h2>
+        <p class="text-muted">
+          Snappy comebacks and gentle roasting — e.g., “Mytho !”, “Baratineur
+          !”.
+        </p>
+      </section>
+
+      <!-- Category: Evening Talk (placeholder) -->
+      <section id="evening" class="mb-5" data-aos="fade-up">
+        <h2 class="h4 mb-3">🌙 Evening Talk</h2>
+        <p class="text-muted">
+          Your evening routines — showers, dinner, cozy talk.
+        </p>
+      </section>
+
+      <footer class="text-center text-muted py-4" data-aos="fade-up">
+        <small
+          >© 2025 RM Lives · Built with Bootstrap & AOS ·
+          <span class="badge text-bg-light">v=251019</span></small
+        >
+      </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      defer
+    ></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        AOS.init({ once: false, duration: 450, easing: "ease-out" });
+        // Smooth-scroll for sidebar links
+        document.querySelectorAll(".category-link").forEach((a) => {
+          a.addEventListener("click", (e) => {
+            const hash = a.getAttribute("href");
+            if (hash && hash.startsWith("#")) {
+              const el = document.querySelector(hash);
+              if (el) {
+                setTimeout(() => {
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 150); // allow offcanvas to close first
+              }
+            }
+          });
+        });
+      });
+    </script>
+    <script>
+      tooltip.update();
+    </script>
+    <!-- initiating the tooltip -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tooltipTriggerList = document.querySelectorAll(
+          '[data-bs-toggle="tooltip"]',
+        );
+        const tooltipList = [...tooltipTriggerList].map(
+          (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl),
+        );
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,616 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/dimanche.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Un dimanche en France</h1>
+      </div>
+      <a
+        href="https://francesautentico.com.br/texto-em-frances-intermediario-un-dimanche-en-france/"
+        target="”_blank”"
+      >
+        <img src="/img/stall.svg" alt=""
+      /></a>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img
+            class="french-text-img"
+            src="/img/croissant.svg"
+            alt=""
+            style="width: 50px"
+          />
+          Le dimanche est un jour
+          <span data-bs-toggle="tooltip" title="/paʀtikylje/">particulier</span>
+          en France. Les magasins sont fermés, mais les
+          <span data-bs-toggle="tooltip" title="/bulɑ̃ʒʀi/">boulangeries</span>
+          <span data-bs-toggle="tooltip" title="/rədubl/">redoublent</span>
+          d'<span data-bs-toggle="tooltip" title="/aktivite/">activité</span>.
+          Pendant toute la matinée,
+          <span data-bs-toggle="tooltip" title="/ʃakœ̃/">chacun</span> s’y rend
+          pour acheter une
+          <span data-bs-toggle="tooltip" title="/bagεt/">baguette</span> bien
+          <span data-bs-toggle="tooltip" title="/fʀɛʃ/">fraîche</span> ou les
+          <span data-bs-toggle="tooltip" title="/pɑtisʀi/">pâtisseries</span>
+          qui seront servies en
+          <span data-bs-toggle="tooltip" title="/desɛʀ/">dessert</span> le midi.
+          Les
+          <span data-bs-toggle="tooltip" title="/flœʀist/">fleuristes</span> ne
+          <span data-bs-toggle="tooltip" title="/ʃom/">chôment</span> pas non
+          plus car le dimanche, c’est le jour des repas en famille et il serait
+          <span data-bs-toggle="tooltip" title="/ɛ̃pɔli/">impoli</span> d'arriver
+          les mains vides...<br />
+          Quand j’étais enfant, je
+          <span data-bs-toggle="tooltip" title="/ʀ(ə)dutɛ/">redoutais</span> les
+          dimanches parce que je savais que ce jour-là, je passerais avec mes
+          parents
+          <span data-bs-toggle="tooltip" title="/plyzjœʀ/">plusieurs</span>
+          heures à table chez l’une de mes
+          <span data-bs-toggle="tooltip" title="/ɡʀɑ̃mɛʀ/">grands-mères</span>.
+          D’abord, il y avait l'<span
+            data-bs-toggle="tooltip"
+            title="/apeʀitif/"
+            >apéritif</span
+          >
+          : <span data-bs-toggle="tooltip" title="/pastis/">pastis</span>,
+          <span data-bs-toggle="tooltip" title="/pɔʀto/">porto</span> ou
+          <span data-bs-toggle="tooltip" title="/kiʀ/">kir</span> pour les
+          grands, jus d'orange pour les enfants et, pour tout le monde,
+          <span data-bs-toggle="tooltip" title="/kakaɥɛt/">cacahuètes</span>,
+          <span data-bs-toggle="tooltip" title="/ɔliv/">olives</span>, petits
+          cubes de fromage à
+          <span data-bs-toggle="tooltip" title="/ɡʀiɲɔte/">grignoter</span>.
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Sunday is a special day in France. Shops are closed, but bakeries are
+          redoubling their activity. Throughout the morning, everyone goes there
+          to buy a fresh baguette or pastries that will be served for dessert at
+          lunchtime. Florists are not idle either because Sunday is the day of
+          family meals and it would be rude to arrive empty-handed...<br />
+          When I was a child, I dreaded Sundays because I knew that on that day,
+          I would spend several hours with my parents at the table at one of my
+          grandmothers' house. First, there was the aperitif: pastis, port or
+          kir for the adults, orange juice for the children and, for everyone,
+          peanuts, olives, small cubes of cheese to nibble on.
+        </p>
+      </div>
+      <br />
+      <div class="french-text" data-aos="fade-up">
+        <h5>🥖 French</h5>
+        <p>
+          Le repas suivait avec une entrée, (des
+          <span data-bs-toggle="tooltip" title="/fʀɥi.də.mεr/ seafood"
+            >fruits de mer</span
+          >, par exemple), un
+          <span data-bs-toggle="tooltip" title="/pla.prε̃sipal/ main dish"
+            >plat principal</span
+          >, (de la viande et des légumes,
+          <span data-bs-toggle="tooltip" title="/ʒeneʀalmɑ̃/">généralement</span>
+          ), du fromage (<span data-bs-toggle="tooltip" title="/ɔbliɡatwaʀmɑ̃/"
+            >obligatoirement</span
+          >
+          !), de la salade (presque toujours) et, vers quatre heures de
+          l’après-midi, lorsque les
+          <span data-bs-toggle="tooltip" title="/εstɔma/">estomacs</span>
+          étaient complètement pleins: le dessert (enfin !).<br />
+          Le dimanche soir, bien sûr, personne n'avait envie de manger. Il ne
+          restait qu’à aller se coucher en se disant qu’on avait sans doute
+          perdu sa journée. Et pourtant ... Ma maman est aujourd’hui grand-mère
+          et les dimanches chez elle, avec ma femme et mon fils, n’ont rien
+          d’<span data-bs-toggle="tooltip" title="/ɑ̃nɥijɑ̃/">ennuyant</span>.
+          Nous mangeons bien, mais pas trop et, dès le dessert terminé, nous
+          sortons nous
+          <span data-bs-toggle="tooltip" title="/pʀɔm(ə)ne/">promener</span>
+          tous ensemble
+          <span data-bs-toggle="tooltip" title="/o.bɔʀ.də.la.mɛʀ/ by the sea"
+            >au bord de la mer</span
+          >
+          ou en <span data-bs-toggle="tooltip" title="/fɔʀɛ/">forêt</span>. Le
+          dimanche soir, quand je couche mon fils, je me dis que la journée a
+          été magnifique.
+          <span data-bs-toggle="tooltip" title="/puʀvy.kə/ Let's hope that"
+            >Pourvu qu</span
+          >’il pense la même chose !
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          The meal followed with a starter, (seafood, for example), a main
+          course, (meat and vegetables, usually), cheese (mandatory!), salad
+          (almost always) and, around four o'clock in the afternoon, when the
+          stomachs were completely full: dessert (finally!).<br />
+          On Sunday night, of course, no one felt like eating. All that was left
+          to do was go to bed, telling ourselves that we had probably lost our
+          day. And yet... My mother is now a grandmother and Sundays at her
+          house, with my wife and son, are not boring. We eat well, but not too
+          much and, as soon as dessert is over, we all go out for a walk
+          together by the sea or in the forest. On Sunday evening, when I put my
+          son to bed, I tell myself that the day has been magnificent. Let's
+          hope that he thinks the same thing!
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">
+                dimanche <span class="pho"> /dimɑ̃ʃ/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>Sunday</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                un jour particulier <span class="pho"> /paʀtikylje/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>A special day</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                magasin <sup>m</sup> <span class="pho"> /maɡazɛ̃/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>store</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                fermés (fermer) <span class="pho"> /fɛʀme/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>closed (to close)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                boulangerie <sup>f</sup> <span class="pho"> /bulɑ̃ʒʀi/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>bakeries</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                redoublent (redoubler) <span class="pho"> /ʀ(ə)duble/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>increase (to increase)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                matinée <sup>f</sup> <span class="pho"> /matine/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>morning</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                chacun <span class="pho"> /ʃakœ̃/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>everyone</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                il y rend (y rendre) <span class="pho"> /ʀɑ̃dʀ/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>goes there (to go there)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                pour acheter <span class="pho"> /aʃ(ə)te/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>to buy</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                pâtisserie <sup>f</sup> <span class="pho"> /pɑtisʀi/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>pastries</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">(elles) seront (être)</td>
+              <td style="width: 40px"></td>
+              <td>they will be (to be)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">le midi</td>
+              <td style="width: 40px"></td>
+              <td>lunchtime, noon</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                ne chôment pas (chômer) <span class="pho"> /ʃome/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>are not idle (to be idle)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">non plus</td>
+              <td style="width: 40px"></td>
+              <td>either</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">des repas en famille</td>
+              <td style="width: 40px"></td>
+              <td>family meals</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                il serait impoli <span class="pho"> /ɛ̃pɔli/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>it would be rude</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                les mains vides <span class="pho"> /vid/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>empty hands</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">un enfant</td>
+              <td style="width: 40px"></td>
+              <td>a child</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                je redoutais (redouter) <span class="pho"> /ʀ(ə)dute/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>I dreaded (to dread)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">je savais (savoir)</td>
+              <td style="width: 40px"></td>
+              <td>I knew (to know)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">Je passerais (passer)</td>
+              <td style="width: 40px"></td>
+              <td>I would spend (to spend)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">plusieurs heures</td>
+              <td style="width: 40px"></td>
+              <td>many hours</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">chez</td>
+              <td style="width: 40px"></td>
+              <td>at the home of</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">grand-mères</td>
+              <td style="width: 40px"></td>
+              <td>grandmothers</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">d'abord</td>
+              <td style="width: 40px"></td>
+              <td>first</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">grand(e)</td>
+              <td style="width: 40px"></td>
+              <td>adult</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">tout le monde</td>
+              <td style="width: 40px"></td>
+              <td>everybody</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                cacahuète <sup>f</sup> <span class="pho"> /kakaɥɛt/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>peanuts</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                fromage <sup>m</sup><span class="pho"> /fʀɔmaʒ/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>cheese</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                grignoter <span class="pho"> /ɡʀiɲɔte/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>to snack</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">suivait (suivre)</td>
+              <td style="width: 40px"></td>
+              <td>followed (to follow)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">des légumes <sup>m</sup></td>
+              <td style="width: 40px"></td>
+              <td>vegetables</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">presque toujours</td>
+              <td style="width: 40px"></td>
+              <td>almost always</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                vers quatre heures <span class="pho"> /vɛʀ/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>around four o'clock</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">après-midi</td>
+              <td style="width: 40px"></td>
+              <td>afternoon</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                les estomacs <sup>m</sup>…pleins
+                <span class="pho"> /ɛstɔma/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>bellies…full</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">enfin</td>
+              <td style="width: 40px"></td>
+              <td>at last</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">le soir</td>
+              <td style="width: 40px"></td>
+              <td>evening</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">bien sûr</td>
+              <td style="width: 40px"></td>
+              <td>of course</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">personne n’avait envie</td>
+              <td style="width: 40px"></td>
+              <td>no one wanted</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">manger</td>
+              <td style="width: 40px"></td>
+              <td>to eat</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">aller se coucher</td>
+              <td style="width: 40px"></td>
+              <td>to go to bed</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">en se disant</td>
+              <td style="width: 40px"></td>
+              <td>saying to oneself</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">sans doute perdu</td>
+              <td style="width: 40px"></td>
+              <td>no doubt lost</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">la journée</td>
+              <td style="width: 40px"></td>
+              <td>day</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">aujourd’hui</td>
+              <td style="width: 40px"></td>
+              <td>today / nowadays</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">ma femme</td>
+              <td style="width: 40px"></td>
+              <td>my wife</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">mon fils</td>
+              <td style="width: 40px"></td>
+              <td>my son</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                ils n’ont rien d’ennuyant (ennuyer)
+                <span class="pho"> /ɑ̃nɥije/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>There is nothing boring about them (to bore)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">nous mangeons (manger)</td>
+              <td style="width: 40px"></td>
+              <td>We eat (to eat)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">mais pas trop</td>
+              <td style="width: 40px"></td>
+              <td>but not too much</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">nous sortons (sortir)</td>
+              <td style="width: 40px"></td>
+              <td>We go out (to go out)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                nous promener <span class="pho"> /pʀɔm(ə)ne/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>we go for a walk</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">au bord de la mer</td>
+              <td style="width: 40px"></td>
+              <td>on the beach / seaside</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                la forêt <span class="pho"> /fɔʀɛ/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>forest / woods</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">
+                pourvu que<span class="pho"> /puʀvy.kə/</span>
+              </td>
+              <td style="width: 40px"></td>
+              <td>let's hope that</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">il pense (penser)</td>
+              <td style="width: 40px"></td>
+              <td>he thinks (to think)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">la même chose</td>
+              <td style="width: 40px"></td>
+              <td>the same thing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!--     <div class="bottom-nav">
+      <a class="btn btn-outline-primary" href="index.html">Page One</a>
+      <a class="btn btn-primary" href="dimanche.html">Page Two</a>
+    </div>
+    <p></p>
+    <p></p> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script type="module" src="../../assets/js/read.js"></script>
+  </body>
+</html>

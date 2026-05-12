@@ -1,0 +1,651 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - November 6, 2025</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              La COP30 –
+            </span>
+            <span class="chunk" onclick="playAudio('audio2')">
+              la Conférence internationale
+            </span>
+            <span class="chunk" onclick="playAudio('audio3')">
+              sur le climat –
+            </span>
+            <span class="chunk" onclick="playAudio('audio4')">
+              avant de s'ouvrir officiellement,
+            </span>
+            <span class="chunk" onclick="playAudio('audio5')">
+              lundi prochain, à Belém, au Brésil.
+            </span>
+            <span class="chunk" onclick="playAudio('audio6')">
+              Les dirigeants de ce monde
+            </span>
+            <span class="chunk" onclick="playAudio('audio7')">
+              se succèdent, à l'heure actuelle,
+            </span>
+            <span class="chunk" onclick="playAudio('audio8')">
+              à la tribune,
+            </span>
+            <span class="chunk" onclick="playAudio('audio9')">
+              avec un aveu,
+            </span>
+            <span class="chunk" onclick="playAudio('audio10')">
+              une reconnaissance,
+            </span>
+            <span class="chunk" onclick="playAudio('audio11')">
+              une confession venue d'Antonio Guterres :
+            </span>
+            <span class="chunk" onclick="playAudio('audio12')">
+              &quot;Nous avons échoué&quot;
+            </span>
+            <span class="chunk" onclick="playAudio('audio13')">
+              à limiter le réchauffement climatique,
+            </span>
+            <span class="chunk" onclick="playAudio('audio14')">
+              vient de déclarer le chef de l'ONU.
+            </span>
+            <span class="chunk" onclick="playAudio('audio15')">
+              L'actualité nous emmènera, aussi, au Proche-Orient,
+            </span>
+            <span class="chunk" onclick="playAudio('audio16')">
+              où Israël bombarde le Sud-Liban.
+            </span>
+            <span class="chunk" onclick="playAudio('audio17')">
+              Le Hezbollah est opposé
+            </span>
+            <span class="chunk" onclick="playAudio('audio18')">
+              à toute négociation avec Israël.
+            </span>
+            <span class="chunk" onclick="playAudio('audio19')">
+              En Asie, les ravages
+            </span>
+            <span class="chunk" onclick="playAudio('audio20')">
+              du typhon Kalmaegi,
+            </span>
+            <span class="chunk" onclick="playAudio('audio21')">
+              qui a déjà fait
+            </span>
+            <span class="chunk" onclick="playAudio('audio22')">
+              plus de 140 morts
+            </span>
+            <span class="chunk" onclick="playAudio('audio23')">
+              aux Philippines.
+            </span>
+            <span class="chunk" onclick="playAudio('audio24')">
+              Les vents frappent, à l'heure actuelle,
+            </span>
+            <span class="chunk" onclick="playAudio('audio25')">
+              le Vietnam.
+            </span>
+            <span class="chunk" onclick="playAudio('audio26')">
+              Le Cameroun est, également,
+            </span>
+            <span class="chunk" onclick="playAudio('audio27')">
+              à la une.
+            </span>
+            <span class="chunk" onclick="playAudio('audio28')">
+              Paul Biya a prêté serment.
+            </span>
+            <span class="chunk" onclick="playAudio('audio29')">
+              Il s'est engagé,
+            </span>
+            <span class="chunk" onclick="playAudio('audio30')">
+              la main levée, pour un huitième mandat
+            </span>
+            <span class="chunk" onclick="playAudio('audio31')">
+              comme président du Cameroun.
+            </span>
+            <span class="chunk" onclick="playAudio('audio32')">
+              Et puis, enfin, en France,
+            </span>
+
+            <span class="chunk" onclick="playAudio('audio33')">
+              tous les colis Shein
+            </span>
+            <span class="chunk" onclick="playAudio('audio34')">
+              qui arrivent de Chine
+            </span>
+            <span class="chunk" onclick="playAudio('audio35')">
+              en France sont inspectés,
+            </span>
+
+            <span class="chunk" onclick="playAudio('audio36')">
+              depuis ce matin :
+            </span>
+            <span class="chunk" onclick="playAudio('audio37')">
+              ils sont fouillés
+            </span>
+            <span class="chunk" onclick="playAudio('audio38')">
+              par les douaniers français.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              COP30 – the International Climate Conference – before officially
+              opening next Monday in Belém, Brazil. World leaders are currently
+              taking turns at the podium, with an admission, an acknowledgment,
+              a confession from Antonio Guterres: We have failed to limit global
+              warming, the UN chief has just declared. The news will also take
+              us to the Middle East, where Israel is bombing southern Lebanon.
+              Hezbollah is opposed to any negotiation with Israel. In Asia, the
+              devastation of Typhoon Kalmaegi, which has already killed more
+              than 140 people in the Philippines. The winds are currently
+              hitting Vietnam. Cameroon is also in the headlines. Paul Biya has
+              been sworn in. He has committed himself, hand raised, to an eighth
+              term as President of Cameroon. And finally, in France, all Shein
+              packages arriving from China to France are being inspected as of
+              this morning: they are being searched by French customs officers.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  conférence /kɔ̃feʀɑ̃s/
+                </td>
+                <td>conference</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">
+                  internationale /ɛ̃tɛʀnasjɔnal/
+                </td>
+                <td>international</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  climat /klima/
+                </td>
+                <td>climate</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  officiellement /ɔfisjɛlmɑ̃/
+                </td>
+                <td>officially</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  Brésil /bʀezil/
+                </td>
+                <td>Brazil</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  succéder /syksede/
+                </td>
+                <td>to succeed/follow/come after</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  succèdent /syksɛd/
+                </td>
+                <td>to succeed/follow/come after</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  tribune /tʀibyn/
+                </td>
+                <td>forum / platform</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">aveu /avø/</td>
+                <td>admission / confession</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  reconnaissance /ʀ(ə)kɔnɛsɑ̃s/
+                </td>
+                <td>recognition</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  confession /kɔ̃fesjɔ̃/
+                </td>
+                <td>confession</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  venue /v(ə)ny/
+                </td>
+                <td>coming</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  échouer /eʃwe/
+                </td>
+                <td>to fail</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  limiter /limite/
+                </td>
+                <td>to limit/restrict</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  réchauffement /ʀeʃofmɑ̃/
+                </td>
+                <td>warming up</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  climatique /klimatik/
+                </td>
+                <td>climatic</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  venir de /vənir.də/
+                </td>
+                <td>just done</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  déclarer /deklaʀe/
+                </td>
+                <td>to declare/announce</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  emmener /ɑ̃m(ə)ne/
+                </td>
+                <td>to take</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  emmènera /ɑ̃mɛnəʀa/
+                </td>
+                <td>to take</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  opposer /ɔpoze/
+                </td>
+                <td>to oppose</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  négociation /neɡɔsjasjɔ̃/
+                </td>
+                <td>negotiation</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  ravages /ʀavaʒ/
+                </td>
+                <td>ravages</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">
+                  typhon /tifɔ̃/
+                </td>
+                <td>typhoon</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  Philippines /filipin /
+                </td>
+                <td>the Philippines</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">
+                  frapper /fʀape/
+                </td>
+                <td>to hit/strike</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio65')">
+                  frappent /fʀap/
+                </td>
+                <td>to hit/strike</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio66')">
+                  Cameroun /kamʀun/
+                </td>
+                <td>Cameroon</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio67')">
+                  prêter /pʀete/
+                </td>
+                <td>(politics) to be sworn in</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio68')">
+                  serment /sɛʀmɑ̃/
+                </td>
+                <td>oath</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio69')">
+                  engagé /ɑ̃ɡaʒe/
+                </td>
+                <td>committed</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio70')">
+                  levée /l(ə)ve/
+                </td>
+                <td>lifting</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio71')">
+                  huitième /ɥitjɛm/
+                </td>
+                <td>eighth</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio72')">
+                  mandat /mɑ̃da/
+                </td>
+                <td>mandate</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio73')">
+                  colis /kɔli/
+                </td>
+                <td>parcel</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio74')">
+                  inspecter /ɛ̃spɛkte/
+                </td>
+                <td>to inspect</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio75')">
+                  fouiller /fuje/
+                </td>
+                <td>to search</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio76')">
+                  douanier /dwanje/
+                </td>
+                <td>custom officer</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio id="audio1" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/01-La COP30.m4a"></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/02-la Conférence internationale.m4a"
+    ></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/03-sur le climat.m4a"></audio>
+    <audio
+      id="audio4"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/04-avant de s'ouvrir officiellement.m4a"
+    ></audio>
+    <audio
+      id="audio5"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/05-lundi prochain, à Belém, au Brésil.m4a"
+    ></audio>
+    <audio
+      id="audio6"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/06-Les dirigeants de ce monde.m4a"
+    ></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/07-se succèdent, à l'heure actuelle.m4a"
+    ></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/08-à la tribune.m4a"></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/09-avec un aveu.m4a"></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/10-une reconnaissance.m4a"
+    ></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/11-une confession venue d'Antonio Guterres.m4a"
+    ></audio>
+    <audio id="audio12" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/12-Nous avons échoué.m4a"></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/13-à limiter le réchauffement climatique.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/14-vient de déclarer le chef de l'ONU.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/15-L'actualité nous emmènera, aussi, au Proche-Orient.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/16-où Israël bombarde le Sud-Liban.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/17-Le Hezbollah est opposé.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/18-à toute négociation avec Israël.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/19-En Asie, les ravages.m4a"
+    ></audio>
+    <audio
+      id="audio20"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/20-du typhon Kalmaegi.m4a"
+    ></audio>
+    <audio id="audio21" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/21-qui a déjà fait.m4a"></audio>
+    <audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/22-plus de 140 morts.m4a"></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/23-aux Philippines.m4a"></audio>
+    <audio
+      id="audio24"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/24-Les vents frappent, à l'heure actuelle.m4a"
+    ></audio>
+    <audio id="audio25" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/25-le Vietnam.m4a"></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/26-Le Cameroun est, également.m4a"
+    ></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/27-à la une.m4a"></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/28-Paul Biya a prêté serment.m4a"
+    ></audio>
+    <audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/29-Il s'est engagé.m4a"></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/30-la main levée, pour un huitième mandat.m4a"
+    ></audio>
+    <audio
+      id="audio31"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/31-comme président du Cameroun.m4a"
+    ></audio>
+    <audio
+      id="audio32"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/32-Et puis, enfin, en France.m4a"
+    ></audio>
+    <audio
+      id="audio33"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/33-tous les colis Shein.m4a"
+    ></audio>
+    <audio
+      id="audio34"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/34-qui arrivent de Chine.m4a"
+    ></audio>
+    <audio
+      id="audio35"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/35-en France sont inspectés.m4a"
+    ></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/36-depuis ce matin.m4a"></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/37-ils sont fouillés.m4a"></audio>
+    <audio
+      id="audio38"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/38-par les douaniers français.m4a"
+    ></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/39-Conférence.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/40-internationale.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/41-climat.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/42-officiellement.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/43-Brésil.m4a"></audio>
+    <audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/44-succéder.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/45-succèdent.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/46-tribune.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/47-aveu.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/48-reconnaissance.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/49-confession.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/50-venue.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/51-échouer.m4a?v=251209"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/52-limiter.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/53-réchauffement.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/54-climatique.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/55-venir de.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/56-déclarer.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/57-emmener.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/58-emmènera.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/59-opposer.m4a"></audio>
+    <audio id="audio60" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/60-négociation.m4a"></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/61-ravages.m4a"></audio>
+    <audio id="audio62" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/62-typhon.m4a"></audio>
+    <audio id="audio63" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/63-Philippines.m4a"></audio>
+    <audio id="audio64" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/64-frapper.m4a"></audio>
+    <audio id="audio65" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/65-frappent.m4a"></audio>
+    <audio id="audio66" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/66-Cameroun.m4a"></audio>
+    <audio id="audio67" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/67-prêter.m4a"></audio>
+    <audio id="audio68" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/68-serment.m4a"></audio>
+    <audio id="audio69" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/69-engagé.m4a"></audio>
+    <audio id="audio70" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/70-levée.m4a"></audio>
+    <audio id="audio71" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/71-huitième.m4a"></audio>
+    <audio id="audio72" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/72-mandat.m4a"></audio>
+    <audio id="audio73" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/73-colis.m4a"></audio>
+    <audio id="audio74" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/74-inspecter.m4a"></audio>
+    <audio id="audio75" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/75-fouiller.m4a"></audio>
+    <audio id="audio76" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/76-douanier.m4a?v=251209"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251106/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

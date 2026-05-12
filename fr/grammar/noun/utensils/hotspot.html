@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Utensils</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- offline enabler -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../../assets/css/hotspot.css" />
+  </head>
+  <body>
+    <div class="container-fluid px-0 py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="thumbnail-section full-bleed">
+            <h6 class="fw-bold mb-2">Jump to card</h6>
+            <div class="thumbnail-strip" id="thumbnailStrip"></div>
+          </div>
+
+          <div class="flashcard-container" id="flashcard">
+            <div class="flashcard-inner">
+              <div
+                class="flashcard-front d-flex align-items-center justify-content-center bg-white rounded"
+              >
+                <h3 id="card-front-text">Loading...</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Randomization -->
+          <div class="d-flex justify-content-center gap-2 mb-3">
+            <button class="btn btn-warning" onclick="shuffleDeck()">
+              <i class="bi bi-shuffle"></i> Shuffle Cards
+            </button>
+            <button class="btn btn-outline-warning" onclick="reorderDeck()">
+              Reorder Cards
+            </button>
+          </div>
+
+          <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-outline-secondary" onclick="prevCard()">
+              Previous
+            </button>
+            <span id="card-count" class="align-self-center text-muted"
+              >1 / 5</span
+            >
+            <button class="btn btn-outline-primary" onclick="nextCard()">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <script>
+      // 1. Your Data (This acts as your "Database")
+      const baseDeck = [
+        {
+          img: "/img/steps/setting.jpg",
+          alt: "table setting",
+          hotspots: [
+            {
+              left: "32%",
+              top: "70%",
+              en: "napkin",
+              fr: "la serviette",
+              ipa: "/sεʀvjεt/",
+            },
+            {
+              left: "52%",
+              top: "28%",
+              en: "bowl",
+              fr: "la bol",
+              ipa: "/bɔl/",
+            },
+            {
+              left: "73%",
+              top: "24%",
+              en: "table",
+              fr: "la table",
+              ipa: "/tabl/",
+            },
+            {
+              left: "63%",
+              top: "75%",
+              en: "knife",
+              fr: "le couteau",
+              ipa: "/kuto/",
+            },
+            {
+              left: "84%",
+              top: "65%",
+              en: "spoon",
+              fr: "la cuillère",
+              ipa: "/kɥijεʀ/",
+            },
+            {
+              left: "44%",
+              top: "59%",
+              en: "plate",
+              fr: "l'assiette (f)",
+              ipa: "/asjɛt/",
+            },
+            {
+              left: "28%",
+              top: "50%",
+              en: "fork",
+              fr: "la fourchette",
+              ipa: "/fuʀʃɛt/",
+            },
+          ],
+        },
+        {
+          img: "/img/steps/knife.jpg",
+          alt: "knife",
+          hotspots: [
+            {
+              left: "26%",
+              top: "45%",
+              en: "handle",
+              fr: "le manche",
+              ipa: "/mɑ̃ʃ/",
+            },
+            {
+              left: "83%",
+              top: "74%",
+              en: "tip",
+              fr: "la pointe",
+              ipa: "/pwɛ̃t/",
+            },
+            {
+              left: "50%",
+              top: "56%",
+              en: "blade",
+              fr: "la lame",
+              ipa: "/lam/",
+            },
+            {
+              left: "55%",
+              top: "72%",
+              en: "cutting edge",
+              fr: "le tranchant",
+              ipa: "/tʀɑ̃ʃɑ̃/",
+            },
+            {
+              left: "20%",
+              top: "70%",
+              en: "cutting board",
+              fr: "la planche",
+              ipa: "/plɑ̃ʃ/",
+            },
+          ],
+        },
+        {
+          img: "/img/steps/chopsticks.jpg",
+          alt: "chopsticks",
+          hotspots: [
+            {
+              left: "37%",
+              top: "62%",
+              en: "chopstick rest",
+              fr: "le porte-baguettes",
+              ipa: "/pɔʀt.də.baɡɛt/",
+            },
+            {
+              left: "60%",
+              top: "72%",
+              en: "chopsticks",
+              fr: "les baguettes (f)",
+              ipa: "/baɡɛt/",
+            },
+          ],
+        },
+      ];
+
+      let deck = baseDeck.map((card, index) => ({ ...card, id: index }));
+      let currentIndex = 0;
+      const frontText = document.getElementById("card-front-text");
+      const countLabel = document.getElementById("card-count");
+      const thumbnailStrip = document.getElementById("thumbnailStrip");
+      const hotspotTooltip = document.createElement("div");
+      hotspotTooltip.className = "hotspot-tooltip";
+      hotspotTooltip.setAttribute("role", "dialog");
+      hotspotTooltip.setAttribute("aria-hidden", "true");
+      hotspotTooltip.innerHTML = `
+            <div class="hotspot-tooltip-en"></div>
+            <div class="hotspot-tooltip-divider"></div>
+            <div class="hotspot-tooltip-fr"></div>
+            <div class="hotspot-tooltip-ipa"></div>
+            <button type="button" class="hotspot-tooltip-close" aria-label="Close hotspot info">&#215;</button>
+          `;
+      document.body.appendChild(hotspotTooltip);
+      const tooltipEn = hotspotTooltip.querySelector(".hotspot-tooltip-en");
+      const tooltipFr = hotspotTooltip.querySelector(".hotspot-tooltip-fr");
+      const tooltipIpa = hotspotTooltip.querySelector(".hotspot-tooltip-ipa");
+      let pinnedHotspot = null;
+      let hideTimer = null;
+
+      function positionTooltip(hotspot) {
+        const rect = hotspot.getBoundingClientRect();
+        const tooltipRect = hotspotTooltip.getBoundingClientRect();
+        let left =
+          rect.left + rect.width / 2 - tooltipRect.width / 2 + window.scrollX;
+        left = Math.max(
+          window.scrollX + 8,
+          Math.min(
+            left,
+            window.scrollX + window.innerWidth - tooltipRect.width - 8,
+          ),
+        );
+
+        let top = rect.top + window.scrollY - tooltipRect.height - 12;
+        if (top < window.scrollY + 8) {
+          top = rect.bottom + window.scrollY + 12;
+        }
+        hotspotTooltip.style.left = `${left}px`;
+        hotspotTooltip.style.top = `${top}px`;
+      }
+
+      function showHotspotTooltip(hotspot) {
+        if (!hotspot) return;
+        clearTimeout(hideTimer);
+        tooltipEn.textContent = hotspot.dataset.en;
+        tooltipFr.textContent = hotspot.dataset.fr;
+        tooltipIpa.textContent = hotspot.dataset.ipa;
+        hotspotTooltip.classList.add("is-visible");
+        hotspotTooltip.setAttribute("aria-hidden", "false");
+        // Temporarily make sure we can measure size even if hidden
+        positionTooltip(hotspot);
+      }
+
+      function hideHotspotTooltip() {
+        hotspotTooltip.classList.remove("is-visible");
+        hotspotTooltip.setAttribute("aria-hidden", "true");
+        pinnedHotspot = null;
+      }
+
+      function buildCardMarkup(card) {
+        const hotspotMarkup = card.hotspots
+          .map(
+            (spot) => `
+                  <button
+                    class="hotspot"
+                    style="left:${spot.left}; top:${spot.top};"
+                    data-en="${spot.en}"
+                    data-fr="${spot.fr}"
+                    data-ipa="${spot.ipa}"
+                  >
+                    <span class="sr-only">${spot.en} / ${spot.fr}</span>
+                  </button>
+                `,
+          )
+          .join("");
+
+        return `
+              <div class="hotspot-wrap">
+                <img src="${card.img}" alt="${card.alt || ""}" loading="lazy">
+                ${hotspotMarkup}
+              </div>
+            `;
+      }
+
+      // 2. Load the content
+      function loadCard() {
+        frontText.innerHTML = buildCardMarkup(deck[currentIndex]);
+        countLabel.innerHTML = `${currentIndex + 1} / ${deck.length}`;
+        hideHotspotTooltip();
+        updateActiveThumbnail();
+      }
+      function renderThumbnails() {
+        thumbnailStrip.innerHTML = "";
+        baseDeck.forEach((card, idx) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "thumb-card";
+          btn.dataset.cardId = idx;
+          btn.innerHTML = `
+                <div class="thumb-number">#${idx + 1}</div>
+                <div class="thumb-preview"><img src="${card.img}" alt="${card.alt || ""}" loading="lazy"></div>
+              `;
+          btn.addEventListener("click", () => {
+            const targetIndex = deck.findIndex((item) => item.id === idx);
+            if (targetIndex !== -1) {
+              currentIndex = targetIndex;
+              loadCard();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          });
+          thumbnailStrip.appendChild(btn);
+        });
+        updateActiveThumbnail();
+      }
+
+      function updateActiveThumbnail() {
+        const activeId = deck[currentIndex].id;
+        const buttons = thumbnailStrip.querySelectorAll(".thumb-card");
+        buttons.forEach((btn) => {
+          const btnId = Number(btn.dataset.cardId);
+          btn.classList.toggle("is-active", btnId === activeId);
+        });
+      }
+
+      // 3. Navigation
+      function nextCard() {
+        if (currentIndex < deck.length - 1) {
+          currentIndex++;
+          loadCard();
+        }
+      }
+
+      function prevCard() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          loadCard();
+        }
+      }
+
+      // Initialize
+      renderThumbnails();
+      loadCard();
+
+      // 4. Hotspot interaction
+      document.addEventListener("mouseover", (event) => {
+        const hotspot = event.target.closest(".hotspot");
+        if (!hotspot || pinnedHotspot) return;
+        showHotspotTooltip(hotspot);
+      });
+
+      document.addEventListener("mouseout", (event) => {
+        const hotspot = event.target.closest(".hotspot");
+        if (!hotspot || pinnedHotspot) return;
+        const toElement = event.relatedTarget;
+        if (
+          toElement &&
+          (toElement.closest(".hotspot") ||
+            toElement.closest(".hotspot-tooltip"))
+        ) {
+          return;
+        }
+        hideTimer = setTimeout(hideHotspotTooltip, 120);
+      });
+
+      document.addEventListener("click", (event) => {
+        if (event.target.closest(".hotspot-tooltip-close")) {
+          hideHotspotTooltip();
+          return;
+        }
+
+        const hotspot = event.target.closest(".hotspot");
+        if (hotspot) {
+          pinnedHotspot = hotspot;
+          showHotspotTooltip(hotspot);
+          return;
+        }
+
+        if (!event.target.closest(".hotspot-tooltip")) {
+          hideHotspotTooltip();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          hideHotspotTooltip();
+        }
+      });
+
+      window.addEventListener("scroll", () => {
+        if (pinnedHotspot) {
+          positionTooltip(pinnedHotspot);
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (pinnedHotspot) {
+          positionTooltip(pinnedHotspot);
+        }
+      });
+      function shuffleDeck() {
+        // 1. The Fisher-Yates Shuffle Algorithm
+        // (This loops backward through the deck and swaps each card with a random one)
+        for (let i = deck.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+
+        // 2. Reset the user to the start of the newly shuffled deck
+        currentIndex = 0;
+
+        // 3. Reload the display
+        loadCard();
+
+        // Optional: Give visual feedback (e.g., update the button text briefly)
+        const btn = document.querySelector('button[onclick="shuffleDeck()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Deck Shuffled!";
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 1000);
+      }
+
+      function reorderDeck() {
+        // Restore the deck to its original sequential order
+        deck = baseDeck.map((card, index) => ({ ...card, id: index }));
+        currentIndex = 0;
+        loadCard();
+
+        const btn = document.querySelector('button[onclick="reorderDeck()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Deck Reordered!";
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 1000);
+      }
+    </script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

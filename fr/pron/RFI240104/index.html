@@ -1,0 +1,671 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - January 4, 2024</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')"
+              >Nous sommes le jeudi 4 janvier.</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              3 titres à la une de cette édition.</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              Le Japon tout d'abord,
+            </span>
+            <span class="chunk" onclick="playAudio('audio4')">
+              trois jours après</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              un violent tremblement de terre.</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              Les chances de retrouver</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              des survivants se réduisent.</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              Nous appelons dans un instant</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              notre correspondant au Japon.</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              L'actualité nous emmènera aussi au Liban.</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              Plus d'un millier de personnes aux funérailles,</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              aux obsèques aujourd'hui</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              du numéro deux du Hamas.</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              Et puis, en France, des inondations</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              à répétition dans le nord du pays.</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              Et la colère monte</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              chez les habitants.</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              Deux ministres se sont rendus</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              sur place aujourd'hui.</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              Reportage à suivre dans ce journal.</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              Chaque minute compte pour tenter de retrouver</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              des survivants au Japon.</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              Trois jours après</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              le puissant tremblement de terre</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              qui a secoué la côte ouest du pays,</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              des milliers de sauveteurs</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              venus des quatre coins du pays</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              sont mobilisés à l'heure actuelle.</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              Le dernier bilan fait état</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              de 84 morts et 79 personnes</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              sont toujours portées disparues.</span
+            >
+            <span class="chunk" onclick="playAudio('audio32')">
+              Elles manquent à l'appel</span
+            >
+            <span class="chunk" onclick="playAudio('audio33')">
+              et le temps presse pour espérer</span
+            >
+            <span class="chunk" onclick="playAudio('audio34')">
+              les retrouver vivantes.</span
+            >
+            <span class="chunk" onclick="playAudio('audio35')">
+              Frédéric Charles nous appelle de Tokyo.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              It's Thursday, January 4th. 3 headlines on the front page of this
+              edition. First of all, Japan, three days after a violent
+              earthquake. The chances of finding survivors are dwindling. We'll
+              be calling our correspondent in Japan in a moment. Current events
+              will also take us to Lebanon. More than a thousand people attended
+              the funeral, at the funeral today of Hamas' number two. And then,
+              in France, repeated floods in the north of the country. And anger
+              is rising among the locals. Two ministers visited the site today.
+              Report to follow in this newspaper. Every minute counts in trying
+              to find survivors in Japan. Three days after the powerful
+              earthquake that shook the west coast of the country, thousands of
+              rescuers from all over the country are now mobilized. The latest
+              toll is 84 dead and 79 people are still missing. They are
+              unaccounted for and time is running out to find them alive.
+              Frédéric Charles calls us from Tokyo.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio36')">
+                  violent /vjɔlɑ̃/
+                </td>
+                <td>violent</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio37')">
+                  tremblement /tʀɑ̃bləmɑ̃/
+                </td>
+                <td>trembling / shaking</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio38')">
+                  tremblement de terre /tɛʀ/
+                </td>
+                <td>earthquake</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  survivant /syʀvivɑ̃/
+                </td>
+                <td>survivor</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">
+                  réduire /ʀedɥiʀ/
+                </td>
+                <td>reduce</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  correspondant /kɔʀɛspɔ̃dɑ̃/
+                </td>
+                <td>correspondent</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  actualité /aktɥalite/
+                </td>
+                <td>current events</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  emmener /ɑ̃m(ə)ne/
+                </td>
+                <td>to take</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  funérailles /fyneʀɑj/
+                </td>
+                <td>funeral</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  obsèques /ɔpsɛk/
+                </td>
+                <td>funeral</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  inondation /inɔ̃dasjɔ̃/
+                </td>
+                <td>flood</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  répétition /ʀepetisjɔ̃/
+                </td>
+                <td>repetition</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  colère /kɔlɛʀ/
+                </td>
+                <td>anger</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  monter /mɔ̃te/
+                </td>
+                <td>to go up</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  rendre /ʀɑ̃dʀ/
+                </td>
+                <td>to give/take back, to go</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  reportage /ʀ(ə)pɔʀtaʒ/
+                </td>
+                <td>report / story</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  suivre /sɥivʀ/
+                </td>
+                <td>to follow</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  compter /kɔ̃te/
+                </td>
+                <td>to count</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  tenter /tɑ̃te/
+                </td>
+                <td>try / tempt</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  puissant /pɥisɑ̃/
+                </td>
+                <td>powerful</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  secoué /səkwe/
+                </td>
+                <td>shaken up</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">côte /kot/</td>
+                <td>coastline</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  ouest /wɛst/
+                </td>
+                <td>west</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  sauveteur /sov(ə)tœʀ/
+                </td>
+                <td>rescuer</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  quatre coins du pays
+                </td>
+                <td>four corners of the country / the whole country</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  mobiliser /mɔbilize/
+                </td>
+                <td>to mobilize</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">
+                  actuel /aktɥɛl/
+                </td>
+                <td>present</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  à l'heure actuelle
+                </td>
+                <td>at the present time</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">
+                  bilan /bilɑ̃/
+                </td>
+                <td>balance sheet / toll / outcome</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio65')">
+                  personne /pɛʀsɔn/
+                </td>
+                <td>person / nobody / anybody</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio66')">
+                  porter /pɔʀte/
+                </td>
+                <td>to carry / wear / consider / report</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio67')">
+                  sont toujours portées disparues
+                </td>
+                <td>are still considered/reported missing</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio68')">
+                  disparaître /dispaʀɛtʀ/
+                </td>
+                <td>to disappear / vanish</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio69')">
+                  manquer /mɑ̃ke/
+                </td>
+                <td>to miss</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio70')">à l'appel</td>
+                <td>at roll call / during roll call</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio71')">
+                  presser /pʀese/
+                </td>
+                <td>to squeeze / to be urgent</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio72')">
+                  espérer /ɛspeʀe/
+                </td>
+                <td>to hope</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio73')">
+                  vivant /vivɑ̃/
+                </td>
+                <td>alive</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/01-Nous sommes le jeudi 4 janvier.m4a"
+    ></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/02-3 titres à la une de cette édition.m4a"
+    ></audio>
+    <audio
+      id="audio3"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/03-Le Japon tout d'abord.m4a"
+    ></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/04-trois jours après.m4a"></audio>
+    <audio
+      id="audio5"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/05-un violent tremblement de terre.m4a"
+    ></audio>
+    <audio
+      id="audio6"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/06-Les chances de retrouver.m4a"
+    ></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/07-des survivants se réduisent.m4a"
+    ></audio>
+    <audio
+      id="audio8"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/08-Nous appelons dans un instant.m4a"
+    ></audio>
+    <audio
+      id="audio9"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/09-notre correspondant au Japon.m4a"
+    ></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/10-L'actualité nous emmènera aussi au Liban.m4a"
+    ></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/11-Plus d'un millier de personnes aux funérailles.m4a"
+    ></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/12-aux obsèques aujourd'hui.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/13-du numéro deux du Hamas.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/14-Et puis, en France, des inondations.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/15-à répétition dans le nord du pays.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/16-Et la colère monte.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/17-chez les habitants.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/18-Deux ministres se sont rendus.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/19-sur place aujourd'hui.m4a"
+    ></audio>
+    <audio
+      id="audio20"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/20-Reportage à suivre dans ce journal.m4a"
+    ></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/21-Chaque minute compte pour tenter de retrouver.m4a"
+    ></audio>
+    <audio
+      id="audio22"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/22-des survivants au Japon.m4a"
+    ></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/23-Trois jours après.m4a"></audio>
+    <audio
+      id="audio24"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/24-le puissant tremblement de terre.m4a"
+    ></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/25-qui a secoué la côte ouest du pays.m4a"
+    ></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/26-des milliers de sauveteurs.m4a"
+    ></audio>
+    <audio
+      id="audio27"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/27-venus des quatre coins du pays.m4a"
+    ></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/28-sont mobilisés à l'heure actuelle.m4a"
+    ></audio>
+    <audio
+      id="audio29"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/29-Le dernier bilan fait état.m4a"
+    ></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/30-de 84 morts et 79 personnes.m4a"
+    ></audio>
+    <audio
+      id="audio31"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/31-sont toujours portées disparues.m4a"
+    ></audio>
+    <audio
+      id="audio32"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/32-Elles manquent à l'appel.m4a"
+    ></audio>
+    <audio
+      id="audio33"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/33-et le temps presse pour espérer.m4a"
+    ></audio>
+    <audio
+      id="audio34"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/34-les retrouver vivantes.m4a"
+    ></audio>
+    <audio
+      id="audio35"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/35-Frédéric Charles nous appelle de Tokyo.m4a"
+    ></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/36-violent.m4a"></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/37-tremblement.m4a"></audio>
+    <audio
+      id="audio38"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/38-tremblement de terre.m4a"
+    ></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/39-survivant.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/40-réduire.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/41-correspondant.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/42-actualité.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/43-emmener.m4a"></audio>
+    <audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/44-funérailles.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/45-obsèques.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/46-inondation.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/47-répétition.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/48-colère.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/49-monter.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/50-rendre.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/51-reportage.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/52-suivre.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/53-compter.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/54-tenter.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/55-puissant.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/56-secoué.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/57-côte.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/58-ouest.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/59-sauveteur.m4a"></audio>
+    <audio
+      id="audio60"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/60-quatre coins du pays.m4a"
+    ></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/61-mobiliser.m4a"></audio>
+    <audio id="audio62" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/62-actuel.m4a"></audio>
+    <audio
+      id="audio63"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/63-à l’heure actuelle.m4a"
+    ></audio>
+    <audio id="audio64" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/64-bilan.m4a"></audio>
+    <audio id="audio65" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/65-personne.m4a"></audio>
+    <audio id="audio66" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/66-porter.m4a"></audio>
+    <audio
+      id="audio67"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/67-sont toujours portées disparues.m4a"
+    ></audio>
+    <audio id="audio68" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/68-disparaître.m4a"></audio>
+    <audio id="audio69" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/69-manquer.m4a"></audio>
+    <audio id="audio70" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/70-à l'appel.m4a"></audio>
+    <audio id="audio71" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/71-presser.m4a"></audio>
+    <audio id="audio72" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/72-espérer.m4a"></audio>
+    <audio id="audio73" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI240104/73-vivant.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

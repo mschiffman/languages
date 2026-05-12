@@ -1,0 +1,107 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.quiz-container {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+}
+
+.sentence-item {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+/* The Input Box Styling */
+.cloze-input {
+  border: none;
+  border-bottom: 2px solid #bdc3c7;
+  background: #f4f6f7;
+  padding: 5px 10px;
+  width: 120px;
+  font-size: 1rem;
+  color: #2c3e50;
+  text-align: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.cloze-input:focus {
+  outline: none;
+  border-bottom-color: #3498db;
+  background: #eaf2f8;
+}
+
+/* Feedback States */
+.correct {
+  border-bottom-color: #2ecc71 !important;
+  background-color: #d5f5e3 !important;
+  color: #1d8348;
+  font-weight: bold;
+}
+
+.wrong {
+  border-bottom-color: #e74c3c !important;
+  background-color: #fadbd8 !important;
+  color: #943126;
+}
+
+.btn-container {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.1s;
+}
+
+.btn-check {
+  background-color: #3498db;
+  color: white;
+}
+.btn-check:hover {
+  background-color: #2980b9;
+}
+
+.btn-reset {
+  background-color: #95a5a6;
+  color: white;
+}
+.btn-reset:hover {
+  background-color: #7f8c8d;
+}
+
+.hint-text {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-top: 5px;
+  font-style: italic;
+}

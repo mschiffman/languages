@@ -1,0 +1,336 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Phonetic Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <style>
+      .sub {
+        font-weight: bold;
+        background-color: #e9ffff;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../../assets/js/nav-enun.js?v=260225"
+    ></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French /ɑ̃/</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Spacer preserved after removing the audio player -->
+        <div class="mb-2" aria-hidden="true"></div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em; margin-top: 0">
+          <i>Click on the words to hear the pronunciation.</i>
+        </p>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title">
+            <i class="bi bi-book"></i> &nbsp;-am, -an, -em, -en
+          </div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2" class="blue">am</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio1')">campagne /kɑ̃paɲ/</td>
+                <td>countryside / campaign</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio2')">chambre /ʃɑ̃bʀ/</td>
+                <td>bedroom / room</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio3')">champagne /ʃɑ̃paɲ/</td>
+                <td>champagne</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio4')">champignon /ʃɑ̃piɲɔ̃/</td>
+                <td>mushroom</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="blue">an</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio5')">an /ɑ̃/</td>
+                <td>year</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio6')">courant /kuʀɑ̃/</td>
+                <td>current / trend / common</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio7')">dans /dɑ̃/</td>
+                <td>in</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio8')">demande /d(ə)mɑ̃d/</td>
+                <td>request</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio9')">dimanche /dimɑ̃ʃ/</td>
+                <td>Sunday</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio10')">grand /ɡʀɑ̃/</td>
+                <td>big</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio11')">grisant /ɡʀizɑ̃/</td>
+                <td>exhilarating</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio12')">maman /mamɑ̃/</td>
+                <td>mum</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio13')">marrant /maʀɑ̃/</td>
+                <td>funny</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio14')">naissance /nɛsɑ̃s/</td>
+                <td>birth</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio15')">plan /plɑ̃/</td>
+                <td>plan / map / flat</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio16')">quand /kɑ̃/</td>
+                <td>when</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio17')">sang /sɑ̃/</td>
+                <td>blood</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio18')">sans /sɑ̃/</td>
+                <td>without</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio19')">santé /sɑ̃te/</td>
+                <td>health</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="blue">em</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio20')">décembre /desɑ̃bʀ/</td>
+                <td>December</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio21')">emballée /ɑ̃bale/</td>
+                <td>to wrap</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio22')">embouteillage /ɑ̃butɛjaʒ/</td>
+                <td>traffic jam</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio23')">embrasser /ɑ̃bʀase/</td>
+                <td>to kiss</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio24')">emmener /ɑ̃m(ə)ne/</td>
+                <td>to take</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio25')">semble /sɑ̃ble/</td>
+                <td>to seem</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio26')">temps /tɑ̃/</td>
+                <td>weather / time</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio27')">tremble /tʀɑ̃bl/</td>
+                <td>aspen</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="blue">en</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio28')">absolument /apsɔlymɑ̃/</td>
+                <td>absolutely</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio29')">attendre /atɑ̃dʀ/</td>
+                <td>wait</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio30')">encore /ɑ̃kɔʀ/</td>
+                <td>still / even / again</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio31')">endroit /ɑ̃dʀwa/</td>
+                <td>place</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio32')">enfant /ɑ̃fɑ̃/</td>
+                <td>child</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio33')">ensemble /ɑ̃sɑ̃bl/</td>
+                <td>together</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio34')">entre /ɑ̃tʀ/</td>
+                <td>between</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio35')">gens /ʒɑ̃/</td>
+                <td>people</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio36')">mentir /mɑ̃tiʀ/</td>
+                <td>lie</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio37')">parent /paʀɑ̃/</td>
+                <td>parent</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio38')">pendant /pɑ̃dɑ̃/</td>
+                <td>during / while</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio39')">potentiel /pɔtɑ̃sjɛl/</td>
+                <td>potential</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio40')">prendre /pʀɑ̃dʀ/</td>
+                <td>take</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio41')">sens /sɑ̃s/</td>
+                <td>sense / direction</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio42')">souvent /suvɑ̃/</td>
+                <td>often</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="audio1" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/01-campagne.m4a"></audio>
+    <audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/02-chambre.m4a"></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/03-champagne.m4a"></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/04-champignon.m4a"></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/05-an.m4a"></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/06-courant.m4a"></audio>
+    <audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/07-dans.m4a"></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/08-demande.m4a"></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/09-dimanche.m4a"></audio>
+    <audio id="audio10" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/10-grand.m4a"></audio>
+    <audio id="audio11" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/11-grisant.m4a"></audio>
+    <audio id="audio12" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/12-mamam.m4a"></audio>
+    <audio id="audio13" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/13-marrant.m4a"></audio>
+    <audio id="audio14" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/14-naissance.m4a"></audio>
+    <audio id="audio15" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/15-plan.m4a"></audio>
+    <audio id="audio16" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/16-quand.m4a"></audio>
+    <audio id="audio17" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/17-sang.m4a"></audio>
+    <audio id="audio18" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/18-sans.m4a"></audio>
+    <audio id="audio19" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/19-santé.m4a"></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/20-décembre.m4a"></audio>
+    <audio id="audio21" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/21-emballée.m4a"></audio>
+    <audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/22-embouteillage.m4a"></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/23-embrasser.m4a"></audio>
+    <audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/24-emmener.m4a"></audio>
+    <audio id="audio25" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/25-semble.m4a"></audio>
+    <audio id="audio26" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/26-temps.m4a"></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/27-tremble.m4a"></audio>
+    <audio id="audio28" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/28-absolument.m4a"></audio>
+    <audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/29-attendre.m4a"></audio>
+    <audio id="audio30" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/30-encore.m4a"></audio>
+    <audio id="audio31" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/31-endroit.m4a"></audio>
+    <audio id="audio32" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/32-enfant.m4a"></audio>
+    <audio id="audio33" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/33-ensemble.m4a"></audio>
+    <audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/34-entre.m4a"></audio>
+    <audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/35-gens.m4a"></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/36-mentir.m4a"></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/37-parent.m4a"></audio>
+    <audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/38-pendant.m4a"></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/39-potentiel.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/40-prendre.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/41-sens.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/ɑ̃/42-souvent.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/phonetic.js"></script>
+  </body>
+</html>

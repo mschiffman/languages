@@ -1,0 +1,531 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - October 9, 2025</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              Est-ce un pas décisif vers la fin</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              de la guerre à Gaza ?</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              Sur le terrain,</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              tout est encore incertain.</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              Sur le papier,</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              les deux parties,</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              Hamas et Israël,</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              se sont donc d'accord</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              sur la première étape</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              du plan de paix américain.</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              Il faut encore</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              attendre l'officialisation,</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              sachant que cet accord</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              doit être validé par le cabinet</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              de sécurité israélien.</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              Le plan Trump prévoit</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              un cessez-le-feu,</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              un échange dans les 72 heures</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              des otages contre des</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              prisonniers palestiniens,</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              le retrait par étapes</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              de l'armée israélienne de Gaza</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              et le désarmement du Hamas.</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              Dès l'annonce de cet accord</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              par Donald Trump -</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              il faisait nuit</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              en Israël et à Gaza -</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              des réactions,</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              notamment à Tel-Aviv,</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              sur la place des Otages,</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              où des centaines de personnes</span
+            >
+            <span class="chunk" onclick="playAudio('audio32')">
+              se sont rassemblées.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Is this a decisive step toward ending the war in Gaza? On the
+              ground, everything remains uncertain. On paper, both parties,
+              Hamas and Israel, have reached an agreement on the first stage of
+              the American peace plan. We still have to wait for the official
+              confirmation, since the deal must be approved by the Israeli
+              security cabinet. The Trump plan calls for a ceasefire, the
+              exchange within 72 hours of hostages for Palestinian prisoners,
+              the gradual withdrawal of the Israeli army from Gaza, and the
+              disarmament of Hamas. As soon as Donald Trump announced the
+              agreement - it was night in Israel and Gaza - where reactions
+              began to emerge, notably in Tel Aviv, on Hostages’ Square, where
+              hundreds of people gathered.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio33')">
+                  décisif /desizif/
+                </td>
+                <td>decisive</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio34')">
+                  terrain /teʀɛ̃/
+                </td>
+                <td>land</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio35')">
+                  incertain /ɛ̃sɛʀtɛ̃/
+                </td>
+                <td>uncertain</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio36')">
+                  papier /papje/
+                </td>
+                <td>paper</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio37')">
+                  partie /paʀti/
+                </td>
+                <td>part</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio38')">paix /pɛ/</td>
+                <td>peace</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  officialisation /ɔfisjalizasjɔ̃/
+                </td>
+                <td>officilization</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">
+                  sachant /saʃɑ̃/
+                </td>
+                <td>knowing</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  validé /valide/
+                </td>
+                <td>to validate</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  cabinet /kabinɛ/
+                </td>
+                <td>cabinet</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  sécurité /sekyʀite/
+                </td>
+                <td>security</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  Israël /isʀaɛl/
+                </td>
+                <td>Israel</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  israélien /isʀaeljɛ̃/
+                </td>
+                <td>Israeli</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  prévoir /pʀevwaʀ/
+                </td>
+                <td>to anticipate</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  cessez-le-feu /sesel(ə)fø/
+                </td>
+                <td>ceasefire</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  échange /eʃɑ̃ʒ/
+                </td>
+                <td>exchange</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  prisonnier /pʀizɔnje/
+                </td>
+                <td>prisoner</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  palestinien /palɛstinjɛ̃/
+                </td>
+                <td>Palestinian</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  retrait /ʀ(ə)tʀɛ/
+                </td>
+                <td>withdrawal</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  armée /aʀme/
+                </td>
+                <td>army</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  désarmement /dezaʀməmɑ̃/
+                </td>
+                <td>disarmament</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">dès /dɛ/</td>
+                <td>as soon as</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  annonce /anɔ̃s/
+                </td>
+                <td>announcement</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  réaction /ʀeaksjɔ̃/
+                </td>
+                <td>reaction</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  notamment /nɔtamɑ̃/
+                </td>
+                <td>in particular</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  rassemblée /ʀasɑ̃ble/
+                </td>
+                <td>assembled</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/01-Est-ce un pas décisif vers la fin.m4a"
+    ></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/02-de la guerre à Gaza.m4a"
+    ></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/03-Sur le terrain.m4a"></audio>
+    <audio
+      id="audio4"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/04-tout est encore incertain.m4a"
+    ></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/05-Sur le papier.m4a"></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/06-les deux parties.m4a"></audio>
+    <audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/07-Hamas et Israël.m4a"></audio>
+    <audio
+      id="audio8"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/08-se sont donc d'accord.m4a"
+    ></audio>
+    <audio
+      id="audio9"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/09-sur la première étape.m4a"
+    ></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/10-du plan de paix américain.m4a"
+    ></audio>
+    <audio id="audio11" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/11-Il faut encore.m4a"></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/12-attendre l'officialisation.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/13-sachant que cet accord.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/14-doit être validé par le cabinet.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/15-de sécurité israélien.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/16-Le plan Trump prévoit.m4a"
+    ></audio>
+    <audio id="audio17" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/17-un cessez-le-feu.m4a"></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/18-un échange dans les 72 heures.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/19-des otages contre des.m4a"
+    ></audio>
+    <audio
+      id="audio20"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/20-prisonniers palestiniens.m4a"
+    ></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/21-le retrait par étapes.m4a"
+    ></audio>
+    <audio
+      id="audio22"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/22-de l'armée israélienne de Gaza.m4a"
+    ></audio>
+    <audio
+      id="audio23"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/23-et le désarmement du Hamas.m4a"
+    ></audio>
+    <audio
+      id="audio24"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/24-Dès l'annonce de cet accord.m4a"
+    ></audio>
+    <audio id="audio25" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/25-par Donald Trump.m4a"></audio>
+    <audio id="audio26" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/26-il faisait nuit.m4a"></audio>
+    <audio
+      id="audio27"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/27-en Israël et à Gaza.m4a"
+    ></audio>
+    <audio id="audio28" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/28-des réactions.m4a"></audio>
+    <audio
+      id="audio29"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/29-notamment à Tel-Aviv.m4a"
+    ></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/30-sur la place des Otages.m4a"
+    ></audio>
+    <audio
+      id="audio31"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/31-où des centaines de personnes.m4a"
+    ></audio>
+    <audio
+      id="audio32"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/32-se sont rassemblées.m4a"
+    ></audio>
+    <audio id="audio33" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/33-décisif.m4a"></audio>
+    <audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/34-terrain.m4a"></audio>
+    <audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/35-incertain.m4a"></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/36-papier.m4a"></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/37-partie.m4a"></audio>
+    <audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/38-paix.m4a"></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/39-officialisation.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/40-sachant.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/41-validé.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/42-cabinet.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/43-sécurité.m4a"></audio>
+    <audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/44-Israël.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/45-israélien.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/46-prévoir.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/47-cessez-le-feu.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/48-échange.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/49-prisonnier.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/50-palestinien.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/51-retrait.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/52-armée.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/53-désarmement.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/54-dès.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/55-annonce.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/56-réaction.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/57-notamment.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/58-rassemblée.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251009/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

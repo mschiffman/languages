@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cloze Test: L'ambre</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/cloze.css" />
+    <style>
+      .english {
+        color: rgb(21, 106, 252);
+        font-style: italic;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-container">
+      <h2>🍽️ L'ambre (Quiz)</h2>
+      <p class="text-center text-muted mb-4">
+        Fill in the missing noun, verb, or adjective.
+      </p>
+
+      <div id="quiz-form">
+        <div class="sentence-item">
+          1. Ce livre
+          <input type="text" class="cloze-input" data-answer="abîmé" /> par
+          l'humidité est illisible.<br /><span class="english"
+            >(A book damaged by humidity is illegible.)</span
+          >
+        </div>
+
+        <div class="sentence-item">
+          2. Je
+          <input type="text" class="cloze-input" data-answer="pensais" />
+          que c’était une blague.<br /><span class="english"
+            >(I thought it was a joke.)</span
+          >
+        </div>
+
+        <div class="sentence-item">
+          3. Mettez une
+          <input type="text" class="cloze-input" data-answer="goutte" /> de miel
+          dans votre thé.<br /><span class="english"
+            >(Put a drop of honey in your tea.)</span
+          >
+        </div>
+
+        <div class="sentence-item">
+          4. Il porte un manteau
+          <input
+            type="text"
+            class="cloze-input"
+            data-answer="épais"
+          />.<br /><span class="english">(He is wearing a thick coat.)</span>
+        </div>
+
+        <div class="sentence-item">
+          5. Nous sommes
+          <input type="text" class="cloze-input" data-answer="créatures" /> des
+          d’habitude.<br /><span class="english"
+            >(We are creatures of habit.)</span
+          >
+        </div>
+
+        <div class="sentence-item">
+          6. La
+          <input type="text" class="cloze-input" data-answer="blessure" /> a
+          vite guéri.<br /><span class="english"
+            >(The wound healed quickly.)</span
+          >
+        </div>
+
+        <div class="sentence-item">
+          7. Les
+          <input type="text" class="cloze-input" data-answer="araignées" />
+          mangent des insectes.<br />
+          <span class="english">(Spiders eat insects.)</span>
+        </div>
+
+        <div class="sentence-item">
+          8.
+          <input type="text" class="cloze-input" data-answer="Laissez" />-moi
+          vous aider.<br />
+          <span class="english">(Let me help you.)</span>
+        </div>
+
+        <div class="sentence-item">
+          9. le temps s'
+          <input type="text" class="cloze-input" data-answer="écoule" /> vite
+          !<br />
+          <span class="english">[The time flows (goes by) quickly!]</span>.
+        </div>
+
+        <div class="sentence-item">
+          10. L’eau
+          <input type="text" class="cloze-input" data-answer="coule" /> du
+          robinet.<br />
+          <span class="english">(The water flows from the tap.)</span>
+        </div>
+
+        <div class="sentence-item">
+          11. La résine est un liquide
+          <input type="text" class="cloze-input" data-answer="collant" />.<br />
+          <span class="english">(Resin is a sticky liquid.)</span>
+        </div>
+      </div>
+
+      <div class="btn-container">
+        <button class="btn btn-success" onclick="checkAnswers()">
+          Vérifier les réponses
+        </button>
+        <button class="btn btn-warning" onclick="showAnswers()">
+          Voir les réponses
+        </button>
+        <button class="btn btn-secondary" onclick="resetQuiz()">Reset</button>
+      </div>
+
+      <div
+        id="score-display"
+        style="
+          text-align: center;
+          margin-top: 20px;
+          font-weight: bold;
+          color: #2c3e50;
+        "
+      ></div>
+    </div>
+
+    <script>
+      function checkAnswers() {
+        const inputs = document.querySelectorAll(".cloze-input");
+        let correctCount = 0;
+
+        inputs.forEach((input) => {
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswer = input.getAttribute("data-answer").toLowerCase();
+
+          // Handle "cuillère" vs "cuillere" (accent forgiveness)
+          const cleanUser = userAnswer
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+          const cleanCorrect = correctAnswer
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+
+          if (cleanUser === cleanCorrect) {
+            input.classList.add("correct");
+            input.classList.remove("wrong");
+            correctCount++;
+          } else {
+            input.classList.add("wrong");
+            input.classList.remove("correct");
+          }
+        });
+
+        const scoreDiv = document.getElementById("score-display");
+        if (correctCount === inputs.length) {
+          scoreDiv.innerHTML = "🎉 Excellent! 11/11 Correct.";
+          scoreDiv.style.color = "#27ae60";
+        } else {
+          scoreDiv.innerHTML = `Score: ${correctCount} / ${inputs.length}`;
+          scoreDiv.style.color = "#c0392b";
+        }
+      }
+
+      function showAnswers() {
+        const inputs = document.querySelectorAll(".cloze-input");
+        inputs.forEach((input) => {
+          input.value = input.getAttribute("data-answer");
+          input.classList.remove("wrong");
+          input.classList.add("correct");
+        });
+        document.getElementById("score-display").innerHTML = "";
+      }
+
+      function resetQuiz() {
+        const inputs = document.querySelectorAll(".cloze-input");
+        inputs.forEach((input) => {
+          input.value = "";
+          input.classList.remove("correct", "wrong");
+        });
+        document.getElementById("score-display").innerHTML = "";
+      }
+    </script>
+    <script type="module" src="../../assets/js/steps.js"></script>
+  </body>
+</html>

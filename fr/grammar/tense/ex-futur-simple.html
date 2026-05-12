@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Interactive : Le Futur Simple</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 300px;
+        max-height: 300px;
+      }
+      @media (min-width: 768px) {
+        .chart-container {
+          height: 350px;
+          max-height: 350px;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-stone-50 text-stone-800 font-sans leading-relaxed min-h-screen"
+  >
+    <!-- Chosen Palette: Warm Neutrals (Stone background, Amber highlights, Emerald for success, Rose for errors) -->
+    <!-- Application Structure Plan: Un tableau de bord interactif divisé en deux zones principales. La zone de navigation et de contenu (à gauche/en haut) permet à l'utilisateur de parcourir les 5 sections d'exercices et de saisir ses réponses. La zone d'analyse (à droite/en bas) affiche un graphique circulaire dynamique de progression en temps réel, transformant ainsi un document statique en un outil d'apprentissage actif, engageant et mesurable. -->
+    <!-- Visualization & Content Choices: Report Info: Exercices de grammaire -> Goal: Suivi de progression -> Viz/Presentation Method: Graphique en anneau (Doughnut Chart) interactif -> Interaction: Mise à jour dynamique à chaque réponse validée -> Justification: Offre un retour visuel immédiat sur le taux de réussite sans distraire de la tâche principale -> Library/Method: Chart.js - Confirming NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <header class="mb-10 text-center md:text-left">
+        <h1 class="text-4xl font-extrabold text-stone-900 tracking-tight mb-2">
+          Maîtriser le Futur Simple
+        </h1>
+        <p class="text-lg text-stone-600 max-w-3xl">
+          Bienvenue dans votre espace d'apprentissage interactif. Explorez,
+          pratiquez et perfectionnez votre usage du futur simple en français à
+          travers 40 exercices variés. Suivez votre progression en temps réel
+          grâce au tableau de bord visuel.
+        </p>
+      </header>
+
+      <div class="flex flex-col lg:flex-row gap-8">
+        <main
+          class="w-full lg:w-2/3 bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden"
+        >
+          <nav
+            class="flex flex-wrap bg-stone-100 border-b border-stone-200"
+            id="section-nav"
+          ></nav>
+
+          <div class="p-6 md:p-8">
+            <div id="section-intro" class="mb-8"></div>
+
+            <div id="exercises-container" class="space-y-6"></div>
+          </div>
+        </main>
+
+        <aside class="w-full lg:w-1/3">
+          <div
+            class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 sticky top-8"
+          >
+            <h2 class="text-2xl font-bold text-stone-800 mb-2">
+              Votre Progression
+            </h2>
+            <p class="text-sm text-stone-500 mb-6">
+              Suivez l'évolution de vos réponses correctes, incorrectes et en
+              attente. Interagissez avec les exercices pour actualiser le
+              graphique.
+            </p>
+
+            <div class="chart-container">
+              <canvas id="progressChart"></canvas>
+            </div>
+
+            <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+              <div
+                class="bg-emerald-50 rounded-xl p-3 border border-emerald-100"
+              >
+                <div
+                  class="text-2xl font-bold text-emerald-600"
+                  id="stat-correct"
+                >
+                  0
+                </div>
+                <div
+                  class="text-xs text-stone-600 uppercase tracking-wider mt-1"
+                >
+                  Correctes
+                </div>
+              </div>
+              <div class="bg-rose-50 rounded-xl p-3 border border-rose-100">
+                <div
+                  class="text-2xl font-bold text-rose-600"
+                  id="stat-incorrect"
+                >
+                  0
+                </div>
+                <div
+                  class="text-xs text-stone-600 uppercase tracking-wider mt-1"
+                >
+                  À revoir
+                </div>
+              </div>
+              <div class="bg-stone-100 rounded-xl p-3 border border-stone-200">
+                <div
+                  class="text-2xl font-bold text-stone-600"
+                  id="stat-pending"
+                >
+                  40
+                </div>
+                <div
+                  class="text-xs text-stone-600 uppercase tracking-wider mt-1"
+                >
+                  Restantes
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <button
+                id="btn-reset"
+                class="w-full py-3 px-4 bg-stone-800 hover:bg-stone-900 text-white font-medium rounded-xl transition-colors duration-200"
+              >
+                Réinitialiser l'application
+              </button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script>
+      const sectionsData = [
+        {
+          id: 1,
+          title: "Verbes Réguliers",
+          desc: "Cette section cible la conjugaison de base. Appliquez les terminaisons régulières (-ai, -as, -a, -ons, -ez, -ont) à l'infinitif du verbe pour valider vos réponses. Cet exercice construit les fondations de la formation du futur.",
+          type: "fill",
+        },
+        {
+          id: 2,
+          title: "Verbes Irréguliers",
+          desc: "Ici, vous abordez les exceptions. Les verbes présentés possèdent des radicaux spécifiques au futur simple tout en conservant les terminaisons standard. Mémorisez et testez ces formes essentielles.",
+          type: "fill",
+        },
+        {
+          id: 3,
+          title: "Phrases Contextuelles",
+          desc: "Passez de la théorie à la pratique. Complétez ces phrases en intégrant le futur simple dans des contextes logiques (conjonctions temporelles, hypothèses). L'objectif est d'assurer la cohérence de la phrase.",
+          type: "fill",
+        },
+        {
+          id: 4,
+          title: "Traduction",
+          desc: "Testez votre compréhension interlinguistique. Traduisez les phrases de l'anglais vers le français en formulant correctement le futur simple. Veillez à la grammaire globale de la phrase.",
+          type: "translate",
+        },
+        {
+          id: 5,
+          title: "Rédaction Libre",
+          desc: "Exprimez-vous librement ! Formulez vos propres phrases en utilisant le futur simple en suivant les consignes. Ces exercices favorisent la production active et personnelle de la langue.",
+          type: "free",
+        },
+      ];
+
+      const exercisesData = [
+        {
+          id: 1,
+          section: 1,
+          part1: "Je (",
+          verb: "trouver",
+          part2: ")",
+          part3: "ce que c'était.",
+          answer: "trouverai",
+        },
+        {
+          id: 2,
+          section: 1,
+          part1: "Tu (",
+          verb: "regarder",
+          part2: ")",
+          part3: "le film ce soir.",
+          answer: "regarderas",
+        },
+        {
+          id: 3,
+          section: 1,
+          part1: "Il (",
+          verb: "parler",
+          part2: ")",
+          part3: "à son professeur lundi.",
+          answer: "parlera",
+        },
+        {
+          id: 4,
+          section: 1,
+          part1: "Nous (",
+          verb: "habiter",
+          part2: ")",
+          part3: "à Lyon l'année prochaine.",
+          answer: "habiterons",
+        },
+        {
+          id: 5,
+          section: 1,
+          part1: "Vous (",
+          verb: "travailler",
+          part2: ")",
+          part3: "dur cet été.",
+          answer: "travaillerez",
+        },
+        {
+          id: 6,
+          section: 1,
+          part1: "Elles (",
+          verb: "étudier",
+          part2: ")",
+          part3: "pour l'examen.",
+          answer: "étudieront",
+        },
+        {
+          id: 7,
+          section: 1,
+          part1: "Je (",
+          verb: "finir",
+          part2: ")",
+          part3: "mes devoirs bientôt.",
+          answer: "finirai",
+        },
+        {
+          id: 8,
+          section: 1,
+          part1: "Tu (",
+          verb: "choisir",
+          part2: ")",
+          part3: "ta robe pour la fête.",
+          answer: "choisiras",
+        },
+        {
+          id: 9,
+          section: 1,
+          part1: "On (",
+          verb: "réussir",
+          part2: ")",
+          part3: "si on travaille.",
+          answer: "réussira",
+        },
+        {
+          id: 10,
+          section: 1,
+          part1: "Nous (",
+          verb: "remplir",
+          part2: ")",
+          part3: "le formulaire.",
+          answer: "remplirons",
+        },
+        {
+          id: 11,
+          section: 1,
+          part1: "Vous (",
+          verb: "vendre",
+          part2: ")",
+          part3: "votre voiture ?",
+          answer: "vendrez",
+        },
+        {
+          id: 12,
+          section: 1,
+          part1: "Ils (",
+          verb: "attendre",
+          part2: ")",
+          part3: "le bus.",
+          answer: "attendront",
+        },
+
+        {
+          id: 13,
+          section: 2,
+          part1: "Je (",
+          verb: "être",
+          part2: ")",
+          part3: "heureux de te voir.",
+          answer: "serai",
+        },
+        {
+          id: 14,
+          section: 2,
+          part1: "Tu (",
+          verb: "avoir",
+          part2: ")",
+          part3: "20 ans demain.",
+          answer: "auras",
+        },
+        {
+          id: 15,
+          section: 2,
+          part1: "Il (",
+          verb: "faire",
+          part2: ")",
+          part3: "beau demain.",
+          answer: "fera",
+        },
+        {
+          id: 16,
+          section: 2,
+          part1: "Nous (",
+          verb: "aller",
+          part2: ")",
+          part3: "à la plage.",
+          answer: "irons",
+        },
+        {
+          id: 17,
+          section: 2,
+          part1: "Vous (",
+          verb: "voir",
+          part2: ")",
+          part3: "la différence.",
+          answer: "verrez",
+        },
+        {
+          id: 18,
+          section: 2,
+          part1: "Elles (",
+          verb: "pouvoir",
+          part2: ")",
+          part3: "venir avec nous.",
+          answer: "pourront",
+        },
+        {
+          id: 19,
+          section: 2,
+          part1: "Je (",
+          verb: "vouloir",
+          part2: ")",
+          part3: "un café.",
+          answer: "voudrai",
+        },
+        {
+          id: 20,
+          section: 2,
+          part1: "Tu (",
+          verb: "savoir",
+          part2: ")",
+          part3: "la vérité bientôt.",
+          answer: "sauras",
+        },
+        {
+          id: 21,
+          section: 2,
+          part1: "Il (",
+          verb: "venir",
+          part2: ")",
+          part3: "nous rendre visite.",
+          answer: "viendra",
+        },
+        {
+          id: 22,
+          section: 2,
+          part1: "Nous (",
+          verb: "devoir",
+          part2: ")",
+          part3: "partir à midi.",
+          answer: "devrons",
+        },
+        {
+          id: 23,
+          section: 2,
+          part1: "Vous (",
+          verb: "recevoir",
+          part2: ")",
+          part3: "un colis.",
+          answer: "recevrez",
+        },
+        {
+          id: 24,
+          section: 2,
+          part1: "Ils (",
+          verb: "envoyer",
+          part2: ")",
+          part3: "une lettre.",
+          answer: "enverront",
+        },
+
+        {
+          id: 25,
+          section: 3,
+          part1: "Quand je serai grand, je (",
+          verb: "devenir",
+          part2: ")",
+          part3: "pilote.",
+          answer: "deviendrai",
+        },
+        {
+          id: 26,
+          section: 3,
+          part1: "Si tu étudies, tu (",
+          verb: "obtenir",
+          part2: ")",
+          part3: "de bonnes notes.",
+          answer: "obtiendras",
+        },
+        {
+          id: 27,
+          section: 3,
+          part1: "Dès qu'il arrivera, nous (",
+          verb: "commencer",
+          part2: ")",
+          part3: "la réunion.",
+          answer: "commencerons",
+        },
+        {
+          id: 28,
+          section: 3,
+          part1: "Est-ce que vous (",
+          verb: "apporter",
+          part2: ")",
+          part3: "du vin pour le dîner ?",
+          answer: "apporterez",
+        },
+        {
+          id: 29,
+          section: 3,
+          part1: "Dans dix ans, le monde (",
+          verb: "changer",
+          part2: ")",
+          part3: ".",
+          answer: "changera",
+        },
+        {
+          id: 30,
+          section: 3,
+          part1: "Mes parents (",
+          verb: "acheter",
+          part2: ")",
+          part3: "une nouvelle maison bientôt.",
+          answer: "achèteront",
+        },
+
+        {
+          id: 31,
+          section: 4,
+          fullText: "I will call you tomorrow.",
+          answer: "Je t'appellerai demain.",
+        },
+        {
+          id: 32,
+          section: 4,
+          fullText: "She will be late.",
+          answer: "Elle sera en retard.",
+        },
+        {
+          id: 33,
+          section: 4,
+          fullText: "We will travel to Japan.",
+          answer: "Nous voyagerons au Japon.",
+        },
+        {
+          id: 34,
+          section: 4,
+          fullText: "They will tell the truth.",
+          answer: "Ils diront la vérité.||Elles diront la vérité.",
+        },
+        {
+          id: 35,
+          section: 4,
+          fullText: "Will you (plural) help me?",
+          answer: "Est-ce que vous m'aiderez ?||Vous m'aiderez ?",
+        },
+
+        {
+          id: 36,
+          section: 5,
+          prompt: "Écrivez une phrase sur ce que vous ferez ce week-end.",
+        },
+        {
+          id: 37,
+          section: 5,
+          prompt: "Écrivez une phrase sur vos prochaines vacances.",
+        },
+        {
+          id: 38,
+          section: 5,
+          prompt: "Que fera votre meilleur(e) ami(e) demain ?",
+        },
+        {
+          id: 39,
+          section: 5,
+          prompt: "Imaginez une invention qui existera en 2050.",
+        },
+        {
+          id: 40,
+          section: 5,
+          prompt: "Écrivez une promesse que vous ferez à vous-même.",
+        },
+      ];
+
+      let currentSectionId = 1;
+      let userState = {};
+      let myChart = null;
+
+      function initApp() {
+        exercisesData.forEach((ex) => {
+          userState[ex.id] = { status: "pending", value: "" };
+        });
+        renderNav();
+        renderSection();
+        initChart();
+        document
+          .getElementById("btn-reset")
+          .addEventListener("click", resetApp);
+      }
+
+      function renderNav() {
+        const nav = document.getElementById("section-nav");
+        nav.innerHTML = "";
+        sectionsData.forEach((sec) => {
+          const btn = document.createElement("button");
+          btn.className = `flex-1 py-4 px-2 text-sm font-semibold text-center border-b-2 transition-colors duration-200 ${currentSectionId === sec.id ? "border-stone-800 text-stone-900 bg-white" : "border-transparent text-stone-500 hover:text-stone-700 hover:bg-stone-200"}`;
+          btn.innerText = sec.title;
+          btn.onclick = () => {
+            currentSectionId = sec.id;
+            renderNav();
+            renderSection();
+          };
+          nav.appendChild(btn);
+        });
+      }
+
+      function renderSection() {
+        const sectionInfo = sectionsData.find((s) => s.id === currentSectionId);
+
+        const introContainer = document.getElementById("section-intro");
+        introContainer.innerHTML = `
+            <h2 class="text-2xl font-bold text-stone-800 mb-3">${sectionInfo.title}</h2>
+            <p class="text-stone-600 bg-amber-50 p-4 rounded-xl border border-amber-100">${sectionInfo.desc}</p>
+        `;
+
+        const container = document.getElementById("exercises-container");
+        container.innerHTML = "";
+
+        const sectionExercises = exercisesData.filter(
+          (ex) => ex.section === currentSectionId,
+        );
+
+        sectionExercises.forEach((ex, index) => {
+          const exDiv = document.createElement("div");
+          exDiv.className =
+            "p-5 bg-stone-50 rounded-xl border border-stone-200 flex flex-col md:flex-row items-start md:items-center gap-4 transition-all duration-300";
+          exDiv.id = `ex-card-${ex.id}`;
+
+          const numSpan = document.createElement("span");
+          numSpan.className =
+            "flex-shrink-0 w-8 h-8 flex items-center justify-center bg-stone-200 text-stone-700 font-bold rounded-full text-sm";
+          numSpan.innerText = ex.id;
+
+          const contentDiv = document.createElement("div");
+          contentDiv.className =
+            "flex-grow w-full flex flex-wrap items-center gap-2 text-lg text-stone-800";
+
+          if (sectionInfo.type === "fill") {
+            contentDiv.innerHTML = `<span>${ex.part1}</span><span class="font-semibold text-stone-900 underline decoration-stone-400 decoration-2">${ex.verb}</span><span>${ex.part2}</span>`;
+
+            const input = document.createElement("input");
+            input.type = "text";
+            input.className =
+              "w-32 px-3 py-1 bg-white border-2 border-stone-300 rounded focus:outline-none focus:border-stone-800 text-center font-semibold text-stone-900 transition-colors";
+            input.value = userState[ex.id].value;
+            input.dataset.id = ex.id;
+            input.onblur = handleInput;
+            input.onkeypress = (e) => {
+              if (e.key === "Enter") handleInput(e);
+            };
+
+            contentDiv.appendChild(input);
+
+            const part3Span = document.createElement("span");
+            part3Span.innerText = ex.part3;
+            contentDiv.appendChild(part3Span);
+          } else if (sectionInfo.type === "translate") {
+            contentDiv.innerHTML = `<span class="w-full text-base text-stone-500 font-medium mb-1">Traduisez : "${ex.fullText}"</span>`;
+            const input = document.createElement("input");
+            input.type = "text";
+            input.className =
+              "w-full px-4 py-2 bg-white border-2 border-stone-300 rounded focus:outline-none focus:border-stone-800 font-semibold text-stone-900 transition-colors";
+            input.value = userState[ex.id].value;
+            input.dataset.id = ex.id;
+            input.placeholder = "Votre traduction ici...";
+            input.onblur = handleInput;
+            input.onkeypress = (e) => {
+              if (e.key === "Enter") handleInput(e);
+            };
+            contentDiv.appendChild(input);
+          } else if (sectionInfo.type === "free") {
+            contentDiv.innerHTML = `<span class="w-full text-base text-stone-700 font-medium mb-2">${ex.prompt}</span>`;
+            const input = document.createElement("textarea");
+            input.className =
+              "w-full px-4 py-2 bg-white border-2 border-stone-300 rounded focus:outline-none focus:border-stone-800 text-stone-900 transition-colors resize-none h-20";
+            input.value = userState[ex.id].value;
+            input.dataset.id = ex.id;
+            input.placeholder = "Rédigez votre phrase au futur simple...";
+            input.onblur = handleFreeInput;
+            contentDiv.appendChild(input);
+          }
+
+          const feedbackDiv = document.createElement("div");
+          feedbackDiv.id = `feedback-${ex.id}`;
+          feedbackDiv.className =
+            "flex-shrink-0 font-bold text-sm min-w-[100px] text-right";
+
+          exDiv.appendChild(numSpan);
+          exDiv.appendChild(contentDiv);
+          exDiv.appendChild(feedbackDiv);
+          container.appendChild(exDiv);
+
+          updateUIForState(ex.id);
+        });
+      }
+
+      function normalizeString(str) {
+        return str
+          .toLowerCase()
+          .replace(/[\.,\?!]/g, "")
+          .trim()
+          .replace(/\s+/g, " ");
+      }
+
+      function handleInput(e) {
+        const id = parseInt(e.target.dataset.id);
+        const val = e.target.value.trim();
+        const ex = exercisesData.find((x) => x.id === id);
+
+        if (val === "") {
+          userState[id].status = "pending";
+          userState[id].value = "";
+        } else {
+          userState[id].value = val;
+
+          let isCorrect = false;
+          if (ex.answer.includes("||")) {
+            const possibleAnswers = ex.answer
+              .split("||")
+              .map((a) => normalizeString(a));
+            isCorrect = possibleAnswers.includes(normalizeString(val));
+          } else {
+            isCorrect = normalizeString(val) === normalizeString(ex.answer);
+          }
+
+          userState[id].status = isCorrect ? "correct" : "incorrect";
+        }
+
+        updateUIForState(id);
+        updateDashboard();
+      }
+
+      function handleFreeInput(e) {
+        const id = parseInt(e.target.dataset.id);
+        const val = e.target.value.trim();
+        userState[id].value = val;
+        userState[id].status = val !== "" ? "correct" : "pending";
+        updateUIForState(id);
+        updateDashboard();
+      }
+
+      function updateUIForState(id) {
+        const state = userState[id];
+        const card = document.getElementById(`ex-card-${id}`);
+        const feedback = document.getElementById(`feedback-${id}`);
+        const input = card.querySelector("input, textarea");
+        const ex = exercisesData.find((x) => x.id === id);
+
+        if (!card || !feedback || !input) return;
+
+        card.className =
+          "p-5 rounded-xl border flex flex-col md:flex-row items-start md:items-center gap-4 transition-all duration-300";
+        input.classList.remove(
+          "border-stone-300",
+          "border-emerald-500",
+          "border-rose-500",
+          "text-emerald-700",
+          "text-rose-700",
+        );
+
+        if (state.status === "correct") {
+          card.classList.add("bg-emerald-50", "border-emerald-200");
+          input.classList.add("border-emerald-500", "text-emerald-700");
+          feedback.innerHTML =
+            '<span class="text-emerald-600">✓ Excellent</span>';
+        } else if (state.status === "incorrect") {
+          card.classList.add("bg-rose-50", "border-rose-200");
+          input.classList.add("border-rose-500", "text-rose-700");
+          feedback.innerHTML = `<div class="text-rose-600 mb-1">✗ À revoir</div><button onclick="showAnswer(${id})" class="text-xs text-stone-500 hover:text-stone-800 underline">Voir la réponse</button>`;
+        } else {
+          card.classList.add("bg-stone-50", "border-stone-200");
+          input.classList.add("border-stone-300");
+          feedback.innerHTML = "";
+        }
+      }
+
+      function showAnswer(id) {
+        const ex = exercisesData.find((x) => x.id === id);
+        const answerText = ex.answer.split("||")[0];
+        const feedback = document.getElementById(`feedback-${id}`);
+        feedback.innerHTML = `<div class="text-rose-600 mb-1">✗ À revoir</div><div class="text-xs bg-white border border-stone-200 px-2 py-1 rounded text-stone-800 shadow-sm mt-2">Réponse : <span class="font-bold">${answerText}</span></div>`;
+      }
+
+      function updateDashboard() {
+        let correct = 0;
+        let incorrect = 0;
+        let pending = 0;
+
+        for (const id in userState) {
+          if (userState[id].status === "correct") correct++;
+          else if (userState[id].status === "incorrect") incorrect++;
+          else pending++;
+        }
+
+        document.getElementById("stat-correct").innerText = correct;
+        document.getElementById("stat-incorrect").innerText = incorrect;
+        document.getElementById("stat-pending").innerText = pending;
+
+        if (myChart) {
+          myChart.data.datasets[0].data = [correct, incorrect, pending];
+          myChart.update();
+        }
+      }
+
+      function initChart() {
+        const ctx = document.getElementById("progressChart").getContext("2d");
+        myChart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: ["Correctes", "À revoir", "Restantes"],
+            datasets: [
+              {
+                data: [0, 0, 40],
+                backgroundColor: ["#10b981", "#f43f5e", "#e7e5e4"],
+                borderWidth: 0,
+                hoverOffset: 4,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: "75%",
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: {
+                  font: { family: "'Inter', sans-serif", size: 12 },
+                  color: "#44403c",
+                  padding: 20,
+                  usePointStyle: true,
+                  pointStyle: "circle",
+                },
+              },
+              tooltip: {
+                backgroundColor: "#1c1917",
+                titleFont: { family: "'Inter', sans-serif", size: 13 },
+                bodyFont: { family: "'Inter', sans-serif", size: 13 },
+                padding: 10,
+                cornerRadius: 8,
+                displayColors: true,
+              },
+            },
+            animation: {
+              animateScale: true,
+              animateRotate: true,
+            },
+          },
+        });
+      }
+
+      function resetApp() {
+        if (
+          confirm(
+            "Êtes-vous sûr de vouloir réinitialiser toutes vos réponses ?",
+          )
+        ) {
+          exercisesData.forEach((ex) => {
+            userState[ex.id] = { status: "pending", value: "" };
+          });
+          currentSectionId = 1;
+          renderNav();
+          renderSection();
+          updateDashboard();
+        }
+      }
+
+      window.onload = initApp;
+    </script>
+  </body>
+</html>

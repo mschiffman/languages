@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Sentence Builder 2 - Le Marché</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .fade-in {
+        animation: fadeIn 0.5s ease-in;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .section-divider {
+        border-top: 2px solid #dee2e6;
+        margin: 2rem 0;
+        padding-top: 1.5rem;
+      }
+      .incorrect-word {
+        color: #dc3545;
+        text-decoration: line-through;
+      }
+      .correct-answer {
+        color: #198754;
+        font-weight: 500;
+      }
+      .error-feedback {
+        margin-top: 0.5rem;
+      }
+    </style>
+  </head>
+  <body class="bg-light p-5">
+    <div
+      class="container bg-white p-4 rounded shadow-sm"
+      style="max-width: 600px"
+    >
+      <h3 class="mb-4 border-bottom pb-2">
+        French Sentence Builder — Le Marché (2)
+      </h3>
+
+      <!-- Section 1 -->
+      <div id="section-1">
+        <h5 class="text-muted mb-3">Section 1 — Les adjectifs</h5>
+        <div id="exercise-container-1"></div>
+        <div id="more-btn-1" class="text-center mt-4 d-none">
+          <button class="btn btn-primary" onclick="loadSection(2)">More</button>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div id="section-2" class="d-none section-divider">
+        <h5 class="text-muted mb-3">Section 2 — Les produits</h5>
+        <div id="exercise-container-2"></div>
+        <div id="more-btn-2" class="text-center mt-4 d-none">
+          <button class="btn btn-primary" onclick="loadSection(3)">More</button>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div id="section-3" class="d-none section-divider">
+        <h5 class="text-muted mb-3">Section 3 — Au passé</h5>
+        <div id="exercise-container-3"></div>
+      </div>
+
+      <!-- Final completion message -->
+      <div id="final-completion" class="text-center mt-4 d-none">
+        <h4 class="text-success">
+          Excellent ! Vous avez terminé tous les exercices !
+        </h4>
+        <button
+          class="btn btn-outline-primary btn-sm mt-2"
+          onclick="restartAll()"
+        >
+          Recommencer
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const allExerciseData = {
+        1: [
+          {
+            label: "Step 1: Say 'fresh' (masculine)",
+            answers: ["frais"],
+            formatted: "<span class='text-primary fw-bold'>frais</span>",
+          },
+          {
+            label: "Step 2: Say 'The tomatoes are fresh.'",
+            answers: ["Les tomates sont fraîches."],
+            formatted:
+              "Les tomates sont <span class='text-primary fw-bold'>fraîches</span>.",
+          },
+          {
+            label: "Step 3: Say 'ripe'",
+            answers: ["mûr", "mûre"],
+            formatted: "<span class='text-primary fw-bold'>mûr / mûre</span>",
+          },
+          {
+            label: "Step 4: Say 'The fruit is ripe.'",
+            answers: ["Le fruit est mûr."],
+            formatted:
+              "Le fruit est <span class='text-primary fw-bold'>mûr</span>.",
+          },
+          {
+            label: "Step 5: Say 'It's delicious.'",
+            answers: ["C'est délicieux."],
+            formatted:
+              "C'est <span class='text-primary fw-bold'>délicieux</span>.",
+          },
+          {
+            label: "Step 6: Say 'The cheese is tasty.'",
+            answers: ["Le fromage est savoureux."],
+            formatted:
+              "Le fromage est <span class='text-primary fw-bold'>savoureux</span>.",
+          },
+          {
+            label: "Step 7: Say 'It's homemade.'",
+            answers: ["C'est fait maison."],
+            formatted:
+              "C'est <span class='text-primary fw-bold'>fait maison</span>.",
+          },
+        ],
+        2: [
+          {
+            label: "Step 1: Say 'a bunch of parsley'",
+            answers: ["une botte de persil"],
+            formatted:
+              "<span class='text-primary fw-bold'>une botte de</span> persil",
+          },
+          {
+            label: "Step 2: Say 'fresh herbs'",
+            answers: ["des herbes fraîches", "les herbes fraîches"],
+            formatted:
+              "<span class='text-primary fw-bold'>des herbes fraîches</span>",
+          },
+          {
+            label: "Step 3: Say 'I'm looking for basil.'",
+            answers: ["Je cherche du basilic."],
+            formatted:
+              "Je cherche <span class='text-primary fw-bold'>du basilic</span>.",
+          },
+          {
+            label:
+              "Step 4: Say 'There are fruits and vegetables on the tables.'",
+            answers: ["Il y a des fruits et des légumes sur les tables."],
+            formatted:
+              "Il y a des fruits et des légumes <span class='text-primary fw-bold'>sur les tables</span>.",
+          },
+          {
+            label: "Step 5: Say 'The bread is fresh today.'",
+            answers: ["Le pain est frais aujourd'hui."],
+            formatted:
+              "Le pain est frais <span class='text-primary fw-bold'>aujourd'hui</span>.",
+          },
+          {
+            label: "Step 6: Say 'I'll take a pound of fish.'",
+            answers: ["Je prends une livre de poisson."],
+            formatted:
+              "Je prends <span class='text-primary fw-bold'>une livre de</span> poisson.",
+          },
+          {
+            label: "Step 7: Ask 'How long does it keep?'",
+            answers: ["Ça se conserve combien de temps ?"],
+            formatted:
+              "<span class='text-primary fw-bold'>Ça se conserve</span> combien de temps ?",
+          },
+        ],
+        3: [
+          {
+            label: "Step 1: Say 'I went to the market.'",
+            answers: ["Je suis allé au marché.", "Je suis allée au marché."],
+            formatted:
+              "<span class='text-primary fw-bold'>Je suis allé(e)</span> au marché.",
+          },
+          {
+            label: "Step 2: Say 'I bought vegetables.'",
+            answers: ["J'ai acheté des légumes."],
+            formatted:
+              "<span class='text-primary fw-bold'>J'ai acheté</span> des légumes.",
+          },
+          {
+            label: "Step 3: Say 'The seller was very friendly.'",
+            answers: [
+              "Le vendeur était très sympathique.",
+              "Le vendeur était très sympa.",
+            ],
+            formatted:
+              "Le vendeur <span class='text-primary fw-bold'>était</span> très sympathique.",
+          },
+          {
+            label: "Step 4: Say 'There were many customers.'",
+            answers: ["Il y avait beaucoup de clients."],
+            formatted:
+              "<span class='text-primary fw-bold'>Il y avait</span> beaucoup de clients.",
+          },
+          {
+            label: "Step 5: Say 'I tasted the cheese before buying.'",
+            answers: ["J'ai goûté le fromage avant d'acheter."],
+            formatted:
+              "J'ai <span class='text-primary fw-bold'>goûté</span> le fromage avant d'acheter.",
+          },
+          {
+            label: "Step 6: Say 'I paid in cash.'",
+            answers: ["J'ai payé en espèces."],
+            formatted:
+              "J'ai payé <span class='text-primary fw-bold'>en espèces</span>.",
+          },
+          {
+            label: "Step 7: Say 'The market was lively and authentic.'",
+            answers: ["Le marché était animé et authentique."],
+            formatted:
+              "Le marché était <span class='text-primary fw-bold'>animé et authentique</span>.",
+          },
+        ],
+      };
+
+      const sectionState = {
+        1: { currentIndex: 0 },
+        2: { currentIndex: 0 },
+        3: { currentIndex: 0 },
+      };
+
+      /**
+       * Normalize input so answers are:
+       * - case-insensitive
+       * - apostrophe-insensitive (' and ' treated the same)
+       * - punctuation-tolerant for '.' and '?'
+       * - whitespace-normalized
+       */
+      function normalizeAnswer(s) {
+        return (
+          (s ?? "")
+            .toLowerCase()
+            .trim()
+            // normalize apostrophes (curly → straight)
+            .replace(/['']/g, "'")
+            // remove dots and question marks anywhere (so "..." or "??" won't matter)
+            .replace(/[.?]/g, "")
+            // collapse whitespace
+            .replace(/\s+/g, " ")
+            // remove spaces before punctuation that might remain (defensive)
+            .replace(/\s+([,;:!])/g, "$1")
+            .trim()
+        );
+      }
+
+      function getAcceptedAnswers(data) {
+        // Backward-compatible: if you ever leave "answer" as a string, we'll accept it.
+        if (Array.isArray(data.answers)) return data.answers;
+        if (typeof data.answer === "string") return [data.answer];
+        return [];
+      }
+
+      function isCorrect(userAnswerRaw, data) {
+        const user = normalizeAnswer(userAnswerRaw);
+        const accepted = getAcceptedAnswers(data).map(normalizeAnswer);
+        return accepted.includes(user);
+      }
+
+      function loadSection(sectionNum) {
+        const sectionDiv = document.getElementById(`section-${sectionNum}`);
+        sectionDiv.classList.remove("d-none");
+        sectionDiv.classList.add("fade-in");
+        renderStep(sectionNum, 0);
+      }
+
+      function renderStep(sectionNum, index) {
+        const exerciseData = allExerciseData[sectionNum];
+        const container = document.getElementById(
+          `exercise-container-${sectionNum}`,
+        );
+
+        if (index >= exerciseData.length) {
+          onSectionComplete(sectionNum);
+          return;
+        }
+
+        const data = exerciseData[index];
+        const stepId = `step-${sectionNum}-${index}`;
+
+        const rowHtml = `
+      <div class="mb-4 fade-in" id="row-${sectionNum}-${index}">
+        <label class="form-label text-muted small text-uppercase fw-bold">${data.label}</label>
+        <div class="input-group" id="group-${sectionNum}-${index}">
+          <input type="text"
+                 class="form-control form-control-lg"
+                 id="${stepId}"
+                 placeholder="Type here..."
+                 autocomplete="off">
+          <button class="btn btn-primary" type="button" onclick="checkAnswer(${sectionNum}, ${index})">Check</button>
+        </div>
+        <div id="success-${sectionNum}-${index}" class="d-none p-2 border rounded bg-light fs-4 text-center">
+          ${data.formatted}
+        </div>
+        <div id="feedback-${sectionNum}-${index}" class="invalid-feedback d-block"></div>
+      </div>
+    `;
+
+        container.insertAdjacentHTML("beforeend", rowHtml);
+
+        const input = document.getElementById(stepId);
+        input.focus();
+
+        // Scroll the new row to the center
+        document
+          .getElementById(`row-${sectionNum}-${index}`)
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+
+        input.addEventListener("input", function () {
+          // Clear invalid state as soon as the learner starts correcting.
+          input.classList.remove("is-invalid");
+          document.getElementById(`feedback-${sectionNum}-${index}`).innerHTML =
+            "";
+        });
+
+        input.addEventListener("keypress", function (event) {
+          if (event.key === "Enter") {
+            checkAnswer(sectionNum, index);
+          }
+        });
+      }
+
+      function generateErrorFeedback(userAnswer, correctAnswer) {
+        const userWords = userAnswer.trim().split(/\s+/);
+        const correctWords = correctAnswer.trim().split(/\s+/);
+
+        let markedUserHtml = "";
+        const maxLen = Math.max(userWords.length, correctWords.length);
+
+        for (let i = 0; i < userWords.length; i++) {
+          const userWord = userWords[i] || "";
+          const correctWord = correctWords[i] || "";
+
+          // Normalize for comparison (but display original)
+          const normalizedUser = normalizeAnswer(userWord);
+          const normalizedCorrect = normalizeAnswer(correctWord);
+
+          if (normalizedUser !== normalizedCorrect) {
+            markedUserHtml += `<span class="incorrect-word">${userWord}</span> `;
+          } else {
+            markedUserHtml += `${userWord} `;
+          }
+        }
+
+        return `
+      <div class="error-feedback">
+        <div>${markedUserHtml.trim()}</div>
+        <div class="correct-answer">${correctAnswer}</div>
+      </div>
+    `;
+      }
+
+      function checkAnswer(sectionNum, index) {
+        const input = document.getElementById(`step-${sectionNum}-${index}`);
+        const group = document.getElementById(`group-${sectionNum}-${index}`);
+        const successDiv = document.getElementById(
+          `success-${sectionNum}-${index}`,
+        );
+        const feedback = document.getElementById(
+          `feedback-${sectionNum}-${index}`,
+        );
+        const data = allExerciseData[sectionNum][index];
+
+        const userAnswer = input.value;
+
+        if (isCorrect(userAnswer, data)) {
+          group.classList.add("d-none");
+          successDiv.classList.remove("d-none");
+          feedback.innerHTML = "";
+          sectionState[sectionNum].currentIndex = index + 1;
+          renderStep(sectionNum, index + 1);
+        } else {
+          input.classList.add("is-invalid");
+          const correctAnswer = getAcceptedAnswers(data)[0]; // Use first accepted answer for comparison
+          feedback.innerHTML = generateErrorFeedback(userAnswer, correctAnswer);
+        }
+      }
+
+      function onSectionComplete(sectionNum) {
+        if (sectionNum < 3) {
+          const moreBtn = document.getElementById(`more-btn-${sectionNum}`);
+          moreBtn.classList.remove("d-none");
+          moreBtn.classList.add("fade-in");
+          moreBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          const finalMsg = document.getElementById("final-completion");
+          finalMsg.classList.remove("d-none");
+          finalMsg.classList.add("fade-in");
+          finalMsg.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+
+      function restartAll() {
+        for (let i = 1; i <= 3; i++) {
+          const container = document.getElementById(`exercise-container-${i}`);
+          container.innerHTML = "";
+          sectionState[i].currentIndex = 0;
+
+          if (i > 1) {
+            document.getElementById(`section-${i}`).classList.add("d-none");
+          }
+
+          const moreBtn = document.getElementById(`more-btn-${i}`);
+          if (moreBtn) moreBtn.classList.add("d-none");
+        }
+        document.getElementById("final-completion").classList.add("d-none");
+        renderStep(1, 0);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Initialize Section 1
+      renderStep(1, 0);
+    </script>
+  </body>
+</html>

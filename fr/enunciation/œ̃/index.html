@@ -1,0 +1,185 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Phonetic Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <style>
+      .sub {
+        font-weight: bold;
+        background-color: #e9ffff;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-enun.js?v=260225"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French /œ̃/</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Spacer preserved after removing the audio player -->
+        <div class="mb-2" aria-hidden="true"></div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em; margin-top: 0">
+          <i>Click on the words to hear the pronunciation.<br /></i>
+          <span style="color: #8a2be2; font-size: 0.9em"
+            >This rarest vowel sound is disappearing from French. Many speakers
+            now pronounce it the same as ɛ̃ (as in "pain" or "vin")</span
+          >.
+        </p>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title">
+            <i class="bi bi-book"></i> &nbsp;-um, -un
+          </div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td onclick="playAudio('audio1')">à jeun /aʒœ̃/</td>
+                <td>on an empty stomach</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio2')">aucun /okœ̃/</td>
+                <td>none, not any</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio3')">brun /bʀœ̃/</td>
+                <td>brown</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio4')">chacun /ʃakœ̃/</td>
+                <td>each one</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio5')">commun /kɔmœ̃/</td>
+                <td>common</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio6')">défunt /defœ̃/</td>
+                <td>deceased</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio7')">emprunt /ɑ̃pʀœ̃/</td>
+                <td>loan, borrowing</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio8')">humble /œ̃b/</td>
+                <td>humble</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio9')">importun /ɛ̃pɔʀtœ̃/</td>
+                <td>bothersome</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio10')">lundi /lœ̃di/</td>
+                <td>Monday</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio11')">opportun /ɔpɔʀtœ̃/</td>
+                <td>opportune</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio12')">parfum /paʀfœ̃/</td>
+                <td>perfume / flavor</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio13')">quelqu'un /kɛlkœ̃/</td>
+                <td>somebody / anybody</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio14')">un /œ̃/</td>
+                <td>one</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="audio1" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/01-à jeun.m4a"></audio>
+    <audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/02-aucun.m4a"></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/03-brun.m4a"></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/04-chacun.m4a"></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/05-commun.m4a"></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/06-défunt.m4a"></audio>
+    <audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/07-emprunt.m4a"></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/08-humble.m4a"></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/09-importun.m4a"></audio>
+    <audio id="audio10" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/10-lundi.m4a"></audio>
+    <audio id="audio11" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/11-opportun.m4a"></audio>
+    <audio id="audio12" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/12-parfum.m4a"></audio>
+    <audio id="audio13" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/13-quelqu'un.m4a"></audio>
+    <audio id="audio14" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/œ̃/14-un.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/phonetic.js"></script>
+  </body>
+</html>

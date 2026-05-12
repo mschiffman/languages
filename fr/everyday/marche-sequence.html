@@ -1,0 +1,332 @@
+﻿<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Audio Jigsaw</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      :root {
+        --primary: #3498db;
+        --bg: #f0f8ff;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: var(--bg);
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+      }
+      h2 {
+        color: #2c3e50;
+        text-align: center;
+      }
+
+      /* The List */
+      .sequence-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 30px;
+      }
+
+      .audio-item {
+        background: white;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: transform 0.2s;
+      }
+
+      /* Play Button inside item */
+      .mini-play {
+        background: var(--primary);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+      .mini-play:hover {
+        background: #2980b9;
+      }
+
+      /* Visual waveform placeholder */
+      .waveform {
+        flex-grow: 1;
+        height: 8px;
+        background: #eee;
+        border-radius: 4px;
+        margin: 0 15px;
+        position: relative;
+        overflow: hidden;
+      }
+      .waveform::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 60%;
+        background: #bdc3c7;
+        opacity: 0.5;
+      }
+
+      /* Controls for moving items */
+      .move-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .move-btn {
+        background: none;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        cursor: pointer;
+        color: #777;
+        font-size: 10px;
+        padding: 2px 5px;
+      }
+      .move-btn:hover {
+        background: #eee;
+        color: #333;
+      }
+
+      .check-btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: #2ecc71;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+
+      .feedback {
+        text-align: center;
+        margin-top: 15px;
+        font-weight: bold;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>🧩 Audio Jigsaw</h2>
+      <p style="text-align: center; color: #666">
+        Reorder the clips to match the description logic.
+      </p>
+
+      <ul class="sequence-list" id="list-area"></ul>
+
+      <button class="check-btn" id="check-btn" onclick="checkOrder()">
+        Check Order
+      </button>
+      <button
+        class="check-btn"
+        id="next-btn"
+        onclick="nextExercise()"
+        style="display: none; background-color: #3498db"
+      >
+        Next Exercise &rarr;
+      </button>
+      <div class="feedback" id="feedback"></div>
+
+      <div class="text-center mt-5" id="final-nav" style="display: none">
+        <a href="marche-mistake.html" class="btn btn-lg btn-outline-primary"
+          >Next: Critical Analysis &rarr;</a
+        >
+      </div>
+    </div>
+
+    <script>
+      // DATA: Multiple sets of exercises
+      const allExercises = [
+        [
+          { id: 0, audio: "Il y a un marché en plein air", label: "Clip A" },
+          {
+            id: 1,
+            audio: "Il y a plusieurs stands dans le parc",
+            label: "Clip B",
+          },
+          {
+            id: 2,
+            audio: "Il y a beaucoup de vendeurs et de clients",
+            label: "Clip C",
+          },
+          { id: 3, audio: "Le marché est entouré d'arbres", label: "Clip D" },
+        ],
+        [
+          { id: 0, audio: "Un vendeur vend des légumes", label: "Clip A" },
+          { id: 1, audio: "Les tomates sont fraîches", label: "Clip B" },
+          { id: 2, audio: "Je voudrais un kilo de tomates", label: "Clip C" },
+          { id: 3, audio: "C'est cinq euros le kilo", label: "Clip D" },
+        ],
+        [
+          { id: 0, audio: "Une vendeuse vend du pain", label: "Clip A" },
+          { id: 1, audio: "Je peux avoir une baguette ?", label: "Clip B" },
+          { id: 2, audio: "Elle est du jour", label: "Clip C" },
+          { id: 3, audio: "Parfait, merci !", label: "Clip D" },
+        ],
+      ];
+
+      // State
+      let currentSetIndex = 0;
+      let currentOrder = [];
+
+      function init() {
+        loadSet(0);
+      }
+
+      function loadSet(index) {
+        currentSetIndex = index;
+        // Create a shuffled copy of the current set
+        currentOrder = [...allExercises[index]].sort(() => Math.random() - 0.5);
+
+        // Reset UI
+        document.getElementById("feedback").innerText = "";
+        document.getElementById("check-btn").style.display = "block";
+        document.getElementById("next-btn").style.display = "none";
+        document.getElementById("final-nav").style.display = "none";
+
+        // Update Header
+        document.querySelector("h2").innerText =
+          `🧩 Audio Jigsaw (${index + 1}/${allExercises.length})`;
+
+        render();
+      }
+
+      function render() {
+        const list = document.getElementById("list-area");
+        list.innerHTML = "";
+
+        currentOrder.forEach((item, index) => {
+          const li = document.createElement("li");
+          li.className = "audio-item";
+
+          const safeAudio = item.audio.replace(/'/g, "\\'");
+
+          li.innerHTML = `
+                <div style="display:flex; align-items:center; width:100%">
+                    <button class="mini-play" onclick="playAudio('${safeAudio}')">▶</button>
+                    <div class="waveform"></div>
+                    <span style="color:#aaa; font-size:0.8rem; margin-right:10px;">${item.label}</span>
+                </div>
+                <div class="move-controls">
+                    <button class="move-btn" onclick="moveUp(${index})">▲</button>
+                    <button class="move-btn" onclick="moveDown(${index})">▼</button>
+                </div>
+            `;
+          list.appendChild(li);
+        });
+      }
+
+      // Logic: Swap Array Elements
+      function moveUp(index) {
+        if (index === 0) return;
+        [currentOrder[index], currentOrder[index - 1]] = [
+          currentOrder[index - 1],
+          currentOrder[index],
+        ];
+        render();
+        clearFeedback();
+      }
+
+      function moveDown(index) {
+        if (index === currentOrder.length - 1) return;
+        [currentOrder[index], currentOrder[index + 1]] = [
+          currentOrder[index + 1],
+          currentOrder[index],
+        ];
+        render();
+        clearFeedback();
+      }
+
+      // Logic: Validation
+      function checkOrder() {
+        const feedback = document.getElementById("feedback");
+        let isCorrect = true;
+
+        for (let i = 0; i < currentOrder.length; i++) {
+          if (currentOrder[i].id !== i) {
+            isCorrect = false;
+            break;
+          }
+        }
+
+        if (isCorrect) {
+          feedback.style.color = "#27ae60";
+          feedback.innerText = "✅ Perfect Sequence!";
+
+          document.getElementById("check-btn").style.display = "none";
+
+          if (currentSetIndex < allExercises.length - 1) {
+            document.getElementById("next-btn").style.display = "block";
+          } else {
+            document.getElementById("final-nav").style.display = "block";
+          }
+        } else {
+          feedback.style.color = "#c0392b";
+          feedback.innerText = "❌ Not quite. Listen again to the logic.";
+        }
+      }
+
+      function nextExercise() {
+        loadSet(currentSetIndex + 1);
+      }
+
+      function clearFeedback() {
+        document.getElementById("feedback").innerText = "";
+      }
+
+      // Play function
+      window.playAudio = function (txt) {
+        const filename = txt.trim().replace(/'/g, "_");
+        const audio = new Audio(`/media/lessons/everyday/marche/${filename}.mp3`);
+        audio.play().catch((e) => console.error("Audio play error:", e));
+      };
+
+      init();
+    </script>
+  </body>
+</html>

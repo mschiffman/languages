@@ -1,0 +1,7 @@
+.reaction-bar { display:flex; gap:.5rem; align-items:center; }
+.reaction-picker { display:flex; gap:.35rem; }
+.reaction-btn { background:#fff; border:1px solid #ddd; border-radius:9999px; padding:.25rem .6rem; cursor:pointer; }
+.reaction-emoji { font-size:1.1rem; cursor:pointer; }
+.comment-box { display:none; }
+.comment-box.show { display:block; }
+.comment-list .one { border-top:1px solid #eee; padding:.5rem 0; }

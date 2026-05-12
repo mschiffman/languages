@@ -1,0 +1,230 @@
+﻿<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landforms - Dictation</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <style>
+      .audio-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        transition: transform 0.2s;
+      }
+      .audio-btn:hover {
+        transform: scale(1.1);
+      }
+      .correction-text {
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin-top: 5px;
+        display: block;
+      }
+      .feedback-icon {
+        font-size: 1.4rem;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow border-0">
+            <div class="card-header bg-dark text-white text-center py-4">
+              <h2 class="mb-1">Dictée : Les Reliefs</h2>
+              <p class="text-secondary mb-0">
+                Écoutez et écrivez la réponse correcte.
+              </p>
+            </div>
+
+            <div class="card-body p-4">
+              <div class="progress mb-4" style="height: 8px">
+                <div
+                  id="progressBar"
+                  class="progress-bar bg-info"
+                  role="progressbar"
+                  style="width: 0%"
+                ></div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th style="width: 15%">Audio</th>
+                      <th>Votre Réponse</th>
+                      <th style="width: 10%" class="text-center">Statut</th>
+                    </tr>
+                  </thead>
+                  <tbody id="exerciseTableBody"></tbody>
+                </table>
+              </div>
+
+              <div class="d-flex justify-content-center gap-2 mt-4">
+                <button
+                  type="button"
+                  onclick="checkAllAnswers()"
+                  class="btn btn-success btn-lg px-4"
+                >
+                  Vérifier <i class="bi bi-check2-all ms-2"></i>
+                </button>
+                <button
+                  type="button"
+                  onclick="resetForm()"
+                  class="btn btn-outline-secondary btn-lg px-4"
+                >
+                  Recommencer
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="finalScore" class="mt-4 text-center d-none">
+            <div class="alert alert-info">
+              <h4 class="mb-0">
+                Score Final : <span id="scoreVal">0</span> /
+                <span id="totalVal">0</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const audioPath = "https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/noun/landforms/";
+
+      // List your vocabulary here.
+      // Format: { answer: "The text to match", audio: "filename" }
+      const vocabulary = [
+        { id: 1, answer: "la montagne", audio: "la montagne" },
+        { id: 2, answer: "le volcan", audio: "le volcan" },
+        { id: 3, answer: "la falaise", audio: "la falaise" },
+        { id: 4, answer: "l'île", audio: "l_ile" },
+        { id: 5, answer: "le fleuve", audio: "le fleuve" },
+        { id: 6, answer: "la vallée", audio: "la vallée" },
+        { id: 7, answer: "l'oasis", audio: "l_oasis" },
+        { id: 8, answer: "la péninsule", audio: "la péninsule" },
+        { id: 9, answer: "la colline", audio: "la colline" },
+        { id: 10, answer: "le marécage", audio: "le marecage" },
+        { id: 11, answer: "la plage", audio: "la plage" },
+        { id: 12, answer: "la mer", audio: "la mer" },
+        { id: 13, answer: "l'étang", audio: "l_etang" },
+        { id: 14, answer: "la rivière", audio: "la riviere" },
+        { id: 15, answer: "le canal", audio: "le canal" },
+        { id: 16, answer: "la crique", audio: "la crique" },
+      ];
+
+      function initExercise() {
+        const tableBody = document.getElementById("exerciseTableBody");
+        tableBody.innerHTML = vocabulary
+          .map(
+            (item) => `
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary audio-btn" onclick="playAudio('audio-${item.id}')">
+                        <i class="bi bi-volume-up-fill"></i>
+                    </button>
+                    <audio id="audio-${item.id}" src="${audioPath}${item.audio}.mp3"></audio>
+                </td>
+                <td>
+                    <div class="input-group-container">
+                        <input type="text" class="form-control form-control-lg answer-input"
+                               data-answer="${item.answer}" placeholder="...">
+                        <div class="correction-area"></div>
+                    </div>
+                </td>
+                <td class="text-center feedback-cell">
+                    <span class="feedback-icon text-muted">-</span>
+                </td>
+            </tr>
+        `,
+          )
+          .join("");
+      }
+
+      function playAudio(id) {
+        const audio = document.getElementById(id);
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play();
+        }
+      }
+
+      function checkAllAnswers() {
+        const inputs = document.querySelectorAll(".answer-input");
+        let correctCount = 0;
+
+        inputs.forEach((input) => {
+          const userAnswer = input.value.trim().toLowerCase();
+          const correctAnswer = input.getAttribute("data-answer").toLowerCase();
+          const feedbackCell =
+            input.parentElement.parentElement.nextElementSibling;
+          const correctionArea = input.nextElementSibling;
+
+          // Clear previous corrections
+          correctionArea.innerHTML = "";
+
+          if (userAnswer === correctAnswer) {
+            input.classList.add("is-valid");
+            input.classList.remove("is-invalid");
+            feedbackCell.innerHTML =
+              '<i class="bi bi-check-circle-fill text-success feedback-icon"></i>';
+            correctCount++;
+          } else {
+            input.classList.add("is-invalid");
+            input.classList.remove("is-valid");
+            feedbackCell.innerHTML =
+              '<i class="bi bi-x-circle-fill text-danger feedback-icon"></i>';
+
+            // Show the correct answer in green below the input
+            correctionArea.innerHTML = `<span class="text-success correction-text">${input.getAttribute("data-answer")}</span>`;
+          }
+        });
+
+        // Update Progress UI
+        const scorePercent = (correctCount / vocabulary.length) * 100;
+        document.getElementById("progressBar").style.width = scorePercent + "%";
+        document.getElementById("finalScore").classList.remove("d-none");
+        document.getElementById("scoreVal").innerText = correctCount;
+        document.getElementById("totalVal").innerText = vocabulary.length;
+      }
+
+      function resetForm() {
+        location.reload(); // Simplest way to clear everything including state
+      }
+
+      window.onload = initExercise;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

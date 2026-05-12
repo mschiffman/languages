@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../../assets/js/nav-pron.js?v=260507"
+    ></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - February 2, 2026</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" data-clip="1">Les relations entre l'Iran</span>
+            <span class="chunk" data-clip="2"> et les États-Unis</span>
+            <span class="chunk" data-clip="3">
+              sont au sommaire de cette édition</span
+            >
+            <span class="chunk" data-clip="4"> du lundi 2 février.</span>
+            <span class="chunk" data-clip="5"> Le président iranien</span>
+            <span class="chunk" data-clip="6"> ordonne d'entamer</span>
+            <span class="chunk" data-clip="7"> des pourparlers,</span>
+            <span class="chunk" data-clip="8">
+              des négociations avec les États-Unis.
+            </span>
+            <span class="chunk" data-clip="9">
+              C'est ce que nous verrons, dans un instant,</span
+            >
+            <span class="chunk" data-clip="10"> avec Guilhem Delteil.</span>
+            <span class="chunk" data-clip="11"> Rafah est ouvert.</span>
+            <span class="chunk" data-clip="12">
+              Le point de passage entre Gaza</span
+            >
+            <span class="chunk" data-clip="13">
+              et l'Égypte a laissé, aujourd'hui,</span
+            >
+            <span class="chunk" data-clip="14"> sortir 150 personnes.</span>
+            <span class="chunk" data-clip="15"> Un froid glacial</span>
+            <span class="chunk" data-clip="16"> s'abat sur la Pologne,</span>
+            <span class="chunk" data-clip="17"> jusqu'à -30 °C.</span>
+            <span class="chunk" data-clip="18">
+              Reportage dans les rues de Varsovie.</span
+            >
+            <span class="chunk" data-clip="19">
+              Et puis, enfin, nous serons aux États-Unis
+            </span>
+            <span class="chunk" data-clip="20">
+              pour parler de la cérémonie</span
+            >
+            <span class="chunk" data-clip="21"> des Grammy Awards,</span>
+            <span class="chunk" data-clip="22">
+              avec des prises de parole
+            </span>
+            <span class="chunk" data-clip="23"> aux allures politiques,</span>
+            <span class="chunk" data-clip="24"> cette année.</span>
+            <span class="chunk" data-clip="25">
+              Reportage à la fin de cette édition.</span
+            >
+            <span class="chunk" data-clip="26">
+              Essayons, donc, de comprendre</span
+            >
+            <span class="chunk" data-clip="27">
+              ce qui se passe entre l'Iran</span
+            >
+            <span class="chunk" data-clip="28"> et les États-Unis.</span>
+            <span class="chunk" data-clip="29"> Ces dernières heures,</span>
+            <span class="chunk" data-clip="30">
+              la négociation entre les deux pays
+            </span>
+            <span class="chunk" data-clip="31"> semble l'emporter,</span>
+            <span class="chunk" data-clip="32">
+              même si les États-Unis de Donald Trump</span
+            >
+            <span class="chunk" data-clip="33">
+              gardent toujours sous la main</span
+            >
+            <span class="chunk" data-clip="34">
+              l'éventualité d'une intervention armée</span
+            >
+            <span class="chunk" data-clip="35">
+              pour faire tomber le régime iranien.</span
+            >
+            <span class="chunk" data-clip="36"> La voie du dialogue</span>
+            <span class="chunk" data-clip="37"> semble persister.</span>
+            <span class="chunk" data-clip="38">
+              Des discussions entre Washington
+            </span>
+            <span class="chunk" data-clip="39"> et Téhéran ont commencé.</span>
+            <span class="chunk" data-clip="40">
+              Selon l'agence de presse iranienne Fars,</span
+            >
+            <span class="chunk" data-clip="41"> le président iranien</span>
+            <span class="chunk" data-clip="42">
+              ordonne, demande l'ouverture
+            </span>
+            <span class="chunk" data-clip="43">
+              de négociations avec les États-Unis.</span
+            >
+            <span class="chunk" data-clip="44">
+              Une petite bouffée d'air pour Gaza,</span
+            >
+            <span class="chunk" data-clip="45">
+              avec la réouverture, ce matin,</span
+            >
+            <span class="chunk" data-clip="46"> du passage de Rafah –</span>
+            <span class="chunk" data-clip="47"> passage qui permet</span>
+            <span class="chunk" data-clip="48">
+              de quitter l'enclave palestinienne par l'Égypte.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Relations between Iran and the United States are in today's
+              headlines for this Monday, February 2nd edition. The Iranian
+              president has ordered the start of talks, negotiations with the
+              United States. We'll look at that in just a moment with Guilhem
+              Delteil. Rafah is open. The crossing point between Gaza and Egypt
+              allowed 150 people to leave today. Freezing cold is hitting
+              Poland, with temperatures down to -30°C. A report from the streets
+              of Warsaw. And finally, we'll head to the United States to talk
+              about the Grammy Awards ceremony, which featured some
+              politically-charged moments this year. That report at the end of
+              this edition. So let's try to understand what's happening between
+              Iran and the United States. In recent hours, negotiation between
+              the two countries seems to be winning out, even though Donald
+              Trump's United States still keeps the possibility of military
+              intervention to topple the Iranian regime on the table. The path
+              of dialogue seems to be holding. Discussions between Washington
+              and Tehran have begun. According to the Iranian news agency Fars,
+              the Iranian president is ordering, requesting the opening of
+              negotiations with the United States. A small breath of fresh air
+              for Gaza, with the reopening this morning of the Rafah crossing –
+              the crossing that allows people to leave the Palestinian enclave
+              through Egypt.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" data-clip="49">relation /ʀ(ə)lasjɔ̃/</td>
+                <td>relation</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="50">ordonner /ɔʀdɔne/</td>
+                <td>to organize/order</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="51">entamer /ɑ̃tame/</td>
+                <td>to start</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="52">pourparlers /puʀpaʀle/</td>
+                <td>talks / negotiations</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="53">laisser /lese/</td>
+                <td>to let/allow</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="54">glacial /ɡlasjal/</td>
+                <td>icy</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="55">abattre /abatʀ/</td>
+                <td>to hit/bring down</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="56">jusqu’à /ʒyska/</td>
+                <td>as far as</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="57">Varsovie /vaʀsɔvi/</td>
+                <td>Warsaw</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="58">cérémonie /seʀemɔni/</td>
+                <td>ceremony</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="59">
+                  des prises de parole /de.pʀiz.də.pa.ʀɔl/
+                </td>
+                <td>speeches</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="60">
+                  aux allures politiques /o.zalyʀ.pɔlitik/
+                </td>
+                <td>with a political look/feel/overtones</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="61">dernier /dɛʀnje/</td>
+                <td>last</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="62">négociation /neɡɔsjasjɔ̃/</td>
+                <td>negotiation</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="63">emporter /ɑ̃pɔʀte/</td>
+                <td>to win</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="64">garder /ɡaʀde/</td>
+                <td>to keep</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="65">éventualité /evɑ̃tɥalite/</td>
+                <td>eventuality</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="66">intervention /ɛ̃tɛʀvɑ̃sjɔ̃/</td>
+                <td>intervention</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="67">voie /vwa/</td>
+                <td>path</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="68">dialogue /djalɔɡ/</td>
+                <td>dialogue</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="69">persister /pɛʀsiste/</td>
+                <td>to persist</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="70">discussion /diskysjɔ̃/</td>
+                <td>discussion</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="71">Téhéran /teeʀɑ̃/</td>
+                <td>Teheran</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="72">
+                  l'agence de presse /laʒɑ̃s.də.prɛs/
+                </td>
+                <td>the news agency</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="73">
+                  iranien / iranienne /iʀanjɛ̃/ /iranjεn/
+                </td>
+                <td>Iranian</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="74">bouffée d'air /bufe.dɛʀ/</td>
+                <td>breath of fresh air</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="75">réouverture /ʀeuvɛʀtyʀ/</td>
+                <td>reopening</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="76">permettre /pɛʀmɛtʀ/</td>
+                <td>to allow</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="77">enclave /ɑ̃klav/</td>
+                <td>enclave</td>
+              </tr>
+              <tr>
+                <td class="words" data-clip="78">Égypte /eʒipt/</td>
+                <td>Egypt</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Page Navigation -->
+      <div style="text-align: center; margin: 24px 0 8px;">
+        <a href="index.html" class="btn btn-primary" style="margin: 0 6px; min-width: 42px;">1</a>
+        <a href="2.html" class="btn btn-outline-primary" style="margin: 0 6px; min-width: 42px;">2</a>
+      </div>
+    </div>
+
+    <!-- Single reusable audio element for clips -->
+    <audio id="clipPlayer"></audio>
+
+    <!-- Audio configuration for this page -->
+    <script>
+      window.AUDIO_CONFIG = {
+        basePath: "https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI260202/1",
+        fullAudio: "audio.m4a",
+      };
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron2.js"></script>
+  </body>
+</html>

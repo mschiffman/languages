@@ -1,0 +1,573 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - December 16, 2025</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              16 heures en temps universel.
+            </span>
+            <span class="chunk" onclick="playAudio('audio2')">
+              Nous sommes le mardi
+            </span>
+            <span class="chunk" onclick="playAudio('audio3')">
+              16 décembre.
+            </span>
+            <span class="chunk" onclick="playAudio('audio4')">
+              Voici les titres
+            </span>
+            <span class="chunk" onclick="playAudio('audio5')">
+              de cette édition :
+            </span>
+            <span class="chunk" onclick="playAudio('audio6')">
+              Gaza sous l'eau.
+            </span>
+            <span class="chunk" onclick="playAudio('audio7')">
+              En plus des conséquences de la guerre,
+            </span>
+            <span class="chunk" onclick="playAudio('audio8')">
+              des inondations
+            </span>
+            <span class="chunk" onclick="playAudio('audio9')">
+              viennent rendre la vie des Gazaouis
+            </span>
+            <span class="chunk" onclick="playAudio('audio10')">
+              encore plus difficile.
+            </span>
+            <span class="chunk" onclick="playAudio('audio11')">
+              Témoignages à suivre.
+            </span>
+            <span class="chunk" onclick="playAudio('audio12')">
+              Sur le continent africain.
+            </span>
+            <span class="chunk" onclick="playAudio('audio13')">
+              Ils ont tenté de renverser
+            </span>
+            <span class="chunk" onclick="playAudio('audio14')">
+              le pouvoir au Bénin.
+            </span>
+            <span class="chunk" onclick="playAudio('audio15')">
+              Après cette tentative
+            </span>
+            <span class="chunk" onclick="playAudio('audio16')">
+              de coup d'État
+            </span>
+            <span class="chunk" onclick="playAudio('audio17')">
+              d'il y a environ dix jours,
+            </span>
+            <span class="chunk" onclick="playAudio('audio18')">
+              une trentaine de personnes,
+            </span>
+            <span class="chunk" onclick="playAudio('audio19')">
+              majoritairement des militaires,
+            </span>
+            <span class="chunk" onclick="playAudio('audio20')"> écrouées </span>
+            <span class="chunk" onclick="playAudio('audio21')">
+              – sont, à l'heure actuelle,
+            </span>
+            <span class="chunk" onclick="playAudio('audio22')">
+              derrière les barreaux.
+            </span>
+            <span class="chunk" onclick="playAudio('audio23')">
+              En Europe, la BBC se défend.
+            </span>
+            <span class="chunk" onclick="playAudio('audio24')">
+              Le groupe de télé
+            </span>
+            <span class="chunk" onclick="playAudio('audio25')">
+              et radio audiovisuelle au Royaume-Uni
+            </span>
+            <span class="chunk" onclick="playAudio('audio26')">
+              va se défendre contre Donald Trump.
+            </span>
+            <span class="chunk" onclick="playAudio('audio27')">
+              Le président Américain
+            </span>
+            <span class="chunk" onclick="playAudio('audio28')">
+              leur demande 10 milliards de dollars.
+            </span>
+            <span class="chunk" onclick="playAudio('audio29')">
+              Et puis, dans l'actualité française,
+            </span>
+            <span class="chunk" onclick="playAudio('audio30')">
+              Emmanuel Macron est à Marseille.
+            </span>
+            <span class="chunk" onclick="playAudio('audio31')">
+              Le président de la République
+            </span>
+            <span class="chunk" onclick="playAudio('audio32')">
+              promet, je le cite,
+            </span>
+            <span class="chunk" onclick="playAudio('audio33')">
+              la guerre au narcotrafic.
+            </span>
+            <span class="chunk" onclick="playAudio('audio34')">
+              Il a, par ailleurs,
+            </span>
+
+            <span class="chunk" onclick="playAudio('audio35')">
+              rendu hommage à Mehdi Kessaci,
+            </span>
+            <span class="chunk" onclick="playAudio('audio36')">
+              décédé il y a un mois.
+            </span>
+            <span class="chunk" onclick="playAudio('audio37')">
+              Voilà pour les titres. Soyez les bienvenus.
+            </span>
+
+            <span class="chunk" onclick="playAudio('audio38')">
+              Mais commençons ce journal
+            </span>
+            <span class="chunk" onclick="playAudio('audio39')">
+              en parlant de l'avenir de l'Ukraine.
+            </span>
+            <span class="chunk" onclick="playAudio('audio40')">
+              Après deux jours</span
+            >
+            <span class="chunk" onclick="playAudio('audio41')">
+              de réunions en Allemagne,
+            </span>
+            <span class="chunk" onclick="playAudio('audio42')">
+              c'est à Berlin
+            </span>
+            <span class="chunk" onclick="playAudio('audio43')">
+              que les responsables Ukrainiens,
+            </span>
+            <span class="chunk" onclick="playAudio('audio44')">
+              Américains et Européens
+            </span>
+            <span class="chunk" onclick="playAudio('audio45')">
+              se sont réunis pour avancer
+            </span>
+            <span class="chunk" onclick="playAudio('audio46')">
+              sur le plan de paix de Donald Trump.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              16:00 Universal Time. It is Tuesday, December 16th. Here are the
+              headlines for this edition: Gaza underwater. In addition to the
+              consequences of war, flooding is making life for Gazans even more
+              difficult. Testimonies to follow. On the African continent. They
+              attempted to overthrow the government in Benin. After this coup
+              attempt from approximately ten days ago, around thirty people,
+              mostly military personnel, have been imprisoned – are currently
+              behind bars. In Europe, the BBC defends itself. The British
+              television and radio broadcasting group will defend itself against
+              Donald Trump. The American president is demanding 10 billion
+              dollars from them. And then, in French news, Emmanuel Macron is in
+              Marseille. The President of the Republic promises, and I quote,
+              "war" on drug trafficking. He also paid tribute to Mehdi Kessaci,
+              who died a month ago. Those are the headlines. Welcome. But let's
+              begin this newscast by talking about Ukraine's future. After two
+              days of meetings in Germany, it was in Berlin that Ukrainian,
+              American, and European officials met to advance Donald Trump's
+              peace plan.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  conséquence /kɔ̃sekɑ̃s/
+                </td>
+                <td>consequence</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  reverser /ʀɑ̃vɛʀse/
+                </td>
+                <td>to overthrow</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  tentative /tɑ̃tativ/
+                </td>
+                <td>attempt</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  coup d’État /ku.deta/
+                </td>
+                <td>coup</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  majoritairement /maʒɔʀitɛʀmɑ̃/
+                </td>
+                <td>predominantly</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  militaire /militɛʀ/
+                </td>
+                <td>military</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  écrouer /ekʀue/
+                </td>
+                <td>to imprison</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  barreau /baʀo/
+                </td>
+                <td>bar</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  défendre /defɑ̃dʀ/
+                </td>
+                <td>to defend</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  audiovisuel /odjovizɥɛl/
+                </td>
+                <td>audio-visual</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  narcotrafic /naʀkotʀafik/
+                </td>
+                <td>drug trafficking</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  ailleurs /ajœʀ/
+                </td>
+                <td>elsewhere / somewhere else</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  hommage /ɔmaʒ/
+                </td>
+                <td>homage</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  décédé /desede/
+                </td>
+                <td>deceased</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  responsable /ʀɛspɔ̃sabl/
+                </td>
+                <td>responsible for</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">
+                  réunir /ʀeyniʀ/
+                </td>
+                <td>to gather together</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  avancer /avɑ̃se/
+                </td>
+                <td>to move forward / to advance</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/01-16 heures en temps universel.m4a"
+    ></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/02-Nous sommes le mardi.m4a"
+    ></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/03-16 décembre.m4a"></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/04-Voici les titres.m4a"></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/05-de cette édition.m4a"></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/06-Gaza sous l'eau.m4a"></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/07-En plus des conséquences de la guerre.m4a"
+    ></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/08-des inondations.m4a"></audio>
+    <audio
+      id="audio9"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/09-viennent rendre la vie des Gazaouis.m4a"
+    ></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/10-encore plus difficile.m4a"
+    ></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/11-Témoignages à suivre.m4a"
+    ></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/12-Sur le continent africain.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/13-Ils ont tenté de renverser.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/14-le pouvoir au Bénin.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/15-Après cette tentative.m4a"
+    ></audio>
+    <audio id="audio16" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/16-de coup d'État.m4a"></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/17-d'il y a environ dix jours.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/18-une trentaine de personnes.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/19-majoritairement des militaires.m4a"
+    ></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/20-écrouées.m4a"></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/21-sont, à l'heure actuelle.m4a"
+    ></audio>
+    <audio
+      id="audio22"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/22-derrière les barreaux.m4a"
+    ></audio>
+    <audio
+      id="audio23"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/23-En Europe, la BBC se défend.m4a"
+    ></audio>
+    <audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/24-Le groupe de télé.m4a"></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/25-et radio audiovisuelle au Royaume-Uni.m4a"
+    ></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/26-va se défendre contre Donald Trump.m4a"
+    ></audio>
+    <audio
+      id="audio27"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/27-Le président américain.m4a"
+    ></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/28-leur demande 10 milliards de dollars.m4a"
+    ></audio>
+    <audio
+      id="audio29"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/29-Et puis, dans l'actualité française.m4a"
+    ></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/30-Emmanuel Macron est à Marseille.m4a"
+    ></audio>
+    <audio
+      id="audio31"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/31-Le président de la République.m4a"
+    ></audio>
+    <audio
+      id="audio32"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/32-promet, je le cite.m4a"
+    ></audio>
+    <audio
+      id="audio33"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/33-la guerre au narcotrafic.m4a"
+    ></audio>
+    <audio
+      id="audio34"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/34-Il a, par ailleurs.m4a?v=251227"
+    ></audio>
+    <audio
+      id="audio35"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/35-rendu hommage à Mehdi Kessaci.m4a"
+    ></audio>
+    <audio
+      id="audio36"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/36-décédé il y a un mois.m4a"
+    ></audio>
+    <audio
+      id="audio37"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/37-Voilà pour les titres. Soyez les bienvenus.m4a"
+    ></audio>
+    <audio
+      id="audio38"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/38-Mais commençons ce journal.m4a"
+    ></audio>
+    <audio
+      id="audio39"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/39-en parlant de l'avenir de l'Ukraine.m4a"
+    ></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/40-Après deux jours.m4a"></audio>
+    <audio
+      id="audio41"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/41-de réunions en Allemagne.m4a"
+    ></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/42-c'est à Berlin.m4a"></audio>
+    <audio
+      id="audio43"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/43-que les responsables ukrainiens.m4a"
+    ></audio>
+    <audio
+      id="audio44"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/44-américains et européens.m4a"
+    ></audio>
+    <audio
+      id="audio45"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/45-se sont réunis pour avancer.m4a"
+    ></audio>
+    <audio
+      id="audio46"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/46-sur le plan de paix de Donald Trump.m4a"
+    ></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/47-conséquence.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/48-reverser.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/49-tentative.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/50-coup d’État.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/51-majoritairement.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/52-militaire.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/53-écrouer.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/54-barreau.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/55-défendre.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/56-audiovisuel.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/57-narcotrafic.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/58-ailleurs.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/59-hommage.m4a"></audio>
+    <audio id="audio60" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/60-décédé.m4a"></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/61-responsable.m4a"></audio>
+    <audio id="audio62" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/62-réunir.m4a"></audio>
+    <audio id="audio63" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/63-avancer.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI251216/audio.m4a?v=251227a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

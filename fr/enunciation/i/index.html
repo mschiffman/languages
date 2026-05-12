@@ -1,0 +1,260 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Phonetic Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <style>
+      .sub {
+        font-weight: bold;
+        background-color: #e9ffff;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-enun.js?v=260225"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French /i/</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Spacer preserved after removing the audio player -->
+        <div class="mb-2" aria-hidden="true"></div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em; margin-top: 0">
+          <i>Click on the words to hear the pronunciation.</i>
+        </p>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> &nbsp;i</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr></tr>
+              <tr>
+                <td onclick="playAudio('audio1')">apéritif /apeʀitif/</td>
+                <td>drink served before a meal</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio2')">arriver /aʀive/</td>
+                <td>to arrive / happen</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio3')">client /klijɑ̃/</td>
+                <td>client</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio4')">depuis /dəpɥi/</td>
+                <td>since / for</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio5')">difficile /difisil/</td>
+                <td>difficult</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio6')">écrire /ekʀiʀ/</td>
+                <td>to write</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio7')">exigence /ɛɡziʒɑ̃s/</td>
+                <td>demand / requirement</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio8')">facile /fasil/</td>
+                <td>easy</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio9')">famille /famij/</td>
+                <td>family</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio10')">feeling /filiŋ/</td>
+                <td>feel / instinct</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio11')">fiche /fiʃ/</td>
+                <td>form</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio12')">frisson /fʀisɔ̃/</td>
+                <td>shiver</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio13')">idée /ide/</td>
+                <td>idea</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio14')">individu /ɛ̃dividy/</td>
+                <td>individual</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio15')">limite /limit/</td>
+                <td>limit</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio16')">mari /maʀi/</td>
+                <td>husband</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio17')">merci /mɛʀsi/</td>
+                <td>thank you</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio18')">million /miljɔ̃/</td>
+                <td>million</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio19')">minute /minyt/</td>
+                <td>minute</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio20')">niveau /nivo/</td>
+                <td>level / standard</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio21')">partir /paʀtiʀ/</td>
+                <td>to go</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio22')">petit /p(ə)ti/</td>
+                <td>small</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio23')">puis /pɥi/</td>
+                <td>then</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio24')">qui /ki/</td>
+                <td>who / that</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio25')">sortie /sɔʀti/</td>
+                <td>way out</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio26')">tenir /t(ə)niʀ/</td>
+                <td>to hold</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio27')">unique /ynik/</td>
+                <td>unique</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio28')">univers /ynivɛʀ/</td>
+                <td>universe</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio29')">vie /vi/</td>
+                <td>life</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio30')">visite /vizit/</td>
+                <td>visit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="audio1" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/01-apéritif.m4a"></audio>
+    <audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/02-arriver.m4a"></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/03-client.m4a"></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/04-depuis.m4a"></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/05-difficile.m4a"></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/06-écrire.m4a"></audio>
+    <audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/07-exigence.m4a"></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/08-facile.m4a"></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/09-famille.m4a"></audio>
+    <audio id="audio10" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/10-feeling.m4a"></audio>
+    <audio id="audio11" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/11-fiche.m4a"></audio>
+    <audio id="audio12" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/12-frisson.m4a"></audio>
+    <audio id="audio13" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/13-idée.m4a"></audio>
+    <audio id="audio14" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/14-individu.m4a"></audio>
+    <audio id="audio15" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/15-limite.m4a"></audio>
+    <audio id="audio16" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/16-mari.m4a"></audio>
+    <audio id="audio17" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/17-merci.m4a"></audio>
+    <audio id="audio18" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/18-million.m4a"></audio>
+    <audio id="audio19" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/19-minute.m4a"></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/20-niveau.m4a"></audio>
+    <audio id="audio21" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/21-partir.m4a"></audio>
+    <audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/22-petit.m4a"></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/23-puis.m4a"></audio>
+    <audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/24-qui.m4a"></audio>
+    <audio id="audio25" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/25-sortie.m4a"></audio>
+    <audio id="audio26" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/26-tenir.m4a"></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/27-unique.m4a"></audio>
+    <audio id="audio28" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/28-univers.m4a"></audio>
+    <audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/29-vie.m4a"></audio>
+    <audio id="audio30" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/i/30-visite.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/phonetic.js"></script>
+  </body>
+</html>

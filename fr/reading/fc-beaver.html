@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beaver - Flash Cards</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- offline enabler -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../assets/css/flashcards.css" />
+  </head>
+  <body>
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="thumbnail-section">
+            <h6 class="fw-bold mb-2">Jump to card</h6>
+            <div class="thumbnail-strip" id="thumbnailStrip"></div>
+          </div>
+
+          <div class="flashcard-container" id="flashcard">
+            <div class="flashcard-inner">
+              <div
+                class="flashcard-front d-flex align-items-center justify-content-center bg-white border shadow-sm rounded p-4"
+              >
+                <h3 id="card-front-text">Loading...</h3>
+                <p class="text-muted small position-absolute bottom-0 mb-3">
+                  (Click to Flip)
+                </p>
+              </div>
+
+              <div
+                class="flashcard-back d-flex align-items-center justify-content-center bg-primary text-white shadow-sm rounded p-4"
+              >
+                <h3 id="card-back-text">...</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Randomization -->
+          <div class="d-flex justify-content-center gap-2 mb-3">
+            <button class="btn btn-warning" onclick="shuffleDeck()">
+              <i class="bi bi-shuffle"></i> Shuffle Cards
+            </button>
+            <button class="btn btn-outline-warning" onclick="reorderDeck()">
+              Reorder Cards
+            </button>
+          </div>
+
+          <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-outline-secondary" onclick="prevCard()">
+              Previous
+            </button>
+            <span id="card-count" class="align-self-center text-muted"
+              >1 / 5</span
+            >
+            <button class="btn btn-outline-primary" onclick="nextCard()">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // 1. Your Data (This acts as your "Database")
+      const baseDeck = [
+        {
+          front: '<img src="/img/fish.svg">',
+          back: 'poisson <sup>m</sup><span style=""color: rgb(72, 72, 72);"">&nbsp;/pwasɔ̃/</span><a></a>',
+        },
+        {
+          front: '<img src="/img/frog.svg">',
+          back: 'grenouille&nbsp;<sup>f</sup>&nbsp; <span style=""color: rgb(72, 72, 72);"">/ɡʀənuj/</span><a></a>',
+        },
+        {
+          front: '<img src="/img/bird.svg">',
+          back: 'oiseau&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/wazo/</span>',
+        },
+        {
+          front: '<img src="/img/insect.svg">',
+          back: 'insecte&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/ɛ̃sɛkt/</span><a></a>',
+        },
+        {
+          front: '<img src="/img/beaver2.svg">',
+          back: 'castor&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/kastɔʀ/</span>',
+        },
+        {
+          front: "the animals",
+          back: 'les animaux&nbsp;<sup>m</sup> <span style=""color: rgb(72, 72, 72);"">&nbsp;/le.animo/<br></span><span style=""color: rgb(44, 51, 54);""> (singular = animal </span><span style=""color: rgb(72, 72, 72);"">/animal/)</span><a></a>',
+        },
+        {
+          front: "builder",
+          back: 'bâtisseur&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/bɑtisœʀ/</span>',
+        },
+        {
+          front: "dam",
+          back: 'barrage&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/baʀaʒ/</span>',
+        },
+        {
+          front: "genius",
+          back: 'génie&nbsp;<sup>m</sup> <span style=""color: rgb(72, 72, 72);"">&nbsp;/ʒeni/</span>',
+        },
+        {
+          front: "hard worker",
+          back: 'bosseur&nbsp;<sup>mf</sup> &nbsp;/bɔsœʀ/<span style=""color: rgb(0, 115, 230);""><a></a></span>',
+        },
+        {
+          front: "devoted",
+          back: 'dévoué&nbsp;<sup>m</sup> /&nbsp;<span style=""color: rgb(44, 51, 54);"">dévouée&nbsp;<sup>f</sup> &nbsp;</span><span style=""color: rgb(72, 72, 72);"">/devwe/</span><a></a>',
+        },
+        {
+          front: "super-powerful",
+          back: 'surpuissant&nbsp;<sup>m</sup> / surpuissante&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/syrpɥisɑ̃, ɑ̃t/</span>',
+        },
+        {
+          front: "to cut",
+          back: 'couper <span style=""color: rgb(72, 72, 72);"">/kupe/</span>',
+        },
+        {
+          front: "to build",
+          back: 'construire <span style=""color: rgb(72, 72, 72);"">/kɔ̃stʀɥiʀ/</span><a></a>',
+        },
+        {
+          front: "ingenious / clever",
+          back: 'ingénieux&nbsp;<sup>m</sup> /<span style=""color: rgb(44, 51, 54);"">ingénieuse&nbsp;<sup>f</sup> &nbsp;</span><span style=""color: rgb(72, 72, 72);"">/ε̃ʒenjø, øz/</span><a></a>',
+        },
+        {
+          front: "architect",
+          back: 'architecte <span style=""color: rgb(72, 72, 72);"">/aʀʃitɛkt/</span>',
+        },
+        {
+          front: "mission",
+          back: 'mission <span style=""color: rgb(72, 72, 72);"">/misjɔ̃/</span>',
+        },
+        {
+          front: "secret",
+          back: 'secret&nbsp;<sup>m</sup> / secrète&nbsp;<sup>f</sup>&nbsp;&nbsp;<span style=""color: rgb(72, 72, 72);"">/səkrε, εt/</span>',
+        },
+        {
+          front: "result",
+          back: 'résultat&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/ʀezylta/</span>',
+        },
+        {
+          front: "pond",
+          back: 'étang&nbsp;<sup>m</sup> &nbsp; <span style=""color: rgb(72, 72, 72);"">/etɑ̃/</span><a></a>',
+        },
+        {
+          front: "peaceful",
+          back: 'paisible&nbsp;<sup>mf</sup> &nbsp;/pezibl/<span style=""color: rgb(0, 115, 230);""><a></a></span>',
+        },
+        {
+          front: "soft / gentle",
+          back: 'doux&nbsp; &nbsp;<span style=""color: rgb(72, 72, 72);"">/du/</span><a></a>',
+        },
+        {
+          front: "to become",
+          back: 'devenir<span style=""color: rgb(72, 72, 72);""> /dəv(ə)niʀ/</span>',
+        },
+        {
+          front: "refuge",
+          back: 'refuge&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/ʀ(ə)fyʒ/</span>',
+        },
+        {
+          front: "heaven",
+          back: 'paradis&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/paʀadi/</span>',
+        },
+        {
+          front: "biodiversity",
+          back: "biodiversité&nbsp;<sup>f</sup> &nbsp;/bjodivɛʀsite/",
+        },
+        {
+          front: "to work",
+          back: 'bosser <span style=""color: rgb(72, 72, 72);"">/bɔse/</span>',
+        },
+        {
+          front: "marvel / wonder",
+          back: 'prodige&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/pʀɔdiʒ/</span>',
+        },
+        {
+          front: "hairy / furry",
+          back: 'poilu&nbsp;<sup>m</sup> / poilue&nbsp;<sup>f</sup> <span style=""color: rgb(72, 72, 72);"">/pwaly/</span>',
+        },
+        {
+          front: "to purify",
+          back: 'purifier <span style=""color: rgb(72, 72, 72);"">/pyʀifje/</span>',
+        },
+        {
+          front: "to reduce/cut/lower",
+          back: 'réduire<span style=""color: rgb(72, 72, 72);""> /ʀedɥiʀ/</span>',
+        },
+        {
+          front: "risk",
+          back: 'risque <span style=""font-size: 16.6667px;""></span><sup>m</sup>&nbsp;&nbsp;<span style=""color: rgb(72, 72, 72);"">/ʀisk/</span>',
+        },
+        {
+          front: "flood",
+          back: 'inondation <span style=""color: rgb(72, 72, 72);"">/inɔ̃dasjɔ̃/</span><a></a>',
+        },
+        {
+          front: "to help",
+          back: 'aider <span style=""color: rgb(72, 72, 72);"">/ede/</span>',
+        },
+        {
+          front: "to breathe",
+          back: 'respirer <span style=""color: rgb(72, 72, 72);"">/ʀɛspiʀe/</span>',
+        },
+        {
+          front: "patience",
+          back: 'patience&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/pasjɑ̃s/</span>',
+        },
+        {
+          front: "tenderness",
+          back: 'tendresse&nbsp;<sup>f</sup> &nbsp;/tɑ̃dʀɛs/<span style=""color: rgb(0, 115, 230);""><a></a></span>',
+        },
+        {
+          front: "to give",
+          back: 'donner <span style=""color: rgb(72, 72, 72);"">/dɔne/</span><a></a>',
+        },
+        {
+          front: "to applaud/clap",
+          back: 'applaudir <span style=""color: rgb(72, 72, 72);"">/aplodiʀ/</span>',
+        },
+        {
+          front: "work / a work of art",
+          back: 'œuvre&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/œvʀ/</span>',
+        },
+        {
+          front: "around",
+          back: 'autour <span style=""color: rgb(72, 72, 72);"">/otuʀ/</span>',
+        },
+        {
+          front: "behind",
+          back: 'derrière <span style=""color: rgb(72, 72, 72);"">/dɛʀjɛʀ/</span><a></a>',
+        },
+        {
+          front: "silent / quiet",
+          back: 'silencieux&nbsp;<sup>m</sup> /&nbsp;<span style=""color: rgb(44, 51, 54);"">silencieuse&nbsp;<sup>f</sup>&nbsp;&nbsp;</span><span style=""color: rgb(72, 72, 72);"">/silɑ̃sjø, øz/</span>',
+        },
+        {
+          front: "precious",
+          back: 'précieux&nbsp;<sup>m</sup> / précieuse&nbsp;<sup>f</sup>&nbsp; &nbsp;<span style=""color: rgb(72, 72, 72);"">/presjø, øz/</span>',
+        },
+        {
+          front: "to remind / to call back",
+          back: 'rappeler <span style=""color: rgb(72, 72, 72);"">/ʀap(ə)le/</span>',
+        },
+        {
+          front: "chore / duty",
+          back: 'corvée&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/kɔrve/</span>',
+        },
+        {
+          front: "long",
+          back: 'long&nbsp;<sup>m</sup> / longue <sup>f</sup>&nbsp;&nbsp;<span style=""color: rgb(72, 72, 72);"">/lɔ̃, lɔ̃g/</span>',
+        },
+        {
+          front: "form / shape",
+          back: 'forme&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/fɔrm/</span>',
+        },
+        {
+          front:
+            '"So, what secret super tools do beavers use to take down trees like pros?<br><span style=""color: rgb(0, 0, 190);"">(Alors, quels super outils secrets les castors utilisent-ils pour faire tomber des arbres comme des pros ?)</span>',
+          back: 'their teeth<br><span style=""color: rgb(0, 0, 190);"">(leurs dents)</span>',
+        },
+        {
+          front:
+            '"The text compares beavers to what kind of pros on a secret mission?<br><span style=""color: rgb(0, 0, 190);"">(Le texte compare les castors à quels pros en mission secrète ?)</span>',
+          back: 'architect<br><span style=""color: rgb(0, 0, 190);"">(architecte)</span>',
+        },
+        {
+          front:
+            '"What magical result happens when beavers build their dams?<br><span style=""color: rgb(0, 0, 190);"">(Quel est le résultat magique quand les castors construisent leurs barrages ?)</span>',
+          back: 'They make gentle, peaceful ponds.<br><span style=""color: rgb(0, 0, 190);"">(Ils fabriquent des étangs tout doux, tout paisibles.)</span>',
+        },
+        {
+          front:
+            '"The ponds created by beavers become safe ______ for lots of little creatures.<br><span style=""color: rgb(0, 0, 190);"">(Les étangs créés par les castors deviennent des ______ sûrs pour plein de petites créatures.)</span>',
+          back: 'havens<br><span style=""color: rgb(0, 0, 190);"">(refuges)</span>',
+        },
+        {
+          front:
+            '"Can you name two types of animals that benefit from the ponds beavers create?<br><span style=""color: rgb(0, 0, 190);"">(Peux-tu nommer deux types d’animaux qui profitent des étangs construits par les castors ?)</span>',
+          back: 'fish, frogs, birds, insects<br><span style=""color: rgb(0, 0, 190);"">(poissons , grenouilles , oiseaux, insectes)&nbsp;</span>',
+        },
+        {
+          front:
+            '"What effect do beavers’ activities have on water quality?<br><span style=""color: rgb(0, 0, 190);"">(Quel effet les activités des castors ont-elles sur la qualité de l’eau ?)</span>',
+          back: 'They make it cleaner—like magic!<br><span style=""color: rgb(0, 0, 190);"">(Ils la rendent plus propre, comme par magie !)</span>',
+        },
+        {
+          front:
+            '"How do beaver dams impact the risk of natural disasters?<br><span style=""color: rgb(0, 0, 190);"">(Quel est l’effet des barrages de castors sur les catastrophes naturelles ?)</span>',
+          back: 'They reduce flood risks — real little flood-fighting heroes!<br><span style=""color: rgb(0, 0, 190);"">(Ils réduisent les risques d’inondation — de vrais petits héros anti-crues !)</span>',
+        },
+        {
+          front:
+            '"What happens to a beaver’s work after the beaver leaves the area?<br><span style=""color: rgb(0, 0, 190);"">(Que devient le travail d’un castor après son départ ?)</span>',
+          back: 'It keeps helping nature all around — like a little gift left behind.<br><span style=""color: rgb(0, 0, 190);"">(Il continue de faire du bien à la nature tout autour — comme un petit cadeau laissé derrière lui.)</span>',
+        },
+        {
+          front:
+            '"What is the final message the text suggests beavers remind us of?<br><span style=""color: rgb(0, 0, 190);"">(Quel est le message final que le texte nous dit que les castors nous rappellent ?)</span>',
+          back: 'That working with nature isn’t a chore… it’s a love story.<br><span style=""color: rgb(0, 0, 190);"">(Que travailler avec la nature, ce n’est pas une corvée… c’est une histoire d’amour.)&nbsp;</span><span style=""color: rgb(0, 0, 190);"">❤️</span>',
+        },
+        {
+          front:
+            '"The text describes a beaver\'s legacy as a silent but _____ gift.<br><span style=""color: rgb(0, 0, 190);"">(Le texte décrit l’héritage du castor comme un cadeau silencieux mais _____ .)</span>',
+          back: 'precious<br><span style=""color: rgb(0, 0, 190);"">(précieux)</span>',
+        },
+        {
+          front:
+            "Avec leurs dents surpuissantes, les castors _____ des arbres.",
+          back: "coupent",
+        },
+        {
+          front:
+            "Le résultat des barrages est des étangs _____, qui deviennent de véritables refuges.",
+          back: "paisibles",
+        },
+        {
+          front: "Pendant qu'ils bossent, ces prodiges poilus _____ l’eau.",
+          back: "purifient",
+        },
+        {
+          front:
+            "Les castors réduisent les risques d'_____ et aident la nature à mieux respirer.",
+          back: "inondation",
+        },
+        {
+          front:
+            "Même quand le castor s’en va, son _____ continue d’aider la vie autour de lui.",
+          back: "œuvre",
+        },
+      ];
+
+      let deck = baseDeck.map((card, index) => ({ ...card, id: index }));
+      let currentIndex = 0;
+      const cardElement = document.getElementById("flashcard");
+      const frontText = document.getElementById("card-front-text");
+      const backText = document.getElementById("card-back-text");
+      const countLabel = document.getElementById("card-count");
+      const thumbnailStrip = document.getElementById("thumbnailStrip");
+
+      // 2. Load the content
+      function loadCard() {
+        // Reset flip if it's currently flipped
+        cardElement.classList.remove("is-flipped");
+
+        // Wait slightly for flip reset, then change text
+        setTimeout(() => {
+          frontText.innerHTML = deck[currentIndex].front;
+          backText.innerHTML = deck[currentIndex].back;
+          countLabel.innerHTML = `${currentIndex + 1} / ${deck.length}`;
+          updateActiveThumbnail();
+        }, 200);
+      }
+
+      function renderThumbnails() {
+        thumbnailStrip.innerHTML = "";
+        baseDeck.forEach((card, idx) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "thumb-card";
+          btn.dataset.cardId = idx;
+          btn.innerHTML = `
+            <div class="thumb-number">#${idx + 1}</div>
+            <div class="thumb-preview">${card.front}</div>
+          `;
+          btn.addEventListener("click", () => {
+            const targetIndex = deck.findIndex((item) => item.id === idx);
+            if (targetIndex !== -1) {
+              currentIndex = targetIndex;
+              loadCard();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          });
+          thumbnailStrip.appendChild(btn);
+        });
+        updateActiveThumbnail();
+      }
+
+      function updateActiveThumbnail() {
+        const activeId = deck[currentIndex].id;
+        const buttons = thumbnailStrip.querySelectorAll(".thumb-card");
+        buttons.forEach((btn) => {
+          const btnId = Number(btn.dataset.cardId);
+          btn.classList.toggle("is-active", btnId === activeId);
+        });
+      }
+
+      // 3. Flip Interaction
+      cardElement.addEventListener("click", function () {
+        this.classList.toggle("is-flipped");
+      });
+
+      // 4. Navigation
+      function nextCard() {
+        if (currentIndex < deck.length - 1) {
+          currentIndex++;
+          loadCard();
+        }
+      }
+
+      function prevCard() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          loadCard();
+        }
+      }
+
+      // Initialize
+      renderThumbnails();
+      loadCard();
+
+      function shuffleDeck() {
+        // 1. The Fisher-Yates Shuffle Algorithm
+        // (This loops backward through the deck and swaps each card with a random one)
+        for (let i = deck.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+
+        // 2. Reset the user to the start of the newly shuffled deck
+        currentIndex = 0;
+
+        // 3. Reload the display
+        loadCard();
+
+        // Optional: Give visual feedback (e.g., update the button text briefly)
+        const btn = document.querySelector('button[onclick="shuffleDeck()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Deck Shuffled!";
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 1000);
+      }
+
+      function reorderDeck() {
+        // Restore the deck to its original sequential order
+        deck = baseDeck.map((card, index) => ({ ...card, id: index }));
+        currentIndex = 0;
+        loadCard();
+
+        const btn = document.querySelector('button[onclick="reorderDeck()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Deck Reordered!";
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive French Present Tense Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Chosen Palette: Warm Neutrals (Stone/Amber/Emerald/Rose) -->
+    <!-- Application Structure Plan: A task-oriented dashboard layout. The sidebar provides navigation between different grammatical categories. The main area displays interactive fill-in-the-blank exercises with immediate feedback to facilitate active learning. A dedicated analytics section uses a radar chart to visualize proficiency across the four verb categories, providing a gamified summary of the user's progress. This structure transforms a static worksheet into an engaging, self-paced assessment tool. -->
+    <!-- Visualization & Content Choices: Report Info: French Grammar Exercises -> Goal: Interactive Practice & Progress Tracking -> Viz/Presentation Method: Fill-in-the-blank forms with instant validation, and a Radar Chart for overall proficiency -> Interaction: User inputs text, clicks check, chart updates dynamically -> Justification: Active recall is best for language learning. The radar chart instantly identifies grammatical weak points. -> Library/Method: Vanilla JS DOM manipulation for forms, Chart.js (Canvas) for the radar chart. Confirming NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+      body {
+        background-color: #f5f5f4;
+        color: #292524;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+      .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 350px;
+        max-height: 400px;
+      }
+      @media (min-width: 768px) {
+        .chart-container {
+          height: 400px;
+        }
+      }
+      .nav-active {
+        background-color: #fcd34d;
+        color: #78350f;
+        font-weight: 600;
+      }
+      .sound-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        color: #6c757d;
+        font-size: 1rem;
+        vertical-align: middle;
+        margin-right: 0.25rem;
+        opacity: 0.7;
+        transition: opacity 0.15s, color 0.15s;
+        line-height: 1;
+      }
+      .sound-btn:hover {
+        opacity: 1;
+        color: #f59e0b;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col md:flex-row">
+    <nav
+      class="w-full md:w-64 bg-white border-r border-stone-200 flex flex-col p-4 shadow-sm"
+    >
+      <div class="mb-8">
+        <h1 class="text-xl font-bold text-stone-800">🇫🇷 Le Présent</h1>
+        <p class="text-sm text-stone-500 mt-1">Interactive Practice</p>
+      </div>
+      <div class="flex-1 space-y-2" id="nav-container"></div>
+      <div class="mt-8 pt-4 border-t border-stone-200">
+        <div class="text-sm font-semibold text-stone-500 mb-2">
+          Overall Progress
+        </div>
+        <div class="w-full bg-stone-100 rounded-full h-3 mb-1 overflow-hidden">
+          <div
+            id="progress-bar"
+            class="bg-amber-500 h-3 rounded-full transition-all duration-500"
+            style="width: 0%"
+          ></div>
+        </div>
+        <div class="text-xs text-right text-stone-500" id="progress-text">
+          0 / 20 Correct
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
+      <header class="bg-white px-8 py-6 shadow-sm border-b border-stone-200">
+        <h2 id="section-title" class="text-2xl font-bold text-stone-800">
+          All Exercises
+        </h2>
+      </header>
+
+      <div class="p-8 max-w-5xl mx-auto w-full space-y-8">
+        <section
+          class="bg-white p-6 rounded-xl shadow-sm border border-stone-100"
+        >
+          <h3 class="text-lg font-semibold text-stone-800 mb-2">
+            📝 Practice Area
+          </h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-6">
+            This section allows you to actively test your knowledge of the
+            French present tense based on the source worksheet. Select a
+            category from the sidebar or view all exercises. Fill in the blanks
+            with the correct conjugation of the verb shown in parentheses. Click
+            "Verify" to instantly check your answer. Your progress will be
+            tracked and visualized in the analytics section below.
+          </p>
+          <div id="quiz-container" class="space-y-4"></div>
+        </section>
+
+        <section
+          class="bg-white p-6 rounded-xl shadow-sm border border-stone-100"
+        >
+          <h3 class="text-lg font-semibold text-stone-800 mb-2">
+            📊 Performance Analytics
+          </h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-6">
+            This dashboard visualizes your conjugation proficiency across the
+            four distinct grammatical categories extracted from the report. The
+            radar chart maps your strengths and highlights areas requiring more
+            study. It updates in real-time as you verify your answers in the
+            practice area above.
+          </p>
+
+          <div class="chart-container">
+            <canvas id="proficiencyChart"></canvas>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const exercises = [
+        {
+          id: 1,
+          sectionId: "er_verbs",
+          sectionName: "Regular -ER Verbs",
+          pre: "Je ",
+          verb: "manger",
+          post: " une pomme.",
+          answer: "mange",
+          trans: "I am eating/I eat",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 2,
+          sectionId: "er_verbs",
+          sectionName: "Regular -ER Verbs",
+          pre: "Nous ",
+          verb: "parler",
+          post: " français en classe.",
+          answer: "parlons",
+          trans: "We speak/are speaking",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 3,
+          sectionId: "er_verbs",
+          sectionName: "Regular -ER Verbs",
+          pre: "Ils ",
+          verb: "regarder",
+          post: " la télévision le soir.",
+          answer: "regardent",
+          trans: "They watch/are watching",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 4,
+          sectionId: "er_verbs",
+          sectionName: "Regular -ER Verbs",
+          pre: "Tu ",
+          verb: "habiter",
+          post: " à Paris ?",
+          answer: "habites",
+          trans: "You live/are living",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 5,
+          sectionId: "er_verbs",
+          sectionName: "Regular -ER Verbs",
+          pre: "Vous ",
+          verb: "étudier",
+          post: " pour l'examen.",
+          answer: "étudiez",
+          trans: "You study/are studying",
+          user: "",
+          status: "pending",
+        },
+
+        {
+          id: 6,
+          sectionId: "ir_re_verbs",
+          sectionName: "Regular -IR & -RE Verbs",
+          pre: "Tu ",
+          verb: "finir",
+          post: " tes devoirs rapidement.",
+          answer: "finis",
+          trans: "You finish/are finishing",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 7,
+          sectionId: "ir_re_verbs",
+          sectionName: "Regular -IR & -RE Verbs",
+          pre: "Elle ",
+          verb: "choisir",
+          post: " une robe rouge.",
+          answer: "choisit",
+          trans: "She chooses/is choosing",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 8,
+          sectionId: "ir_re_verbs",
+          sectionName: "Regular -IR & -RE Verbs",
+          pre: "Nous ",
+          verb: "vendre",
+          post: " notre vieille voiture.",
+          answer: "vendons",
+          trans: "We sell/are selling",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 9,
+          sectionId: "ir_re_verbs",
+          sectionName: "Regular -IR & -RE Verbs",
+          pre: "Je ",
+          verb: "répondre",
+          post: " au message de Marie.",
+          answer: "réponds",
+          trans: "I answer/am answering",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 10,
+          sectionId: "ir_re_verbs",
+          sectionName: "Regular -IR & -RE Verbs",
+          pre: "Vous ",
+          verb: "réussir",
+          post: " toujours vos projets.",
+          answer: "réussissez",
+          trans: "You succeed/are succeeding",
+          user: "",
+          status: "pending",
+        },
+
+        {
+          id: 11,
+          sectionId: "essential_irreg",
+          sectionName: "Essential Irregular Verbs",
+          pre: "Nous ",
+          verb: "être",
+          post: " très contents de vous voir.",
+          answer: "sommes",
+          trans: "We are",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 12,
+          sectionId: "essential_irreg",
+          sectionName: "Essential Irregular Verbs",
+          pre: "Ils ",
+          verb: "avoir",
+          post: " un grand chien noir.",
+          answer: "ont",
+          trans: "They have",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 13,
+          sectionId: "essential_irreg",
+          sectionName: "Essential Irregular Verbs",
+          pre: "Je ",
+          verb: "aller",
+          post: " à la bibliothèque demain.",
+          answer: "vais",
+          trans: "I am going/I go",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 14,
+          sectionId: "essential_irreg",
+          sectionName: "Essential Irregular Verbs",
+          pre: "Vous ",
+          verb: "faire",
+          post: " du sport le week-end.",
+          answer: "faites",
+          trans: "You do/are doing",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 15,
+          sectionId: "essential_irreg",
+          sectionName: "Essential Irregular Verbs",
+          pre: "Tu ",
+          verb: "être",
+          post: " prêt pour la fête ?",
+          answer: "es",
+          trans: "You are",
+          user: "",
+          status: "pending",
+        },
+
+        {
+          id: 16,
+          sectionId: "reflexive_other",
+          sectionName: "Reflexive & Others",
+          pre: "Je ",
+          verb: "se laver",
+          post: " le visage tous les matins.",
+          answer: "me lave",
+          trans: "I wash myself",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 17,
+          sectionId: "reflexive_other",
+          sectionName: "Reflexive & Others",
+          pre: "Nous ",
+          verb: "se dépêcher",
+          post: " pour ne pas rater le train.",
+          answer: "nous dépêchons",
+          trans: "We hurry/are hurrying",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 18,
+          sectionId: "reflexive_other",
+          sectionName: "Reflexive & Others",
+          pre: "Elle ",
+          verb: "vouloir",
+          post: " un café noir.",
+          answer: "veut",
+          trans: "She wants",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 19,
+          sectionId: "reflexive_other",
+          sectionName: "Reflexive & Others",
+          pre: "Ils ",
+          verb: "pouvoir",
+          post: " venir avec nous au cinéma.",
+          answer: "peuvent",
+          trans: "They can/are able to",
+          user: "",
+          status: "pending",
+        },
+        {
+          id: 20,
+          sectionId: "reflexive_other",
+          sectionName: "Reflexive & Others",
+          pre: "Vous ",
+          verb: "prendre",
+          post: " le bus pour aller au travail.",
+          answer: "prenez",
+          trans: "You take/are taking",
+          user: "",
+          status: "pending",
+        },
+      ];
+
+      let currentFilter = "all";
+      let chartInstance = null;
+
+      const navContainer = document.getElementById("nav-container");
+      const quizContainer = document.getElementById("quiz-container");
+      const sectionTitle = document.getElementById("section-title");
+      const progressBar = document.getElementById("progress-bar");
+      const progressText = document.getElementById("progress-text");
+
+      function init() {
+        renderNav();
+        renderQuiz();
+        initChart();
+        updateProgress();
+      }
+
+      function renderNav() {
+        const sections = [{ id: "all", name: "All Exercises" }];
+        const uniqueSections = [...new Set(exercises.map((e) => e.sectionId))];
+
+        uniqueSections.forEach((secId) => {
+          const name = exercises.find((e) => e.sectionId === secId).sectionName;
+          sections.push({ id: secId, name: name });
+        });
+
+        navContainer.innerHTML = "";
+        sections.forEach((sec) => {
+          const btn = document.createElement("button");
+          btn.className = `w-full text-left px-4 py-2 rounded-lg transition-colors text-sm ${currentFilter === sec.id ? "nav-active" : "text-stone-600 hover:bg-stone-100"}`;
+          btn.innerText = sec.name;
+          btn.onclick = () => {
+            currentFilter = sec.id;
+            sectionTitle.innerText = sec.name;
+            renderNav();
+            renderQuiz();
+          };
+          navContainer.appendChild(btn);
+        });
+      }
+
+      function renderQuiz() {
+        quizContainer.innerHTML = "";
+        const filtered =
+          currentFilter === "all"
+            ? exercises
+            : exercises.filter((e) => e.sectionId === currentFilter);
+
+        filtered.forEach((ex) => {
+          const row = document.createElement("div");
+          row.className =
+            "flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-stone-50 rounded-lg border border-stone-200 gap-4 transition-all";
+
+          if (ex.status === "correct") {
+            row.classList.replace("bg-stone-50", "bg-emerald-50");
+            row.classList.replace("border-stone-200", "border-emerald-200");
+          } else if (ex.status === "incorrect") {
+            row.classList.replace("bg-stone-50", "bg-rose-50");
+            row.classList.replace("border-stone-200", "border-rose-200");
+          }
+
+          let statusHtml = "";
+          let inputDisabled = "";
+          let inputClass =
+            "border-stone-300 focus:border-amber-500 focus:ring-amber-500";
+
+          if (ex.status === "correct") {
+            statusHtml =
+              '<span class="text-emerald-600 font-bold ml-2">✅ Correct</span>';
+            inputDisabled = "disabled";
+            inputClass = "border-emerald-400 bg-emerald-100 text-emerald-800";
+          } else if (ex.status === "incorrect") {
+            statusHtml = `<div class="text-rose-600 text-sm mt-1">❌ Incorrect. Hint: it translates to "${ex.trans}"</div>`;
+            inputClass = "border-rose-400 bg-rose-50 text-rose-900";
+          }
+
+          row.innerHTML = `
+                    <div class="flex-1 w-full">
+                        <div class="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-1">${ex.sectionName}</div>
+                        <div class="text-lg text-stone-800 leading-loose">
+                            <button class="sound-btn" onclick="new Audio('https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/tenses/ex-present/${ex.id}.mp3').play()" title="Play audio"><i class="bi bi-play-circle-fill"></i></button>${ex.id}. ${ex.pre}
+                            <input type="text" id="input-${ex.id}" value="${ex.user}" ${inputDisabled}
+                                class="mx-1 px-2 py-1 w-32 border rounded-md shadow-sm sm:text-sm outline-none transition-colors ${inputClass}"
+                                placeholder="(${ex.verb})">
+                            ${ex.post}
+                        </div>
+                        ${statusHtml}
+                    </div>
+                    <div>
+                        ${ex.status !== "correct" ? `<button onclick="verifyAnswer(${ex.id})" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg text-sm transition-colors shadow-sm w-full md:w-auto">Verify</button>` : ""}
+                    </div>
+                `;
+          quizContainer.appendChild(row);
+        });
+      }
+
+      window.verifyAnswer = function (id) {
+        const ex = exercises.find((e) => e.id === id);
+        const inputVal = document
+          .getElementById(`input-${id}`)
+          .value.trim()
+          .toLowerCase();
+        ex.user = document.getElementById(`input-${id}`).value;
+
+        if (inputVal === ex.answer.toLowerCase()) {
+          ex.status = "correct";
+        } else {
+          ex.status = "incorrect";
+        }
+
+        renderQuiz();
+        updateProgress();
+        updateChart();
+      };
+
+      function updateProgress() {
+        const correctCount = exercises.filter(
+          (e) => e.status === "correct",
+        ).length;
+        const total = exercises.length;
+        const pct = (correctCount / total) * 100;
+        progressBar.style.width = `${pct}%`;
+        progressText.innerText = `${correctCount} / ${total} Correct`;
+      }
+
+      function initChart() {
+        const ctx = document
+          .getElementById("proficiencyChart")
+          .getContext("2d");
+
+        Chart.defaults.font.family = "system-ui, -apple-system, sans-serif";
+        Chart.defaults.color = "#78716c";
+
+        chartInstance = new Chart(ctx, {
+          type: "radar",
+          data: getChartData(),
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                angleLines: { color: "rgba(0, 0, 0, 0.05)" },
+                grid: { color: "rgba(0, 0, 0, 0.05)" },
+                pointLabels: {
+                  font: { size: 12, weight: "600" },
+                  color: "#44403c",
+                },
+                ticks: {
+                  min: 0,
+                  max: 5,
+                  stepSize: 1,
+                  display: false,
+                },
+              },
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: "rgba(28, 25, 23, 0.9)",
+                padding: 12,
+                callbacks: {
+                  label: function (context) {
+                    return ` Score: ${context.raw} / 5 correct`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
+
+      function getChartData() {
+        const sections = [...new Set(exercises.map((e) => e.sectionId))];
+        const labels = sections.map(
+          (id) => exercises.find((e) => e.sectionId === id).sectionName,
+        );
+        const data = sections.map((id) => {
+          return exercises.filter(
+            (e) => e.sectionId === id && e.status === "correct",
+          ).length;
+        });
+
+        return {
+          labels: labels,
+          datasets: [
+            {
+              label: "Correct Answers",
+              data: data,
+              backgroundColor: "rgba(245, 158, 11, 0.2)",
+              borderColor: "rgba(245, 158, 11, 1)",
+              pointBackgroundColor: "rgba(217, 119, 6, 1)",
+              pointBorderColor: "#fff",
+              pointHoverBackgroundColor: "#fff",
+              pointHoverBorderColor: "rgba(245, 158, 11, 1)",
+              borderWidth: 2,
+              fill: true,
+            },
+          ],
+        };
+      }
+
+      function updateChart() {
+        if (chartInstance) {
+          chartInstance.data = getChartData();
+          chartInstance.update();
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>

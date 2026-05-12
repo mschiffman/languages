@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily Routines - French A2/B1</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+      body {
+        background-color: #f4f4f9;
+      }
+
+      /* --- Chat Bubble Styling --- */
+      /* We interpret Blockquotes ( > text ) as AI/System responses */
+      blockquote {
+        background: #ffffff;
+        border-left: 5px solid #6c5ce7; /* Purple accent */
+        margin: 1.5em 0;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        color: #333;
+      }
+
+      /* Styling for standard text (The "User" prompts) */
+      p {
+        margin-bottom: 1em;
+        color: #2d3436;
+      }
+
+      /* Make "User:" or names bold and distinct */
+      strong {
+        color: #d63031; /* Red accent for names */
+      }
+
+      /* Code Block Styling */
+      pre {
+        background: #2d3436;
+        color: #dfe6e9;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+
+      /* Table Styling */
+      table {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        border-collapse: collapse;
+        background-color: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #e9ecef;
+      }
+      th {
+        background-color: #0174c1;
+        color: #ffffff;
+      }
+      /* Hover effect for audio elements */
+      .audio-trigger:hover {
+        background-color: #e2e6ea;
+      }
+
+      /* Examples button styling */
+      .examples-btn {
+        background: none;
+        border: 1px solid #0174c1;
+        color: #0174c1;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 0.8em;
+        cursor: pointer;
+        margin-top: 4px;
+        display: inline-block;
+      }
+      .examples-btn:hover {
+        background: #0174c1;
+        color: white;
+      }
+      .examples-panel {
+        display: none;
+        margin-top: 6px;
+        color: #555;
+        font-size: 0.9em;
+      }
+      .examples-panel.visible {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-4">
+      <a
+        href="../../index.html"
+        target="_blank"
+        class="btn btn-secondary mb-3"
+        >Site Map</a
+      >
+      <div class="mx-auto" style="max-width: 700px">
+        <img
+          src="/img/everyday/routine.jpg"
+          alt=""
+          class="img-fluid mb-4 rounded d-block mx-auto"
+        />
+      </div>
+
+      <div id="content">Loading routine...</div>
+    </div>
+
+    <script>
+      // Global function to play audio using speechSynthesis
+      function playAudio(text) {
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = "fr-FR";
+          utterance.rate = 0.9;
+
+          const voices = window.speechSynthesis.getVoices();
+          const frenchVoice = voices.find((voice) =>
+            voice.lang.startsWith("fr"),
+          );
+          if (frenchVoice) {
+            utterance.voice = frenchVoice;
+          }
+
+          window.speechSynthesis.speak(utterance);
+        }
+      }
+
+      // Pre-load voices
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.getVoices();
+        window.speechSynthesis.onvoiceschanged = function () {
+          window.speechSynthesis.getVoices();
+        };
+      }
+
+      // 1. Fetch the markdown file
+      fetch("routine.md")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Could not find routine.md file");
+          }
+          return response.text();
+        })
+        .then((text) => {
+          // 2. Convert markdown to HTML using Marked.js
+          document.getElementById("content").innerHTML = marked.parse(text);
+
+          // 3. Post-processing: Add cursor pointer to elements with onclick
+          document.querySelectorAll("[onclick^='playAudio']").forEach((el) => {
+            el.style.cursor = "pointer";
+            el.classList.add("audio-trigger");
+          });
+
+          // 4. Add click handlers for examples buttons
+          document.querySelectorAll(".examples-btn").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              var panel = document.getElementById(this.dataset.target);
+              if (panel) {
+                panel.classList.toggle("visible");
+              }
+            });
+          });
+        })
+        .catch((error) => {
+          document.getElementById("content").innerHTML =
+            `<p style="color:red; font-weight:bold;">Error: ${error.message}. <br>
+                    (Note: You must view this via a local server, not by double-clicking the file.)</p>`;
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictation Trainer</title>
+    <style>
+      :root {
+        --primary: #8e44ad; /* Purple for 'Listening' focus */
+        --bg: #f4f6f7;
+        --success: #27ae60;
+        --error: #c0392b;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: var(--bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+      }
+
+      .container {
+        max-width: 600px;
+        width: 100%;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      h2 {
+        text-align: center;
+        color: var(--primary);
+        margin-top: 0;
+      }
+
+      /* Audio Controls */
+      .audio-stage {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        background: #fdfdfd;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px dashed #e0e0e0;
+      }
+
+      .play-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        transition:
+          transform 0.1s,
+          background 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 5px; /* Visual center adjustment for play icon */
+      }
+
+      .play-btn:hover {
+        transform: scale(1.05);
+        background: #732d91;
+      }
+      .play-btn:active {
+        transform: scale(0.95);
+      }
+
+      /* Input Area */
+      .input-area {
+        margin-bottom: 20px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 80px;
+        padding: 15px;
+        font-size: 1.1rem;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-family: inherit;
+        resize: none;
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      /* Controls */
+      .controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .check-btn {
+        background: var(--success);
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .skip-btn {
+        background: transparent;
+        color: #7f8c8d;
+        border: none;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      /* Feedback Diff */
+      .feedback {
+        margin-top: 20px;
+        padding: 15px;
+        background: #fafafa;
+        border-radius: 8px;
+        display: none;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      .diff-missing {
+        color: var(--error);
+        text-decoration: line-through;
+        margin-right: 5px;
+      }
+
+      .diff-added {
+        color: var(--success);
+        font-weight: bold;
+        margin-right: 5px;
+      }
+
+      .diff-correct {
+        color: #333;
+        margin-right: 5px;
+      }
+
+      .progress {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #999;
+      }
+
+      /* Mock Audio Hint */
+      .audio-hint {
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: #aaa;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>🎧 Dictation Challenge</h2>
+
+      <div class="progress" id="progress-text">Exercise 1 / 4</div>
+
+      <div class="audio-stage">
+        <button class="play-btn" onclick="playCurrentAudio()">▶</button>
+      </div>
+      <div class="audio-hint" id="audio-id-display">Audio ID: dialog1</div>
+
+      <div class="input-area">
+        <textarea
+          id="user-input"
+          placeholder="Type exactly what you hear..."
+        ></textarea>
+      </div>
+
+      <div class="controls">
+        <button class="skip-btn" onclick="nextExercise()">Skip / Next</button>
+        <button class="check-btn" onclick="checkAnswer()">Check Answer</button>
+      </div>
+
+      <div class="feedback" id="feedback-area"></div>
+    </div>
+
+    <script>
+      // 1. DATA: Taken from marche.md Dialogues
+      // Note: I broke the dialogues into single meaningful lines for dictation
+      const exercises = [
+        {
+          id: "dialog1_line1",
+          audioFunc: "Les tomates sont fraîches ?",
+          text: "Les tomates sont fraîches ?",
+          hint: "Dialogue 1: Client asking question",
+        },
+        {
+          id: "dialog1_line2",
+          audioFunc: "J'en prends un kilo s'il vous plaît",
+          text: "J'en prends un kilo s'il vous plaît",
+          hint: "Dialogue 1: Ordering",
+        },
+        {
+          id: "dialog2_line1",
+          audioFunc: "Bonjour je peux avoir une baguette ?",
+          text: "Bonjour je peux avoir une baguette ?",
+          hint: "Dialogue 2: Bread request",
+        },
+        {
+          id: "dialog3_line1",
+          audioFunc: "Vous me conseillez quel fromage ?",
+          text: "Vous me conseillez quel fromage ?",
+          hint: "Dialogue 3: Asking for advice",
+        },
+        {
+          id: "dialog4_line1",
+          audioFunc: "Je prends deux filets",
+          text: "Je prends deux filets",
+          hint: "Dialogue 4: Buying fish",
+        },
+      ];
+
+      let currentIndex = 0;
+
+      // 2. LOGIC: Play Audio
+      function playCurrentAudio() {
+        // In a real app, this would play an .mp3
+        // For this demo, we use your existing playAudio() logic hook
+        const audioName = exercises[currentIndex].audioFunc;
+
+        console.log(`Playing: ${audioName}`);
+
+        // Simulating the playAudio function from your environment
+        if (typeof playAudio === "function") {
+          playAudio(audioName);
+        } else {
+          alert(
+            `🔊 Playing audio: "${audioName}"\n(Ensure your playAudio function is connected)`,
+          );
+        }
+      }
+
+      // 3. LOGIC: Check & Diff
+      function checkAnswer() {
+        const userText = document.getElementById("user-input").value.trim();
+        const correctText = exercises[currentIndex].text;
+        const feedbackDiv = document.getElementById("feedback-area");
+
+        feedbackDiv.style.display = "block";
+        feedbackDiv.innerHTML = diffString(correctText, userText);
+
+        // If 100% match (ignoring case/punctuation for simple check)
+        const cleanUser = normalize(userText);
+        const cleanCorrect = normalize(correctText);
+
+        if (cleanUser === cleanCorrect) {
+          document.querySelector(".check-btn").innerText = "Correct! Next →";
+          document.querySelector(".check-btn").onclick = nextExercise;
+          document.querySelector(".check-btn").style.background = "#27ae60";
+        }
+      }
+
+      function nextExercise() {
+        if (currentIndex < exercises.length - 1) {
+          currentIndex++;
+          resetUI();
+        } else {
+          alert("Session Complete!");
+          currentIndex = 0;
+          resetUI();
+        }
+      }
+
+      function resetUI() {
+        document.getElementById("user-input").value = "";
+        document.getElementById("feedback-area").style.display = "none";
+        document.getElementById("progress-text").innerText =
+          `Exercise ${currentIndex + 1} / ${exercises.length}`;
+        document.getElementById("audio-id-display").innerText =
+          exercises[currentIndex].hint;
+
+        const btn = document.querySelector(".check-btn");
+        btn.innerText = "Check Answer";
+        btn.onclick = checkAnswer;
+        btn.style.background = "#27ae60"; // Reset color
+      }
+
+      // Simple Diff Algo for feedback
+      function diffString(correct, user) {
+        const correctWords = correct.split(" ");
+        const userWords = user.split(" ");
+        let html = "";
+
+        // This is a very basic visual comparison.
+        // For production, use a library like diff-match-patch.
+
+        correctWords.forEach((word, i) => {
+          const uWord = userWords[i] || "";
+
+          // Normalize for comparison (remove punctuation)
+          if (normalize(word) === normalize(uWord)) {
+            html += `<span class="diff-correct">${word}</span> `;
+          } else {
+            // If user wrote something else, show it crossed out, then show correct
+            if (uWord) {
+              html += `<span class="diff-missing">${uWord}</span> `;
+            }
+            html += `<span class="diff-added">${word}</span> `;
+          }
+        });
+
+        return html;
+      }
+
+      function normalize(str) {
+        return str.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+      }
+
+      // Init
+      resetUI();
+    </script>
+  </body>
+</html>

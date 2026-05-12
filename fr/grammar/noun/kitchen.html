@@ -1,0 +1,621 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Cuisine - French Learning Hub</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- AOS CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="../../../assets/css/noun.css" />
+    <style>
+      .french-term {
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+      }
+      .french-term:hover {
+        color: #0d6efd;
+      }
+      td[onclick] {
+        cursor: pointer;
+      }
+
+      td[onclick]:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+      .heading {
+        font-weight: bold !important;
+        font-size: 1.2em !important;
+      }
+      .subheading {
+        font-weight: bold;
+        font-size: 1.1em;
+        padding-left: 30px !important;
+        background-color: #e8f4f1 !important;
+        color: #009670 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <button class="hamburger" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="page-title-inline">
+        <h1>
+          La Cuisine
+          <span style="font-weight: 400; font-size: 1.1rem"> /kɥizin/</span>
+        </h1>
+        <p class="mb-0">Kitchen Terms in French</p>
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Sidebar -->
+    <div class="col-md-3">
+      <div id="sidebar-nav"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content container-fluid">
+      <!-- Image Container -->
+      <div class="image-container" data-aos="fade-up" data-aos-delay="100">
+        <img
+          src="/img/kitchen/kitchen.jpg"
+          alt="Kitchen Illustration"
+          style="
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        />
+      </div>
+
+      <!-- Vocabulary Section -->
+      <div class="vocab-section" data-aos="fade-up" data-aos-delay="200">
+        <h2><i class="bi bi-book"></i>Vocabulaire</h2>
+
+        <div class="table-responsive vocab-table">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">French</th>
+                <th scope="col">English</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                data-aos="fade-left"
+                data-aos-delay="150"
+                class="table-success"
+              >
+                <td colspan="2" class="heading">🔌 Appliances</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td colspan="2" class="subheading">🍳 Cooking</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td onclick="playAudio('micro-ondes')">
+                  <div class="french-term">Le micro-ondes</div>
+                  <div class="phonetic">/mikʀoɔ̃d/</div>
+                </td>
+                <td><div class="english-term">Microwave</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="200">
+                <td onclick="playAudio('grille-pain')">
+                  <div class="french-term">Le grille-pain</div>
+                  <div class="phonetic">/ɡʀij.pɛ̃/</div>
+                </td>
+                <td><div class="english-term">Toaster</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="250">
+                <td onclick="playAudio('four_grille-pain')">
+                  <div class="french-term">Le four grille-pain</div>
+                  <div class="phonetic">/fuʀ.ɡʀij.pɛ̃/</div>
+                </td>
+                <td><div class="english-term">Toaster oven</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="300">
+                <td onclick="playAudio('bouilloire')">
+                  <div class="french-term">La bouilloire</div>
+                  <div class="phonetic">/bujwaʀ/</div>
+                </td>
+                <td><div class="english-term">Kettle</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="350">
+                <td onclick="playAudio('cuisinière_à_riz')">
+                  <div class="french-term">La cuisinière à riz</div>
+                  <div class="phonetic">/kɥizinje.a.ʀi/</div>
+                </td>
+                <td><div class="english-term">Rice cooker</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="400">
+                <td onclick="playAudio('four')">
+                  <div class="french-term">Le four</div>
+                  <div class="phonetic">/fuʀ/</div>
+                </td>
+                <td><div class="english-term">Oven</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="450">
+                <td onclick="playAudio('cuisinière')">
+                  <div class="french-term">La cuisinière</div>
+                  <div class="phonetic">/kɥizinje/</div>
+                </td>
+                <td><div class="english-term">Cooktop</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="500">
+                <td onclick="playAudio('hotte_aspirante')">
+                  <div class="french-term">la hotte aspirante</div>
+                  <div class="phonetic">/ɔt.aspiʀɑ̃/</div>
+                </td>
+                <td><div class="english-term">Range hood</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td colspan="2" class="subheading">🔪 Prep</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td onclick="playAudio('robot_ménager')">
+                  <div class="french-term">le robot ménager</div>
+                  <div class="phonetic">/ʀɔbo.menaʒe/</div>
+                </td>
+                <td><div class="english-term">Food processor</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="200">
+                <td onclick="playAudio('fouet')">
+                  <div class="french-term">Le fouet</div>
+                  <div class="phonetic">/fwɛ/</div>
+                </td>
+                <td><div class="english-term">Whisk</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="250">
+                <td onclick="playAudio('mixeur')">
+                  <div class="french-term">Le mixeur</div>
+                  <div class="phonetic">/miksœʀ/</div>
+                </td>
+                <td><div class="english-term">Blender</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td colspan="2" class="subheading">📦 Storage</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td onclick="playAudio('cellier')">
+                  <div class="french-term">Le cellier</div>
+                  <div class="phonetic">/selje/</div>
+                </td>
+                <td><div class="english-term">pantry</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="200">
+                <td onclick="playAudio('lave-vaisselle')">
+                  <div class="french-term">Le lave-vaisselle</div>
+                  <div class="phonetic">/lavvɛsɛl/</div>
+                </td>
+                <td><div class="english-term">Dishwasher</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="250">
+                <td onclick="playAudio('frigo')">
+                  <div class="french-term">Le frigo</div>
+                  <div class="phonetic">/fʀiɡo/</div>
+                </td>
+                <td><div class="english-term">Fridge</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="300">
+                <td onclick="playAudio('congélateur')">
+                  <div class="french-term">Le congélateur</div>
+                  <div class="phonetic">/kɔ̃ʒelatœʀ/</div>
+                </td>
+                <td><div class="english-term">Freezer</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="350">
+                <td onclick="playAudio('îlot_de_cuisine')">
+                  <div class="french-term">l'îlot de cuisine</div>
+                  <div class="phonetic">/ilo.də.kɥizin/</div>
+                </td>
+                <td><div class="english-term">Kitchen island</div></td>
+              </tr>
+              <tr
+                data-aos="fade-left"
+                data-aos-delay="150"
+                class="table-success"
+              >
+                <td colspan="2" class="heading">📐 Layout</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td onclick="playAudio('plan_de_travail')">
+                  <div class="french-term">Le plan de travail</div>
+                  <div class="phonetic">/plɑ̃.də.tʀavaj/</div>
+                </td>
+                <td><div class="english-term">Counter</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="200">
+                <td onclick="playAudio('comptoir_de_la_cuisine')">
+                  <div class="french-term">Le comptoir de la cuisine</div>
+                  <div class="phonetic">/kɔ̃twaʀ.də.la.kɥizin/</div>
+                </td>
+                <td><div class="english-term">Kitchen countertop</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="250">
+                <td onclick="playAudio('table_de_la_salle_à_manger')">
+                  <div class="french-term">La table de la salle à manger</div>
+                  <div class="phonetic">/tabl.də.la.sal.a.mɑ̃ʒe/</div>
+                </td>
+                <td><div class="english-term">Dining table</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="300">
+                <td onclick="playAudio('robinet')">
+                  <div class="french-term">Le robinet</div>
+                  <div class="phonetic">/ʀɔbinɛ/</div>
+                </td>
+                <td><div class="english-term">Faucet</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="350">
+                <td onclick="playAudio('évier')">
+                  <div class="french-term">L'évier</div>
+                  <div class="phonetic">/evje/</div>
+                </td>
+                <td><div class="english-term">Sink</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="400">
+                <td onclick="playAudio('tiroir')">
+                  <div class="french-term">Le tiroir</div>
+                  <div class="phonetic">/tiʀwaʀ/</div>
+                </td>
+                <td><div class="english-term">Drawer</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="450">
+                <td onclick="playAudio('poubelle')">
+                  <div class="french-term">La poubelle</div>
+                  <div class="phonetic">/pubɛl/</div>
+                </td>
+                <td><div class="english-term">Trash</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="500">
+                <td onclick="playAudio('étagère')">
+                  <div class="french-term">L'étagère <sup>f</sup></div>
+                  <div class="phonetic">/etaʒɛʀ/</div>
+                </td>
+                <td><div class="english-term">Shelf</div></td>
+              </tr>
+              <tr
+                data-aos="fade-left"
+                data-aos-delay="150"
+                class="table-success"
+              >
+                <td colspan="2" class="heading">🍽️ Tableware</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td colspan="2" class="subheading">🍴 Utensils</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td onclick="playAudio('fourchette')">
+                  <div class="french-term">La fourchette</div>
+                  <div class="phonetic">/fuʀʃɛt/</div>
+                </td>
+                <td><div class="english-term">Fork</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="200">
+                <td onclick="playAudio('couteau')">
+                  <div class="french-term">Le couteau</div>
+                  <div class="phonetic">/kuto/</div>
+                </td>
+                <td><div class="english-term">Knife</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="250">
+                <td onclick="playAudio('cuillère')">
+                  <div class="french-term">La cuillère</div>
+                  <div class="phonetic">/kɥijεr/</div>
+                </td>
+                <td><div class="english-term">Spoon</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="300">
+                <td onclick="playAudio('baguettes')">
+                  <div class="french-term">Les baguettes</div>
+                  <div class="phonetic">/baɡɛt/</div>
+                </td>
+                <td><div class="english-term">Chopsticks</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="350">
+                <td onclick="playAudio('couverts')">
+                  <div class="french-term">les couverts</div>
+                  <div class="phonetic">/kuvɛʀ/</div>
+                </td>
+                <td><div class="english-term">fork, knife, spoon</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td colspan="2" class="subheading">🍽️ Plates</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td onclick="playAudio('assiette')">
+                  <div class="french-term">L'assiette <sup>f</sup></div>
+                  <div class="phonetic">/asjɛt/</div>
+                </td>
+                <td><div class="english-term">Plate</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="200">
+                <td onclick="playAudio('bol')">
+                  <div class="french-term">Le bol</div>
+                  <div class="phonetic">/bɔl/</div>
+                </td>
+                <td><div class="english-term">Bowl</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td colspan="2" class="subheading">☕ Drinkware</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td onclick="playAudio('tasse_à_café')">
+                  <div class="french-term">La tasse à café</div>
+                  <div class="phonetic">/tɑs.a.kafe/</div>
+                </td>
+                <td><div class="english-term">Coffee cup</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="200">
+                <td onclick="playAudio('mug')">
+                  <div class="french-term">Le mug</div>
+                  <div class="phonetic">/mœɡ/</div>
+                </td>
+                <td><div class="english-term">Mug</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td onclick="playAudio('théière')">
+                  <div class="french-term">La théière</div>
+                  <div class="phonetic">/tejɛʀ/</div>
+                </td>
+                <td><div class="english-term">Teapot</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="200">
+                <td onclick="playAudio('verre')">
+                  <div class="french-term">Le verre</div>
+                  <div class="phonetic">/vɛʀ/</div>
+                </td>
+                <td><div class="english-term">Glass</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="250">
+                <td onclick="playAudio('verre_à_pied')">
+                  <div class="french-term">Le verre à pied</div>
+                  <div class="phonetic">/vɛʀ.a.pje/</div>
+                </td>
+                <td><div class="english-term">Stemmed glass</div></td>
+              </tr>
+              <tr
+                data-aos="fade-left"
+                data-aos-delay="150"
+                class="table-success"
+              >
+                <td colspan="2" class="heading">💡 Electrical</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="150">
+                <td onclick="playAudio('ampoule')">
+                  <div class="french-term">l'ampoule</div>
+                  <div class="phonetic">/ɑ̃pul/</div>
+                </td>
+                <td><div class="english-term">light bulb</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="200">
+                <td onclick="playAudio('interrupteur')">
+                  <div class="french-term">l'interrupteur</div>
+                  <div class="phonetic">/ɛ̃teʀyptœʀ/</div>
+                </td>
+                <td><div class="english-term">switch</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="250">
+                <td onclick="playAudio('fiche')">
+                  <div class="french-term">la fiche</div>
+                  <div class="phonetic">/fiʃ/</div>
+                </td>
+                <td><div class="english-term">plug</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="300">
+                <td onclick="playAudio('prise')">
+                  <div class="french-term">la prise</div>
+                  <div class="phonetic">/pʀiz/</div>
+                </td>
+                <td><div class="english-term">socket / outlet</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="350">
+                <td onclick="playAudio('câble')">
+                  <div class="french-term">le câble</div>
+                  <div class="phonetic">/kɑbl/</div>
+                </td>
+                <td><div class="english-term">cable</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="400">
+                <td onclick="playAudio('multiprise')">
+                  <div class="french-term">la multiprise</div>
+                  <div class="phonetic">/myltipriz/</div>
+                </td>
+                <td><div class="english-term">power strip</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="450">
+                <td onclick="playAudio('disjoncteur')">
+                  <div class="french-term">le disjoncteur</div>
+                  <div class="phonetic">/disʒɔ̃ktœʀ/</div>
+                </td>
+                <td><div class="english-term">circuit breaker</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="450">
+                <td colspan="2">
+                  <div
+                    class="english-term"
+                    style="background-color: yellow; color: red; font-size: 1em"
+                    ;
+                  >
+                    <i
+                      >Allume. (Turn on the light) / Éteins. (turn off the
+                      light)</i
+                    >
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grammar Note -->
+      <div class="grammar-note" data-aos="fade-up" data-aos-delay="750">
+        <h4><i class="bi bi-lightbulb"></i> Note de grammaire</h4>
+        <p>
+          <strong>Remember:</strong> Use "le" for masculine nouns and "la" for
+          feminine nouns.
+        </p>
+        <p>
+          Use "l'" before nouns starting with a vowel or silent 'h' (e.g.,
+          l'océan, l'île).
+        </p>
+        <p>The (m) and (f) subscripts indicate masculine and feminine nouns.</p>
+      </div>
+
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="me-kitchen.html" target="_blank"
+            ><li>Mind Map - Kitchen</li></a
+          >
+          <li>
+            <details>
+              <summary style="cursor: pointer">Utensils</summary>
+              <ul>
+                <li>
+                  <a href="utensils/anki_noun.html" target="_blank"
+                    >Anki-Noun</a
+                  >
+                </li>
+                <li>
+                  <a href="utensils/anki_verb.html" target="_blank"
+                    >Anki-Verb</a
+                  >
+                </li>
+                <li>
+                  <a href="utensils/hotspot.html" target="_blank">Hotspots</a>
+                </li>
+                <li>
+                  <a href="utensils/fork.html" target="_blank"
+                    >Collocation Web</a
+                  >
+                </li>
+                <li><a href="utensils/read.html" target="_blank">Read</a></li>
+                <li>
+                  <a href="utensils/listen.html" target="_blank"
+                    >Listening Lab</a
+                  >
+                </li>
+                <li>
+                  <a href="utensils/listen-master.html" target="_blank"
+                    >Listening Master</a
+                  >
+                </li>
+                <li>
+                  <a href="utensils/rolePlay1.html" target="_blank"
+                    >Role Play</a
+                  >
+                </li>
+                <li>
+                  <a href="utensils/venn.html" target="_blank">Venn Diagram</a>
+                </li>
+                <li>
+                  <a href="utensils/cloze.html" target="_blank">Cloze Test</a>
+                </li>
+                <li>
+                  <a href="utensils/reorder.html" target="_blank"
+                    >Reorder Sentences</a
+                  >
+                </li>
+                <li>
+                  <a href="utensils/translation.html" target="_blank"
+                    >Translation</a
+                  >
+                </li>
+                <li>
+                  <a href="utensils/create.html" target="_blank">Create</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary style="cursor: pointer">Cooking</summary>
+              <ul>
+                <li>
+                  <a href="cooking/collo-cooktop.html" target="_blank"
+                    >Collocation Web</a
+                  >
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+      function playAudio(word) {
+        const audio = new Audio(`/media/lessons/noun/kitchen/${word}.mp3`);
+
+        audio.play().catch((error) => {
+          console.error("Error playing audio:", error);
+        });
+      }
+
+      // Optional: Add cursor pointer style to clickable cells
+      document.querySelectorAll("td[onclick]").forEach((td) => {
+        td.style.cursor = "pointer";
+      });
+    </script>
+
+    <script
+      type="module"
+      src="../../../assets/js/nav-noun.js?v=260113"
+    ></script>
+    <script type="module" src="../../../assets/js/noun.js"></script>
+  </body>
+</html>

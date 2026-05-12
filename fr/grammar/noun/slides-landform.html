@@ -1,0 +1,430 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Reliefs</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../../assets/css/slides.css" />
+    <style>
+      /* Page-specific override so slides size to their natural height */
+      #main-viewer-container {
+        min-height: unset;
+        display: flex;
+        justify-content: center;
+      }
+
+      #main-viewer-container .overlay-container,
+      #main-viewer-container .split-container {
+        max-width: 700px;
+        min-height: auto;
+      }
+
+      #main-viewer-container .viewer-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container py-4">
+      <div class="row mb-3">
+        <div class="col-12">
+          <h1 class="main-header">Les Reliefs</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-9 col-lg-10 mb-4 order-2 order-md-1">
+          <div id="main-viewer-container"></div>
+        </div>
+
+        <div class="col-12 col-md-3 col-lg-2 order-1 order-md-2 mb-3 mb-md-0">
+          <ul class="thumbnail-list">
+            <li
+              class="thumbnail-item active"
+              data-id="1"
+              onclick="loadSlide(1)"
+            >
+              <span class="thumb-number">1</span>
+              <img
+                src="/img/landform/deck/slide1.jpg"
+                alt="Thumbnail 1"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="2" onclick="loadSlide(2)">
+              <span class="thumb-number">2</span>
+              <img
+                src="/img/landform/deck/slide2.jpg"
+                alt="Thumbnail 2"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="3" onclick="loadSlide(3)">
+              <span class="thumb-number">3</span>
+              <img
+                src="/img/landform/deck/slide3.jpg"
+                alt="Thumbnail 3"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="4" onclick="loadSlide(4)">
+              <span class="thumb-number">4</span>
+              <img
+                src="/img/landform/deck/slide4.jpg"
+                alt="Thumbnail 4"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="5" onclick="loadSlide(5)">
+              <span class="thumb-number">5</span>
+              <img
+                src="/img/landform/deck/slide5.jpg"
+                alt="Thumbnail 5"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="6" onclick="loadSlide(6)">
+              <span class="thumb-number">6</span>
+              <img
+                src="/img/landform/deck/slide6.jpg"
+                alt="Thumbnail 6"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="7" onclick="loadSlide(7)">
+              <span class="thumb-number">7</span>
+              <img
+                src="/img/landform/deck/slide7.jpg"
+                alt="Thumbnail 7"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="8" onclick="loadSlide(8)">
+              <span class="thumb-number">8</span>
+              <img
+                src="/img/landform/deck/slide8.jpg"
+                alt="Thumbnail 8"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="9" onclick="loadSlide(9)">
+              <span class="thumb-number">9</span>
+              <img
+                src="/img/landform/deck/slide9.jpg"
+                alt="Thumbnail 9"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="10" onclick="loadSlide(10)">
+              <span class="thumb-number">10</span>
+              <img
+                src="/img/landform/deck/slide10.jpg"
+                alt="Thumbnail 10"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="11" onclick="loadSlide(11)">
+              <span class="thumb-number">11</span>
+              <img
+                src="/img/landform/deck/slide11.jpg"
+                alt="Thumbnail 11"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="12" onclick="loadSlide(12)">
+              <span class="thumb-number">12</span>
+              <img
+                src="/img/landform/deck/slide12.jpg"
+                alt="Thumbnail 12"
+                class="thumb-img"
+              />
+            </li>
+            <li class="thumbnail-item" data-id="13" onclick="loadSlide(13)">
+              <span class="thumb-number">13</span>
+              <img
+                src="/img/landform/deck/slide13.jpg"
+                alt="Thumbnail 13"
+                class="thumb-img"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      // --- 1. Data Configuration ---
+      // This array holds the content for each slide.
+      // IMPORTANT: Replace the 'image' paths with your actual large image paths.
+      const slidesData = [
+        {
+          id: 1,
+          type: "overlay", // Text written on top of the image
+          image: "slide1.jpg",
+          title: "",
+          text: "",
+        },
+        {
+          id: 2,
+          type: "overlay", // Image on left, text on right
+          image: "slide2.jpg",
+          title: "",
+          bgColor: "", // CSS class for the background color
+        },
+        {
+          id: 3,
+          type: "overlay", // The screenshot thumbnail 3 looks like just an image, let's use overlay without text just in case
+          image: "slide3.jpg",
+          title: "",
+          text: "",
+          textPosition: "",
+        },
+        {
+          id: 4,
+          type: "overlay", // Text on left, image on right (like screenshot slide 4)
+          image: "slide4.jpg",
+          title: "",
+          text: "",
+          bgColor: "",
+        },
+        {
+          id: 5,
+          type: "overlay", // Slide 5 looks like a standard image view
+          image: "slide5.jpg",
+          title: "",
+          text: "",
+          textPosition: "",
+        },
+        {
+          id: 6,
+          type: "overlay",
+          image: "slide6.jpg",
+          title: "",
+          text: "",
+          textPosition: "",
+        },
+        {
+          id: 7,
+          type: "overlay",
+          image: "slide7.jpg",
+          title: "",
+          text: "",
+          textPosition: "",
+        },
+        {
+          id: 8,
+          type: "overlay",
+          image: "slide8.jpg",
+          title: "",
+          text: "",
+          textPosition: "",
+        },
+        {
+          id: 9,
+          type: "overlay", // Image on left, text on right
+          image: "slide9.jpg",
+          title: "",
+          bgColor: "", // CSS class for the background color
+        },
+        {
+          id: 10,
+          type: "overlay", // Image on left, text on right
+          image: "slide10.jpg",
+          title: "",
+          textPosition: "",
+        },
+        {
+          id: 11,
+          type: "overlay", // Image on left, text on right
+          image: "slide11.jpg",
+          title: "",
+          text: "",
+          textPosition: "",
+        },
+        {
+          id: 12,
+          type: "overlay", // Image on left, text on right
+          image: "slide12.jpg",
+          title: "",
+          text: "",
+          textPosition: "",
+        },
+        {
+          id: 13,
+          type: "overlay", // Image on left, text on right
+          image: "slide13.jpg",
+          title: "",
+          text: "",
+          textPosition: "",
+        },
+        {
+          id: 14,
+          type: "overlay",
+          image: "slide14.jpg",
+          title: "",
+          text: "",
+          textPosition: "",
+          customClass: "",
+        },
+      ];
+
+      // --- 2. Function to Generate HTML based on type ---
+      function generateSlideHTML(slide) {
+        let htmlContent = "";
+
+        // We add 'data-aos' attributes to the elements we want to animate
+        // when they are injected into the DOM.
+
+        if (slide.type === "overlay") {
+          if (slide.textPosition === "below") {
+            htmlContent = `
+                    <div data-aos="fade-in">
+                        <div class="overlay-container">
+                            <img src="/img/landform/deck/${slide.image}" alt="${slide.title}" class="viewer-image">
+                        </div>
+                        ${
+                          slide.title || slide.text
+                            ? `
+                        <div class="slide-caption" data-aos="fade-up" data-aos-delay="150">
+                            ${slide.title ? `<div class="h4 mb-2">${slide.title}</div>` : ""}
+                            ${slide.text ? `<div>${slide.text}</div>` : ""}
+                        </div>
+                        `
+                            : ""
+                        }
+                    </div>
+                `;
+          } else {
+            htmlContent = `
+                    <div class="overlay-container" data-aos="fade-in">
+                        <img src="/img/landform/deck/${slide.image}" alt="${slide.title}" class="viewer-image">
+                        ${
+                          slide.title || slide.text
+                            ? `
+                        <div class="overlay-text ${slide.textPosition === "bottom" ? "bottom" : ""}" data-aos="zoom-in" data-aos-delay="200">
+                            ${slide.title ? `<h2 class="${slide.customClass || ""}">${slide.title}</h2>` : ""}
+                            ${slide.text ? `<p class="lead mb-0">${slide.text}</p>` : ""}
+                        </div>
+                        `
+                            : ""
+                        }
+                    </div>
+                `;
+          }
+        } else if (slide.type === "split-right-text") {
+          // Template for Slide 2 style (Image Left, Text Right)
+          htmlContent = `
+                <div class="split-container ${slide.bgColor}">
+                    <div class="split-image-box" data-aos="fade-right">
+                        <img src="/img/landform/deck/${slide.image}" alt="slide image" class="viewer-image">
+                    </div>
+                    <div class="split-text-box" data-aos="fade-left" data-aos-delay="200">
+                        <h2>${slide.title}</h2>
+                        <p class="lead">${slide.text}</p>
+                    </div>
+                </div>
+            `;
+        } else if (slide.type === "split-left-text") {
+          // Template for Slide 4 style (Text Left, Image Right)
+          htmlContent = `
+                 <div class="split-container ${slide.bgColor}">
+                    <div class="split-text-box" data-aos="fade-right">
+                        <h2>${slide.title}</h2>
+                        <p class="lead">${slide.text}</p>
+                    </div>
+                    <div class="split-image-box" data-aos="fade-left" data-aos-delay="200">
+                        <img src="/img/landform/deck/${slide.image}" alt="slide image" class="viewer-image">
+                    </div>
+                </div>
+            `;
+        }
+
+        return htmlContent;
+      }
+
+      // --- 3. Main Loading Function ---
+      function loadSlide(id) {
+        const viewerContainer = document.getElementById(
+          "main-viewer-container"
+        );
+        const slideData = slidesData.find((slide) => slide.id === id);
+
+        if (!slideData) return;
+
+        // 1. Update Active Thumbnail Styling
+        document.querySelectorAll(".thumbnail-item").forEach((item) => {
+          item.classList.remove("active");
+          if (parseInt(item.getAttribute("data-id")) === id) {
+            item.classList.add("active");
+          }
+        });
+
+        // 2. Generate new HTML
+        const newContent = generateSlideHTML(slideData);
+
+        // 3. Inject HTML and Refresh AOS
+        // We briefly hide the container to ensure the new AOS elements trigger smoothly
+        viewerContainer.style.opacity = 0;
+
+        setTimeout(() => {
+          viewerContainer.innerHTML = newContent;
+          // Restore opacity
+          viewerContainer.style.opacity = 1;
+          // Tell AOS to re-scan the DOM for newly added animated elements
+          AOS.refreshHard();
+        }, 150); // Short delay for smooth transition
+      }
+
+      // --- 4. Initialization ---
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize AOS animation library
+        AOS.init({
+          duration: 800, // Animation duration in ms
+          once: true, // Whether animation should happen only once
+        });
+
+        // Load the first slide by default on page load
+        loadSlide(1);
+      });
+    </script>
+  </body>
+</html>

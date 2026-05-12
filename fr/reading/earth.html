@@ -1,0 +1,870 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 600px !important;
+        height: auto;
+      }
+      .french-text .crust-image {
+        float: right;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 0 1rem 1.5rem;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/beaver.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Les animaux</h1>
+      </div>
+      <h5>🦫 Les castors : bâtisseurs de barrages</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img
+            class="french-text-img"
+            src="/img/earth.jpg"
+            alt=""
+          />
+          <img
+            class="crust-image"
+            src="/img/crust.jpg"
+            alt="Earth crust illustration"
+          />
+          Les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kastɔʀ/"
+            data-meaning="beavers"
+            >castors</span
+          >
+          , franchement, ce sont de véritables petits
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʒeni/"
+            data-meaning="geniuses"
+            >génies</span
+          >
+          de la nature. De vrais
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bɔsœʀ/"
+            data-meaning="hard workers"
+            >bosseurs</span
+          >, adorables et
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/devwe/"
+            data-meaning="devoted"
+            >dévoués</span
+          >
+          . Avec leurs dents
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/syʀpɥisɑ̃t/"
+            data-meaning="super powerful"
+            >surpuissantes</span
+          >
+          , ils
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kup/"
+            data-meaning="to cut"
+            data-origin="couper /kupe/"
+            >coupent</span
+          >
+          des arbres comme si ce n’était rien du tout et
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔ̃stʀɥiz/"
+            data-meaning="to build"
+            data-origin="construire /kɔ̃stʀɥiʀ/"
+            >construisent</span
+          >
+          des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/baʀaʒ/"
+            data-meaning="dams"
+            >barrages</span
+          >
+          tellement
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛ̃ʒenjø/"
+            data-meaning="ingenious"
+            >ingénieux</span
+          >
+          qu’on dirait des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/aʀʃitɛkt/"
+            data-meaning="architects"
+            >architectes</span
+          >
+          en
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/misjɔ̃/"
+            data-meaning="mission"
+            >mission</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/səkʀɛt/"
+            data-meaning="secret"
+            >secrète</span
+          >
+          .
+        </p>
+        <p>
+          Le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀezylta/"
+            data-meaning="result"
+            >résultat</span
+          >
+          ? Des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/etɑ̃/"
+            data-meaning="ponds"
+            >étangs</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pezibl/"
+            data-meaning="peaceful"
+            >paisibles</span
+          >
+          , tout
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/du/"
+            data-meaning="soft/gentle"
+            >doux</span
+          >
+          , qui
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dəvjɛn/"
+            data-meaning="to become"
+            data-origin="devenir /dəv(ə)niʀ/"
+            >deviennent</span
+          >
+          de véritables
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀəfyʒ/"
+            data-meaning="refuges"
+            >refuges</span
+          >
+          pour tout le monde :
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pwasɔ̃/"
+            data-meaning="fish"
+            >poissons</span
+          >
+          ,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/gʀənuj/"
+            data-meaning="frogs"
+            >grenouilles</span
+          >
+          ,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/wazo/"
+            data-meaning="birds"
+            >oiseaux</span
+          >,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛ̃sɛkt/"
+            data-meaning="insects"
+            >insectes</span
+          >
+          … un petit
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/paʀadi/"
+            data-meaning="paradise"
+            >paradis</span
+          >
+          pour la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bjodivɛʀsite/"
+            data-meaning="biodiversity"
+            >biodiversité</span
+          >
+          .
+        </p>
+        <p>
+          Et ce qui est magique, c’est que pendant qu’ils
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bɔs/"
+            data-meaning="work"
+            data-origin="bosser /bɔse/"
+            >bossent</span
+          >
+          , ces
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀɔdiʒ/"
+            data-meaning="prodigies"
+            >prodiges</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pwaly/"
+            data-meaning="hairy/furry"
+            >poilus
+          </span>
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pyʀifi/"
+            data-meaning="to purify"
+            data-origin="purifier /pyʀifje/"
+            >purifient
+          </span>
+          l’eau,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀedɥiz/"
+            data-meaning="to reduce"
+            data-origin="réduire /ʀedɥiʀ/"
+            >réduisent</span
+          >
+          les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀisk/"
+            data-meaning="risks"
+            >risques</span
+          >
+          d’<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/inɔ̃dasjɔ̃/"
+            data-meaning="flooding"
+            >inondation</span
+          >
+          et
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛd/"
+            data-meaning="to help"
+            data-origin="aider /ede/"
+            >aident</span
+          >
+          la nature à mieux
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀɛspiʀe/"
+            data-meaning="to breathe"
+            >respirer</span
+          >. Ils
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fɔ̃/"
+            data-meaning="to make/do"
+            data-origin="faire /fɛʀ/"
+            >font</span
+          >
+          tout ça avec une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pasjɑ̃s/"
+            data-meaning="patience"
+            >patience</span
+          >
+          et une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tɑ̃dʀɛs/"
+            data-meaning="tenderness"
+            >tendresse</span
+          >
+          qui
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dɔn/"
+            data-meaning="to give"
+            data-origin="donner /dɔne/"
+            >donnent</span
+          >
+          envie de les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/aplodiʀ/"
+            data-meaning="to applaud"
+            >applaudir</span
+          >
+          .
+        </p>
+        <p>
+          Et le plus beau ? Même quand le castor s’en va, son
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/œvʀ/"
+            data-meaning="work/masterpiece"
+            >œuvre</span
+          >
+          continue d’aider la vie
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/otuʀ/"
+            data-meaning="around"
+            >autour</span
+          >
+          de lui. Comme un cadeau laissé
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dɛʀjɛʀ/"
+            data-meaning="behind"
+            >derrière</span
+          >
+          ,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/silɑ̃sjø/"
+            data-meaning="silent"
+            >silencieux</span
+          >
+          mais
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀesjø/"
+            data-meaning="precious"
+            >précieux</span
+          >
+          .
+        </p>
+        <p>
+          Les castors nous
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀapɛl/"
+            data-meaning="to remind"
+            data-origin="rappeler /ʀap(ə)le/"
+            >rappellent</span
+          >
+          que travailler avec la nature, ce n’est pas une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔʀve/"
+            data-meaning="chore"
+            >corvée</span
+          >
+          : c’est une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lɔ̃g/"
+            data-meaning="long"
+            >longue</span
+          >
+          histoire d’amour entre toutes les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fɔʀm/"
+            data-meaning="forms"
+            >formes</span
+          >
+          de vie. 💛
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Beavers, honestly, are true little geniuses of nature. Hard-working,
+          adorable, and full of devotion. With their super-powered teeth, they
+          chop down trees like it’s nothing and build dams so clever you’d think
+          they were secret-agent architects on a mission.
+        </p>
+        <p>
+          And the result? Peaceful, gentle ponds that turn into safe havens for
+          everyone — fish, frogs, birds, insects… a little paradise bursting
+          with life.
+        </p>
+        <p>
+          And here’s the magical part: while they’re working away, these furry
+          marvels purify water, reduce flood risks, and help nature breathe
+          easier. And they do it all with such patience and tenderness, you just
+          want to give them a round of applause.
+        </p>
+        <p>
+          And the best part? Even after the beaver moves on, its work keeps
+          helping life all around it. Like a gift it quietly leaves behind —
+          silent, but precious.
+        </p>
+        <p>
+          Beavers remind us that working with nature isn’t a chore — it’s a
+          long, beautiful love story between all living things.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">castor</td>
+              <td style="width: 40px"></td>
+              <td>beaver</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">génie</td>
+              <td style="width: 40px"></td>
+              <td>genius</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">bosseur</td>
+              <td style="width: 40px"></td>
+              <td>hard worker</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">dévoué</td>
+              <td style="width: 40px"></td>
+              <td>devoted</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">surpuissant</td>
+              <td style="width: 40px"></td>
+              <td>super powerful</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">couper</td>
+              <td style="width: 40px"></td>
+              <td>to cut</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">construire</td>
+              <td style="width: 40px"></td>
+              <td>to build</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">barrage</td>
+              <td style="width: 40px"></td>
+              <td>dam</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">ingénieux</td>
+              <td style="width: 40px"></td>
+              <td>ingenious</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">architecte</td>
+              <td style="width: 40px"></td>
+              <td>architect</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">mission</td>
+              <td style="width: 40px"></td>
+              <td>mission</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">secret</td>
+              <td style="width: 40px"></td>
+              <td>secret</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">résultat</td>
+              <td style="width: 40px"></td>
+              <td>result</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">étang</td>
+              <td style="width: 40px"></td>
+              <td>pond</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">paisible</td>
+              <td style="width: 40px"></td>
+              <td>peaceful</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">doux</td>
+              <td style="width: 40px"></td>
+              <td>soft / gentle</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">devenir</td>
+              <td style="width: 40px"></td>
+              <td>to become</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">refuge</td>
+              <td style="width: 40px"></td>
+              <td>refuge</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">poisson</td>
+              <td style="width: 40px"></td>
+              <td>fish</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">grenouille</td>
+              <td style="width: 40px"></td>
+              <td>frog</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">oiseau</td>
+              <td style="width: 40px"></td>
+              <td>bird</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">insecte</td>
+              <td style="width: 40px"></td>
+              <td>insect</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">paradis</td>
+              <td style="width: 40px"></td>
+              <td>paradise</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">biodiversité</td>
+              <td style="width: 40px"></td>
+              <td>biodiversity</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">bosser</td>
+              <td style="width: 40px"></td>
+              <td>to work</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">prodige</td>
+              <td style="width: 40px"></td>
+              <td>prodigy</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">poilu</td>
+              <td style="width: 40px"></td>
+              <td>hairy</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">réduire</td>
+              <td style="width: 40px"></td>
+              <td>to reduce</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">risque</td>
+              <td style="width: 40px"></td>
+              <td>risk</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">inondation</td>
+              <td style="width: 40px"></td>
+              <td>flooding</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">aider</td>
+              <td style="width: 40px"></td>
+              <td>to help</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">respirer</td>
+              <td style="width: 40px"></td>
+              <td>to breathe</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">faire</td>
+              <td style="width: 40px"></td>
+              <td>to make / to do</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">patience</td>
+              <td style="width: 40px"></td>
+              <td>patience</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">tendresse</td>
+              <td style="width: 40px"></td>
+              <td>tenderness</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">donner</td>
+              <td style="width: 40px"></td>
+              <td>to give</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">applaudir</td>
+              <td style="width: 40px"></td>
+              <td>to applaud</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">œuvre</td>
+              <td style="width: 40px"></td>
+              <td>work / masterpiece</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">autour</td>
+              <td style="width: 40px"></td>
+              <td>around</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">derrière</td>
+              <td style="width: 40px"></td>
+              <td>behind</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">silencieux</td>
+              <td style="width: 40px"></td>
+              <td>silent</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">précieux</td>
+              <td style="width: 40px"></td>
+              <td>precious</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">rappeler</td>
+              <td style="width: 40px"></td>
+              <td>to remind</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">corvée</td>
+              <td style="width: 40px"></td>
+              <td>chore</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">long</td>
+              <td style="width: 40px"></td>
+              <td>long</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">forme</td>
+              <td style="width: 40px"></td>
+              <td>form</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!--     <div class="bottom-nav">
+      <a class="btn btn-outline-primary" href="index.html">Page One</a>
+      <a class="btn btn-primary" href="dimanche.html">Page Two</a>
+    </div>
+    <p></p>
+    <p></p> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(243, 244, 246);
+}
+.node {
+  cursor: pointer;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: rgb(55, 68, 105);
+  stroke-width: 1px;
+}

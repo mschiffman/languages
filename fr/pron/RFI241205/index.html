@@ -1,0 +1,557 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - December 5, 2024</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')"
+              >Il est à la recherche</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              de la perle rare.</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              Emmanuel Macron s'exprime maintenant</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              dans trois heures.</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              Le président français a consulté,</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              dans la journée,</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              le président du Sénat</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              et la présidente</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              de l'Assemblée nationale.</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              Le président doit maintenant</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              trouver un nouveau ou une nouvelle</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              chef du gouvernement,</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              après que Michel Barnier</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              et son gouvernement [ont] été renversés, hier soir.</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              Une chose est sûre pour l'heure :</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              le Premier ministre a remis, cet après-midi,</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              sa démission au président de la République.</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              Le président en a pris acte,</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              indique l'Élysée.</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              Michel Barnier assure</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              qu'avec les membres du gouvernement,</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              le traitement des affaires courantes</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              jusqu'à la nomination</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              d'un nouveau gouvernement serait assuré.</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              Un épisode de la vie politique</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              de la Cinquième République</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              dont se serait bien passé Emmanuel Macron.</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              C'est l'analyse de Frédéric Micheau,</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              enseignant à Sciences Po.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              He is looking for the rare pearl. Emmanuel Macron is now speaking
+              in three hours. The French president consulted, during the day,
+              the president of the Senate and the president of the National
+              Assembly. The president must now find a new head of government,
+              after Michel Barnier and his government [were] overthrown last
+              night. One thing is certain for now: the Prime Minister submitted
+              his resignation to the President of the Republic this afternoon.
+              The president took note of this, indicates the Élysée. Michel
+              Barnier assures that with the members of the government, the
+              handling of current affairs until the appointment of a new
+              government would be ensured. An episode in the political life of
+              the Fifth Republic that Emmanuel Macron would have done without.
+              This is the analysis of Frédéric Micheau, teacher at Sciences Po.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio30')">
+                  recherche /ʀ(ə)ʃɛʀʃ/
+                </td>
+                <td>search</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio31')">
+                  perle /pɛʀl/
+                </td>
+                <td>pearl</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio32')">rare /ʀɑʀ/</td>
+                <td>rare</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio33')">
+                  exprimer /ɛkspʀime/
+                </td>
+                <td>to express</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio34')">
+                  président /pʀezidɑ̃/
+                </td>
+                <td>president</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio35')">
+                  consulter /kɔ̃sylte/
+                </td>
+                <td>to consult</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio36')">
+                  journée /ʒuʀne/
+                </td>
+                <td>day</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio37')">
+                  sénat /sena/
+                </td>
+                <td>senate</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio38')">
+                  assemblée /asɑ̃ble/
+                </td>
+                <td>assembly</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  nationale /nasjɔnal/
+                </td>
+                <td>national</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">
+                  gouvernement /ɡuvɛʀnəmɑ̃/
+                </td>
+                <td>government</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  renversé /ʀɑ̃vɛʀse/
+                </td>
+                <td>overthrown / staggered</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  le premier ministre /pʀəmje ministʀ/
+                </td>
+                <td>the prime minister</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  remis /ʀ(ə)mi/
+                </td>
+                <td>submitted</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  remettre sa démission /ʀ(ə)mɛtʀ/ /demisjɔ̃/
+                </td>
+                <td>submitted his resignation</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  république /ʀepyblik/
+                </td>
+                <td>Republic</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">acte /akt/</td>
+                <td>act</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  prendre acte
+                </td>
+                <td>take note</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  indiquer /ɛ̃dike/
+                </td>
+                <td>to indicate</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  assurer /asyʀe/
+                </td>
+                <td>to assure</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  traitement /tʀɛtmɑ̃/
+                </td>
+                <td>treatment</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  affaires /afɛʀ/
+                </td>
+                <td>things / business</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  courant /kuʀɑ̃/
+                </td>
+                <td>current / common</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  jusqu'à /ʒyska/
+                </td>
+                <td>until / as far as</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  nomination /nɔminasjɔ̃/
+                </td>
+                <td>nomination / appointment</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  épisode /epizɔd/
+                </td>
+                <td>episode</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  politique /pɔlitik/
+                </td>
+                <td>politic</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  analyse /analiz/
+                </td>
+                <td>analysis</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  enseignant /ɑ̃sɛɲɑ̃/
+                </td>
+                <td>teacher</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  science /sjɑ̃s/
+                </td>
+                <td>science</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/01-Il est à la recherche.m4a"
+    ></audio>
+    <audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/02-de la perle rare.m4a"></audio>
+    <audio
+      id="audio3"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/03-Emmanuel Macron s'exprime maintenant.m4a"
+    ></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/04-dans trois heures.m4a"></audio>
+    <audio
+      id="audio5"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/05-Le président français a consulté.m4a"
+    ></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/06-dans la journée.m4a"></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/07-le président du Sénat.m4a"
+    ></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/08-et la présidente.m4a"></audio>
+    <audio
+      id="audio9"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/09-de l'Assemblée nationale.m4a"
+    ></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/10-Le président doit maintenant.m4a"
+    ></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/11-trouver un nouveau ou une nouvelle.m4a"
+    ></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/12-chef du gouvernement.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/13-après que Michel Barnier.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/14-et son gouvernement été renversés.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/15-Une chose est sûre pour l'heure.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/16-le Premier ministre a remis, cet après-midi.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/17-sa démission au président de la République.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/18-Le président en a pris acte.m4a"
+    ></audio>
+    <audio id="audio19" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/19-indique l'Élysée.m4a"></audio>
+    <audio
+      id="audio20"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/20-Michel Barnier assure.m4a"
+    ></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/21-qu'avec les membres du gouvernement.m4a"
+    ></audio>
+    <audio
+      id="audio22"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/22-le traitement des affaires courantes.m4a"
+    ></audio>
+    <audio
+      id="audio23"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/23-jusqu'à la nomination.m4a"
+    ></audio>
+    <audio
+      id="audio24"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/24-d'un nouveau gouvernement serait assuré.m4a"
+    ></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/25-Un épisode de la vie politique.m4a"
+    ></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/26-de la Cinquième République.m4a"
+    ></audio>
+    <audio
+      id="audio27"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/27-dont se serait bien passé Emmanuel Macron.m4a"
+    ></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/28-C'est l'analyse de Frédéric Micheau.m4a"
+    ></audio>
+    <audio
+      id="audio29"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/29-enseignant à Sciences Po.m4a"
+    ></audio>
+    <audio id="audio30" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/30-recherche.m4a"></audio>
+    <audio id="audio31" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/31-perle.m4a"></audio>
+    <audio id="audio32" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/32-rare.m4a"></audio>
+    <audio id="audio33" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/33-exprimer.m4a"></audio>
+    <audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/34-président.m4a"></audio>
+    <audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/35-consulter.m4a"></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/36-journée.m4a"></audio>
+    <audio id="audio37" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/37-sénat.m4a"></audio>
+    <audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/38-assemblée.m4a"></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/39-nationale.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/40-gouvernement.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/41-renversé.m4a"></audio>
+    <audio
+      id="audio42"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/42-le premier ministre.m4a"
+    ></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/43-remis.m4a"></audio>
+    <audio
+      id="audio44"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/44-remettre sa démission.m4a"
+    ></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/45-république.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/46-acte.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/47-prendre acte.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/48-indiquer.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/49-assurer.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/50-traitement.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/51-affaires.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/52-courant.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/53-jusqu'à.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/54-nomination.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/55-épisode.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/56-politique.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/57-analyse.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/58-enseignant.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/59-science.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241205/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/beluga.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Les animaux</h1>
+      </div>
+      <h5>Le béluga : des bulles pour exprimer ses sentiments</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <a
+            href="https://photo.caminteresse.fr/amitie-injustice-empathie-les-animaux-ressentent-aussi-des-emotions-64357#le-loup-des-expressions-d-affection-8svvm"
+            target="_blank"
+          >
+            <img class="french-text-img" src="/img/beluga.svg" alt=""
+          /></a>
+          Le <span data-bs-toggle="tooltip" title="/beluga/">béluga</span>,
+          <span data-bs-toggle="tooltip" title="/syʀnɔme/">surnommé</span>
+          le
+          <span data-bs-toggle="tooltip" title="/kanaʀi/">"canari</span>
+          des mers", a une
+          <span data-bs-toggle="tooltip" title="/abityd/">habitude</span>
+          <span data-bs-toggle="tooltip" title="/fasinɑ̃/">fascinante</span> : il
+          <span data-bs-toggle="tooltip" title="/sufl/">souffle</span>
+          des bulles sous l’eau pour exprimer ses sentiments. Selon des
+          <span data-bs-toggle="tooltip" title="/ʃɛʀʃœʀ/">chercheurs,</span>
+          ces bulles seraient une
+          <span data-bs-toggle="tooltip" title="/fɔʀm/">forme</span>
+          de
+          <span data-bs-toggle="tooltip" title="/ʒø/">jeu</span>
+          et d'<span data-bs-toggle="tooltip" title="/ɛ̃tɛʀaksjɔ̃/"
+            >interaction</span
+          >
+          <span data-bs-toggle="tooltip" title="/sɔsjal/">sociale.</span>
+          <span data-bs-toggle="tooltip" title="/ɔpsɛʀve/">Observé</span>
+          en
+          <span data-bs-toggle="tooltip" title="/kaptivite/">captivité,</span>
+          le béluga utilise ces bulles pour
+          <span data-bs-toggle="tooltip" title="/kɔmynike/">communiquer,</span>
+          exprimer sa
+          <span data-bs-toggle="tooltip" title="/kyʀjozite/">curiosité</span>
+          ou sa
+          <span data-bs-toggle="tooltip" title="/ʒwa/">joie,</span>
+          et parfois même pour
+          <span data-bs-toggle="tooltip" title="/atiʀe/">attirer</span>
+          l'<span data-bs-toggle="tooltip" title="/atɑ̃sjɔ̃/">attention</span>
+          d'un
+          <span data-bs-toggle="tooltip" title="/kɔ̃ʒenɛʀ/">congénère.</span>
+          Les chercheurs ont
+          <span data-bs-toggle="tooltip" title="/ʀ(ə)peʀe/">repéré</span>
+          quatre
+          <span data-bs-toggle="tooltip" title="/tip/">types</span>
+          <span data-bs-toggle="tooltip" title="/distɛ̃(kt)/">distincts</span>
+          de bulles
+          <span data-bs-toggle="tooltip" title="/sumaʀin/">sous-marines,</span>
+          chacun
+          <span data-bs-toggle="tooltip" title="/pɛʀmɛtɑ̃/">permettant</span>
+          au béluga d’exprimer une
+          <span data-bs-toggle="tooltip" title="/ymœʀ/">humeur</span>
+          bien
+          <span data-bs-toggle="tooltip" title="/pʀesi/">précise</span>.
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          The beluga, nicknamed the “canary of the seas,” has a fascinating
+          habit — it blows bubbles underwater to express its feelings. According
+          to researchers, these bubbles are a form of play and social
+          interaction. Observed in captivity, the beluga uses these bubbles to
+          communicate, express curiosity or joy, and sometimes even to attract
+          the attention of another beluga. Researchers have identified four
+          distinct types of underwater bubbles, each allowing the beluga to
+          express a specific mood.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">surnommer</td>
+              <td style="width: 40px"></td>
+              <td>to nickname</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">canari des mers</td>
+              <td style="width: 40px"></td>
+              <td>
+                sea canary (highly vocal nature with a variety of high-pitched
+                whistles and clicks)
+              </td>
+            </tr>
+            <tr>
+              <td class="glossary-word">habitude</td>
+              <td style="width: 40px"></td>
+              <td>habit</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">fascinant</td>
+              <td style="width: 40px"></td>
+              <td>fascinating / captivating</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">souffle</td>
+              <td style="width: 40px"></td>
+              <td>blow</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">bulle <sup>f</sup></td>
+              <td style="width: 40px"></td>
+              <td>bubble</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">sentiment</td>
+              <td style="width: 40px"></td>
+              <td>feeling</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">chercheur</td>
+              <td style="width: 40px"></td>
+              <td>researcher</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">attirer l'attention</td>
+              <td style="width: 40px"></td>
+              <td>to attract attention</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">congénère</td>
+              <td style="width: 40px"></td>
+              <td>same kind</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">repérer</td>
+              <td style="width: 40px"></td>
+              <td>to find/discover/identify</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">sous-marines</td>
+              <td style="width: 40px"></td>
+              <td>underwater</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">humeur</td>
+              <td style="width: 40px"></td>
+              <td>mood</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">précise</td>
+              <td style="width: 40px"></td>
+              <td>specic / particular</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!--     <div class="bottom-nav">
+      <a class="btn btn-outline-primary" href="index.html">Page One</a>
+      <a class="btn btn-primary" href="dimanche.html">Page Two</a>
+    </div>
+    <p></p>
+    <p></p> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

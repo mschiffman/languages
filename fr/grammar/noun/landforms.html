@@ -1,0 +1,548 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Reliefs - French Learning Hub</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- AOS CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="../../../assets/css/noun.css" />
+    <style>
+      .french-term {
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+      }
+      .french-term:hover {
+        color: #0d6efd;
+      }
+      td[onclick] {
+        cursor: pointer;
+      }
+
+      td[onclick]:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <button class="hamburger" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="page-title-inline">
+        <h1>
+          Les Reliefs
+          <span style="font-weight: 400; font-size: 1.1rem"> /ʀəljɛf/</span>
+        </h1>
+        <p class="mb-0">Landforms in French</p>
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Sidebar -->
+    <div class="col-md-3">
+      <div id="sidebar-nav"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content container-fluid">
+      <!-- Image Container -->
+      <div class="image-container" data-aos="fade-up" data-aos-delay="100">
+        <img
+          src="/img/landforms.svg"
+          alt="Landforms Illustration"
+          style="
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        />
+      </div>
+
+      <!-- Vocabulary Section -->
+      <div class="vocab-section" data-aos="fade-up" data-aos-delay="200">
+        <h2><i class="bi bi-book"></i>Vocabulaire</h2>
+
+        <div class="table-responsive vocab-table">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">French</th>
+                <th scope="col">English</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                data-aos="fade-left"
+                data-aos-delay="150"
+                class="table-success"
+              >
+                <td colspan="2" class="heading">
+                  🌋 Arid, Volcanic & Desert Areas
+                </td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="250">
+                <td onclick="playAudio('volcan')">
+                  <div class="french-term">volcan <sup>m</sup></div>
+                  <div class="phonetic">/vɔlkɑ̃/</div>
+                </td>
+                <td><div class="english-term">volcano</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="300">
+                <td onclick="playAudio('geyser')">
+                  <div class="french-term">geyser <sup>m</sup></div>
+                  <div class="phonetic">/ʒɛzɛʀ/</div>
+                </td>
+                <td><div class="english-term">geyser</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="350">
+                <td onclick="playAudio('desert')">
+                  <div class="french-term">désert(e)</div>
+                  <div class="phonetic">/dezɛʀ/</div>
+                </td>
+                <td><div class="english-term">desert</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="400">
+                <td onclick="playAudio('dune')">
+                  <div class="french-term">dune <sup>f</sup></div>
+                  <div class="phonetic">/dyn/</div>
+                </td>
+                <td><div class="english-term">dune</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="450">
+                <td onclick="playAudio('oasis')">
+                  <div class="french-term">oasis <sup>f</sup></div>
+                  <div class="phonetic">/ɔazis/</div>
+                </td>
+                <td><div class="english-term">oasis</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="500">
+                <td onclick="playAudio('mesa')">
+                  <div class="french-term">mesa <sup>f</sup></div>
+                  <div class="phonetic">/mesa/</div>
+                </td>
+                <td><div class="english-term">mesa</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="550">
+                <td onclick="playAudio('plateau')">
+                  <div class="french-term">plateau <sup>m</sup></div>
+                  <div class="phonetic">/plato/</div>
+                </td>
+                <td>
+                  <div class="english-term">plateau</div>
+                </td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="600">
+                <td onclick="playAudio('canyon')">
+                  <div class="french-term">canyon <sup>m</sup></div>
+                  <div class="phonetic">/kanjɔ̃/</div>
+                </td>
+                <td><div class="english-term">canyon</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="650">
+                <td onclick="playAudio('grotte')">
+                  <div class="french-term">grotte <sup>f</sup></div>
+                  <div class="phonetic">/ɡʀɔt/</div>
+                </td>
+                <td><div class="english-term">cave</div></td>
+              </tr>
+              <tr
+                data-aos="fade-left"
+                data-aos-delay="700"
+                class="table-success"
+              >
+                <td colspan="2" class="heading">💦 Water-Related Landforms</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('etang')">
+                  <div class="french-term">étang <sup>m</sup></div>
+                  <div class="phonetic">/etɑ̃/</div>
+                </td>
+                <td><div class="english-term">pond</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('lac')">
+                  <div class="french-term">lac <sup>m</sup></div>
+                  <div class="phonetic">/lak/</div>
+                </td>
+                <td><div class="english-term">lake</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('ruisseau')">
+                  <div class="french-term">ruisseau <sup>m</sup></div>
+                  <div class="phonetic">/ʀɥiso/</div>
+                </td>
+                <td><div class="english-term">stream</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('rivière')">
+                  <div class="french-term">rivière <sup>f</sup></div>
+                  <div class="phonetic">/ʀivjɛʀ/</div>
+                </td>
+                <td>
+                  <div class="english-term">
+                    a river that flows into another river
+                  </div>
+                </td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('fleuve')">
+                  <div class="french-term">fleuve <sup>m</sup></div>
+                  <div class="phonetic">/flœv/</div>
+                </td>
+                <td>
+                  <div class="english-term">
+                    a river that flows into the sea or the ocean
+                  </div>
+                </td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('cascade')">
+                  <div class="french-term">cascade <sup>f</sup></div>
+                  <div class="phonetic">/kaskad/</div>
+                </td>
+                <td><div class="english-term">waterfall</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('canal')">
+                  <div class="french-term">canal <sup>m</sup></div>
+                  <div class="phonetic">/kanal/</div>
+                </td>
+                <td><div class="english-term">canal</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('delta')">
+                  <div class="french-term">delta <sup>m</sup></div>
+                  <div class="phonetic">/dɛlta/</div>
+                </td>
+                <td><div class="english-term">delta</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('golfe')">
+                  <div class="french-term">golfe <sup>m</sup></div>
+                  <div class="phonetic">/ɡɔlf/</div>
+                </td>
+                <td><div class="english-term">gulf</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('detroit')">
+                  <div class="french-term">détroit <sup>m</sup></div>
+                  <div class="phonetic">/detʀwa/</div>
+                </td>
+                <td><div class="english-term">strait</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('lagune')">
+                  <div class="french-term">lagune <sup>f</sup></div>
+                  <div class="phonetic">/laɡyn/</div>
+                </td>
+                <td><div class="english-term">lagoon</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('fjord')">
+                  <div class="french-term">fjord <sup>m</sup></div>
+                  <div class="phonetic">/fjɔʀ(d)/</div>
+                </td>
+                <td><div class="english-term">fjord</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('glacier')">
+                  <div class="french-term">glacier <sup>m</sup></div>
+                  <div class="phonetic">/ɡlasje/</div>
+                </td>
+                <td><div class="english-term">glacier</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('iceberg')">
+                  <div class="french-term">iceberg <sup>m</sup></div>
+                  <div class="phonetic">/ajsbɛʀɡ/</div>
+                </td>
+                <td><div class="english-term">iceberg</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('ocean')">
+                  <div class="french-term">océan <sup>m</sup></div>
+                  <div class="phonetic">/ɔseɑ̃/</div>
+                </td>
+                <td><div class="english-term">ocean</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('mer')">
+                  <div class="french-term">mer <sup>f</sup></div>
+                  <div class="phonetic">/mɛʀ/</div>
+                </td>
+                <td><div class="english-term">sea</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('plage')">
+                  <div class="french-term">plage <sup>f</sup></div>
+                  <div class="phonetic">/plaʒ/</div>
+                </td>
+                <td><div class="english-term">beach</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('anseCrique')">
+                  <div class="french-term">anse or crique <sup>f</sup></div>
+                  <div class="phonetic">/ɑ̃s/ or /kʀik/</div>
+                </td>
+                <td><div class="english-term">cove</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('baie')">
+                  <div class="french-term">baie <sup>f</sup></div>
+                  <div class="phonetic">/bɛ/</div>
+                </td>
+                <td><div class="english-term">bay</div></td>
+              </tr>
+              <tr
+                data-aos="fade-left"
+                data-aos-delay="700"
+                class="table-success"
+              >
+                <td colspan="2" class="heading">🌿 Vegetation & Wetlands</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('forêt')">
+                  <div class="french-term">forêt <sup>f</sup></div>
+                  <div class="phonetic">/fɔʀɛ/</div>
+                </td>
+                <td><div class="english-term">forest</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('jungle')">
+                  <div class="french-term">jungle <sup>f</sup></div>
+                  <div class="phonetic">/ʒœ̃ɡl/</div>
+                </td>
+                <td><div class="english-term">jungle</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('marécage')">
+                  <div class="french-term">marécage <sup>m</sup></div>
+                  <div class="phonetic">/maʀekaʒ/</div>
+                </td>
+                <td><div class="english-term">swamp</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('marais')">
+                  <div class="french-term">marais <sup>m</sup></div>
+                  <div class="phonetic">/maʀɛ/</div>
+                </td>
+                <td><div class="english-term">marsh</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('toundra')">
+                  <div class="french-term">toundra <sup>f</sup></div>
+                  <div class="phonetic">/tundʀa/</div>
+                </td>
+                <td><div class="english-term">tundra</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('prairie')">
+                  <div class="french-term">prairie <sup>f</sup></div>
+                  <div class="phonetic">/pʀeʀi/</div>
+                </td>
+                <td><div class="english-term">prairie</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('plaine')">
+                  <div class="french-term">plaine <sup>f</sup></div>
+                  <div class="phonetic">/plɛn/</div>
+                </td>
+                <td><div class="english-term">plain</div></td>
+              </tr>
+              <tr
+                data-aos="fade-left"
+                data-aos-delay="700"
+                class="table-success"
+              >
+                <td colspan="2" class="heading">🏞️ Terrain and Elevation</td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('montagne')">
+                  <div class="french-term">montagne <sup>f</sup></div>
+                  <div class="phonetic">/mɔ̃taɲ/</div>
+                </td>
+                <td><div class="english-term">mountain</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('colline')">
+                  <div class="french-term">colline <sup>f</sup></div>
+                  <div class="phonetic">/kɔlin/</div>
+                </td>
+                <td><div class="english-term">hill</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('vallée')">
+                  <div class="french-term">vallée <sup>f</sup></div>
+                  <div class="phonetic">/vale/</div>
+                </td>
+                <td><div class="english-term">valley</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('falaise')">
+                  <div class="french-term">falaise <sup>f</sup></div>
+                  <div class="phonetic">/falɛz/</div>
+                </td>
+                <td><div class="english-term">cliff</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('cap')">
+                  <div class="french-term">cap <sup>m</sup></div>
+                  <div class="phonetic">/kap/</div>
+                </td>
+                <td><div class="english-term">cape</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('archipel')">
+                  <div class="french-term">archipel <sup>m</sup></div>
+                  <div class="phonetic">/aʀʃipɛl/</div>
+                </td>
+                <td><div class="english-term">archipelago</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('île')">
+                  <div class="french-term">île <sup>f</sup></div>
+                  <div class="phonetic">/il/</div>
+                </td>
+                <td><div class="english-term">island</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('péninsule')">
+                  <div class="french-term">péninsule<sup>f</sup></div>
+                  <div class="phonetic">/penɛ̃syl/</div>
+                </td>
+                <td><div class="english-term">peninsula</div></td>
+              </tr>
+              <tr data-aos="fade-left" data-aos-delay="750">
+                <td onclick="playAudio('isthme')">
+                  <div class="french-term">isthme <sup>m</sup></div>
+                  <div class="phonetic">/ism/</div>
+                </td>
+                <td><div class="english-term">isthmus</div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grammar Note -->
+      <div class="grammar-note" data-aos="fade-up" data-aos-delay="750">
+        <h4><i class="bi bi-lightbulb"></i> Note de grammaire</h4>
+        <p>
+          <strong>Remember:</strong> Use "le" for masculine nouns and "la" for
+          feminine nouns.
+        </p>
+        <p>
+          Use "l'" before nouns starting with a vowel or silent 'h' (e.g.,
+          l'océan, l'île).
+        </p>
+        <p>The (m) and (f) subscripts indicate masculine and feminine nouns.</p>
+      </div>
+
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="me-landforms.html" target="_blank"><li>Mind Map</li></a>
+          <a
+            href="https://drive.google.com/file/d/10wQeSMMQ5rDtfkD2QSuNFL5GH9h0wjXY/view?usp=drive_link"
+            target="_blank"
+            ><li>Infographic</li></a
+          >
+          <a href="hs-landform.html" target="_blank"
+            ><li>Slides with hotspots</li></a
+          >
+          <a href="landforms_dictation.html" target="_blank"
+            ><li>Dictation</li></a
+          >
+          <a href="landforms_match.html" target="_blank"><li>Match</li></a>
+          <a href="slides-landform.html" target="_blank"
+            ><li>Slide Decks</li></a
+          >
+          <a href="video-landforms.html" target="_blank"
+            ><li>Landforms video (NotebookLM)</li></a
+          >
+          <a
+            href="https://drive.google.com/file/d/1mRUCdQqCyMdKSwrHvt1e9cJD4eNNJVKl/view?usp=drive_link"
+            target="_blank"
+            ><li>Landforms video transcript (English & French)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+      function playAudio(word) {
+        const audio = new Audio(
+          `https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/noun/landforms/${word}.mp3`,
+        );
+
+        audio.play().catch((error) => {
+          console.error("Error playing audio:", error);
+        });
+      }
+
+      // Optional: Add cursor pointer style to clickable cells
+      document.querySelectorAll("td[onclick]").forEach((td) => {
+        td.style.cursor = "pointer";
+      });
+    </script>
+
+    <script
+      type="module"
+      src="../../../assets/js/nav-noun.js?v=260113"
+    ></script>
+    <script type="module" src="../../../assets/js/noun.js"></script>
+  </body>
+</html>

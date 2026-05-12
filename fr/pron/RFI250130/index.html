@@ -1,0 +1,616 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - January 30, 2024</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              Bonjour à toutes et à tous.</span
+            >
+            <span class="chunk" onclick="playAudio('audio1a')">
+              Où que vous soyez sur la planète,</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              bienvenue à l'écoute de RFI</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              - Radio France Internationale</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              en direct de Paris.</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              Il est 17 heures.</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              Nous sommes le jeudi 30 janvier.</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              Au sommaire de cette édition :</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              La libération de détenus palestiniens.</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              110 hommes et femmes</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              retenus dans des prisons israéliennes</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              sont montés, il y a quelques minutes,</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              à bord d'autocars,</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              et ce en échange, ce matin,</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              contre la libération</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              d'otages israéliens.</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              Nous revenons sur cet évènement</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              avec Pierre Olivier.</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              L'actualité aux États-Unis.</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              À Washington, un hélicoptère</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              percute un avion.</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              Ça s'est passé en plein vol, hier soir.</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              Il y a de très nombreux morts.</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              Donald Trump s'exprime sur le sujet</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              dans un instant.</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              Et puis la France médiatrice.</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              La France joue les intermédiaires</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              entre la République démocratique</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              du Congo et le Rwanda.</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              Ce matin, Jean-Noël Barrot,</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              le chef de la diplomatie française,</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              était à Kinshasa.</span
+            >
+            <span class="chunk" onclick="playAudio('audio32')">
+              Il vient d'atterrir à Kigali.</span
+            >
+            <span class="chunk" onclick="playAudio('audio33')">
+              Nous sommes au Proche-Orient</span
+            >
+            <span class="chunk" onclick="playAudio('audio34')">
+              pour débuter cette édition.</span
+            >
+            <span class="chunk" onclick="playAudio('audio35')">
+              C'est ce qu'on appelle un couac.</span
+            >
+            <span class="chunk" onclick="playAudio('audio36')">
+              Un couac survenu lors de</span
+            >
+            <span class="chunk" onclick="playAudio('audio37')">
+              l'échange prévu entre les otages israéliens</span
+            >
+            <span class="chunk" onclick="playAudio('audio38')">
+              et les prisonniers palestiniens, aujourd'hui.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Hello everyone. Wherever you are on the planet, welcome to listen
+              to RFI - Radio France Internationale live from Paris. It is 5 p.m.
+              It is Thursday, January 30th. In this edition: The release of
+              Palestinian detainees. A few minutes ago, 110 men and women held
+              in Israeli prisons boarded buses in exchange for the release of
+              Israeli hostages. We look back on this event with Pierre Olivier.
+              News in the United States. In Washington, a helicopter collides
+              with a plane. It happened in mid-flight last night. There are many
+              deaths. Donald Trump will speak on the subject in a moment. And
+              then France as a mediator. France is acting as an intermediary
+              between the Democratic Republic of Congo and Rwanda. This morning,
+              Jean-Noël Barrot, the head of French diplomacy, was in Kinshasa.
+              He has just landed in Kigali. We are in the Middle East to start
+              this edition. This is what we call a hiccup. A hiccup occurred
+              during the planned exchange between Israeli hostages and
+              Palestinian prisoners today.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  planète /planɛt/
+                </td>
+                <td>planet</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">
+                  libération /libeʀasjɔ̃/
+                </td>
+                <td>release / liberation</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  palestinien /palɛstinjɛ̃/
+                </td>
+                <td>Palestinian</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  retenir /ʀ(ə)t(ə)niʀ/
+                </td>
+                <td>to hold / to hold back</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  prison /pʀizɔ̃/
+                </td>
+                <td>prison</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  monter /mɔ̃te/
+                </td>
+                <td>to go up / to come up</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">à bord de</td>
+                <td>onboard</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  monter à bord
+                </td>
+                <td>to go on board</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  autocar /otokaʀ/
+                </td>
+                <td>coach</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  échange /eʃɑ̃ʒ/
+                </td>
+                <td>exchange</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  évènement /evɛnmɑ̃/
+                </td>
+                <td>event</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  hélicoptère /elikɔptɛʀ/
+                </td>
+                <td>helicopter</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  percuter /pɛʀkyte/
+                </td>
+                <td>to hit/strike/crash into</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  avion /avjɔ̃/
+                </td>
+                <td>plane</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  en plein vol /vɔl/
+                </td>
+                <td>in mid-flight / in full flight</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  sujet /syʒɛ/
+                </td>
+                <td>subject</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  médiateur /medjatœʀ/
+                </td>
+                <td>mediator (male)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  médiatrice /medjatʀis/
+                </td>
+                <td>mediator (female)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  intermédiaire /ɛ̃tɛʀmedjɛʀ/
+                </td>
+                <td>intermediary</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  Congo /kɔ̃ɡo/
+                </td>
+                <td>Congo</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  Rwanda /ʀwɑ̃da/
+                </td>
+                <td>Rwanda</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  diplomatie /diplɔmasi/
+                </td>
+                <td>diplomacy</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  atterrir /ateʀiʀ/
+                </td>
+                <td>to land</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">
+                  le Proche-Orient /pʀɔʃɔʀjɑ̃/
+                </td>
+                <td>the Near East</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  débuter /debyte/
+                </td>
+                <td>to begin/start</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">
+                  couac /kwak/
+                </td>
+                <td>wrong note / hitch</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio65')">
+                  survenir /syʀvəniʀ/
+                </td>
+                <td>to occur/take place/appear/arrive</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio66')">
+                  lors de /lɔʀ də/
+                </td>
+                <td>during / at the time of</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio67')">
+                  prisonnier /pʀizɔnje/
+                </td>
+                <td>prisoner</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/01-Bonjour à toutes et à tous.m4a"
+    ></audio>
+    <audio
+      id="audio1a"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/01a-Où que vous soyez sur la planète.m4a"
+    ></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/02-bienvenue à l'écoute de RFI.m4a"
+    ></audio>
+    <audio
+      id="audio3"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/03-Radio France Internationale.m4a"
+    ></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/04-en direct de Paris.m4a"></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/05-Il est 17 heures.m4a"></audio>
+    <audio
+      id="audio6"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/06-Nous sommes le jeudi 30 janvier.m4a"
+    ></audio>
+    <audio
+      id="audio7"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/07-Au sommaire de cette édition.m4a"
+    ></audio>
+    <audio
+      id="audio8"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/08-La libération de détenus palestiniens.m4a"
+    ></audio>
+    <audio
+      id="audio9"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/09-110 hommes et femmes.m4a"
+    ></audio>
+    <audio
+      id="audio10"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/10-retenus dans des prisons israéliennes.m4a"
+    ></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/11-sont montés, il y a quelques minutes.m4a"
+    ></audio>
+    <audio id="audio12" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/12-à bord d'autocars.m4a"></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/13-et ce en échange, ce matin.m4a"
+    ></audio>
+    <audio
+      id="audio14"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/14-contre la libération.m4a"
+    ></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/15-d'otages israéliens.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/16-Nous revenons sur cet evenement.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/17-avec Pierre Olivier.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/18-L'actualité aux États-Unis.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/19-À Washington, un hélicoptère.m4a"
+    ></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/20-percute un avion.m4a"></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/21-Ça s'est passé en plein vol, hier soir.m4a"
+    ></audio>
+    <audio
+      id="audio22"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/22-Il y a de très nombreux morts.m4a"
+    ></audio>
+    <audio
+      id="audio23"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/23-Donald Trump s'exprime sur le sujet.m4a"
+    ></audio>
+    <audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/24-dans un instant.m4a"></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/25-Et puis la France médiatrice.m4a"
+    ></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/26-La France joue les intermédiaires.m4a"
+    ></audio>
+    <audio
+      id="audio27"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/27-entre la République démocratique.m4a"
+    ></audio>
+    <audio
+      id="audio28"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/28-du Congo et le Rwanda.m4a"
+    ></audio>
+    <audio
+      id="audio29"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/29-Ce matin, Jean-Noël Barrot.m4a"
+    ></audio>
+    <audio
+      id="audio30"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/30-le chef de la diplomatie française.m4a"
+    ></audio>
+    <audio id="audio31" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/31-était à Kinshasa.m4a"></audio>
+    <audio
+      id="audio32"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/32-Il vient d'atterrir à Kigali.m4a"
+    ></audio>
+    <audio
+      id="audio33"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/33-Nous sommes au Proche-Orient.m4a"
+    ></audio>
+    <audio
+      id="audio34"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/34-pour débuter cette édition.m4a"
+    ></audio>
+    <audio
+      id="audio35"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/35-C'est ce qu'on appelle un couac.m4a"
+    ></audio>
+    <audio
+      id="audio36"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/36-Un couac survenu lors de.m4a"
+    ></audio>
+    <audio
+      id="audio37"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/37-l'échange prévu entre les otages israéliens.m4a"
+    ></audio>
+    <audio
+      id="audio38"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/38-et les prisonniers palestiniens, aujourd'hui.m4a"
+    ></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/39-planète.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/40-libération.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/41-palestinien.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/42-retenir.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/43-prison.m4a"></audio>
+    <audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/44-monter.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/45-à bord de.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/46-monter à bord.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/47-autocar.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/48-échange.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/49-évènement.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/50-hélicoptère.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/51-percuter.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/52-avion.m4a"></audio>
+    <audio id="audio53" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/53-en plein vol.m4a"></audio>
+    <audio id="audio54" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/54-sujet.m4a"></audio>
+    <audio id="audio55" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/55-médiateur.m4a"></audio>
+    <audio id="audio56" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/56-médiatrice.m4a"></audio>
+    <audio id="audio57" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/57-intermédiaire.m4a"></audio>
+    <audio id="audio58" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/58-Congo.m4a"></audio>
+    <audio id="audio59" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/59-Rwanda.m4a"></audio>
+    <audio id="audio60" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/60-diplomatie.m4a"></audio>
+    <audio id="audio61" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/61-atterrir.m4a"></audio>
+    <audio id="audio62" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/62-le Proche-Orient.m4a"></audio>
+    <audio id="audio63" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/63-débuter.m4a"></audio>
+    <audio id="audio64" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/64-couac.m4a"></audio>
+    <audio id="audio65" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/65-survenir.m4a"></audio>
+    <audio id="audio66" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/66-lors de.m4a"></audio>
+    <audio id="audio67" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/67-prisonnier.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI250130/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

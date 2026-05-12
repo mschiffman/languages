@@ -1,0 +1,509 @@
+﻿<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Learning - Parallel Text</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      #audio-player {
+        transition: transform 0.3s ease;
+      }
+      #audio-player.hidden-player {
+        transform: translateY(100%);
+      }
+      #progress-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+      }
+      #progress-bar {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 4px;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.3);
+        outline: none;
+        cursor: pointer;
+      }
+      #progress-bar::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        border: none;
+      }
+      .level-tab {
+        opacity: 0.7;
+      }
+      .level-tab.active {
+        opacity: 1;
+      }
+      .ph {
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.6);
+        cursor: help;
+        position: relative;
+        display: inline-block;
+      }
+      .ph::after {
+        content: attr(data-ph);
+        position: absolute;
+        bottom: calc(100% + 4px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(15, 23, 42, 0.92);
+        color: #e2e8f0;
+        padding: 3px 8px;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-style: normal;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s;
+        z-index: 10;
+      }
+      .ph:hover::after {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-100 py-12 px-4 pb-28">
+    <div class="max-w-6xl mx-auto space-y-10">
+      <header class="text-center">
+        <h1 class="text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+          Compréhension Bilingue
+        </h1>
+        <p class="text-xl text-slate-600">
+          Select your level and listen along while you read.
+        </p>
+      </header>
+
+      <!-- Level tabs -->
+      <div class="flex flex-wrap justify-center gap-3">
+        <button
+          onclick="loadLevel('a1')"
+          data-level="a1"
+          class="level-tab px-6 py-3 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-md"
+        >
+          A1
+          <span class="font-normal text-blue-100 text-sm ml-1">Débutant</span>
+        </button>
+        <button
+          onclick="loadLevel('a2')"
+          data-level="a2"
+          class="level-tab px-6 py-3 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 transition-all shadow-md"
+        >
+          A2
+          <span class="font-normal text-emerald-100 text-sm ml-1"
+            >Élémentaire</span
+          >
+        </button>
+        <button
+          onclick="loadLevel('b1')"
+          data-level="b1"
+          class="level-tab px-6 py-3 rounded-xl font-bold text-white bg-amber-600 hover:bg-amber-500 transition-all shadow-md"
+        >
+          B1
+          <span class="font-normal text-amber-100 text-sm ml-1"
+            >Intermédiaire</span
+          >
+        </button>
+      </div>
+
+      <!-- Stories render target -->
+      <div id="stories-container" class="space-y-10">
+        <p class="text-center text-slate-400 text-lg py-16">
+          Choose a level above to load the stories.
+        </p>
+      </div>
+    </div>
+
+    <!-- Audio Player -->
+    <div
+      id="audio-player"
+      class="fixed bottom-0 left-0 right-0 bg-slate-800 text-white px-6 py-4 shadow-2xl hidden-player z-50"
+    >
+      <div class="max-w-3xl mx-auto">
+        <p
+          id="track-title"
+          class="text-sm font-semibold text-slate-300 mb-2 truncate"
+        ></p>
+        <div class="flex items-center gap-4">
+          <button
+            onclick="playAudio()"
+            class="p-2 bg-white text-slate-800 rounded-full hover:bg-slate-200 transition-all flex-shrink-0"
+            title="Play"
+          >
+            <i data-lucide="play" class="w-5 h-5"></i>
+          </button>
+          <button
+            onclick="pauseAudio()"
+            class="p-2 bg-slate-600 rounded-full hover:bg-slate-500 transition-all flex-shrink-0"
+            title="Pause"
+          >
+            <i data-lucide="pause" class="w-5 h-5"></i>
+          </button>
+          <button
+            onclick="stopAudio()"
+            class="p-2 bg-slate-600 rounded-full hover:bg-slate-500 transition-all flex-shrink-0"
+            title="Stop"
+          >
+            <i data-lucide="square" class="w-5 h-5"></i>
+          </button>
+          <span
+            id="time-current"
+            class="text-xs text-slate-400 w-10 text-right flex-shrink-0"
+            >0:00</span
+          >
+          <input
+            id="progress-bar"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            oninput="seekAudio(this.value)"
+            class="flex-1"
+          />
+          <span
+            id="time-total"
+            class="text-xs text-slate-400 w-10 flex-shrink-0"
+            >0:00</span
+          >
+          <button
+            onclick="closePlayer()"
+            class="p-1 text-slate-400 hover:text-white transition-all flex-shrink-0 ml-2"
+          >
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      lucide.createIcons();
+
+      // French word → IPA phonetic. Add more words here as needed.
+      const PHONETICS = {
+        secret: "/səkʀɛ/",
+        garage: "/ɡaʀaʒ/",
+        machine: "/maʃin/",
+        spéciale: "/spesjal/",
+        appuie: "/apɥi/ appuyer",
+        serveur: "/sɛʀvœʀ/",
+        costume: "/kɔstym/",
+        espace: "/ɛspas/",
+        futur: "/fytyʀ/",
+        sourit: "/suʀi/",
+        habille: "/abij/",
+        bureau: "/byʀo/",
+        collègues: "/kɔ(l)lɛɡ/",
+        rions: "/ʀiɔ̃/",
+        télévision: "/televizjɔ̃/",
+        boulangerie: "/bulɑ̃ʒʀi/",
+        croissants: "/kʀwasɑ̃/",
+        continue: "/kɔ̃tiny/",
+        métier: "/metje/",
+        dernier: "/dɛʀnje/",
+        campagne: "/kɑ̃paɲ/",
+        ville: "/vil/",
+        trajet: "/tʀaʒɛ/",
+        duré: "/dyʀe/",
+        loué: "/lwe/ louer",
+        confortable: "/kɔ̃fɔʀtabl/",
+        promenade: "/pʀɔm(ə)nad/",
+        oiseaux: "/wazo/",
+        renard: "/ʀ(ə)naʀ/",
+        étoiles: "/etwal/",
+        terrasse: "/teʀas/",
+        local: "/lɔkal/",
+        ingrédients: "/ɛ̃ɡʀedjɑ̃/",
+        délicieux: "/delisjø/",
+        marchand: "/maʀʃɑ̃/",
+        sympathique: "/sɛ̃patik/",
+        carottes: "/kaʀɔt/",
+        gingembre: "/ʒɛ̃ʒɑ̃bʀ/",
+        réalisé: "/ʀealize/",
+        erreur: "/eʀœʀ/",
+        soudain: "/sudɛ̃/",
+        paniqué: "/panike/",
+        phrase: "/fʀɑz/",
+        accident: "/aksidɑ̃/",
+        gentiment: "/ʒɑ̃timɑ̃/",
+        finalement: "/finalmɑ̃/",
+        esprit: "/ɛspʀi/",
+        aventure: "/avɑ̃tyʀ/",
+        gastronomique: "/ɡastʀɔnɔmik/",
+        rendre: "/ʀɑ̃dʀ/",
+        visite: "/vizit/",
+        malheureusement: "/maløʀøzmɑ̃/",
+        manqué: "/mɑ̃ke/",
+        billet: "/bijɛ/",
+        suivant: "/sɥivɑ̃/",
+        attendant: "/atɑ̃dɑ̃/",
+        librairie: "/libʀeʀi/",
+        passionnant: "/pasjɔnɑ̃/",
+        parapluie: "/paʀaplɥi/",
+        restaurant: "/ʀɛstɔʀɑ̃/",
+        typique: "/tipik/",
+        excellente: "/ɛkselɑ̃t/",
+        malgré: "/malɡʀe/",
+        emménager: "/ɑ̃menaʒe/",
+        cœur: "/kœʀ/",
+        charmant: "/ʃaʀmɑ̃/",
+        salon: "/salɔ̃/",
+        vieux: "/vjø/",
+        piano: "/pjano/",
+        trônait: "/tʀonɛ/ trôner",
+        fièrement: "/fjɛʀmɑ̃/",
+        propriétaire: "/pʀɔpʀijetɛʀ/",
+        lourd: "/luʀ/",
+        déplacer: "/deplase/",
+        jouer: "/ʒwe/",
+        minuit: "/minɥi/",
+        entendait: "/ɑ̃tɑ̃dɛ/ entendre",
+        mélodie: "/melɔdi/",
+        douce: "/dus/ doux",
+        mélancolique: "/melɑ̃kɔlik/",
+        élever: "/el(ə)ve/",
+        instrument: "/ɛ̃stʀymɑ̃/",
+        précis: "/pʀesi/",
+        armé: "/aʀme/",
+        courage: "/kuʀaʒ/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        vin: "/vɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        vin: "/vɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+        pain: "/pɛ̃/",
+        vin: "/vɛ̃/",
+      };
+
+      function addPhoneticTooltips(html) {
+        return html.replace(/\[\[([\w\u00C0-\u024F]+)\]\]/g, (match, word) => {
+          const ph = PHONETICS[word.toLowerCase()];
+          return ph ? `<span class="ph" data-ph="${ph}">${word}</span>` : word;
+        });
+      }
+
+      const LEVELS = {
+        a1: {
+          label: "A1",
+          file: "stories_a1.json",
+          card: "bg-blue-600",
+          btn: "bg-blue-500 hover:bg-blue-400",
+          trans: "bg-blue-50 border-2 border-blue-200",
+          transText: "text-blue-900",
+        },
+        a2: {
+          label: "A2",
+          file: "stories_a2.json",
+          card: "bg-emerald-600",
+          btn: "bg-emerald-500 hover:bg-emerald-400",
+          trans: "bg-emerald-50 border-2 border-emerald-200",
+          transText: "text-emerald-900",
+        },
+        b1: {
+          label: "B1",
+          file: "stories_b1.json",
+          card: "bg-amber-600",
+          btn: "bg-amber-500 hover:bg-amber-400",
+          trans: "bg-amber-50 border-2 border-amber-200",
+          transText: "text-amber-900",
+        },
+      };
+
+      const cache = {};
+      let activeLevel = null;
+
+      async function loadLevel(key) {
+        if (activeLevel === key) return;
+        activeLevel = key;
+
+        document.querySelectorAll(".level-tab").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.level === key);
+          btn.style.opacity = btn.dataset.level === key ? "1" : "0.6";
+        });
+
+        const container = document.getElementById("stories-container");
+        container.innerHTML =
+          '<p class="text-center text-slate-400 py-16">Chargement…</p>';
+
+        try {
+          if (!cache[key]) {
+            const res = await fetch(LEVELS[key].file);
+            if (!res.ok) throw new Error("fetch failed");
+            cache[key] = await res.json();
+          }
+          renderStories(key, cache[key]);
+        } catch {
+          container.innerHTML =
+            '<p class="text-center text-red-400 py-16">Could not load stories. Make sure the page is served over HTTP.</p>';
+        }
+      }
+
+      function renderStories(key, stories) {
+        const lv = LEVELS[key];
+        const container = document.getElementById("stories-container");
+
+        container.innerHTML = stories
+          .map((story) => {
+            const frParas = story.fr.split("\n\n");
+            const enParas = story.en.split("\n\n");
+            const count = Math.max(frParas.length, enParas.length);
+            const safeTitle = story.title_fr.replace(/'/g, "\\'");
+            const safeAudio = story.audio.replace(/'/g, "\\'");
+            const audioCall = `loadAudio('${safeAudio}', '${lv.label} \u2013 ${safeTitle}')`;
+
+            const titleRow = `
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="${lv.card} text-white px-8 pt-8 pb-4 rounded-t-2xl shadow-lg relative">
+                  <button onclick="${audioCall}"
+                    class="absolute top-4 right-4 p-2 ${lv.btn} rounded-full transition-all shadow-md"
+                    title="Écouter">
+                    <i data-lucide="volume-2" class="w-6 h-6"></i>
+                  </button>
+                  <p class="text-xl font-medium"><strong>${story.title_fr}</strong></p>
+                </div>
+                <div class="${lv.trans} border-b-0 px-8 pt-8 pb-4 rounded-t-2xl flex items-start">
+                  <p class="${lv.transText} text-lg italic"><strong>${story.title_en}</strong></p>
+                </div>
+              </div>`;
+
+            const paraRows = Array.from({ length: count }, (_, i) => {
+              const frHtml = addPhoneticTooltips((frParas[i] || "").split("\n").join("<br>"));
+              const enHtml = (enParas[i] || "").split("\n").join("<br>");
+              const isLast = i === count - 1;
+              return `
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="${lv.card} text-white px-8 py-4 ${isLast ? "rounded-b-2xl shadow-lg" : ""} shadow-sm">
+                  <p class="text-xl leading-relaxed font-medium">${frHtml}</p>
+                </div>
+                <div class="${lv.trans} border-t-0 px-8 py-4 ${isLast ? "rounded-b-2xl" : ""} flex items-start">
+                  <p class="${lv.transText} text-lg leading-relaxed italic">${enHtml}</p>
+                </div>
+              </div>`;
+            }).join("");
+
+            return `<section class="mb-8">${titleRow}${paraRows}</section>`;
+          })
+          .join("");
+
+        lucide.createIcons();
+      }
+
+      // Audio player
+      const audio = new Audio();
+      const player = document.getElementById("audio-player");
+      const trackTitle = document.getElementById("track-title");
+      const progressBar = document.getElementById("progress-bar");
+      const timeCurrent = document.getElementById("time-current");
+      const timeTotal = document.getElementById("time-total");
+
+      function fmt(s) {
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return m + ":" + (sec < 10 ? "0" : "") + sec;
+      }
+
+      function loadAudio(src, title) {
+        audio.src = src;
+        trackTitle.textContent = title;
+        player.classList.remove("hidden-player");
+        audio.play();
+      }
+
+      function playAudio() {
+        audio.play();
+      }
+      function pauseAudio() {
+        audio.pause();
+      }
+      function stopAudio() {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+      function closePlayer() {
+        stopAudio();
+        player.classList.add("hidden-player");
+      }
+      function seekAudio(val) {
+        if (audio.duration) audio.currentTime = (val / 100) * audio.duration;
+      }
+
+      audio.addEventListener("timeupdate", () => {
+        if (audio.duration) {
+          progressBar.value = (audio.currentTime / audio.duration) * 100;
+          timeCurrent.textContent = fmt(audio.currentTime);
+        }
+      });
+      audio.addEventListener("loadedmetadata", () => {
+        timeTotal.textContent = fmt(audio.duration);
+      });
+      audio.addEventListener("ended", () => {
+        progressBar.value = 0;
+        timeCurrent.textContent = "0:00";
+      });
+    </script>
+  </body>
+</html>

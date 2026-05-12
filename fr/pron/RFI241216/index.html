@@ -1,0 +1,491 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-pron.js?v=260507"></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French News - December 16, 2024</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/audio.m4a"></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              Situation plus que catastrophique à Mayotte,</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              après le passage d'un cyclone.</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              Pas d'eau, pas d'électricité</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              ni de nourriture</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              pour de très nombreux habitants.</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              Les secours continuent,</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              à l'heure actuelle,</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              de chercher des survivants</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              dans les décombres</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              des bidonvilles.</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              Le bilan humain du cyclone</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              reste encore difficile à déterminer.</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              Les autorités font état d'au moins</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')"> 14 morts.</span>
+            <span class="chunk" onclick="playAudio('audio15')">
+              Mais, je vous le disais,</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              Il faudra des jours et des jours</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              avant de connaître</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              le nombre de victimes exact,</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              dit le ministre de l'Intérieur</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              à son arrivée</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              sur l'île française.</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              Mayotte ravagée,</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              Mayotte a besoin d'aide en urgence.</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              Lisa Morisseau</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              est notre correspondante sur place.</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              Voici son témoignage.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              More than catastrophic situation in Mayotte, after the passage of
+              a cyclone. No water, no electricity or food for many residents.
+              Rescuers are currently continuing to search for survivors in the
+              rubble of the shanty towns. The human toll of the cyclone remains
+              difficult to determine. Authorities report at least 14 deaths.
+              But, I told you, “It will take days and days” before knowing the
+              exact number of victims, said the Minister of the Interior upon
+              his arrival on the French island. Ravaged Mayotte, Mayotte
+              urgently needs help. Lisa Morisseau is our correspondent on site.
+              Here is her testimony.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio27')">
+                  situation /sitɥasjɔ̃/
+                </td>
+                <td>situation</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio28')">
+                  catastrophique /katastʀɔfik/
+                </td>
+                <td>catastrophic</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio29')">
+                  passage /pɑsaʒ/
+                </td>
+                <td>passage</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio30')">
+                  cyclone /siklon/
+                </td>
+                <td>cyclone</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio31')">
+                  électricité /elɛktʀisite/
+                </td>
+                <td>electricity</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio32')">
+                  nourriture /nuʀityʀ/
+                </td>
+                <td>food</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio33')">
+                  nombreux /nɔ̃bʀø/
+                </td>
+                <td>many / numerous</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio34')">
+                  habitant /abitɑ̃/
+                </td>
+                <td>inhabitant</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio35')">
+                  secours /s(ə)kuʀ/
+                </td>
+                <td>help</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio36')">
+                  continuer /kɔ̃tinɥe/
+                </td>
+                <td>to continue</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio37')">
+                  à l'heure actuelle /aktɥɛl/
+                </td>
+                <td>currently / at present</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio38')">
+                  chercher /ʃɛʀʃe/
+                </td>
+                <td>to look for</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  décombres /dekɔ̃bʀ/
+                </td>
+                <td>rubble</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">
+                  bidonville /bidɔ̃vil/
+                </td>
+                <td>shanty town</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  bidon /bidɔ̃/
+                </td>
+                <td>can (noun)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  humain /ymɛ̃/
+                </td>
+                <td>human being</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  déterminer /detɛʀmine/
+                </td>
+                <td>to determine / ascertain</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  autorité /ɔtɔʀite/
+                </td>
+                <td>authority</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  Faire état de
+                </td>
+                <td>report</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">au moins</td>
+                <td>at least</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  exact /ɛɡza(kt)/
+                </td>
+                <td>exact</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  intérieur /ɛ̃teʀjœʀ/
+                </td>
+                <td>interior</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">île /il/</td>
+                <td>island</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  ravagé /ʀavaʒe/
+                </td>
+                <td>ravaged</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  urgence /yʀʒɑ̃s/
+                </td>
+                <td>urgency / emergency</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  témoignage /temwaɲaʒ/
+                </td>
+                <td>testimony</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio files -->
+    <audio
+      id="audio1"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/01-Situation plus que catastrophique à Mayotte.m4a"
+    ></audio>
+    <audio
+      id="audio2"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/02-après le passage d'un cyclone.m4a"
+    ></audio>
+    <audio
+      id="audio3"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/03-Pas d'eau, pas d'électricité.m4a"
+    ></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/04-ni de nourriture.m4a"></audio>
+    <audio
+      id="audio5"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/05-pour de très nombreux habitants.m4a"
+    ></audio>
+    <audio
+      id="audio6"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/06-Les secours continuent.m4a"
+    ></audio>
+    <audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/07-à l'heure actuelle.m4a"></audio>
+    <audio
+      id="audio8"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/08-de chercher des survivants.m4a"
+    ></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/09-dans les décombres.m4a"></audio>
+    <audio id="audio10" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/10-des bidonvilles.m4a"></audio>
+    <audio
+      id="audio11"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/11-Le bilan humain du cyclone.m4a"
+    ></audio>
+    <audio
+      id="audio12"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/12-reste encore difficile à déterminer.m4a"
+    ></audio>
+    <audio
+      id="audio13"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/13-Les autorités font état d'au moins.m4a"
+    ></audio>
+    <audio id="audio14" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/14-14 morts.m4a"></audio>
+    <audio
+      id="audio15"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/15-Mais, je vous le disais.m4a"
+    ></audio>
+    <audio
+      id="audio16"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/16-« Il faudra des jours et des jours.m4a"
+    ></audio>
+    <audio
+      id="audio17"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/17-avant de connaître.m4a"
+    ></audio>
+    <audio
+      id="audio18"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/18-le nombre de victimes exact.m4a"
+    ></audio>
+    <audio
+      id="audio19"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/19-dit le ministre de l'Intérieur.m4a"
+    ></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/20-à son arrivée.m4a"></audio>
+    <audio
+      id="audio21"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/21-sur l'île française.m4a"
+    ></audio>
+    <audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/22-Mayotte ravagée.m4a"></audio>
+    <audio
+      id="audio23"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/23-Mayotte a besoin d'aide en urgence.m4a"
+    ></audio>
+    <audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/24-Lisa Morisseau.m4a"></audio>
+    <audio
+      id="audio25"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/25-est notre correspondante sur place.m4a"
+    ></audio>
+    <audio
+      id="audio26"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/26-Voici son témoignage.m4a"
+    ></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/27-situation.m4a"></audio>
+    <audio id="audio28" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/28-catastrophique.m4a"></audio>
+    <audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/29-passage.m4a"></audio>
+    <audio id="audio30" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/30-cyclone.m4a"></audio>
+    <audio id="audio31" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/31-électricité.m4a"></audio>
+    <audio id="audio32" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/32-nourriture.m4a"></audio>
+    <audio id="audio33" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/33-nombreux.m4a"></audio>
+    <audio id="audio34" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/34-habitant.m4a"></audio>
+    <audio id="audio35" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/35-secours.m4a"></audio>
+    <audio id="audio36" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/36-continuer.m4a"></audio>
+    <audio
+      id="audio37"
+      src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/37-à l'heure actuelle.m4a"
+    ></audio>
+    <audio id="audio38" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/38-chercher.m4a"></audio>
+    <audio id="audio39" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/39-décombres.m4a"></audio>
+    <audio id="audio40" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/40-bidonville.m4a"></audio>
+    <audio id="audio41" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/41-bidon.m4a"></audio>
+    <audio id="audio42" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/42-humain.m4a"></audio>
+    <audio id="audio43" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/43-déterminer.m4a"></audio>
+    <audio id="audio44" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/44-autorité.m4a"></audio>
+    <audio id="audio45" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/45-Faire état de.m4a"></audio>
+    <audio id="audio46" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/46-au moins.m4a"></audio>
+    <audio id="audio47" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/47-exact.m4a"></audio>
+    <audio id="audio48" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/48-intérieur.m4a"></audio>
+    <audio id="audio49" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/49-île.m4a"></audio>
+    <audio id="audio50" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/50-ravagé.m4a"></audio>
+    <audio id="audio51" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/51-urgence.m4a"></audio>
+    <audio id="audio52" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/52-témoignage.m4a"></audio>
+
+    <audio id="audio" src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/RFI241216/audio.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

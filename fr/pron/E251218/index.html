@@ -1,0 +1,327 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../../assets/js/nav-eng.js" defer></script>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="top-header">
+        <h1>Economist - December 18, 2025</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio
+            id="audioElement"
+            src="https://res.cloudinary.com/diqjaumok/video/upload/media/rfi/E251218/audio.mp3?v=260430"
+          ></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk">Each Christmas</span>
+            <span class="chunk"> "The Economist" </span>
+            <span class="chunk"> names a country of the year. </span>
+            <span class="chunk"> Not the happiest: </span>
+            <span class="chunk">
+              that would nearly always be Scandinavian,
+            </span>
+            <span class="chunk"> making for a dull, </span>
+            <span class="chunk"> predictable contest. </span>
+            <span class="chunk"> Nor the most influential: </span>
+            <span class="chunk"> that would always be </span>
+            <span class="chunk"> a superpower. </span>
+            <span class="chunk"> Rather, we try to identify </span>
+            <span class="chunk"> the country that has improved the most, </span>
+            <span class="chunk"> whether economically, </span>
+            <span class="chunk"> politically or in any other way </span>
+            <span class="chunk"> that matters. </span>
+            <span class="chunk"> The year was a turbulent one, </span>
+            <span class="chunk"> with President Donald Trump </span>
+            <span class="chunk"> disrupting global trade </span>
+            <span class="chunk"> and horrific conflicts </span>
+            <span class="chunk"> scarring places </span>
+            <span class="chunk"> such as Gaza and Sudan. </span>
+            <span class="chunk"> But several countries navigated </span>
+            <span class="chunk"> choppy waters well. </span>
+            <span class="chunk"> Canada elected a sober technocrat </span>
+            <span class="chunk"> as prime minister, </span>
+            <span class="chunk"> rather than a populist, </span>
+            <span class="chunk"> and stood up to American bullying. </span>
+            <span class="chunk"> Voters in Moldova </span>
+            <span class="chunk"> rejected a pro-Russian party </span>
+            <span class="chunk"> despite threats and </span>
+            <span class="chunk"> disinformation from Moscow. </span>
+            <span class="chunk"> Mr Trump brokered </span>
+            <span class="chunk"> a shaky truce </span>
+            <span class="chunk"> between Israel and the Palestinians. </span>
+            <span class="chunk"> South Korea recovered </span>
+            <span class="chunk"> from a serious threat </span>
+            <span class="chunk"> to its democracy. </span>
+            <span class="chunk"> A year ago </span>
+            <span class="chunk"> President Yoon Suk Yeol </span>
+            <span class="chunk"> tried to impose martial law, </span>
+            <span class="chunk"> sending troops to shut down parliament. </span>
+            <span class="chunk"> But lawmakers, </span>
+            <span class="chunk"> protesters and institutions </span>
+            <span class="chunk"> held firm. </span>
+            <span class="chunk"> This year </span>
+            <span class="chunk"> the disgraced ex-president </span>
+            <span class="chunk"> was put on trial for insurrection. </span>
+            <span class="chunk"> Another exemplar of </span>
+            <span class="chunk"> how to deal with violent attempts </span>
+            <span class="chunk"> was Brazil. </span>
+            <span class="chunk"> In September </span>
+            <span class="chunk"> a Brazilian court imposed </span>
+            <span class="chunk"> a 27-year jail term </span>
+            <span class="chunk"> on Jair Bolsonaro, </span>
+            <span class="chunk"> a former president </span>
+            <span class="chunk"> who lost an election in 2022, </span>
+            <span class="chunk"> claimed he was cheated </span>
+            <span class="chunk"> and tried to mount a coup </span>
+            <span class="chunk"> to stay in power. </span>
+          </p>
+        </div>
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk"> Brazil was plagued by coups </span>
+            <span class="chunk"> for much of the 20th century; </span>
+            <span class="chunk"> this is the first time </span>
+            <span class="chunk"> a putschist has been suitably punished. </span>
+            <span class="chunk"> The government also managed in 2025 </span>
+            <span class="chunk">
+              to slow the pace of deforestation in the Amazon,
+            </span>
+            <span class="chunk"> thus doing its bit </span>
+            <span class="chunk"> to slow climate change. </span>
+            <span class="chunk">
+              However, its Kremlin-cuddling foreign policy
+            </span>
+            <span class="chunk"> badly blotted its record. </span>
+            <span class="chunk"> The two strongest contenders </span>
+            <span class="chunk"> this year are very different: </span>
+            <span class="chunk"> Argentina and Syria. </span>
+            <span class="chunk"> Argentina’s improvement </span>
+            <span class="chunk"> has been economic. </span>
+            <span class="chunk"> Its president, Javier Milei, </span>
+            <span class="chunk"> began far-reaching free-market reforms </span>
+            <span class="chunk"> in 2023, </span>
+            <span class="chunk"> hoping to jolt his country </span>
+            <span class="chunk"> out of more than a century </span>
+            <span class="chunk"> of statism and stagnation. </span>
+            <span class="chunk"> Such reforms - </span>
+            <span class="chunk"> abolishing price controls, </span>
+            <span class="chunk"> curbing spending </span>
+            <span class="chunk"> and ditching distorting subsidies - </span>
+            <span class="chunk"> are exceptionally hard </span>
+            <span class="chunk"> because they are exceptionally painful; </span>
+            <span class="chunk"> many previous reformers have failed. </span>
+            <span class="chunk"> Yet Mr Milei stuck to his chainsaw </span>
+            <span class="chunk"> in 2025, </span>
+            <span class="chunk"> and voters stuck with him. </span>
+            <span class="chunk"> So did America, </span>
+            <span class="chunk"> offering a $20bn lifeline </span>
+            <span class="chunk"> to avert a financial crisis. </span>
+            <span class="chunk"> The results have been impressive. </span>
+            <span class="chunk"> Inflation has fallen </span>
+            <span class="chunk"> from 211% in 2023 </span>
+            <span class="chunk"> to around 30% now. </span>
+            <span class="chunk"> The poverty rate is down </span>
+            <span class="chunk"> by 21 percentage points </span>
+            <span class="chunk"> since last year. </span>
+            <span class="chunk"> The budget has been wrestled </span>
+            <span class="chunk"> under control. </span>
+            <span class="chunk"> Mr Milei has moved towards </span>
+            <span class="chunk"> a floating peso, </span>
+            <span class="chunk"> and removed most capital controls. </span>
+          </p>
+        </div>
+        <!-- <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+            <span class="chunk"> was </span>
+          </p>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const chunks = document.querySelectorAll(".chunk");
+
+        // Track which chunks have been initialized
+        const initializedChunks = new WeakSet();
+
+        // Create Intersection Observer for lazy loading
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const span = entry.target;
+
+                // Skip if already initialized
+                if (initializedChunks.has(span)) return;
+
+                // Get the index from data attribute
+                const index = parseInt(span.dataset.chunkIndex, 10);
+
+                // Attach click event listener
+                span.addEventListener("click", () => {
+                  const fileNumber = String(index + 1).padStart(2, "0");
+                  const audioSource = `/media/rfi/E251218/${fileNumber}.m4a`;
+                  const audio = new Audio(audioSource);
+                  audio
+                    .play()
+                    .catch((e) =>
+                      console.error("Error playing:", audioSource, e),
+                    );
+                });
+
+                // Mark as initialized
+                initializedChunks.add(span);
+
+                // Stop observing this element
+                observer.unobserve(span);
+              }
+            });
+          },
+          {
+            root: null,
+            rootMargin: "100px", // Load slightly before entering viewport
+            threshold: 0,
+          },
+        );
+
+        // Add index data attribute and observe each chunk
+        chunks.forEach((span, index) => {
+          span.dataset.chunkIndex = index;
+          observer.observe(span);
+        });
+      });
+    </script>
+
+    <!-- Sidebar and audio player controls -->
+    <script type="module" src="../../../assets/js/pron.js"></script>
+  </body>
+</html>

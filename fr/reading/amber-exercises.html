@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices de compréhension - L'ambre</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          <h2 class="h5 mb-0">Texte: L'ambre</h2>
+        </div>
+        <div class="card-body">
+          <p>
+            Les Grecs de l'Antiquité pensaient que c'était des gouttes de soleil
+            solidifié. En réalité, l'ambre vient des arbres. Les pins et les
+            sapins laissent s'écouler un liquide épais et collant appelé résine
+            lorsque leur écorce est abîmée. La résine coule pour boucher les
+            blessures, puis elle durcit. Tout comme un os de dinosaure, la
+            résine peut se fossiliser et se transformer en ambre.
+          </p>
+
+          <p>
+            L'ambre peut être une capsule temporelle du monde préhistorique. Si
+            une araignée ou un insecte marche sur cette substance dorée alors
+            qu'elle est encore collante, il peut rester piégé. Lorsque la résine
+            se transforme en ambre, la petite créature est emprisonnée pour
+            toujours, et nous pouvons la voir telle qu'elle était il y a des
+            millions d'années.
+          </p>
+
+          <p>
+            Un type rare d'ambre est orange jusqu'à ce qu'on le voie à la
+            lumière du soleil… où il devient bleu !
+          </p>
+        </div>
+      </div>
+
+      <!-- Exercice 1 -->
+      <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+          <h3 class="h6 mb-0">Exercice 1: Vrai ou Faux</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="q1a" />
+            <label class="form-check-label" for="q1a">
+              Les Grecs pensaient que l'ambre était du soleil solidifié.
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="q1b" />
+            <label class="form-check-label" for="q1b">
+              L'ambre vient des roches volcaniques.
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="q1c" />
+            <label class="form-check-label" for="q1c">
+              La résine coule quand l'écorce de l'arbre est abîmée.
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="q1d" />
+            <label class="form-check-label" for="q1d">
+              L'ambre rare devient bleu à la lumière du soleil.
+            </label>
+          </div>
+          <button class="btn btn-primary mt-2" onclick="checkExercice1()">
+            Vérifier les réponses
+          </button>
+          <button
+            class="btn btn-outline-secondary mt-2 ms-2"
+            onclick="showAnswers1()"
+          >
+            Voir les réponses
+          </button>
+          <div id="result1" class="mt-3"></div>
+        </div>
+      </div>
+
+      <!-- Exercice 2 -->
+      <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+          <h3 class="h6 mb-0">Exercice 2: Questions à choix multiples</h3>
+        </div>
+        <div class="card-body">
+          <div class="mb-4">
+            <p>1. D'où vient l'ambre?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2a"
+                id="q2a1"
+                value="a"
+              />
+              <label class="form-check-label" for="q2a1">Des roches</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2a"
+                id="q2a2"
+                value="b"
+              />
+              <label class="form-check-label" for="q2a2">Des arbres</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2a"
+                id="q2a3"
+                value="c"
+              />
+              <label class="form-check-label" for="q2a3">Du soleil</label>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <p>2. Pourquoi la résine coule-t-elle?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2b"
+                id="q2b1"
+                value="a"
+              />
+              <label class="form-check-label" for="q2b1"
+                >Pour attirer les insectes</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2b"
+                id="q2b2"
+                value="b"
+              />
+              <label class="form-check-label" for="q2b2"
+                >Pour boucher les blessures de l'arbre</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2b"
+                id="q2b3"
+                value="c"
+              />
+              <label class="form-check-label" for="q2b3"
+                >Pour se transformer en ambre</label
+              >
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <p>3. Que peut-on trouver piégé dans l'ambre?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2c"
+                id="q2c1"
+                value="a"
+              />
+              <label class="form-check-label" for="q2c1">Des dinosaures</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2c"
+                id="q2c2"
+                value="b"
+              />
+              <label class="form-check-label" for="q2c2"
+                >Des insectes et des araignées</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2c"
+                id="q2c3"
+                value="c"
+              />
+              <label class="form-check-label" for="q2c3"
+                >Des feuilles d'arbres</label
+              >
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="checkExercice2()">
+            Vérifier les réponses
+          </button>
+          <button
+            class="btn btn-outline-secondary ms-2"
+            onclick="showAnswers2()"
+          >
+            Voir les réponses
+          </button>
+          <div id="result2" class="mt-3"></div>
+        </div>
+      </div>
+
+      <!-- Exercice 3 -->
+      <div class="card mb-4">
+        <div class="card-header bg-warning">
+          <h3 class="h6 mb-0">Exercice 3: Complétez les phrases</h3>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <p>
+              1. La résine est un liquide
+              <input
+                type="text"
+                class="form-control d-inline-block"
+                id="q3a"
+                style="width: 150px"
+              />
+              et collant.
+            </p>
+          </div>
+          <div class="mb-3">
+            <p>
+              2. Les
+              <input
+                type="text"
+                class="form-control d-inline-block"
+                id="q3b"
+                style="width: 150px"
+              />
+              et les sapins produisent de la résine.
+            </p>
+          </div>
+          <div class="mb-3">
+            <p>
+              3. La résine se
+              <input
+                type="text"
+                class="form-control d-inline-block"
+                id="q3c"
+                style="width: 150px"
+              />
+              et peut se fossiliser.
+            </p>
+          </div>
+          <div class="mb-3">
+            <p>
+              4. L'ambre peut être une
+              <input
+                type="text"
+                class="form-control d-inline-block"
+                id="q3d"
+                style="width: 200px"
+              />
+              temporelle du monde préhistorique.
+            </p>
+          </div>
+          <button class="btn btn-primary" onclick="checkExercice3()">
+            Vérifier les réponses
+          </button>
+          <button
+            class="btn btn-outline-secondary ms-2"
+            onclick="showAnswers3()"
+          >
+            Voir les réponses
+          </button>
+          <div id="result3" class="mt-3"></div>
+        </div>
+      </div>
+
+      <!-- Exercice 4 -->
+      <div class="card mb-4">
+        <div class="card-header bg-danger text-white">
+          <h3 class="h6 mb-0">Exercice 4: Questions ouvertes</h3>
+        </div>
+        <div class="card-body">
+          <div class="mb-4">
+            <label for="q4a" class="form-label"
+              ><strong
+                >1. Que pensaient les Grecs de l'Antiquité à propos de
+                l'ambre?</strong
+              ></label
+            >
+            <textarea class="form-control" id="q4a" rows="3"></textarea>
+          </div>
+          <div class="mb-4">
+            <label for="q4b" class="form-label"
+              ><strong
+                >2. Expliquez comment la résine devient de l'ambre.</strong
+              ></label
+            >
+            <textarea class="form-control" id="q4b" rows="3"></textarea>
+          </div>
+          <div class="mb-4">
+            <label for="q4c" class="form-label"
+              ><strong
+                >3. Pourquoi dit-on que l'ambre est une "capsule
+                temporelle"?</strong
+              ></label
+            >
+            <textarea class="form-control" id="q4c" rows="3"></textarea>
+          </div>
+          <div class="alert alert-info">
+            Note: Ces questions sont ouvertes. Discutez de vos réponses avec
+            votre professeur ou un camarade.
+          </div>
+          <button class="btn btn-outline-secondary" onclick="showAnswers4()">
+            Voir les réponses
+          </button>
+          <div id="result4" class="mt-3"></div>
+        </div>
+      </div>
+
+      <!-- Exercice 5 -->
+      <div class="card mb-4">
+        <div class="card-header bg-secondary text-white">
+          <h3 class="h6 mb-0">Exercice 5: Remettez dans l'ordre</h3>
+        </div>
+        <div class="card-body">
+          <p>
+            <strong
+              >Remettez les étapes de la formation de l'ambre dans le bon
+              ordre:</strong
+            >
+          </p>
+          <div class="list-group mb-3">
+            <div class="list-group-item">
+              <input
+                type="number"
+                class="form-control d-inline-block"
+                id="order1"
+                min="1"
+                max="5"
+                style="width: 60px"
+              />
+              La résine durcit
+            </div>
+            <div class="list-group-item">
+              <input
+                type="number"
+                class="form-control d-inline-block"
+                id="order2"
+                min="1"
+                max="5"
+                style="width: 60px"
+              />
+              L'écorce de l'arbre est abîmée
+            </div>
+            <div class="list-group-item">
+              <input
+                type="number"
+                class="form-control d-inline-block"
+                id="order3"
+                min="1"
+                max="5"
+                style="width: 60px"
+              />
+              La résine se fossilise et devient de l'ambre
+            </div>
+            <div class="list-group-item">
+              <input
+                type="number"
+                class="form-control d-inline-block"
+                id="order4"
+                min="1"
+                max="5"
+                style="width: 60px"
+              />
+              La résine coule pour boucher les blessures
+            </div>
+            <div class="list-group-item">
+              <input
+                type="number"
+                class="form-control d-inline-block"
+                id="order5"
+                min="1"
+                max="5"
+                style="width: 60px"
+              />
+              Un insecte peut rester piégé dans la résine collante
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="checkExercice5()">
+            Vérifier les réponses
+          </button>
+          <button
+            class="btn btn-outline-secondary ms-2"
+            onclick="showAnswers5()"
+          >
+            Voir les réponses
+          </button>
+          <div id="result5" class="mt-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function checkExercice1() {
+        const answers = {
+          q1a: true,
+          q1b: false,
+          q1c: true,
+          q1d: true,
+        };
+
+        let correct = 0;
+        let total = 4;
+
+        for (let key in answers) {
+          const el = document.getElementById(key);
+          el.classList.remove("is-valid", "is-invalid");
+          if (el.checked === answers[key]) {
+            correct++;
+            el.classList.add("is-valid");
+          } else {
+            el.classList.add("is-invalid");
+          }
+        }
+
+        const result = document.getElementById("result1");
+        const percentage = (correct / total) * 100;
+
+        if (percentage === 100) {
+          result.innerHTML = `<div class="alert alert-success">Excellent! ${correct}/${total} réponses correctes!</div>`;
+        } else if (percentage >= 75) {
+          result.innerHTML = `<div class="alert alert-info">Bien! ${correct}/${total} réponses correctes. Relisez le texte pour les questions manquées.</div>`;
+        } else {
+          result.innerHTML = `<div class="alert alert-warning">Continuez vos efforts! ${correct}/${total} réponses correctes. Relisez attentivement le texte.</div>`;
+        }
+      }
+
+      function showAnswers1() {
+        const answers = { q1a: true, q1b: false, q1c: true, q1d: true };
+        for (let key in answers) {
+          const el = document.getElementById(key);
+          el.checked = answers[key];
+          el.classList.remove("is-valid", "is-invalid");
+        }
+      }
+
+      function checkExercice2() {
+        const answers = {
+          q2a: "b",
+          q2b: "b",
+          q2c: "b",
+        };
+
+        let correct = 0;
+        let total = 3;
+
+        for (let key in answers) {
+          const radios = document.getElementsByName(key);
+          radios.forEach((r) => r.classList.remove("is-valid", "is-invalid"));
+
+          const selected = document.querySelector(
+            `input[name="${key}"]:checked`
+          );
+          if (selected && selected.value === answers[key]) {
+            correct++;
+            selected.classList.add("is-valid");
+          } else if (selected) {
+            selected.classList.add("is-invalid");
+          }
+        }
+
+        const result = document.getElementById("result2");
+        const percentage = (correct / total) * 100;
+
+        if (percentage === 100) {
+          result.innerHTML = `<div class="alert alert-success">Parfait! ${correct}/${total} réponses correctes!</div>`;
+        } else if (percentage >= 66) {
+          result.innerHTML = `<div class="alert alert-info">Bon travail! ${correct}/${total} réponses correctes.</div>`;
+        } else {
+          result.innerHTML = `<div class="alert alert-warning">${correct}/${total} réponses correctes. Essayez encore!</div>`;
+        }
+      }
+
+      function showAnswers2() {
+        const answers = { q2a: "b", q2b: "b", q2c: "b" };
+        for (let key in answers) {
+          const radios = document.getElementsByName(key);
+          radios.forEach((r) => {
+            r.classList.remove("is-valid", "is-invalid");
+            if (r.value === answers[key]) r.checked = true;
+          });
+        }
+      }
+
+      function checkExercice3() {
+        const answers = {
+          q3a: "épais",
+          q3b: "pins",
+          q3c: "durcit",
+          q3d: "capsule",
+        };
+
+        let correct = 0;
+        let total = 4;
+
+        for (let key in answers) {
+          const el = document.getElementById(key);
+          el.classList.remove("is-valid", "is-invalid");
+          const userAnswer = el.value.toLowerCase().trim();
+          if (userAnswer === answers[key]) {
+            correct++;
+            el.classList.add("is-valid");
+          } else {
+            el.classList.add("is-invalid");
+          }
+        }
+
+        const result = document.getElementById("result3");
+        const percentage = (correct / total) * 100;
+
+        if (percentage === 100) {
+          result.innerHTML = `<div class="alert alert-success">Bravo! ${correct}/${total} réponses correctes!</div>`;
+        } else if (percentage >= 75) {
+          result.innerHTML = `<div class="alert alert-info">Très bien! ${correct}/${total} réponses correctes.</div>`;
+        } else {
+          result.innerHTML = `<div class="alert alert-warning">${correct}/${total} réponses correctes. Vérifiez l'orthographe!</div>`;
+        }
+      }
+
+      function showAnswers3() {
+        const answers = {
+          q3a: "épais",
+          q3b: "pins",
+          q3c: "durcit",
+          q3d: "capsule",
+        };
+        for (let key in answers) {
+          const el = document.getElementById(key);
+          el.value = answers[key];
+          el.classList.remove("is-valid", "is-invalid");
+        }
+      }
+
+      function showAnswers4() {
+        const result = document.getElementById("result4");
+        result.innerHTML = `<div class="alert alert-secondary">
+          <p>1. des gouttes de soleil solidifié</p>
+          <p>2. sur des millions d’années, la pression, la chaleur et l’absence d’oxygène durcissent la résine pour devenir ambre</p>
+          <p>3. parce qu’il emprisonne et préserve parfaitement les insectes</p>
+        </div>`;
+      }
+
+      function checkExercice5() {
+        const correctOrder = {
+          order1: "3",
+          order2: "1",
+          order3: "5",
+          order4: "2",
+          order5: "4",
+        };
+
+        let correct = 0;
+        let total = 5;
+
+        for (let key in correctOrder) {
+          const el = document.getElementById(key);
+          el.classList.remove("is-valid", "is-invalid");
+          const userAnswer = el.value;
+          if (userAnswer === correctOrder[key]) {
+            correct++;
+            el.classList.add("is-valid");
+          } else {
+            el.classList.add("is-invalid");
+          }
+        }
+
+        const result = document.getElementById("result5");
+        const percentage = (correct / total) * 100;
+
+        if (percentage === 100) {
+          result.innerHTML = `<div class="alert alert-success">Excellent! Ordre parfait: ${correct}/${total}!</div>`;
+        } else if (percentage >= 60) {
+          result.innerHTML = `<div class="alert alert-info">Bon effort! ${correct}/${total} dans le bon ordre.</div>`;
+        } else {
+          result.innerHTML = `<div class="alert alert-warning">${correct}/${total} dans le bon ordre. Relisez le premier paragraphe!</div>`;
+        }
+      }
+
+      function showAnswers5() {
+        const correctOrder = {
+          order1: "3",
+          order2: "1",
+          order3: "5",
+          order4: "2",
+          order5: "4",
+        };
+        for (let key in correctOrder) {
+          const el = document.getElementById(key);
+          el.value = correctOrder[key];
+          el.classList.remove("is-valid", "is-invalid");
+        }
+      }
+    </script>
+  </body>
+</html>

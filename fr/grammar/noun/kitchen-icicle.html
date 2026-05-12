@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Kitchen Icicle</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <link rel="stylesheet" href="../../../assets/css/noun.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #f5f5f5;
+        overflow: hidden; /* Prevent scrollbars during transitions */
+      }
+      #container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      #header {
+        padding: 20px;
+        background: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+      }
+      h1 {
+        margin: 0 0 10px 0;
+        font-size: 24px;
+        color: #333;
+      }
+      #breadcrumb {
+        font-size: 1.2em;
+        color: #ff0000;
+        font-weight: 600;
+        height: 20px;
+      }
+      svg {
+        flex: 1;
+        background: white;
+        display: block;
+      }
+      rect {
+        cursor: pointer;
+        stroke: #fff;
+        stroke-width: 1px;
+        transition: opacity 0.2s;
+      }
+      rect:hover {
+        opacity: 0.8;
+      }
+      text {
+        pointer-events: none;
+        font-family: "Segoe UI", sans-serif;
+      }
+      .label-french {
+        font-weight: 600;
+        fill: #333;
+        font-size: 14px;
+      }
+      .label-english {
+        font-weight: 400;
+        fill: #666;
+        font-size: 12px;
+      }
+      .label-example {
+        font-weight: 500;
+        fill: #464646;
+        font-size: 1.1em;
+        font-style: italic;
+        opacity: 0;
+        pointer-events: auto;
+        cursor: pointer;
+      }
+      .label-example:hover {
+        fill: #000;
+        text-decoration: underline;
+      }
+      .separator-line {
+        stroke: #5a5a5a;
+        stroke-width: 1px;
+        opacity: 0;
+      }
+      /* Hide elements that are too small to see */
+      .hidden {
+        opacity: 0;
+      }
+      .hamburger {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        margin-right: 15px;
+      }
+      .sidebar {
+        padding-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Sidebar -->
+    <div class="col-md-3">
+      <div id="sidebar-nav"></div>
+    </div>
+
+    <div id="container">
+      <div id="header">
+        <div style="display: flex; align-items: center">
+          <button class="hamburger" id="hamburgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <h1>French Kitchen Structure (Icicle View)</h1>
+        </div>
+        <div id="breadcrumb">
+          Click to zoom in • Click the "Home" button to zoom out
+        </div>
+      </div>
+      <svg id="chart"></svg>
+    </div>
+
+    <script
+      type="module"
+      src="../../../assets/js/nav-noun.js?v=260113"
+    ></script>
+    <script>
+      const data = {
+        name: "Kitchen",
+        children: [
+          {
+            name: "Appliances",
+            children: [
+              {
+                name: "Cooking",
+                children: [
+                  {
+                    name: "Microwave",
+                    french: "Le micro-ondes /mikʀoɔ̃d/",
+                    gender: "m",
+                    examples: [
+                      "Chauffe-le deux minutes au micro-ondes.<br>(Heat it for two minutes in the microwave.)<br>",
+                      "La porte du micro-ondes est ouverte.<br>(The microwave door is open.)",
+                    ],
+                  },
+                  {
+                    name: "Toaster",
+                    french: "Le grille-pain /ɡʀij.pɛ̃/",
+                    gender: "m",
+                    examples: [
+                      "Le grille-pain est branché.<br>(The toaster is on.)<br>",
+                      "Ils ont choisi de griller le pain dans le grille-pain.<br>(They chose to grill the bread in the toaster.)",
+                    ],
+                  },
+                  {
+                    name: "Toaster oven",
+                    french: "Le four grille-pain /fuʀ.ɡʀij.pɛ̃/",
+                    gender: "m",
+                    examples: [
+                      "Le gril dans le four grille-pain<br>(the grill in the toaster oven)<br>",
+                      "Le mode pour cuire des pommes de terre au four grille-pain<br>(The setting to cook potatoes in the toaster oven)",
+                    ],
+                  },
+                  {
+                    name: "Kettle",
+                    french: "La bouilloire /bujwaʀ/",
+                    gender: "f",
+                    examples: [
+                      "une bouilloire en inox<br>(a stainless steel kettle)<br>",
+                      "la bouilloire ordinaire<br>(a regular kettle)",
+                    ],
+                  },
+                  {
+                    name: "Rice cooker",
+                    french: "La cuisinière à riz /kɥizinje.a.ʀi/",
+                    gender: "f",
+                    examples: [
+                      "Tu peux cuire des légumes à la vapeur dans le cuiseur à riz.<br>(You can steam vegetables in the rice cooker.)<br>",
+                      "Tu mets combien d’eau dans La cuisinière à riz ? (How much water do you put in the rice cooker?)",
+                    ],
+                  },
+                  {
+                    name: "Oven",
+                    french: "Le four /fuʀ/",
+                    gender: "m",
+                    examples: [
+                      "Le four ne fonctionne pas.<br>(The oven is not working.)<br>",
+                      "préchauffer le four<br>(preheat the oven)",
+                    ],
+                  },
+                  {
+                    name: "Cooktop",
+                    french: "La cuisinière /kɥizinje/",
+                    gender: "f",
+                    examples: [
+                      "la cuisinière à gaz<br>(a gas cooktop)<br>",
+                      "la cuisinière électrique<br>(an electric cooktop)",
+                    ],
+                  },
+                  {
+                    name: "Range hood",
+                    french: "la hotte aspirante /ɔt.aspiʀɑ̃/",
+                    gender: "f",
+                    examples: [
+                      "La hotte ne marche plus.<br>(The range hood doesn't work anymore.)<br>",
+                      "Il faut nettoyer la hotte<br>(The range hood needs to be cleaned.)",
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "Prep",
+                children: [
+                  {
+                    name: "Food processor",
+                    french: "le robot ménager /ʀɔbo.menaʒe/",
+                    gender: "m",
+                    examples: [
+                      "Branchez le robot de cuisine.<br>(Plug in the food processor.)<br>",
+                      "Apportez-moi le robot culinaire.<br>(Bring me the food processor.)",
+                    ],
+                  },
+                  {
+                    name: "Whisk",
+                    french: "Le fouet /fwɛ/",
+                    gender: "m",
+                    examples: [
+                      "Utilise un fouet pour mélanger les ingrédients.<br>(Use a whisk to mix the ingredients.)<br>",
+                      "Nettoie le fouet avec une brosse.<br>(Clean the whisk with a brush.)",
+                    ],
+                  },
+                  {
+                    name: "Blender",
+                    french: "Le mixeur /miksœʀ/",
+                    gender: "m",
+                    examples: [
+                      "J’utilise un mixeur pour les milkshakes.<br>(I use a blender to make milkshakes.)<br>Je peux utiliser un mixeur pour ça ?<br>(Can I use a blender for that?)",
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "Storage",
+                children: [
+                  {
+                    name: "pantry",
+                    french: "Le cellier /selje/",
+                    gender: "m",
+                    examples: [
+                      "beaucoup d’espace de rangement dans le cellier<br>(lots of room in the pantry)<br>",
+                      "Je l’ai remis dans le cellier.<br>(I put it back in the pantry.)",
+                    ],
+                  },
+                  {
+                    name: "Dishwasher",
+                    french: "Le lave-vaisselle /lavvɛsɛl/",
+                    gender: "m",
+                    examples: [
+                      "Mets-le dans l’évier.<br>(Put it in the sink.)<br>",
+                      "L’évier est plein.<br>(The sink is full.)",
+                    ],
+                  },
+                  {
+                    name: "Fridge",
+                    french: "Le frigo /fʀiɡo/",
+                    gender: "m",
+                    examples: [
+                      "Il est dans le bac du bas du frigo.<br>(It is in the bottom tray of the fridge.)<br>",
+                      "Mette-le au frigo.<br>(Put it in the fridge.)",
+                    ],
+                  },
+                  {
+                    name: "Freezer",
+                    french: "Le congélateur /kɔ̃ʒelatœʀ/",
+                    gender: "m",
+                    examples: [
+                      "Les steaks sont brûlés par le froid dans le congélateur.<br>(The steaks are freezer-burned in the freezer.)<br>",
+                      "Le congélateur ne congèle pas bien.<br>(The freezer isn’t freezing well.)",
+                    ],
+                  },
+                  {
+                    name: "Kitchen island",
+                    french: "un îlot de cuisine /ilo.də.kɥizin/",
+                    gender: "m",
+                    examples: [
+                      "Nous avons un grand îlot de cuisine.<br>(We have a large kitchen island.)<br>",
+                      "L’îlot offre beaucoup de rangements.<br>(The island unit offers plenty of storage space.)",
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            name: "Layout",
+            children: [
+              {
+                name: "Counter",
+                french: "Le plan de travail /plɑ̃.də.tʀavaj/",
+                gender: "m",
+                examples: [
+                  "La planche à découper est sur le plan de travail.<br>(The cutting board is on the counter.)<br>",
+                  "Y’a plus d’essuie-tout sur le plan de travail.<br>(There is no more paper towel on the counter.)",
+                ],
+              },
+              {
+                name: "Kitchen countertop",
+                french: "Le comptoir de la cuisine /kɔ̃twaʀ.də.la.kɥizin/",
+                gender: "m",
+                examples: [
+                  "Pose les sacs sur le comptoir.<br>(Put the bags on the counter.)<br>",
+                  "C’est peut-être sur le comptoir.<br>(It's probably on the counter.)",
+                ],
+              },
+              {
+                name: "Dining table",
+                french: "La table de la salle à manger /tabl.də.la.sal.a.mɑ̃ʒe/",
+                gender: "f",
+                examples: [
+                  "Mets les couverts sur la table de la salle à manger.<br>(Put the cutlets on the dining table.)<br>",
+                  "Débarrasse la table.<br>(Clear the table.)",
+                ],
+              },
+              {
+                name: "Faucet",
+                french: "Le robinet /ʀɔbinɛ/",
+                gender: "m",
+                examples: [
+                  "Ferme le robinet / Coupe l'eau.<br>(Turn off the tap/water.)<br>",
+                  "Tu sais qu’on boit pas l’eau du robinet.<br>(You know we don't drink tap water.)",
+                ],
+              },
+              {
+                name: "Sink",
+                french: "L'évier /evje/",
+                gender: "m",
+                examples: [
+                  "Il y a plein de vaisselle dans l’évier.<br>(There are tons of dishes in the sink.)<br>",
+                  "Les éviers en inox sont faciles à entretenir.<br>(Stainless steel sinks are easy to maintain.)",
+                ],
+              },
+              {
+                name: "Drawer",
+                french: "Le tiroir /tiʀwaʀ/",
+                gender: "m",
+                examples: [
+                  "C’est dans le tiroir du haut.<br>(It's in the top drawer.)<br>",
+                  "Elle ouvre un tiroir.<br>(She opens a drawer.)",
+                ],
+              },
+              {
+                name: "Trash",
+                french: "La poubelle /pubɛl/",
+                gender: "f",
+                examples: [
+                  "Sors la poubelle.<br>(Take out the trash.)<br>",
+                  "La poubelle est vide.<br>(The trash is empty.)",
+                ],
+              },
+              {
+                name: "Shelf",
+                french: "L'étagère /etaʒɛʀ/",
+                gender: "f",
+                examples: [
+                  "Les épices sont sur la deuxième étagère.<br>(The spices are on the second shelf.)<br>",
+                  "On a besoin de nouvelles protections pour les étagères.<br>(We need new protective pads for the shelves.)",
+                ],
+              },
+              {
+                name: "Cupboard",
+                french: "le placard /plakaʀ/ (or le garde-manger)",
+                gender: "m",
+                examples: [
+                  "Des placards, plein de rangements.<br>(The cupboards, lots of storage.)<br>",
+                  "Certains constructeurs mettent de grands placards à la place d’un cellier.<br>(Some builders put large cupboards instead of a pantry room.)",
+                ],
+              },
+            ],
+          },
+          {
+            name: "Tableware",
+            children: [
+              {
+                name: "Utensils",
+                children: [
+                  {
+                    name: "Fork",
+                    french: "La fourchette /fuʀʃɛt/",
+                    gender: "f",
+                    examples: [
+                      "une fourchette et un couteau pour le steak<br>(a fork and knife for the steak)<br>",
+                      "une petite fourchette pour le dessert<br>(a small fork for dessert)",
+                    ],
+                  },
+                  {
+                    name: "Knife",
+                    french: "Le couteau /kuto/",
+                    gender: "m",
+                    examples: [
+                      "Fini avec le couteau ?<br>(Finished with the knife?)<br>",
+                      "Les couteaux à pain ont un bord dentelé.<br>(Bread knives have a serrated edge.)",
+                    ],
+                  },
+                  {
+                    name: "Spoon",
+                    french: "La cuillère /kɥijεr/",
+                    gender: "f",
+                    examples: [
+                      "Une cuillère à café de sucre suffira.<br>(A teaspoon of sugar will be enough.)<br>",
+                      "T'as besoin d’une cuillère ?<br>(You need a spoon?)",
+                    ],
+                  },
+                  {
+                    name: "Chopsticks",
+                    french: "Les baguettes /baɡɛt/",
+                    gender: "f",
+                    examples: [
+                      "Comment mange-t-on du riz avec des baguettes ?<br>(How does one eat rice with chopsticks?)<br>",
+                      "Les Japonais mangent avec des baguettes.<br>(Japanese people eat with chopsticks.)",
+                    ],
+                  },
+                  {
+                    name: "fork, knife, spoon",
+                    french: "les couverts /kuvɛʀ/",
+                    gender: "m",
+                    examples: [
+                      "En parlant d'assiettes et de couverts<br>(Talking of plates and cutlery)<br>",
+                      "(structure: en parlant de)<br>",
+                      "Ces couverts ne sont pas propres.<br>(These cutlery are not clean.)",
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "Plates",
+                children: [
+                  {
+                    name: "Plate",
+                    french: "L'assiette /asjɛt/",
+                    gender: "f",
+                    examples: [
+                      "Tu peux des grandes assiettes ?<br>(Do you want big plates?)<br>",
+                      "Fais-toi une assiette.<br>(Go ahead and serve yourself.)",
+                    ],
+                  },
+                  {
+                    name: "Bowl",
+                    french: "Le bol /bɔl/",
+                    gender: "m",
+                    examples: [
+                      "un bol de flocons d’avoine<br>(a bowl of oatmeal)<br>",
+                      "un bol de céréales<br>(a bowl of cereal)",
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "Cups",
+                children: [
+                  {
+                    name: "Coffee cup",
+                    french: "La tasse à café /tɑs.a.kafe/",
+                    gender: "f",
+                    examples: [
+                      "une tasse de thé<br>(a tea cup)<br>",
+                      "C'est pas ma tasse de thé comme bonhomme.<br>(He's not my kind of guy.)",
+                    ],
+                  },
+                  {
+                    name: "Mug",
+                    french: "Le mug /mœɡ/",
+                    gender: "m",
+                    examples: [
+                      "Le mug qu’on a acheté en Slovénie.<br>(The mug we bought from Slovenia.)<br>",
+                      "une tasse d’un thé vraiment chaud<br>(a mug of a really hot tea)",
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "Glassware",
+                children: [
+                  {
+                    name: "Teapot",
+                    french: "La théière /tejɛʀ/",
+                    gender: "f",
+                    examples: [
+                      "une théière japonaise<br>(a Japanese teapot)<br>",
+                      "une théière antique<br>(an antique teapot)",
+                    ],
+                  },
+                  {
+                    name: "Glass",
+                    french: "Le verre /vɛʀ/",
+                    gender: "m",
+                    examples: [
+                      "un verre d'eau<br>(a glass of water)<br>",
+                      "Tu veux un verre de vin ?<br>(Do you want a glass of wine?)",
+                    ],
+                  },
+                  {
+                    name: "Stemmed glass",
+                    french: "Le verre à pied /vɛʀ.a.pje/",
+                    gender: "m",
+                    examples: [
+                      "Tu peux me passer un verre à pied ?<br>(Can you pass me a stemmed glass?)<br>",
+                      "On boit toujours le jus de raisin dans un verre à pied.<br>(We always drink the raisin juice in a stemmed glass.)",
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            name: "Electrical",
+            children: [
+              {
+                name: "light bulb",
+                french: "l'ampoule /ɑ̃pul /",
+                gender: "f",
+                examples: [
+                  "changer l'ampoule<br>(change the light bulb)<br>",
+                  "l’ampoule a brûlé<br>(the light bulb burned)",
+                ],
+              },
+              {
+                name: "switch",
+                french: "l'interrupteur /ɛ̃teʀyptœʀ/",
+                gender: "m",
+                examples: [
+                  "Où est l’interrupteur ?<br>(Where is the switch?)<br>",
+                  "L’interrupteur ne marche plus.<br>(the switch doesn't work anymore.)",
+                ],
+              },
+              {
+                name: "plug",
+                french: "la fiche /fiʃ/",
+                gender: "f",
+                examples: [
+                  "La fiche est mal branchée<br>(The plug is not properly connected.)<br>",
+                  "Débranche la fiche.<br>(Disconnect the plug.)",
+                ],
+              },
+              {
+                name: "socket / outlet",
+                french: "la prise /pʀiz/",
+                gender: "f",
+                examples: [
+                  "Il n’y a pas de prise près du lit.<br>(There is no power outlet near the bed.)<br>",
+                  "La prise est derrière le meuble.<br>(The outlet is behind the furniture.)",
+                ],
+              },
+              {
+                name: "cable",
+                french: "le câble /kɑbl/",
+                gender: "m",
+                examples: [
+                  "Le câble est trop court.<br>(The cable is too short.)<br>",
+                  "Ce câble est abîmé.<br>(This cable is damaged)",
+                ],
+              },
+              {
+                name: "power strip",
+                french: "la multiprise /myltipriz/",
+                gender: "f",
+                examples: [
+                  "Branche-le sur la multiprise.<br>(Plug it into the power strip.)<br>",
+                  "La multiprise est déjà pleine.<br>(The power strip is already full.)",
+                ],
+              },
+              {
+                name: "circuit breaker",
+                french: "un disjoncteur /disʒɔ̃ktœʀ /",
+                gender: "m",
+                examples: [
+                  "Le disjoncteur a sauté.<br>(The cuicuit breaker tripped.)<br>",
+                  "Il faut réarmer le disjoncteur.<br>(You need to reset the circuit breaker.)",
+                ],
+              },
+            ],
+          },
+        ],
+      };
+
+      const width = window.innerWidth;
+      const height = window.innerHeight - 80;
+
+      const hierarchy = d3
+        .hierarchy(data)
+        .sum((d) => (d.children ? 0 : 1))
+        .sort((a, b) => b.height - a.height || b.value - a.value);
+
+      // CHANGE 1: CALCULATE OPTIMAL WIDTH
+      // We want the children to fill the screen, not the root.
+      // If the tree is 4 levels deep (Root > A > B > C), we effectively want to show 3 levels.
+      // So we make the chart width = ScreenWidth * (4/3).
+      const totalDepth = hierarchy.height + 1; // e.g., 4
+      const visibleDepth = hierarchy.height; // e.g., 3 (hiding root)
+      const chartWidth = width * (totalDepth / visibleDepth);
+
+      const root = d3.partition().size([height, chartWidth]).padding(1)(
+        hierarchy,
+      );
+
+      // CHANGE 2: CALCULATE SHIFT
+      // How wide is the root column? We need to shift everything left by this amount.
+      const rootWidth = root.y1 - root.y0;
+
+      const svg = d3
+        .select("#chart")
+        .attr("viewBox", [0, 0, width, height])
+        .attr("width", width)
+        .attr("height", height)
+        .style("font", "12px sans-serif");
+
+      const color = d3.scaleOrdinal(
+        d3.quantize(d3.interpolateRainbow, data.children.length + 1),
+      );
+
+      let focus = root;
+
+      // CHANGE 3: FILTER & SHIFT
+      const cell = svg
+        .selectAll("g")
+        .data(root.descendants().filter((d) => d.depth > 0)) // Step A: Don't create elements for Root
+        .join("g")
+        .attr("transform", (d) => `translate(${d.y0 - rootWidth},${d.x0})`); // Step B: Shift Left
+
+      const rect = cell
+        .append("rect")
+        .attr("width", (d) => d.y1 - d.y0 - 1)
+        .attr("height", (d) => rectHeight(d))
+        .attr("fill-opacity", 0.6)
+        .attr("fill", (d) => {
+          if (d.data.gender === "f") return "pink";
+
+          // Color adjustment: Base color on the top-level parent (e.g., Appliances)
+          let ancestor = d;
+          while (ancestor.depth > 1) ancestor = ancestor.parent;
+          return color(ancestor.data.name);
+        })
+        .style("cursor", "pointer")
+        .on("click", clicked);
+
+      const text = cell
+        .append("text")
+        .style("user-select", "none")
+        .attr("pointer-events", "none")
+        .attr("x", 10)
+        .attr("y", 20)
+        .attr("fill-opacity", (d) => +labelVisible(d));
+
+      text
+        .append("tspan")
+        .attr("class", "label-french")
+        .text((d) => d.data.french || d.data.name);
+
+      text
+        .append("tspan")
+        .attr("class", "label-english")
+        .attr("x", 10)
+        .attr("dy", "1.4em")
+        .text((d) => (d.data.french ? d.data.name : ""));
+
+      text.each(function (d) {
+        if (d.data.examples) {
+          const el = d3.select(this);
+          const parent = d3.select(this.parentNode);
+          const width = d.y1 - d.y0;
+
+          parent
+            .append("line")
+            .attr("class", "separator-line")
+            .attr("x1", 10)
+            .attr("y1", 55)
+            .attr("x2", width - 10)
+            .attr("y2", 55);
+
+          d.data.examples.forEach((ex, i) => {
+            el.append("tspan")
+              .attr("class", "label-example")
+              .attr("x", 10)
+              .attr("dy", i === 0 ? "50px" : "2em")
+              .html(
+                ex.replace(
+                  /<br\s*\/?>/gi,
+                  '<tspan x="10" dy="1.2em">\u200B</tspan>',
+                ),
+              )
+              .on("click", (event) => {
+                event.stopPropagation();
+                const textToSpeak = ex
+                  .replace(/<[^>]*>/g, "")
+                  .replace(/\s*\(.*$/, "");
+                const utterance = new SpeechSynthesisUtterance(textToSpeak);
+                utterance.lang = "fr-FR";
+                window.speechSynthesis.cancel();
+                window.speechSynthesis.speak(utterance);
+              });
+          });
+        }
+      });
+
+      cell.append("title").text((d) => {
+        const lines = [];
+        if (d.data.french) lines.push(d.data.french);
+        lines.push(d.data.name);
+        if (d.data.examples) {
+          lines.push("", ...d.data.examples);
+        }
+        return lines.join("\n");
+      });
+
+      // Click handler
+      function clicked(event, p) {
+        // If clicking same node, zoom out to parent
+        focus = focus === p && p.parent ? p.parent : p;
+
+        root.each(
+          (d) =>
+            (d.target = {
+              x0: ((d.x0 - focus.x0) / (focus.x1 - focus.x0)) * height,
+              x1: ((d.x1 - focus.x0) / (focus.x1 - focus.x0)) * height,
+
+              // Math for horizontal zoom accounting for hidden root:
+              y0: d.y0 - focus.y0 - (focus === root ? rootWidth : 0),
+              y1: d.y1 - focus.y0 - (focus === root ? rootWidth : 0),
+            }),
+        );
+
+        const t = cell
+          .transition()
+          .duration(750)
+          .attr("transform", (d) => `translate(${d.target.y0},${d.target.x0})`);
+
+        rect.transition(t).attr("height", (d) => rectHeight(d.target));
+        text.transition(t).attr("fill-opacity", (d) => +labelVisible(d.target));
+
+        text.selectAll(".label-example").transition(t).style("opacity", 0);
+        cell.selectAll(".separator-line").transition(t).style("opacity", 0);
+
+        text
+          .filter((d) => d === focus)
+          .selectAll(".label-example")
+          .transition(t)
+          .style("opacity", 1);
+
+        cell
+          .filter((d) => d === focus)
+          .selectAll(".separator-line")
+          .transition(t)
+          .style("opacity", 1);
+
+        // Update breadcrumb
+        const path = focus
+          .ancestors()
+          .reverse()
+          .slice(1)
+          .map((d) => d.data.name)
+          .join(" > ");
+        document.getElementById("breadcrumb").innerHTML =
+          `<span style="cursor:pointer; color:blue" onclick="resetZoom()">🏠 Home</span> > ${path}`;
+      }
+
+      // Add a reset function for the breadcrumb since we can't click the Root bar anymore
+      window.resetZoom = () => {
+        // Fake a click event on the first visible child to reset, or just reload
+        // Simpler D3 reset:
+        clicked(null, root.children[0].parent); // Pass root
+      };
+
+      function rectHeight(d) {
+        return d.x1 - d.x0 - Math.min(1, (d.x1 - d.x0) / 2);
+      }
+
+      function labelVisible(d) {
+        // Only show label if it fits in the box AND is currently on screen
+        return d.y1 <= chartWidth && d.y0 >= 0 && d.x1 - d.x0 > 14;
+      }
+
+      window.addEventListener("resize", () => {
+        location.reload();
+      });
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script
+      type="module"
+      src="../../../assets/js/nav-noun.js?v=260113"
+    ></script>
+    <script type="module" src="../../../assets/js/noun.js"></script>
+  </body>
+</html>

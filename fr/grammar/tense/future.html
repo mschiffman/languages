@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Futur Proche</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../assets/css/tense.css" />
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <nav
+      class="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top"
+    >
+      <div class="container-lg">
+        <button
+          class="btn btn-outline-secondary me-2"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+          aria-label="Open menu"
+        >
+          <i class="bi bi-list" style="font-size: 1.5rem"></i>
+        </button>
+        <a class="navbar-brand fw-semibold" href="#">Futur Proche</a>
+        <div class="ms-auto d-none d-lg-flex gap-2">
+          <a class="btn btn-ghost" href="#uses">Uses</a>
+          <a class="btn btn-ghost" href="#formation">Formation</a>
+          <a class="btn btn-ghost" href="#signals">Signal words</a>
+          <a class="btn btn-ghost" href="#negation">Negation</a>
+          <a class="btn btn-ghost" href="#questions">Questions</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Offcanvas Sidebar (same retractable menu) -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="sidebarMenu"
+      aria-labelledby="sidebarMenuLabel"
+    >
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column pt-3">
+        <div class="list-group list-group-flush" id="sidebar-accordion">
+          <!-- Sidebar content populated dynamically via nav-tense.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <main class="container-lg py-5">
+      <!-- Intro -->
+      <section class="mb-5" data-aos="fade-up">
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h1 class="display-6 mb-2">Futur proche</h1>
+          <p style="font-size: 1.1rem">
+            Describes <strong>immediate or near future actions</strong>. Very
+            common in everyday speech. Equivalent to English “<em>going to</em>
+            do something”.
+          </p>
+        </div>
+      </section>
+
+      <!-- Uses -->
+      <section id="uses" class="stack-gap">
+        <div class="col-12" data-aos="zoom-in-up">
+          <div class="p-4 bg-ivory section-card rule">
+            <h2 class="h5 d-flex align-items-center gap-2 mb-2">
+              <span class="badge text-bg-ivory badge-use">Planned action</span>
+              something you intend to do
+            </h2>
+            <ul class="mb-0 list-clean">
+              <li>
+                Je <strong>vais appeler</strong> ma sœur.
+                <span class="eng">I'm going to call my sister.</span>
+              </li>
+              <li>
+                Il <strong>va commencer</strong> demain.
+                <span class="eng">He's going to start tomorrow.</span>
+              </li>
+              <li>
+                On <strong>va faire</strong> les courses.
+                <span class="eng">We're going grocery shopping.</span>
+              </li>
+              <li>
+                Je <strong>vais voir</strong> ce qu'il me reste.
+                <span class="eng">I'll see what I have left.</span>
+              </li>
+              <li>
+                Nous <strong>allons changer</strong> ça.
+                <span class="eng">We are going to change that.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12" data-aos="zoom-in-up" data-aos-delay="50">
+          <div class="p-4 bg-blue section-card rule">
+            <h2 class="h5 d-flex align-items-center gap-2 mb-2">
+              <span class="badge text-bg-blue badge-use">Immediate future</span>
+              about to happen very soon
+            </h2>
+            <ul class="mb-0 list-clean">
+              <li>
+                Attention, ça <strong>va tomber</strong> !
+                <span class="eng">Watch out, it's going to fall!</span>
+              </li>
+              <li>
+                Je <strong>vais vomir</strong>...
+                <span class="eng">I'm going to throw up...</span>
+              </li>
+              <li>
+                Le train <strong>va partir</strong>.
+                <span class="eng">The train is about to leave.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="p-4 bg-lpink section-card rule">
+            <h2 class="h5 d-flex align-items-center gap-2 mb-2">
+              <span class="badge text-bg-lpink badge-use">Prediction</span>
+              based on current evidence
+            </h2>
+            <ul class="mb-0 list-clean">
+              <li>
+                Il <strong>va pleuvoir</strong>.
+                <span class="eng">It's going to rain.</span>
+              </li>
+              <li>
+                Elle <strong>va dire</strong> non, je le sens.
+                <span class="eng">She's going to say no, I can feel it.</span>
+              </li>
+              <li>
+                Ça <strong>va être</strong> compliqué.
+                <span class="eng">That's going to be complicated.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="p-4 bg-sand section-card rule">
+            <h2 class="h5 d-flex align-items-center gap-2 mb-2">
+              <span class="badge text-bg-sand badge-use"
+                >Uncertainty / Possibility</span
+              >
+              predicting or wondering about what might happen
+            </h2>
+            <ul class="mb-0 list-clean">
+              <li>
+                Je sais pas si ça <strong>va marcher</strong>.
+                <span class="eng">I don't know if it's going to work.</span>
+              </li>
+              <li>
+                Tu crois que ça <strong>va suffire</strong> ?
+                <span class="eng">Do you think it's going to be enough?</span>
+              </li>
+              <li>
+                Je me demande si ça <strong>va aller</strong>.
+                <span class="eng">I wonder if it’s going to be okay.</span>
+              </li>
+              <li>
+                On verra comment ça <strong>va se passer</strong>.
+                <span class="eng">We’ll see how it’s going to go.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12" data-aos="zoom-in-up" data-aos-delay="150">
+          <div class="p-4 bg-emerald section-card rule">
+            <h2 class="h5 d-flex align-items-center gap-2 mb-2">
+              <span class="badge text-bg-emerald badge-use"
+                >informal scheduling</span
+              >
+              When talking about upcoming events
+            </h2>
+            <ul class="mb-0 list-clean">
+              <li>
+                On <strong>va manger</strong> chez eux samedi.
+                <span class="eng"
+                  >We’re going to eat at their place Saturday.</span
+                >
+              </li>
+              <li>
+                Je <strong>vais travailler</strong> demain.
+                <span class="eng">I'm going to work tomorrow.</span>
+              </li>
+              <li>
+                Tu <strong>vas venir</strong> avec nous ?
+                <span class="eng">Are you going to come with us?</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Formation -->
+      <section id="formation" class="mt-5" data-aos="fade-up">
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4 mb-3">Formation</h2>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <h3 class="h6">Structure</h3>
+              <p class="code">subject + aller (present) + infinitive</p>
+              <ul class="mini list-clean">
+                <li>
+                  Je <strong>vais</strong> partir.
+                  <span class="eng">I'm going to leave.</span>
+                </li>
+                <li>
+                  Tu <strong>vas</strong> comprendre.
+                  <span class="eng">You're going to understand.</span>
+                </li>
+                <li>
+                  Il <strong>va</strong> pleuvoir.
+                  <span class="eng">It's going to rain.</span>
+                </li>
+                <li>
+                  Nous <strong>allons</strong> manger.
+                  <span class="eng">We’re going to eat.</span>
+                </li>
+                <li>
+                  Vous <strong>allez</strong> voir.
+                  <span class="eng">You're going to see.</span>
+                </li>
+                <li>
+                  Ils <strong>vont</strong> venir.
+                  <span class="eng">They're going to come.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-6">
+              <h3 class="h6">Notes</h3>
+              <ul class="mini list-clean">
+                <li>
+                  This is the **spoken future** in French — more natural than
+                  <em>futur simple</em> in everyday talk.
+                </li>
+                <li>
+                  Works with **reflexive verbs**: Je
+                  <strong>vais me lever</strong> à 7h.
+                </li>
+                <li>
+                  Negative: Place <code>ne</code> and <code>pas</code> around
+                  <strong>aller</strong><br />
+                  → Je <strong>ne vais pas</strong> sortir.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signal Words -->
+      <section id="signals" class="mt-4" data-aos="fade-up">
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4">Signal words</h2>
+          <p class="mb-0 mini">
+            ce soir, demain, bientôt, tout à l’heure, dans une minute, la
+            semaine prochaine, ce week-end, dans un instant, d’ici peu …
+          </p>
+        </div>
+      </section>
+
+      <!-- Negation -->
+      <section
+        id="negation"
+        class="mt-4"
+        data-aos="fade-up"
+        data-aos-delay="50"
+      >
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4">Negation — ne … pas / jamais / plus</h2>
+          <ul class="mb-0 mini list-clean">
+            <li>
+              Je <strong>ne vais pas</strong> venir.
+              <span class="eng">I'm not going to come.</span>
+            </li>
+            <li>
+              Il <strong>ne va jamais</strong> changer.
+              <span class="eng">He's never going to change.</span>
+            </li>
+            <li>
+              On <strong>ne va plus</strong> sortir avec eux.
+              <span class="eng"
+                >We're no longer going to go out with them.</span
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Questions -->
+      <section
+        id="questions"
+        class="mt-4"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4">Questions — intonation / est-ce que / inversion</h2>
+          <ul class="mb-0 mini list-clean">
+            <li>
+              Tu <strong>vas venir</strong> ?
+              <span class="eng">Are you going to come?</span>
+            </li>
+            <li>
+              Est-ce que vous <strong>allez sortir</strong> ?
+              <span class="eng">Are you going to go out?</span>
+            </li>
+            <li>
+              <strong>Va-t-il</strong> pleuvoir ?
+              <span class="eng">Is it going to rain?</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contrast -->
+      <section id="contrast" class="mt-4" data-aos="fade-up">
+        <div class="p-4 p-lg-5 bg-white section-card">
+          <h2 class="h4">Présent vs. Futur proche</h2>
+          <ul class="mini list-clean">
+            <li>
+              <strong>Présent</strong>: action in progress — <em>Je mange.</em>
+              <span class="eng">I'm eating.</span>
+            </li>
+            <li>
+              <strong>Futur proche</strong>: imminent or scheduled —
+              <em>Je vais manger.</em>
+              <span class="eng">I'm going to eat.</span>
+            </li>
+          </ul>
+
+          <!-- Sticky CTA -->
+          <button
+            class="btn btn-primary rounded-circle sticky-cta d-lg-none"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarMenu"
+            aria-label="Open menu"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </section>
+
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="me-futur-proche.html" target="_blank"><li>Mind Map</li></a>
+        </ul>
+      </div>
+    </main>
+
+    <button
+      type="button"
+      class="btn btn-primary scroll-top-btn"
+      id="scrollTopBtn"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script
+      type="module"
+      src="../../../assets/js/nav-tense.js?v=260215"
+    ></script>
+    <script type="module" src="../../../assets/js/tense.js"></script>
+    <script>
+      AOS.init({ once: true, duration: 600, easing: "ease-out-cubic" });
+    </script>
+  </body>
+</html>

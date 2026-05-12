@@ -1,0 +1,72 @@
+.venn-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  mix-blend-mode: multiply; /* Blends colors nicely */
+}
+
+.circle-left {
+  background-color: rgba(52, 152, 219, 0.6); /* Blue */
+  left: 50px; /* Overlap positioning */
+  color: #1a5276;
+}
+
+.circle-right {
+  background-color: rgba(231, 76, 60, 0.6); /* Red */
+  right: 50px;
+  color: #922b21;
+}
+
+/* Hover Effects */
+.circle-left:hover {
+  transform: scale(1.05) translateX(-5px);
+  z-index: 10;
+}
+.circle-right:hover {
+  transform: scale(1.05) translateX(5px);
+  z-index: 10;
+}
+
+.venn-title {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.venn-icon {
+  font-size: 2rem;
+  margin-top: 5px;
+}
+
+.venn-intersection {
+  position: absolute;
+  z-index: 5;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  pointer-events: none; /* Let clicks pass through */
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 500px) {
+  .venn-circle {
+    width: 150px;
+    height: 150px;
+  }
+  .circle-left {
+    left: 10px;
+  }
+  .circle-right {
+    right: 10px;
+  }
+}

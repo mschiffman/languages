@@ -1,0 +1,284 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Phonetic Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <style>
+      .sub {
+        font-weight: bold;
+        background-color: #e9ffff;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../../assets/js/nav-enun.js?v=260225"
+    ></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French /er/</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Spacer preserved after removing the audio player -->
+        <div class="mb-2" aria-hidden="true"></div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em; margin-top: 0">
+          <i>Click on the words to hear the pronunciation.</i>
+        </p>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title">
+            <i class="bi bi-book"></i> &nbsp;è, ê, ai, er, e
+          </div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2" class="blue">è</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio1')">après /apʀer/</td>
+                <td>after</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio2')">frère /fʀerʀ/</td>
+                <td>brother</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio3')">mère /merʀ/</td>
+                <td>mother</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio4')">père /perʀ/</td>
+                <td>father</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio5')">très /tʀer/</td>
+                <td>very</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="blue">ê</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio6')">être /ertʀ/</td>
+                <td>to be</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio7')">même /merm/</td>
+                <td>same / even</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio8')">prêt /pʀer/</td>
+                <td>ready</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio9')">tête /tert/</td>
+                <td>head</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="blue">ai</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio10')">chaise /ʃerz/</td>
+                <td>chair</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio11')">faire /ferʀ/</td>
+                <td>make / do</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio12')">mais /mer/</td>
+                <td>but</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio13')">maison /merzɔ̃/</td>
+                <td>home</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio14')">naissance /nersɑ̃s/</td>
+                <td>birth</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio15')">vrai /vʀer/</td>
+                <td>true</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="blue">er</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio16')">dernier /derʀnje/</td>
+                <td>last / latest</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio17')">exercice /erɡzerʀsis/</td>
+                <td>exercise</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio18')">merci /merʀsi/</td>
+                <td>thank you</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio19')">perdu /perʀdy/</td>
+                <td>lost</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio20')">univers /yniverʀ/</td>
+                <td>universe</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio21')">vers /verʀ/</td>
+                <td>line</td>
+              </tr>
+              <tr>
+                <td colspan="2" class="blue">e</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio22')">accepter /akserpte/</td>
+                <td>accept</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio23')">baguette /baɡert/</td>
+                <td>stick of French bread</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio24')">met /mer/</td>
+                <td>to put</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio25')">nouvelle /nuverl/</td>
+                <td>news / short story</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio26')">potentiel /pɔtɑ̃sjerl/</td>
+                <td>potential</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio27')">presque /pʀersk/</td>
+                <td>almost</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio28')">presse /pʀers/</td>
+                <td>press</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio29')">projet /pʀɔʒer/</td>
+                <td>plan / draft</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio30')">question /kerstjɔ̃/</td>
+                <td>question</td>
+              </tr>
+              <tr>
+                <td onclick="playAudio('audio31')">week-end /wikernd/</td>
+                <td>weekend</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="audio1" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/01-après.m4a"></audio>
+    <audio id="audio2" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/02-frère.m4a"></audio>
+    <audio id="audio3" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/03-mère.m4a"></audio>
+    <audio id="audio4" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/04-père.m4a"></audio>
+    <audio id="audio5" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/05-très.m4a"></audio>
+    <audio id="audio6" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/06-être.m4a"></audio>
+    <audio id="audio7" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/07-même.m4a"></audio>
+    <audio id="audio8" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/08-prêt.m4a"></audio>
+    <audio id="audio9" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/09-tête.m4a"></audio>
+    <audio id="audio10" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/10-chaise.m4a"></audio>
+    <audio id="audio11" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/11-faire.m4a"></audio>
+    <audio id="audio12" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/12-mais.m4a"></audio>
+    <audio id="audio13" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/13-maison.m4a"></audio>
+    <audio id="audio14" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/14-naissance.m4a"></audio>
+    <audio id="audio15" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/15-vrai.m4a"></audio>
+    <audio id="audio16" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/16-dernier.m4a"></audio>
+    <audio id="audio17" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/17-exercice.m4a"></audio>
+    <audio id="audio18" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/18-merci.m4a"></audio>
+    <audio id="audio19" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/19-perdu.m4a"></audio>
+    <audio id="audio20" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/20-univers.m4a"></audio>
+    <audio id="audio21" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/21-vers.m4a"></audio>
+    <audio id="audio22" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/22-accepter.m4a"></audio>
+    <audio id="audio23" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/23-baguette.m4a"></audio>
+    <audio id="audio24" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/24-met.m4a"></audio>
+    <audio id="audio25" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/25-nouvelle.m4a"></audio>
+    <audio id="audio26" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/26-potentiel.m4a"></audio>
+    <audio id="audio27" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/27-presque.m4a"></audio>
+    <audio id="audio28" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/28-presse.m4a"></audio>
+    <audio id="audio29" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/29-projet.m4a"></audio>
+    <audio id="audio30" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/30-question.m4a"></audio>
+    <audio id="audio31" src="https://res.cloudinary.com/diqjaumok/video/upload/media/phonetics/er/31-week-end.m4a"></audio>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../../assets/js/phonetic.js"></script>
+  </body>
+</html>

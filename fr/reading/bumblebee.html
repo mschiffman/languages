@@ -1,0 +1,255 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/bourdon.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Les animaux</h1>
+      </div>
+      <h5>Le bourdon : le plaisir du jeu</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <a
+            href="https://photo.caminteresse.fr/amitie-injustice-empathie-les-animaux-ressentent-aussi-des-emotions-64357#le-loup-des-expressions-d-affection-8svvm"
+            target="_blank"
+          >
+            <img class="french-text-img" src="/img/bumblebee.svg" alt=""
+          /></a>
+          Les <span data-bs-toggle="tooltip" title="/buʀdɔ̃/">bourdons</span>,
+          petits
+          <span data-bs-toggle="tooltip" title="/pɔlinizatœʀ/"
+            >pollinisateurs</span
+          ><span data-bs-toggle="tooltip" title="/esɑ̃sjɛl/"> essentiels</span>,
+          <span data-bs-toggle="tooltip" title="/rəsɑ̃tirɛ/">
+            ressentiraient</span
+          >
+          du préfèrent s'amuser avec de petites
+          <span data-bs-toggle="tooltip" title="/bal/"> balles</span>
+          <span data-bs-toggle="tooltip" title="/kɔlɔre/"> colorées</span>, même
+          sans
+          <span data-bs-toggle="tooltip" title="/rekɔ̃pɑ̃s/"> récompense</span>
+          <span data-bs-toggle="tooltip" title="/alimɑ̃tɛʀ/">alimentaire</span>.
+          Or le jeu suppose de prendre du plaisir. Cela remet en question notre
+          <span data-bs-toggle="tooltip" title="/pɛʀsɛpsjɔ̃/">perception</span>
+          des
+          <span data-bs-toggle="tooltip" title="/ɛ̃sɛkt/">insectes</span>,
+          souvent
+          <span data-bs-toggle="tooltip" title="/ʀedɥi/">réduits</span> à des
+          <span data-bs-toggle="tooltip" title="/otomatism/">automatismes</span>
+          <span data-bs-toggle="tooltip" title="/bjɔlɔʒik/">biologiques</span>.
+          Ces
+          <span data-bs-toggle="tooltip" title="/dekuvɛʀ/">découvertes</span>
+          montrent que le
+          <span data-bs-toggle="tooltip" title="/kɔ̃pɔʀtəmɑ̃/">comportement</span>
+          des bourdons est bien plus
+          <span data-bs-toggle="tooltip" title="/kɔ̃plɛks/">complexe</span>
+          qu’on ne le pensait.
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Bumblebees, essential small pollinators, would prefer to have fun with
+          small colorful balls, even without food reward. Yet gambling involves
+          having fun. It challenges our perception of insects, often reduced to
+          biological automatisms. These findings show that the behavior of
+          bumblebees is much more complex than previously thought.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">bourdon <sup>m</sup></td>
+              <td style="width: 40px"></td>
+              <td>bumblebee</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">pollinisateurs essentiels</td>
+              <td style="width: 40px"></td>
+              <td>essential pollinators</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">ressentir</td>
+              <td style="width: 40px"></td>
+              <td>to feel</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">balle</td>
+              <td style="width: 40px"></td>
+              <td>ball / bullet</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">récompense</td>
+              <td style="width: 40px"></td>
+              <td>reward / recompense</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">alimentaire <sup>f</sup></td>
+              <td style="width: 40px"></td>
+              <td>food</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">or</td>
+              <td style="width: 40px"></td>
+              <td>
+                discourse connector like “now,” “but,” or “however.” (doesn't
+                mean gold in this sense)
+              </td>
+            </tr>
+            <tr>
+              <td class="glossary-word">suppose</td>
+              <td style="width: 40px"></td>
+              <td>to suppose/assume/imply/involve</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">de prendre du plaisir</td>
+              <td style="width: 40px"></td>
+              <td>to take pleasure/enjoyment</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">remettre</td>
+              <td style="width: 40px"></td>
+              <td>to challenge/restore (faith)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">réduits</td>
+              <td style="width: 40px"></td>
+              <td>scaled-down / reduced</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">automatismes biologiques</td>
+              <td style="width: 40px"></td>
+              <td>biological reflexes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!--     <div class="bottom-nav">
+      <a class="btn btn-outline-primary" href="index.html">Page One</a>
+      <a class="btn btn-primary" href="dimanche.html">Page Two</a>
+    </div>
+    <p></p>
+    <p></p> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

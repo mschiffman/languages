@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Ambre</h1>
+      </div>
+      <h5>
+        Qu’est-ce qui est doré comme le miel et brille comme du verre ? L’ambre
+        !
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="french-text-img" src="/img/amber.jpg" alt="" />
+          <!-- Text with tooltips -->
+          Les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɡʀɛk/"
+            data-meaning="the Greeks"
+            >Grecs</span
+          >
+          de l’<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃tikite/"
+            data-meaning="ancient"
+            >Antiquité</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɑ̃sɛ/"
+            data-meaning="thought"
+            data-origin="penser /pɑ̃se/"
+            >pensaient</span
+          >
+          que c’était des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɡut/"
+            data-meaning="drops"
+            >gouttes</span
+          >
+          de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɔlɛj/"
+            data-meaning="sun"
+            >soleil</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɔlidifje/"
+            data-meaning="solidified"
+            data-origin="solidifier /sɔlidifje/"
+            >solidifié</span
+          >. En réalité, l’ambre vient des arbres. Les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɛ̃/"
+            data-meaning="pine trees"
+            >pins</span
+          >
+          et les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sapɛ̃/"
+            data-meaning="fir trees"
+            >sapins</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lɛs/"
+            data-meaning="let / allow"
+            data-origin="laisser /lese/"
+            >laissent</span
+          >
+          s’<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ekule/"
+            data-meaning="to flow / run out"
+            data-origin="écouler /ekule/"
+            >écouler</span
+          >
+          un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/likid/"
+            data-meaning="liquid"
+            >liquide</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/epɛ/"
+            data-meaning="thick"
+            >épais</span
+          >
+          et
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔlɑ̃/"
+            data-meaning="sticky"
+            >collant</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ap(ə)le/"
+            data-meaning="called"
+            data-origin="appeler /ap(ə)le/"
+            >appelé</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀezin/"
+            data-meaning="resin"
+            >résine</span
+          >
+          lorsque leur
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ekɔʀs/"
+            data-meaning="bark"
+            >écorce</span
+          >
+          est
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/abime/"
+            data-meaning="damaged"
+            data-origin="abîmer /abime/"
+            >abîmée</span
+          >. La résine
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kul/"
+            data-meaning="flows"
+            data-origin="couler /kule/"
+            >coule</span
+          >
+          pour
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/buʃe/"
+            data-meaning="to block / fill"
+            data-origin="boucher /buʃe/"
+            >boucher</span
+          >
+          les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/blesyʀ/"
+            data-meaning="wounds / injuries"
+            >blessures</span
+          >, puis elle
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dyʀsi/"
+            data-meaning="hardens"
+            data-origin="durcir /dyʀsiʀ/"
+            >durcit</span
+          >. Tout comme un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɔs/"
+            data-meaning="bone"
+            >os</span
+          >
+          de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dinɔzɔʀ/"
+            data-meaning="dinosaur"
+            >dinosaure</span
+          >, la résine peut se
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fɔsilize/"
+            data-meaning="to fossilize"
+            data-origin="fossiliser /fosilize/"
+            >fossiliser</span
+          >
+          et se transformer en
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃bʀ/"
+            data-meaning="amber"
+            >ambre</span
+          >.
+        </p>
+        <p>
+          L’ambre peut être une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kapsyl/"
+            data-meaning="capsule"
+            >capsule</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tɑ̃pɔʀɛl/"
+            data-meaning="time (adj) / temporal"
+            >temporelle</span
+          >
+          du monde
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀeistɔʀik/"
+            data-meaning="prehistoric"
+            >préhistorique</span
+          >. Si une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/aʀeɲe/"
+            data-meaning="spider"
+            >araignée</span
+          >
+          ou un insecte marche sur cette
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sypstɑ̃s/"
+            data-meaning="substance"
+            >substance</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dɔʀe/"
+            data-meaning="golden"
+            >dorée</span
+          >
+          alors qu’elle est encore collante, il peut rester
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pjeʒe/"
+            data-meaning="trapped"
+            data-origin="piéger /pjeʒe/"
+            >piégé</span
+          >. Lorsque la résine se transforme en ambre, la petite
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀeatyʀ/"
+            data-meaning="creature"
+            >créature</span
+          >
+          est
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃pʀizɔne/"
+            data-meaning="imprisoned"
+            data-origin="emprisonner /ɑ̃pʀizɔne/"
+            >emprisonnée</span
+          >
+          pour toujours, et nous pouvons la voir telle qu’elle était il y a des
+          millions d’années.
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Un type rare d’ambre est orange jusqu’à ce qu’on le voie à la
+            lumière du soleil… où il
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/dəvjɛ̃/"
+              data-meaning="becomes"
+              data-origin="devenir /dəv(ə)niʀ/"
+              >devient</span
+            >
+            bleu !</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          What is golden like honey and shines like glass? Amber! The ancient
+          Greeks thought it was droplets of solid sunlight. In fact, it comes
+          from trees. Pine and fir trees ooze a thick, sticky liquid called
+          resin if their bark is damaged. The resin drips out to plug any cuts,
+          and then hardens. Just like a dinosaur bone, the resin can fossilize,
+          transforming into amber.
+        </p>
+        <p>
+          Amber can be a time capsule to the prehistoric world. If a spider or
+          insect walks across the golden goo when it is still sticky, it can get
+          trapped. As the resin turns to amber, the creepy-crawly is trapped
+          forever, and we can see it as it was millions of years ago.
+        </p>
+        <p>
+          <i
+            >One rare type of amber is orange until seen in sunlight, whe it
+            turns blue!</i
+          >
+        </p>
+      </div>
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/ambre.mp3"
+              >
+                ambre
+              </td>
+              <td style="width: 40px"></td>
+              <td>amber</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/antiquité.mp3"
+              >
+                antiquité
+              </td>
+              <td style="width: 40px"></td>
+              <td>ancient</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/goutte.m4a"
+              >
+                goutte
+              </td>
+              <td style="width: 40px"></td>
+              <td>drop</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/solidifier.mp3"
+              >
+                solidifier
+              </td>
+              <td style="width: 40px"></td>
+              <td>to solidify</td>
+            </tr>
+            <tr>
+              <td class="glossary-word" data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/pin.mp3">
+                pin
+              </td>
+              <td style="width: 40px"></td>
+              <td>pine</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/sapin.mp3"
+              >
+                sapin
+              </td>
+              <td style="width: 40px"></td>
+              <td>fir tree</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/ecouler.mp3"
+              >
+                ecouler
+              </td>
+              <td style="width: 40px"></td>
+              <td>to flow / to run out</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/liquide.mp3"
+              >
+                liquide
+              </td>
+              <td style="width: 40px"></td>
+              <td>liquid</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/épais.mp3"
+              >
+                épais
+              </td>
+              <td style="width: 40px"></td>
+              <td>thick</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/collant.mp3"
+              >
+                collant
+              </td>
+              <td style="width: 40px"></td>
+              <td>sticky</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/résine.mp3"
+              >
+                résine
+              </td>
+              <td style="width: 40px"></td>
+              <td>resin</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/ecorce.mp3"
+              >
+                ecorce
+              </td>
+              <td style="width: 40px"></td>
+              <td>bark</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/abîmer.mp3"
+              >
+                abîmer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to damage</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/couler.mp3"
+              >
+                couler
+              </td>
+              <td style="width: 40px"></td>
+              <td>to flow</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/boucher.mp3"
+              >
+                boucher
+              </td>
+              <td style="width: 40px"></td>
+              <td>to block / to fill</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/blessure.mp3"
+              >
+                blessure
+              </td>
+              <td style="width: 40px"></td>
+              <td>wound / injury</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/durcir.mp3"
+              >
+                durcir
+              </td>
+              <td style="width: 40px"></td>
+              <td>to harden</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/dinosaure.mp3"
+              >
+                dinosaure
+              </td>
+              <td style="width: 40px"></td>
+              <td>dinosaur</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/fossiliser.mp3"
+              >
+                fossiliser
+              </td>
+              <td style="width: 40px"></td>
+              <td>to fossiliser</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/capsule.mp3"
+              >
+                capsule
+              </td>
+              <td style="width: 40px"></td>
+              <td>capsule</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/temporel.mp3"
+              >
+                temporel
+              </td>
+              <td style="width: 40px"></td>
+              <td>related to time</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/préhistorique.mp3"
+              >
+                préhistorique
+              </td>
+              <td style="width: 40px"></td>
+              <td>prehistoric</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/araignée.mp3"
+              >
+                araignée
+              </td>
+              <td style="width: 40px"></td>
+              <td>spider</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/substance.mp3"
+              >
+                substance
+              </td>
+              <td style="width: 40px"></td>
+              <td>substance</td>
+            </tr>
+            <tr>
+              <td class="glossary-word" data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/doré.mp3">
+                doré
+              </td>
+              <td style="width: 40px"></td>
+              <td>golden</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/piéger.mp3"
+              >
+                piéger
+              </td>
+              <td style="width: 40px"></td>
+              <td>to trap</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/créature.mp3"
+              >
+                créature
+              </td>
+              <td style="width: 40px"></td>
+              <td>creature</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/emprisonner.mp3"
+              >
+                emprisonner
+              </td>
+              <td style="width: 40px"></td>
+              <td>to imprison</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/amber/devenir.mp3"
+              >
+                devenir
+              </td>
+              <td style="width: 40px"></td>
+              <td>to become</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="amber-exercises.html" target="_blank"><li>Exercises</li></a>
+          <a href="amber-cloze.html" target="_blank"><li>Cloze test</li></a>
+          <a
+            href="https://drive.google.com/file/d/1UliwBsjk_xKhy1VeFE2cMN56KeyC5mkX/view?usp=sharing"
+            target="_blank"
+            ><li>infographic</li></a
+          >
+          <a href="video-amber.html" target="_blank"
+            ><li>Amber video (NotebookLM)</li></a
+          >
+          <a
+            href="https://drive.google.com/file/d/1oiRYpe6JIynh7TOMy25qpti75ta1Tmzb/view?usp=sharing"
+            target="_blank"
+            ><li>Amber video transcript (English & French)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        // Select all td elements with the class 'glossary-word'
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              // If audio is already playing, pause it and reset time
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              // Create new audio object and play
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

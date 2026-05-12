@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>House - Hotspots</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- offline enabler -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../../assets/css/hotspot.css" />
+  </head>
+  <body>
+    <div class="container-fluid px-0 py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="thumbnail-section full-bleed">
+            <h6 class="fw-bold mb-2">Jump to card</h6>
+            <div class="thumbnail-strip" id="thumbnailStrip"></div>
+          </div>
+
+          <div class="flashcard-container" id="flashcard">
+            <div class="flashcard-inner">
+              <div
+                class="flashcard-front d-flex align-items-center justify-content-center bg-white rounded"
+              >
+                <h3 id="card-front-text">Loading...</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Randomization -->
+          <div class="d-flex justify-content-center gap-2 mb-3">
+            <button class="btn btn-warning" onclick="shuffleDeck()">
+              <i class="bi bi-shuffle"></i> Shuffle Cards
+            </button>
+            <button class="btn btn-outline-warning" onclick="reorderDeck()">
+              Reorder Cards
+            </button>
+          </div>
+
+          <div class="d-flex justify-content-between mt-4">
+            <button class="btn btn-outline-secondary" onclick="prevCard()">
+              Previous
+            </button>
+            <span id="card-count" class="align-self-center text-muted"
+              >1 / 5</span
+            >
+            <button class="btn btn-outline-primary" onclick="nextCard()">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <script>
+      // 1. Your Data (This acts as your "Database")
+      const baseDeck = [
+        {
+          img: "/img/house/slide1.jpg",
+          alt: "House",
+          hotspots: [
+            {
+              left: "28%",
+              top: "68%",
+              en: "Flower bed",
+              fr: "parterre (m)",
+              ipa: "/paʀtɛʀ/",
+            },
+            {
+              left: "38%",
+              top: "12%",
+              en: "House",
+              fr: "maison (f)",
+              ipa: "/mɛzɔ̃/",
+            },
+            {
+              left: "51%",
+              top: "20%",
+              en: "Roof",
+              fr: "toit (m)",
+              ipa: "/twa/",
+            },
+            {
+              left: "61%",
+              top: "43%",
+              en: "Wall",
+              fr: "mur (m)",
+              ipa: "/myʀ/",
+            },
+            {
+              left: "44%",
+              top: "59%",
+              en: "The front steps",
+              fr: "Les marches du perron (m)",
+              ipa: "/le.maʀʃ.dy.peʀɔ̃/",
+            },
+            {
+              left: "68%",
+              top: "49%",
+              en: "Window",
+              fr: "fenêtre (f)",
+              ipa: "/f(ə)nɛtʀ/",
+            },
+          ],
+        },
+        {
+          img: "/img/house/slide2.jpg",
+          alt: "Fence",
+          hotspots: [
+            {
+              left: "25%",
+              top: "60%",
+              en: "Fence",
+              fr: "clôture (f)",
+              ipa: "/klotyʀ/",
+            },
+            {
+              left: "68%",
+              top: "63%",
+              en: "Fence post",
+              fr: "poteau (m)",
+              ipa: "/pɔto/",
+            },
+            {
+              left: "52%",
+              top: "78%",
+              en: "Lawn",
+              fr: "pelouse (f)",
+              ipa: "/pəluz/",
+            },
+            {
+              left: "36%",
+              top: "65%",
+              en: "Gate",
+              fr: "portail (m)",
+              ipa: "/pɔʀtaj/",
+            },
+          ],
+        },
+        {
+          img: "/img/house/slide3.jpg",
+          alt: "Greenhouse",
+          hotspots: [
+            {
+              left: "50%",
+              top: "76%",
+              en: "Topiary",
+              fr: "topiaire (f)",
+              ipa: "/tɔpjɛʀ/",
+            },
+            {
+              left: "69%",
+              top: "48%",
+              en: "Trellis",
+              fr: "treillis (m)",
+              ipa: "/tʀɛji/",
+            },
+            {
+              left: "52%",
+              top: "52%",
+              en: "Flower pot",
+              fr: "pot de fleurs (m)",
+              ipa: "/po.də.flœʀ/",
+            },
+            {
+              left: "83%",
+              top: "40%",
+              en: "Greenhouse",
+              fr: "serre (f)",
+              ipa: "/sɛʀ/",
+            },
+            {
+              left: "16%",
+              top: "35%",
+              en: "Gazebo",
+              fr: "gloriette (f)",
+              ipa: "/ɡlɔʀjɛt/",
+            },
+            {
+              left: "35%",
+              top: "36%",
+              en: "Garage",
+              fr: "garage (m)",
+              ipa: "/ɡaʀaʒ/",
+            },
+            {
+              left: "35%",
+              top: "62%",
+              en: "Swimming pool",
+              fr: "piscine (f)",
+              ipa: "/pisin/",
+            },
+          ],
+        },
+        {
+          img: "/img/house/slide4.jpg",
+          alt: "Driveway and walkway",
+          hotspots: [
+            {
+              left: "37%",
+              top: "79%",
+              en: "Walkway",
+              fr: "chemin (m)",
+              ipa: "/ʃ(ə)mɛ̃/",
+            },
+            {
+              left: "79%",
+              top: "78%",
+              en: "Driveway",
+              fr: "allée (f)",
+              ipa: "/ale/",
+            },
+            {
+              left: "54%",
+              top: "72%",
+              en: "Mailbox",
+              fr: "boîte aux lettres (f)",
+              ipa: "/bwatolɛtʀ/",
+            },
+            {
+              left: "27%",
+              top: "52%",
+              en: "Porch",
+              fr: "porche (m)",
+              ipa: "/pɔʀʃ/",
+            },
+            {
+              left: "58%",
+              top: "35%",
+              en: "Balcony",
+              fr: "balcon (m)",
+              ipa: "/balkɔ̃/",
+            },
+            {
+              left: "43%",
+              top: "57%",
+              en: "front door",
+              fr: "porte d'entrée (f)",
+              ipa: "/pɔʀt.dɑ̃tʀe/",
+            },
+          ],
+        },
+        {
+          img: "/img/house/slide5.jpg",
+          alt: "Gutters and downspouts",
+          hotspots: [
+            {
+              left: "31%",
+              top: "65%",
+              en: "Shutter",
+              fr: "volet (m)",
+              ipa: "/vɔlɛ/",
+            },
+            {
+              left: "50%",
+              top: "48%",
+              en: "Gutter",
+              fr: "gouttière (f)",
+              ipa: "/ɡutjɛʀ/",
+            },
+            {
+              left: "65%",
+              top: "68%",
+              en: "Downspout",
+              fr: "descente pluviale (f) or just la descente",
+              ipa: "/desɑ̃t.plyvjal/",
+            },
+            {
+              left: "79%",
+              top: "18%",
+              en: "Chimney",
+              fr: "cheminée (f)",
+              ipa: "/ʃ(ə)mine/",
+            },
+            {
+              left: "73%",
+              top: "82%",
+              en: "Shrub",
+              fr: "arbuste (m)",
+              ipa: "/aʀbyst/",
+            },
+          ],
+        },
+        {
+          img: "/img/house/slide6.jpg",
+          alt: "Gutters and downspouts",
+          hotspots: [
+            {
+              left: "25%",
+              top: "66%",
+              en: "rain barrel",
+              fr: "baril de pluie (m)",
+              ipa: "/baʀi(l).də.plɥi/",
+            },
+            {
+              left: "58%",
+              top: "61%",
+              en: "Deck",
+              fr: "terrasse en bois (f)",
+              ipa: "/teʀas.ɑ̃.bwɑ/",
+            },
+            {
+              left: "69%",
+              top: "91%",
+              en: "Paver patio",
+              fr: "terrasse en pavé (f)",
+              ipa: "/teʀas.ɑ̃.pave/",
+            },
+            {
+              left: "44%",
+              top: "85%",
+              en: "Hose",
+              fr: "tuyau d'arrosage (m)",
+              ipa: "/tɥijo.daʀozaʒ/",
+            },
+            {
+              left: "56%",
+              top: "95%",
+              en: "Nozzle",
+              fr: "pistolet d'arrosage (m)",
+              ipa: "/pistɔlɛ.daʀozaʒ/",
+            },
+            {
+              left: "29%",
+              top: "82%",
+              en: "Spigot",
+              fr: "robinet (m)",
+              ipa: "/ʀɔbinɛ/",
+            },
+            {
+              left: "83%",
+              top: "50%",
+              en: "Vineyard",
+              fr: "vignoble (m)",
+              ipa: "/viɲɔbl/",
+            },
+            {
+              left: "53%",
+              top: "40%",
+              en: "Tree",
+              fr: "arbre (m)",
+              ipa: "/aʀbʀ/",
+            },
+          ],
+        },
+        {
+          img: "/img/house/slide7.jpg",
+          alt: "Hedge",
+          hotspots: [
+            {
+              left: "5%",
+              top: "91%",
+              en: "Weed",
+              fr: "mauvaise herbe (f)",
+              ipa: "/movεz.εrb/",
+            },
+            {
+              left: "32%",
+              top: "65%",
+              en: "Back door",
+              fr: "porte de derrière (f)",
+              ipa: "/pɔʀt.də.dɛʀjɛʀ/",
+            },
+            {
+              left: "69%",
+              top: "70%",
+              en: "Hedge",
+              fr: "haie (f)",
+              ipa: "/ɛ/",
+            },
+            {
+              left: "70%",
+              top: "43%",
+              en: "Pleached trees",
+              fr: "arbres palissés (m)",
+              ipa: "/aʀbʀ.palise/",
+            },
+          ],
+        },
+      ];
+
+      let deck = baseDeck.map((card, index) => ({ ...card, id: index }));
+      let currentIndex = 0;
+      const frontText = document.getElementById("card-front-text");
+      const countLabel = document.getElementById("card-count");
+      const thumbnailStrip = document.getElementById("thumbnailStrip");
+      const hotspotTooltip = document.createElement("div");
+      hotspotTooltip.className = "hotspot-tooltip";
+      hotspotTooltip.setAttribute("role", "dialog");
+      hotspotTooltip.setAttribute("aria-hidden", "true");
+      hotspotTooltip.innerHTML = `
+            <div class="hotspot-tooltip-en"></div>
+            <div class="hotspot-tooltip-divider"></div>
+            <div class="hotspot-tooltip-fr"></div>
+            <div class="hotspot-tooltip-ipa"></div>
+            <button type="button" class="hotspot-tooltip-close" aria-label="Close hotspot info">&#215;</button>
+          `;
+      document.body.appendChild(hotspotTooltip);
+      const tooltipEn = hotspotTooltip.querySelector(".hotspot-tooltip-en");
+      const tooltipFr = hotspotTooltip.querySelector(".hotspot-tooltip-fr");
+      const tooltipIpa = hotspotTooltip.querySelector(".hotspot-tooltip-ipa");
+      let pinnedHotspot = null;
+      let hideTimer = null;
+
+      function positionTooltip(hotspot) {
+        const rect = hotspot.getBoundingClientRect();
+        const tooltipRect = hotspotTooltip.getBoundingClientRect();
+        let left =
+          rect.left + rect.width / 2 - tooltipRect.width / 2 + window.scrollX;
+        left = Math.max(
+          window.scrollX + 8,
+          Math.min(
+            left,
+            window.scrollX + window.innerWidth - tooltipRect.width - 8
+          )
+        );
+
+        let top = rect.top + window.scrollY - tooltipRect.height - 12;
+        if (top < window.scrollY + 8) {
+          top = rect.bottom + window.scrollY + 12;
+        }
+        hotspotTooltip.style.left = `${left}px`;
+        hotspotTooltip.style.top = `${top}px`;
+      }
+
+      function showHotspotTooltip(hotspot) {
+        if (!hotspot) return;
+        clearTimeout(hideTimer);
+        tooltipEn.textContent = hotspot.dataset.en;
+        tooltipFr.textContent = hotspot.dataset.fr;
+        tooltipIpa.textContent = hotspot.dataset.ipa;
+        hotspotTooltip.classList.add("is-visible");
+        hotspotTooltip.setAttribute("aria-hidden", "false");
+        // Temporarily make sure we can measure size even if hidden
+        positionTooltip(hotspot);
+      }
+
+      function hideHotspotTooltip() {
+        hotspotTooltip.classList.remove("is-visible");
+        hotspotTooltip.setAttribute("aria-hidden", "true");
+        pinnedHotspot = null;
+      }
+
+      function buildCardMarkup(card) {
+        const hotspotMarkup = card.hotspots
+          .map(
+            (spot) => `
+                  <button
+                    class="hotspot"
+                    style="left:${spot.left}; top:${spot.top};"
+                    data-en="${spot.en}"
+                    data-fr="${spot.fr}"
+                    data-ipa="${spot.ipa}"
+                  >
+                    <span class="sr-only">${spot.en} / ${spot.fr}</span>
+                  </button>
+                `
+          )
+          .join("");
+
+        return `
+              <div class="hotspot-wrap">
+                <img src="${card.img}" alt="${card.alt || ""}" loading="lazy">
+                ${hotspotMarkup}
+              </div>
+            `;
+      }
+
+      // 2. Load the content
+      function loadCard() {
+        frontText.innerHTML = buildCardMarkup(deck[currentIndex]);
+        countLabel.innerHTML = `${currentIndex + 1} / ${deck.length}`;
+        hideHotspotTooltip();
+        updateActiveThumbnail();
+      }
+      function renderThumbnails() {
+        thumbnailStrip.innerHTML = "";
+        baseDeck.forEach((card, idx) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "thumb-card";
+          btn.dataset.cardId = idx;
+          btn.innerHTML = `
+                <div class="thumb-number">#${idx + 1}</div>
+                <div class="thumb-preview"><img src="${card.img}" alt="${card.alt || ""}" loading="lazy"></div>
+              `;
+          btn.addEventListener("click", () => {
+            const targetIndex = deck.findIndex((item) => item.id === idx);
+            if (targetIndex !== -1) {
+              currentIndex = targetIndex;
+              loadCard();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          });
+          thumbnailStrip.appendChild(btn);
+        });
+        updateActiveThumbnail();
+      }
+
+      function updateActiveThumbnail() {
+        const activeId = deck[currentIndex].id;
+        const buttons = thumbnailStrip.querySelectorAll(".thumb-card");
+        buttons.forEach((btn) => {
+          const btnId = Number(btn.dataset.cardId);
+          btn.classList.toggle("is-active", btnId === activeId);
+        });
+      }
+
+      // 3. Navigation
+      function nextCard() {
+        if (currentIndex < deck.length - 1) {
+          currentIndex++;
+          loadCard();
+        }
+      }
+
+      function prevCard() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          loadCard();
+        }
+      }
+
+      // Initialize
+      renderThumbnails();
+      loadCard();
+
+      // 4. Hotspot interaction
+      document.addEventListener("mouseover", (event) => {
+        const hotspot = event.target.closest(".hotspot");
+        if (!hotspot || pinnedHotspot) return;
+        showHotspotTooltip(hotspot);
+      });
+
+      document.addEventListener("mouseout", (event) => {
+        const hotspot = event.target.closest(".hotspot");
+        if (!hotspot || pinnedHotspot) return;
+        const toElement = event.relatedTarget;
+        if (
+          toElement &&
+          (toElement.closest(".hotspot") ||
+            toElement.closest(".hotspot-tooltip"))
+        ) {
+          return;
+        }
+        hideTimer = setTimeout(hideHotspotTooltip, 120);
+      });
+
+      document.addEventListener("click", (event) => {
+        if (event.target.closest(".hotspot-tooltip-close")) {
+          hideHotspotTooltip();
+          return;
+        }
+
+        const hotspot = event.target.closest(".hotspot");
+        if (hotspot) {
+          pinnedHotspot = hotspot;
+          showHotspotTooltip(hotspot);
+          return;
+        }
+
+        if (!event.target.closest(".hotspot-tooltip")) {
+          hideHotspotTooltip();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          hideHotspotTooltip();
+        }
+      });
+
+      window.addEventListener("scroll", () => {
+        if (pinnedHotspot) {
+          positionTooltip(pinnedHotspot);
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (pinnedHotspot) {
+          positionTooltip(pinnedHotspot);
+        }
+      });
+      function shuffleDeck() {
+        // 1. The Fisher-Yates Shuffle Algorithm
+        // (This loops backward through the deck and swaps each card with a random one)
+        for (let i = deck.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+
+        // 2. Reset the user to the start of the newly shuffled deck
+        currentIndex = 0;
+
+        // 3. Reload the display
+        loadCard();
+
+        // Optional: Give visual feedback (e.g., update the button text briefly)
+        const btn = document.querySelector('button[onclick="shuffleDeck()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Deck Shuffled!";
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 1000);
+      }
+
+      function reorderDeck() {
+        // Restore the deck to its original sequential order
+        deck = baseDeck.map((card, index) => ({ ...card, id: index }));
+        currentIndex = 0;
+        loadCard();
+
+        const btn = document.querySelector('button[onclick="reorderDeck()"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = "Deck Reordered!";
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+        }, 1000);
+      }
+    </script>
+  </body>
+</html>

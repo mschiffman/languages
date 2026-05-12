@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blurting Method: Le Marché</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      :root {
+        --primary: #2c3e50;
+        --accent: #e67e22; /* Carrot orange for 'Market' feel */
+        --success: #27ae60;
+        --missed: #c0392b;
+        --bg: #fdfbf7;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: var(--bg);
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--primary);
+      }
+
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Topic Selection */
+      .topic-selector {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .topic-btn {
+        padding: 10px 20px;
+        border: 2px solid #ddd;
+        background: white;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s;
+        color: #777;
+      }
+
+      .topic-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .topic-btn.active {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+      }
+
+      /* Instructions */
+      .instructions {
+        text-align: center;
+        margin-bottom: 15px;
+        font-style: italic;
+        color: #666;
+      }
+
+      /* Input Area */
+      textarea {
+        width: 100%;
+        height: 150px;
+        padding: 15px;
+        border: 2px solid #eee;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-family: inherit;
+        resize: vertical;
+        box-sizing: border-box; /* Fix padding issues */
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+
+      /* Action Button */
+      .check-btn {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .check-btn:hover {
+        background: #34495e;
+      }
+
+      /* Results Area */
+      .results-area {
+        display: none; /* Hidden by default */
+        margin-top: 30px;
+        border-top: 2px dashed #eee;
+        padding-top: 20px;
+      }
+
+      .score-display {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .columns {
+        display: flex;
+        gap: 20px;
+      }
+
+      .col {
+        flex: 1;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .col-found {
+        background-color: #eafaf1;
+        border: 1px solid #d5f5e3;
+      }
+      .col-missed {
+        background-color: #fdedec;
+        border: 1px solid #fadbd8;
+      }
+
+      h3 {
+        margin-top: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 10px;
+      }
+
+      .word-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .word-tag {
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.95rem;
+      }
+
+      .tag-found {
+        background: white;
+        color: var(--success);
+        border: 1px solid var(--success);
+        font-weight: bold;
+      }
+      .tag-missed {
+        background: white;
+        color: var(--missed);
+        border: 1px solid var(--missed);
+        opacity: 0.8;
+      }
+
+      @media (max-width: 600px) {
+        .columns {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🧠 The Blurting Method</h1>
+
+      <div class="topic-selector" id="topic-buttons"></div>
+
+      <div class="instructions" id="instruction-text">
+        Select a topic above to start.
+      </div>
+
+      <textarea
+        id="user-input"
+        placeholder="Type everything you remember here... (e.g., tomates, carottes, pain...)"
+      ></textarea>
+
+      <button class="check-btn" onclick="checkAnswers()">
+        Check My Recall
+      </button>
+
+      <div class="results-area" id="results">
+        <div class="score-display" id="score"></div>
+        <div class="columns">
+          <div class="col col-found">
+            <h3>✅ Recovered</h3>
+            <ul class="word-list" id="list-found"></ul>
+          </div>
+          <div class="col col-missed">
+            <h3>❌ Forgotten</h3>
+            <ul class="word-list" id="list-missed"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 1. DATA: Extracted from marche.md
+      const topics = {
+        products: {
+          label: "🍏 Fruits, Veg & Food",
+          desc: "List all fruits, vegetables, meats, and food products mentioned.",
+          keywords: [
+            "fruits",
+            "légumes",
+            "tomates",
+            "carottes",
+            "salade",
+            "herbes",
+            "pain",
+            "baguette",
+            "fromage",
+            "viande",
+            "poisson",
+            "produits",
+          ],
+        },
+        objects: {
+          label: "⛺ Market Objects",
+          desc: "List the physical objects, structures, and people found at the market.",
+          keywords: [
+            "marché",
+            "stand",
+            "auvent",
+            "étal",
+            "échoppe",
+            "allée",
+            "chemin",
+            "panier",
+            "sac",
+            "balance",
+            "caisse",
+            "table",
+            "arbre",
+            "parc",
+            "vendeur",
+            "vendeuse",
+            "client",
+            "cliente",
+          ],
+        },
+        adjectives: {
+          label: "✨ Adjectives",
+          desc: "List descriptive words (fresh, ripe, cheap, local, etc.).",
+          keywords: [
+            "frais",
+            "fraîche",
+            "mûr",
+            "vert",
+            "pourri",
+            "bio",
+            "local",
+            "saison",
+            "maison",
+            "artisanal",
+            "cher",
+            "abordable",
+            "juteux",
+            "croquant",
+            "tendre",
+            "dur",
+            "mou",
+            "savoureux",
+            "délicieux",
+            "sucré",
+            "acide",
+            "amer",
+            "parfumé",
+            "coloré",
+            "varié",
+            "abîmé",
+            "entier",
+            "coupé",
+            "tranché",
+            "emballé",
+            "vrac",
+            "animé",
+            "convivial",
+          ],
+        },
+        verbs: {
+          label: "💬 Buying Verbs/Terms",
+          desc: "List verbs and nouns used in dialogues (buy, cost, pay, price...).",
+          keywords: [
+            "faire",
+            "courses",
+            "acheter",
+            "combien",
+            "coûte",
+            "prix",
+            "voudrais",
+            "prends",
+            "donnez",
+            "kilo",
+            "livre",
+            "monnaie",
+            "goûter",
+            "marchander",
+            "payer",
+            "espèces",
+            "carte",
+            "conseil",
+            "cherche",
+            "livraison",
+            "réduction",
+          ],
+        },
+      };
+
+      let currentTopicKey = "products"; // Default
+
+      // 2. INIT
+      function init() {
+        const btnContainer = document.getElementById("topic-buttons");
+
+        for (const [key, data] of Object.entries(topics)) {
+          const btn = document.createElement("button");
+          btn.className = `topic-btn ${key === currentTopicKey ? "active" : ""}`;
+          btn.innerText = data.label;
+          btn.onclick = () => setTopic(key, btn);
+          btnContainer.appendChild(btn);
+        }
+
+        updateUI();
+      }
+
+      // 3. LOGIC: Switch Topic
+      function setTopic(key, btnElement) {
+        currentTopicKey = key;
+
+        // Update Buttons
+        document
+          .querySelectorAll(".topic-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btnElement.classList.add("active");
+
+        // Reset UI
+        document.getElementById("user-input").value = "";
+        document.getElementById("results").style.display = "none";
+        updateUI();
+      }
+
+      function updateUI() {
+        const data = topics[currentTopicKey];
+        document.getElementById("instruction-text").innerText = data.desc;
+      }
+
+      // 4. LOGIC: Check Answers
+      function checkAnswers() {
+        const rawInput = document.getElementById("user-input").value;
+        const targetWords = topics[currentTopicKey].keywords;
+
+        // Normalize Input: lowercase, replace punctuation with spaces
+        const cleanInput = rawInput
+          .toLowerCase()
+          .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, " ")
+          .replace(/\s{2,}/g, " ");
+
+        // We look for keyword inclusion.
+        // Strategy: Iterate through TARGET words and see if they exist in USER input.
+
+        const found = [];
+        const missed = [];
+
+        targetWords.forEach((word) => {
+          // Simple check: does the string contain the word?
+          // "tomates" matches "tomates" or "des tomates"
+          // Note: This is lenient. It matches "frais" inside "fraises" if we aren't careful.
+          // For better accuracy, we can split input into a Set of words.
+
+          const inputWords = cleanInput.split(" ");
+          if (inputWords.includes(word.toLowerCase())) {
+            found.push(word);
+          } else {
+            missed.push(word);
+          }
+        });
+
+        // Render Results
+        const foundList = document.getElementById("list-found");
+        const missedList = document.getElementById("list-missed");
+
+        foundList.innerHTML = "";
+        missedList.innerHTML = "";
+
+        found.forEach((w) => {
+          const li = document.createElement("li");
+          li.className = "word-tag tag-found";
+          li.innerText = w;
+          foundList.appendChild(li);
+        });
+
+        missed.forEach((w) => {
+          const li = document.createElement("li");
+          li.className = "word-tag tag-missed";
+          li.innerText = w;
+          missedList.appendChild(li);
+        });
+
+        // Score
+        const total = targetWords.length;
+        const scoreVal = found.length;
+        const percent = Math.round((scoreVal / total) * 100);
+
+        const scoreEl = document.getElementById("score");
+        scoreEl.innerText = `Score: ${scoreVal}/${total} (${percent}%)`;
+
+        document.getElementById("results").style.display = "block";
+      }
+
+      init();
+    </script>
+  </body>
+</html>

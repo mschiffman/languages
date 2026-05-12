@@ -1,0 +1,24 @@
+$custom-colors: (
+  "purple": #6f42c1,
+  "teal": #20c997,
+  "orange": #fd7e14,
+  "pink": #e83e8c,
+  "indigo": #6610f2,
+  "coral": #ff7f50,
+  "chocolate": #d2691e,
+  "darkmagenta": #8b008b,
+  "darkcyan": #008b8b,
+);
+
+@each $name, $color in $custom-colors {
+  .btn-outline-#{$name} {
+    --bs-btn-color: #{$color};
+    --bs-btn-border-color: #{$color};
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #{$color};
+    --bs-btn-hover-border-color: #{$color};
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #{darken($color, 10%)};
+    --bs-btn-active-border-color: #{darken($color, 10%)};
+  }
+}

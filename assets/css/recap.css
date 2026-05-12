@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  height: 800px;
+  position: relative;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  cursor: grab;
+  touch-action: none; /* Prevent browser scrolling/zooming */
+}
+
+.center-circle {
+  fill: #005fa4;
+}
+
+.service-circle {
+  cursor: pointer;
+}
+
+.service-circle circle {
+  fill: #005fa4;
+  stroke: #fff;
+  stroke-width: 3;
+  transition: all 0.3s ease;
+}
+
+.service-circle:hover circle {
+  fill: #0077cc;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
+}
+
+.service-circle text {
+  fill: #fff;
+  font-size: 14px;
+  text-anchor: middle;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.service-circle:hover text {
+  font-weight: bold;
+  fill: #fff;
+}
+
+.service-icon {
+  pointer-events: none;
+}
+
+.service-circle.active circle {
+  fill: #0088dd;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+}
+
+.service-circle.active text {
+  font-weight: bold;
+}
+
+.connector-line {
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 2;
+  stroke-dasharray: 5, 5;
+  animation: dash 20s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.svg-placeholder {
+  fill: #fff;
+  opacity: 0.8;
+}
+
+b {
+  font-size: 1.2em;
+  color: #ff0000;
+}
+
+#center-content ul {
+  text-align: left;
+  display: inline-block;
+}

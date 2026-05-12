@@ -1,0 +1,1633 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      b {
+        color: rgb(181, 1, 181);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/groundwater.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>L’eau souterraine</h1>
+      </div>
+      <h5>Une richesse cachée sous nos pieds</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="french-text-img" src="/img/groundwater.svg" alt="" />
+          <!-- Text with tooltips -->
+          Voici l’essentiel sur les eaux
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sutɛʀɛn/"
+            data-meaning="underground"
+          >
+            souterraines</span
+          >, ce
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tʀezɔʀ/"
+            data-meaning="treasure"
+            >trésor</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛ̃vizibl/"
+            data-meaning="invisible"
+            >invisible</span
+          >
+          mais absolument
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vital/"
+            data-meaning="vital"
+            >vital</span
+          >
+          qui se
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kaʃ/"
+            data-meaning="to hide"
+            data-origin="cacher /kaʃe/"
+            >cache</span
+          >
+
+          juste sous nos pieds. Elles
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀəpʀezɑ̃t/"
+            data-meaning="to represent"
+            data-origin="représenter /ʀ(ə)pʀezɑ̃te/"
+          >
+            représentent</span
+          >
+          près de 30 % de toute l’eau douce de la planète… et pourtant, on n’y
+          pense presque jamais. Mais alors… qu’est-ce que c’est vraiment ? Et
+          pourquoi les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sjɑ̃tifik/"
+            data-meaning="scientific"
+            >scientifiques</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tiʀ/"
+            data-meaning="to pull"
+            data-origin="tirer /tiʀe/"
+            >tirent</span
+          >-ils la sonnette d’alarme ?
+        </p>
+        <hr />
+        <p>
+          <b>1. Ce que sont vraiment les eaux souterraines :</b><br />Oubliez
+          l’<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/imaʒ/"
+            data-meaning="picture"
+            >image</span
+          >
+          des grandes rivières qui
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɛʀpɑ̃t/"
+            data-meaning="to wind"
+            data-origin="serpenter /sɛʀpɑ̃te/"
+            >serpentent</span
+          >
+
+          dans des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɡʀɔt/"
+            data-meaning="caves"
+            >grottes</span
+          >
+          . La nature fait les choses
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/otʀəmɑ̃ /"
+            data-meaning="differently"
+            >autrement</span
+          >
+          — et franchement, c’est encore plus incroyable. Imaginez le sol comme
+          une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/imɑ̃s/"
+            data-meaning="huge"
+            data-origin=""
+            >immense</span
+          >
+
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/epɔ̃ʒ/"
+            data-meaning="sponge"
+            data-origin=""
+            >éponge</span
+          >
+
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔ̃poze/"
+            data-meaning="made up of"
+            data-origin="composer /kɔ̃poze /"
+            >composée</span
+          >
+          de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀɔʃ/"
+            data-meaning="rocks"
+            >roches
+          </span>
+          et de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sedimɑ̃/"
+            data-meaning="sediment"
+            data-origin=""
+            >sédiments</span
+          >
+          . L’eau ne circule pas dans des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tynɛl /"
+            data-meaning="tunnels"
+            data-origin=""
+            >tunnels</span
+          >
+          ; elle
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀɑ̃pli/"
+            data-meaning="to fill up"
+            data-origin="remplir /ʀɑ̃pliʀ/"
+            >remplit </span
+          >
+          les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/minyskyl/"
+            data-meaning="minute / tiny"
+            data-origin=""
+            >minuscules</span
+          >
+
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɔʀ/"
+            data-meaning="pores"
+            data-origin=""
+            >pores</span
+          >
+          et
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fisyʀ/"
+            data-meaning="cracks"
+            data-origin=""
+            >fissures
+          </span>
+
+          de la roche. Lorsqu’une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kuʃ.ʀɔʃøz/"
+            data-meaning="rock layer"
+            >couche rocheuse</span
+          >
+          peut à la fois
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/stɔke/"
+            data-meaning="to store"
+            >stocker</span
+          >
+          l’eau et la laisser circuler, on parle alors d’un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/akifɛʀ/"
+            data-meaning="aquifer"
+            >aquifère</span
+          >. Pour bien fonctionner, un aquifère a besoin de deux
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kalite/"
+            data-meaning="qualities"
+            >qualités</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/esɑ̃sjɛl/"
+            data-meaning="essential"
+            >essentielles</span
+          >
+          :
+        </p>
+        <ul>
+          <li>
+            de la
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/pɔʀozite/"
+              data-meaning="porosity"
+              >porosité</span
+            >, pour pouvoir stocker l’eau ;
+          </li>
+          <li>
+            de la
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/pɛʀmeabilite/"
+              data-meaning="permeability"
+              >perméabilité</span
+            >, pour que l’eau
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/pɥis/"
+              data-meaning="can / be able to"
+              data-origin="pouvoir /puvwaʀ/"
+              >puisse</span
+            >
+            se
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/deplase/"
+              data-meaning="to move"
+              >déplacer</span
+            >.
+          </li>
+        </ul>
+        Un véritable petit
+        <span
+          class="word-info"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="/ʃɛdœvʀ/"
+          data-meaning="masterpiece"
+          >chef-d’œuvre</span
+        >
+        de la nature.
+        <hr />
+        <p>
+          <b
+            >2. Comment on
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/atɛ̃/"
+              data-meaning="to reach"
+              data-origin="atteindre /atɛ̃dʀ/"
+              >atteint</span
+            >
+            cette eau:</b
+          ><br />On
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛkstʀɛ/"
+            data-meaning="to extract"
+            data-origin="extraire /ɛkstʀɛʀ/"
+            >extrait</span
+          >
+          cette eau grâce à des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɥi/"
+            data-meaning="wells"
+            >puits</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fɔʀe/"
+            data-meaning="to drill"
+            data-origin="forer /fɔʀe/"
+            >forés</span
+          >
+          dans deux grands types d’aquifères :
+        </p>
+        <ul>
+          <li>
+            <strong
+              >Les aquifères libres (ou non
+              <span
+                class="word-info"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="/kɔ̃fine/"
+                data-meaning="to confine"
+                data-origin="confiner /kɔ̃fine/"
+                >confinés</span
+              >)</strong
+            >
+            : Ils sont proches de la
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/syʀfas/"
+              data-meaning="surface"
+              >surface</span
+            >. Ils se
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ʀəʃaʀʒ/"
+              data-meaning="to recharge"
+              data-origin="recharger /ʀəʃaʀʒe/"
+              >rechargent</span
+            >
+            assez rapidement, parfois en quelques années ou décennies, car l’eau
+            de pluie peut y
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/penetʀe/"
+              data-meaning="to penetrate"
+              >pénétrer</span
+            >
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/diʀɛktəmɑ̃/"
+              data-meaning="directly"
+              >directement</span
+            >. Mais ils
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ʀeaʒis/"
+              data-meaning="to react"
+              data-origin="réagir /ʀeaʒiʀ/"
+              >réagissent</span
+            >
+            vite aux
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/seʃʀɛs/"
+              data-meaning="droughts"
+              >sécheresses</span
+            >, aux
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/vag/"
+              data-meaning="waves"
+              >vagues</span
+            >
+            de chaleur et au
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/pɔ̃paʒ/"
+              data-meaning="pumping"
+              >pompage</span
+            >
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ɛksesif/"
+              data-meaning="excessive"
+              >excessif</span
+            >.
+          </li>
+          <li>
+            <strong
+              >Les aquifères
+              <span
+                class="word-info"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="/kaptif/"
+                data-meaning="captive"
+                >captifs</span
+              >
+              (ou confinés)</strong
+            >
+            : Ils sont plus
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/pʀɔfɔ̃/"
+              data-meaning="deep"
+              >profonds</span
+            >,
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/kwɛ̃se/"
+              data-meaning="to stick / to wedge"
+              data-origin="coincer /kwɛ̃se/"
+              >coincés</span
+            >
+            entre des couches de roche
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ɛ̃pɛʀmeabl/"
+              data-meaning="impermeable"
+              >imperméable</span
+            >. Et là… la recharge
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/dəvjɛ̃/"
+              data-meaning="to become"
+              data-origin="devenir /dəvniʀ/"
+              >devient</span
+            >
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ɛkstʀɛməmɑ̃/"
+              data-meaning="extremely"
+              >extrêmement</span
+            >
+            lente : des siècles, parfois même des
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/milenɛʀ/"
+              data-meaning="millennia"
+              >millénaires</span
+            >. Certains
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/kɔ̃tjɛn/"
+              data-meaning="to contain"
+              data-origin="contenir /kɔ̃təniʀ/"
+              >contiennent</span
+            >
+            même de l’eau
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/fɔsil/"
+              data-meaning="fossil"
+              >fossile</span
+            >, presque
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ɛ̃takt/"
+              data-meaning="intact"
+              >intacte</span
+            >
+            depuis l’<span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ɑ̃tikite/"
+              data-meaning="Antiquity"
+              >Antiquité</span
+            >. Quand on
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/fɔʀ/"
+              data-meaning="to drill"
+              data-origin="forer /fɔʀe/"
+              >fore</span
+            >
+            un puits dans un aquifère captif, la pression
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ɛ̃tɛʀn/"
+              data-meaning="internal"
+              >interne</span
+            >
+            peut faire remonter l’eau toute seule. C’est la
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/maʒi/"
+              data-meaning="magic"
+              >magie</span
+            >
+            du
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/pɥi.aʀtezjɛ̃/"
+              data-meaning="artesian well"
+              >puits artésien</span
+            >
+            — un
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/fenɔmɛn/"
+              data-meaning="phenomenon"
+              >phénomène</span
+            >
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/natyʀɛl/"
+              data-meaning="natural"
+              >naturel</span
+            >
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/fasinɑ̃/"
+              data-meaning="fascinating"
+              >fascinant</span
+            >. Le terme « artésien » vient de la
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/pʀɔvɛ̃s/"
+              data-meaning="province"
+              >province</span
+            >
+            française d’<span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/aʀtwa/"
+              data-meaning="Artois"
+              >Artois</span
+            >
+            (autrefois appelée
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/aʀtezjɔm/"
+              data-meaning="Artesium"
+              >Artesium</span
+            >), dans le nord de la France.
+          </li>
+        </ul>
+        <hr />
+        <p>
+          <b
+            >3. Le
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/dɑ̃ʒe/"
+              data-meaning="danger"
+              >danger</span
+            >
+            qui inquiète les scientifiques : l'<span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/afɛsmɑ̃/"
+              data-meaning="subsidence / sinking"
+              >affaissement</span
+            ></b
+          ><br />Et voilà la partie qui fait vraiment peur. Quand on
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɔ̃p/"
+            data-meaning="to pump"
+            data-origin="pomper /pɔ̃pe/"
+            >pompe</span
+          >
+          l’eau plus vite qu’elle ne se recharge, le sol au-dessus commence
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/liteʀalmɑ̃/"
+            data-meaning="literally"
+            >littéralement</span
+          >
+          à s’<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/afɛse/"
+            data-meaning="to collapse"
+            >affaisser</span
+          >.
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀive/"
+            data-meaning="to deprive"
+            data-origin="priver /pʀive/"
+            >Privé</span
+          >
+          de l’eau qui
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sutnɛ/"
+            data-meaning="to support"
+            data-origin="soutenir /sutniʀ/"
+            >soutenait</span
+          >
+          sa
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/stʀyktyʀ/"
+            data-meaning="structure"
+            >structure</span
+          >,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tu.sə.tas/"
+            data-meaning="everything settles"
+            data-origin="tasser /tase/"
+            >tout se tasse</span
+          >… parfois de plusieurs mètres. En Californie, dans la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vale/"
+            data-meaning="valley"
+            >vallée</span
+          >
+          de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/san ʒwakɛ̃/"
+            data-meaning="San Joaquin"
+            >San Joaquin</span
+          >, le sol a
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʃyte/"
+            data-meaning="to fall"
+            data-origin="chuter /ʃyte/"
+            >chuté</span
+          >
+          de plus de huit mètres. Huit mètres ! Des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʃɑ̃/"
+            data-meaning="fields"
+            >champs</span
+          >, des routes et même des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kaʀtje/"
+            data-meaning="neighborhoods"
+            >quartiers</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃tje/"
+            data-meaning="entire"
+            >entiers</span
+          >
+          s’<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃fɔ̃s/"
+            data-meaning="to sink"
+            data-origin="enfoncer /ɑ̃fɔ̃se/"
+            >enfoncent</span
+          >
+          lentement parce qu’on puise trop et trop vite. Et le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/piʀ/"
+            data-meaning="worst"
+            >pire</span
+          >
+          ? Une fois affaissé, le sol ne retrouve jamais son état
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/inisjal/"
+            data-meaning="initial"
+            >initial</span
+          >. Les pores se
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀəfɛʀm/"
+            data-meaning="to close up again"
+            data-origin="refermer /ʀəfɛʀme/"
+            >referment</span
+          >, et l’aquifère perd
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/definitivmɑ̃/"
+            data-meaning="permanently"
+            >définitivement</span
+          >
+          une partie de sa
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kapasite/"
+            data-meaning="capacity"
+            >capacité</span
+          >
+          de stockage. Dans les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/zon/"
+            data-meaning="zones"
+            >zones</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kotjɛʀ/"
+            data-meaning="coastal"
+            >côtières</span
+          >, le pompage excessif ouvre même la porte à l’<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛ̃tʀyzjɔ̃/"
+            data-meaning="intrusion"
+            >intrusion</span
+          >
+          d’eau salée… qui peut tout
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔ̃tamine/"
+            data-meaning="to contaminate"
+            >contaminer</span
+          >.
+        </p>
+        <hr />
+        <p>
+          <b
+            >4. En
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ʀezyme/"
+              data-meaning="summary"
+              >résumé</span
+            >:</b
+          ><br />Les eaux souterraines sont une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀiʃɛs/"
+            data-meaning="wealth / richness"
+            >richesse</span
+          >
+          incroyable :
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/silɑ̃sjøz/"
+            data-meaning="silent"
+            >silencieuse</span
+          >,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pasjɑ̃t/"
+            data-meaning="patient"
+            >patiente</span
+          >, ancienne. Mais certains aquifères
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mɛt/"
+            data-meaning="to take (time)"
+            data-origin="mettre /mɛtʀ/"
+            >mettent</span
+          >
+          des décennies à se recharger… et d'autres, des siècles. Si on les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vid/"
+            data-meaning="to empty"
+            data-origin="vider /vide/"
+            >vide</span
+          >
+          plus vite qu'ils ne se
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀɑ̃plis/"
+            data-meaning="to fill"
+            data-origin="remplir /ʀɑ̃pliʀ/"
+            >remplissent</span
+          >, les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/deɡa/"
+            data-meaning="damage"
+            >dégâts</span
+          >
+          peuvent être
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/iʀevɛʀsibl/"
+            data-meaning="irreversible"
+            >irréversibles</span
+          >. Ce n'est pas qu'une affaire d'eau : c'est littéralement notre sol,
+          sous nos pieds, qu'il faut
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀɔteʒe/"
+            data-meaning="to protect"
+            >protéger</span
+          >.
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Here’s the lowdown on groundwater — that invisible but absolutely
+          vital treasure hiding just beneath our feet. It makes up nearly 30% of
+          all the fresh water on the planet… and yet, we almost never think
+          about it. But what is it, really? And why are scientists sounding the
+          alarm?
+        </p>
+        <hr />
+        <p>
+          <b>1. What groundwater really is:</b><br />
+          Forget the idea of huge rivers flowing through underground caves.
+          Nature works differently — and honestly, it’s even more amazing.
+          Picture the ground as a giant sponge made of rock and sediment. Water
+          doesn’t flow through tunnels; it seeps into tiny pores and cracks in
+          the rock. When a layer of rock can both store water and let it move
+          through, we call it an aquifer. To function properly, an aquifer needs
+          two key traits:
+        </p>
+        <ul>
+          <li>porosity, to hold water;</li>
+          <li>permeability, so water can move through it.</li>
+        </ul>
+        A true little masterpiece of nature.
+
+        <hr />
+        <p>
+          <b>2. How we access that water:</b><br />
+          This water is extracted through wells drilled in two main types of
+          aquifers:
+        </p>
+        <ul>
+          <li>
+            <strong>Free aquifers (or unconfined)</strong>: These are closer to
+            the surface. They recharge fairly quickly — sometimes in just a few
+            years or decades — because rainwater can seep in directly. But they
+            also react quickly to droughts, heat waves, and over-pumping.
+          </li>
+          <li>
+            <strong>Captive aquifers (or confined)</strong>: These are deeper,
+            trapped between layers of impermeable rock. And here’s the kicker:
+            recharge is extremely slow — centuries, even millennia. Some even
+            hold fossil water, almost unchanged since ancient times. When we
+            drill into a confined aquifer, internal pressure can actually push
+            the water up by itself. That’s the magic of an artesian well — a
+            natural marvel. The term "artesian" comes from the French province
+            of Artois (formerly called Artesium), in northern France.
+          </li>
+        </ul>
+        <hr />
+        <p>
+          <b>3. The danger that worries scientists: subsidence</b><br />
+          And here’s where it gets alarming. When we pump out more water than
+          gets replaced, the ground above literally starts to sink. Without the
+          water to support the underground structure, everything compresses…
+          sometimes by several meters. In California’s San Joaquin Valley, the
+          ground has dropped more than eight meters. Eight meters! Fields,
+          roads, and even entire neighborhoods are sinking — simply because
+          we’re pumping too much, too fast. And the worst part? Once the ground
+          collapses, it never goes back to how it was. The pores close up, and
+          the aquifer permanently loses some of its storage capacity. In coastal
+          areas, over-pumping can even invite seawater in… contaminating
+          everything.
+        </p>
+        <hr />
+        <p>
+          <b>4. In a nutshell:</b><br />
+          Groundwater is an incredible resource: silent, patient, ancient. But
+          some aquifers take decades to refill… and others take centuries. If we
+          drain them faster than they can recharge, the damage may be
+          irreversible. It’s not just about water: we literally have to protect
+          the ground beneath our feet.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">souterrain</td>
+              <td style="width: 40px"></td>
+              <td>underground</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">trésor</td>
+              <td style="width: 40px"></td>
+              <td>treasure</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">vital</td>
+              <td style="width: 40px"></td>
+              <td>vital</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">cacher</td>
+              <td style="width: 40px"></td>
+              <td>to hide</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">représenter</td>
+              <td style="width: 40px"></td>
+              <td>to represent</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">scientifique</td>
+              <td style="width: 40px"></td>
+              <td>scientist</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">tirer</td>
+              <td style="width: 40px"></td>
+              <td>to pull / to sound (alarm)</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">serpenter</td>
+              <td style="width: 40px"></td>
+              <td>to wind / to snake</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">grotte</td>
+              <td style="width: 40px"></td>
+              <td>cave</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">autrement</td>
+              <td style="width: 40px"></td>
+              <td>differently</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">immense</td>
+              <td style="width: 40px"></td>
+              <td>immense</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">éponge</td>
+              <td style="width: 40px"></td>
+              <td>sponge</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">composé</td>
+              <td style="width: 40px"></td>
+              <td>composed</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">roche</td>
+              <td style="width: 40px"></td>
+              <td>rock</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">sédiment</td>
+              <td style="width: 40px"></td>
+              <td>sediment</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">tunnel</td>
+              <td style="width: 40px"></td>
+              <td>tunnel</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">remplir</td>
+              <td style="width: 40px"></td>
+              <td>to fill</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">minuscule</td>
+              <td style="width: 40px"></td>
+              <td>tiny</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">pore</td>
+              <td style="width: 40px"></td>
+              <td>pore</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">fissure</td>
+              <td style="width: 40px"></td>
+              <td>crack</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">couche rocheuse</td>
+              <td style="width: 40px"></td>
+              <td>rock layer</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">stocker</td>
+              <td style="width: 40px"></td>
+              <td>to store</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">aquifère</td>
+              <td style="width: 40px"></td>
+              <td>aquifer</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">essentiel</td>
+              <td style="width: 40px"></td>
+              <td>essential</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">porosité</td>
+              <td style="width: 40px"></td>
+              <td>porosity</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">perméabilité</td>
+              <td style="width: 40px"></td>
+              <td>permeability</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">pouvoir</td>
+              <td style="width: 40px"></td>
+              <td>to be able to</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">déplacer</td>
+              <td style="width: 40px"></td>
+              <td>to move</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">chef-d’œuvre</td>
+              <td style="width: 40px"></td>
+              <td>masterpiece</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">atteindre</td>
+              <td style="width: 40px"></td>
+              <td>to reach</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">extraire</td>
+              <td style="width: 40px"></td>
+              <td>to extract</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">puits</td>
+              <td style="width: 40px"></td>
+              <td>well</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">forer</td>
+              <td style="width: 40px"></td>
+              <td>to drill</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">confiné</td>
+              <td style="width: 40px"></td>
+              <td>confined</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">surface</td>
+              <td style="width: 40px"></td>
+              <td>surface</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">recharger</td>
+              <td style="width: 40px"></td>
+              <td>to recharge</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">pénétrer</td>
+              <td style="width: 40px"></td>
+              <td>to penetrate</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">directement</td>
+              <td style="width: 40px"></td>
+              <td>directly</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">réagir</td>
+              <td style="width: 40px"></td>
+              <td>to react</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">sécheresse</td>
+              <td style="width: 40px"></td>
+              <td>drought</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">vague</td>
+              <td style="width: 40px"></td>
+              <td>wave</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">pompage</td>
+              <td style="width: 40px"></td>
+              <td>pumping</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">excessif</td>
+              <td style="width: 40px"></td>
+              <td>excessive</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">captif</td>
+              <td style="width: 40px"></td>
+              <td>captive</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">profond</td>
+              <td style="width: 40px"></td>
+              <td>deep</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">coincé</td>
+              <td style="width: 40px"></td>
+              <td>stuck / wedged</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">imperméable</td>
+              <td style="width: 40px"></td>
+              <td>impermeable</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">devenir</td>
+              <td style="width: 40px"></td>
+              <td>to become</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">extrêmement</td>
+              <td style="width: 40px"></td>
+              <td>extremely</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">millénaire</td>
+              <td style="width: 40px"></td>
+              <td>millennium</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">contenir</td>
+              <td style="width: 40px"></td>
+              <td>to contain</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">fossile</td>
+              <td style="width: 40px"></td>
+              <td>fossil</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">intact</td>
+              <td style="width: 40px"></td>
+              <td>intact</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">interne</td>
+              <td style="width: 40px"></td>
+              <td>internal</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">magie</td>
+              <td style="width: 40px"></td>
+              <td>magic</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">puits artésien</td>
+              <td style="width: 40px"></td>
+              <td>artesian well</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">phénomène</td>
+              <td style="width: 40px"></td>
+              <td>phenomenon</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">naturel</td>
+              <td style="width: 40px"></td>
+              <td>natural</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">fascinant</td>
+              <td style="width: 40px"></td>
+              <td>fascinating</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">danger</td>
+              <td style="width: 40px"></td>
+              <td>danger</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">affaissement</td>
+              <td style="width: 40px"></td>
+              <td>subsidence</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">pomper</td>
+              <td style="width: 40px"></td>
+              <td>to pump</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">littéralement</td>
+              <td style="width: 40px"></td>
+              <td>literally</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">affaisser</td>
+              <td style="width: 40px"></td>
+              <td>to collapse / to subside</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">priver</td>
+              <td style="width: 40px"></td>
+              <td>to deprive</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">soutenir</td>
+              <td style="width: 40px"></td>
+              <td>to support</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">se tasser</td>
+              <td style="width: 40px"></td>
+              <td>to settle / to compress</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">vallée</td>
+              <td style="width: 40px"></td>
+              <td>valley</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">chuter</td>
+              <td style="width: 40px"></td>
+              <td>to fall / to drop</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">champ</td>
+              <td style="width: 40px"></td>
+              <td>field</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">quartier</td>
+              <td style="width: 40px"></td>
+              <td>neighborhood</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">entier</td>
+              <td style="width: 40px"></td>
+              <td>entire</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">enfoncer</td>
+              <td style="width: 40px"></td>
+              <td>to sink</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">pire</td>
+              <td style="width: 40px"></td>
+              <td>worst</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">initial</td>
+              <td style="width: 40px"></td>
+              <td>initial</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">refermer</td>
+              <td style="width: 40px"></td>
+              <td>to close up again</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">définitivement</td>
+              <td style="width: 40px"></td>
+              <td>permanently</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">capacité</td>
+              <td style="width: 40px"></td>
+              <td>capacity</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">côtier</td>
+              <td style="width: 40px"></td>
+              <td>coastal</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">intrusion</td>
+              <td style="width: 40px"></td>
+              <td>intrusion</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">contaminer</td>
+              <td style="width: 40px"></td>
+              <td>to contaminate</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">résumé</td>
+              <td style="width: 40px"></td>
+              <td>summary</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">richesse</td>
+              <td style="width: 40px"></td>
+              <td>wealth / richness</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">silencieux</td>
+              <td style="width: 40px"></td>
+              <td>silent</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">patient</td>
+              <td style="width: 40px"></td>
+              <td>patient</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">mettre</td>
+              <td style="width: 40px"></td>
+              <td>to take (time) / to put</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">vider</td>
+              <td style="width: 40px"></td>
+              <td>to empty</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">dégât</td>
+              <td style="width: 40px"></td>
+              <td>damage</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">irréversible</td>
+              <td style="width: 40px"></td>
+              <td>irreversible</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">protéger</td>
+              <td style="width: 40px"></td>
+              <td>to protect</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

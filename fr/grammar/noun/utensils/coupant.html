@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Venn</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../../assets/css/venn-sep.css" />
+  </head>
+  <body>
+    <div
+      class="card shadow-sm p-4 mx-auto mt-4"
+      style="max-width: 600px; font-family: &quot;Segoe UI&quot;, sans-serif"
+    >
+      <h5 class="text-center text-uppercase text-muted mb-4">
+        🔪 The Battle of "Sharpened versus Sharp"
+      </h5>
+
+      <div
+        class="venn-container d-flex justify-content-center align-items-center position-relative"
+        style="height: 300px"
+      >
+        <div class="venn-circle circle-left" onclick="showVenn('savoir')">
+          <h3 class="venn-title">AIGUISÉ</h3>
+          <span class="venn-icon"
+            ><img src="/img/steps/sharpen.svg" alt="" width="110"
+          /></span>
+        </div>
+
+        <div class="venn-circle circle-right" onclick="showVenn('connaitre')">
+          <h3 class="venn-title">COUPANT</h3>
+          <span class="venn-icon"
+            ><img src="/img/steps/sharp.svg" alt="" width="60"
+          /></span>
+        </div>
+
+        <div class="venn-intersection">SHARP</div>
+      </div>
+
+      <div
+        id="venn-info"
+        class="alert alert-light border mt-3 text-center"
+        style="min-height: 120px"
+      >
+        <p class="text-muted fst-italic mt-3">
+          Click a circle to see the logic.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const vennData = {
+        savoir: {
+          title: "AIGUISÉ (sharpened or keen-edged)",
+          rule: "Focus: the process or state of having been sharpened",
+          trigger: "describes tools or blades that have been worked on",
+          examples: [
+            "Un couteau bien aiguisé → a well-sharpened knife",
+            "Un esprit aiguisé → a sharp/keen mind",
+          ],
+          color: "#3498db",
+        },
+        connaitre: {
+          title: "COUPANT (cutting, sharp)",
+          rule: "Focus: the ability to cut (effectiveness)",
+          trigger: "describes how something behaves when used",
+          examples: [
+            "Ce couteau est très coupant → this knife is very sharp (it cuts well)",
+            "une remarque coupante → a cutting remark",
+          ],
+          color: "#e74c3c",
+        },
+      };
+
+      function showVenn(key) {
+        const data = vennData[key];
+        const box = document.getElementById("venn-info");
+
+        // Generate list of examples
+        const exHtml = data.examples
+          .map((ex) => `<div class="mb-1">${ex}</div>`)
+          .join("");
+
+        box.style.borderLeft = `5px solid ${data.color}`;
+        box.innerHTML = `
+                <h5 style="color:${data.color}">${data.title}</h5>
+                <p class="mb-2">${data.rule}</p>
+                <div class="badge bg-dark text-white mb-3 p-2">${data.trigger}</div>
+                <div class="text-start bg-white p-2 rounded border">
+                    <small class="text-muted text-uppercase fw-bold">Examples:</small>
+                    ${exHtml}
+                </div>
+            `;
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

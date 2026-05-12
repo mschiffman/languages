@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Collocation Web: Les Actions du Quotidien</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="../../../../assets/css/octopus.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">🇫🇷 French Collocation Web</span>
+      </div>
+    </nav>
+
+    <div class="container-fluid px-4">
+      <div class="d-flex gap-2 mb-3 flex-wrap">
+        <a href="index.html" class="btn btn-sm btn-outline-dark">Housechores</a>
+        <a href="daily.html" class="btn btn-sm btn-outline-dark"
+          >Daily Actions</a
+        >
+        <a href="daily.html" class="btn btn-sm btn-outline-dark">Routine</a>
+      </div>
+      <div class="row">
+        <div class="col-lg-9 mb-4">
+          <div id="graph-container"></div>
+          <div id="tooltip" class="tooltip"></div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              Selection Details
+            </div>
+            <div class="card-body" id="info-panel">
+              <h5 class="card-title text-muted">Hover or Click a Node</h5>
+              <p class="card-text">
+                Select a word in the web to see its English translation and
+                details here.
+              </p>
+            </div>
+          </div>
+
+          <div class="card mt-3 shadow-sm">
+            <div class="card-header">Legend</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #f4a261"></span>
+                Le Matin (Morning)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #457b9d"></span>
+                Le Travail (Work)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #e63946"></span>
+                Les Repas (Meals)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #2a9d8f"></span>
+                Les Déplacements (Transport)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #6d597a"></span>
+                Le Soir (Evening)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #90be6d"></span>
+                Les Loisirs (Leisure)
+              </li>
+              <li class="list-group-item">
+                <span class="legend-dot" style="background: #9b5de5"></span>
+                Expressions
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script>
+      // --- 1. DATA PREPARATION ---
+      const dataset = {
+        nodes: [
+          // Center
+          {
+            id: "Les Actions du Quotidien",
+            group: "center",
+            radius: 38,
+            translation: "Daily Actions / Everyday Activities",
+            example:
+              "Les actions du quotidien rythment notre vie.<br><em>Daily actions give rhythm to our life.</em>",
+          },
+
+          // Categories (connector nodes)
+          { id: "Le Matin", group: "category", radius: 0 },
+          { id: "Le Travail", group: "category", radius: 0 },
+          { id: "Les Repas", group: "category", radius: 0 },
+          { id: "Les Déplacements", group: "category", radius: 0 },
+          { id: "Le Soir", group: "category", radius: 0 },
+          { id: "Les Loisirs", group: "category", radius: 0 },
+          { id: "Expressions", group: "category", radius: 0 },
+
+          // Le Matin (Morning routines)
+          {
+            id: "Se réveiller",
+            group: "matin",
+            translation: "to wake up",
+            example:
+              "Je me réveille à sept heures.<br><em>I wake up at seven o'clock.</em>",
+          },
+          {
+            id: "Se lever",
+            group: "matin",
+            translation: "to get up",
+            example:
+              "Il se lève toujours du pied gauche.<br><em>He always gets up on the wrong side of the bed.</em>",
+          },
+          {
+            id: "Prendre le petit-déjeuner",
+            group: "matin",
+            translation: "to have breakfast",
+            example:
+              "On prend le petit-déjeuner ensemble en famille.<br><em>We have breakfast together as a family.</em>",
+          },
+          {
+            id: "Partir au travail",
+            group: "matin",
+            translation: "to leave for work",
+            example:
+              "Elle part au travail à huit heures.<br><em>She leaves for work at eight o'clock.</em>",
+          },
+          {
+            id: "Consulter son téléphone",
+            group: "matin",
+            translation: "to check one's phone",
+            example:
+              "La première chose qu'il fait, c'est consulter son téléphone.<br><em>The first thing he does is check his phone.</em>",
+          },
+          {
+            id: "Boire un café",
+            group: "matin",
+            translation: "to drink a coffee",
+            example:
+              "Je ne peux pas fonctionner sans boire un café le matin.<br><em>I can't function without drinking a coffee in the morning.</em>",
+          },
+
+          // Le Travail (Work activities)
+          {
+            id: "Travailler",
+            group: "travail",
+            translation: "to work",
+            example:
+              "Je travaille de neuf heures à dix-huit heures.<br><em>I work from 9 AM to 6 PM.</em>",
+          },
+          {
+            id: "Assister à une réunion",
+            group: "travail",
+            translation: "to attend a meeting",
+            example:
+              "J'assiste à une réunion tous les lundis.<br><em>I attend a meeting every Monday.</em>",
+          },
+          {
+            id: "Répondre aux e-mails",
+            group: "travail",
+            translation: "to reply to emails",
+            example:
+              "Je passe une heure à répondre aux e-mails.<br><em>I spend an hour replying to emails.</em>",
+          },
+          {
+            id: "Faire une pause",
+            group: "travail",
+            translation: "to take a break",
+            example:
+              "On fait une pause café à dix heures.<br><em>We take a coffee break at ten.</em>",
+          },
+          {
+            id: "Terminer sa journée",
+            group: "travail",
+            translation: "to finish one's day",
+            example:
+              "Je termine ma journée vers dix-huit heures.<br><em>I finish my day around 6 PM.</em>",
+          },
+
+          // Les Repas (Meals)
+          {
+            id: "Déjeuner",
+            group: "repas",
+            translation: "to have lunch",
+            example:
+              "Je déjeune à midi avec mes collègues.<br><em>I have lunch at noon with my colleagues.</em>",
+          },
+          {
+            id: "Dîner",
+            group: "repas",
+            translation: "to have dinner",
+            example:
+              "On dîne à vingt heures en France.<br><em>We have dinner at 8 PM in France.</em>",
+          },
+          {
+            id: "Grignoter",
+            group: "repas",
+            translation: "to snack",
+            example:
+              "J'essaie de ne pas grignoter entre les repas.<br><em>I try not to snack between meals.</em>",
+          },
+          {
+            id: "Commander à manger",
+            group: "repas",
+            translation: "to order food",
+            example:
+              "Ce soir, on commande à manger.<br><em>Tonight, we're ordering food.</em>",
+          },
+          {
+            id: "Manger sur le pouce",
+            group: "repas",
+            translation: "to grab a quick bite",
+            example:
+              "Je n'ai pas le temps, je mange sur le pouce.<br><em>I don't have time, I'm grabbing a quick bite.</em>",
+          },
+
+          // Les Déplacements (Getting around)
+          {
+            id: "Prendre le métro",
+            group: "deplacement",
+            translation: "to take the metro",
+            example:
+              "Je prends le métro pour aller au bureau.<br><em>I take the metro to go to the office.</em>",
+          },
+          {
+            id: "Conduire",
+            group: "deplacement",
+            translation: "to drive",
+            example:
+              "Il conduit une heure pour aller au travail.<br><em>He drives an hour to get to work.</em>",
+          },
+          {
+            id: "Marcher",
+            group: "deplacement",
+            translation: "to walk",
+            example:
+              "Je préfère marcher quand il fait beau.<br><em>I prefer to walk when the weather is nice.</em>",
+          },
+          {
+            id: "Prendre le bus",
+            group: "deplacement",
+            translation: "to take the bus",
+            example:
+              "Elle prend le bus tous les matins.<br><em>She takes the bus every morning.</em>",
+          },
+          {
+            id: "Faire du vélo",
+            group: "deplacement",
+            translation: "to cycle / to bike",
+            example:
+              "De plus en plus de gens font du vélo pour aller au travail.<br><em>More and more people cycle to work.</em>",
+          },
+          {
+            id: "Rentrer à la maison",
+            group: "deplacement",
+            translation: "to go back home",
+            example:
+              "Je rentre à la maison vers dix-neuf heures.<br><em>I go back home around 7 PM.</em>",
+          },
+
+          // Le Soir (Evening)
+          {
+            id: "Se détendre",
+            group: "soir",
+            translation: "to relax",
+            example:
+              "Le soir, j'aime me détendre sur le canapé.<br><em>In the evening, I like to relax on the sofa.</em>",
+          },
+          {
+            id: "Regarder la télé",
+            group: "soir",
+            translation: "to watch TV",
+            example:
+              "On regarde la télé après le dîner.<br><em>We watch TV after dinner.</em>",
+          },
+          {
+            id: "Se coucher",
+            group: "soir",
+            translation: "to go to bed",
+            example:
+              "Je me couche vers vingt-trois heures.<br><em>I go to bed around 11 PM.</em>",
+          },
+          {
+            id: "S'endormir",
+            group: "soir",
+            translation: "to fall asleep",
+            example:
+              "J'ai du mal à m'endormir quand je suis stressé.<br><em>I have trouble falling asleep when I'm stressed.</em>",
+          },
+          {
+            id: "Lire avant de dormir",
+            group: "soir",
+            translation: "to read before sleeping",
+            example:
+              "Je lis avant de dormir pour me relaxer.<br><em>I read before sleeping to relax.</em>",
+          },
+
+          // Les Loisirs (Leisure)
+          {
+            id: "Faire du sport",
+            group: "loisir",
+            translation: "to exercise / do sports",
+            example:
+              "Je fais du sport trois fois par semaine.<br><em>I exercise three times a week.</em>",
+          },
+          {
+            id: "Sortir avec des amis",
+            group: "loisir",
+            translation: "to go out with friends",
+            example:
+              "Le samedi soir, je sors avec des amis.<br><em>On Saturday evenings, I go out with friends.</em>",
+          },
+          {
+            id: "Écouter de la musique",
+            group: "loisir",
+            translation: "to listen to music",
+            example:
+              "J'écoute de la musique dans le métro.<br><em>I listen to music on the metro.</em>",
+          },
+          {
+            id: "Jouer aux jeux vidéo",
+            group: "loisir",
+            translation: "to play video games",
+            example:
+              "Mon fils joue aux jeux vidéo après ses devoirs.<br><em>My son plays video games after his homework.</em>",
+          },
+          {
+            id: "Se promener",
+            group: "loisir",
+            translation: "to go for a walk",
+            example:
+              "On se promène dans le parc le dimanche.<br><em>We go for a walk in the park on Sundays.</em>",
+          },
+          {
+            id: "Regarder des séries",
+            group: "loisir",
+            translation: "to watch series",
+            example:
+              "Je regarde des séries sur Netflix.<br><em>I watch series on Netflix.</em>",
+          },
+
+          // Expressions
+          {
+            id: "Métro-boulot-dodo",
+            group: "expression",
+            translation: "the daily grind",
+            example:
+              "C'est toujours métro-boulot-dodo.<br><em>It's always the same daily grind.</em>",
+          },
+          {
+            id: "Prendre son temps",
+            group: "expression",
+            translation: "to take one's time",
+            example:
+              "Le dimanche, je prends mon temps.<br><em>On Sundays, I take my time.</em>",
+          },
+          {
+            id: "Être débordé",
+            group: "expression",
+            translation: "to be swamped / overwhelmed",
+            example:
+              "Je suis débordé en ce moment.<br><em>I'm swamped at the moment.</em>",
+          },
+          {
+            id: "Courir partout",
+            group: "expression",
+            translation: "to rush around everywhere",
+            example:
+              "Je cours partout toute la journée.<br><em>I rush around everywhere all day.</em>",
+          },
+          {
+            id: "Avoir la flemme",
+            group: "expression",
+            translation: "to feel lazy / can't be bothered",
+            example:
+              "J'ai la flemme de cuisiner ce soir.<br><em>I can't be bothered to cook tonight.</em>",
+          },
+          {
+            id: "Faire la grasse matinée",
+            group: "expression",
+            translation: "to sleep in",
+            example:
+              "Le dimanche, je fais la grasse matinée.<br><em>On Sundays, I sleep in.</em>",
+          },
+        ],
+        links: [
+          // Center to categories
+          { source: "Les Actions du Quotidien", target: "Le Matin" },
+          { source: "Les Actions du Quotidien", target: "Le Travail" },
+          { source: "Les Actions du Quotidien", target: "Les Repas" },
+          { source: "Les Actions du Quotidien", target: "Les Déplacements" },
+          { source: "Les Actions du Quotidien", target: "Le Soir" },
+          { source: "Les Actions du Quotidien", target: "Les Loisirs" },
+          { source: "Les Actions du Quotidien", target: "Expressions" },
+
+          // Le Matin
+          { source: "Le Matin", target: "Se réveiller" },
+          { source: "Le Matin", target: "Se lever" },
+          { source: "Le Matin", target: "Prendre le petit-déjeuner" },
+          { source: "Le Matin", target: "Partir au travail" },
+          { source: "Le Matin", target: "Consulter son téléphone" },
+          { source: "Le Matin", target: "Boire un café" },
+
+          // Le Travail
+          { source: "Le Travail", target: "Travailler" },
+          { source: "Le Travail", target: "Assister à une réunion" },
+          { source: "Le Travail", target: "Répondre aux e-mails" },
+          { source: "Le Travail", target: "Faire une pause" },
+          { source: "Le Travail", target: "Terminer sa journée" },
+
+          // Les Repas
+          { source: "Les Repas", target: "Déjeuner" },
+          { source: "Les Repas", target: "Dîner" },
+          { source: "Les Repas", target: "Grignoter" },
+          { source: "Les Repas", target: "Commander à manger" },
+          { source: "Les Repas", target: "Manger sur le pouce" },
+
+          // Les Déplacements
+          { source: "Les Déplacements", target: "Prendre le métro" },
+          { source: "Les Déplacements", target: "Conduire" },
+          { source: "Les Déplacements", target: "Marcher" },
+          { source: "Les Déplacements", target: "Prendre le bus" },
+          { source: "Les Déplacements", target: "Faire du vélo" },
+          { source: "Les Déplacements", target: "Rentrer à la maison" },
+
+          // Le Soir
+          { source: "Le Soir", target: "Se détendre" },
+          { source: "Le Soir", target: "Regarder la télé" },
+          { source: "Le Soir", target: "Se coucher" },
+          { source: "Le Soir", target: "S'endormir" },
+          { source: "Le Soir", target: "Lire avant de dormir" },
+
+          // Les Loisirs
+          { source: "Les Loisirs", target: "Faire du sport" },
+          { source: "Les Loisirs", target: "Sortir avec des amis" },
+          { source: "Les Loisirs", target: "Écouter de la musique" },
+          { source: "Les Loisirs", target: "Jouer aux jeux vidéo" },
+          { source: "Les Loisirs", target: "Se promener" },
+          { source: "Les Loisirs", target: "Regarder des séries" },
+
+          // Expressions
+          { source: "Expressions", target: "Métro-boulot-dodo" },
+          { source: "Expressions", target: "Prendre son temps" },
+          { source: "Expressions", target: "Être débordé" },
+          { source: "Expressions", target: "Courir partout" },
+          { source: "Expressions", target: "Avoir la flemme" },
+          { source: "Expressions", target: "Faire la grasse matinée" },
+        ],
+      };
+
+      // --- 2. CONFIGURATION ---
+      const width = document.getElementById("graph-container").clientWidth;
+      const height = 750;
+
+      // Color Palette
+      const colors = {
+        center: "#212529",
+        category: "#adb5bd",
+        matin: "#f4a261",
+        travail: "#457b9d",
+        repas: "#e63946",
+        deplacement: "#2a9d8f",
+        soir: "#6d597a",
+        loisir: "#90be6d",
+        expression: "#9b5de5",
+      };
+
+      // --- 3. D3 SETUP ---
+      const svg = d3
+        .select("#graph-container")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .call(
+          d3.zoom().on("zoom", (event) => {
+            g.attr("transform", event.transform);
+          }),
+        );
+
+      const g = svg.append("g");
+
+      // Force Simulation
+      const simulation = d3
+        .forceSimulation(dataset.nodes)
+        .force(
+          "link",
+          d3
+            .forceLink(dataset.links)
+            .id((d) => d.id)
+            .distance(85),
+        )
+        .force("charge", d3.forceManyBody().strength(-400))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force(
+          "collide",
+          d3.forceCollide().radius((d) => (d.radius || 20) + 14),
+        );
+
+      // Draw Links
+      const link = g
+        .append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(dataset.links)
+        .enter()
+        .append("line")
+        .attr("class", "link");
+
+      // Draw Nodes (Circles)
+      const node = g
+        .append("g")
+        .attr("class", "nodes")
+        .selectAll("g")
+        .data(dataset.nodes)
+        .enter()
+        .append("g")
+        .call(
+          d3
+            .drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended),
+        );
+
+      node
+        .append("circle")
+        .attr("r", (d) => d.radius || 15)
+        .attr("fill", (d) => colors[d.group] || "#ccc")
+        .on("mouseover", function (event, d) {
+          const tooltip = d3.select("#tooltip");
+          tooltip.transition().duration(200).style("opacity", 0.9);
+
+          let content = `<strong>${d.id}</strong>`;
+          if (d.translation) {
+            content += `<br/><span style="color:#ccc; font-size:12px">"${d.translation}"</span>`;
+          }
+
+          tooltip
+            .html(content)
+            .style("left", event.pageX + 10 + "px")
+            .style("top", event.pageY - 28 + "px");
+
+          d3.select(this).attr("stroke", "#333").attr("stroke-width", 3);
+        })
+        .on("mouseout", function (d) {
+          d3.select("#tooltip").transition().duration(500).style("opacity", 0);
+          d3.select(this).attr("stroke", "#fff").attr("stroke-width", 2);
+        })
+        .on("click", function (event, d) {
+          updateInfoPanel(d);
+
+          if (d.group !== "category") {
+            speakWord(d.id);
+          }
+        });
+
+      // Add Text Labels
+      node
+        .append("text")
+        .attr("dy", (d) => (d.radius || 15) + 15)
+        .text((d) => (d.group === "category" ? "" : d.id))
+        .style("font-size", (d) => (d.group === "center" ? "13px" : "10px"))
+        .style("font-weight", (d) =>
+          d.group === "center" ? "bold" : "normal",
+        );
+
+      // --- 4. SIMULATION UPDATE ---
+      simulation.on("tick", () => {
+        link
+          .attr("x1", (d) => d.source.x)
+          .attr("y1", (d) => d.source.y)
+          .attr("x2", (d) => d.target.x)
+          .attr("y2", (d) => d.target.y);
+
+        node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+      });
+
+      // --- 5. DRAG FUNCTIONS ---
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+
+      // --- 6. INFO PANEL UPDATE ---
+      function updateInfoPanel(d) {
+        const panel = document.getElementById("info-panel");
+
+        if (d.group === "category") {
+          panel.innerHTML = `<h5 class="card-title text-muted">Select a Word</h5><p class="card-text">Click a colored node to see details.</p>`;
+          return;
+        }
+
+        const groupLabels = {
+          center: "Core Concept",
+          matin: "Le Matin (Morning)",
+          travail: "Le Travail (Work)",
+          repas: "Les Repas (Meals)",
+          deplacement: "Les Déplacements (Transport)",
+          soir: "Le Soir (Evening)",
+          loisir: "Les Loisirs (Leisure)",
+          expression: "Expression",
+        };
+
+        let typeLabel = groupLabels[d.group] || d.group;
+        let translationText = d.translation ? `"${d.translation}"` : "";
+
+        let exampleHtml = "";
+        if (d.example) {
+          const frenchPart = d.example.split("<br>")[0].replace(/'/g, "\\'");
+          exampleHtml = `
+                <div class="alert alert-light border mt-3" style="background-color: #f8f9fa; cursor: pointer;" onclick="speakWord('${frenchPart}')" title="Click to listen">
+                    <small class="text-uppercase text-muted" style="font-size: 0.75rem; letter-spacing: 1px;">Context 🔊</small>
+                    <p class="mb-0 fst-italic text-dark">"${d.example}"</p>
+                </div>`;
+        } else {
+          exampleHtml = `
+                <div class="alert alert-warning border mt-3 p-2">
+                    <small class="text-muted">No example sentence available.</small>
+                </div>`;
+        }
+
+        panel.innerHTML = `
+            <h3 class="card-title" style="color:${colors[d.group]}">${d.id}</h3>
+            <h6 class="card-subtitle mb-2 text-muted">${typeLabel}</h6>
+            <p class="card-text fs-5">${translationText}</p>
+            <hr>
+            ${exampleHtml}
+        `;
+      }
+
+      function speakWord(word) {
+        if ("speechSynthesis" in window) {
+          const utterance = new SpeechSynthesisUtterance(word);
+          utterance.lang = "fr-FR";
+          utterance.rate = 0.9;
+          window.speechSynthesis.speak(utterance);
+        } else {
+          console.log("Browser does not support text-to-speech");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,351 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement" src="https://res.cloudinary.com/diqjaumok/video/upload/media/lessons/read/loup.m4a"></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Les animaux</h1>
+      </div>
+      <h5>
+        Le <span data-bs-toggle="tooltip" title="/lu/">loup</span> : des
+        <span data-bs-toggle="tooltip" title="/ɛkspʀesjɔ̃/">expressions</span>
+        d'<span data-bs-toggle="tooltip" title="/afɛksjɔ̃/">affection</span>
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <a
+            href="https://photo.caminteresse.fr/amitie-injustice-empathie-les-animaux-ressentent-aussi-des-emotions-64357#le-loup-des-expressions-d-affection-8svvm"
+            target="_blank"
+          >
+            <img class="french-text-img" src="/img/wolf.svg" alt=""
+          /></a>
+          Les loups, animaux
+          <span data-bs-toggle="tooltip" title="/sosjo/">sociaux</span>
+          par
+          <span data-bs-toggle="tooltip" title="/ɛkselɑ̃s/">excellence</span>,
+          <span data-bs-toggle="tooltip" title="/ɛkspʀim/">expriment</span>
+          de
+          <span data-bs-toggle="tooltip" title="/nɔ̃bʀøz/">nombreuses</span>
+          <span data-bs-toggle="tooltip" title="/maʀk/">marques</span>
+          d'affection
+          <span data-bs-toggle="tooltip" title="/o.sɛ̃.də/ within"
+            >au sein de</span
+          >
+          leur
+          <span data-bs-toggle="tooltip" title="/møt/">meute.</span>
+          Ces
+          <span data-bs-toggle="tooltip" title="/ʒɛst/">gestes</span>
+          <span data-bs-toggle="tooltip" title="/ɛ̃kly/">incluent</span>
+          les
+          <span data-bs-toggle="tooltip" title="/leʃaʒ/ licking">léchages</span>
+          de
+          <span data-bs-toggle="tooltip" title="/myzo/">museau,</span>
+          <span data-bs-toggle="tooltip" title="/sɛ̃bɔl/">symboles</span>
+          de
+          <span data-bs-toggle="tooltip" title="/ʀɛspɛ/">respect</span>
+          et de
+          <span data-bs-toggle="tooltip" title="/ljɛ̃/">lien,</span>
+          <span data-bs-toggle="tooltip" title="/ɛ̃si/">ainsi</span>
+          que des
+          <span data-bs-toggle="tooltip" title="/fʀɔtmɑ̃/">frottements</span>
+          <span data-bs-toggle="tooltip" title="/kɔʀpɔʀɛl/">corporels,</span>
+          <span data-bs-toggle="tooltip" title="/siɲjəfjɑ̃/">signifiant</span>
+          <span data-bs-toggle="tooltip" title="/ataʃmɑ̃/">l'attachement.</span>
+          Les loups jouent et se
+          <span data-bs-toggle="tooltip" title="/blɔtis/">blottissent</span>
+          les uns contre les autres. Lorsqu’un membre est blessé ou
+          <span data-bs-toggle="tooltip" title="/apsɑ̃/">absent,</span>
+          ils montrent des signes de
+          <span data-bs-toggle="tooltip" title="/tʀistɛs/">tristesse.</span>
+          Ces
+          <span data-bs-toggle="tooltip" title="/kɔ̃pɔʀtəmɑ̃/"
+            >comportements</span
+          >
+          <span data-bs-toggle="tooltip" title="/i.lystʀ/">illustrent</span>
+          l'<span data-bs-toggle="tooltip" title="/ɛ̃pɔʀtɑ̃s/">importance</span>
+          des liens
+          <span data-bs-toggle="tooltip" title="/afɛktif/">affectifs</span>
+          dans leur
+          <span data-bs-toggle="tooltip" title="/syʀvi/">survie</span>
+          et leur
+          <span data-bs-toggle="tooltip" title="/ekilibʀ/">équilibre.</span>
+        </p>
+      </div>
+      <br />
+
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Wolves, highly social animals by nature, express many signs of
+          affection within their pack. These gestures include muzzle-licking —
+          symbols of respect and bonding — as well as body rubbing, which
+          signifies attachment. Wolves play and snuggle up to one another. When
+          a member is injured or missing, they show signs of sadness. These
+          behaviors illustrate the importance of emotional bonds for their
+          survival and balance.
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td class="glossary-word">loup <sup>m</sup></td>
+              <td style="width: 40px"></td>
+              <td>wolf</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">animaux sociaux</td>
+              <td style="width: 40px"></td>
+              <td>social animals</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">par excellence</td>
+              <td style="width: 40px"></td>
+              <td>ultimate</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">exprimer</td>
+              <td style="width: 40px"></td>
+              <td>to express</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">nombreuses</td>
+              <td style="width: 40px"></td>
+              <td>
+                numerous - feminine plural (before <i>marques</i> <sup>f</sup> )
+              </td>
+            </tr>
+            <tr>
+              <td class="glossary-word">marque <sup>f</sup></td>
+              <td style="width: 40px"></td>
+              <td>sign / mark</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">au sein de</td>
+              <td style="width: 40px"></td>
+              <td>within</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">meute</td>
+              <td style="width: 40px"></td>
+              <td>pack / mob / crowd</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">geste</td>
+              <td style="width: 40px"></td>
+              <td>gesture</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">inclure</td>
+              <td style="width: 40px"></td>
+              <td>to include</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">léchage</td>
+              <td style="width: 40px"></td>
+              <td>licking</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">museau</td>
+              <td style="width: 40px"></td>
+              <td>muzzle</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">lien</td>
+              <td style="width: 40px"></td>
+              <td>link / connection</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">ainsi que</td>
+              <td style="width: 40px"></td>
+              <td>as well as</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">frottement</td>
+              <td style="width: 40px"></td>
+              <td>rubbing</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">corporel</td>
+              <td style="width: 40px"></td>
+              <td>body</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">signifiant</td>
+              <td style="width: 40px"></td>
+              <td>to mean/signify</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">attachement</td>
+              <td style="width: 40px"></td>
+              <td>affection / attachment</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">se blottir</td>
+              <td style="width: 40px"></td>
+              <td>to cuddle / to snuggle up</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">les uns contre les autres</td>
+              <td style="width: 40px"></td>
+              <td>against each other</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">blessé</td>
+              <td style="width: 40px"></td>
+              <td>wounded / injured</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">tristesse</td>
+              <td style="width: 40px"></td>
+              <td>sadness</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">comportement</td>
+              <td style="width: 40px"></td>
+              <td>behavior</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">affectif</td>
+              <td style="width: 40px"></td>
+              <td>emotional</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">survie</td>
+              <td style="width: 40px"></td>
+              <td>survival</td>
+            </tr>
+            <tr>
+              <td class="glossary-word">équilibre</td>
+              <td style="width: 40px"></td>
+              <td>balance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!--     <div class="bottom-nav">
+      <a class="btn btn-outline-primary" href="index.html">Page One</a>
+      <a class="btn btn-primary" href="dimanche.html">Page Two</a>
+    </div>
+    <p></p>
+    <p></p> -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  </body>
+</html>

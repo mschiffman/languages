@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Présent de l’indicatif</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../../../assets/css/tense.css" />
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <style>
+      img {
+        max-width: 900px;
+        width: 100%;
+        height: auto;
+      }
+      .pic {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        border-left: 4px solid #6735dc;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Navbar -->
+    <nav
+      class="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top"
+    >
+      <div class="container-lg">
+        <div class="d-flex align-items-center">
+          <button
+            class="btn btn-outline-secondary me-3"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarMenu"
+            aria-controls="sidebarMenu"
+            aria-label="Open menu"
+          >
+            <i class="bi bi-list" style="font-size: 1.5rem"></i>
+          </button>
+          <span class="fw-semibold" style="font-size: 1.2rem"
+            >FRENCH TENSES</span
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Offcanvas Sidebar (same retractable menu) -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="sidebarMenu"
+      aria-labelledby="sidebarMenuLabel"
+    >
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column pt-3">
+        <div class="list-group list-group-flush" id="sidebar-accordion">
+          <!-- Sidebar content populated dynamically via nav-tense.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <main class="container-lg py-5">
+      <div class="overview-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;TENSES OVERVIEW</h5>
+        <br />
+
+        <table class="overview-table">
+          <thead>
+            <th>Tense</th>
+            <th style="width: 15px"></th>
+            <th>Usage</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Présent de l’indicatif</td>
+              <td style="width: 15px"></td>
+              <td>
+                current actions, habit, general truth, near future<br />
+                <b>structure</b>: subject + verb (present endings)<br />
+                <button
+                  class="btn btn-sm btn-outline-danger mt-2 toggle-examples"
+                  type="button"
+                  data-target="examples-present"
+                  aria-expanded="false"
+                >
+                  Examples
+                </button>
+                <div class="tense-examples d-none mt-2" id="examples-present">
+                  <em>Ça m'<strong>arrive</strong> parfois.</em> -
+                  <span class="trans">It happens to me sometimes.</span><br />
+                  <em>Je <strong>bois</strong> beaucoup d’eau le matin.</em> -
+                  <span class="trans"
+                    >I drink lots of water in the morning.</span
+                  ><br />
+                  <em>Les girafes <strong>ont</strong> un long cou.</em> -
+                  <span class="trans">Giraffes have a long neck.</span><br />
+                  <em>Il <strong>vient</strong> demain.</em> -
+                  <span class="trans">He's coming tomorrow.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Passé composé</td>
+              <td style="width: 15px"></td>
+              <td>
+                past actions, completed events - replaces passé simple in speech
+                <br /><b>structure</b>: avoir / être (present) + participe
+                passé<br />
+                <button
+                  class="btn btn-sm btn-outline-danger mt-2 toggle-examples"
+                  type="button"
+                  data-target="examples-passe"
+                  aria-expanded="false"
+                >
+                  Examples
+                </button>
+                <div class="tense-examples d-none mt-2" id="examples-passe">
+                  <em>J'<strong>ai fait</strong> une erreur.</em> -
+                  <span class="trans">I made a mistake.</span><br />
+                  <em
+                    >C'<strong>est fait</strong>, c'<strong>est fini</strong
+                    >.</em
+                  >
+                  -
+                  <span class="trans">It's done, it's over.</span><br />
+                  <em
+                    >Je <strong>suis</strong> jamais <strong>allé</strong> en
+                    France.</em
+                  >
+                  -
+                  <span class="trans">I have never been to France.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Imparfait</td>
+              <td style="width: 15px"></td>
+              <td>
+                past, past continuous or habitual past
+                <br /><b>structure</b>: stem from nous form (drop –ons) +
+                endings (-ais, -ais, -ait, -ions, -iez, -aient)<br />
+                <button
+                  class="btn btn-sm btn-outline-danger mt-2 toggle-examples"
+                  type="button"
+                  data-target="examples-imparfait"
+                  aria-expanded="false"
+                >
+                  Examples
+                </button>
+                <div class="tense-examples d-none mt-2" id="examples-imparfait">
+                  <em>Je <strong>savais</strong> pas.</em> -
+                  <span class="trans">I didn't know.</span><br />
+                  <em>C'est ce que je <strong>cherchais</strong>.</em> -
+                  <span class="trans">That's what I was looking for.</span
+                  ><br />
+                  <em
+                    >Quand on <strong>était</strong> jeunes, on
+                    <strong>jouait</strong> souvent au badminton.
+                    <span class="pho">/badmintɔn/</span></em
+                  >
+                  -
+                  <span class="trans"
+                    >When we were young, we used to play badminton often.</span
+                  >
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Futur proche</td>
+              <td style="width: 15px"></td>
+              <td>
+                planned or immediate future
+                <br /><b>structure</b>: aller (present) + infinitif<br />
+                <button
+                  class="btn btn-sm btn-outline-danger mt-2 toggle-examples"
+                  type="button"
+                  data-target="examples-futur"
+                  aria-expanded="false"
+                >
+                  Examples
+                </button>
+                <div class="tense-examples d-none mt-2" id="examples-futur">
+                  <em>Je <strong>vais</strong> me <strong>coucher</strong>.</em>
+                  -
+                  <span class="trans">I'm going to bed.</span><br />
+                  <em>Je sais pas si ça <strong>va marcher</strong>.</em> -
+                  <span class="trans">I don't know if it's going to work.</span
+                  ><br />
+                  <em>Il <strong>va être</strong> content.</em>
+                  -
+                  <span class="trans">He's going to be happy.</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Conditionnel présent</td>
+              <td style="width: 15px"></td>
+              <td>
+                politeness, hypothetical situations
+                <br /><b>structure</b>: infinitif (or irregular stem) +
+                imparfait endings<br />
+                <button
+                  class="btn btn-sm btn-outline-danger mt-2 toggle-examples"
+                  type="button"
+                  data-target="examples-conditionnel"
+                  aria-expanded="false"
+                >
+                  Examples
+                </button>
+                <div
+                  class="tense-examples d-none mt-2"
+                  id="examples-conditionnel"
+                >
+                  <em>Je <strong>voudrais</strong> un thé.</em> -
+                  <span class="trans">I'd like a tea.</span><br />
+                  <em>Ça te <strong>dirait</strong> de le voir ?</em> -
+                  <span class="trans">Would you like to see it?</span><br />
+                  <em>Comment je le <strong>saurais</strong> ?</em> -
+                  <span class="trans">How would I know?</span><br />
+                  <em>Tu <strong>ferais</strong> quoi à ma place ?</em>
+                  -
+                  <span class="trans">What would you do in my place?</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Subjonctif présent</td>
+              <td style="width: 15px"></td>
+              <td>
+                After expressions of feeling, wish, doubt, necessity, or emotion
+                - when two clauses have a different subject
+                <br /><b>structure</b>: Main clause in the indicative] + que +
+                [subordinate clause in the subjonctif]<br />
+                <button
+                  class="btn btn-sm btn-outline-danger mt-2 toggle-examples"
+                  type="button"
+                  data-target="examples-subjonctif"
+                  aria-expanded="false"
+                >
+                  Examples
+                </button>
+                <div
+                  class="tense-examples d-none mt-2"
+                  id="examples-subjonctif"
+                >
+                  <em>Je suis content que tu <strong>ailles </strong>mieux.</em>
+                  -
+                  <span class="trans">I'm glad that you're feeling better.</span
+                  ><br />
+                  <em>Je veux que tu <strong>viennes</strong> tôt.</em> -
+                  <span class="trans">I want you to come early.</span><br />
+                  <em>J'ai hâte que tu la <strong>voies</strong>.</em> -
+                  <span class="trans">I can't wait for you to see it.</span
+                  ><br />
+                  <em>Il faut que je <strong>fasse</strong> une pause.</em
+                  ><span class="pho"> /poz/</span>
+                  -
+                  <span class="trans">I have to take a break.</span><br />
+                  <em>Tu veux que je le <strong>fasse </strong>?</em>
+                  -
+                  <span class="trans">Do you want me to do it?</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Plus-que-parfait</td>
+              <td style="width: 15px"></td>
+              <td>
+                actions completed before another past action (past of the past)
+                <br /><b>structure</b>: avoir / être (imparfait) + participe
+                passé<br />
+                <button
+                  class="btn btn-sm btn-outline-danger mt-2 toggle-examples"
+                  type="button"
+                  data-target="examples-plusqueparfait"
+                  aria-expanded="false"
+                >
+                  Examples
+                </button>
+                <div
+                  class="tense-examples d-none mt-2"
+                  id="examples-plusqueparfait"
+                >
+                  <em>J'<strong>avais oublié</strong> mon portefeuille.</em> -
+                  <span class="trans">I had forgotten my wallet.</span><br />
+                  <em
+                    >Elle <strong>était déjà partie</strong> quand je suis
+                    arrivé.</em
+                  >
+                  -
+                  <span class="trans">She had already left when I arrived.</span
+                  ><br />
+                  <em>On <strong>avait jamais vu</strong> ça.</em> -
+                  <span class="trans">We had never seen that.</span><br />
+                  <em>Il m'<strong>avait dit</strong> qu'il viendrait.</em>
+                  -
+                  <span class="trans">He had told me he would come.</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <p class="pic">
+        <img src="/img/timeline.png" alt="" />
+      </p>
+      <br />
+      <p class="pic">
+        <img src="/img/tenses.jpg" alt="" />
+      </p>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script
+      type="module"
+      src="../../../assets/js/nav-tense.js?v=260215"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const exampleButtons = document.querySelectorAll(".toggle-examples");
+        exampleButtons.forEach((button) => {
+          const targetId = button.getAttribute("data-target");
+          const target = document.getElementById(targetId);
+          if (!target) {
+            return;
+          }
+          button.addEventListener("click", () => {
+            const isHidden = target.classList.contains("d-none");
+            target.classList.toggle("d-none");
+            button.setAttribute("aria-expanded", isHidden ? "true" : "false");
+            button.textContent = isHidden ? "Hide Examples" : "Examples";
+          });
+        });
+      });
+    </script>
+    <script>
+      AOS.init({ once: true, duration: 600, easing: "ease-out-cubic" });
+    </script>
+  </body>
+</html>

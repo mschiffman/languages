@@ -1,0 +1,113 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f0f2f5;
+  padding: 20px 0;
+}
+.header-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.watch-btn {
+  padding: 15px 30px;
+  font-size: 18px;
+  background: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 20px 0;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(255, 0, 0, 0.3);
+  transition: 0.3s;
+}
+.watch-btn:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+.content-area {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.score-display {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+.column-header {
+  text-align: center;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+.column-header.direct {
+  background-color: #fff3cd;
+  color: #856404;
+}
+.column-header.polite {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+.game-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.game-card:hover:not(.matched) {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.game-card.selected {
+  border: 3px solid #0d6efd !important;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+.game-card.matched {
+  background-color: #d1e7dd !important;
+  border: 2px solid #198754 !important;
+  pointer-events: none;
+}
+.game-card.incorrect {
+  animation: shake 0.3s ease;
+  border: 3px solid #dc3545 !important;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+}
+.matched-check {
+  color: #198754;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+.explanation-box {
+  background: #f8f9fa;
+  border-left: 4px solid #0d6efd;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+.explanation-box h5 {
+  color: #0d6efd;
+  margin-bottom: 10px;
+}
