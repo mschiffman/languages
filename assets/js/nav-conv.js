@@ -65,6 +65,9 @@
     '<a href="conv9.html"' +
     (cur === "conv9.html" ? ' class="sidebar-active"' : "") +
     ">May 9, 2026</a>" +
+    '<a href="conv10.html"' +
+    (cur === "conv10.html" ? ' class="sidebar-active"' : "") +
+    ">May 13, 2026</a>" +
     "</nav>";
   document.body.appendChild(panel);
 
