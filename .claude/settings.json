@@ -4,16 +4,22 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(git push *)",
-      "Bash(dir \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\")",
-      "Bash(Get-Content \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages\\\\fr\\\\everyday\\\\conversations\\\\conv1.html\")",
-      "Bash(Measure-Object -Line)",
-      "PowerShell(\\(Get-Content \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages\\\\fr\\\\everyday\\\\conversations\\\\conv1.html\"\\).Count)",
-      "Bash(grep -v \"settings.json\\\\|.staticrypt.json\\\\|^index.html$\")",
-      "Read(//tmp/**)",
       "Bash(git diff *)",
-      "Bash(grep -zZv \"settings.json\\\\|.staticrypt.json\\\\|^index.html$\")",
-      "Bash(xargs -0 git checkout ca03ccb --)",
-      "Bash(echo \"Exit code: $?\")"
+      "Bash(git fetch *)",
+      "Bash(git config *)",
+      "Bash(git credential *)",
+      "Bash(git remote *)",
+      "Bash(git status)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git -C * status)",
+      "Bash(git -C * log *)",
+      "Bash(git -C * diff *)",
+      "Bash(git -C * show *)",
+      "Bash(git -C * push *)",
+      "Bash(git -c credential.helper= push *)",
+      "Read(//tmp/**)",
+      "Bash(git commit *)"
     ]
   }
 }
