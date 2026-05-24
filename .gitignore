@@ -19,3 +19,6 @@ Thumbs.db
 .vscode/
 
 .gitmessage.txt
+
+# Local media files
+media/
