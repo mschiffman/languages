@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/pumice/pumice.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Pierre ponce</h1>
+      </div>
+      <h5>Qu'est-ce qui flotte là, sur l'eau ?</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="french-text-img" src="/img/pumice.png" alt="" />
+          <!-- Text with tooltips -->
+          On dirait une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kuvɛʀtyʀ/"
+            data-meaning="blanket / cover"
+            >couverture</span
+          >
+          grise posée sur les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vaɡ/"
+            data-meaning="waves"
+            >vagues</span
+          >, mais approche-toi : ce sont en fait plein de petits
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kaju/"
+            data-meaning="pebbles / rocks"
+            >cailloux</span
+          >
+          qui
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/flɔt/"
+            data-meaning="float"
+            data-origin="flotter /flɔte/"
+            >flottent</span
+          >
+          ! C'est de la pierre ponce. La pierre ponce est
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀɑ̃pli/"
+            data-meaning="filled"
+            data-origin="remplir /ʀɑ̃pliʀ/"
+            >remplie</span
+          >
+          de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tʀu/"
+            data-meaning="holes"
+            >trous</span
+          >
+          pleins de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɡaz/"
+            data-meaning="gas"
+            >gaz</span
+          >, ce qui la rend si
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/leʒɛʀ/"
+            data-meaning="light (not heavy)"
+            >légère</span
+          >
+          qu'elle peut flotter sur l'eau.
+        </p>
+        <p>
+          Mais d'où viennent ces cailloux ? La pierre ponce est un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vɛʀ vɔlkanik/"
+            data-meaning="volcanic glass"
+            >verre volcanique</span
+          >. Parfois, quand la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lav/"
+            data-meaning="lava"
+            >lave</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʒaji/"
+            data-meaning="erupts / gushes"
+            data-origin="jaillir /ʒajiʀ/"
+            >jaillit</span
+          >
+          d'un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vɔlkɑ̃/"
+            data-meaning="volcano"
+            >volcan</span
+          >, elle est pleine de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/byl/"
+            data-meaning="bubbles"
+            >bulles</span
+          >
+          de gaz, comme une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bwasɔ̃ ɡazøz/"
+            data-meaning="fizzy drink"
+            >boisson gazeuse</span
+          >. En
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀəfʀwadisɑ̃/"
+            data-meaning="cooling"
+            data-origin="refroidir /ʀəfʀwadiʀ/"
+            >refroidissant</span
+          >, cette
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mus/"
+            data-meaning="foam"
+            >mousse</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bʀylɑ̃t/"
+            data-meaning="burning"
+            >brûlante</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dyʀsi/"
+            data-meaning="hardens"
+            data-origin="durcir /dyʀsiʀ/"
+            >durcit</span
+          >
+          et devient de la pierre ponce, et les bulles laissent derrière elles
+          plein de petites
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kavite/"
+            data-meaning="cavities / holes"
+            >cavités</span
+          >. Si un volcan
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sumaʀɛ̃/"
+            data-meaning="underwater / submarine"
+            >sous-marin</span
+          >
+          entre en
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/eʀypsjɔ̃/"
+            data-meaning="eruption"
+            >éruption</span
+          >, il forme de la pierre ponce sous l'eau, qui
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀəmɔ̃t/"
+            data-meaning="rises back up"
+            data-origin="remonter /ʀəmɔ̃te/"
+            >remonte</span
+          >
+          ensuite à la surface en un véritable
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀado/"
+            data-meaning="raft"
+            >radeau</span
+          >
+          de pierre ponce. Mystère résolu !
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Les
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ʀɔmɛ̃/"
+              data-meaning="Romans"
+              >Romains</span
+            >
+            de l'Antiquité
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/melɑ̃ʒɛ/"
+              data-meaning="mixed"
+              data-origin="mélanger /melɑ̃ʒe/"
+              >mélangeaient</span
+            >
+            la pierre ponce à d'autres
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/mateʀjo/"
+              data-meaning="materials"
+              >matériaux</span
+            >
+            pour fabriquer un
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/betɔ̃/"
+              data-meaning="concrete"
+              >béton</span
+            >
+            extra-<span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ʀezistɑ̃/"
+              data-meaning="resistant / strong"
+              >résistant</span
+            >
+            pour leurs maisons et leurs temples.</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          What is that floating on the water? It looks like a grey blanket laid
+          on the waves, but come closer: it's actually lots of little pebbles
+          floating! It's pumice stone. Pumice stone is filled with holes full of
+          gas, which makes it so light that it can float on water.
+        </p>
+        <p>
+          But where do these pebbles come from? Pumice stone is a volcanic
+          glass. Sometimes, when lava erupts from a volcano, it is full of gas
+          bubbles, like a fizzy drink. As it cools, this burning foam hardens
+          and becomes pumice stone, and the bubbles leave behind lots of small
+          cavities. If an underwater volcano erupts, it forms pumice under
+          water, which then rises to the surface as a real pumice raft. Mystery
+          solved!
+        </p>
+        <p>
+          <i
+            >The Romans of ancient times mixed pumice stone with other materials
+            to make extra-strong concrete for their homes and temples.</i
+          >
+        </p>
+      </div>
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/pierre-ponce.mp3"
+              >
+                pierre ponce
+              </td>
+              <td style="width: 40px"></td>
+              <td>pumice stone</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/flotter.mp3"
+              >
+                flotter
+              </td>
+              <td style="width: 40px"></td>
+              <td>to float</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/couverture.mp3"
+              >
+                couverture
+              </td>
+              <td style="width: 40px"></td>
+              <td>blanket / cover</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/vague.mp3"
+              >
+                vague
+              </td>
+              <td style="width: 40px"></td>
+              <td>wave</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/caillou.mp3"
+              >
+                caillou
+              </td>
+              <td style="width: 40px"></td>
+              <td>pebble / rock</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/remplir.mp3"
+              >
+                remplir
+              </td>
+              <td style="width: 40px"></td>
+              <td>to fill</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/trou.mp3"
+              >
+                trou
+              </td>
+              <td style="width: 40px"></td>
+              <td>hole</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/leger.mp3"
+              >
+                léger
+              </td>
+              <td style="width: 40px"></td>
+              <td>light (not heavy)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/lave.mp3"
+              >
+                lave
+              </td>
+              <td style="width: 40px"></td>
+              <td>lava</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/jaillir.mp3"
+              >
+                jaillir
+              </td>
+              <td style="width: 40px"></td>
+              <td>to erupt / to gush</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/volcan.mp3"
+              >
+                volcan
+              </td>
+              <td style="width: 40px"></td>
+              <td>volcano</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/bulle.mp3"
+              >
+                bulle
+              </td>
+              <td style="width: 40px"></td>
+              <td>bubble</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/boisson-gazeuse.mp3"
+              >
+                boisson gazeuse
+              </td>
+              <td style="width: 40px"></td>
+              <td>fizzy drink</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/refroidir.mp3"
+              >
+                refroidir
+              </td>
+              <td style="width: 40px"></td>
+              <td>to cool</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/mousse.mp3"
+              >
+                mousse
+              </td>
+              <td style="width: 40px"></td>
+              <td>foam</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/brulant.mp3"
+              >
+                brûlant
+              </td>
+              <td style="width: 40px"></td>
+              <td>burning</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/durcir.mp3"
+              >
+                durcir
+              </td>
+              <td style="width: 40px"></td>
+              <td>to harden</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/cavite.mp3"
+              >
+                cavité
+              </td>
+              <td style="width: 40px"></td>
+              <td>cavity / hole</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/sous-marin.mp3"
+              >
+                sous-marin
+              </td>
+              <td style="width: 40px"></td>
+              <td>underwater / submarine</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/eruption.mp3"
+              >
+                éruption
+              </td>
+              <td style="width: 40px"></td>
+              <td>eruption</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/remonter.mp3"
+              >
+                remonter
+              </td>
+              <td style="width: 40px"></td>
+              <td>to rise back up</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/radeau.mp3"
+              >
+                radeau
+              </td>
+              <td style="width: 40px"></td>
+              <td>raft</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/melanger.mp3"
+              >
+                mélanger
+              </td>
+              <td style="width: 40px"></td>
+              <td>to mix</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/materiaux.mp3"
+              >
+                matériaux
+              </td>
+              <td style="width: 40px"></td>
+              <td>materials</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/beton.mp3"
+              >
+                béton
+              </td>
+              <td style="width: 40px"></td>
+              <td>concrete</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pumice/resistant.mp3"
+              >
+                résistant
+              </td>
+              <td style="width: 40px"></td>
+              <td>resistant / strong</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-pumice.html" target="_blank"
+            ><li>Pumice video (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        // Select all td elements with the class 'glossary-word'
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              // If audio is already playing, pause it and reset time
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              // Create new audio object and play
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

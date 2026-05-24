@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/kelp/kelp.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Le varech</h1>
+      </div>
+      <h5>
+        Laminaire géante : la laminaire géante peut pousser de 60 cm par jour et
+        atteindre 45 m de hauteur — aussi haute qu'un arbre de la forêt
+        tropicale.
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="french-text-img" src="/img/kelp.png" alt="" />
+          Avez-vous déjà
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bʀɔse/"
+            data-meaning="brushed"
+            data-origin="brosser /bʀɔse/"
+            >brossé</span
+          >
+          vos
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dɑ̃/"
+            data-meaning="teeth"
+            >dents</span
+          >
+          ? Lavé vos
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʃəvø/"
+            data-meaning="hair"
+            >cheveux</span
+          >
+          ? Mangé une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɡlas/"
+            data-meaning="ice cream"
+            >glace</span
+          >
+          ? Si oui, vous avez très
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀɔbabləmɑ̃/"
+            data-meaning="probably"
+            >probablement</span
+          >
+          utilisé du
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vaʀɛk/"
+            data-meaning="kelp"
+            >varech</span
+          >
+          ! Un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔ̃pozɑ̃/"
+            data-meaning="component"
+            >composant</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛkstʀɛ/"
+            data-meaning="extracted"
+            data-origin="extraire /ɛkstʀɛʀ/"
+            >extrait</span
+          >
+          de cette
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/alɡ/"
+            data-meaning="seaweed / algae"
+            >algue</span
+          >
+          est
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kuʀamɑ̃/"
+            data-meaning="commonly"
+            >couramment</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/aʒute/"
+            data-meaning="added"
+            data-origin="ajouter /aʒute/"
+            >ajouté</span
+          >
+          aux
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dɑ̃tifʀis/"
+            data-meaning="toothpastes"
+            >dentifrices</span
+          >,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʃɑ̃pwɛ̃/"
+            data-meaning="shampoos"
+            >shampoings</span
+          >
+          et
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/desɛʀ/"
+            data-meaning="desserts"
+            >desserts</span
+          >. Le varech est une algue
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʒeɑ̃t/"
+            data-meaning="giant"
+            >géante</span
+          >
+          qui forme de véritables
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fɔʀɛ sumaʀin/"
+            data-meaning="underwater forests"
+            >forêts sous-marines</span
+          >. De nombreux animaux s'y
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀefyʒjɛ̃/"
+            data-meaning="take refuge"
+            data-origin="se réfugier /ʀefyʒje/"
+            >réfugient</span
+          >, notamment des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pwasɔ̃/"
+            data-meaning="fish"
+            >poissons</span
+          >, des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pjœvʀ/"
+            data-meaning="octopuses"
+            >pieuvres</span
+          >
+          et des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lutʀ də mɛʀ/"
+            data-meaning="sea otters"
+            >loutres de mer</span
+          >.
+        </p>
+        <p>
+          Le varech est une algue
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bʀyn/"
+            data-meaning="brown"
+            >brune</span
+          >. Il en existe de nombreuses
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛspɛs/"
+            data-meaning="species"
+            >espèces</span
+          >
+          — certaines sont
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/minyskyl/"
+            data-meaning="tiny"
+            >minuscules</span
+          >, composées de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/filamɑ̃/"
+            data-meaning="filaments"
+            >filaments</span
+          >
+          fins de quelques
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɑ̃timɛtʀ/"
+            data-meaning="centimeters"
+            >centimètres</span
+          >
+          à peine. Comme les algues vertes, les algues brunes
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fabʀik/"
+            data-meaning="make / produce"
+            data-origin="fabriquer /fabʀike/"
+            >fabriquent</span
+          >
+          leur
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/nuʀityʀ/"
+            data-meaning="food"
+            >nourriture</span
+          >
+          grâce à la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lymjɛʀ/"
+            data-meaning="light"
+            >lumière</span
+          >
+          du soleil. Certaines
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/posɛd/"
+            data-meaning="have / possess"
+            data-origin="posséder /posede/"
+            >possèdent</span
+          >
+          des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/flɔtœʀ/"
+            data-meaning="floats / buoys"
+            >flotteurs</span
+          >
+          remplis de gaz, semblables à de petits ballons. Ces structures
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mjɛ̃/"
+            data-meaning="keep / maintain"
+            data-origin="maintenir /mɛ̃t(ə)niʀ/"
+            >maintiennent</span
+          >
+          leurs
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fʀɔ̃d/"
+            data-meaning="fronds"
+            >frondes</span
+          >
+          près de la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/syʀfas/"
+            data-meaning="surface"
+            >surface</span
+          >
+          lumineuse de la mer.
+        </p>
+        <p>
+          Les forêts de varech jouent un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀɔl/"
+            data-meaning="role"
+            >rôle</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀysjal/"
+            data-meaning="crucial"
+            >crucial</span
+          >
+          dans l'océan : elles
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/absɔʀb/"
+            data-meaning="absorb"
+            data-origin="absorber /absɔʀbe/"
+            >absorbent</span
+          >
+          le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/djɔksid də kaʀbɔn/"
+            data-meaning="carbon dioxide"
+            >dioxyde de carbone</span
+          >,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀɔdɥiz/"
+            data-meaning="produce"
+            data-origin="produire /pʀɔdɥiʀ/"
+            >produisent</span
+          >
+          de l'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɔksiʒɛn/"
+            data-meaning="oxygen"
+            >oxygène</span
+          >
+          et offrent un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/abʀi/"
+            data-meaning="shelter"
+            >abri</span
+          >
+          à des centaines d'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛspɛs maʀin/"
+            data-meaning="marine species"
+            >espèces marines</span
+          >. Elles sont parfois
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/syʀnɔme/"
+            data-meaning="nicknamed"
+            data-origin="surnommer /syʀnɔme/"
+            >surnommées</span
+          >
+          les "forêts tropicales de la mer".
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Have you ever brushed your teeth? Washed your hair? Eaten ice cream?
+          If so, you have very likely used kelp! A component extracted from this
+          seaweed is commonly added to toothpastes, shampoos, and desserts. Kelp
+          is a giant seaweed that forms true underwater forests. Many animals
+          take refuge there, including fish, octopuses, and sea otters.
+        </p>
+        <p>
+          Kelp is a brown algae. There are many species — some are tiny, made up
+          of thin filaments just a few centimeters long. Like green algae, brown
+          algae make their food through sunlight. Some have gas-filled floats,
+          similar to small balloons. These structures keep their fronds close to
+          the bright surface of the sea.
+        </p>
+        <p>
+          Kelp forests play a crucial role in the ocean: they absorb carbon
+          dioxide, produce oxygen, and provide shelter for hundreds of marine
+          species. They are sometimes nicknamed the "tropical forests of the
+          sea."
+        </p>
+      </div>
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/varech.mp3"
+              >
+                varech
+              </td>
+              <td style="width: 40px"></td>
+              <td>kelp</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/algue.mp3"
+              >
+                algue
+              </td>
+              <td style="width: 40px"></td>
+              <td>seaweed / algae</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/geant.mp3"
+              >
+                géante
+              </td>
+              <td style="width: 40px"></td>
+              <td>giant</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/dentifrice.mp3"
+              >
+                dentifrice
+              </td>
+              <td style="width: 40px"></td>
+              <td>toothpaste</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/shampoing.mp3"
+              >
+                shampoing
+              </td>
+              <td style="width: 40px"></td>
+              <td>shampoo</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/pieuvre.mp3"
+              >
+                pieuvre
+              </td>
+              <td style="width: 40px"></td>
+              <td>octopus</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/loutre.mp3"
+              >
+                loutre de mer
+              </td>
+              <td style="width: 40px"></td>
+              <td>sea otter</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/espece.mp3"
+              >
+                espèce
+              </td>
+              <td style="width: 40px"></td>
+              <td>species</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/minuscule.mp3"
+              >
+                minuscule
+              </td>
+              <td style="width: 40px"></td>
+              <td>tiny</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/filament.mp3"
+              >
+                filament
+              </td>
+              <td style="width: 40px"></td>
+              <td>filament</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/nourriture.mp3"
+              >
+                nourriture
+              </td>
+              <td style="width: 40px"></td>
+              <td>food</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/flotteur.mp3"
+              >
+                flotteur
+              </td>
+              <td style="width: 40px"></td>
+              <td>float / buoy</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/fronde.mp3"
+              >
+                fronde
+              </td>
+              <td style="width: 40px"></td>
+              <td>frond</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/surface.mp3"
+              >
+                surface
+              </td>
+              <td style="width: 40px"></td>
+              <td>surface</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/absorber.mp3"
+              >
+                absorber
+              </td>
+              <td style="width: 40px"></td>
+              <td>to absorb</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/dioxyde.mp3"
+              >
+                dioxyde de carbone
+              </td>
+              <td style="width: 40px"></td>
+              <td>carbon dioxide</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/oxygene.mp3"
+              >
+                oxygène
+              </td>
+              <td style="width: 40px"></td>
+              <td>oxygen</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/abri.mp3"
+              >
+                abri
+              </td>
+              <td style="width: 40px"></td>
+              <td>shelter</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/kelp/surnommer.mp3"
+              >
+                surnommer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to nickname</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-kelp.html" target="_blank"
+            ><li>Kelp video (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        // Select all td elements with the class 'glossary-word'
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              // If audio is already playing, pause it and reset time
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              // Create new audio object and play
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
