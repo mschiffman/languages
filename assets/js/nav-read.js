@@ -72,6 +72,8 @@ document.getElementById("navbar").innerHTML = `
         <a href="tree.html" class="sidebar-link"> 🌳 &nbsp;Les arbres </a>
         <a href="groundwater.html" class="sidebar-link"> 💧 &nbsp;L’eau souterraine </a>
         <a href="amber.html" class="sidebar-link"> 🟨 &nbsp;L'ambre </a>
+        <a href="amber.html" class="sidebar-link"> 🪸 &nbsp;Le varech </a>
+        <a href="amber.html" class="sidebar-link"> 🌋 &nbsp;Pierre ponce </a>
       </div>
     </div>
     <div class="sidebar-dropdown close">
