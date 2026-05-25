@@ -842,6 +842,12 @@
             level: 2,
             url: "fr/reading/pumice.html",
           },
+          {
+            id: "Earth",
+            group: 4,
+            level: 2,
+            url: "fr/reading/earth.html",
+          },
 
           // Pronunciation children
           {
@@ -1140,7 +1146,6 @@
           { source: "Steps", target: "Collocation web" },
           { source: "Steps", target: "Venn" },
           { source: "Steps", target: "Hotspots" },
-          { source: "Steps", target: "Cloze Test" },
           { source: "Steps", target: "Exercises" },
           { source: "Steps", target: "Brain & Learning" },
           { source: "Steps", target: "Tracker" },
@@ -1159,7 +1164,6 @@
           { source: "Reading", target: "Nature" },
           { source: "Reading", target: "Health" },
           { source: "Reading", target: "Science" },
-          { source: "Reading", target: "History" },
           { source: "Culture", target: "Dimanche" },
           { source: "Nature", target: "Wolf" },
           { source: "Nature", target: "Beaver" },
@@ -1176,6 +1180,7 @@
           { source: "Health", target: "Cholesterol" },
           { source: "Health", target: "Brain" },
           { source: "Science", target: "Geothermal" },
+          { source: "Science", target: "Earth" },
 
           // Pronunciation connections
           { source: "Pronunciation", target: "French" },
@@ -1326,9 +1331,8 @@
         .data(graphData.nodes)
         .enter()
         .append("g")
-        // Add this line below to toggle the pointer cursor class
-        .classed("has-link", (d) => !!d.url)
         .attr("class", (d) => (d.level === 0 ? "node main-node" : "node"))
+        .classed("has-link", (d) => !!d.url)
         .call(
           d3
             .drag()

@@ -133,6 +133,9 @@ document.getElementById("navbar").innerHTML = `
         <a href="geothermal.html" class="sidebar-link">
           🔬 &nbsp;L’énergie géothermique
         </a>
+        <a href="geothermal.html" class="sidebar-link">
+          🌎 &nbsp;La Terre
+        </a>
       </div>
     </div>
     <div class="sidebar-section">
