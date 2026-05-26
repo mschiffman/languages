@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .pitcher-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js?v=260526"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/pitcher/pitcher.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Les plantes-pièges</h1>
+      </div>
+      <h5>
+        Quelle plante tend des pièges, noie ses visiteurs et les digère
+        lentement ?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img
+            class="pitcher-image"
+            src="/img/pitcher.png"
+            alt="Pitcher plant illustration"
+          />
+          Imagine une fleur qui mange des insectes. Cela ressemble à un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔ̃t/"
+            data-meaning="tale / story"
+            >conte</span
+          >, mais c'est tout à fait vrai. Les plantes du genre Nepenthes, que
+          l'on appelle aussi plantes à
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/yʀn/"
+            data-meaning="urn / pitcher"
+            >urne</span
+          >, poussent dans les jungles
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ymid/"
+            data-meaning="humid / damp"
+            >humides</span
+          >
+          d'Asie du Sud-Est. Leurs
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fœj/"
+            data-meaning="leaves"
+            >feuilles</span
+          >
+          ne sont pas plates comme celles des autres plantes : elles forment des
+          urnes profondes,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔlɔʀe/"
+            data-meaning="colorful / brightly colored"
+            >colorées</span
+          >
+          comme des bonbons, remplies d'un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mɔʀtɛl/"
+            data-meaning="deadly / lethal"
+            >liquide mortel</span
+          >.
+        </p>
+        <p>
+          Le bord de l'urne, appelé
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/peʀistɔm/"
+            data-meaning="peristome (the waxy rim of the pitcher)"
+            >péristome</span
+          >, brille de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/gutlɛt/"
+            data-meaning="droplets"
+            >gouttelettes</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sykʀe/"
+            data-meaning="sweet / sugary"
+            >sucrées</span
+          >. Les mouches, les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fuʀmi/"
+            data-meaning="ants"
+            >fourmis</span
+          >
+          et même les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/milpat/"
+            data-meaning="centipedes / millipedes"
+            >mille-pattes</span
+          >
+          ne peuvent pas y résister. Mais ce nectar est un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pjɛʒ/"
+            data-meaning="trap"
+            >piège</span
+          >
+          ! La surface est si
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lis/"
+            data-meaning="smooth"
+            >lisse</span
+          >
+          et
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/glisɑ̃t/"
+            data-meaning="slippery"
+            >glissante</span
+          >
+          que les visiteurs perdent l'équilibre et tombent à l'intérieur. Au
+          fond, ils se
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/nwaje/"
+            data-meaning="drown"
+            data-origin="noyer /nwaje/"
+            >noient</span
+          >
+          dans un bain d'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃zim diʒɛstiv/"
+            data-meaning="digestive enzymes"
+            >enzymes digestives</span
+          >, et la plante
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/absɔʀb/"
+            data-meaning="absorbs"
+            data-origin="absorber /absɔʀbe/"
+            >absorbe</span
+          >
+          lentement leurs
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/nytʀimɑ̃/"
+            data-meaning="nutrients"
+            >nutriments</span
+          >. C'est ainsi qu'elle se nourrit dans des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɔl povʀ/"
+            data-meaning="nutrient-poor soils"
+            >sols pauvres</span
+          >
+          où peu de plantes peuvent
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/syʀvivʀ/"
+            data-meaning="to survive"
+            >survivre</span
+          >.
+        </p>
+        <p>
+          La plus grande plante-carnivore du monde peut
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pjeʒe/"
+            data-meaning="to trap / to catch"
+            >piéger</span
+          >
+          des rats
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃tje/"
+            data-meaning="whole / entire"
+            >entiers</span
+          >
+          dans son urne !
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Imagine a flower that eats insects. It sounds like a fairy tale, but
+          it's completely true. Plants of the genus Nepenthes, also called
+          pitcher plants, grow in the humid jungles of Southeast Asia. Their
+          leaves are not flat like those of other plants — they form deep
+          pitchers, as brightly colored as candy, filled with a deadly liquid.
+        </p>
+        <p>
+          The rim of the pitcher, called the peristome, glistens with sweet
+          droplets. Flies, ants, and even centipedes cannot resist. But this
+          nectar is a trap! The surface is so smooth and slippery that visitors
+          lose their balance and tumble inside. At the bottom, they drown in a
+          bath of digestive enzymes, and the plant slowly absorbs their
+          nutrients. This is how it feeds itself in nutrient-poor soils where
+          few plants can survive.
+        </p>
+        <p>
+          The world's largest carnivorous plant can trap whole rats inside its
+          pitcher!
+        </p>
+      </div>
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/piege.mp3"
+              >
+                piège
+              </td>
+              <td style="width: 40px"></td>
+              <td>trap</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/noyer.mp3"
+              >
+                noyer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to drown</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/digerer.mp3"
+              >
+                digérer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to digest</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/carnivore.mp3"
+              >
+                carnivore
+              </td>
+              <td style="width: 40px"></td>
+              <td>carnivorous / carnivore</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/urne.mp3"
+              >
+                urne
+              </td>
+              <td style="width: 40px"></td>
+              <td>urn / pitcher</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/peristome.mp3"
+              >
+                péristome
+              </td>
+              <td style="width: 40px"></td>
+              <td>peristome (waxy rim)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/gouttelette.mp3"
+              >
+                gouttelette
+              </td>
+              <td style="width: 40px"></td>
+              <td>droplet</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/sucre.mp3"
+              >
+                sucré(e)
+              </td>
+              <td style="width: 40px"></td>
+              <td>sweet / sugary</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/fourmi.mp3"
+              >
+                fourmi
+              </td>
+              <td style="width: 40px"></td>
+              <td>ant</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/mille-pattes.mp3"
+              >
+                mille-pattes
+              </td>
+              <td style="width: 40px"></td>
+              <td>centipede / millipede</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/lisse.mp3"
+              >
+                lisse
+              </td>
+              <td style="width: 40px"></td>
+              <td>smooth</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/glissant.mp3"
+              >
+                glissant(e)
+              </td>
+              <td style="width: 40px"></td>
+              <td>slippery</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/enzymes-digestives.mp3"
+              >
+                enzymes digestives
+              </td>
+              <td style="width: 40px"></td>
+              <td>digestive enzymes</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/nutriment.mp3"
+              >
+                nutriment
+              </td>
+              <td style="width: 40px"></td>
+              <td>nutrient</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/sol pauvre.mp3"
+              >
+                sol pauvre
+              </td>
+              <td style="width: 40px"></td>
+              <td>nutrient-poor soil</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/survivre.mp3"
+              >
+                survivre
+              </td>
+              <td style="width: 40px"></td>
+              <td>to survive</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/mortel.mp3"
+              >
+                mortel(le)
+              </td>
+              <td style="width: 40px"></td>
+              <td>deadly / lethal</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/pitcher/absorber.mp3"
+              >
+                absorber
+              </td>
+              <td style="width: 40px"></td>
+              <td>to absorb</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-pitcher.html" target="_blank"
+            ><li>Pitcher plant video (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
