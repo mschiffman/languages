@@ -55,6 +55,7 @@
     { href: "conv11.html", label: "May 20", year: "2026", month: "May" },
     { href: "conv12.html", label: "May 21", year: "2026", month: "May" },
     { href: "conv13.html", label: "May 22", year: "2026", month: "May" },
+    { href: "conv14.html", label: "May 27", year: "2026", month: "May" },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
