@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .religion-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 0 1rem 1.5rem;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js?v=260526"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/religion/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>La France et la religion</h1>
+      </div>
+      <h5>Sous le drapeau, combien de dieux ?</h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img
+            class="religion-image"
+            src="/img/religion.png"
+            alt="La France et la religion"
+          />
+          Imagine un pays où, dans la cour d'une école, on ne
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/d(ə)vin/"
+            data-meaning="to guess"
+            >devine</span
+          >
+          pas la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fwa/"
+            data-meaning="faith"
+            >foi</span
+          >
+          des élèves. Ni
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀwa/"
+            data-meaning="cross"
+            >croix</span
+          >
+          au cou, ni
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vwal/"
+            data-meaning="veil"
+            >voile</span
+          >
+          sur les cheveux, ni
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kipa/"
+            data-meaning="kippah"
+            >kippa</span
+          >
+          sur la tête. C'est la France,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɔfisjɛlmɑ̃/"
+            data-meaning="officially"
+            >officiellement</span
+          >
+          un État
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/laik/"
+            data-meaning="secular"
+            >laïc</span
+          >, où les signes
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀ(ə)liʒjø/"
+            data-meaning="religious"
+            >religieux</span
+          >
+          visibles sont interdits dans les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/etablismɑ̃/"
+            data-meaning="institutions / schools"
+            >établissements</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/skɔlɛʀ/"
+            data-meaning="schools"
+            >scolaires</span
+          >. Mais comme toute belle règle, celle-ci a son
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛksɛpsjɔ̃/"
+            data-meaning="exception"
+            >exception</span
+          >
+          : l'Alsace-Moselle. Lors de la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sepaʀasjɔ̃/"
+            data-meaning="separation"
+            >séparation</span
+          >
+          des pouvoirs politique et religieux en 1905, cette région n'était plus
+          française, mais allemande. Elle a donc
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/eʃape/"
+            data-meaning="escaped"
+            data-origin="échapper /eʃape/"
+            >échappé</span
+          >
+          à la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lwa/"
+            data-meaning="law"
+            >loi</span
+          >, et aujourd'hui encore, l'État
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/finɑ̃s/"
+            data-meaning="to finance"
+            >finance</span
+          >
+          même certaines de ses églises — un petit
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/eʀitaʒ/"
+            data-meaning="heritage / legacy"
+            >héritage</span
+          >
+          du passé qui survit tranquillement au cœur de la République.
+        </p>
+        <p>
+          Si l'on
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sə.pɑ̃ʃ.syʀ/"
+            data-meaning="to look into"
+            >se penche sur</span
+          >
+          les religions que pratiquent les Français, on découvre un pays aux
+          mille visages, à la fois
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/myltikyltyʀεl/"
+            data-meaning="multicultural"
+            >multiculturel</span
+          >
+          et
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/myltikɔ̃fɛsjɔnɛl/"
+            data-meaning="multi-denominational"
+            >multiconfessionnel</span
+          >. Rien d'<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/etɔnɑ̃/"
+            data-meaning="surprising / amazing"
+            >étonnant</span
+          >,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/o.fɔ̃/"
+            data-meaning="basically"
+            >au fond</span
+          >, quand on se souvient du passé
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔlɔnjal/"
+            data-meaning="colonial"
+            >colonial</span
+          >
+          de la France. D'après les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/statistik/"
+            data-meaning="statistics"
+            >statistiques</span
+          >
+          de l'<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛ̃stity/"
+            data-meaning="Institute"
+            >Institut</span
+          >
+          français d'<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɔpinjɔ̃.pyblik/"
+            data-meaning="public opinion"
+            >opinion publique</span
+          >, 29% des Français
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sə.dit/"
+            data-meaning="to say/think (to oneself)"
+            >se disent</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/katɔlik/"
+            data-meaning="catholics"
+            >catholiques</span
+          >, 27% se considèrent
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ate/"
+            data-meaning="atheists"
+            data-origin="athée /ate/"
+            >athées</span
+          >, 3% sont
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/myzylmɑ̃/"
+            data-meaning="muslims"
+            >musulmans</span
+          >, 2,1% sont de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔ̃fɛsjɔ̃/"
+            data-meaning="denomination / faith"
+            >confession</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀɔtɛstɑ̃/"
+            data-meaning="protestants"
+            >protestante</span
+          >
+          et 0,6% sont
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʒɥif/"
+            data-meaning="jews"
+            >juifs</span
+          >.
+        </p>
+        <p>
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/istɔʀikmɑ̃/"
+            data-meaning="Historically"
+            >Historiquement</span
+          >, la France est une terre catholique — du moins depuis que se sont
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/etɛ̃t/"
+            data-meaning="to extinguish"
+            data-origin="éteindre /etɛ̃dʀ/"
+            >éteintes</span
+          >
+          les huit guerres de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀ(ə)liʒjɔ̃/"
+            data-meaning="religion"
+            >religion</span
+          >
+          qui l'ont
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀavaʒe/"
+            data-meaning="ravaged"
+            data-origin="ravager /ʀavaʒe/"
+            >ravagée</span
+          >
+          au
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɛzjɛm/"
+            data-meaning="16th"
+            >XVI<sup>e</sup></span
+          >
+          siècle. Mais après la Seconde Guerre mondiale, la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fɛʀvœʀ/"
+            data-meaning="fervor"
+            >ferveur</span
+          >
+          religieuse s'est peu à peu
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/esufle/"
+            data-meaning="run out of steam"
+            data-origin="s'essouffler /sesufle/"
+            >essoufflée</span
+          >, et l'arrivée massive d'<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/imiɡʀe/"
+            data-meaning="immigrants"
+            >immigrés</span
+          >
+          venus des anciennes colonies a
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔ̃tʀibɥe/"
+            data-meaning="contribute"
+            data-origin="contribuer /kɔ̃tʀibɥe/"
+            >contribué</span
+          >
+          à colorer autrement le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɛizaʒ/"
+            data-meaning="landscape"
+            >paysage</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/spiʀitɥɛl/"
+            data-meaning="spiritual"
+            >spirituel</span
+          >
+          du pays. Aujourd'hui, aucun conflit n'oppose les différentes religions
+          entre elles : chaque Français peut pratiquer la foi de son choix, à
+          condition de respecter celle de ses
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔ̃patʀijɔt/"
+            data-meaning="compatriots"
+            >compatriotes</span
+          >.
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Imagine a country where, in a schoolyard, you cannot guess the faith
+          of the students. No cross around the neck, no veil over the hair, no
+          kippah on the head. This is France, officially a secular state, where
+          visible religious symbols are forbidden in schools. But like every
+          beautiful rule, this one has its exception: Alsace-Moselle. During the
+          separation of political and religious powers in 1905, this region was
+          no longer French, but German. It therefore escaped the law, and even
+          today, the state still funds some of its churches — a small legacy of
+          the past that survives quietly at the heart of the Republic.
+        </p>
+        <p>
+          If we look at the religions practiced by the French, we discover a
+          country of a thousand faces, both multicultural and
+          multi-denominational. No surprise, really, when you remember France's
+          colonial past. According to statistics from the French Institute of
+          Public Opinion, 29% of French people say they are Catholic, 27%
+          consider themselves atheist, 3% are Muslim, 2.1% are Protestant, and
+          0.6% are Jewish.
+        </p>
+        <p>
+          Historically, France is a Catholic land — at least since the eight
+          wars of religion that ravaged it in the 16th century died out. But
+          after the Second World War, religious fervor gradually ran out of
+          steam, and the massive arrival of immigrants from the former colonies
+          contributed to coloring the country's spiritual landscape differently.
+          Today, no conflict pits the different religions against one another:
+          every French person may practice the faith of their choice, on the
+          condition of respecting that of their compatriots.
+        </p>
+      </div>
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/deviner.mp3"
+              >
+                deviner
+              </td>
+              <td style="width: 40px"></td>
+              <td>to guess</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/foi.mp3"
+              >
+                foi
+              </td>
+              <td style="width: 40px"></td>
+              <td>faith</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/croix.mp3"
+              >
+                croix
+              </td>
+              <td style="width: 40px"></td>
+              <td>cross</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/voile.mp3"
+              >
+                voile
+              </td>
+              <td style="width: 40px"></td>
+              <td>veil</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/kippa.mp3"
+              >
+                kippa
+              </td>
+              <td style="width: 40px"></td>
+              <td>kippah</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/officiellement.mp3"
+              >
+                officiellement
+              </td>
+              <td style="width: 40px"></td>
+              <td>officially</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/laic.mp3"
+              >
+                laïc
+              </td>
+              <td style="width: 40px"></td>
+              <td>secular</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/religieux.mp3"
+              >
+                religieux
+              </td>
+              <td style="width: 40px"></td>
+              <td>religious</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/etablissement.mp3"
+              >
+                établissement
+              </td>
+              <td style="width: 40px"></td>
+              <td>institutions / schools</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/scolaire.mp3"
+              >
+                scolaire
+              </td>
+              <td style="width: 40px"></td>
+              <td>schools</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/exception.mp3"
+              >
+                exception
+              </td>
+              <td style="width: 40px"></td>
+              <td>exception</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/separation.mp3"
+              >
+                séparation
+              </td>
+              <td style="width: 40px"></td>
+              <td>separation</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/echapper.mp3"
+              >
+                échapper
+              </td>
+              <td style="width: 40px"></td>
+              <td>to escape</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/loi.mp3"
+              >
+                loi
+              </td>
+              <td style="width: 40px"></td>
+              <td>law</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/financer.mp3"
+              >
+                financer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to finance</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/heritage.mp3"
+              >
+                héritage
+              </td>
+              <td style="width: 40px"></td>
+              <td>heritage / legacy</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/pencher.mp3"
+              >
+                se pencher sur
+              </td>
+              <td style="width: 40px"></td>
+              <td>to look into</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/multiculturel.mp3"
+              >
+                multiculturel
+              </td>
+              <td style="width: 40px"></td>
+              <td>multicultural</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/multiconfessionnel.mp3"
+              >
+                multiconfessionnel
+              </td>
+              <td style="width: 40px"></td>
+              <td>multi-denominational</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/etonnant.mp3"
+              >
+                étonnant
+              </td>
+              <td style="width: 40px"></td>
+              <td>surprising / amazing</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/au-fond.mp3"
+              >
+                au fond
+              </td>
+              <td style="width: 40px"></td>
+              <td>basically</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/colonial.mp3"
+              >
+                colonial
+              </td>
+              <td style="width: 40px"></td>
+              <td>colonial</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/statistique.mp3"
+              >
+                statistique
+              </td>
+              <td style="width: 40px"></td>
+              <td>statistics</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/institut.mp3"
+              >
+                Institut
+              </td>
+              <td style="width: 40px"></td>
+              <td>institute</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/opinion-publique.mp3"
+              >
+                opinion publique
+              </td>
+              <td style="width: 40px"></td>
+              <td>public opinion</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/se-dire.mp3"
+              >
+                se dire
+              </td>
+              <td style="width: 40px"></td>
+              <td>to say / think (to oneself)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/catholique.mp3"
+              >
+                catholique
+              </td>
+              <td style="width: 40px"></td>
+              <td>catholic</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/athee.mp3"
+              >
+                athée
+              </td>
+              <td style="width: 40px"></td>
+              <td>atheist</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/musulman.mp3"
+              >
+                musulman
+              </td>
+              <td style="width: 40px"></td>
+              <td>muslim</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/confession.mp3"
+              >
+                confession
+              </td>
+              <td style="width: 40px"></td>
+              <td>denomination / faith</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/protestant.mp3"
+              >
+                protestant
+              </td>
+              <td style="width: 40px"></td>
+              <td>protestant</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/juif.mp3"
+              >
+                juif
+              </td>
+              <td style="width: 40px"></td>
+              <td>jew</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/historiquement.mp3"
+              >
+                historiquement
+              </td>
+              <td style="width: 40px"></td>
+              <td>historically</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/eteindre.mp3"
+              >
+                éteindre
+              </td>
+              <td style="width: 40px"></td>
+              <td>to extinguish</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/religion.mp3?v=260528"
+              >
+                religion
+              </td>
+              <td style="width: 40px"></td>
+              <td>religion</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/ravager.mp3"
+              >
+                ravager
+              </td>
+              <td style="width: 40px"></td>
+              <td>to ravage</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/seizieme.mp3"
+              >
+                seizième
+              </td>
+              <td style="width: 40px"></td>
+              <td>16th</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/ferveur.mp3"
+              >
+                ferveur
+              </td>
+              <td style="width: 40px"></td>
+              <td>fervor</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/s-essouffler.mp3"
+              >
+                s'essouffler
+              </td>
+              <td style="width: 40px"></td>
+              <td>to run out of steam</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/immigre.mp3"
+              >
+                immigré
+              </td>
+              <td style="width: 40px"></td>
+              <td>immigrant</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/contribuer.mp3"
+              >
+                contribuer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to contribute</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/paysage.mp3"
+              >
+                paysage
+              </td>
+              <td style="width: 40px"></td>
+              <td>landscape</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/spirituel.mp3"
+              >
+                spirituel
+              </td>
+              <td style="width: 40px"></td>
+              <td>spiritual</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/religion/compatriote.mp3"
+              >
+                compatriotes
+              </td>
+              <td style="width: 40px"></td>
+              <td>compatriots</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-religion.html" target="_blank"
+            ><li>Religion video (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

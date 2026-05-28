@@ -48,6 +48,9 @@ document.getElementById("navbar").innerHTML = `
         <a href="index.html" class="sidebar-link">
           🥐 &nbsp;Un dimanche en France
         </a>
+        <a href="religion.html" class="sidebar-link">
+          🙏 &nbsp;La France et la religion
+        </a>
       </div>
     </div>
     <div class="sidebar-dropdown close">

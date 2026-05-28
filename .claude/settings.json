@@ -22,7 +22,10 @@
       "Bash(git commit *)",
       "Bash(dir \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages\\\\fr\\\\everyday\\\\conversations\\\\\")",
       "Bash(git -C \"c:/Users/Owner/Desktop/MAIN/WEBSITE/My Website/languages\" add \"assets/js/nav-read.js\")",
-      "Bash(git -C \"c:/Users/Owner/Desktop/MAIN/WEBSITE/My Website/languages\" commit -m \"5/23/26 Update nav-read.js\")"
+      "Bash(git -C \"c:/Users/Owner/Desktop/MAIN/WEBSITE/My Website/languages\" commit -m \"5/23/26 Update nav-read.js\")",
+      "Bash(git rm *)",
+      "Bash(git lfs *)",
+      "Bash(git mv *)"
     ]
   }
 }
