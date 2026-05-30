@@ -42,20 +42,96 @@
   document.body.appendChild(overlay);
 
   var convs = [
-    { href: "conv1.html", label: "Dec 28", year: "2025", month: "December" },
-    { href: "conv2.html", label: "Apr 16", year: "2026", month: "April" },
-    { href: "conv3.html", label: "Apr 17", year: "2026", month: "April" },
-    { href: "conv4.html", label: "Apr 18", year: "2026", month: "April" },
-    { href: "conv5.html", label: "Apr 19", year: "2026", month: "April" },
-    { href: "conv6.html", label: "Apr 20", year: "2026", month: "April" },
-    { href: "conv7.html", label: "May 2", year: "2026", month: "May" },
-    { href: "conv8.html", label: "May 8", year: "2026", month: "May" },
-    { href: "conv9.html", label: "May 9", year: "2026", month: "May" },
-    { href: "conv10.html", label: "May 13", year: "2026", month: "May" },
-    { href: "conv11.html", label: "May 20", year: "2026", month: "May" },
-    { href: "conv12.html", label: "May 21", year: "2026", month: "May" },
-    { href: "conv13.html", label: "May 22", year: "2026", month: "May" },
-    { href: "conv14.html", label: "May 27", year: "2026", month: "May" },
+    {
+      href: "conv1.html",
+      label: "Dec 28 - Jeu de rôle - La journée d'hier",
+      year: "2025",
+      month: "December",
+    },
+    {
+      href: "conv2.html",
+      label: "Apr 16 - Ce qu'on aime et n'aime pas",
+      year: "2026",
+      month: "April",
+    },
+    {
+      href: "conv3.html",
+      label: "Apr 17 - Un après-midi au jardin",
+      year: "2026",
+      month: "April",
+    },
+    {
+      href: "conv4.html",
+      label: "Apr 18 - Je suis originaire de Birmanie",
+      year: "2026",
+      month: "April",
+    },
+    {
+      href: "conv5.html",
+      label: "Apr 19 - Les restrictions d'eau",
+      year: "2026",
+      month: "April",
+    },
+    {
+      href: "conv6.html",
+      label: "Apr 20 - La vieillesse et les maisons de retraite",
+      year: "2026",
+      month: "April",
+    },
+    {
+      href: "conv7.html",
+      label: "May 2 - Jeu de rôle - Un mari malade",
+      year: "2026",
+      month: "May",
+    },
+    {
+      href: "conv8.html",
+      label: "May 8 - Je fais des pâtes",
+      year: "2026",
+      month: "May",
+    },
+    {
+      href: "conv9.html",
+      label: "May 9 - On sort au cinéma",
+      year: "2026",
+      month: "May",
+    },
+    {
+      href: "conv10.html",
+      label: "May 13 - Une maison de retraite en Thaïlande",
+      year: "2026",
+      month: "May",
+    },
+    {
+      href: "conv11.html",
+      label: "May 20 - Une maison de retraite en Thaïlande",
+      year: "2026",
+      month: "May",
+    },
+    {
+      href: "conv12.html",
+      label: "May 21 - Chez le dentiste",
+      year: "2026",
+      month: "May",
+    },
+    {
+      href: "conv13.html",
+      label: "May 22 - À la pharmacie",
+      year: "2026",
+      month: "May",
+    },
+    {
+      href: "conv14.html",
+      label: "May 27 - Entre amies",
+      year: "2026",
+      month: "May",
+    },
+    {
+      href: "conv15.html",
+      label: "May 30 - Loisirs et retraite",
+      year: "2026",
+      month: "May",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
