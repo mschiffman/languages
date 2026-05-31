@@ -100,7 +100,7 @@ document.getElementById("navbar").innerHTML = `
         <a href="giethoorn.html" class="sidebar-link"> 🏡 &nbsp;Giethoorn </a>
       </div>      
       <div id="history" class="sidebar-submenu">
-        <a href="giethoorn.html" class="sidebar-link"> 🪨 &nbsp;Homo Sapiens </a>
+        <a href="human.html" class="sidebar-link"> 🪨 &nbsp;Homo Sapiens </a>
       </div>
     </div>
     <div class="sidebar-dropdown close">
