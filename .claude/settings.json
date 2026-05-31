@@ -27,5 +27,6 @@
       "Bash(git lfs *)",
       "Bash(git mv *)"
     ]
-  }
+  },
+  "effortLevel": "high"
 }
