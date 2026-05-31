@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .human-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js?v=260528"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/human/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Nos ancêtres humains</h1>
+      </div>
+      <h5>
+        Qui sont les géants du passé qui ont tout inventé pour que tu puisses
+        lire ces lignes aujourd'hui ?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="human-image" src="/img/human.png" alt="" />
+          Imagine des hommes et des femmes qui vivent sous les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/etwal/"
+            data-meaning="stars"
+            >étoiles</span
+          >, sans maison, sans téléphone, sans même une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fuʀʃɛt/"
+            data-meaning="fork"
+            >fourchette</span
+          >. Cela ressemble à la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀeistwaʀ/"
+            data-meaning="prehistory"
+            >préhistoire</span
+          >
+          – et c'est exactement ça ! Depuis sept millions d'années, notre
+          famille a bien changé.
+        </p>
+        <p>
+          Tout a commencé en Afrique, avec de petits
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɛ̃ʒ/"
+            data-meaning="monkeys / primates"
+            >singes</span
+          >
+          qui se sont mis à marcher
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dəbu/"
+            data-meaning="upright / standing"
+            >debout</span
+          >. Le premier, <i>Sahelanthropus tchadensis</i>, vivait il y a sept
+          millions d'années dans des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fɔʀɛ/"
+            data-meaning="forests"
+            >forêts</span
+          >
+          et des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀeʀi/"
+            data-meaning="grasslands / meadows"
+            >prairies</span
+          >. Puis vint <i>Australopithecus afarensis</i>, plus agile : il
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɡʀɛ̃pɛ/"
+            data-meaning="climbed"
+            data-origin="grimper /ɡʀɛ̃pe/"
+            >grimpait</span
+          >
+          encore aux arbres, mais courait aussi dans les plaines pour
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/eʃape/"
+            data-meaning="escape"
+            data-origin="échapper /eʃape/"
+            >échapper</span
+          >
+          aux
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pʀedatœʀ/"
+            data-meaning="predators"
+            >prédateurs</span
+          >.
+        </p>
+        <p>
+          Ensuite arrive <i>Homo habilis</i> – « l'homme habile » – avec un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɛʀvo/"
+            data-meaning="brain"
+            >cerveau</span
+          >
+          50 % plus grand que ses ancêtres. Il taillait des pierres pour en
+          faire des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/uti/"
+            data-meaning="tools"
+            >outils</span
+          >
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tʀɑ̃ʃɑ̃/"
+            data-meaning="sharp"
+            >tranchants</span
+          >. Un vrai
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bʀikɔlœʀ/"
+            data-meaning="handyman / DIY person"
+            >bricoleur</span
+          >
+          du
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/paleɔlitik/"
+            data-meaning="Paleolithic"
+            >paléolithique</span
+          >
+          !
+        </p>
+        <p>
+          Mais le grand champion, c'est <i>Homo erectus</i> – « l'homme debout
+          ». Il ressemblait beaucoup à nous, courait vite grâce à ses longues
+          jambes, et il a fait une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dekuvɛʀt/"
+            data-meaning="discovery"
+            >découverte</span
+          >
+          qui a tout changé : le feu. Avec le feu, il a pu
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɥiʀ/"
+            data-meaning="to cook"
+            >cuire</span
+          >
+          sa
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/nuʀityʀ/"
+            data-meaning="food"
+            >nourriture</span
+          >, se
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀeʃofe/"
+            data-meaning="warm up / heat up"
+            data-origin="réchauffer /ʀeʃofe/"
+            >réchauffer</span
+          >, et même se protéger des animaux sauvages. La viande cuite a boosté
+          son cerveau et lui a donné encore plus d'énergie.
+        </p>
+        <p>
+          Les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/neɑ̃dɛʀtalje̤/"
+            data-meaning="Neanderthals"
+            >Néandertaliens</span
+          >, eux, vivaient en Europe et en Asie. Ils
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kuzɛ/"
+            data-meaning="sewed"
+            data-origin="coudre /kudʀ/"
+            >cousaient</span
+          >
+          des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vɛtmɑ̃/"
+            data-meaning="clothes"
+            >vêtements</span
+          >
+          en peau d'animal,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɛɲɛ/"
+            data-meaning="painted"
+            data-origin="peindre /pɛ̃dʀ/"
+            >peignaient</span
+          >
+          des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɡʀɔt/"
+            data-meaning="caves"
+            >grottes</span
+          >, et
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃tɛʀɛ/"
+            data-meaning="buried"
+            data-origin="enterrer /ɑ̃tɛʀe/"
+            >enterraient</span
+          >
+          leurs morts. Et enfin, <i>Homo sapiens</i> – c'est nous ! Apparus il y
+          a 300 000 ans en Afrique, nous avons inventé le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lɑ̃ɡaʒ/"
+            data-meaning="language"
+            >langage</span
+          >
+          et l'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ekʀityʀ/"
+            data-meaning="writing"
+            >écriture</span
+          >, et nous avons
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔlɔnize/"
+            data-meaning="colonized"
+            data-origin="coloniser /kɔlɔnize/"
+            >colonisé</span
+          >
+          toute la planète.
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Toutes ces aventures, ces inventions, ces millions d'années de
+            marche... pour arriver jusqu'à toi !</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          Imagine men and women living under the stars, without a house, without
+          a phone, without even a fork. That sounds like prehistory – and that's
+          exactly what it is! For seven million years, our family has changed a
+          great deal.
+        </p>
+        <p>
+          It all started in Africa, with small primates who began walking
+          upright. The first, <i>Sahelanthropus tchadensis</i>, lived seven
+          million years ago in forests and grasslands. Then came
+          <i>Australopithecus afarensis</i>, more agile: it still climbed trees
+          but also ran across the plains to escape predators.
+        </p>
+        <p>
+          Then comes <i>Homo habilis</i> – "the handy man" – with a brain 50%
+          larger than his ancestors. He shaped stones into sharp tools. A true
+          DIY man of the Paleolithic!
+        </p>
+        <p>
+          But the great champion is <i>Homo erectus</i> – "upright man". He
+          looked a lot like us, ran fast thanks to his long legs, and made a
+          discovery that changed everything: fire. With fire, he could cook his
+          food, keep warm, and even protect himself from wild animals. Cooked
+          meat boosted his brain and gave him even more energy.
+        </p>
+        <p>
+          The Neanderthals lived in Europe and Asia. They sewed clothes from
+          animal skins, painted caves, and buried their dead. And finally,
+          <i>Homo sapiens</i> – that's us! Having appeared 300,000 years ago in
+          Africa, we invented language and writing, and we colonized the entire
+          planet.
+        </p>
+        <p>
+          <i
+            >All these adventures, these inventions, these millions of years of
+            walking... to arrive at you!</i
+          >
+        </p>
+      </div>
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/ancetre.mp3"
+              >
+                ancêtres /ɑ̃sɛtʀ/
+              </td>
+              <td style="width: 40px"></td>
+              <td>ancestors</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/etoile.mp3"
+              >
+                étoiles
+              </td>
+              <td style="width: 40px"></td>
+              <td>stars</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/fourchette.mp3"
+              >
+                fourchette
+              </td>
+              <td style="width: 40px"></td>
+              <td>fork</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/prehistoire.mp3"
+              >
+                préhistoire
+              </td>
+              <td style="width: 40px"></td>
+              <td>prehistory</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/singe.mp3"
+              >
+                singe
+              </td>
+              <td style="width: 40px"></td>
+              <td>monkey / primate</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/debout.mp3"
+              >
+                debout
+              </td>
+              <td style="width: 40px"></td>
+              <td>upright / standing</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/foret.mp3"
+              >
+                forêt
+              </td>
+              <td style="width: 40px"></td>
+              <td>forest</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/prairie.mp3"
+              >
+                prairie
+              </td>
+              <td style="width: 40px"></td>
+              <td>grassland / meadow</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/grimper.mp3"
+              >
+                grimper
+              </td>
+              <td style="width: 40px"></td>
+              <td>to climb</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/echapper.mp3"
+              >
+                échapper
+              </td>
+              <td style="width: 40px"></td>
+              <td>to escape</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/predateur.mp3"
+              >
+                prédateur
+              </td>
+              <td style="width: 40px"></td>
+              <td>predator</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/cerveau.mp3"
+              >
+                cerveau
+              </td>
+              <td style="width: 40px"></td>
+              <td>brain</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/outil.mp3"
+              >
+                outil
+              </td>
+              <td style="width: 40px"></td>
+              <td>tool</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/tranchant.mp3"
+              >
+                tranchant
+              </td>
+              <td style="width: 40px"></td>
+              <td>sharp</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/bricoleur.mp3"
+              >
+                bricoleur
+              </td>
+              <td style="width: 40px"></td>
+              <td>handyman / DIY person</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/paleolithique.mp3"
+              >
+                paléolithique
+              </td>
+              <td style="width: 40px"></td>
+              <td>Paleolithic</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/decouverte.mp3"
+              >
+                découverte
+              </td>
+              <td style="width: 40px"></td>
+              <td>discovery</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/cuire.mp3"
+              >
+                cuire
+              </td>
+              <td style="width: 40px"></td>
+              <td>to cook</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/nourriture.mp3"
+              >
+                nourriture
+              </td>
+              <td style="width: 40px"></td>
+              <td>food</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/rechauffer.mp3"
+              >
+                réchauffer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to warm up / heat up</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/vetement.mp3"
+              >
+                vêtements
+              </td>
+              <td style="width: 40px"></td>
+              <td>clothes</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/grotte.mp3"
+              >
+                grotte
+              </td>
+              <td style="width: 40px"></td>
+              <td>cave</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/enterrer.mp3"
+              >
+                enterrer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to bury</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/langage.mp3"
+              >
+                langage
+              </td>
+              <td style="width: 40px"></td>
+              <td>language</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/ecriture.mp3"
+              >
+                écriture
+              </td>
+              <td style="width: 40px"></td>
+              <td>writing</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/human/coloniser.mp3"
+              >
+                coloniser
+              </td>
+              <td style="width: 40px"></td>
+              <td>to colonize</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-ancestors.html" target="_blank"
+            ><li>Ancestors video (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -132,6 +132,12 @@
       year: "2026",
       month: "May",
     },
+    {
+      href: "conv16.html",
+      label: "May 31 - Le jardin et le petit-déjeuner",
+      year: "2026",
+      month: "May",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
