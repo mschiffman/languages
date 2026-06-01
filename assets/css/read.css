@@ -229,9 +229,8 @@ body.sidebar-open {
 }
 
 .sidebar-link.active {
-  background: #3498db;
-  color: #fff;
-  font-weight: 500;
+  color: #3498db;
+  font-weight: bold;
 }
 
 .sidebar-link i {

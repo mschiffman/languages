@@ -5,12 +5,12 @@ document.getElementById("navbar").innerHTML = `
   </div>
 
   <div class="sidebar-button">
-    <a href="../../../index.html" class="sidebar-link active">
+    <a href="../../../index.html" class="sidebar-link">
       <i class="bi bi-house-door"></i> Home
     </a>
   </div>
   <div class="sidebar-button">
-    <a href="../../french.html" class="sidebar-link active">
+    <a href="../../french.html" class="sidebar-link">
       <i class="bi bi-folder2-open"></i>
       French Main
     </a>
@@ -172,3 +172,18 @@ document.getElementById("navbar").innerHTML = `
 </div>
 
 `;
+
+(function () {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('#navbar .sidebar-link').forEach(function (link) {
+    const linkPage = (link.getAttribute('href') || '').split('/').pop();
+    if (linkPage === currentPage) {
+      link.classList.add('active');
+      const submenu = link.closest('.sidebar-submenu');
+      if (submenu) {
+        const dropdown = submenu.closest('.sidebar-dropdown');
+        if (dropdown) dropdown.classList.add('open');
+      }
+    }
+  });
+})();
