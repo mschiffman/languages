@@ -122,6 +122,9 @@ document.getElementById("navbar").innerHTML = `
       <div id="brain" class="sidebar-submenu">
         <a href="brain.html" class="sidebar-link"> 🧠 &nbsp;Le cerveau </a>
       </div>
+      <div id="eye" class="sidebar-submenu">
+        <a href="eye.html" class="sidebar-link"> 👁️ &nbsp;L'œil humain </a>
+      </div>
     </div>
     <div class="sidebar-dropdown close">
       <button

@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .eye-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js?v=260531"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/eye/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>L'œil humain</h1>
+      </div>
+      <h5>
+        Comment une petite boule de deux centimètres peut-elle voir des étoiles
+        et lire ces lettres en même temps ?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="eye-image" src="/img/eye.png" alt="" />
+          Comment une petite boule de deux centimètres et demi peut-elle voir la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lymiɛʀ/"
+            data-meaning="light"
+            >lumière</span
+          >
+          d'une étoile à des millions de kilomètres et lire ces toutes petites
+          lettres en même temps ?
+        </p>
+        <p>
+          Imagine une caméra si parfaite qu'elle s'ajuste toute seule à la
+          lumière, à la distance, et au mouvement — en moins d'une seconde. Ce
+          n'est pas une invention de laboratoire. C'est ton œil.
+        </p>
+        <p>
+          Tout commence avec la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔʀne/"
+            data-meaning="cornea"
+            >cornée</span
+          >, une couche transparente devant l'œil. Elle est la première à
+          attraper la lumière et à la courber vers l'intérieur. Ensuite, la
+          lumière passe par la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pypij/"
+            data-meaning="pupil"
+            >pupille</span
+          >
+          — le petit trou noir au centre de l'œil. L'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/iʀis/"
+            data-meaning="iris"
+            >iris</span
+          >, le cercle coloré autour,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔ̃tʀakt/"
+            data-meaning="contracts"
+            data-origin="se contracter /kɔ̃tʀakte/"
+            >se contracte</span
+          >
+          ou
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dilatə/"
+            data-meaning="dilates"
+            data-origin="se dilater /dilatə/"
+            >se dilate</span
+          >
+          pour contrôler combien de lumière entre. C'est lui qui donne à tes
+          yeux leur couleur !
+        </p>
+        <p>
+          Derrière la pupille, le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀistalɛ̃/"
+            data-meaning="lens (of the eye)"
+            >cristallin</span
+          >
+          fait le vrai travail de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/miz o pwɛ̃/"
+            data-meaning="focusing"
+            >mise au point</span
+          >. Pour voir un objet lointain, il s'aplatit. Pour lire un livre tout
+          proche, il se gonfle. Les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/myskl siljeʀ/"
+            data-meaning="ciliary muscles"
+            >muscles ciliaires</span
+          >
+          l'aident à changer de forme des dizaines de fois par minute.
+        </p>
+        <p>
+          La lumière voyage ensuite à travers un gel transparent appelé
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ymœʀ vitʀe/"
+            data-meaning="vitreous humor"
+            >humeur vitrée</span
+          >
+          — qui remplit la grande cavité de l'œil — et atterrit enfin sur la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀetin/"
+            data-meaning="retina"
+            >rétine</span
+          >, au fond. C'est là que la magie se produit ! La rétine contient 130
+          millions de cellules : les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/batɔnɛ/"
+            data-meaning="rods"
+            >bâtonnets</span
+          >, qui voient en noir et blanc dans l'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɔpskyʀite/"
+            data-meaning="darkness"
+            >obscurité</span
+          >, et les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kon/"
+            data-meaning="cones"
+            >cônes</span
+          >, qui détectent les couleurs dans la lumière. Au centre de la rétine,
+          la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fɔve.a/"
+            data-meaning="fovea"
+            >fovéa</span
+          >
+          est la zone la plus précise — c'est là que tu regardes quand tu lis.
+        </p>
+        <p>
+          Toutes ces informations partent ensuite le long du
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/nɛʀf ɔptik/"
+            data-meaning="optic nerve"
+            >nerf optique</span
+          >
+          vers le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɛʀvo/"
+            data-meaning="brain"
+            >cerveau</span
+          >, qui les assemble en une image en relief et en couleur.
+        </p>
+        <p>
+          Et pour bouger cet incroyable instrument ? Six muscles autour du
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɡlɔb ɔkylaʀ/"
+            data-meaning="eyeball"
+            >globe oculaire</span
+          >
+          — le droit supérieur, l'oblique inférieur, et leurs amis — lui
+          permettent de rouler dans toutes les directions,
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃ œ̃ klɛ̃ dœj/"
+            data-meaning="in the blink of an eye"
+            >en un clin d'œil</span
+          >
+          !
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Tout ce voyage de la lumière — de la cornée à la rétine, du nerf
+            optique au cerveau — se fait en une fraction de seconde, des
+            millions de fois par jour. Et tout ça, juste pour que tu puisses
+            lire ces lignes.</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          How can a small ball of two and a half centimeters see the light of a
+          star millions of kilometers away and read these tiny letters at the
+          same time?
+        </p>
+        <p>
+          Imagine a camera so perfect that it adjusts itself to the light, the
+          distance, and the movement — in less than a second. This is not a
+          laboratory invention. It's your eye.
+        </p>
+        <p>
+          It all starts with the cornea, a transparent layer in front of the
+          eye. It is the first to catch the light and bend it inward. Then, the
+          light passes through the pupil — the small black hole at the center of
+          the eye. The iris, the colored circle around it, contracts or dilates
+          to control how much light enters. It's what gives your eyes their
+          color!
+        </p>
+        <p>
+          Behind the pupil, the lens does the real focusing work. To see a
+          distant object, it flattens. To read a book up close, it swells. The
+          ciliary muscles help it change shape dozens of times per minute.
+        </p>
+        <p>
+          The light then travels through a transparent gel called vitreous humor
+          — which fills the large cavity of the eye — and finally lands on the
+          retina, at the back. That's where the magic happens! The retina
+          contains 130 million cells: the rods, which see in black and white in
+          the dark, and the cones, which detect colors in light. At the center
+          of the retina, the fovea is the most precise zone — that's where you
+          look when you read.
+        </p>
+        <p>
+          All this information then travels along the optic nerve to the brain,
+          which assembles it into a three-dimensional, colored image.
+        </p>
+        <p>
+          And to move this incredible instrument? Six muscles around the eyeball
+          — the superior rectus, the inferior oblique, and their friends — allow
+          it to roll in all directions, in the blink of an eye!
+        </p>
+        <p>
+          <i
+            >All this journey of light — from the cornea to the retina, from the
+            optic nerve to the brain — happens in a fraction of a second,
+            millions of times a day. And all that, just so you can read these
+            lines.</i
+          >
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/lumiere.mp3"
+              >
+                lumière
+              </td>
+              <td style="width: 40px"></td>
+              <td>light</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/cornee.mp3"
+              >
+                cornée
+              </td>
+              <td style="width: 40px"></td>
+              <td>cornea</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/pupille.mp3"
+              >
+                pupille
+              </td>
+              <td style="width: 40px"></td>
+              <td>pupil</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/iris.mp3"
+              >
+                iris
+              </td>
+              <td style="width: 40px"></td>
+              <td>iris</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/se-contracter.mp3"
+              >
+                se contracter
+              </td>
+              <td style="width: 40px"></td>
+              <td>to contract</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/se-dilater.mp3"
+              >
+                se dilater
+              </td>
+              <td style="width: 40px"></td>
+              <td>to dilate</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/cristallin.mp3"
+              >
+                cristallin
+              </td>
+              <td style="width: 40px"></td>
+              <td>lens (of the eye)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/mise-au-point.mp3"
+              >
+                mise au point
+              </td>
+              <td style="width: 40px"></td>
+              <td>focusing</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/muscles-ciliaires.mp3"
+              >
+                muscles ciliaires
+              </td>
+              <td style="width: 40px"></td>
+              <td>ciliary muscles</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/humeur-vitr%C3%A9e.mp3"
+              >
+                humeur vitrée
+              </td>
+              <td style="width: 40px"></td>
+              <td>vitreous humor</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/retine.mp3"
+              >
+                rétine
+              </td>
+              <td style="width: 40px"></td>
+              <td>retina</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/batonnet.mp3"
+              >
+                bâtonnet
+              </td>
+              <td style="width: 40px"></td>
+              <td>rods</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/obscurite.mp3"
+              >
+                obscurité
+              </td>
+              <td style="width: 40px"></td>
+              <td>darkness</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/cone.mp3"
+              >
+                cône
+              </td>
+              <td style="width: 40px"></td>
+              <td>cones</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/fovea.mp3"
+              >
+                fovéa
+              </td>
+              <td style="width: 40px"></td>
+              <td>fovea</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/nerf-optique.mp3"
+              >
+                nerf optique
+              </td>
+              <td style="width: 40px"></td>
+              <td>optic nerve</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/cerveau.mp3"
+              >
+                cerveau
+              </td>
+              <td style="width: 40px"></td>
+              <td>brain</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/globe-oculaire.mp3"
+              >
+                globe oculaire
+              </td>
+              <td style="width: 40px"></td>
+              <td>eyeball</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/eye/clin-d%C5%93il.mp3"
+              >
+                en un clin d'œil
+              </td>
+              <td style="width: 40px"></td>
+              <td>in the blink of an eye</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-eye.html" target="_blank"
+            ><li>Eye video (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
