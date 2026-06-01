@@ -138,6 +138,12 @@
       year: "2026",
       month: "May",
     },
+    {
+      href: "conv17.html",
+      label: "Jun 1 - Joyeux anniversaire !",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
