@@ -149,6 +149,9 @@ document.getElementById("navbar").innerHTML = `
         <a href="earth.html" class="sidebar-link">
           🌎 &nbsp;La Terre
         </a>
+        <a href="meteorite.html" class="sidebar-link">
+          ☄️ &nbsp;L’astéroïde
+        </a>
       </div>
     </div>
     <div class="sidebar-section">

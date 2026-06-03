@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .meteorite-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../assets/js/nav-read.js?v=2606030655"
+    ></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/meteorite/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>L'astéroïde qui a changé la Terre</h1>
+      </div>
+      <h5>
+        Comment un rocher venu de l'espace peut-il mettre fin à des millions
+        d'années d'évolution en quelques minutes — et pourtant, ouvrir la porte
+        à une toute nouvelle ère de vie ?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="meteorite-image" src="/img/meteorite.png" alt="" />
+          Imagine une boule de roche et de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/metal/"
+            data-meaning="metal"
+            >métal</span
+          >
+          grande comme une montagne, filant à 258 000 km/h à travers l'espace
+          vide. Elle ne ralentit pas. Elle ne change pas de cap. Et depuis des
+          millions d'années, elle et la Terre se dirigent l'une vers l'autre
+          sans le savoir. Ce n'est pas de la science-fiction. C'est exactement
+          ce qui s'est passé il y a 66 millions d'années.
+        </p>
+        <p>
+          Tout commence bien avant l'impact. L'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/asteroid/"
+            data-meaning="asteroid"
+            >astéroïde</span
+          >
+          — une grosse roche en orbite autour du soleil — entre dans l'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/atmɔsfɛʀ/"
+            data-meaning="atmosphere"
+            >atmosphère</span
+          >
+          terrestre à une vitesse folle. En quelques secondes, la friction avec
+          l'air le réchauffe à des températures extrêmes. Des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tʀɛne/"
+            data-meaning="trail, streak"
+            >traînées</span
+          >
+          de feu et de fumée déchirent le ciel. Quand il touche enfin la
+          surface, dans ce qui est aujourd'hui la péninsule du Yucatán au
+          Mexique, le choc est instantané et total.
+        </p>
+        <p>
+          À l'instant de la collision, l'astéroïde se
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vapɔʀize/"
+            data-meaning="to vaporize"
+            >vaporise</span
+          >. Littéralement. Cette vaporisation libère une énergie colossale qui
+          fait fondre le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/plɑ̃ʃɛʀ ɔseaɲik/"
+            data-meaning="ocean floor"
+            >plancher océanique</span
+          >, projette des débris à travers l'atmosphère et envoie des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɔ̃d də ʃɔk/"
+            data-meaning="shockwave"
+            >ondes de choc</span
+          >
+          se propager à des milliers de kilomètres à la ronde. Le sol se
+          fracture jusqu'à 20 km de profondeur sous le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀatɛʀ/"
+            data-meaning="crater"
+            >cratère</span
+          >. La mer, déplacée brutalement, génère des tsunamis gigantesques qui
+          traversent les océans dans toutes les directions.
+        </p>
+        <p>
+          Et ça ne s'arrête pas là. La collision disperse des particules
+          d'astéroïde — chargées d'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/iʀidjɔm/"
+            data-meaning="iridium"
+            >iridium</span
+          >
+          — à l'autre bout de la planète. La mer réagit avec les roches
+          calcaires et le gypse du fond marin, libérant d'immenses nuages d'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/asid sylfyʀik/"
+            data-meaning="sulfuric acid"
+            >acide sulfurique</span
+          >. La poussière et les débris remontent dans la haute atmosphère et y
+          restent des années, bloquant la lumière du soleil. La Terre devient
+          froide, sombre, et hostile.
+        </p>
+        <p>
+          C'est ce qu'on appelle l'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ivɛʀ dɛ̃pakt/"
+            data-meaning="impact winter"
+            >hiver d'impact</span
+          >. Sans lumière, les plantes meurent. Sans plantes, les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɛʀbivɔʀ/"
+            data-meaning="herbivore"
+            >herbivores</span
+          >
+          disparaissent. Sans herbivores, les carnivores suivent. En quelques
+          milliers d'années, 76 % de toutes les espèces animales et végétales de
+          la planète s'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/s‿etɛɲ/"
+            data-meaning="to go extinct"
+            data-origin="s'éteindre /s‿etɛ̃dʀ/"
+            >éteignent</span
+          >
+          — dont les dinosaures et les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pteʀozɔʀ/"
+            data-meaning="pterosaurs"
+            >ptérosaures</span
+          >, qui avaient dominé la Terre pendant plus de 150 millions d'années.
+        </p>
+        <p>
+          Mais la Terre, elle, continue. Quelques milliers d'années après
+          l'impact, les poussières se déposent, les températures remontent, et
+          la vie recommence à pointer le bout de son nez. Les espèces qui
+          avaient survécu — de petits
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mamifɛʀ/"
+            data-meaning="mammal"
+            >mammifères</span
+          >, des insectes, des plantes robustes — reprennent leur place. Là où
+          il y avait un cratère béant, l'eau et la végétation reviennent
+          doucement. Les anneaux concentriques du cratère, encore visibles
+          aujourd'hui dans les relevés géophysiques et sous forme de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/senote/"
+            data-meaning="cenote (natural sinkhole lake)"
+            >cenotes</span
+          >
+          — ces lacs naturels caractéristiques du Yucatán — témoignent encore de
+          la violence de ce moment.
+        </p>
+        <p>
+          Et si quelque chose d'aussi dévastateur n'était pas arrivé ? Les
+          dinosaures seraient probablement encore là. Et les petits mammifères
+          qui leur ressemblaient à peine auraient peut-être continué à se cacher
+          dans les fourrés. Nous ne serions pas là pour y penser.
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Tout ce cycle de destruction et de
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ʀənɛsɑ̃s/"
+              data-meaning="rebirth, renaissance"
+              >renaissance</span
+            >
+            — de l'impact à l'extinction, de l'obscurité à la vie qui revient —
+            s'est joué en quelques millions d'années à peine. Et tout ça, juste
+            pour que tu puisses être là aujourd'hui à lire ces lignes.</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          How can a rock from space end millions of years of evolution in just a
+          few minutes — and yet, open the door to a whole new era of life?
+        </p>
+        <p>
+          Imagine a ball of rock and metal as large as a mountain, hurtling
+          through empty space at 258,000 km/h. It doesn't slow down. It doesn't
+          change course. And for millions of years, it and the Earth have been
+          heading toward each other without knowing it. This is not science
+          fiction. This is exactly what happened 66 million years ago.
+        </p>
+        <p>
+          It all begins well before the impact. The asteroid — a large rock
+          orbiting the sun — enters Earth's atmosphere at incredible speed.
+          Within seconds, friction with the air heats it to extreme
+          temperatures. Trails of fire and smoke tear through the sky. When it
+          finally touches the surface, in what is today the Yucatán Peninsula in
+          Mexico, the shock is instant and total.
+        </p>
+        <p>
+          At the moment of the collision, the asteroid vaporizes. Literally.
+          This vaporization releases a colossal energy that melts the ocean
+          floor, hurls debris across the atmosphere, and sends shockwaves
+          propagating thousands of kilometers in every direction. The ground
+          fractures to a depth of 20 km below the crater. The sea, brutally
+          displaced, generates giant tsunamis that cross the oceans in all
+          directions.
+        </p>
+        <p>
+          And it doesn't stop there. The collision scatters asteroid particles —
+          loaded with iridium — to the other side of the planet. The sea reacts
+          with the limestone and gypsum of the ocean floor, releasing immense
+          clouds of sulfuric acid. Dust and debris rise into the upper
+          atmosphere and stay there for years, blocking sunlight. The Earth
+          becomes cold, dark, and hostile.
+        </p>
+        <p>
+          This is what is called the impact winter. Without light, plants die.
+          Without plants, herbivores disappear. Without herbivores, carnivores
+          follow. Within a few thousand years, 76% of all animal and plant
+          species on the planet go extinct — including dinosaurs and pterosaurs,
+          which had dominated the Earth for more than 150 million years.
+        </p>
+        <p>
+          But the Earth continues. A few thousand years after the impact, the
+          dust settles, temperatures rise again, and life begins to reappear.
+          The species that had survived — small mammals, insects, hardy plants —
+          reclaim their place. Where there had been a gaping crater, water and
+          vegetation slowly return. The concentric rings of the crater, still
+          visible today in geophysical surveys and in the form of cenotes —
+          those natural lakes characteristic of the Yucatán — still bear witness
+          to the violence of that moment.
+        </p>
+        <p>
+          And if something so devastating had never happened? Dinosaurs would
+          probably still be here. And the small mammals that barely resembled us
+          might have continued hiding in the undergrowth. We would not be here
+          to think about it.
+        </p>
+        <p>
+          <i
+            >This entire cycle of destruction and rebirth — from impact to
+            extinction, from darkness to returning life — played out in just a
+            few million years. And all of that, just so you could be here today
+            to read these lines.</i
+          >
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/asteroide.mp3"
+              >
+                astéroïde
+              </td>
+              <td style="width: 40px"></td>
+              <td>asteroid</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/atmosphere.mp3"
+              >
+                atmosphère
+              </td>
+              <td style="width: 40px"></td>
+              <td>atmosphere</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/trainee.mp3"
+              >
+                traînée
+              </td>
+              <td style="width: 40px"></td>
+              <td>trail, streak</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/se-vaporiser.mp3"
+              >
+                se vaporiser
+              </td>
+              <td style="width: 40px"></td>
+              <td>to vaporize</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/plancher-oceanique.mp3"
+              >
+                plancher océanique
+              </td>
+              <td style="width: 40px"></td>
+              <td>ocean floor</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/onde-de-choc.mp3"
+              >
+                onde de choc
+              </td>
+              <td style="width: 40px"></td>
+              <td>shockwave</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/cratere.mp3"
+              >
+                cratère
+              </td>
+              <td style="width: 40px"></td>
+              <td>crater</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/iridium.mp3?v=260603"
+              >
+                iridium
+              </td>
+              <td style="width: 40px"></td>
+              <td>iridium</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/acide-sulfurique.mp3"
+              >
+                acide sulfurique
+              </td>
+              <td style="width: 40px"></td>
+              <td>sulfuric acid</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/hiver-impact.mp3"
+              >
+                hiver d'impact
+              </td>
+              <td style="width: 40px"></td>
+              <td>impact winter</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/herbivore.mp3"
+              >
+                herbivore
+              </td>
+              <td style="width: 40px"></td>
+              <td>herbivore</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/s-eteindre.mp3"
+              >
+                s'éteindre
+              </td>
+              <td style="width: 40px"></td>
+              <td>to go extinct</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/mammifere.mp3"
+              >
+                mammifère
+              </td>
+              <td style="width: 40px"></td>
+              <td>mammal</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/cenote.mp3"
+              >
+                cenote
+              </td>
+              <td style="width: 40px"></td>
+              <td>cenote (natural sinkhole lake)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/meteorite/renaissance.mp3"
+              >
+                renaissance
+              </td>
+              <td style="width: 40px"></td>
+              <td>rebirth, renaissance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-meteorite.html" target="_blank"
+            ><li>Meteorite video (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

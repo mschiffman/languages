@@ -10,7 +10,7 @@ TARGET_FILENAME = "nav-conv.js"
 FILE_EXTENSIONS = ('.html', '.htm', '.php')
 
 # Current date in YYMMDD format (e.g., 260113)
-TODAY_VERSION = datetime.now().strftime('%y%m%d')
+TODAY_VERSION = datetime.now().strftime('%y%m%d%H%M')
 
 # --- REGEX EXPLANATION ---
 # 1. (src=["'][^"']*)  -> Capture Group 1: Matches 'src="' followed by the path 
