@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .otter-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../assets/js/nav-read.js?v=2606041807"
+    ></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/otter/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>La loutre de mer, ce génie de l'océan</h1>
+      </div>
+      <h5>
+        Comment un animal aussi mignon peut-il être, en même temps, l'un des
+        esprits les plus brillants de tout l'océan ?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="otter-image" src="/img/otter.png" alt="" />
+          Imagine une petite créature de quelques kilos, flottant tranquillement
+          sur le dos au milieu du Pacifique. Elle tient une pierre dans ses
+          pattes. Elle casse des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/palуʀd/"
+            data-meaning="clams"
+            >palourdes</span
+          >. Elle mange. Elle range sa pierre préférée sous son
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/asɛl/"
+            data-meaning="armpit"
+            >aisselle</span
+          >
+          pour plus tard. Et elle repart chercher autre chose. C'est une loutre
+          de mer. Et elle est beaucoup plus
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fyte/"
+            data-meaning="clever, smart"
+            >futée</span
+          >
+          qu'elle n'en a l'air.
+        </p>
+        <p>
+          Les loutres de mer font partie des rares
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mamifɛʀ/"
+            data-meaning="mammals"
+            >mammifères</span
+          >
+          — en dehors des primates — à utiliser des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/uti/"
+            data-meaning="tools"
+            >outils</span
+          >. Elles choisissent des pierres spécifiques pour frapper les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔkij/"
+            data-meaning="shells"
+            >coquilles</span
+          >
+          dures : moules, oursins, crabes, abalone. Certaines gardent même leur
+          caillou favori dans une petite poche de peau sous leur avant-bras,
+          prêtes à s'en servir dès que l'occasion se présente. Ce n'est pas un
+          hasard. C'est une tradition. Des chercheurs de l'Ocean Conservancy ont
+          montré que ces
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/savwaʀfɛʀ/"
+            data-meaning="know-how, skills"
+            >savoir-faire</span
+          >
+          se transmettent de génération en génération depuis des millions
+          d'années — de mère en enfant, au fil du temps, dans les eaux froides
+          de la Californie.
+        </p>
+        <p>
+          Et ce n'est pas leur seul talent. Les loutres sont capables
+          d'apprendre des comportements complexes à une vitesse impressionnante.
+          En
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kaptivite/"
+            data-meaning="captivity"
+            >captivité</span
+          >, on leur a appris à empiler des tasses, à faire des exercices de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kineziteʀapi/"
+            data-meaning="physiotherapy"
+            >kinésithérapie</span
+          >, et même à utiliser un inhalateur pour se soigner. Elles observent.
+          Elles mémorisent. Elles s'adaptent.
+        </p>
+        <p>
+          Leur curiosité, c'est à la fois leur force et leur défaut. Une loutre
+          sous-stimulée va chercher à s'occuper toute seule — et pas toujours de
+          la façon qu'on aurait choisie pour elle. Dans les aquariums, elles
+          trouvent régulièrement des façons de démonter ce qu'on croyait
+          indémontable. Leur cerveau ne s'arrête jamais.
+        </p>
+        <p>
+          Ce cerveau actif, elles en ont besoin. Pour se nourrir, une loutre
+          peut plonger jusqu'à retenir son souffle pendant plus de cinq minutes,
+          fouillant le fond de l'océan à la recherche de proies. Elle mange
+          jusqu'à un quart de son poids corporel chaque jour. Et pour ne pas
+          couler pendant qu'elle digère, dort ou se repose, elle s'enroule dans
+          des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/alg/"
+            data-meaning="seaweed, algae"
+            >algues</span
+          >
+          — ces longues forêts sous-marines qui la maintiennent en place quand
+          elle s'endort à la surface. Quand elles dorment en groupe, les loutres
+          se tiennent parfois par la patte pour ne pas dériver. Un groupe de
+          loutres au repos s'appelle un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀado/"
+            data-meaning="raft"
+            >radeau</span
+          >
+          — et on en a déjà compté plus de mille ensemble.
+        </p>
+        <p>
+          Elles ont aussi le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pəlaʒ/"
+            data-meaning="coat, fur (of an animal)"
+            >pelage</span
+          >
+          le plus dense de tout le règne animal : environ un million de poils au
+          centimètre carré. Pas de graisse sous la peau pour se protéger du
+          froid, comme les autres mammifères marins — juste cette
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fuʀyʀ/"
+            data-meaning="fur"
+            >fourrure</span
+          >
+          extraordinaire, qu'elles passent des heures à entretenir, à souffler
+          pour y emprisonner des bulles d'air chaudes. C'est leur manteau. Leur
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bwe/"
+            data-meaning="buoy, float"
+            >bouée</span
+          >. Leur survie.
+        </p>
+        <p>
+          Et si la loutre disparaît, c'est tout un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ekosistɛm/"
+            data-meaning="ecosystem"
+            >écosystème</span
+          >
+          qui vacille. Les loutres mangent les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/uʀsɛ̃/"
+            data-meaning="sea urchins"
+            >oursins</span
+          >. Sans elles, les oursins se multiplient et dévorent les forêts de
+          kelp. Sans kelp, des dizaines d'espèces perdent leur habitat. C'est
+          pour ça qu'on les appelle une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/espɛs kle də vut/"
+            data-meaning="keystone species"
+            >espèce clé de voûte</span
+          >
+          — retirer la loutre de l'équation, c'est retirer la pierre qui tient
+          toute l'arche.
+        </p>
+        <p>
+          Pendant les 18e et 19e siècles, on a failli les faire disparaître pour
+          leur fourrure. Elles ont
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fʀole/"
+            data-meaning="to graze, to narrowly escape"
+            >frôlé</span
+          >
+          l'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ekstɛ̃ksjɔ̃/"
+            data-meaning="extinction"
+            >extinction</span
+          >. Aujourd'hui, elles sont protégées, leurs populations se
+          reconstituent — lentement, mais sûrement.
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Tout ça — l'intelligence, les outils, les traditions transmises sur
+            des millions d'années, les petites pattes qui se tiennent dans le
+            sommeil — dans un animal qu'on pourrait croire juste mignon.
+            Peut-être que la prochaine fois que tu verras une loutre flotter sur
+            le dos en cassant des
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/kɔkijaʒ/"
+              data-meaning="shellfish, shells"
+              >coquillages</span
+            >, tu regarderas un peu différemment.</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          How can an animal this cute also be one of the brightest minds in the
+          entire ocean?
+        </p>
+        <p>
+          Imagine a small creature weighing just a few kilos, floating
+          peacefully on its back in the middle of the Pacific. It holds a stone
+          in its paws. It cracks open clams. It eats. It tucks its favorite
+          stone under its armpit for later. Then it swims off to find something
+          else. This is a sea otter. And it is far smarter than it looks.
+        </p>
+        <p>
+          Sea otters are among the rare mammals — outside of primates — that use
+          tools. They choose specific stones to strike hard shells: mussels, sea
+          urchins, crabs, abalone. Some even keep their favorite pebble in a
+          small skin pouch under their forearm, ready to use it at a moment's
+          notice. This is no coincidence. It is a tradition. Researchers at the
+          Ocean Conservancy have shown that these skills are passed down from
+          generation to generation over millions of years — from mother to
+          child, through time, in the cold waters off California.
+        </p>
+        <p>
+          And that's not their only talent. Otters are capable of learning
+          complex behaviors at an impressive speed. In captivity, they have been
+          taught to stack cups, perform physical therapy exercises, and even use
+          an inhaler to treat themselves. They observe. They memorize. They
+          adapt.
+        </p>
+        <p>
+          Their curiosity is both their strength and their weakness. An
+          understimulated otter will find ways to entertain itself — not always
+          in the way we would have chosen for it. In aquariums, they regularly
+          find ways to take apart what was thought to be indestructible. Their
+          brains never stop.
+        </p>
+        <p>
+          That active brain, they need it. To feed themselves, an otter can
+          dive, holding its breath for more than five minutes, searching the
+          ocean floor for prey. It eats up to a quarter of its own body weight
+          every day. And to keep from sinking while digesting, sleeping, or
+          resting, it wraps itself in seaweed — those long underwater forests
+          that hold it in place as it dozes at the surface. When sleeping in
+          groups, otters sometimes hold each other's paws so they don't drift
+          apart. A group of resting otters is called a raft — and as many as a
+          thousand have been counted together.
+        </p>
+        <p>
+          They also have the densest fur in the entire animal kingdom: around
+          one million hairs per square centimeter. No blubber under the skin to
+          protect them from the cold, like other marine mammals — just this
+          extraordinary fur, which they spend hours grooming, blowing into it to
+          trap warm air bubbles. It is their coat. Their life jacket. Their
+          survival.
+        </p>
+        <p>
+          And if the otter disappears, an entire ecosystem wobbles. Otters eat
+          sea urchins. Without them, sea urchins multiply and devour kelp
+          forests. Without kelp, dozens of species lose their habitat. That is
+          why they are called a keystone species — remove the otter from the
+          equation, and you remove the stone that holds the whole arch together.
+        </p>
+        <p>
+          During the 18th and 19th centuries, they were nearly hunted to
+          extinction for their fur. They came close to disappearing entirely.
+          Today, they are protected, and their populations are rebuilding —
+          slowly, but surely.
+        </p>
+        <p>
+          <i
+            >All of this — the intelligence, the tools, the traditions passed
+            down over millions of years, the little paws holding each other in
+            sleep — in an animal you might think is just cute. Maybe the next
+            time you see an otter floating on its back cracking open shells, you
+            will look at it a little differently.</i
+          >
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/palourde.mp3"
+              >
+                palourde
+              </td>
+              <td style="width: 40px"></td>
+              <td>clam</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/aisselle.mp3"
+              >
+                aisselle
+              </td>
+              <td style="width: 40px"></td>
+              <td>armpit</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/fute.mp3"
+              >
+                futée
+              </td>
+              <td style="width: 40px"></td>
+              <td>clever, smart</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/mammifere.mp3"
+              >
+                mammifère
+              </td>
+              <td style="width: 40px"></td>
+              <td>mammal</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/outil.mp3"
+              >
+                outil
+              </td>
+              <td style="width: 40px"></td>
+              <td>tools</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/coquille.mp3"
+              >
+                coquille
+              </td>
+              <td style="width: 40px"></td>
+              <td>shells</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/savoir-faire.mp3"
+              >
+                savoir-faire
+              </td>
+              <td style="width: 40px"></td>
+              <td>know-how, skills</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/captivite.mp3"
+              >
+                captivité
+              </td>
+              <td style="width: 40px"></td>
+              <td>captivity</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/kinesitherapie.mp3"
+              >
+                kinésithérapie
+              </td>
+              <td style="width: 40px"></td>
+              <td>physiotherapy</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/algue.mp3"
+              >
+                algue
+              </td>
+              <td style="width: 40px"></td>
+              <td>seaweed, algae</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/radeau.mp3"
+              >
+                radeau
+              </td>
+              <td style="width: 40px"></td>
+              <td>raft</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/pelage.mp3"
+              >
+                pelage
+              </td>
+              <td style="width: 40px"></td>
+              <td>coat, fur (of an animal)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/fourrure.mp3"
+              >
+                fourrure
+              </td>
+              <td style="width: 40px"></td>
+              <td>fur</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/bouee.mp3"
+              >
+                bouée
+              </td>
+              <td style="width: 40px"></td>
+              <td>buoy, float</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/ecosysteme.mp3"
+              >
+                écosystème
+              </td>
+              <td style="width: 40px"></td>
+              <td>ecosystem</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/oursin.mp3"
+              >
+                oursin
+              </td>
+              <td style="width: 40px"></td>
+              <td>sea urchins</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/espece-cle-de-voute.mp3"
+              >
+                espèce clé de voûte
+              </td>
+              <td style="width: 40px"></td>
+              <td>keystone species</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/froler.mp3"
+              >
+                frôler
+              </td>
+              <td style="width: 40px"></td>
+              <td>to graze, to narrowly escape</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/extinction.mp3"
+              >
+                extinction
+              </td>
+              <td style="width: 40px"></td>
+              <td>extinction</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/otter/coquillage.mp3"
+              >
+                coquillage
+              </td>
+              <td style="width: 40px"></td>
+              <td>shellfish, shells</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-otter.html" target="_blank"
+            ><li>Otter video (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

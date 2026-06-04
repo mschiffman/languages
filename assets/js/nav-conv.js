@@ -144,6 +144,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv18.html",
+      label: "Jun 4 - Les livres DK",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";

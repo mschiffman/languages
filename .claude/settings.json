@@ -27,7 +27,10 @@
       "Bash(git lfs *)",
       "Bash(git mv *)",
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Owner\\\\Desktop\" -Recurse -Filter \"conv16.txt\" -ErrorAction SilentlyContinue)",
-      "Bash(git status *)"
+      "Bash(git status *)",
+      "Bash(Get-Date -Format \"yyMMddHHmm\")",
+      "Bash(git -C \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages\" add -u)",
+      "Bash(git -C \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages\" add fr/everyday/conversations/CLAUDE.md fr/everyday/conversations/conv18.html fr/everyday/tree-conv18.html fr/reading/otter.html img/otter.png)"
     ]
   },
   "effortLevel": "high"

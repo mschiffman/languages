@@ -78,6 +78,7 @@ document.getElementById("navbar").innerHTML = `
         <a href="kelp.html" class="sidebar-link"> 🪸 &nbsp;Le varech </a>
         <a href="pumice.html" class="sidebar-link"> 🌋 &nbsp;Pierre ponce </a>
         <a href="pitcher.html" class="sidebar-link"> 🪰 &nbsp;Les plantes-pièges </a>
+        <a href="otter.html" class="sidebar-link"> 🦦 &nbsp;La loutre de mer </a>
       </div>
     </div>
     <div class="sidebar-dropdown close">
