@@ -146,7 +146,18 @@ This must be run **after** every change to `nav-conv.js` (adding a conversation,
 
 ## Step 6 — Update `sitemap.html`
 
-Add the new conversation and its mind map to the sitemap. Follow the existing pattern for nearby entries.
+In `sitemap.html`, find the `"Conversation"` node in `graphData.nodes` and update its `url` to point to the latest conversation file:
+
+```js
+{
+  id: "Conversation",
+  group: 7,
+  level: 2,
+  url: "fr/everyday/conversations/convN.html",
+},
+```
+
+There is only one entry to change — the node always links to the most recent conversation.
 
 ---
 

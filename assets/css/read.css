@@ -441,9 +441,15 @@ h5 {
 }
 
 hr {
-  border: 0;
+  border: none;
   height: 2px;
-  background: linear-gradient(to right, #3498db, #9b59b6);
+  background-image: repeating-linear-gradient(
+    to right,
+    black 0,
+    black 0.3in,
+    transparent 0.3in,
+    transparent 0.6in
+  );
   margin: 30px 0;
 }
 

@@ -30,7 +30,10 @@
       "Bash(git status *)",
       "Bash(Get-Date -Format \"yyMMddHHmm\")",
       "Bash(git -C \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages\" add -u)",
-      "Bash(git -C \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages\" add fr/everyday/conversations/CLAUDE.md fr/everyday/conversations/conv18.html fr/everyday/tree-conv18.html fr/reading/otter.html img/otter.png)"
+      "Bash(git -C \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages\" add fr/everyday/conversations/CLAUDE.md fr/everyday/conversations/conv18.html fr/everyday/tree-conv18.html fr/reading/otter.html img/otter.png)",
+      "Bash(git -C 'c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages' commit -m ' *)",
+      "Bash(git -C \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\languages\" push)",
+      "Bash(grep -E \"\\\\.\\(mp4|m4a\\)$\")"
     ]
   },
   "effortLevel": "high"

@@ -150,6 +150,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv19.html",
+      label: "Jun 5 - Les clés dans la voiture",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
