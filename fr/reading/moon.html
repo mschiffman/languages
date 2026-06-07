@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .moon-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../assets/js/nav-read.js?v=2606061552"
+    ></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/moon/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>La lune, ce rocher qui gouverne nos nuits</h1>
+      </div>
+      <h5>
+        Comment un simple caillou dans le ciel peut-il influencer les marées,
+        les calendriers, et peut-être même la vie sur Terre ?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="moon-image" src="/img/moon.png" alt="" />
+          Imagine une boule de roche grise, suspendue là-haut dans le noir, à
+          environ 385 000 kilomètres de toi. Elle ne produit pas de lumière.
+          Elle ne bouge presque pas. Elle tourne, tranquillement, autour de la
+          Terre depuis 4,5 milliards d'années. C'est la lune. Et elle est
+          beaucoup plus importante qu'elle n'en a l'air.
+        </p>
+        <p>
+          La lune n'est pas tombée du ciel par hasard. Elle est née d'une
+          catastrophe. Il y a très longtemps, quand la Terre était encore toute
+          jeune, un objet de la taille de Mars — qu'on appelle Théia — l'a
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɛʀkyte/"
+            data-meaning="struck, hit"
+            data-origin="percuter /pɛʀkyte/"
+            >percutée</span
+          >
+          à toute vitesse. Le choc a été violent. Des morceaux des deux corps
+          ont été projetés dans l'espace, formant un anneau de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/debʀi/"
+            data-meaning="debris, fragments"
+            >débris</span
+          >
+          en
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fyzjɔ̃/"
+            data-meaning="molten"
+            >fusion</span
+          >
+          autour de la Terre. Peu à peu, ces débris se sont regroupés,
+          refroidis, et sont devenus ce que l'on voit chaque nuit. Notre lune,
+          littéralement, est faite des restes de cette collision.
+        </p>
+        <p>Et depuis, elle n'a pas arrêté de nous rendre service.</p>
+        <p>
+          Son attraction
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɡʀavitasjɔnɛl/"
+            data-meaning="gravitational"
+            >gravitationnelle</span
+          >
+          tire les océans vers elle — c'est ce qui crée les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/maʀe/"
+            data-meaning="tides"
+            >marées</span
+          >, deux fois par jour, partout sur la planète. Cette même force a
+          ralenti la rotation de la Terre au fil des milliards d'années.
+          Aujourd'hui, la lune est
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vɛʀuje/"
+            data-meaning="locked"
+            data-origin="verrouiller /vɛʀuje/"
+            >"verrouillée"</span
+          >
+          dans son orbite : elle tourne autour de la Terre exactement au même
+          rythme qu'elle tourne sur elle-même. Résultat — on ne voit jamais que
+          sa face avant. La face cachée, personne ne l'a photographiée avant
+          1959.
+        </p>
+        <p>
+          Ce verrouillage a une autre conséquence : la lune stabilise l'axe de
+          la Terre. Sans elle, cet axe pourrait
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/baskyle/"
+            data-meaning="to tilt, tip over"
+            >basculer</span
+          >
+          de façon imprévisible — jusqu'à 85 degrés. Le pôle Nord plongerait
+          vers le soleil. Les saisons deviendraient incontrôlables. La vie telle
+          qu'on la connaît n'aurait peut-être jamais pu évoluer. La lune, en
+          restant là, immobile et fidèle, nous protège de ce chaos.
+        </p>
+        <p>
+          Sa surface, elle, raconte une toute autre histoire. Pas d'atmosphère,
+          pas de vent, pas de végétation. Juste de la roche, de la poussière, et
+          des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀatɛʀ/"
+            data-meaning="craters"
+            >cratères</span
+          >. Des centaines de milliers de cratères, formés par des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/asteʀɔid/"
+            data-meaning="asteroids"
+            >astéroïdes</span
+          >
+          et des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/meteoʀit/"
+            data-meaning="meteorites"
+            >météorites</span
+          >
+          qui se sont écrasés dessus pendant des milliards d'années. Certains de
+          ces cratères en ont d'autres à l'intérieur — des impacts encore plus
+          récents, par-dessus les anciens. C'est une archive du chaos du système
+          solaire, gravée dans la pierre.
+        </p>
+        <p>
+          Les zones sombres qu'on aperçoit depuis la Terre — les "mers", comme
+          la Mer de la Sérénité — ne sont pas de l'eau. Ce sont d'anciennes
+          plaines de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bazalt/"
+            data-meaning="basalt"
+            >basalte</span
+          >, formées quand de la lave a recouvert les cratères d'impact il y a
+          environ 3,9 milliards d'années. On les a longtemps cru être des
+          étendues d'eau. C'est pour ça qu'on leur a donné des noms marins.
+          Elles sont sèches, même si certains cratères profonds, au niveau des
+          pôles, contiendraient peut-être de la glace.
+        </p>
+        <p>
+          La roche lunaire, elle, ressemble beaucoup à certaines roches
+          terrestres. Ce n'est pas une coïncidence — elles viennent du même
+          endroit. Les astronautes d'Apollo en ont rapporté 842 livres sur
+          Terre. En les étudiant, les scientifiques ont appris autant sur la
+          Terre que sur la lune. La poussière lunaire — le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀeɡɔlit/"
+            data-meaning="regolith (lunar dust)"
+            >régolithe</span
+          >
+          — est fine comme de la farine, mais tranchante comme du verre. Après 4
+          milliards d'années de bombardements, elle s'est accumulée en une
+          couche épaisse sur toute la surface.
+        </p>
+        <p>
+          Et la lune continue de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/s‿elwaɲe/"
+            data-meaning="to drift away, move farther"
+            data-origin="s'éloigner /s‿elwaɲe/"
+            >s'éloigner</span
+          >. Pas vite — environ 3,8 centimètres par an. On a tout le temps de
+          s'y habituer. Mais dans quelques milliards d'années, elle sera plus
+          loin, les marées plus faibles, et les nuits un peu plus sombres.
+        </p>
+        <p>
+          En attendant, elle se lève chaque soir, passe du
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀwasɑ̃/"
+            data-meaning="crescent"
+            >croissant</span
+          >
+          à la pleine lune en 28 jours, et illumine nos nuits de sa lumière
+          empruntée — qui n'est autre que du soleil réfléchi sur sa surface
+          grise.
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Tout ça — la collision originelle, les marées, l'axe stabilisé, les
+            cratères
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/millenɛʀ/"
+              data-meaning="millennia-old, ancient"
+              >millénaires</span
+            >, les 12 humains qui ont marché dessus — dans ce disque pâle qu'on
+            regarde distraitement depuis nos fenêtres. Peut-être que la
+            prochaine fois que tu verras la pleine lune se lever à l'horizon, tu
+            la regarderas un peu différemment.</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          How can a simple stone in the sky influence the tides, the calendars,
+          and perhaps even life on Earth?
+        </p>
+        <p>
+          Imagine a ball of gray rock, suspended up there in the darkness, about
+          385,000 kilometers from you. It produces no light. It barely moves. It
+          has been quietly orbiting the Earth for 4.5 billion years. That's the
+          moon. And it is far more important than it appears.
+        </p>
+        <p>
+          The moon did not fall from the sky by chance. It was born from a
+          catastrophe. Long ago, when the Earth was still very young, an object
+          the size of Mars — called Theia — struck it at full speed. The
+          collision was violent. Pieces of both bodies were hurled into space,
+          forming a ring of molten debris around the Earth. Little by little,
+          these fragments gathered together, cooled, and became what we see
+          every night. Our moon, literally, is made of the remains of that
+          collision.
+        </p>
+        <p>And since then, it has never stopped being useful to us.</p>
+        <p>
+          Its gravitational pull draws the oceans toward it — this is what
+          creates the tides, twice a day, everywhere on the planet. This same
+          force has slowed the rotation of the Earth over billions of years.
+          Today, the moon is "locked" in its orbit: it rotates around the Earth
+          at exactly the same rate that it rotates on its own axis. As a result,
+          we only ever see its near side. The far side was never photographed
+          until 1959.
+        </p>
+        <p>
+          This locking has another consequence: the moon stabilizes Earth's
+          axis. Without it, this axis could tilt unpredictably — by as much as
+          85 degrees. The North Pole would plunge toward the sun. The seasons
+          would become uncontrollable. Life as we know it might never have been
+          able to evolve. The moon, staying there, still and faithful, protects
+          us from this chaos.
+        </p>
+        <p>
+          Its surface tells an entirely different story. No atmosphere, no wind,
+          no vegetation. Just rock, dust, and craters. Hundreds of thousands of
+          craters, formed by asteroids and meteorites that slammed into it over
+          billions of years. Some of these craters have others inside them —
+          more recent impacts layered over older ones. It is an archive of the
+          solar system's chaos, engraved in stone.
+        </p>
+        <p>
+          The dark patches visible from Earth — the "seas," like the Sea of
+          Serenity — are not water. They are ancient basalt plains, formed when
+          lava covered impact craters about 3.9 billion years ago. For a long
+          time, people believed them to be bodies of water. That is why they
+          were given maritime names. They are dry, although some deep craters
+          near the poles may contain ice.
+        </p>
+        <p>
+          Lunar rock closely resembles certain Earth rocks. This is no
+          coincidence — they come from the same place. Apollo astronauts brought
+          back 842 pounds of it to Earth. By studying it, scientists learned as
+          much about Earth as about the moon. Lunar dust — the regolith — is as
+          fine as flour, but as sharp as glass. After 4 billion years of
+          bombardment, it has built up into a thick layer covering the entire
+          surface.
+        </p>
+        <p>
+          And the moon keeps drifting away. Slowly — about 3.8 centimeters per
+          year. We have plenty of time to get used to it. But in a few billion
+          years, it will be farther away, the tides will be weaker, and the
+          nights a little darker.
+        </p>
+        <p>
+          In the meantime, it rises every evening, moves from crescent to full
+          moon in 28 days, and lights our nights with its borrowed light —
+          nothing but sunlight reflected off its gray surface.
+        </p>
+        <p>
+          <i
+            >All of this — the original collision, the tides, the stabilized
+            axis, the ancient craters, the 12 humans who walked on it — in that
+            pale disk we absentmindedly gaze at from our windows. Perhaps the
+            next time you see the full moon rising on the horizon, you will look
+            at it a little differently.</i
+          >
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/percuter.mp3"
+              >
+                percuter
+              </td>
+              <td style="width: 40px"></td>
+              <td>to strike, hit</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/debris.mp3"
+              >
+                débris
+              </td>
+              <td style="width: 40px"></td>
+              <td>debris, fragments</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/en-fusion.mp3"
+              >
+                en fusion
+              </td>
+              <td style="width: 40px"></td>
+              <td>molten</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/gravitationnel.mp3"
+              >
+                gravitationnel
+              </td>
+              <td style="width: 40px"></td>
+              <td>gravitational</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/maree.mp3"
+              >
+                marée
+              </td>
+              <td style="width: 40px"></td>
+              <td>tide</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/verrouiller.mp3"
+              >
+                verrouiller
+              </td>
+              <td style="width: 40px"></td>
+              <td>to lock</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/basculer.mp3"
+              >
+                basculer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to tilt, tip over</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/cratere.mp3"
+              >
+                cratère
+              </td>
+              <td style="width: 40px"></td>
+              <td>crater</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/asteroide.mp3"
+              >
+                astéroïde
+              </td>
+              <td style="width: 40px"></td>
+              <td>asteroid</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/meteorite.mp3"
+              >
+                météorite
+              </td>
+              <td style="width: 40px"></td>
+              <td>meteorite</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/basalte.mp3"
+              >
+                basalte
+              </td>
+              <td style="width: 40px"></td>
+              <td>basalt</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/regolithe.mp3"
+              >
+                régolithe
+              </td>
+              <td style="width: 40px"></td>
+              <td>regolith (lunar dust)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/s-eloigner.mp3"
+              >
+                s'éloigner
+              </td>
+              <td style="width: 40px"></td>
+              <td>to drift away, move farther</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/croissant.mp3"
+              >
+                croissant
+              </td>
+              <td style="width: 40px"></td>
+              <td>crescent</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/moon/millenaire.mp3"
+              >
+                millénaire
+              </td>
+              <td style="width: 40px"></td>
+              <td>millennia-old, ancient</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-moon.html" target="_blank"
+            ><li>Moon video (NotebookLM)</li></a
+          >
+          <a
+            href="https://languages.rmlives.com/lessons/read/moon/audio-moon.m4a"
+            target="_blank"
+            ><li>Moon audio (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
