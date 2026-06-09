@@ -156,6 +156,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv20.html",
+      label: "Jun 9 - J'ai la dalle",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
