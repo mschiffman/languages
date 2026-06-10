@@ -162,6 +162,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv21.html",
+      label: "Jun 10 - Alerte de chaleur",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
