@@ -168,6 +168,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv22.html",
+      label: "Jun 10 - Le dîner",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
