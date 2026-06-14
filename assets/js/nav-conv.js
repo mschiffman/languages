@@ -174,6 +174,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv23.html",
+      label: "Jun 14 - La canicule et les panneaux solaires",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
