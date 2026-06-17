@@ -180,6 +180,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv24.html",
+      label: "Jun 17 - Les pollinisateurs et le règne animal",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";

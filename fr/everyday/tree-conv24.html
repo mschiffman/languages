@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mind Map - Conversation 24</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="stylesheet" href="../../assets/css/tree.css" />
+  </head>
+
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+    <script>
+      var treeData = {
+        name: "Conversation 24",
+        children: [
+          {
+            name: "Les pollinisateurs",
+            style: { stroke: "#007850", fill: "#007850" },
+            children: [
+              { name: "Pas beaucoup de pollinisateurs - not many pollinators" },
+              { name: "Environ 600 abeilles - about 600 bees" },
+              { name: "À peine quatre ou cinq douzaines - barely four or five dozen" },
+              { name: "En pleine floraison - in full bloom" },
+              { name: "Le buffet est garni - the buffet is set" },
+              { name: "Y'a pas grand monde - there's not much company" },
+              { name: "Deux papillons sur le lantana - two butterflies on the lantana" },
+              { name: "Insectes solitaires - solitary insects" },
+              { name: "Juste par hasard - purely by chance" },
+            ],
+          },
+          {
+            name: "L'instinct maternel",
+            style: { stroke: "#e07b39", fill: "#e07b39" },
+            children: [
+              { name: "Nourrit mon côté maternel - feeds my maternal side" },
+              { name: "En Malaisie, on n'a plus de jardin - no garden in Malaysia" },
+              { name: "De qui je vais m'occuper ? - who will I take care of?" },
+              { name: "Mari birman - Burmese husband" },
+              { name: "Chouchouté - pampered, coddled" },
+              { name: "Gâté - spoiled" },
+              { name: "J'en ai ras-le-bol - I'm sick and tired of it" },
+              { name: "Je le croirai quand je le verrai - I'll believe it when I see it" },
+            ],
+          },
+          {
+            name: "Le règne animal",
+            style: { stroke: "#9e2a00", fill: "#9e2a00" },
+            children: [
+              { name: "Le règne animal - the animal kingdom" },
+              { name: "Nourriture en abondance - food in abundance" },
+              { name: "La population augmente - the population grows" },
+              { name: "Lapins et écureuils - rabbits and squirrels" },
+              { name: "Leurs prédateurs, les serpents - their predators, the snakes" },
+              { name: "Les proies diminuaient - the prey decreased" },
+              { name: "Les serpents crevaient - the snakes would die off" },
+            ],
+          },
+          {
+            name: "Lever le pied",
+            style: { stroke: "#0070a8", fill: "#0070a8" },
+            children: [
+              { name: "À notre âge - at our age" },
+              { name: "Lever le pied - to slow down, ease off" },
+              { name: "Pas tout faire en une journée - not do everything in one day" },
+              { name: "Quand on est fatigués, on s'arrête - when tired, we stop" },
+              { name: "Trébucher et tomber - to trip and fall" },
+              { name: "Il a toujours mal - he's still in pain" },
+              { name: "Ça va mettre du temps à guérir - it'll take time to heal" },
+            ],
+          },
+          {
+            name: "Le déménagement de Ken",
+            style: { stroke: "#7b02b5", fill: "#7b02b5" },
+            children: [
+              { name: "Emménager dans la nouvelle maison - move into the new house" },
+              { name: "La vente sera finalisée - the sale will be finalized" },
+              { name: "Deux crédits sur le dos - two mortgages" },
+              { name: "Vendre leur maison actuelle - sell their current house" },
+              { name: "Faire un emprunt - to take out a loan" },
+              { name: "Le gendre - the son-in-law" },
+              { name: "Le déménagement - the move" },
+              { name: "Jusqu'à ce qu'il se remette - until he recovers" },
+            ],
+          },
+          {
+            name: "Expressions utiles",
+            style: { stroke: "#006666", fill: "#006666" },
+            children: [
+              { name: "En pleine floraison - in full bloom" },
+              { name: "Y'a pas grand monde - not much company (informal)" },
+              { name: "Au fait - by the way" },
+              { name: "Du coup - so, as a result" },
+              { name: "À toi - your turn" },
+              { name: "On parlait de quoi déjà ? - what were we talking about?" },
+              { name: "C'est gentil, ça - that's nice" },
+            ],
+          },
+        ],
+      };
+
+      var colors = {
+        node: {
+          rootFill: "#1d03e1ff",
+          defaultFill: "rgb(39, 43, 77)",
+          strokeHasChildren: "rgb(3, 192, 220)",
+          strokeLeaf: "rgba(222, 38, 173, 1)",
+        },
+        text: {
+          root: "rgba(255, 255, 255, 1)",
+          hasChildren: "#ffffff",
+          leaf: "rgba(255, 255, 255, 1)",
+        },
+        link: "#ccc",
+      };
+
+      var margin = { top: 20, right: 90, bottom: 30, left: 90 },
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var svgSelection = d3
+          .select("body")
+          .append("svg")
+          .attr("width", "100vw")
+          .attr("height", "100vh");
+
+        var svg = svgSelection
+          .append("g")
+          .attr(
+            "transform",
+            "translate(" + margin.left + "," + margin.top + ")",
+          );
+
+        var zoom = d3.zoom().on("zoom", function () {
+          svg.attr("transform", d3.event.transform);
+        });
+
+        svgSelection
+          .call(zoom)
+          .call(
+            zoom.transform,
+            d3.zoomIdentity.translate(margin.left, margin.top),
+          );
+
+        var i = 0,
+          duration = 750,
+          root;
+        var treemap = d3.tree().nodeSize([40, 180]);
+        root = d3.hierarchy(treeData, function (d) {
+          return d.children;
+        });
+        root.x0 = height / 2;
+        root.y0 = 0;
+        root.children.forEach(collapse);
+
+        update(root);
+
+        function collapse(d) {
+          if (d.children) {
+            d._children = d.children;
+            d._children.forEach(collapse);
+            d.children = null;
+          }
+        }
+
+        function update(source) {
+          var treeData = treemap(root);
+          var nodes = treeData.descendants(),
+            links = treeData.descendants().slice(1);
+          nodes.forEach(function (d) {
+            d.x = d.x + height / 2;
+          });
+          var node = svg.selectAll("g.node").data(nodes, function (d) {
+            return d.id || (d.id = ++i);
+          });
+          var nodeEnter = node
+            .enter()
+            .append("g")
+            .attr("class", "node")
+            .attr("transform", function (d) {
+              return "translate(" + source.y0 + "," + source.x0 + ")";
+            })
+            .on("click", click);
+          nodeEnter
+            .attr("class", "node")
+            .attr("r", 1e-6)
+            .style("fill", function (d) {
+              var p = d;
+              while (p) {
+                if (p.data.style && p.data.style.fill) return p.data.style.fill;
+                p = p.parent;
+              }
+              return d.parent ? colors.node.defaultFill : colors.node.rootFill;
+            });
+
+          nodeEnter
+            .append("text")
+            .style("fill", function (d) {
+              if (d.parent) {
+                return d.children || d._children
+                  ? colors.text.hasChildren
+                  : colors.text.leaf;
+              }
+              return colors.text.root;
+            })
+            .attr("dy", ".35em")
+            .attr("text-anchor", function (d) {
+              return "middle";
+            })
+            .text(function (d) {
+              return d.data.name;
+            });
+
+          nodeEnter.each(function (d) {
+            var bbox = this.querySelector("text").getBBox();
+            d.width = bbox.width + 20;
+            d.height = bbox.height + 10;
+          });
+
+          var maxDepthWidth = [];
+          nodes.forEach(function (d) {
+            if (!maxDepthWidth[d.depth] || d.width > maxDepthWidth[d.depth]) {
+              maxDepthWidth[d.depth] = d.width;
+            }
+          });
+          var depthY = [0];
+          for (var j = 1; j <= maxDepthWidth.length; j++) {
+            depthY[j] = depthY[j - 1] + (maxDepthWidth[j - 1] || 0) + 80;
+          }
+          nodes.forEach(function (d) {
+            d.y = depthY[d.depth];
+          });
+
+          nodeEnter
+            .insert("rect", "text")
+            .attr("rx", 6)
+            .attr("ry", 6)
+            .attr("stroke-width", function (d) {
+              return d.parent ? 1 : 0;
+            })
+            .attr("stroke", function (d) {
+              var p = d;
+              while (p) {
+                if (p.data.style && p.data.style.stroke)
+                  return p.data.style.stroke;
+                p = p.parent;
+              }
+              return d.children || d._children
+                ? colors.node.strokeHasChildren
+                : colors.node.strokeLeaf;
+            })
+            .attr("stroke-dasharray", "0")
+            .attr("stroke-opacity", function (d) {
+              return d.children || d._children ? "1" : "0.6";
+            })
+            .attr("x", 0)
+            .attr("y", function (d) {
+              return -(d.height / 2);
+            })
+            .attr("width", function (d) {
+              return d.width;
+            })
+            .attr("height", function (d) {
+              return d.height;
+            });
+
+          nodeEnter.selectAll("text").attr("x", function (d) {
+            return d.width / 2;
+          });
+
+          nodeEnter
+            .filter(function (d) {
+              return d.children || d._children;
+            })
+            .append("text")
+            .attr("class", "plus-sign")
+            .attr("x", function (d) {
+              return d.width;
+            })
+            .attr("y", 0)
+            .attr("dy", ".35em")
+            .style("fill", "black")
+            .attr("text-anchor", "middle")
+            .text("+");
+
+          var nodeUpdate = nodeEnter.merge(node);
+
+          nodeUpdate.select(".plus-sign").style("display", function (d) {
+            return d._children ? "inline" : "none";
+          });
+
+          nodeUpdate
+            .transition()
+            .duration(duration)
+            .attr("transform", function (d) {
+              return "translate(" + d.y + "," + d.x + ")";
+            });
+          var nodeExit = node
+            .exit()
+            .transition()
+            .duration(duration)
+            .attr("transform", function (d) {
+              return "translate(" + source.y + "," + source.x + ")";
+            })
+            .remove();
+          nodeExit.select("rect").style("opacity", 1e-6);
+          nodeExit.select("rect").attr("stroke-opacity", 1e-6);
+          nodeExit.selectAll("text").style("fill-opacity", 1e-6);
+          var link = svg.selectAll("path.link").data(links, function (d) {
+            return d.id;
+          });
+          var linkEnter = link
+            .enter()
+            .insert("path", "g")
+            .attr("class", "link")
+            .style("stroke", function (d) {
+              var p = d;
+              while (p) {
+                if (p.data.style && p.data.style.stroke)
+                  return p.data.style.stroke;
+                p = p.parent;
+              }
+              return colors.link;
+            })
+            .attr("d", function (d) {
+              var o = { x: source.x0, y: source.y0 };
+              return diagonal(o, o);
+            });
+          var linkUpdate = linkEnter.merge(link);
+          linkUpdate
+            .transition()
+            .duration(duration)
+            .attr("d", function (d) {
+              return diagonal(d, d.parent);
+            });
+          var linkExit = link
+            .exit()
+            .transition()
+            .duration(duration)
+            .attr("d", function (d) {
+              var o = { x: source.x, y: source.y };
+              return diagonal(o, o);
+            })
+            .remove();
+          nodes.forEach(function (d) {
+            d.x0 = d.x;
+            d.y0 = d.y;
+          });
+          function diagonal(s, d) {
+            var path = `M ${s.y} ${s.x}
+                    C ${(s.y + d.y) / 2} ${s.x},
+                      ${(s.y + d.y) / 2} ${d.x},
+                      ${d.y} ${d.x}`;
+            return path;
+          }
+          function click(d) {
+            if (d.children) {
+              d._children = d.children;
+              d.children = null;
+            } else {
+              d.children = d._children;
+              d._children = null;
+              if (d.depth === 0 && d.children) {
+                d.children.forEach(collapse);
+              }
+            }
+            update(d);
+          }
+        }
+
+        function expand(d) {
+          if (d._children) {
+            d.children = d._children;
+            d._children = null;
+          }
+          if (d.children) {
+            d.children.forEach(expand);
+          }
+        }
+
+        var actionBar = d3
+          .select("body")
+          .append("div")
+          .attr("class", "action-bar")
+          .style("position", "fixed")
+          .style("top", "10px")
+          .style("left", "10px")
+          .style("z-index", "1000")
+          .style("display", "flex")
+          .style("gap", "10px");
+
+        actionBar
+          .append("button")
+          .attr("class", "btn btn-sm btn-light border shadow-sm")
+          .html('<i class="bi bi-arrows-expand"></i> Expand All')
+          .on("click", function () {
+            expand(root);
+            update(root);
+          });
+
+        actionBar
+          .append("button")
+          .attr("class", "btn btn-sm btn-light border shadow-sm")
+          .html('<i class="bi bi-arrows-collapse"></i> Collapse All')
+          .on("click", function () {
+            root.children.forEach(collapse);
+            update(root);
+          });
+
+        actionBar
+          .append("button")
+          .attr("class", "btn btn-sm btn-light border shadow-sm")
+          .html('<i class="bi bi-aspect-ratio"></i> Reset Zoom')
+          .on("click", function () {
+            svgSelection
+              .transition()
+              .duration(750)
+              .call(
+                zoom.transform,
+                d3.zoomIdentity.translate(margin.left, margin.top),
+              );
+          });
+      });
+    </script>
+  </body>
+</html>
