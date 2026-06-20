@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English Site Map</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #1e1e1e;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        overflow: hidden;
+      }
+
+      #graph {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .node {
+        cursor: default;
+        transition: all 0.3s ease;
+      }
+
+      .node.has-link {
+        cursor: pointer;
+      }
+
+      .node circle {
+        stroke: none;
+        transition: all 0.3s ease;
+      }
+
+      .node.main-node circle {
+        stroke: none;
+      }
+
+      .node text {
+        fill: #e0e0e0;
+        font-size: 12px;
+        text-anchor: middle;
+        pointer-events: none;
+        user-select: none;
+        paint-order: stroke;
+        stroke: #1e1e1e;
+        stroke-width: 1px;
+        stroke-linejoin: round;
+      }
+
+      .node.highlighted circle {
+        fill: #007bff;
+        filter: drop-shadow(0 0 8px #007bff);
+      }
+
+      .node.highlighted text {
+        fill: #ffffff;
+      }
+
+      .node.dimmed circle {
+        fill: #2a2a2a;
+        stroke: #3a3a3a;
+        opacity: 0.3;
+      }
+
+      .node.dimmed text {
+        opacity: 0.3;
+      }
+
+      .link {
+        stroke: #4a4a4a;
+        stroke-width: 1px;
+        stroke-opacity: 0.6;
+        transition: all 0.3s ease;
+      }
+
+      .link.highlighted {
+        stroke: #007bff;
+        stroke-opacity: 1;
+        filter: drop-shadow(0 0 4px #007bff);
+      }
+
+      .link.dimmed {
+        stroke: #2a2a2a;
+        stroke-opacity: 0.2;
+      }
+
+      .info-panel {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(40, 40, 40, 0.9);
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: #e0e0e0;
+        font-size: 14px;
+        border: 1px solid #4a4a4a;
+        max-width: 300px;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+      }
+
+      .panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .info-panel h3 {
+        margin: 0;
+        color: #8b5cf6;
+        font-size: 16px;
+      }
+
+      .language-select {
+        background: #333;
+        border: 1px solid #555;
+        color: #e0e0e0;
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-size: 11px;
+        cursor: pointer;
+      }
+
+      .language-select:hover {
+        border-color: #8b5cf6;
+      }
+
+      .panel-close-btn {
+        background: none;
+        border: none;
+        color: #888;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 0 0 0 6px;
+        line-height: 1;
+      }
+
+      .panel-close-btn:hover {
+        color: #e0e0e0;
+      }
+
+      .panel-open-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: rgba(40, 40, 40, 0.9);
+        border: 1px solid #4a4a4a;
+        color: #8b5cf6;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        display: none;
+      }
+
+      .panel-open-btn:hover {
+        border-color: #8b5cf6;
+        color: #e0e0e0;
+      }
+
+      #legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 12px;
+        color: #e0e0e0;
+      }
+
+      .legend-circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 5px;
+        border: 2px solid;
+      }
+
+      .info-panel p {
+        margin: 5px 0;
+        line-height: 1.5;
+      }
+
+      .info-panel .shortcut {
+        color: #a78bfa;
+        font-weight: bold;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+      }
+
+      .control-btn {
+        background: #333;
+        border: 1px solid #555;
+        color: #e0e0e0;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 11px;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .control-btn:hover {
+        background: #444;
+        border-color: #8b5cf6;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(3px);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background-color: #2a2a2a;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid #4a4a4a;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        max-width: 600px;
+        width: auto;
+        min-width: 300px;
+        position: relative;
+        color: #e0e0e0;
+        animation: modalFadeIn 0.3s ease-out;
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .close-button {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: #8b5cf6;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .close-button:hover {
+        color: #fff;
+      }
+
+      #modalTitle {
+        margin-top: 0;
+        color: #8b5cf6;
+        border-bottom: 1px solid #4a4a4a;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+
+      #modalBody {
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .modal-link-btn {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+
+      .modal-link-btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="panel-open-btn" id="panel-open-btn" title="Show Nodes panel">
+      Nodes &#9654;
+    </button>
+
+    <div class="info-panel" id="info-panel">
+      <div class="panel-header">
+        <h3>Nodes</h3>
+        <div style="display: flex; align-items: center; gap: 6px">
+          <select
+            id="language-select"
+            class="language-select"
+            title="Switch language"
+          >
+            <option value="index.html">French</option>
+            <option value="japanese.html">Japanese</option>
+            <option value="english.html" selected>English</option>
+          </select>
+          <button
+            class="panel-close-btn"
+            id="panel-close-btn"
+            title="Hide panel"
+          >
+            &#10005;
+          </button>
+        </div>
+      </div>
+      <p>
+        Click a cluster to show/hide related pages from the network. Click on a
+        node to go to the web page.
+      </p>
+      <div class="controls">
+        <button id="check-all" class="control-btn">Check all</button>
+        <button id="uncheck-all" class="control-btn">Uncheck all</button>
+      </div>
+      <div id="legend"></div>
+    </div>
+
+    <!-- Node Info Modal -->
+    <div id="nodeModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalBody"></p>
+        <a id="modalLink" href="#" target="_blank" class="modal-link-btn"
+          >Visit Page</a
+        >
+      </div>
+    </div>
+
+    <svg id="graph"></svg>
+
+    <script>
+      const graphData = {
+        nodes: [
+          // Main node
+          {
+            id: "Eng",
+            group: 0,
+            level: 0,
+          },
+
+          // Eng children
+          {
+            id: "Enunciation",
+            group: 1,
+            level: 1,
+          },
+
+          // Enunciation children
+          {
+            id: "/e/ best",
+            group: 1,
+            level: 2,
+            url: "eng/enunciation/e/index.html",
+          },
+          {
+            id: "/æ/ dam",
+            group: 1,
+            level: 2,
+            url: "eng/enunciation/ae/index.html",
+          },
+          {
+            id: "/eɪ/ bay",
+            group: 1,
+            level: 2,
+            url: "eng/enunciation/ei/index.html",
+          },
+        ],
+        links: [
+          { source: "Eng", target: "Enunciation" },
+          { source: "Enunciation", target: "/e/ best" },
+          { source: "Enunciation", target: "/æ/ dam" },
+          { source: "Enunciation", target: "/eɪ/ bay" },
+        ],
+      };
+
+      // Modal Logic
+      const modal = document.getElementById("nodeModal");
+      const closeBtn = document.querySelector(".close-button");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalBody = document.getElementById("modalBody");
+      const modalLink = document.getElementById("modalLink");
+
+      function openModal(d) {
+        modalTitle.textContent = d.id;
+        modalBody.textContent =
+          d.description ||
+          `This is the node for "${d.id}". It is part of the ${d.group} group.`;
+
+        if (d.url) {
+          modalLink.href = d.url;
+          modalLink.style.display = "inline-block";
+          modalLink.textContent = "Go to Page";
+        } else {
+          modalLink.style.display = "none";
+        }
+
+        modal.style.display = "flex";
+      }
+
+      closeBtn.onclick = () => (modal.style.display = "none");
+      window.onclick = (event) => {
+        if (event.target === modal) modal.style.display = "none";
+      };
+
+      // Set up SVG
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      const svg = d3
+        .select("#graph")
+        .attr("width", width)
+        .attr("height", height);
+
+      const g = svg.append("g");
+
+      const zoom = d3
+        .zoom()
+        .scaleExtent([0.1, 4])
+        .on("zoom", (event) => {
+          g.attr("transform", event.transform);
+
+          const k = event.transform.k;
+          const fontSize = k * 12 > 14.2 ? 14.2 / k : 12;
+          g.selectAll(".node text").style("font-size", fontSize + "px");
+        });
+
+      svg.call(zoom);
+
+      const simulation = d3
+        .forceSimulation(graphData.nodes)
+        .force(
+          "link",
+          d3
+            .forceLink(graphData.links)
+            .id((d) => d.id)
+            .distance(80),
+        )
+        .force("charge", d3.forceManyBody().strength(-120))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("x", d3.forceX(width / 2).strength(0.08))
+        .force("y", d3.forceY(height / 2).strength(0.08))
+        .force("collision", d3.forceCollide().radius(20));
+
+      const link = g
+        .append("g")
+        .selectAll("line")
+        .data(graphData.links)
+        .enter()
+        .append("line")
+        .attr("class", "link");
+
+      const node = g
+        .append("g")
+        .selectAll("g")
+        .data(graphData.nodes)
+        .enter()
+        .append("g")
+        .attr("class", (d) => (d.level === 0 ? "node main-node" : "node"))
+        .classed("has-link", (d) => !!d.url)
+        .call(
+          d3
+            .drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended),
+        );
+
+      const baseColor = d3.scaleOrdinal(d3.schemeCategory10);
+      const color = (group) => baseColor(group);
+
+      node
+        .append("circle")
+        .attr("r", (d) => (d.level === 0 ? 12 : d.level === 1 ? 8 : 6))
+        .attr("fill", (d) => color(d.group));
+
+      // Legend Logic
+      const legendContainer = d3.select("#legend");
+      const hiddenGroups = new Set();
+
+      const groups = [...new Set(graphData.nodes.map((d) => d.group))].sort();
+      const groupLabels = {};
+      graphData.nodes.forEach((n) => {
+        if (n.level === 0) groupLabels[n.group] = n.id;
+      });
+
+      groups.forEach((groupId) => {
+        const colorVal = color(groupId);
+        const item = legendContainer
+          .append("div")
+          .attr("class", "legend-item")
+          .on("click", () => toggleGroup(groupId));
+
+        item
+          .append("div")
+          .attr("class", "legend-circle")
+          .style("background-color", colorVal)
+          .style("border-color", colorVal)
+          .attr("data-group", groupId);
+
+        item.append("span").text(groupLabels[groupId] || `Group ${groupId}`);
+      });
+
+      d3.select("#check-all").on("click", () => {
+        hiddenGroups.clear();
+        updateVisibility();
+        updateLegendUI();
+      });
+
+      d3.select("#uncheck-all").on("click", () => {
+        groups.forEach((g) => hiddenGroups.add(g));
+        updateVisibility();
+        updateLegendUI();
+      });
+
+      function toggleGroup(groupId) {
+        if (hiddenGroups.has(groupId)) {
+          hiddenGroups.delete(groupId);
+        } else {
+          hiddenGroups.add(groupId);
+        }
+        updateVisibility();
+        updateLegendUI();
+      }
+
+      function updateLegendUI() {
+        d3.selectAll(".legend-circle").each(function () {
+          const el = d3.select(this);
+          const gId = +el.attr("data-group");
+          const colorVal = color(gId);
+          el.style(
+            "background-color",
+            hiddenGroups.has(gId) ? "transparent" : colorVal,
+          );
+        });
+      }
+
+      function updateVisibility() {
+        node.classed("hidden", (d) => hiddenGroups.has(d.group));
+        link.classed(
+          "hidden",
+          (d) =>
+            hiddenGroups.has(d.source.group) ||
+            hiddenGroups.has(d.target.group),
+        );
+      }
+
+      node
+        .append("text")
+        .attr("dy", (d) => (d.level === 0 ? -18 : -14))
+        .text((d) => d.id);
+
+      node
+        .on("mouseover", function (event, d) {
+          highlightNode(d);
+        })
+        .on("mouseout", function () {
+          clearHighlight();
+        })
+        .on("click", function (event, d) {
+          event.stopPropagation();
+          if (d.url) {
+            window.open(d.url, "_blank");
+          }
+        });
+
+      function highlightNode(selectedNode) {
+        const connectedNodes = new Set([selectedNode.id]);
+        const connectedLinks = new Set();
+
+        function addDescendants(nodeId) {
+          graphData.links.forEach((link) => {
+            const sourceId =
+              typeof link.source === "object" ? link.source.id : link.source;
+            const targetId =
+              typeof link.target === "object" ? link.target.id : link.target;
+
+            if (sourceId === nodeId) {
+              connectedNodes.add(targetId);
+              connectedLinks.add(link);
+              addDescendants(targetId);
+            }
+          });
+        }
+
+        addDescendants(selectedNode.id);
+
+        node
+          .classed("highlighted", (d) => connectedNodes.has(d.id))
+          .classed("dimmed", (d) => !connectedNodes.has(d.id));
+
+        link
+          .classed("highlighted", (d) => connectedLinks.has(d))
+          .classed("dimmed", (d) => !connectedLinks.has(d));
+      }
+
+      function clearHighlight() {
+        node.classed("highlighted", false).classed("dimmed", false);
+        link.classed("highlighted", false).classed("dimmed", false);
+      }
+
+      simulation.on("tick", () => {
+        link
+          .attr("x1", (d) => d.source.x)
+          .attr("y1", (d) => d.source.y)
+          .attr("x2", (d) => d.target.x)
+          .attr("y2", (d) => d.target.y);
+
+        node.attr("transform", (d) => `translate(${d.x},${d.y})`);
+      });
+
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+
+      function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+      }
+
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }
+
+      // Panel toggle
+      const infoPanel = document.getElementById("info-panel");
+      const closePanelBtn = document.getElementById("panel-close-btn");
+      const openPanelBtn = document.getElementById("panel-open-btn");
+
+      closePanelBtn.addEventListener("click", () => {
+        infoPanel.style.display = "none";
+        openPanelBtn.style.display = "block";
+      });
+
+      openPanelBtn.addEventListener("click", () => {
+        infoPanel.style.display = "block";
+        openPanelBtn.style.display = "none";
+      });
+
+      // Language switcher
+      document
+        .getElementById("language-select")
+        .addEventListener("change", (e) => {
+          if (e.target.value !== "english.html") {
+            window.location.href = e.target.value;
+          }
+        });
+
+      // Handle window resize
+      window.addEventListener("resize", () => {
+        const newWidth = window.innerWidth;
+        const newHeight = window.innerHeight;
+        svg.attr("width", newWidth).attr("height", newHeight);
+        simulation.force("center", d3.forceCenter(newWidth / 2, newHeight / 2));
+        simulation.force("x", d3.forceX(newWidth / 2).strength(0.08));
+        simulation.force("y", d3.forceY(newHeight / 2).strength(0.08));
+        simulation.alpha(0.3).restart();
+      });
+    </script>
+  </body>
+</html>
