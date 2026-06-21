@@ -73,6 +73,12 @@ document.getElementById("navbar").innerHTML = `
           <a href="${enunPrefix}ae/index.html" class="sidebar-link">
             <i class="bi bi-headphones"></i> /æ/ dam
           </a>
+          <a href="${enunPrefix}i/index.html" class="sidebar-link">
+            <i class="bi bi-headphones"></i> /ɪ/ bit
+          </a>
+          <a href="${enunPrefix}er/index.html" class="sidebar-link">
+            <i class="bi bi-headphones"></i> /ɜː/ err
+          </a>
         </div>
       </div>
       <div class="sidebar-dropdown close">
@@ -91,6 +97,18 @@ document.getElementById("navbar").innerHTML = `
         <div id="diphthongs" class="sidebar-submenu">
           <a href="${enunPrefix}ei/index.html" class="sidebar-link">
             <i class="bi bi-headphones"></i> /eɪ/ bay
+          </a>
+          <a href="${enunPrefix}ai/index.html" class="sidebar-link">
+            <i class="bi bi-headphones"></i> /aɪ/ buy
+          </a>
+          <a href="${enunPrefix}ea/index.html" class="sidebar-link">
+            <i class="bi bi-headphones"></i> /eə/ hair
+          </a>
+          <a href="${enunPrefix}ia/index.html" class="sidebar-link">
+            <i class="bi bi-headphones"></i> /ɪə/ ear
+          </a>
+          <a href="${enunPrefix}ua/index.html" class="sidebar-link">
+            <i class="bi bi-headphones"></i> /ʊə/ poor
           </a>
         </div>
       </div>

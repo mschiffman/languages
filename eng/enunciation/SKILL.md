@@ -37,6 +37,9 @@ only in the HTML display text and nav labels.
 | /ɔɪ/ | choice | `oi` |
 | /oʊ/ | goat | `ou` |
 | /aʊ/ | mouth | `au` |
+| /eə/ | hair | `ea` |
+| /ɪə/ | ear | `ia` |
+| /ʊə/ | poor | `ua` |
 
 ### Consonant folders
 | IPA | Example | Folder |
@@ -74,7 +77,23 @@ only in the HTML display text and nav labels.
 5. **Add the sound link** to `assets/js/nav-enun-eng.js` under the correct section
    (Monophthongs / Diphthongs / Consonants).
 
-6. **Upload audio files** to Cloudflare at `https://languages.rmlives.com/eng/phonetics/<sound>/`
+6. **Add a node and link** to `english.html` at the root of `languages/`:
+   - In `graphData.nodes`, insert a new entry under the "Enunciation children" comment:
+     ```js
+     {
+       id: "/ɪ/ bit",        // ← IPA label matching the nav
+       group: 1,
+       level: 2,
+       url: "eng/enunciation/i/index.html",   // ← folder name
+     },
+     ```
+   - In `graphData.links`, add a corresponding edge:
+     ```js
+     { source: "Enunciation", target: "/ɪ/ bit" },
+     ```
+   Keep nodes and links in the same order (Monophthongs → Diphthongs → Consonants).
+
+7. **Upload audio files** to Cloudflare at `https://languages.rmlives.com/eng/phonetics/<sound>/`
    named `01.m4a`, `02.m4a`, … matching the table row order.
 
 ## Audio script pattern
@@ -166,7 +185,7 @@ for (let i = 1; i <= count; i++) {
     <div id="navbar"></div>
     <script
       type="module"
-      src="../../../assets/js/nav-enun-eng.js?v=260619"
+      src="../../../assets/js/nav-enun-eng.js?v=260621"
     ></script>
 
     <!-- Main Content Area -->
