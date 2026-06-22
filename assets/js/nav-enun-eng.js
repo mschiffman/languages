@@ -101,6 +101,12 @@ document.getElementById("navbar").innerHTML = `
           <a href="${enunPrefix}ai/index.html" class="sidebar-link">
             <i class="bi bi-headphones"></i> /aɪ/ buy
           </a>
+          <a href="${enunPrefix}oi/index.html" class="sidebar-link">
+            <i class="bi bi-headphones"></i> /ɔɪ/ oil
+          </a>
+          <a href="${enunPrefix}ou/index.html" class="sidebar-link">
+            <i class="bi bi-headphones"></i> /oʊ/ go
+          </a>
           <a href="${enunPrefix}ea/index.html" class="sidebar-link">
             <i class="bi bi-headphones"></i> /eə/ hair
           </a>

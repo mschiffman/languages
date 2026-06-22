@@ -64,7 +64,7 @@ only in the HTML display text and nav labels.
    | `.glossary-title` label | inside `.content-box` |
    | `audioBase` URL | `<script>` before Bootstrap JS |
 
-3. **Replace the word table rows** — each row includes French IPA in a muted span:
+3. **Replace the word table rows** — English words must be in **alphabetical order**. Audio file names (`01.m4a`, `02.m4a`, …) must be in **ascending order** matching the table row order. Each row includes French IPA in a muted span:
    ```html
    <tr>
      <td onclick="playAudio('audio1')">word /IPA/</td>
@@ -185,7 +185,7 @@ for (let i = 1; i <= count; i++) {
     <div id="navbar"></div>
     <script
       type="module"
-      src="../../../assets/js/nav-enun-eng.js?v=260621"
+      src="../../../assets/js/nav-enun-eng.js?v=260622"
     ></script>
 
     <!-- Main Content Area -->
