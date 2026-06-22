@@ -394,86 +394,96 @@
           },
 
           // Enunciation children
+          { id: "Vowels", group: 1, level: 2 },
+          { id: "Diphthongs", group: 1, level: 2 },
+          { id: "Consonants", group: 1, level: 2 },
+
+          // Vowel sounds
           {
             id: "/e/ best",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/e/index.html",
           },
           {
             id: "/æ/ dam",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/ae/index.html",
           },
           {
             id: "/ɪ/ bit",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/i/index.html",
           },
           {
             id: "/ɜː/ err",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/er/index.html",
           },
+
+          // Diphthong sounds
           {
             id: "/eɪ/ bay",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/ei/index.html",
           },
           {
             id: "/aɪ/ buy",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/ai/index.html",
           },
           {
             id: "/ɔɪ/ oil",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/oi/index.html",
           },
           {
             id: "/oʊ/ go",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/ou/index.html",
           },
           {
             id: "/eə/ hair",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/ea/index.html",
           },
           {
             id: "/ɪə/ ear",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/ia/index.html",
           },
           {
             id: "/ʊə/ poor",
             group: 1,
-            level: 2,
+            level: 3,
             url: "eng/enunciation/ua/index.html",
           },
         ],
         links: [
           { source: "Eng", target: "Enunciation" },
-          { source: "Enunciation", target: "/e/ best" },
-          { source: "Enunciation", target: "/æ/ dam" },
-          { source: "Enunciation", target: "/ɪ/ bit" },
-          { source: "Enunciation", target: "/ɜː/ err" },
-          { source: "Enunciation", target: "/eɪ/ bay" },
-          { source: "Enunciation", target: "/aɪ/ buy" },
-          { source: "Enunciation", target: "/ɔɪ/ oil" },
-          { source: "Enunciation", target: "/oʊ/ go" },
-          { source: "Enunciation", target: "/eə/ hair" },
-          { source: "Enunciation", target: "/ɪə/ ear" },
-          { source: "Enunciation", target: "/ʊə/ poor" },
+          { source: "Enunciation", target: "Vowels" },
+          { source: "Enunciation", target: "Diphthongs" },
+          { source: "Enunciation", target: "Consonants" },
+          { source: "Vowels", target: "/e/ best" },
+          { source: "Vowels", target: "/æ/ dam" },
+          { source: "Vowels", target: "/ɪ/ bit" },
+          { source: "Vowels", target: "/ɜː/ err" },
+          { source: "Diphthongs", target: "/eɪ/ bay" },
+          { source: "Diphthongs", target: "/aɪ/ buy" },
+          { source: "Diphthongs", target: "/ɔɪ/ oil" },
+          { source: "Diphthongs", target: "/oʊ/ go" },
+          { source: "Diphthongs", target: "/eə/ hair" },
+          { source: "Diphthongs", target: "/ɪə/ ear" },
+          { source: "Diphthongs", target: "/ʊə/ poor" },
         ],
       };
 
@@ -574,7 +584,9 @@
 
       node
         .append("circle")
-        .attr("r", (d) => (d.level === 0 ? 12 : d.level === 1 ? 8 : 6))
+        .attr("r", (d) =>
+          d.level === 0 ? 12 : d.level === 1 ? 8 : d.level === 2 ? 7 : 5,
+        )
         .attr("fill", (d) => color(d.group));
 
       // Legend Logic
