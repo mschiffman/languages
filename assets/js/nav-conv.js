@@ -186,6 +186,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv25.html",
+      label: "Jun 23 - Les plantes, les cerfs et la pluie",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
