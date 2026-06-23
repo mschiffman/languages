@@ -153,6 +153,9 @@ document.getElementById("navbar").innerHTML = `
         <a href="meteorite.html" class="sidebar-link">
           ☄️ &nbsp;L’astéroïde
         </a>
+        <a href="fossil.html" class="sidebar-link">
+          🦕 &nbsp;Les fossiles
+        </a>
         <a href="moon.html" class="sidebar-link">
           🌙 &nbsp;La lune
         </a>

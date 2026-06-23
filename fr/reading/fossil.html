@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .fossil-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="../../assets/js/nav-read.js?v=260623"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/fossil/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Le secret enfermé dans la pierre</h1>
+      </div>
+      <h5>
+        Comment un animal mort il y a des millions d'années peut-il encore te
+        raconter son histoire — alors qu'il ne reste de lui que de la roche ?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="fossil-image" src="/img/fossil.png" alt="" />
+          Imagine un dinosaure qui se noie. Son corps glisse au fond d'un fleuve
+          et se pose sur la boue molle d'un delta, là où la rivière rencontre la
+          mer. Personne ne le voit. Aucun
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʃaʀɔɲaʀ/"
+            data-meaning="scavenger"
+            >charognard</span
+          >
+          ne vient le déranger. Et c'est précisément pour ça que, des millions
+          d'années plus tard, tu pourras peut-être le tenir dans ta main.
+        </p>
+        <p>
+          Parce qu'un fossile, au fond, ce n'est presque jamais censé exister.
+          Sur tous les animaux qui ont un jour vécu sur Terre, seule une
+          fraction minuscule a laissé une trace. Les animaux terrestres,
+          surtout, sont rares : il leur faut mourir au bon endroit, au bon
+          moment, et avec une sacrée dose de chance. Le corps doit rester
+          tranquille, à l'abri. La chair pourrit doucement et disparaît, ne
+          laissant que les parties dures — les os, les dents, les coquilles.
+          Puis la boue et le sable recouvrent le tout, couche après couche, et
+          enferment les restes pour des millions d'années.
+        </p>
+        <p>
+          Et c'est là que la vraie magie commence. L'eau s'infiltre lentement à
+          travers la roche. Goutte après goutte, elle dissout les os et dépose à
+          leur place des minéraux qui cristallisent. C'est ce qu'on appelle la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mineʀalizasjɔ̃/"
+            data-meaning="mineralization"
+            >minéralisation</span
+          >
+          : petit à petit, l'os se transforme en pierre, sans perdre sa forme.
+          Parfois, le processus est tellement précis qu'il conserve les moindres
+          détails. Un tronc d'arbre entier peut ainsi se changer en roche — on
+          parle alors de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/petʀifikasjɔ̃/"
+            data-meaning="petrification"
+            >pétrification</span
+          >
+          —, la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/si.lis/"
+            data-meaning="silica"
+            >silice</span
+          >
+          remplaçant les fibres du bois une à une, jusqu'à figer pour l'éternité
+          les anneaux et l'écorce.
+        </p>
+        <p>
+          Mais tous les fossiles ne se ressemblent pas. Quand les tissus mous
+          d'un animal disparaissent et laissent une cavité, les minéraux peuvent
+          s'y accumuler et remplir le vide : on obtient un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mulaʒ/"
+            data-meaning="cast, casting"
+            >moulage</span
+          >, une copie fidèle de l'original. C'est ce qui est arrivé à cette
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/amɔnit/"
+            data-meaning="ammonite"
+            >ammonite</span
+          >, dont la coquille en spirale s'est reconstituée en pierre après la
+          décomposition de l'animal. D'autres fois, la roche ne garde que
+          l'empreinte, le creux de la forme : c'est un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mul/"
+            data-meaning="mold"
+            >moule</span
+          >. Les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tʀilɔbit/"
+            data-meaning="trilobites"
+            >trilobites</span
+          >, ces créatures marines qui muaient en abandonnant leur
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kaʀapas/"
+            data-meaning="shell, carapace"
+            >carapace</span
+          >, en ont laissé des millions, gravés dans le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sedimɑ̃/"
+            data-meaning="sediment"
+            >sédiment</span
+          >
+          comme des tampons.
+        </p>
+        <p>
+          Et puis il y a les fossiles qui ne sont même pas faits de corps. Une
+          empreinte de pas, un terrier, un nid : on les appelle des fossiles de
+          trace. Ils ne te montrent pas l'animal, mais ce qu'il faisait —
+          comment il marchait, où il vivait. L'empreinte d'un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/aʀkɔzɔʀ/"
+            data-meaning="archosaur"
+            >archosaure</span
+          >
+          figée dans la boue séchée te raconte un instant de sa vie, vieux de
+          millions d'années.
+        </p>
+        <p>
+          Le cas le plus extraordinaire, c'est sans doute l'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ɑ̃bʀ/"
+            data-meaning="amber"
+            >ambre</span
+          >. Imagine une petite mouche qui se pose sur un tronc et reste collée
+          à la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀezin/"
+            data-meaning="resin"
+            >résine</span
+          >
+          qui suinte. La résine l'engloutit, durcit, et se transforme avec le
+          temps en cette matière jaune et translucide. Des millions d'années
+          plus tard, l'insecte est toujours là, intact, prisonnier doré, comme
+          s'il venait de se poser.
+        </p>
+        <p>
+          Pendant tout ce temps, la Terre, elle, ne reste pas immobile. Les
+          continents se déplacent. Ce qui était au fond de la mer se retrouve
+          sous une montagne. Puis, lentement, l'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/eʀɔzjɔ̃/"
+            data-meaning="erosion"
+            >érosion</span
+          >
+          fait son travail : le vent, la pluie, les glaciers rongent la roche,
+          couche par couche, jusqu'à ramener le fossile tout près de la surface.
+          Et un jour, peut-être, un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/paleɔ̃tɔlɔg/"
+            data-meaning="paleontologist"
+            >paléontologue</span
+          >
+          passe par là, repère un éclat dans la pierre, et commence à creuser.
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Tout ce voyage — de la boue d'un delta jusqu'à la main d'un
+            chercheur, de la chair qui pourrit jusqu'à l'os changé en pierre —
+            s'est joué sur des millions d'années, en silence, sans
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/temwɛ̃/"
+              data-meaning="witness"
+              >témoin</span
+            >. Et tout ça, juste pour qu'aujourd'hui tu puisses regarder un
+            caillou et y lire la vie d'un monde disparu.</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          How can an animal that died millions of years ago still tell you its
+          story — when all that remains of it is rock?
+        </p>
+        <p>
+          Imagine a dinosaur drowning. Its body sinks to the bottom of a river
+          and settles into the soft mud of a delta, where the river meets the
+          sea. Nobody sees it. No scavenger comes to disturb it. And that is
+          precisely why, millions of years later, you might be able to hold it
+          in your hand.
+        </p>
+        <p>
+          Because a fossil, at its core, was almost never supposed to exist. Of
+          all the animals that ever lived on Earth, only a tiny fraction left a
+          trace. Land animals especially are rare: they have to die in the right
+          place, at the right moment, and with a great deal of luck. The body
+          must remain undisturbed, sheltered. The flesh slowly rots and
+          disappears, leaving only the hard parts — the bones, teeth, and
+          shells. Then mud and sand cover everything, layer by layer, sealing
+          the remains for millions of years.
+        </p>
+        <p>
+          And that's where the real magic begins. Water slowly seeps through the
+          rock. Drop by drop, it dissolves the bones and deposits minerals in
+          their place, which crystallize. This is what's called mineralization:
+          little by little, the bone transforms into stone, without losing its
+          shape. Sometimes the process is so precise that it preserves even the
+          smallest details. An entire tree trunk can be turned into rock — what
+          we call petrification — with silica replacing the wood fibers one by
+          one, freezing the rings and bark for eternity.
+        </p>
+        <p>
+          But not all fossils look the same. When the soft tissues of an animal
+          disappear and leave a cavity, minerals can accumulate and fill the
+          void: the result is a cast, a faithful copy of the original. That's
+          what happened to this ammonite, whose spiral shell was reconstituted
+          in stone after the animal decomposed. Other times, the rock keeps only
+          the impression, the hollow shape: that's a mold. Trilobites — those
+          marine creatures that molted by shedding their shells — left millions
+          of such molds, pressed into sediment like stamps.
+        </p>
+        <p>
+          And then there are fossils that aren't even made of bodies. A
+          footprint, a burrow, a nest: these are called trace fossils. They
+          don't show you the animal, but what it was doing — how it walked,
+          where it lived. A footprint from an archosaur frozen in dried mud
+          tells you a moment from its life, millions of years old.
+        </p>
+        <p>
+          The most extraordinary case is probably amber. Imagine a small fly
+          landing on a tree trunk and getting stuck in the oozing resin. The
+          resin engulfs it, hardens, and over time transforms into this yellow,
+          translucent material. Millions of years later, the insect is still
+          there — intact, a golden prisoner, as if it had just landed.
+        </p>
+        <p>
+          All this time, the Earth itself doesn't stay still. Continents drift.
+          What was once at the bottom of the sea ends up beneath a mountain.
+          Then, slowly, erosion does its work: wind, rain, and glaciers gnaw at
+          the rock, layer by layer, until the fossil is brought back close to
+          the surface. And one day, perhaps, a paleontologist passes by, spots a
+          glint in the stone, and begins to dig.
+        </p>
+        <p>
+          <i
+            >This entire journey — from the mud of a delta to the hand of a
+            researcher, from rotting flesh to bone turned to stone — played out
+            over millions of years, in silence, without a witness. And all of
+            that, just so you can look at a pebble today and read in it the life
+            of a vanished world.</i
+          >
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/charognard.mp3"
+              >
+                charognard
+              </td>
+              <td style="width: 40px"></td>
+              <td>scavenger</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/mineralisation.mp3"
+              >
+                minéralisation
+              </td>
+              <td style="width: 40px"></td>
+              <td>mineralization</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/petrification.mp3"
+              >
+                pétrification
+              </td>
+              <td style="width: 40px"></td>
+              <td>petrification</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/silice.mp3"
+              >
+                silice
+              </td>
+              <td style="width: 40px"></td>
+              <td>silica</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/moulage.mp3"
+              >
+                moulage
+              </td>
+              <td style="width: 40px"></td>
+              <td>cast, casting</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/ammonite.mp3"
+              >
+                ammonite
+              </td>
+              <td style="width: 40px"></td>
+              <td>ammonite</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/moule.mp3"
+              >
+                moule
+              </td>
+              <td style="width: 40px"></td>
+              <td>mold</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/trilobites.mp3"
+              >
+                trilobites
+              </td>
+              <td style="width: 40px"></td>
+              <td>trilobites</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/carapace.mp3"
+              >
+                carapace
+              </td>
+              <td style="width: 40px"></td>
+              <td>shell, carapace</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/sediment.mp3"
+              >
+                sédiment
+              </td>
+              <td style="width: 40px"></td>
+              <td>sediment</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/archosaure.mp3"
+              >
+                archosaure
+              </td>
+              <td style="width: 40px"></td>
+              <td>archosaur</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/ambre.mp3"
+              >
+                ambre
+              </td>
+              <td style="width: 40px"></td>
+              <td>amber</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/resine.mp3"
+              >
+                résine
+              </td>
+              <td style="width: 40px"></td>
+              <td>resin</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/erosion.mp3"
+              >
+                érosion
+              </td>
+              <td style="width: 40px"></td>
+              <td>erosion</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/paleontologue.mp3"
+              >
+                paléontologue
+              </td>
+              <td style="width: 40px"></td>
+              <td>paleontologist</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/fossil/temoin.mp3"
+              >
+                témoin
+              </td>
+              <td style="width: 40px"></td>
+              <td>witness</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-fossil.html" target="_blank"
+            ><li>Fossil video (NotebookLM)</li></a
+          >
+          <a
+            href="https://languages.rmlives.com/lessons/read/fossil/audio-fossil.m4a"
+            target="_blank"
+            ><li>Fossil audio (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
