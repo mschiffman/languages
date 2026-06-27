@@ -192,6 +192,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv26.html",
+      label: "Jun 27 - Le poids et la mise en forme",
+      year: "2026",
+      month: "June",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
