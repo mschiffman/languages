@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .mushroom-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../assets/js/nav-read.js?v=2607021059"
+    ></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/mushroom/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Le règne des champignons : ni plante, ni animal</h1>
+      </div>
+      <h5>
+        Comment un simple chapeau surgi du sol peut-il cacher tout un empire
+        souterrain ?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="mushroom-image" src="/img/mushroom.png" alt="" />
+          Un petit mot d'abord, avant l'histoire : les champignons ne sont pas
+          des plantes. Ils ne sont pas des animaux non plus. Ils appartiennent à
+          leur propre royaume, à part entière. Contrairement aux plantes, ils ne
+          fabriquent pas leur nourriture avec la lumière — ils poussent à
+          l'intérieur de ce qu'ils mangent, et le digèrent de l'extérieur. Ce
+          qu'on appelle un champignon (le chapeau, le pied) n'est en réalité
+          qu'une toute petite partie de l'organisme. La vraie créature vit sous
+          terre, cachée, sous forme d'un vaste réseau de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/filamɑ̃/"
+            data-meaning="filaments, threads"
+            >filaments</span
+          >
+          appelé
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/miseljɔm/"
+            data-meaning="mycelium (underground fungal network)"
+            >mycélium</span
+          >. Et maintenant, l'histoire.
+        </p>
+        <p>
+          Imagine une forêt, un matin d'automne. Sur un tronc pourri, une grappe
+          de petits champignons pousse en silence. Hier, il n'y avait rien.
+          Aujourd'hui, ils sont là, parfaitement formés. Ce n'est pas de la
+          magie. C'est un organisme qui attendait patiemment, sous la terre, le
+          bon moment.
+        </p>
+        <p>
+          Ce qu'on voit — le chapeau, le pied — les scientifiques l'appellent le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kɔʀ fʀyktifɛʀ/"
+            data-meaning="fruiting body"
+            >corps fructifère</span
+          >. C'est l'équivalent d'un fruit sur un arbre : une structure
+          temporaire, créée uniquement pour disperser des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/spɔʀ/"
+            data-meaning="spores"
+            >spores</span
+          >. Le vrai corps du champignon, lui, reste invisible. Il s'appelle le
+          mycélium, un réseau de fils minuscules qui s'étend dans le sol, dans
+          le bois mort, parfois sur des kilomètres. Un champignon peut vivre
+          ainsi pendant des années sans jamais produire le moindre chapeau — il
+          attend simplement d'avoir assez de nourriture, d'eau, et la bonne
+          température.
+        </p>
+        <p>
+          Et une fois que les conditions sont réunies, tout va très vite.
+          Certains chapeaux atteignent leur taille adulte en une seule nuit.
+          Prends l'<span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/amanit tymuf/"
+            data-meaning="fly agaric (red mushroom with white spots)"
+            >amanite tue-mouches</span
+          >, ce champignon rouge à pois blancs si reconnaissable. Sous terre, il
+          commence comme un petit œuf blanc, enveloppé dans un
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/vwal/"
+            data-meaning="veil (protective covering)"
+            >voile</span
+          >
+          protecteur. Ce voile se déchire à mesure que le champignon grossit,
+          laissant des fragments — les fameux pois blancs — collés sur le
+          chapeau rouge. Un second voile protège les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/lamɛl/"
+            data-meaning="gills (thin plates under the mushroom cap)"
+            >lamelles</span
+          >, ces fines plaques sous le chapeau, jusqu'à ce qu'elles soient
+          prêtes à libérer leurs spores dans l'air. Des millions de spores,
+          chacune plus fine qu'un cheveu.
+        </p>
+        <p>
+          Il existe des dizaines de milliers d'espèces, réparties en grandes
+          familles. Certaines produisent des chapeaux classiques. D'autres
+          forment des masses
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʒelatinøz/"
+            data-meaning="gelatinous"
+            >gélatineuses</span
+          >, comme la trémelle dorée, qu'on surnomme parfois "beurre de
+          sorcière". D'autres encore ressemblent à du corail, à des flacons
+          minuscules, ou à de simples taches de moisissure bleu-vert sur un
+          fruit oublié. Il y a même des champignons
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/paʀazit/"
+            data-meaning="parasitic"
+            >parasites</span
+          >, capables d'envahir le corps d'un insecte vivant et de s'en servir
+          pour disperser leurs spores après sa mort — une histoire aussi
+          fascinante que
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tʀublɑ̃t/"
+            data-meaning="unsettling, disturbing"
+            >troublante</span
+          >.
+        </p>
+        <p>
+          Certains champignons vivent en partenariat avec les arbres, échangeant
+          des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/nytʀimɑ̃/"
+            data-meaning="nutrients"
+            >nutriments</span
+          >
+          contre du sucre, reliant des forêts entières sous la surface comme un
+          immense réseau de communication. D'autres
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/dekɔ̃poz/"
+            data-meaning="break down, decompose"
+            data-origin="décomposer /dekɔ̃poze/"
+            >décomposent</span
+          >
+          le bois mort, les feuilles tombées, recyclant patiemment ce que la
+          forêt n'utilise plus. Sans eux, les forêts
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀupiʀɛ/"
+            data-meaning="would rot, would fester"
+            data-origin="croupir /kʀupiʀ/"
+            >croupiraient</span
+          >
+          sous leurs propres débris.
+        </p>
+        <p>
+          Mais attention : tous les champignons ne sont pas des amis. Certains,
+          comme l'amanite phalloïde, sont parmi les organismes les plus
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/tɔksik/"
+            data-meaning="toxic"
+            >toxiques</span
+          >
+          de la planète — mieux vaut ne jamais y toucher sans être absolument
+          certain de leur identité.
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Alors la prochaine fois que tu croises un champignon sur un tronc
+            ou dans l'herbe humide, souviens-toi : ce que tu vois n'est qu'une
+            fenêtre, ouverte quelques jours seulement, sur un monde souterrain
+            immense, patient, et largement invisible.</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          A quick word before the story: mushrooms are not plants. They are not
+          animals either. They belong to their own kingdom, entirely separate.
+          Unlike plants, they do not make their food from light — they grow
+          inside what they eat, and digest it from the outside. What we call a
+          mushroom (the cap, the stem) is really only a tiny part of the
+          organism. The true creature lives underground, hidden, in the form of
+          a vast network of threads called mycelium. And now, the story.
+        </p>
+        <p>
+          Imagine a forest, on an autumn morning. On a rotting log, a cluster of
+          small mushrooms grows in silence. Yesterday, there was nothing. Today,
+          they are there, perfectly formed. It is not magic. It is an organism
+          that waited patiently, underground, for the right moment.
+        </p>
+        <p>
+          What you see — the cap, the stem — scientists call the fruiting body.
+          It is the equivalent of a fruit on a tree: a temporary structure,
+          created solely to disperse spores. The true body of the mushroom
+          remains invisible. It is called the mycelium, a network of tiny
+          threads that spreads through the soil, through dead wood, sometimes
+          over kilometers. A mushroom can live this way for years without ever
+          producing a single cap — it simply waits until it has enough food,
+          water, and the right temperature.
+        </p>
+        <p>
+          And once the conditions are right, everything happens very quickly.
+          Some caps reach their full adult size in a single night. Take the fly
+          agaric, that recognizable red mushroom with white spots. Underground,
+          it begins as a small white egg, wrapped in a protective veil. This
+          veil tears as the mushroom grows, leaving fragments — the famous white
+          spots — stuck to the red cap. A second veil protects the gills, those
+          thin plates beneath the cap, until they are ready to release their
+          spores into the air. Millions of spores, each finer than a hair.
+        </p>
+        <p>
+          There are tens of thousands of species, spread across broad families.
+          Some produce classic caps. Others form gelatinous masses, like the
+          golden jelly fungus, sometimes called "witch's butter." Others
+          resemble coral, tiny flasks, or simple patches of blue-green mold on a
+          forgotten piece of fruit. There are even parasitic mushrooms, capable
+          of invading the body of a living insect and using it to disperse their
+          spores after its death — a story as fascinating as it is unsettling.
+        </p>
+        <p>
+          Some mushrooms live in partnership with trees, exchanging nutrients
+          for sugar, linking entire forests beneath the surface like a vast
+          communication network. Others break down dead wood and fallen leaves,
+          patiently recycling what the forest no longer uses. Without them,
+          forests would rot beneath their own debris.
+        </p>
+        <p>
+          But beware: not all mushrooms are friendly. Some, like the death cap,
+          are among the most toxic organisms on the planet — it is better never
+          to touch one without being absolutely certain of its identity.
+        </p>
+        <p>
+          <i
+            >So the next time you come across a mushroom on a log or in damp
+            grass, remember: what you see is only a window, open for just a few
+            days, onto a vast, patient, and largely invisible underground
+            world.</i
+          >
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/filament.mp3"
+              >
+                filament
+              </td>
+              <td style="width: 40px"></td>
+              <td>filaments, threads</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/mycelium.mp3"
+              >
+                mycélium
+              </td>
+              <td style="width: 40px"></td>
+              <td>mycelium (underground fungal network)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/corps-fructifer.mp3"
+              >
+                corps fructifère
+              </td>
+              <td style="width: 40px"></td>
+              <td>fruiting body</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/spore.mp3"
+              >
+                spore
+              </td>
+              <td style="width: 40px"></td>
+              <td>spores</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/voile.mp3"
+              >
+                voile
+              </td>
+              <td style="width: 40px"></td>
+              <td>veil (protective covering)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/lamelle.mp3"
+              >
+                lamelle
+              </td>
+              <td style="width: 40px"></td>
+              <td>gills (thin plates under the cap)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/amanite-tue-mouches.mp3"
+              >
+                amanite tue-mouches
+              </td>
+              <td style="width: 40px"></td>
+              <td>fly agaric</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/gelatineuses.mp3"
+              >
+                gélatineuses
+              </td>
+              <td style="width: 40px"></td>
+              <td>gelatinous</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/parasite.mp3"
+              >
+                parasite
+              </td>
+              <td style="width: 40px"></td>
+              <td>parasitic</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/troublante.mp3"
+              >
+                troublante
+              </td>
+              <td style="width: 40px"></td>
+              <td>unsettling, disturbing</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/nutriment.mp3"
+              >
+                nutriment
+              </td>
+              <td style="width: 40px"></td>
+              <td>nutrients</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/decomposent.mp3"
+              >
+                décomposent
+              </td>
+              <td style="width: 40px"></td>
+              <td>break down, decompose</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/croupiraient.mp3"
+              >
+                croupiraient
+              </td>
+              <td style="width: 40px"></td>
+              <td>would rot, would fester</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/mushroom/toxique.mp3"
+              >
+                toxique
+              </td>
+              <td style="width: 40px"></td>
+              <td>toxic</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-mushroom.html" target="_blank"
+            ><li>Mushroom video (NotebookLM)</li></a
+          >
+          <a
+            href="https://languages.rmlives.com/lessons/read/mushroom/audio-mushroom.m4a"
+            target="_blank"
+            ><li>Mushroom audio (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
