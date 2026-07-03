@@ -198,6 +198,12 @@
       year: "2026",
       month: "June",
     },
+    {
+      href: "conv27.html",
+      label: "Jul 3 - L'arrosage et les champignons",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
