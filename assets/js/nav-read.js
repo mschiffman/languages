@@ -80,6 +80,7 @@ document.getElementById("navbar").innerHTML = `
         <a href="pitcher.html" class="sidebar-link"> 🪰 &nbsp;Les plantes-pièges </a>
         <a href="otter.html" class="sidebar-link"> 🦦 &nbsp;La loutre de mer </a>
         <a href="mushroom.html" class="sidebar-link"> 🍄 &nbsp;Les champignons </a>
+        <a href="mountain.html" class="sidebar-link"> ⛰️ &nbsp;Les montagnes </a>
       </div>
     </div>
     <div class="sidebar-dropdown close">
