@@ -1,0 +1,98 @@
+filename,elevenlabs_text,english_note
+syl01.mp3,"가. 가.",syllable ga (block-building example)
+syl02.mp3,"고. 고.",syllable go (block-building example)
+syl03.mp3,"한. 한.",syllable han (block-building example)
+c01.mp3,"가. 가.",consonant ㄱ with vowel a
+c02.mp3,"나. 나.",consonant ㄴ with vowel a
+c03.mp3,"다. 다.",consonant ㄷ with vowel a
+c04.mp3,"라. 라.",consonant ㄹ with vowel a
+c05.mp3,"마. 마.",consonant ㅁ with vowel a
+c06.mp3,"바. 바.",consonant ㅂ with vowel a
+c07.mp3,"사. 사.",consonant ㅅ with vowel a
+c08.mp3,"아. 아.",consonant ㅇ (silent) with vowel a
+c09.mp3,"자. 자.",consonant ㅈ with vowel a
+c10.mp3,"차. 차.",consonant ㅊ with vowel a
+c11.mp3,"카. 카.",consonant ㅋ with vowel a
+c12.mp3,"타. 타.",consonant ㅌ with vowel a
+c13.mp3,"파. 파.",consonant ㅍ with vowel a
+c14.mp3,"하. 하.",consonant ㅎ with vowel a
+cc01.mp3,"까. 까.",tense consonant ㄲ
+cc02.mp3,"따. 따.",tense consonant ㄸ
+cc03.mp3,"빠. 빠.",tense consonant ㅃ
+cc04.mp3,"싸. 싸.",tense consonant ㅆ
+cc05.mp3,"짜. 짜.",tense consonant ㅉ
+v01.mp3,"아. 아.",vowel ㅏ
+v02.mp3,"야. 야.",vowel ㅑ
+v03.mp3,"어. 어.",vowel ㅓ
+v04.mp3,"여. 여.",vowel ㅕ
+v05.mp3,"오. 오.",vowel ㅗ
+v06.mp3,"요. 요.",vowel ㅛ
+v07.mp3,"우. 우.",vowel ㅜ
+v08.mp3,"유. 유.",vowel ㅠ
+v09.mp3,"으. 으.",vowel ㅡ
+v10.mp3,"이. 이.",vowel ㅣ
+vc01.mp3,"애. 애.",compound vowel ㅐ
+vc02.mp3,"에. 에.",compound vowel ㅔ
+vc03.mp3,"와. 와.",compound vowel ㅘ
+vc04.mp3,"워. 워.",compound vowel ㅝ
+vc05.mp3,"외. 외.",compound vowel ㅚ
+vc06.mp3,"위. 위.",compound vowel ㅟ
+vc07.mp3,"의. 의.",compound vowel ㅢ
+bat01.mp3,"국. 국.",final k — guk (soup)
+bat02.mp3,"돈. 돈.",final n — don (money)
+bat03.mp3,"옷. 옷.",final t — ot (clothes)
+bat04.mp3,"물. 물.",final l — mul (water)
+bat05.mp3,"밤. 밤.",final m — bam (night)
+bat06.mp3,"밥. 밥.",final p — bap (rice)
+bat07.mp3,"강. 강.",final ng — gang (river)
+w01.mp3,"물. 물.",word: water
+w02.mp3,"밥. 밥.",word: rice / meal
+w03.mp3,"문. 문.",word: door
+w04.mp3,"손. 손.",word: hand
+w05.mp3,"사람. 사람.",word: person
+w06.mp3,"한국. 한국.",word: Korea
+w07.mp3,"회사. 회사.",word: company
+w08.mp3,"안전. 안전.",word: safety
+g01.mp3,"안녕하세요.",hello
+g02.mp3,"감사합니다.",thank you
+g03.mp3,"죄송합니다.",I'm sorry
+g04.mp3,"네. 아니요.",yes / no
+g05.mp3,"알겠습니다.",understood
+g06.mp3,"모르겠습니다.",I don't know
+g07.mp3,"다시 한번 말씀해 주세요.",please say that once more
+g08.mp3,"천천히 말해 주세요.",please speak slowly
+g09.mp3,"잘 부탁드립니다.",I'm in your hands (first meeting)
+g10.mp3,"괜찮아요.",it's okay
+g11.mp3,"안녕히 계세요.",goodbye (to person staying)
+wk01.mp3,"공장. 공장.",factory
+wk02.mp3,"사장님. 사장님.",boss (honorific)
+wk03.mp3,"일. 일.",work
+wk04.mp3,"기계. 기계.",machine
+wk05.mp3,"출근. 출근.",clocking in
+wk06.mp3,"퇴근. 퇴근.",clocking out
+wk07.mp3,"쉬는 시간. 쉬는 시간.",break time
+wk08.mp3,"월급. 월급.",monthly salary
+wk09.mp3,"잔업. 잔업.",overtime
+wk10.mp3,"이거 뭐예요?",what is this?
+wk11.mp3,"화장실이 어디예요?",where is the bathroom?
+wk12.mp3,"잠깐만요.",just a moment
+wk13.mp3,"열심히 하겠습니다.",I will work hard
+sf01.mp3,"위험. 위험.",danger
+sf02.mp3,"안전제일. 안전제일.",safety first
+sf03.mp3,"조심하세요.",be careful
+sf04.mp3,"안전모. 안전모.",safety helmet
+sf05.mp3,"장갑. 장갑.",gloves
+sf06.mp3,"안전화. 안전화.",safety boots
+sf07.mp3,"소화기. 소화기.",fire extinguisher
+sf08.mp3,"비상구. 비상구.",emergency exit
+sf09.mp3,"금연. 금연.",no smoking
+sf10.mp3,"만지지 마세요.",don't touch
+sf11.mp3,"들어가지 마세요.",do not enter
+sf12.mp3,"다쳤어요.",I'm hurt
+sf13.mp3,"아파요.",it hurts / I'm sick
+sf14.mp3,"병원. 병원.",hospital
+n01.mp3,"일, 이, 삼, 사, 오, 육, 칠, 팔, 구, 십.",Sino-Korean 1–10 counting
+n02.mp3,"하나, 둘, 셋, 넷, 다섯, 여섯, 일곱, 여덟, 아홉, 열.",native Korean 1–10 counting
+n03.mp3,"백. 백.",100
+n04.mp3,"천. 천.",1000
+n05.mp3,"만. 만.",10000

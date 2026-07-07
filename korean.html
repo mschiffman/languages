@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Japanese Site Map</title>
+    <title>Korean Site Map</title>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -326,19 +326,31 @@
     </style>
   </head>
   <body>
-    <button class="panel-open-btn" id="panel-open-btn" title="Show Nodes panel">Nodes &#9654;</button>
+    <button class="panel-open-btn" id="panel-open-btn" title="Show Nodes panel">
+      Nodes &#9654;
+    </button>
 
     <div class="info-panel" id="info-panel">
       <div class="panel-header">
         <h3>Nodes</h3>
-        <div style="display:flex;align-items:center;gap:6px;">
-          <select id="language-select" class="language-select" title="Switch language">
+        <div style="display: flex; align-items: center; gap: 6px">
+          <select
+            id="language-select"
+            class="language-select"
+            title="Switch language"
+          >
             <option value="index.html">French</option>
-            <option value="japanese.html" selected>Japanese</option>
+            <option value="japanese.html">Japanese</option>
             <option value="english.html">English</option>
-            <option value="korean.html">Korean</option>
+            <option value="korean.html" selected>Korean</option>
           </select>
-          <button class="panel-close-btn" id="panel-close-btn" title="Hide panel">&#10005;</button>
+          <button
+            class="panel-close-btn"
+            id="panel-close-btn"
+            title="Hide panel"
+          >
+            &#10005;
+          </button>
         </div>
       </div>
       <p>
@@ -370,30 +382,31 @@
       // Graph data structure
       const graphData = {
         nodes: [
-          // Main nodes
+          // Main node
           {
-            id: "Japanese",
+            id: "Korean",
             group: 0,
             level: 0,
+            url: "korean/index.html",
           },
 
-          // Japanese children
+          // Korean children
           {
-            id: "Pimsleur",
+            id: "Hangul",
             group: 0,
             level: 1,
-            url: "jap/Pimsleur/1.1.html",
+            url: "korean/hangul.html",
           },
           {
-            id: "Grammar",
+            id: "Phrases & Numbers",
             group: 0,
             level: 1,
-            url: "jap/grammar/tenses.html",
+            url: "korean/phrases.html",
           },
         ],
         links: [
-          { source: "Japanese", target: "Pimsleur" },
-          { source: "Japanese", target: "Grammar" },
+          { source: "Korean", target: "Hangul" },
+          { source: "Korean", target: "Phrases & Numbers" },
         ],
       };
 
@@ -484,9 +497,8 @@
         .data(graphData.nodes)
         .enter()
         .append("g")
-        // Add this line below to toggle the pointer cursor class
-        .classed("has-link", (d) => !!d.url)
         .attr("class", (d) => (d.level === 0 ? "node main-node" : "node"))
+        .classed("has-link", (d) => !!d.url)
         .call(
           d3
             .drag()
@@ -498,8 +510,7 @@
       // Color scale
       const baseColor = d3.scaleOrdinal(d3.schemeCategory10);
       const color = (group) => {
-        if (group === 0) return "#ed2906";
-        if (group === 8) return "#edb706"; // Custom color for Everyday (Group 7)
+        if (group === 0) return "#06b6d4";
         return baseColor(group);
       };
 
@@ -688,11 +699,13 @@
       });
 
       // Language switcher
-      document.getElementById("language-select").addEventListener("change", (e) => {
-        if (e.target.value !== "japanese.html") {
-          window.location.href = e.target.value;
-        }
-      });
+      document
+        .getElementById("language-select")
+        .addEventListener("change", (e) => {
+          if (e.target.value !== "korean.html") {
+            window.location.href = e.target.value;
+          }
+        });
 
       // Handle window resize
       window.addEventListener("resize", () => {

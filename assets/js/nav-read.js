@@ -81,6 +81,7 @@ document.getElementById("navbar").innerHTML = `
         <a href="otter.html" class="sidebar-link"> 🦦 &nbsp;La loutre de mer </a>
         <a href="mushroom.html" class="sidebar-link"> 🍄 &nbsp;Les champignons </a>
         <a href="mountain.html" class="sidebar-link"> ⛰️ &nbsp;Les montagnes </a>
+        <a href="penguin.html" class="sidebar-link"> 🐧 &nbsp;Le manchot empereur </a>
       </div>
     </div>
     <div class="sidebar-dropdown close">

@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .penguin-image {
+        float: left;
+        width: 400px !important;
+        max-width: 35%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../assets/js/nav-read.js?v=2607071707"
+    ></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/penguin/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>Le manchot qui défie l'hiver</h1>
+      </div>
+      <h5>
+        Comment un oiseau peut-il couver un œuf posé sur ses pieds, sans nid,
+        sans manger, en plein cœur de l'hiver le plus brutal de la planète — et
+        malgré tout, gagner ?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🗼 French</h5>
+        <p>
+          <img class="penguin-image" src="/img/penguin.png" alt="" />
+          Imagine un endroit où le vent souffle à presque 200 km/h et où la
+          température tombe à −60 °C. Rien ne pousse. Rien ne bouge. C'est
+          l'Antarctique en plein hiver, et c'est précisément le moment que le
+          manchot empereur choisit pour fonder une famille. Il est le seul
+          animal sur Terre à faire ça. Le seul.
+        </p>
+        <p>
+          Tout commence en avril, quand l'automne arrive et que la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/bɑ̃kiz/"
+            data-meaning="ice pack, ice floe"
+            >banquise</span
+          >, à moitié fondue pendant l'été, recommence à geler. Les manchots
+          débarquent par milliers sur la glace. C'est l'
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/efɛʀvesɑ̃s/"
+            data-meaning="excitement, bustle"
+            >effervescence</span
+          >
+          totale : il faut trouver un partenaire. Alors ils chantent, ils
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/paʀad/"
+            data-meaning="to parade, to strut"
+            data-origin="parader /paʀade/"
+            >paradent</span
+          >, ils marchent d'un pas solennel, ils inclinent la tête l'un vers
+          l'autre. Une fois le couple formé, la femelle
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɔ̃/"
+            data-meaning="to lay (an egg)"
+            data-origin="pondre /pɔ̃dʀ/"
+            >pond</span
+          >. Un seul
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/œf/"
+            data-meaning="egg"
+            >œuf</span
+          >. Rien qu'un.
+        </p>
+        <p>
+          Puis, en mai ou début juin, elle repart. La mer est loin — parfois 80
+          km à travers le blizzard — mais c'est là que se trouve la nourriture :
+          poissons, krill, calmars. Avant de partir, elle confie l'œuf au mâle.
+          Et là commence l'exploit. Le père glisse l'œuf entre ses pieds et le
+          recouvre d'un repli de peau emplumé, la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɔʃ ɛ̃kybatʀis/"
+            data-meaning="brood pouch"
+            >poche incubatrice</span
+          >. À l'intérieur, il fait 38 °C. Dehors, bien en dessous de zéro. Un
+          œuf laissé à l'air libre gèlerait en quelques instants, et l'embryon
+          avec lui. Sans nid, sans abri, le papa manchot devient un berceau
+          vivant.
+        </p>
+        <p>
+          Pendant tout l'hiver, il ne mange rien. Deux mois, parfois plus, sans
+          une seule bouchée. Sa seule réserve d'énergie, c'est sa propre
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/gʀɛs/"
+            data-meaning="fat"
+            >graisse</span
+          >. Quand les femelles reviennent enfin, en juillet, les mâles ont
+          perdu plus de la moitié de leur poids. Elles, au contraire, reviennent
+          grasses et repues. Chacune retrouve son partenaire dans la foule, rien
+          qu'à sa voix. Puis elle
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀegyʀʒit/"
+            data-meaning="to regurgitate"
+            data-origin="régurgiter /ʀegyʀʒite/"
+            >régurgite</span
+          >
+          un peu de nourriture pour le nourrir, lui rend des forces, et récupère
+          l'œuf — ou le
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pusɛ̃/"
+            data-meaning="chick"
+            >poussin</span
+          >, s'il a déjà
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/eklo/"
+            data-meaning="to hatch"
+            data-origin="éclore /eklɔʀ/"
+            >éclos</span
+          >. Parfois, le mâle hésite. Il a veillé sur cet œuf pendant des mois :
+          il n'a pas envie de le lâcher. Elle doit vraiment insister. Ensuite
+          seulement, épuisé, il prend à son tour le chemin de la mer.
+        </p>
+        <p>
+          En septembre, les poussins ont grandi. Ils tiennent chaud tout seuls
+          maintenant, mais ils ont faim, terriblement faim. Il faut les deux
+          parents pour rapporter assez de nourriture. Alors les adultes laissent
+          les petits regroupés en pouponnières — on appelle ça des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kʀɛʃ/"
+            data-meaning="nursery (group of chicks)"
+            >crèches</span
+          >
+          — et partent chasser ensemble. Serrés les uns contre les autres, les
+          jeunes s'attendent.
+        </p>
+        <p>
+          Et puis décembre arrive. L'été s'installe sur l'hémisphère sud. La
+          glace se
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/fisyʀ/"
+            data-meaning="to crack"
+            data-origin="se fissurer /sə fisyʀe/"
+            >fissure</span
+          >, se brise, et rapproche peu à peu la colonie de l'eau libre. Les
+          poussins sont devenus de jeunes adultes. Ils savent nager. Ils savent
+          trouver leur propre nourriture. Le grand cycle est bouclé.
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Tout ça — le
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/ʒøn/"
+              data-meaning="fast, fasting"
+              >jeûne</span
+            >, le froid, les 80 km dans le blizzard, l'œuf tenu au chaud sur
+            deux pieds pendant des mois — juste pour qu'un seul poussin puisse
+            un jour plonger dans la mer et s'en sortir tout seul. La nature ne
+            fait pas les choses à moitié.</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          How can a bird incubate an egg balanced on its feet, with no nest, no
+          food, in the middle of the harshest winter on the planet — and still
+          win?
+        </p>
+        <p>
+          Imagine a place where the wind blows at nearly 200 km/h and the
+          temperature drops to −60°C. Nothing grows. Nothing moves. This is
+          Antarctica in the depths of winter, and it's precisely the moment the
+          emperor penguin chooses to start a family. It's the only animal on
+          Earth that does this. The only one.
+        </p>
+        <p>
+          It all begins in April, when autumn arrives and the sea ice — half
+          melted over the summer — starts to freeze again. Penguins arrive by
+          the thousands onto the ice. It's total excitement: they need to find a
+          partner. So they sing, they strut, they walk with solemn steps, they
+          tilt their heads toward one another. Once a couple has formed, the
+          female lays. A single egg. Just one.
+        </p>
+        <p>
+          Then, in May or early June, she leaves again. The sea is far away —
+          sometimes 80 km through the blizzard — but that's where the food is:
+          fish, krill, squid. Before leaving, she entrusts the egg to the male.
+          And that's where the feat begins. The father slides the egg between
+          his feet and covers it with a feathered fold of skin, the brood pouch.
+          Inside, it's 38°C. Outside, well below zero. An egg left out in the
+          open would freeze within moments, and the embryo with it. With no
+          nest, no shelter, the penguin dad becomes a living cradle.
+        </p>
+        <p>
+          Throughout the whole winter, he eats nothing. Two months, sometimes
+          more, without a single bite. His only energy reserve is his own fat.
+          When the females finally return, in July, the males have lost more
+          than half their body weight. The females, by contrast, come back fat
+          and well-fed. Each one finds her partner in the crowd by voice alone.
+          Then she regurgitates a bit of food to feed him, restores his
+          strength, and takes back the egg — or the chick, if it has already
+          hatched. Sometimes the male hesitates. He has watched over that egg
+          for months: he doesn't want to let it go. She really has to insist.
+          Only then, exhausted, does he finally head off toward the sea.
+        </p>
+        <p>
+          In September, the chicks have grown. They can keep themselves warm
+          now, but they're hungry, terribly hungry. It takes both parents to
+          bring back enough food. So the adults gather the little ones together
+          into nurseries — called crèches — and go off hunting together. Huddled
+          against one another, the young ones wait.
+        </p>
+        <p>
+          And then December arrives. Summer settles over the southern
+          hemisphere. The ice cracks, breaks apart, and gradually brings the
+          colony closer to open water. The chicks have become young adults. They
+          know how to swim. They know how to find their own food. The great
+          cycle is complete.
+        </p>
+        <p>
+          <i
+            >All of it — the fasting, the cold, the 80 km through the blizzard,
+            the egg kept warm on two feet for months — just so that a single
+            chick can one day dive into the sea and make it on its own. Nature
+            doesn't do things halfway.</i
+          >
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/banquise.mp3"
+              >
+                banquise
+              </td>
+              <td style="width: 40px"></td>
+              <td>ice pack, ice floe</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/effervescence.mp3"
+              >
+                effervescence
+              </td>
+              <td style="width: 40px"></td>
+              <td>excitement, bustle</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/parader.mp3"
+              >
+                parader
+              </td>
+              <td style="width: 40px"></td>
+              <td>to parade, to strut</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/pondre.mp3"
+              >
+                pondre
+              </td>
+              <td style="width: 40px"></td>
+              <td>to lay (an egg)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/oeuf.mp3"
+              >
+                œuf
+              </td>
+              <td style="width: 40px"></td>
+              <td>egg</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/poche-incubatrice.mp3"
+              >
+                poche incubatrice
+              </td>
+              <td style="width: 40px"></td>
+              <td>brood pouch</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/graisse.mp3"
+              >
+                graisse
+              </td>
+              <td style="width: 40px"></td>
+              <td>fat</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/regurgiter.mp3"
+              >
+                régurgiter
+              </td>
+              <td style="width: 40px"></td>
+              <td>to regurgitate</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/poussin.mp3"
+              >
+                poussin
+              </td>
+              <td style="width: 40px"></td>
+              <td>chick</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/eclore.mp3"
+              >
+                éclore
+              </td>
+              <td style="width: 40px"></td>
+              <td>to hatch</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/creche.mp3"
+              >
+                crèche
+              </td>
+              <td style="width: 40px"></td>
+              <td>nursery (group of chicks)</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/se-fissurer.mp3"
+              >
+                se fissurer
+              </td>
+              <td style="width: 40px"></td>
+              <td>to crack</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/penguin/jeune.mp3"
+              >
+                jeûne
+              </td>
+              <td style="width: 40px"></td>
+              <td>fast, fasting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-penguin.html" target="_blank"
+            ><li>Penguin video (NotebookLM)</li></a
+          >
+          <a
+            href="https://languages.rmlives.com/lessons/read/penguin/audio-penguin.m4a"
+            target="_blank"
+            ><li>Penguin audio (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
