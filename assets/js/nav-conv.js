@@ -204,6 +204,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "conv28.html",
+      label: "Jul 8 - Le cardinal et les papillons du jardin",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
