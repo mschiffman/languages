@@ -210,6 +210,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "conv29.html",
+      label: "Jul 9 - Les briques et les petits pains",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
