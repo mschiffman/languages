@@ -1,0 +1,1320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Lessons</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Hamburger button -->
+    <button id="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Sidebar overlay -->
+    <div id="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Français</div>
+        <div class="sidebar-subtitle">Course Navigator</div>
+      </div>
+      <div class="sidebar-scroll" id="sidebar-scroll"></div>
+    </nav>
+
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">LESSON 05</span>
+          <span class="badge">BEGINNER</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          French
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Français
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Vocabulary Flashcards
+        </p>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Card: je parle le français -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/1.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʒə paʁl fʁɑ̃sɛ/</p>
+            <p class="phrase text-xl mb-1">Je parle français.</p>
+            <p class="english">
+              I speak French.
+            </p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: je comprends bien -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/2.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʒə kɔ̃pʀə bjɛ̃/</p>
+            <p class="phrase text-xl mb-1">Je comprends bien.</p>
+            <p class="english">I understand well.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: je comprends bien le français -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/3.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʒə kɔ̃pʀə bjɛ̃l fʁɑ̃sɛ/</p>
+            <p class="phrase text-xl mb-1">Je comprends bien le français.</p>
+            <p class="english">I understand French well.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: je ne parle pas bien le français -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/4.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʒə nə paʁl pa bjɛ̃l fʁɑ̃sɛ/</p>
+            <p class="phrase text-xl mb-1">Je ne parle pas bien le français.</p>
+            <p class="english">I don't speak French well.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: vous parlez bien -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/5.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/vu paʁle bjɛ̃/</p>
+            <p class="phrase text-xl mb-1">Vous parlez bien.</p>
+            <p class="english">You speak well.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: moi, très bien -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/6.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/mwa tʁɛ bjɛ̃/</p>
+            <p class="phrase text-xl mb-1">Moi, très bien.</p>
+            <p class="english">Me, very well.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: moi, pas très bien -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/7.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/mwa pɑ tʁɛ bjɛ̃/</p>
+            <p class="phrase text-xl mb-1">Moi, pas très bien.</p>
+            <p class="english">Me, not very well.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: je ne sais pas /chais pas -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/8.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʒə nə se pɑ/ ʃe pɑ/</p>
+            <p class="phrase text-xl mb-1">Je ne sais pas / chais pas.</p>
+            <p class="english">I don't know.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: je sais -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/9.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʒə se/</p>
+            <p class="phrase text-xl mb-1">Je sais.</p>
+            <p class="english">I know.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Est-ce que vous savez -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/10.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ɛskə vu save/</p>
+            <p class="phrase text-xl mb-1">Est-ce que vous savez ?</p>
+            <p class="english">Do you know?</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: non, je ne sais pas -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/11.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/nõ ʒə nə sɛ pa/</p>
+            <p class="phrase text-xl mb-1">Non, je ne sais pas.</p>
+            <p class="english">No, I don't know.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: le boulevard -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/12.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/lə bulvaʀ/</p>
+            <p class="phrase text-xl mb-1">le boulevard</p>
+            <p class="english">the boulevard</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: le boulevard Saint-Michel -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/13.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/lə bulvaʀ sɛ̃ miʃɛl/</p>
+            <p class="phrase text-xl mb-1">le boulevard Saint-Michel</p>
+            <p class="english">the boulevard Saint-Michel</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Où est le boulevard Saint-Michel -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/14.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/u ɛ lə bulvaʀ sɛ̃ miʃɛl/</p>
+            <p class="phrase text-xl mb-1">
+              Où est le boulevard Saint-Michel ?
+            </p>
+            <p class="english">Where is the boulevard Saint-Michel?</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: c'est ici -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/15.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/sɛ isi/</p>
+            <p class="phrase text-xl mb-1">C'est ici.</p>
+            <p class="english">It's here.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Est-ce que c'est ici ? -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/16.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ɛskə sɛ isi/</p>
+            <p class="phrase text-xl mb-1">Est-ce que c'est ici ?</p>
+            <p class="english">Is it here?</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: non, ce n'est pas ici -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/17.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/nɔ̃ sə nɛ pa isi/</p>
+            <p class="phrase text-xl mb-1">Non, ce n'est pas ici.</p>
+            <p class="english">No, it's not here.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: c'est là-bas -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/18.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/sɛ la bɑ/</p>
+            <p class="phrase text-xl mb-1">C'est là-bas.</p>
+            <p class="english">It's there.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: ce n'est pas là-bas -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/19.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/sə nɛ pa la bɑ/</p>
+            <p class="phrase text-xl mb-1">Ce n'est pas là-bas.</p>
+            <p class="english">It's not there.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: mais le boulevard Saint-Michel, c'est ici -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/20.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">
+              /mɛ lə bulvɑʁ sɛ̃ miʃɛl sɛ isi/
+            </p>
+            <p class="phrase text-xl mb-1">
+              Mais le boulevard Saint-Michel, c'est ici
+            </p>
+            <p class="english">But the boulevard Saint-Michel is here.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: la rue Saint-Jacques n'est pas là-bas -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/21.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/la ʁy sɛ̃ ʒak nɛ pɑ la.bɑ/</p>
+            <p class="phrase text-xl mb-1">
+              La rue Saint-Jacques n'est pas là-bas.
+            </p>
+            <p class="english">The rue Saint-Jacques is not over there.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: le boulevard Saint-Michel est là-bas -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/22.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">
+              /lɛ bul.vɑʁ sɛ̃ mi.ʃɛl ɛ la.bɑ/
+            </p>
+            <p class="phrase text-xl mb-1">
+              Le boulevard Saint-Michel est là-bas.
+            </p>
+            <p class="english">The boulevard Saint-Michel is over there.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Est-ce que vous savez où il y a un bon restaurant -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/23.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">
+              /ɛskə vu sa.ve u il ja ɛ̃ bɔ̃ ʁɛs.tɔ.ʁɑ̃/
+            </p>
+            <p class="phrase text-xl mb-1">
+              Est-ce que vous savez où il y a un bon restaurant ?
+            </p>
+            <p class="english">Do you know where there is a good restaurant?</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: ça ne fait rien -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/24.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/sa nə fɛ ʁjɛ̃/</p>
+            <p class="phrase text-xl mb-1">Ça ne fait rien.</p>
+            <p class="english">It doesn't matter.</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Est-ce que vous parlez le français -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.5/25.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ɛs kə vu paʁle lə fʁɑ̃sɛ/</p>
+            <p class="phrase text-xl mb-1">
+              Est-ce que vous parlez le français ?
+            </p>
+            <p class="english">Do you speak French ?</p>
+          </div>
+          <div class="note-wrapper" data-note="">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          25 phrases · Lesson 05 · Bonne chance !
+        </p>
+      </div>
+    </div>
+<script src="../../assets/js/pimsleur.js"></script>
+  </body>
+</html>

@@ -216,6 +216,18 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "conv30.html",
+      label: "Jul 10 - La confiance et le service de hondi",
+      year: "2026",
+      month: "July",
+    },
+    {
+      href: "conv31.html",
+      label: "Jul 11 - Toujours avoir raison",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
