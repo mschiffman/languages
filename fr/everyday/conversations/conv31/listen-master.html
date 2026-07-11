@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listening Test: Dual Voice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .test-card {
+        background: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        max-width: 800px;
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        text-align: center;
+        color: #7f8c8d;
+        margin-bottom: 30px;
+      }
+
+      /* --- Voice Selector --- */
+      .voice-selector {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .voice-btn {
+        background: white;
+        border: 2px solid #e0e0e0;
+        padding: 10px 25px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #7f8c8d;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .voice-btn:hover {
+        border-color: #bdc3c7;
+      }
+
+      .voice-btn.active-male {
+        background: #e3f2fd;
+        border-color: #3498db;
+        color: #2980b9;
+      }
+
+      .voice-btn.active-female {
+        background: #fce4ec;
+        border-color: #e91e63;
+        color: #c2185b;
+      }
+
+      /* --- Audio Player --- */
+      .audio-container {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        margin-bottom: 40px;
+        border: 1px solid #e0e0e0;
+      }
+
+      audio {
+        width: 100%;
+        margin-top: 10px;
+        outline: none;
+      }
+
+      .transcript-box {
+        margin-top: 15px;
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+        display: none;
+        text-align: left;
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      /* --- Questions & Bounding Boxes --- */
+      .question-item {
+        margin-bottom: 35px;
+        border-bottom: 1px dashed #eee;
+        padding-bottom: 25px;
+      }
+
+      .q-text {
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; /* 3 Columns */
+        gap: 15px;
+      }
+
+      /* The Hidden Radio Input */
+      .option-wrapper input[type="radio"] {
+        display: none;
+      }
+
+      /* The Visible Bounding Box (Label) */
+      .option-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: white;
+        border: 2px solid #dcdcdc;
+        padding: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 0.95rem;
+        color: #555;
+        height: 100%; /* Full height for even grids */
+      }
+
+      /* Hover State */
+      .option-box:hover {
+        border-color: #3498db;
+        background: #f0f8ff;
+      }
+
+      /* SELECTED STATE (When User Clicks) */
+      /* This magic CSS selects the label that comes immediately after a checked input */
+      .option-wrapper input[type="radio"]:checked + .option-box {
+        background-color: #3498db;
+        border-color: #3498db;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        transform: translateY(-2px);
+      }
+
+      /* Validation States (Applied by JS) */
+      .option-wrapper input[type="radio"].correct-answer + .option-box {
+        background-color: #27ae60 !important;
+        border-color: #27ae60 !important;
+        color: white !important;
+      }
+
+      .option-wrapper input[type="radio"].wrong-answer + .option-box {
+        background-color: #fadbd8 !important;
+        border-color: #e74c3c !important;
+        color: #c0392b !important;
+        opacity: 0.7;
+      }
+
+      /* --- Controls --- */
+      .controls {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      button.action-btn {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .btn-check {
+        background: #2ecc71;
+        color: white;
+      }
+      .btn-reset {
+        background: #95a5a6;
+        color: white;
+      }
+      .score-display {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 20px;
+        min-height: 40px;
+      }
+
+      @media (max-width: 700px) {
+        .options-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-card">
+      <h2>🎧 Compréhension Orale</h2>
+      <div class="subtitle">
+        Select a voice, listen, and click the correct box.
+      </div>
+
+      <div class="voice-selector">
+        <button
+          class="voice-btn active-male"
+          id="btn-male"
+          onclick="setVoice('male')"
+        >
+          👨 Male Voice
+        </button>
+        <button class="voice-btn" id="btn-female" onclick="setVoice('female')">
+          👩 Female Voice
+        </button>
+        <button
+          class="voice-btn"
+          id="btn-female-slow"
+          onclick="setVoice('female_slow')"
+        >
+          👩 Female Voice - Slow
+        </button>
+      </div>
+
+      <div class="audio-container">
+        <audio id="main-player" controls>
+          <source
+            id="audio-source"
+            src="https://languages.rmlives.com/lessons/steps/listen-m.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button
+          onclick="toggleTranscript()"
+          style="
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+          "
+        >
+          👁️ Show/Hide Transcript
+        </button>
+        <div class="transcript-box" id="trans-box">
+          "Ce soir, c'est le grand dîner. Sophie met la table dans la cuisine.
+          Elle place la fourchette à gauche et le couteau à droite. Elle fait
+          attention car la lame est très coupante. Son frère, Marc, préfère
+          manger avec des baguettes.<br /><br />Au menu, il y a du steak et des
+          haricots verts. Le père de Sophie ouvre une bouteille d'eau. La mère
+          apporte le sel. Tout le monde a faim. Pour le dessert, ils mangent une
+          tarte aux pommes. C'est délicieux !<br /><br />À la fin du repas,
+          Sophie cherche la planche à découper pour couper du fromage. Elle la
+          trouve dans le garde-manger. Après le dîner, tout le monde aide à
+          faire la vaisselle."
+        </div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="question-item">
+          <span class="q-text">1. Que fait Sophie au début ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1a" value="wrong" />
+              <label class="option-box" for="q1a">Elle fait la vaisselle</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1b" value="correct" />
+              <label class="option-box" for="q1b">Elle met la table</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">Elle coupe le pain</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">2. Où place-t-elle la fourchette ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2a" value="correct" />
+              <label class="option-box" for="q2a">À gauche</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2b" value="wrong" />
+              <label class="option-box" for="q2b">À droite</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2c" value="wrong" />
+              <label class="option-box" for="q2c">Dans le verre</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >3. Pourquoi fait-elle attention au couteau ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3a" value="wrong" />
+              <label class="option-box" for="q3a">Il est sale</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3b" value="wrong" />
+              <label class="option-box" for="q3b">Il est en plastique</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3c" value="correct" />
+              <label class="option-box" for="q3c">La lame est coupante</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">4. Avec quoi Marc mange-t-il ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4a" value="correct" />
+              <label class="option-box" for="q4a">Des baguettes</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4b" value="wrong" />
+              <label class="option-box" for="q4b">Une cuillère</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4c" value="wrong" />
+              <label class="option-box" for="q4c">Ses doigts</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">5. Quel est le plat principal ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5a" value="wrong" />
+              <label class="option-box" for="q5a">Du poisson</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5b" value="correct" />
+              <label class="option-box" for="q5b">Du steak</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5c" value="wrong" />
+              <label class="option-box" for="q5c">Une pizza</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">6. Qu'est-ce que le père ouvre ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6a" value="correct" />
+              <label class="option-box" for="q6a">Une bouteille d'eau</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6b" value="wrong" />
+              <label class="option-box" for="q6b">La fenêtre</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6c" value="wrong" />
+              <label class="option-box" for="q6c">Le garde-manger</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">7. Qu'est-ce que la mère apporte ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7a" value="wrong" />
+              <label class="option-box" for="q7a">Le poivre</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7b" value="correct" />
+              <label class="option-box" for="q7b">Le sel</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7c" value="wrong" />
+              <label class="option-box" for="q7c">Le beurre</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">8. Quel est le dessert ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8a" value="wrong" />
+              <label class="option-box" for="q8a">Une mousse</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8b" value="correct" />
+              <label class="option-box" for="q8b">Une tarte aux pommes</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8c" value="wrong" />
+              <label class="option-box" for="q8c">Des fruits</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">9. Où est la planche à découper ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9a" value="correct" />
+              <label class="option-box" for="q9a">Dans le garde-manger</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9b" value="wrong" />
+              <label class="option-box" for="q9b">Sur la table</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9c" value="wrong" />
+              <label class="option-box" for="q9c">Dans l'évier</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">10. Que font-ils après le repas ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10a" value="wrong" />
+              <label class="option-box" for="q10a">Ils regardent la télé</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10b" value="wrong" />
+              <label class="option-box" for="q10b">Ils dorment</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10c" value="correct" />
+              <label class="option-box" for="q10c">Ils font la vaisselle</label>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="score-display" id="score-box"></div>
+
+      <div class="controls">
+        <button class="action-btn btn-check" onclick="checkAnswers()">
+          Check Answers
+        </button>
+        <button class="action-btn btn-reset" onclick="resetTest()">
+          Reset Test
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // --- 1. Voice Logic ---
+      const audioFiles = {
+        male: "https://languages.rmlives.com/lessons/steps/listen-m.mp3",
+        female: "https://languages.rmlives.com/lessons/steps/listen-f.mp3",
+        female_slow: "https://languages.rmlives.com/lessons/steps/listen-fs.m4a",
+      };
+
+      function setVoice(gender) {
+        document.getElementById("audio-source").src = audioFiles[gender];
+        document.getElementById("main-player").load();
+
+        // Update Buttons
+        const btnMale = document.getElementById("btn-male");
+        const btnFemale = document.getElementById("btn-female");
+        const btnFemaleSlow = document.getElementById("btn-female-slow");
+
+        // Reset classes
+        btnMale.classList.remove("active-male");
+        btnFemale.classList.remove("active-female");
+        btnFemaleSlow.classList.remove("active-female");
+
+        if (gender === "male") {
+          btnMale.classList.add("active-male");
+        } else if (gender === "female") {
+          btnFemale.classList.add("active-female");
+        } else if (gender === "female_slow") {
+          btnFemaleSlow.classList.add("active-female");
+        }
+      }
+
+      function toggleTranscript() {
+        const box = document.getElementById("trans-box");
+        box.style.display = box.style.display === "block" ? "none" : "block";
+      }
+
+      // --- 2. Checking Logic ---
+      function checkAnswers() {
+        const questions = document.querySelectorAll(".question-item");
+        let score = 0;
+        let total = questions.length;
+
+        questions.forEach((item) => {
+          // Remove old styles
+          const inputs = item.querySelectorAll("input");
+          inputs.forEach((i) =>
+            i.classList.remove("correct-answer", "wrong-answer"),
+          );
+
+          const selected = item.querySelector("input:checked");
+
+          if (selected) {
+            if (selected.value === "correct") {
+              score++;
+              selected.classList.add("correct-answer"); // Green
+            } else {
+              selected.classList.add("wrong-answer"); // Red
+              // Highlight correct one
+              item
+                .querySelector('input[value="correct"]')
+                .classList.add("correct-answer");
+            }
+          } else {
+            // Not answered? Show correct anyway
+            item
+              .querySelector('input[value="correct"]')
+              .classList.add("correct-answer");
+          }
+        });
+
+        const scoreBox = document.getElementById("score-box");
+        scoreBox.innerText = `Score: ${score} / ${total}`;
+        scoreBox.style.color =
+          score === total ? "#27ae60" : score > 5 ? "#f39c12" : "#c0392b";
+      }
+
+      function resetTest() {
+        document.getElementById("quiz-form").reset();
+        document
+          .querySelectorAll("input")
+          .forEach((i) => i.classList.remove("correct-answer", "wrong-answer"));
+        document.getElementById("score-box").innerText = "";
+        window.scrollTo(0, 0);
+      }
+    </script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>
