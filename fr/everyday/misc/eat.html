@@ -1,0 +1,468 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Everyday Conversations - Conversations de tous les jours</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../../../assets/css/everyday.css" />
+  </head>
+
+  <body>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-light bg-white sticky-top">
+      <div class="container-fluid">
+        <button
+          class="btn btn-outline-primary d-inline-flex align-items-center"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebar"
+          aria-controls="sidebar"
+        >
+          <i class="bi bi-list me-2"></i> Menu
+        </button>
+        <span class="navbar-brand ms-2 fw-semibold"
+          >Everyday Conversations - Conversations de tous les jours</span
+        >
+        <div class="d-none d-sm-flex align-items-center gap-2">
+          <a href="../index.html" class="btn btn-outline-dark">Home</a>
+          <div class="dropdown">
+            <button
+              class="btn btn-outline-secondary dropdown-toggle"
+              type="button"
+              id="otherResources"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Other French Resources
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="otherResources"
+            >
+              <li><a class="dropdown-item" href="../expression/archive.html">French expressions</a></li>
+              <li>
+                <a class="dropdown-item" href="../pron/RFI251009/index.html">French pronunciation</a>
+              </li>
+              <li><a class="dropdown-item" href="../enunciation/r/index.html">French phonetic</a></li>
+              <li><a class="dropdown-item" href="../../comedy/index.html">French jokes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar (Offcanvas) -->
+    <div
+      class="offcanvas offcanvas-start"
+      tabindex="-1"
+      id="sidebar"
+      aria-labelledby="sidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarLabel">Categories</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="sidebar-section mb-4">
+          <h6 class="text-uppercase text-muted mb-2">Themes</h6>
+          <a class="category-link" href="#"> 😂 Playful Conversations </a>
+          <a class="category-link" href="everyday.html"> 🚿 Everyday Life </a>
+          <a class="category-link" href="#"> 🥐 Eating & Drinking </a>
+          <a class="category-link" href="garden.html"> 🌿 Gardening </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container py-4 py-lg-5">
+      <header class="mb-4" data-aos="fade-up">
+        <h2 class="mb-2">🍽️ Eating & Drinking</h2>
+        <p class="lead lead-intro">
+          Real-life exchanges between couples - humorous, teasing, and
+          affectionate - translated into natural French you’d actually hear.
+          Click a button to reveal each mini-dialogue in English, neutral
+          French, and spoken French.
+        </p>
+      </header>
+
+      <!-- Category: Eating & drinking -->
+      <section id="everyday" class="mb-5" data-aos="fade-up">
+        <!-- Your word is my command -->
+        <!-- Toggle Button -->
+        <button
+          class="btn btn-outline-primary toggle-btn"
+          data-bs-toggle="collapse"
+          data-bs-target="#command"
+          aria-expanded="false"
+          aria-controls="command"
+        >
+          📝 “Your word is my command”
+        </button>
+
+        <!-- Conversation Card -->
+        <div id="command" class="collapse mt-3" data-aos="fade-up">
+          <div class="conversation-card p-3 p-lg-4">
+            <div class="conversation-block">
+              <h5>💬 English</h5>
+              <div class="mb-3">
+                <div class="line">- When do you want dinner?</div>
+                <div class="line">
+                  - Whenever you want. Your word is my command. See how obedient
+                  I am! Ask around. No wife says that. Think about it. Who would
+                  say such a thing!
+                </div>
+                <div class="line">- Ah, a bullshitter.</div>
+              </div>
+
+              <h5>🇫🇷 French (Neutral)</h5>
+              <div class="mb-3">
+                <div class="line">- Tu veux dîner à quelle heure ?</div>
+                <div class="line">
+                  - Quand tu voudras. Ta parole est mon commandement. Tu vois
+                  comme je suis
+                  <span data-bs-toggle="tooltip" title="/ɔbeisɑ̃, ɑ̃t/"
+                    >obéissant(e)</span
+                  >
+                  !
+                  <span data-bs-toggle="tooltip" title="/rɑ̃seɲ/">Renseigne</span
+                  >-toi, aucune femme ne dit ça. Réfléchis un peu. Qui dirait un
+                  truc pareil !
+                </div>
+                <div class="line">
+                  - Ah, un beau
+                  <span data-bs-toggle="tooltip" title="/paʀlœʀ/">parleur</span>
+                  !
+                </div>
+              </div>
+
+              <h5>🗣️ Spoken French</h5>
+              <div class="mb-0">
+                <div class="line">- Tu veux dîner quand ?</div>
+                <div class="line">
+                  - Quand tu veux. Ta parole, c’est un ordre. T’as vu comme
+                  j’suis obéissant(e) ! Renseigne-toi, y’a aucune femme qui dit
+                  ça. Sérieux, qui dirait un truc pareil !
+                </div>
+                <div class="line">
+                  - Ah, un
+                  <span data-bs-toggle="tooltip" title="/baʀatinœʀ/"
+                    >baratineur</span
+                  >
+                  !😏
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <!-- The juicer -->
+        <!-- Toggle Button -->
+        <button
+          class="btn btn-outline-primary toggle-btn"
+          data-bs-toggle="collapse"
+          data-bs-target="#juicer"
+          aria-expanded="false"
+          aria-controls="juicer"
+          data-aos="fade-up"
+        >
+          🍊 The juicer”
+        </button>
+
+        <!-- Conversation Card -->
+        <div id="juicer" class="collapse mt-3" data-aos="fade-up">
+          <div class="conversation-card p-3 p-lg-4">
+            <div class="conversation-block">
+              <i>Talking about the juicer</i>
+              <h5>💬 English</h5>
+              <div class="mb-3">
+                <div class="line">
+                  - See, until I plug it in, it doesn't work. This unit is
+                  defective.
+                </div>
+                <div class="line">
+                  - Yeah, I was going to plug it in for you. But I want to see
+                  if you would do it again. My wife is consistent. You don't
+                  disappoint.
+                </div>
+              </div>
+
+              <h5>🇫🇷 French (Neutral)</h5>
+              <div class="mb-3">
+                <div class="line">
+                  - Tu vois, tant que je ne la
+                  <span data-bs-toggle="tooltip" title="/bʀɑ̃ʃ/">branche</span>
+                  pas, elle ne marche pas. Cet
+                  <span data-bs-toggle="tooltip" title="/apaʀɛj/"
+                    >appareil</span
+                  >
+                  est
+                  <span data-bs-toggle="tooltip" title="/defɛktɥø/"
+                    >défectueux</span
+                  >.
+                </div>
+                <div class="line">
+                  - Oui, j’allais la brancher pour toi. Mais je voulais voir si
+                  tu allais le refaire. Ma femme est
+                  <span data-bs-toggle="tooltip" title="/kɔ̃stɑ̃/">constante</span
+                  >. Tu ne me
+                  <span data-bs-toggle="tooltip" title="/deswa/">déçois</span>
+                  jamais.
+                </div>
+              </div>
+
+              <h5>🗣️ Spoken French</h5>
+              <div class="mb-0">
+                <div class="line">
+                  - Tu vois, si je la branche pas, elle marche pas. Cette
+                  machine est défectueuse.
+                </div>
+                <div class="line">
+                  - Ouais, j’allais la brancher pour toi, mais j’voulais voir si
+                  t’allais refaire la même. Ma femme, elle est constante. Tu
+                  m’déçois jamais. 😄
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <!-- Cooking early -->
+        <!-- Toggle Button -->
+        <button
+          class="btn btn-outline-primary toggle-btn"
+          data-bs-toggle="collapse"
+          data-bs-target="#early"
+          aria-expanded="false"
+          aria-controls="early"
+          data-aos="fade-up"
+        >
+          🍳 Cooking early”
+        </button>
+
+        <!-- Conversation Card -->
+        <div id="early" class="collapse mt-3" data-aos="fade-up">
+          <div class="conversation-card p-3 p-lg-4">
+            <div class="conversation-block">
+              <h5>💬 English</h5>
+              <div class="mb-3">
+                <div class="line">
+                  - You're cooking already? It's only 2 o'clock.
+                </div>
+                <div class="line">
+                  - No, I'm not cooking yet. Just preparing everything. Eggplant
+                  parmesan is a lot of work.
+                </div>
+              </div>
+
+              <h5>🇫🇷 French (Neutral)</h5>
+              <div class="mb-3">
+                <div class="line">
+                  - Tu cuisines déjà ? Il n’est que deux heures.
+                </div>
+                <div class="line">
+                  - Non, je ne cuisine pas encore. Je prépare juste tout.
+                  L’aubergine parmesan, c’est beaucoup de travail.
+                </div>
+              </div>
+
+              <h5>🗣️ Spoken French</h5>
+              <div class="mb-0">
+                <div class="line">
+                  - T’es déjà en train de cuisiner ? Il est à peine deux heures
+                  !
+                </div>
+                <div class="line">
+                  - Non, j’cuisine pas encore. J’prépare juste tout. L’aubergine
+                  parmesan, c’est du boulot ! 😅
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <!-- Drinking water -->
+        <!-- Toggle Button -->
+        <button
+          class="btn btn-outline-primary toggle-btn"
+          data-bs-toggle="collapse"
+          data-bs-target="#water"
+          aria-expanded="false"
+          aria-controls="water"
+          data-aos="fade-up"
+        >
+          💦 Drinking water”
+        </button>
+
+        <!-- Conversation Card -->
+        <div id="water" class="collapse mt-3" data-aos="fade-up">
+          <div class="conversation-card p-3 p-lg-4">
+            <div class="conversation-block">
+              <h5>💬 English</h5>
+              <div class="mb-3">
+                <div class="line">- Are you finished with your water?</div>
+                <div class="line">
+                  - This is my last one. / I have two more to go.
+                </div>
+              </div>
+
+              <h5>🇫🇷 French (Neutral)</h5>
+              <div class="mb-3">
+                <div class="line">- Tu as fini ton eau ?</div>
+                <div class="line">
+                  - C’est mon dernier. / Il m’en reste deux.
+                </div>
+              </div>
+
+              <h5>🗣️ Spoken French</h5>
+              <div class="mb-0">
+                <div class="line">- T’as fini ton eau ?</div>
+                <div class="line">
+                  - C’est le dernier pour moi. / J’en ai encore deux à boire.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <!-- Sashimi -->
+        <!-- Toggle Button -->
+        <button
+          class="btn btn-outline-primary toggle-btn"
+          data-bs-toggle="collapse"
+          data-bs-target="#sashimi"
+          aria-expanded="false"
+          aria-controls="sashimi"
+          data-aos="fade-up"
+        >
+          💦 Sashimi”
+        </button>
+
+        <!-- Conversation Card -->
+        <div id="sashimi" class="collapse mt-3" data-aos="fade-up">
+          <div class="conversation-card p-3 p-lg-4">
+            <div class="conversation-block">
+              <h5>💬 English</h5>
+              <div class="mb-3">
+                <div class="line">
+                  - I like Costco sashimi. I hope they will always sell them.
+                </div>
+                <div class="line">
+                  - I don't like it. Too spicy for me. I wonder we can buy sushi
+                  grade salmon in town. We can make our own sashimi salad.
+                </div>
+                <div class="line">- How do they make salmon sushi grade?</div>
+                <div class="line">
+                  - They have to freeze salmon according to FDA guidelines. We
+                  can't do it at home.
+                </div>
+              </div>
+
+              <h5>🇫🇷 French (Neutral)</h5>
+              <div class="mb-3">
+                <div class="line">
+                  - J’aime le sashimi de Costco. J’espère qu’ils en vendront
+                  toujours.
+                </div>
+                <div class="line">
+                  - Je n’aime pas ça. C’est trop épicé pour moi. Je me demande
+                  si on peut acheter du saumon de qualité sushi en ville.
+                </div>
+                <div class="line">
+                  - Comment ils rendent le saumon “qualité sushi” ?
+                </div>
+                <div class="line">
+                  - Ils doivent le congeler selon les normes de la FDA. On ne
+                  peut pas le faire à la maison.
+                </div>
+              </div>
+
+              <h5>🗣️ Spoken French</h5>
+              <div class="mb-0">
+                <div class="line">
+                  - J’adore le sashimi de chez Costco. J’espère qu’ils vont
+                  toujours en vendre.
+                </div>
+                <div class="line">
+                  - J’aime pas ça. Trop épicé pour moi. J’me demande si on peut
+                  trouver du saumon “qualité sushi” en ville.
+                </div>
+                <div class="line">
+                  - Comment ils font pour que le saumon soit “qualité sushi” ?
+                </div>
+                <div class="line">
+                  - Ils doivent l’congeler selon les règles de la FDA. On peut
+                  pas faire ça à la maison.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      defer
+    ></script>
+    <script type="module" src="../../../assets/js/everyday.js"></script>
+  </body>
+</html>
