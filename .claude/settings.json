@@ -40,7 +40,15 @@
       "Bash(python3 -c ' *)",
       "Bash(node -e ' *)",
       "Bash(find . -iname \"*.claude*\" -maxdepth 3)",
-      "Bash(find . -iname \"SKILL.md\")"
+      "Bash(find . -iname \"SKILL.md\")",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(chromium-cli --session listen-master)",
+      "Read(//c/Users/Owner/AppData/Local/Temp/claude/**)",
+      "Bash(curl -s \"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\" -o /tmp/checktest/bootstrap.min.css)",
+      "Read(//tmp/checktest/**)",
+      "Read(//c/Users/Owner/AppData/Local/Temp/checktest/**)",
+      "Bash(grep -o '\\\\.btn-check[^}]*}[^}]*}\\\\?' \"C:/Users/Owner/AppData/Local/Temp/checktest/bootstrap.min.css\" | head -3)"
     ]
   },
   "effortLevel": "high"

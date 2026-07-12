@@ -1,0 +1,238 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.test-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+.subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+/* --- Voice Selector --- */
+.voice-selector {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.voice-btn {
+  background: white;
+  border: 2px solid #e0e0e0;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #7f8c8d;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.voice-btn:hover {
+  border-color: #bdc3c7;
+}
+
+.voice-btn.active-male {
+  background: #e3f2fd;
+  border-color: #3498db;
+  color: #2980b9;
+}
+
+.voice-btn.active-female {
+  background: #fce4ec;
+  border-color: #e91e63;
+  color: #c2185b;
+}
+
+/* --- Audio Player --- */
+.audio-container {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 40px;
+  border: 1px solid #e0e0e0;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+  outline: none;
+}
+
+.transcript-box {
+  margin-top: 15px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  display: none;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* --- Questions & Bounding Boxes --- */
+.question-item {
+  margin-bottom: 35px;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 25px;
+}
+
+.q-text {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  display: block;
+  font-size: 1.1rem;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 Columns */
+  gap: 15px;
+}
+
+/* The Hidden Radio Input */
+.option-wrapper input[type="radio"] {
+  display: none;
+}
+
+/* The Visible Bounding Box (Label) */
+.option-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: white;
+  border: 2px solid #dcdcdc;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  color: #555;
+  height: 100%; /* Full height for even grids */
+}
+
+/* Hover State */
+.option-box:hover {
+  border-color: #3498db;
+  background: #f0f8ff;
+}
+
+/* SELECTED STATE (When User Clicks) */
+/* This magic CSS selects the label that comes immediately after a checked input */
+.option-wrapper input[type="radio"]:checked + .option-box {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Validation States (Applied by JS) */
+.option-wrapper input[type="radio"].correct-answer + .option-box {
+  background-color: #27ae60 !important;
+  border-color: #27ae60 !important;
+  color: white !important;
+}
+
+.option-wrapper input[type="radio"].wrong-answer + .option-box {
+  background-color: #fadbd8 !important;
+  border-color: #e74c3c !important;
+  color: #c0392b !important;
+  opacity: 0.7;
+}
+
+/* --- Controls --- */
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+button.action-btn {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-check-answers {
+  background: #2ecc71;
+  color: white;
+}
+.btn-reset {
+  background: #95a5a6;
+  color: white;
+}
+.score-display {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+  min-height: 40px;
+}
+
+/* --- Page Navigation --- */
+.page-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.page-btn:hover {
+  background-color: #dfe6e9;
+}
+
+.page-btn.active {
+  background-color: #3498db;
+  color: white;
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+}
