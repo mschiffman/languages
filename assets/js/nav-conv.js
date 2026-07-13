@@ -228,6 +228,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "../conv32/conv32.html",
+      label: "Jul 12 - Le bouquin de 660 currys",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";

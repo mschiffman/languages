@@ -91,6 +91,10 @@ audio {
   line-height: 1.6;
 }
 
+.transcript-box .en-text {
+  color: #1a56db;
+}
+
 /* --- Questions & Bounding Boxes --- */
 .question-item {
   margin-bottom: 35px;
