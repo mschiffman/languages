@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart Dictation - 10 Levels</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .dictation-card {
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      /* Level Controls */
+      .level-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      .level-btn {
+        background: white;
+        border: 1px solid #dcdcdc;
+        padding: 5px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #7f8c8d;
+        transition: all 0.2s;
+      }
+      .level-btn:hover {
+        background: #ecf0f1;
+        color: #2c3e50;
+      }
+      .level-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+
+      .level-indicator {
+        font-weight: bold;
+        color: #3498db;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      /* Audio Controls */
+      .audio-controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .btn-audio {
+        background: #e1f5fe;
+        color: #0288d1;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-audio:hover {
+        background: #b3e5fc;
+        transform: scale(1.05);
+      }
+      .btn-slow {
+        background: #fff3e0;
+        color: #f57c00;
+      }
+      .btn-slow:hover {
+        background: #ffe0b2;
+      }
+
+      .btn-hint {
+        background: #f3e5f5;
+        color: #8e24aa;
+      }
+      .btn-hint:hover {
+        background: #e1bee7;
+      }
+
+      #player {
+        display: none;
+      }
+
+      .hint-box {
+        display: none;
+        margin: -10px 0 20px;
+        padding: 12px 15px;
+        border-radius: 8px;
+        background: #f3e5f5;
+        color: #6a1b9a;
+        font-style: italic;
+        text-align: center;
+      }
+      .hint-box.visible {
+        display: block;
+      }
+
+      textarea {
+        width: 100%;
+        height: 80px;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-family: "Segoe UI", sans-serif;
+        resize: none;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: #3498db;
+      }
+
+      .feedback-area {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        background: #fafafa;
+        border: 1px dashed #ccc;
+        min-height: 40px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      /* Diff Styling */
+      .diff-correct {
+        color: #27ae60;
+        font-weight: bold;
+      }
+      .diff-missing {
+        color: #c0392b;
+        text-decoration: line-through;
+        opacity: 0.6;
+        margin-right: 5px;
+      }
+      .diff-added {
+        color: #2980b9;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+
+      .controls {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+      }
+
+      button.action-btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .btn-check {
+        background: #2ecc71;
+        color: white;
+      }
+      .btn-check:hover {
+        background: #27ae60;
+      }
+      .btn-reveal {
+        background: #f39c12;
+        color: white;
+      }
+      .btn-reset {
+        background: #95a5a6;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dictation-card">
+      <h2>🎧 Listening Lab</h2>
+
+      <div class="level-bar">
+        <button class="level-btn" id="prev-btn" onclick="changeLevel(-1)">
+          ◀ Prev
+        </button>
+        <span class="level-indicator" id="level-display">Level 1 / 10</span>
+        <button class="level-btn" id="next-btn" onclick="changeLevel(1)">
+          Next ▶
+        </button>
+      </div>
+
+      <div class="audio-controls">
+        <button class="btn-audio" onclick="playAudio('m')">
+          <span>👨</span> Male
+        </button>
+        <button class="btn-audio btn-slow" onclick="playAudio('f')">
+          <span>👩</span> Female
+        </button>
+        <button class="btn-audio btn-hint" onclick="toggleHint()">
+          <span>💡</span> Hint
+        </button>
+      </div>
+
+      <audio id="player"></audio>
+
+      <div class="hint-box" id="hint-box"></div>
+
+      <textarea id="user-input" placeholder="Type what you hear..."></textarea>
+
+      <div id="feedback" class="feedback-area">
+        <span style="color: #aaa; font-style: italic"
+          >Feedback will appear here...</span
+        >
+      </div>
+
+      <div class="controls">
+        <button class="action-btn btn-check" onclick="checkDictation()">
+          Check
+        </button>
+        <button class="action-btn btn-reset" onclick="resetDictation()">
+          Reset
+        </button>
+        <button class="action-btn btn-reveal" onclick="revealAnswer()">
+          Reveal
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // 1. The Dataset
+      const sentences = [
+        "Faut qu'on passe à H Mart en racheter.",
+        "Il nous faut de l'eau ?",
+        "Ah, chouette.",
+        "On va à Costco demain.",
+        "J'ai hâte de voir ce que tu vas nous mijoter.",
+        "Va savoir !",
+        "Ils se fichent complètement de moi, même quand je l'arrose.",
+        "Je vais peut-être même en essayer quelques-unes moi-même.",
+        "Mais la plante en refait pousser sans arrêt.",
+        "Au fait, t'as vu que le lantana est de nouveau couvert de fleurs ?",
+        "Oui, on n'en a presque plus.",
+        "Ça fait des années que je l'ai pas ouvert.",
+        "Franchement, quelle plante.",
+        "Je te l'ai dit, du saumon.",
+        "Il va pleuvoir, ce soir ?",
+        "Ça me donne des vertiges.",
+        "Oui, il en reste un.",
+        "Moi, j'adore la cuisine indienne.",
+        "À qui le dis-tu.",
+        "On a besoin d'autre chose à H Mart ?",
+        "Faut vraiment que je me muscle un peu.",
+        "On annonçait dans les 31, mais on a dépassé les 33.",
+        "Ouais, la dernière pluie a couché les fleurs.",
+        "Je suais comme un bœuf, ce matin.",
+        "Ça fait cinq ans que tu dis ça.",
+        "On devrait en manger plus souvent.",
+        "Un bouquin de recettes à 660 currys !",
+        "C'est vrai.",
+        "Je sais pas à quoi ça sert dans la nature, mais qu'est-ce que c'est pénible, ce truc.",
+        "J'ai été sage, moi.",
+        "Un de ces jours, ça finira peut-être par arriver.",
+        "Pas que je sache.",
+        "La météo disait que oui.",
+        "Je faisais le tri dans les bouquins avant le déménagement, et je suis tombé dessus.",
+        "M'inflige pas ta cuisine, pitié.",
+        "Dis donc, t'as un projet ambitieux sur le bureau.",
+        "Tu fais quoi à manger, ce soir ?",
+        "Aide-moi à charger.",
+        "On en a encore dans le frigo ?",
+        "Il paraît que le saumon, c'est le poisson le plus sain.",
+        "Je pourrais bien te surprendre, tu sais.",
+        "Attends un peu, tu vas voir.",
+        "Et y a plein de petits papillons dessus.",
+        "J'ai arraché toute l'euphorbe des dalles à la pince à épiler.",
+        "Porter des trucs lourds, maintenant ça me tire sur la nuque.",
+        "Surtout pas.",
+      ];
+
+      const translations = [
+        "We need to stop by H Mart to buy more.",
+        "Do we need water?",
+        "Oh, great.",
+        "We're going to Costco tomorrow.",
+        "I can't wait to see what you're going to cook up for us.",
+        "Who knows!",
+        "They totally ignore me, even when I'm watering it.",
+        "I might even try a few of them myself.",
+        "But the plant just keeps growing more, nonstop.",
+        "By the way, did you see the lantana is covered in flowers again?",
+        "Yes, we're almost out.",
+        "I haven't opened it in years.",
+        "Honestly, what a plant.",
+        "I told you, salmon.",
+        "Is it going to rain tonight?",
+        "It makes me dizzy.",
+        "Yes, there's one left.",
+        "Me, I love Indian food.",
+        "Tell me about it.",
+        "Do we need anything else from H Mart?",
+        "I really need to build up some muscle.",
+        "They predicted around 31, but we went past 33.",
+        "Yeah, the last rain flattened the flowers.",
+        "I was sweating like an ox this morning.",
+        "You've been saying that for five years.",
+        "We should eat it more often.",
+        "A cookbook with 660 curry recipes!",
+        "That's true.",
+        "I don't know what purpose it serves in nature, but that thing is such a pain.",
+        "I've been good.",
+        "One of these days, it might actually happen.",
+        "Not that I know of.",
+        "The weather forecast said yes.",
+        "I was sorting through the books before the move, and I came across it.",
+        "Don't inflict your cooking on me, have mercy.",
+        "Well now, you've got an ambitious project on your desk.",
+        "What are you making to eat tonight?",
+        "Help me load it.",
+        "Do we still have some in the fridge?",
+        "Apparently salmon is the healthiest fish.",
+        "I might just surprise you, you know.",
+        "Just wait, you'll see.",
+        "And there are tons of little butterflies on it.",
+        "I pulled all the spurge out from between the pavers with tweezers.",
+        "Carrying heavy things now strains my neck.",
+        "Please don't.",
+      ];
+
+      let currentIndex = 0;
+
+      // 2. Navigation Logic
+      function changeLevel(direction) {
+        currentIndex += direction;
+
+        // Bounds checking
+        if (currentIndex < 0) currentIndex = 0;
+        if (currentIndex >= sentences.length)
+          currentIndex = sentences.length - 1;
+
+        updateUI();
+        resetDictation(); // Clear previous inputs
+      }
+
+      function updateUI() {
+        document.getElementById("level-display").innerText =
+          `Level ${currentIndex + 1} / ${sentences.length}`;
+
+        // Disable buttons at ends
+        document.getElementById("prev-btn").disabled = currentIndex === 0;
+        document.getElementById("next-btn").disabled =
+          currentIndex === sentences.length - 1;
+      }
+
+      // 3. Audio Logic
+      const audioBase =
+        "https://languages.rmlives.com/lessons/everyday/conv32/listen/";
+
+      function playAudio(gender) {
+        const num = String(currentIndex + 1).padStart(2, "0");
+        const player = document.getElementById("player");
+        player.src = `${audioBase}${num}-${gender}.mp3`;
+        player.play();
+      }
+
+      // 4. Checking Logic
+      function checkDictation() {
+        const userText = document.getElementById("user-input").value.trim();
+        const feedbackDiv = document.getElementById("feedback");
+
+        if (!userText) {
+          feedbackDiv.innerHTML =
+            '<span style="color:#e74c3c">Please type something first!</span>';
+          return;
+        }
+        feedbackDiv.innerHTML = compareStrings(
+          sentences[currentIndex],
+          userText,
+        );
+      }
+
+      function revealAnswer() {
+        document.getElementById("user-input").value = sentences[currentIndex];
+        checkDictation();
+      }
+
+      function resetDictation() {
+        document.getElementById("user-input").value = "";
+        document.getElementById("feedback").innerHTML =
+          '<span style="color:#aaa; font-style:italic;">Feedback will appear here...</span>';
+
+        const hintBox = document.getElementById("hint-box");
+        hintBox.classList.remove("visible");
+        hintBox.innerText = "";
+      }
+
+      function toggleHint() {
+        const hintBox = document.getElementById("hint-box");
+        if (hintBox.classList.contains("visible")) {
+          hintBox.classList.remove("visible");
+        } else {
+          hintBox.innerText = translations[currentIndex];
+          hintBox.classList.add("visible");
+        }
+      }
+
+      // 5. Diff Algorithm
+      function compareStrings(correct, user) {
+        let html = "";
+        const correctWords = correct.split(" ");
+        const userWords = user.split(" ");
+        const maxLength = Math.max(correctWords.length, userWords.length);
+
+        for (let i = 0; i < maxLength; i++) {
+          const cWord = correctWords[i] || "";
+          const uWord = userWords[i] || "";
+
+          // Normalize for comparison (remove punctuation, lower case)
+          const cleanC = cWord.toLowerCase().replace(/[.,?]/g, "");
+          const cleanU = uWord.toLowerCase().replace(/[.,?]/g, "");
+
+          if (cleanC === cleanU) {
+            html += `<span class="diff-correct">${cWord}</span> `;
+          } else {
+            if (cWord) html += `<span class="diff-added">${cWord}</span> `;
+            if (uWord) html += `<span class="diff-missing">${uWord}</span> `;
+          }
+        }
+        return html;
+      }
+
+      // Init
+      updateUI();
+    </script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

@@ -35,16 +35,14 @@
   </head>
   <body>
     <div class="translation-card">
-      <h2>✍️ Translation Challenge (Page 5)</h2>
+      <h2>✍️ Translation Challenge (Page 2)</h2>
       <p class="subtitle">
         Translate the sentences into French. (Watch your spelling!)
       </p>
 
       <div id="quiz-area">
         <div class="question-block" id="block-1">
-          <span class="english-prompt"
-            >1. I pulled all the spurge out from between the pavers.</span
-          >
+          <span class="english-prompt">1. It'll be like vacation every day.</span>
           <div class="input-wrap">
             <input
               type="text"
@@ -58,7 +56,10 @@
         </div>
 
         <div class="question-block" id="block-2">
-          <span class="english-prompt">2. Yes, we're almost out.</span>
+          <span class="english-prompt"
+            >2. But we need to be realistic about how much longer you'll be
+            able to cook, at your age.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q2" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -67,7 +68,9 @@
         </div>
 
         <div class="question-block" id="block-3">
-          <span class="english-prompt">3. Just wait, you'll see.</span>
+          <span class="english-prompt"
+            >3. You mean, at your total beck and call.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q3" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -76,9 +79,7 @@
         </div>
 
         <div class="question-block" id="block-4">
-          <span class="english-prompt"
-            >4. What are you making to eat tonight?</span
-          >
+          <span class="english-prompt">4. Let's ask Gemini.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q4" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -87,7 +88,9 @@
         </div>
 
         <div class="question-block" id="block-5">
-          <span class="english-prompt">5. Is it going to rain tonight?</span>
+          <span class="english-prompt"
+            >5. East or northeast facing, high floor, corner unit…</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q5" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -96,7 +99,7 @@
         </div>
 
         <div class="question-block" id="block-6">
-          <span class="english-prompt">6. Yes, there's one left.</span>
+          <span class="english-prompt">6. There.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q6" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -105,7 +108,10 @@
         </div>
 
         <div class="question-block" id="block-7">
-          <span class="english-prompt">7. ...with tweezers. (idiom)</span>
+          <span class="english-prompt"
+            >7. The view will be magnificent — the Andaman Sea and the green
+            hills.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q7" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -114,7 +120,7 @@
         </div>
 
         <div class="question-block" id="block-8">
-          <span class="english-prompt">8. I've been good.</span>
+          <span class="english-prompt">8. I can't wait.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q8" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -123,7 +129,10 @@
         </div>
 
         <div class="question-block" id="block-9">
-          <span class="english-prompt">9. Oh, great.</span>
+          <span class="english-prompt"
+            >9. But apparently mosquitoes and flies can't fly that
+            high.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q9" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -132,7 +141,10 @@
         </div>
 
         <div class="question-block" id="block-10">
-          <span class="english-prompt">10. That's true.</span>
+          <span class="english-prompt"
+            >10. With your help, I'll manage a few more years at the
+            stove.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q10" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -150,26 +162,33 @@
 
       <div class="page-nav">
         <a href="translation1.html" class="page-btn">1</a>
-        <a href="translation2.html" class="page-btn">2</a>
+        <a href="translation2.html" class="page-btn active">2</a>
         <a href="translation3.html" class="page-btn">3</a>
         <a href="translation4.html" class="page-btn">4</a>
-        <a href="translation5.html" class="page-btn active">5</a>
+        <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
 
     <script>
       // The Answer Key (Supports multiple correct variations separated by | )
       const answerKey = {
-        q1: ["J'ai arraché toute l'euphorbe des dalles"],
-        q2: ["Oui, on n'en a presque plus"],
-        q3: ["Attends un peu, tu vas voir"],
-        q4: ["Tu fais quoi à manger, ce soir"],
-        q5: ["Il va pleuvoir, ce soir"],
-        q6: ["Oui, il en reste un"],
-        q7: ["à la pince à épiler"],
-        q8: ["J'ai été sage, moi"],
-        q9: ["Ah, chouette"],
-        q10: ["C'est vrai"],
+        q1: ["Ce sera les vacances tous les jours"],
+        q2: [
+          "Mais faut être réaliste sur combien de temps tu pourras encore cuisiner, à ton âge",
+        ],
+        q3: ["Tu veux dire, corvéable à merci"],
+        q4: ["On va demander à Gemini"],
+        q5: ["Orientation est ou nord-est, étage élevé, appartement d'angle"],
+        q6: ["Là"],
+        q7: [
+          "La vue sera magnifique — la mer d'Andaman et les collines verdoyantes",
+          "La vue sera magnifique, la mer d'Andaman et les collines verdoyantes",
+        ],
+        q8: ["J'ai hâte"],
+        q9: [
+          "Mais il paraît que les moustiques et les mouches, ça peut pas voler si haut",
+        ],
+        q10: ["Avec ton aide, je tiendrai encore quelques années aux fourneaux"],
       };
 
       function checkTranslations() {

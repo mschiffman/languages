@@ -65,9 +65,7 @@
         </div>
 
         <div class="question-block" id="block-3">
-          <span class="english-prompt"
-            >3. It's magic.</span
-          >
+          <span class="english-prompt">3. But I don't deserve it.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q3" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -76,7 +74,7 @@
         </div>
 
         <div class="question-block" id="block-4">
-          <span class="english-prompt">4. Isn't that already the case?</span>
+          <span class="english-prompt">4. It's magic.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q4" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -94,7 +92,9 @@
         </div>
 
         <div class="question-block" id="block-6">
-          <span class="english-prompt">6. Do you know how to open this jar? </span>
+          <span class="english-prompt"
+            >6. Do you know how to open this jar?
+          </span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q6" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -121,7 +121,9 @@
         </div>
 
         <div class="question-block" id="block-9">
-          <span class="english-prompt">9. Your first name was 'Always' and your last name 'Right'.</span>
+          <span class="english-prompt"
+            >9. Your first name was 'Always' and your last name 'Right'.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q9" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -161,15 +163,19 @@
       // The Answer Key (Supports multiple correct variations separated by | )
       const answerKey = {
         q1: ["en t'épousant"],
-        q2: ["Elle doit être sur son trône",
-        ],
-        q3: ["Mais je mérite pas ça",
-        ],
+        q2: ["Elle doit être sur son trône"],
+        q3: ["Mais je mérite pas ça"],
         q4: ["C'est magique"],
         q5: ["D'ailleurs", "D'ailleurs,"],
-        q6: ["tu sais comment on ouvre ce bocal", "tu sais comment on ouvre ce bocal ?"],
+        q6: [
+          "tu sais comment on ouvre ce bocal",
+          "tu sais comment on ouvre ce bocal ?",
+        ],
         q7: ["Tu vois, je sais tout"],
-        q8: ["C'est de naissance. J'y peux rien", "C'est de naissance, J'y peux rien."],
+        q8: [
+          "C'est de naissance. J'y peux rien",
+          "C'est de naissance, J'y peux rien.",
+        ],
         q9: ["Ton prénom c'était 'Toujours' et ton nom de famille 'Raison'"],
         q10: ["Tu me dis non assez souvent, pourtant"],
       };

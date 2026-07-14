@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listening Test: Dual Voice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/assets/css/listenMaster.css" />
+  </head>
+  <body>
+    <div class="test-card">
+      <h2>🎧 Compréhension Orale</h2>
+      <div class="subtitle">
+        Select a voice, listen, and click the correct box.
+      </div>
+
+      <div class="voice-selector">
+        <button
+          class="voice-btn active-male"
+          id="btn-male"
+          onclick="setVoice('male')"
+        >
+          👨 Male Voice
+        </button>
+        <button class="voice-btn" id="btn-female" onclick="setVoice('female')">
+          👩 Female Voice
+        </button>
+        <button
+          class="voice-btn"
+          id="btn-female-slow"
+          onclick="setVoice('female_slow')"
+        >
+          👩 Female Voice - Slow
+        </button>
+      </div>
+
+      <div class="audio-container">
+        <audio id="main-player" controls>
+          <source
+            id="audio-source"
+            src="https://languages.rmlives.com/lessons/everyday/conv33/listen-master/listen1-m.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button
+          onclick="toggleTranscript()"
+          style="
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+          "
+        >
+          👁️ Show/Hide Transcript
+        </button>
+        <div class="transcript-box" id="trans-box">
+          La semaine dernière, Marc et Sophie ont visité un appartement à Kuala
+          Lumpur. L'agent immobilier les attendait devant l'entrée avec les
+          clés. Sophie a tout de suite aimé la vue depuis le balcon, mais Marc
+          trouvait la cuisine un peu petite. Ils ont demandé si l'appartement
+          était orienté vers l'est, parce qu'ils voulaient profiter du soleil du
+          matin. L'agent a expliqué que l'immeuble avait une piscine et une
+          salle de sport au rez-de-chaussée. Marc a remarqué qu'il n'y avait pas
+          de moustiquaires aux fenêtres, ce qui l'inquiétait un peu. Sophie a
+          dit qu'ils pourraient en installer eux-mêmes plus tard. Après la
+          visite, ils ont pris un café pour discuter du loyer. Finalement, ils
+          ont décidé de réfléchir encore un peu avant de signer le bail.
+        </div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="question-item">
+          <span class="q-text"
+            >1. Où Marc et Sophie ont-ils visité un appartement ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1a" value="wrong" />
+              <label class="option-box" for="q1a">À Singapour</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1b" value="correct" />
+              <label class="option-box" for="q1b">À Kuala Lumpur</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">À Bangkok</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">2. Qui les attendait devant l'entrée ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2a" value="wrong" />
+              <label class="option-box" for="q2a">Le propriétaire</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2b" value="wrong" />
+              <label class="option-box" for="q2b">Un voisin</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2c" value="correct" />
+              <label class="option-box" for="q2c">L'agent immobilier</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >3. Qu'est-ce que Sophie a tout de suite aimé ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3a" value="correct" />
+              <label class="option-box" for="q3a"
+                >La vue depuis le balcon</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3b" value="wrong" />
+              <label class="option-box" for="q3b">La cuisine</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3c" value="wrong" />
+              <label class="option-box" for="q3c">La salle de bain</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >4. Qu'est-ce que Marc trouvait un peu petit ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4a" value="wrong" />
+              <label class="option-box" for="q4a">Le salon</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4b" value="correct" />
+              <label class="option-box" for="q4b">La cuisine</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4c" value="wrong" />
+              <label class="option-box" for="q4c">La chambre</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >5. Pourquoi voulaient-ils une orientation est ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5a" value="wrong" />
+              <label class="option-box" for="q5a">Pour la vue sur la mer</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5b" value="correct" />
+              <label class="option-box" for="q5b"
+                >Pour profiter du soleil du matin</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5c" value="wrong" />
+              <label class="option-box" for="q5c">Pour éviter le bruit</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >6. Qu'est-ce qu'il y avait au rez-de-chaussée de l'immeuble ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6a" value="wrong" />
+              <label class="option-box" for="q6a">Un restaurant</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6b" value="correct" />
+              <label class="option-box" for="q6b"
+                >Une piscine et une salle de sport</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6c" value="wrong" />
+              <label class="option-box" for="q6c">Un parking seulement</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">7. Qu'est-ce qui inquiétait Marc ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7a" value="wrong" />
+              <label class="option-box" for="q7a">Le prix du loyer</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7b" value="correct" />
+              <label class="option-box" for="q7b"
+                >L'absence de moustiquaires</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7c" value="wrong" />
+              <label class="option-box" for="q7c">Le bruit de la rue</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >8. Qu'a proposé Sophie à propos des moustiquaires ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8a" value="wrong" />
+              <label class="option-box" for="q8a"
+                >De demander à l'agent de les poser</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8b" value="wrong" />
+              <label class="option-box" for="q8b"
+                >De ne pas prendre l'appartement</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8c" value="correct" />
+              <label class="option-box" for="q8c"
+                >De les installer eux-mêmes plus tard</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">9. Qu'ont-ils fait après la visite ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9a" value="wrong" />
+              <label class="option-box" for="q9a"
+                >Ils ont signé le bail tout de suite</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9b" value="correct" />
+              <label class="option-box" for="q9b"
+                >Ils ont pris un café pour discuter du loyer</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9c" value="wrong" />
+              <label class="option-box" for="q9c"
+                >Ils sont rentrés directement chez eux</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">10. Qu'ont-ils décidé à la fin ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10a" value="correct" />
+              <label class="option-box" for="q10a"
+                >De réfléchir encore un peu avant de signer</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10b" value="wrong" />
+              <label class="option-box" for="q10b"
+                >De refuser l'appartement</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10c" value="wrong" />
+              <label class="option-box" for="q10c"
+                >De signer immédiatement</label
+              >
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="score-display" id="score-box"></div>
+
+      <div class="controls">
+        <button
+          class="action-btn btn-check-answers"
+          type="button"
+          onclick="checkAnswers()"
+        >
+          Check Answers
+        </button>
+        <button
+          class="action-btn btn-reset"
+          type="button"
+          onclick="resetTest()"
+        >
+          Reset Test
+        </button>
+      </div>
+
+      <div class="page-nav">
+        <a href="listen-master1.html" class="page-btn active">1</a>
+        <a href="listen-master2.html" class="page-btn">2</a>
+      </div>
+    </div>
+
+    <script>
+      const audioFiles = {
+        male: "https://languages.rmlives.com/lessons/everyday/conv33/listen-master/listen1-m.mp3",
+        female:
+          "https://languages.rmlives.com/lessons/everyday/conv33/listen-master/listen1-f.mp3",
+        female_slow:
+          "https://languages.rmlives.com/lessons/everyday/conv33/listen-master/listen1-ms.mp3",
+      };
+    </script>
+    <script src="/assets/js/listenMaster.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

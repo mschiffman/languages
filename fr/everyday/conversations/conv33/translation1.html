@@ -35,7 +35,7 @@
   </head>
   <body>
     <div class="translation-card">
-      <h2>✍️ Translation Challenge (Page 5)</h2>
+      <h2>✍️ Translation Challenge (Page 1)</h2>
       <p class="subtitle">
         Translate the sentences into French. (Watch your spelling!)
       </p>
@@ -43,7 +43,7 @@
       <div id="quiz-area">
         <div class="question-block" id="block-1">
           <span class="english-prompt"
-            >1. I pulled all the spurge out from between the pavers.</span
+            >1. I imagine we'll get delivery more often.</span
           >
           <div class="input-wrap">
             <input
@@ -58,7 +58,9 @@
         </div>
 
         <div class="question-block" id="block-2">
-          <span class="english-prompt">2. Yes, we're almost out.</span>
+          <span class="english-prompt"
+            >2. Otherwise, you have to pay for Grab.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q2" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -67,7 +69,7 @@
         </div>
 
         <div class="question-block" id="block-3">
-          <span class="english-prompt">3. Just wait, you'll see.</span>
+          <span class="english-prompt">3. Super convenient.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q3" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -77,7 +79,7 @@
 
         <div class="question-block" id="block-4">
           <span class="english-prompt"
-            >4. What are you making to eat tonight?</span
+            >4. We'll have to get used to everything.</span
           >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q4" placeholder="..." />
@@ -87,7 +89,9 @@
         </div>
 
         <div class="question-block" id="block-5">
-          <span class="english-prompt">5. Is it going to rain tonight?</span>
+          <span class="english-prompt"
+            >5. We'll be able to have breakfast on the balcony.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q5" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -96,7 +100,9 @@
         </div>
 
         <div class="question-block" id="block-6">
-          <span class="english-prompt">6. Yes, there's one left.</span>
+          <span class="english-prompt"
+            >6. We can't afford to lose any more.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q6" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -105,7 +111,9 @@
         </div>
 
         <div class="question-block" id="block-7">
-          <span class="english-prompt">7. ...with tweezers. (idiom)</span>
+          <span class="english-prompt"
+            >7. The hot food will be packed in plastic, though.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q7" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -114,7 +122,7 @@
         </div>
 
         <div class="question-block" id="block-8">
-          <span class="english-prompt">8. I've been good.</span>
+          <span class="english-prompt">8. Cooking ourselves is healthiest.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q8" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -123,7 +131,9 @@
         </div>
 
         <div class="question-block" id="block-9">
-          <span class="english-prompt">9. Oh, great.</span>
+          <span class="english-prompt"
+            >9. We might have to put in the mosquito screens ourselves.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q9" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -132,7 +142,9 @@
         </div>
 
         <div class="question-block" id="block-10">
-          <span class="english-prompt">10. That's true.</span>
+          <span class="english-prompt"
+            >10. We need to put AC in the humid kitchen.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q10" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -149,27 +161,27 @@
       </div>
 
       <div class="page-nav">
-        <a href="translation1.html" class="page-btn">1</a>
+        <a href="translation1.html" class="page-btn active">1</a>
         <a href="translation2.html" class="page-btn">2</a>
         <a href="translation3.html" class="page-btn">3</a>
         <a href="translation4.html" class="page-btn">4</a>
-        <a href="translation5.html" class="page-btn active">5</a>
+        <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
 
     <script>
       // The Answer Key (Supports multiple correct variations separated by | )
       const answerKey = {
-        q1: ["J'ai arraché toute l'euphorbe des dalles"],
-        q2: ["Oui, on n'en a presque plus"],
-        q3: ["Attends un peu, tu vas voir"],
-        q4: ["Tu fais quoi à manger, ce soir"],
-        q5: ["Il va pleuvoir, ce soir"],
-        q6: ["Oui, il en reste un"],
-        q7: ["à la pince à épiler"],
-        q8: ["J'ai été sage, moi"],
-        q9: ["Ah, chouette"],
-        q10: ["C'est vrai"],
+        q1: ["J'imagine qu'on se fera livrer plus souvent"],
+        q2: ["Sinon, faut payer le Grab"],
+        q3: ["Super pratiques"],
+        q4: ["Il va falloir s'habituer à tout"],
+        q5: ["On pourra prendre le petit-déj sur le balcon"],
+        q6: ["On peut pas se permettre d'en perdre plus"],
+        q7: ["La bouffe chaude sera emballée dans du plastique, par contre"],
+        q8: ["Cuisiner nous-mêmes, c'est le plus sain"],
+        q9: ["Faudra peut-être poser les moustiquaires nous-mêmes"],
+        q10: ["Faut mettre la clim dans la cuisine humide"],
       };
 
       function checkTranslations() {

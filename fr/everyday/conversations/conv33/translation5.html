@@ -43,7 +43,7 @@
       <div id="quiz-area">
         <div class="question-block" id="block-1">
           <span class="english-prompt"
-            >1. I pulled all the spurge out from between the pavers.</span
+            >1. Gemini said we can order on Grabfood and Foodpanda.</span
           >
           <div class="input-wrap">
             <input
@@ -58,7 +58,9 @@
         </div>
 
         <div class="question-block" id="block-2">
-          <span class="english-prompt">2. Yes, we're almost out.</span>
+          <span class="english-prompt"
+            >2. That's something to keep in mind.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q2" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -67,7 +69,10 @@
         </div>
 
         <div class="question-block" id="block-3">
-          <span class="english-prompt">3. Just wait, you'll see.</span>
+          <span class="english-prompt"
+            >3. Eating on the spot is best, but with the heat, it's not
+            always practical.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q3" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -76,9 +81,7 @@
         </div>
 
         <div class="question-block" id="block-4">
-          <span class="english-prompt"
-            >4. What are you making to eat tonight?</span
-          >
+          <span class="english-prompt">4. We'll see.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q4" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -87,7 +90,9 @@
         </div>
 
         <div class="question-block" id="block-5">
-          <span class="english-prompt">5. Is it going to rain tonight?</span>
+          <span class="english-prompt"
+            >5. I don't know if the hawker stalls deliver.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q5" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -96,7 +101,10 @@
         </div>
 
         <div class="question-block" id="block-6">
-          <span class="english-prompt">6. Yes, there's one left.</span>
+          <span class="english-prompt"
+            >6. But Alila2's layout is much better — more open, more
+            space.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q6" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -105,7 +113,9 @@
         </div>
 
         <div class="question-block" id="block-7">
-          <span class="english-prompt">7. ...with tweezers. (idiom)</span>
+          <span class="english-prompt"
+            >7. A husband is good for lots of things.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q7" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -114,7 +124,7 @@
         </div>
 
         <div class="question-block" id="block-8">
-          <span class="english-prompt">8. I've been good.</span>
+          <span class="english-prompt">8. Costco and Amazon.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q8" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -123,21 +133,12 @@
         </div>
 
         <div class="question-block" id="block-9">
-          <span class="english-prompt">9. Oh, great.</span>
+          <span class="english-prompt">9. That would be nice.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q9" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
           </div>
           <div class="feedback-msg" id="msg-9"></div>
-        </div>
-
-        <div class="question-block" id="block-10">
-          <span class="english-prompt">10. That's true.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q10" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-10"></div>
         </div>
       </div>
 
@@ -160,21 +161,25 @@
     <script>
       // The Answer Key (Supports multiple correct variations separated by | )
       const answerKey = {
-        q1: ["J'ai arraché toute l'euphorbe des dalles"],
-        q2: ["Oui, on n'en a presque plus"],
-        q3: ["Attends un peu, tu vas voir"],
-        q4: ["Tu fais quoi à manger, ce soir"],
-        q5: ["Il va pleuvoir, ce soir"],
-        q6: ["Oui, il en reste un"],
-        q7: ["à la pince à épiler"],
-        q8: ["J'ai été sage, moi"],
-        q9: ["Ah, chouette"],
-        q10: ["C'est vrai"],
+        q1: ["Gemini a dit qu'on peut commander sur Grabfood et Foodpanda"],
+        q2: ["C'est à prendre en compte"],
+        q3: [
+          "Manger sur place, c'est le mieux, mais avec la chaleur, c'est pas toujours pratique",
+        ],
+        q4: ["On verra"],
+        q5: ["Je sais pas si les stands de hawker livrent"],
+        q6: [
+          "Mais l'agencement d'Alila2 est bien mieux — plus ouvert, plus d'espace",
+          "Mais l'agencement d'Alila2 est bien mieux, plus ouvert, plus d'espace",
+        ],
+        q7: ["Ça sert à plein de choses, un mari"],
+        q8: ["Costco et Amazon"],
+        q9: ["Ce serait sympa"],
       };
 
       function checkTranslations() {
         // Loop through each question ID
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 9; i++) {
           const inputId = "q" + i;
           const blockId = "block-" + i;
           const msgId = "msg-" + i;
@@ -223,7 +228,7 @@
       }
 
       function resetTranslations() {
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 9; i++) {
           const inputEl = document.getElementById("q" + i);
           const blockEl = document.getElementById("block-" + i);
           const msgEl = document.getElementById("msg-" + i);

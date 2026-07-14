@@ -35,16 +35,14 @@
   </head>
   <body>
     <div class="translation-card">
-      <h2>✍️ Translation Challenge (Page 5)</h2>
+      <h2>✍️ Translation Challenge (Page 3)</h2>
       <p class="subtitle">
         Translate the sentences into French. (Watch your spelling!)
       </p>
 
       <div id="quiz-area">
         <div class="question-block" id="block-1">
-          <span class="english-prompt"
-            >1. I pulled all the spurge out from between the pavers.</span
-          >
+          <span class="english-prompt">1. What else do we need?</span>
           <div class="input-wrap">
             <input
               type="text"
@@ -58,7 +56,7 @@
         </div>
 
         <div class="question-block" id="block-2">
-          <span class="english-prompt">2. Yes, we're almost out.</span>
+          <span class="english-prompt">2. Can you scratch my back?</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q2" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -67,7 +65,7 @@
         </div>
 
         <div class="question-block" id="block-3">
-          <span class="english-prompt">3. Just wait, you'll see.</span>
+          <span class="english-prompt">3. Anyway, we won't eat out much.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q3" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -77,7 +75,7 @@
 
         <div class="question-block" id="block-4">
           <span class="english-prompt"
-            >4. What are you making to eat tonight?</span
+            >4. What are you going to miss most about America?</span
           >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q4" placeholder="..." />
@@ -87,7 +85,7 @@
         </div>
 
         <div class="question-block" id="block-5">
-          <span class="english-prompt">5. Is it going to rain tonight?</span>
+          <span class="english-prompt">5. That feels good.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q5" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -96,7 +94,9 @@
         </div>
 
         <div class="question-block" id="block-6">
-          <span class="english-prompt">6. Yes, there's one left.</span>
+          <span class="english-prompt"
+            >6. No, higher, a little to the left, a little lower.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q6" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -105,7 +105,7 @@
         </div>
 
         <div class="question-block" id="block-7">
-          <span class="english-prompt">7. ...with tweezers. (idiom)</span>
+          <span class="english-prompt">7. Then maybe we won't need them.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q7" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -114,7 +114,9 @@
         </div>
 
         <div class="question-block" id="block-8">
-          <span class="english-prompt">8. I've been good.</span>
+          <span class="english-prompt"
+            >8. We could never cook in that heat and humidity.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q8" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -123,7 +125,10 @@
         </div>
 
         <div class="question-block" id="block-9">
-          <span class="english-prompt">9. Oh, great.</span>
+          <span class="english-prompt"
+            >9. I'm trying to imagine what it would feel like to live up
+            high.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q9" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -132,7 +137,9 @@
         </div>
 
         <div class="question-block" id="block-10">
-          <span class="english-prompt">10. That's true.</span>
+          <span class="english-prompt"
+            >10. Grab might end up costing more.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q10" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -151,25 +158,25 @@
       <div class="page-nav">
         <a href="translation1.html" class="page-btn">1</a>
         <a href="translation2.html" class="page-btn">2</a>
-        <a href="translation3.html" class="page-btn">3</a>
+        <a href="translation3.html" class="page-btn active">3</a>
         <a href="translation4.html" class="page-btn">4</a>
-        <a href="translation5.html" class="page-btn active">5</a>
+        <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
 
     <script>
       // The Answer Key (Supports multiple correct variations separated by | )
       const answerKey = {
-        q1: ["J'ai arraché toute l'euphorbe des dalles"],
-        q2: ["Oui, on n'en a presque plus"],
-        q3: ["Attends un peu, tu vas voir"],
-        q4: ["Tu fais quoi à manger, ce soir"],
-        q5: ["Il va pleuvoir, ce soir"],
-        q6: ["Oui, il en reste un"],
-        q7: ["à la pince à épiler"],
-        q8: ["J'ai été sage, moi"],
-        q9: ["Ah, chouette"],
-        q10: ["C'est vrai"],
+        q1: ["Qu'est-ce qu'il nous faut d'autre"],
+        q2: ["Tu peux me gratter le dos"],
+        q3: ["De toute façon, on mangera pas beaucoup dehors"],
+        q4: ["Qu'est-ce qui va te manquer le plus de l'Amérique"],
+        q5: ["Ça fait du bien"],
+        q6: ["Non, plus haut, un peu à gauche, un peu plus bas"],
+        q7: ["Alors on en aura peut-être pas besoin"],
+        q8: ["On pourra jamais cuisiner dans cette chaleur et cette humidité"],
+        q9: ["J'essaie d'imaginer l'effet que ça ferait de vivre en hauteur"],
+        q10: ["Le Grab, ça revient peut-être plus cher"],
       };
 
       function checkTranslations() {

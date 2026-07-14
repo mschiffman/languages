@@ -35,7 +35,7 @@
   </head>
   <body>
     <div class="translation-card">
-      <h2>✍️ Translation Challenge (Page 5)</h2>
+      <h2>✍️ Translation Challenge (Page 4)</h2>
       <p class="subtitle">
         Translate the sentences into French. (Watch your spelling!)
       </p>
@@ -43,7 +43,7 @@
       <div id="quiz-area">
         <div class="question-block" id="block-1">
           <span class="english-prompt"
-            >1. I pulled all the spurge out from between the pavers.</span
+            >1. Apparently there's a lot of chlorine in the water.</span
           >
           <div class="input-wrap">
             <input
@@ -58,7 +58,9 @@
         </div>
 
         <div class="question-block" id="block-2">
-          <span class="english-prompt">2. Yes, we're almost out.</span>
+          <span class="english-prompt"
+            >2. We might need to install a filtering showerhead.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q2" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -67,7 +69,7 @@
         </div>
 
         <div class="question-block" id="block-3">
-          <span class="english-prompt">3. Just wait, you'll see.</span>
+          <span class="english-prompt">3. We've never done that.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q3" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -77,7 +79,8 @@
 
         <div class="question-block" id="block-4">
           <span class="english-prompt"
-            >4. What are you making to eat tonight?</span
+            >4. Going into town is a bit farther from Alila2 than from
+            Andaman@Quayside.</span
           >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q4" placeholder="..." />
@@ -87,7 +90,7 @@
         </div>
 
         <div class="question-block" id="block-5">
-          <span class="english-prompt">5. Is it going to rain tonight?</span>
+          <span class="english-prompt">5. The kitchen is huge.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q5" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -96,7 +99,7 @@
         </div>
 
         <div class="question-block" id="block-6">
-          <span class="english-prompt">6. Yes, there's one left.</span>
+          <span class="english-prompt">6. I was thinking about Malaysia.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q6" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -105,7 +108,7 @@
         </div>
 
         <div class="question-block" id="block-7">
-          <span class="english-prompt">7. ...with tweezers. (idiom)</span>
+          <span class="english-prompt">7. Chlorine isn't good for hair.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q7" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -114,7 +117,10 @@
         </div>
 
         <div class="question-block" id="block-8">
-          <span class="english-prompt">8. I've been good.</span>
+          <span class="english-prompt"
+            >8. To mix and match iconic stalls from all corners of the
+            island, we can use iOnefood.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q8" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -123,7 +129,7 @@
         </div>
 
         <div class="question-block" id="block-9">
-          <span class="english-prompt">9. Oh, great.</span>
+          <span class="english-prompt">9. They're weak fliers.</span>
           <div class="input-wrap">
             <input type="text" class="user-input" id="q9" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -132,7 +138,10 @@
         </div>
 
         <div class="question-block" id="block-10">
-          <span class="english-prompt">10. That's true.</span>
+          <span class="english-prompt"
+            >10. We'll need a live-in housekeeper before that, to teach her
+            our favorite dishes.</span
+          >
           <div class="input-wrap">
             <input type="text" class="user-input" id="q10" placeholder="..." />
             <i class="bi bi-check-circle-fill check-icon"></i>
@@ -152,24 +161,30 @@
         <a href="translation1.html" class="page-btn">1</a>
         <a href="translation2.html" class="page-btn">2</a>
         <a href="translation3.html" class="page-btn">3</a>
-        <a href="translation4.html" class="page-btn">4</a>
-        <a href="translation5.html" class="page-btn active">5</a>
+        <a href="translation4.html" class="page-btn active">4</a>
+        <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
 
     <script>
       // The Answer Key (Supports multiple correct variations separated by | )
       const answerKey = {
-        q1: ["J'ai arraché toute l'euphorbe des dalles"],
-        q2: ["Oui, on n'en a presque plus"],
-        q3: ["Attends un peu, tu vas voir"],
-        q4: ["Tu fais quoi à manger, ce soir"],
-        q5: ["Il va pleuvoir, ce soir"],
-        q6: ["Oui, il en reste un"],
-        q7: ["à la pince à épiler"],
-        q8: ["J'ai été sage, moi"],
-        q9: ["Ah, chouette"],
-        q10: ["C'est vrai"],
+        q1: ["Il paraît qu'il y a beaucoup de chlore dans l'eau"],
+        q2: ["On devra peut-être installer un pommeau de douche filtrant"],
+        q3: ["On l'a jamais fait"],
+        q4: [
+          "Aller en ville, c'est un peu plus loin depuis Alila2 que depuis Andaman@Quayside",
+        ],
+        q5: ["La cuisine est immense"],
+        q6: ["Je pensais à la Malaisie"],
+        q7: ["Le chlore, c'est pas bon pour les cheveux"],
+        q8: [
+          "Pour panacher les stands emblématiques des quatre coins de l'île, on peut utiliser iOnefood",
+        ],
+        q9: ["Ils volent mal, ils sont trop faibles"],
+        q10: [
+          "Il nous faudra une bonne à demeure avant ça, pour lui apprendre nos plats préférés",
+        ],
       };
 
       function checkTranslations() {

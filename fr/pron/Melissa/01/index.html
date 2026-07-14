@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="/assets/js/nav-pron.js?v=2607131958"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French Interview - Foster Care Documentary</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio
+            id="audioElement"
+            src="https://languages.rmlives.com/rfi/Melissa/01/audio.mp3"
+          ></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              Oui, absolument.</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              C'est ils ont mis en échec</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              les systèmes en effet classique,</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              c'est-à-dire famille d'accueil ou foyer</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              avec énormément de d'enfants et d'adolescents</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              et il cumulent en effet</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              différentes souffrances</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              des failles notamment familiales</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              et il s'agit en effet</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              mais je pense que tous les enfants</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              placés auraient besoin de ce type</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              de placement qui est personnalisé</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              et qui mèle à la fois l'accès aux soins,</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              le lien aux parents</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              d'accueil qui est toujours présent</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              dans leur vie et le lien aux parents biologique</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              quand c'est nécessaire</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              et que c'est pas nocif.</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              Donc c'est tout un encadrement surmesure</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              qui montre aussi une impulsion.</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              On voulait avec Ky Rios Palma</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              qui signait itinéraire d'un enfant placé</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              qui est un précédent film</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              qui montrait l'itinéraire d'un enfant</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              en famille d'accueil.</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              On a eu envie de s'intéresser</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              à une trajectoire collective</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              et de voir comment en effet</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              ces enfants si différents arrivaient</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              à se valoriser les uns les autres.</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              On a vraiment Kéti à tourner
+            </span>
+            <span class="chunk" onclick="playAudio('audio32')">
+              presque une année entière</span
+            >
+            <span class="chunk" onclick="playAudio('audio33')">
+              et je trouve qu'on voit</span
+            >
+            <span class="chunk" onclick="playAudio('audio34')">
+              vraiment les progrès</span
+            >
+            <span class="chunk" onclick="playAudio('audio35')">
+              notamment que Kaï a fait</span
+            >
+            <span class="chunk" onclick="playAudio('audio36')">
+              qui a des des une lourde problématique</span
+            >
+            <span class="chunk" onclick="playAudio('audio37')">
+              et qui arrive à la fin</span
+            >
+            <span class="chunk" onclick="playAudio('audio38')">
+              avec une immense maturité.</span
+            >
+            <span class="chunk" onclick="playAudio('audio39')">
+              Euh elle en fait preuve</span
+            >
+            <span class="chunk" onclick="playAudio('audio40')">
+              et puis elle s'adresse</span
+            >
+            <span class="chunk" onclick="playAudio('audio41')">
+              aux autres enfants</span
+            >
+            <span class="chunk" onclick="playAudio('audio42')">
+              qui sont un peu plus petits qu'elle et</span
+            >
+            <span class="chunk" onclick="playAudio('audio43')">
+              elle leur adresse tout son soutien,</span
+            >
+            <span class="chunk" onclick="playAudio('audio44')">
+              ses encouragements.
+            </span>
+            <span class="chunk" onclick="playAudio('audio45')">
+              Donc ils font
+            </span>
+            <span class="chunk" onclick="playAudio('audio46')">
+              grâce à ces éducateurs</span
+            >
+            <span class="chunk" onclick="playAudio('audio47')">
+              qui les aiment,</span
+            >
+            <span class="chunk" onclick="playAudio('audio48')">
+              qui les entourent 24h/24,</span
+            >
+            <span class="chunk" onclick="playAudio('audio49')">
+              un métier qui est si dévalorisé,</span
+            >
+            <span class="chunk" onclick="playAudio('audio50')">
+              si mal payé.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Yes, absolutely. They have overwhelmed the traditional systems —
+              that is, foster families or children's homes — with a huge number
+              of children and teenagers, who in fact build up different kinds of
+              suffering, particularly from family breakdowns. And I think that
+              all children in care would benefit from this kind of personalized
+              placement, one that combines access to care, the ongoing bond with
+              the foster parents who remain present in their lives, and the bond
+              with the biological parents when it's necessary and not harmful.
+              So it's a whole tailor-made framework that also reflects real
+              momentum. Along with Ky Rios Palma, who directed "Itinéraire d'un
+              enfant placé," an earlier film that followed one child's journey
+              through foster care, we wanted to look at a collective journey
+              instead, and see how these very different children managed to
+              support and encourage one another. We filmed for almost an entire
+              year, and I think you can really see the progress — especially the
+              progress Kaï made. She was dealing with a serious issue, and by
+              the end she shows immense maturity. She really proves it, and then
+              she reaches out to the younger children, offering them all her
+              support and encouragement. They manage this thanks to the social
+              workers who love them and are there for them around the clock — a
+              profession that's so undervalued, so poorly paid.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  échec /eʃɛk/
+                </td>
+                <td>setback / failure</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  mettre en échec
+                </td>
+                <td>to thwart / to foil</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  système /sistɛm/
+                </td>
+                <td>system</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  foyer /fwaje/
+                </td>
+                <td>children's home</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  famille d'accueil
+                </td>
+                <td>foster family</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  adolescent /adɔlesɑ̃/
+                </td>
+                <td>teenager</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  cumuler /kymyle/
+                </td>
+                <td>to accumulate</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  souffrance /sufʀɑ̃s/
+                </td>
+                <td>suffering</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  faille /faj/
+                </td>
+                <td>flaw / crack</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  placement /plasmɑ̃/
+                </td>
+                <td>placement</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  personnalisé /pɛʀsɔnalize/
+                </td>
+                <td>personalized</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  mêler /mele/
+                </td>
+                <td>to mix / combine</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">
+                  accès /aksɛ/
+                </td>
+                <td>access</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  soins /swɛ̃/
+                </td>
+                <td>care</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">lien /ljɛ̃/</td>
+                <td>bond / link</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio65')">
+                  présent /pʀezɑ̃/
+                </td>
+                <td>present</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio66')">
+                  biologique /bjɔlɔʒik/
+                </td>
+                <td>biological</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio67')">
+                  nécessaire /nesesɛʀ/
+                </td>
+                <td>necessary</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio68')">
+                  nocif /nɔsif/
+                </td>
+                <td>harmful</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio69')">
+                  encadrement /ɑ̃kadʀəmɑ̃/
+                </td>
+                <td>framework / supervision</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio70')">
+                  sur-mesure /syʀ məzyʀ/
+                </td>
+                <td>tailor-made</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio71')">
+                  impulsion /ɛ̃pylsjɔ̃/
+                </td>
+                <td>impetus / drive</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio72')">
+                  itinéraire /itineʀɛʀ/
+                </td>
+                <td>path / journey</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio73')">
+                  précédent /pʀesedɑ̃/
+                </td>
+                <td>previous</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio74')">
+                  s'intéresser (à) /sɛ̃teʀese/
+                </td>
+                <td>to take interest (in)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio75')">
+                  trajectoire /tʀaʒɛktwaʀ/
+                </td>
+                <td>trajectory / path</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio76')">
+                  valoriser /valɔʀize/
+                </td>
+                <td>to value / build up</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio77')">
+                  tourner /tuʀne/
+                </td>
+                <td>to film / shoot</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio78')">
+                  progrès /pʀɔgʀɛ/
+                </td>
+                <td>progress</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio79')">
+                  problématique /pʀɔblematik/
+                </td>
+                <td>issue / problem</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio80')">
+                  maturité /matyʀite/
+                </td>
+                <td>maturity</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio81')">
+                  preuve /pʀœv/
+                </td>
+                <td>proof / evidence</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio82')">
+                  soutien /sutjɛ̃/
+                </td>
+                <td>support</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio83')">
+                  encouragement /ɑ̃kuʀaʒmɑ̃/
+                </td>
+                <td>encouragement</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio84')">
+                  éducateur /edykatœʀ/
+                </td>
+                <td>social worker / educator</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio85')">
+                  entourer /ɑ̃tuʀe/
+                </td>
+                <td>to surround</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio86')">
+                  métier /metje/
+                </td>
+                <td>profession / job</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio87')">
+                  dévalorisé /devalɔʀize/
+                </td>
+                <td>undervalued / underrated</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements (generated by script below) -->
+    <div id="hiddenAudioContainer"></div>
+    <script>
+      (function () {
+        const base = "https://languages.rmlives.com/rfi/Melissa/01/";
+        const container = document.getElementById("hiddenAudioContainer");
+        for (let i = 1; i <= 87; i++) {
+          const num = String(i).padStart(2, "0");
+          const audio = document.createElement("audio");
+          audio.id = "audio" + i;
+          audio.src = base + num + ".mp3";
+          container.appendChild(audio);
+        }
+      })();
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="/assets/js/pron.js"></script>
+  </body>
+</html>

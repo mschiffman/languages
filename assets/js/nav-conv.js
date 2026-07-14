@@ -234,6 +234,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "../conv33/conv33.html",
+      label: "Jul 13 - Le futur appartement en Malaisie",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
