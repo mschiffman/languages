@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listening Test: Dual Voice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/assets/css/listenMaster.css" />
+  </head>
+  <body>
+    <div class="test-card">
+      <h2>🎧 Compréhension Orale</h2>
+      <div class="subtitle">
+        Select a voice, listen, and click the correct box.
+      </div>
+
+      <div class="voice-selector">
+        <button
+          class="voice-btn active-male"
+          id="btn-male"
+          onclick="setVoice('male')"
+        >
+          👨 Male Voice
+        </button>
+        <button class="voice-btn" id="btn-female" onclick="setVoice('female')">
+          👩 Female Voice
+        </button>
+        <button
+          class="voice-btn"
+          id="btn-female-slow"
+          onclick="setVoice('female_slow')"
+        >
+          👩 Female Voice - Slow
+        </button>
+      </div>
+
+      <div class="audio-container">
+        <audio id="main-player" controls>
+          <source
+            id="audio-source"
+            src="https://languages.rmlives.com/lessons/everyday/conv34/listen-master/listen1-m.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button
+          onclick="toggleTranscript()"
+          style="
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+          "
+        >
+          👁️ Show/Hide Transcript
+        </button>
+        <div class="transcript-box" id="trans-box">
+          Hier, je suis allé chercher mes nouvelles lunettes chez l'ophtalmo.
+          Comme elles n'étaient pas encore prêtes, j'ai attendu une demi-heure
+          en lisant sur ma tablette. En rentrant, je suis passé devant une
+          pâtisserie. Les macarons avaient l'air délicieux, mais je n'en ai
+          pas acheté parce que je préfère manger de petites portions de bonne
+          qualité. Plus tard, je suis allé chez Costco et j'ai vu du sashimi
+          de saumon que j'adore. Finalement, je ne l'ai pas pris. Je me suis
+          dit que je pouvais garder cet argent pour payer un abonnement à une
+          IA. C'est drôle, mais maintenant, je compare presque toutes mes
+          dépenses au prix d'une IA !
+        </div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="question-item">
+          <span class="q-text"
+            >1. Où suis-je allé hier chercher mes nouvelles lunettes ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1a" value="wrong" />
+              <label class="option-box" for="q1a">Chez l'opticien</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1b" value="correct" />
+              <label class="option-box" for="q1b">Chez l'ophtalmo</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">Chez le dentiste</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">2. Pourquoi ai-je attendu une demi-heure ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2a" value="wrong" />
+              <label class="option-box" for="q2a"
+                >Parce qu'il y avait beaucoup de monde</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2b" value="correct" />
+              <label class="option-box" for="q2b"
+                >Parce que les lunettes n'étaient pas encore prêtes</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2c" value="wrong" />
+              <label class="option-box" for="q2c"
+                >Parce que le médecin était en retard</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >3. Qu'est-ce que j'ai fait pendant que j'attendais ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3a" value="wrong" />
+              <label class="option-box" for="q3a">J'ai téléphoné à un ami</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3b" value="correct" />
+              <label class="option-box" for="q3b">J'ai lu sur ma tablette</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3c" value="wrong" />
+              <label class="option-box" for="q3c">J'ai dormi</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >4. Devant quel magasin suis-je passé en rentrant ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4a" value="wrong" />
+              <label class="option-box" for="q4a">Une boulangerie</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4b" value="correct" />
+              <label class="option-box" for="q4b">Une pâtisserie</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4c" value="wrong" />
+              <label class="option-box" for="q4c">Une librairie</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >5. Pourquoi n'ai-je pas acheté de macarons ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5a" value="wrong" />
+              <label class="option-box" for="q5a">Parce qu'ils étaient trop chers</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5b" value="correct" />
+              <label class="option-box" for="q5b"
+                >Parce que je préfère manger de petites portions de bonne
+                qualité</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5c" value="wrong" />
+              <label class="option-box" for="q5c">Parce que le magasin était fermé</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">6. Qu'est-ce que j'ai vu chez Costco ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6a" value="wrong" />
+              <label class="option-box" for="q6a">Des macarons</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6b" value="correct" />
+              <label class="option-box" for="q6b">Du sashimi de saumon</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6c" value="wrong" />
+              <label class="option-box" for="q6c">Des lunettes en promotion</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">7. Ai-je finalement acheté le sashimi ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7a" value="wrong" />
+              <label class="option-box" for="q7a">Oui, tout de suite</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7b" value="correct" />
+              <label class="option-box" for="q7b">Non, je ne l'ai pas pris</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7c" value="wrong" />
+              <label class="option-box" for="q7c"
+                >Oui, mais seulement une petite quantité</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >8. Pourquoi ai-je décidé de garder cet argent ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8a" value="wrong" />
+              <label class="option-box" for="q8a">Pour acheter de nouvelles lunettes</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8b" value="correct" />
+              <label class="option-box" for="q8b"
+                >Pour payer un abonnement à une IA</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8c" value="wrong" />
+              <label class="option-box" for="q8c">Pour partir en vacances</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">9. Qu'est-ce que je trouve drôle maintenant ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9a" value="wrong" />
+              <label class="option-box" for="q9a">Que je n'achète plus rien</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9b" value="correct" />
+              <label class="option-box" for="q9b"
+                >Que je compare presque toutes mes dépenses au prix d'une
+                IA</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9c" value="wrong" />
+              <label class="option-box" for="q9c">Que les lunettes coûtent cher</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >10. Selon le texte, qu'est-ce que je préfère en général ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10a" value="wrong" />
+              <label class="option-box" for="q10a"
+                >Manger de grandes portions bon marché</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10b" value="correct" />
+              <label class="option-box" for="q10b"
+                >Manger de petites portions de bonne qualité</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10c" value="wrong" />
+              <label class="option-box" for="q10c">Ne jamais manger de sucreries</label>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="score-display" id="score-box"></div>
+
+      <div class="controls">
+        <button
+          class="action-btn btn-check-answers"
+          type="button"
+          onclick="checkAnswers()"
+        >
+          Check Answers
+        </button>
+        <button
+          class="action-btn btn-reset"
+          type="button"
+          onclick="resetTest()"
+        >
+          Reset Test
+        </button>
+      </div>
+
+      <div class="page-nav">
+        <a href="listen-master1.html" class="page-btn active">1</a>
+        <a href="listen-master2.html" class="page-btn">2</a>
+      </div>
+    </div>
+
+    <script>
+      const audioFiles = {
+        male: "https://languages.rmlives.com/lessons/everyday/conv34/listen-master/listen1-m.mp3",
+        female:
+          "https://languages.rmlives.com/lessons/everyday/conv34/listen-master/listen1-f.mp3",
+        female_slow:
+          "https://languages.rmlives.com/lessons/everyday/conv34/listen-master/listen1-ms.mp3",
+      };
+    </script>
+    <script src="/assets/js/listenMaster.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

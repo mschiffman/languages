@@ -240,6 +240,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "../conv34/conv34.html",
+      label: "Jul 15 - Je ramène tout à l'IA",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";

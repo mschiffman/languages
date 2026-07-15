@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listening Test: Dual Voice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/assets/css/listenMaster.css" />
+  </head>
+  <body>
+    <div class="test-card">
+      <h2>🎧 Compréhension Orale</h2>
+      <div class="subtitle">
+        Select a voice, listen, and click the correct box.
+      </div>
+
+      <div class="voice-selector">
+        <button
+          class="voice-btn active-male"
+          id="btn-male"
+          onclick="setVoice('male')"
+        >
+          👨 Male Voice
+        </button>
+        <button class="voice-btn" id="btn-female" onclick="setVoice('female')">
+          👩 Female Voice
+        </button>
+        <button
+          class="voice-btn"
+          id="btn-female-slow"
+          onclick="setVoice('female_slow')"
+        >
+          👩 Male Voice - Slow
+        </button>
+      </div>
+
+      <div class="audio-container">
+        <audio id="main-player" controls>
+          <source
+            id="audio-source"
+            src="https://languages.rmlives.com/lessons/everyday/conv34/listen-master/listen-m.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button
+          onclick="toggleTranscript()"
+          style="
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+          "
+        >
+          👁️ Show/Hide Transcript
+        </button>
+        <div class="transcript-box" id="trans-box">
+          Marc portait les mêmes lunettes depuis cinq ans, et les verres
+          commençaient à le fatiguer. Un jour, il a décidé de prendre
+          rendez-vous chez l'ophtalmologiste pour un nouvel examen. Le médecin
+          lui a dit que sa vue avait un peu changé et qu'il aurait besoin
+          d'une nouvelle prescription. Avant de commander ses nouvelles
+          lunettes, Marc a voulu comparer les prix entre plusieurs opticiens.
+          Il a même demandé à une intelligence artificielle de l'aider à
+          choisir la monture la mieux adaptée à son visage. L'IA lui a
+          proposé trois modèles différents, avec des explications sur le
+          style et le confort de chacun. Marc a trouvé ça pratique, mais il
+          s'est aussi rendu compte qu'il faisait confiance à la machine pour
+          presque toutes ses décisions. Sa femme lui a fait remarquer en
+          riant qu'il devrait peut-être demander à l'IA s'il devait
+          continuer à demander à l'IA. Finalement, Marc a choisi une monture
+          légère et discrète, et ses nouvelles lunettes sont arrivées une
+          semaine plus tard.
+        </div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="question-item">
+          <span class="q-text"
+            >1. Depuis combien de temps Marc portait-il les mêmes
+            lunettes ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1a" value="wrong" />
+              <label class="option-box" for="q1a">Deux ans</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1b" value="correct" />
+              <label class="option-box" for="q1b">Cinq ans</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">Dix ans</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >2. Pourquoi a-t-il pris rendez-vous chez
+            l'ophtalmologiste ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2a" value="wrong" />
+              <label class="option-box" for="q2a">Il avait mal aux yeux</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2b" value="correct" />
+              <label class="option-box" for="q2b"
+                >Ses verres commençaient à le fatiguer</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2c" value="wrong" />
+              <label class="option-box" for="q2c"
+                >Il avait cassé ses lunettes</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">3. Qu'est-ce que le médecin lui a dit ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3a" value="wrong" />
+              <label class="option-box" for="q3a">Que sa vue était parfaite</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3b" value="wrong" />
+              <label class="option-box" for="q3b"
+                >Qu'il n'avait pas besoin de nouvelles lunettes</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3c" value="correct" />
+              <label class="option-box" for="q3c"
+                >Que sa vue avait changé et qu'il fallait une nouvelle
+                prescription</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >4. Qu'a fait Marc avant de commander ses nouvelles
+            lunettes ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4a" value="correct" />
+              <label class="option-box" for="q4a"
+                >Il a comparé les prix entre plusieurs opticiens</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4b" value="wrong" />
+              <label class="option-box" for="q4b"
+                >Il a acheté les premières lunettes trouvées</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4c" value="wrong" />
+              <label class="option-box" for="q4c">Il a attendu six mois</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">5. Qui l'a aidé à choisir la monture ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5a" value="wrong" />
+              <label class="option-box" for="q5a">Sa femme</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5b" value="correct" />
+              <label class="option-box" for="q5b"
+                >Une intelligence artificielle</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5c" value="wrong" />
+              <label class="option-box" for="q5c">L'opticien</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >6. Combien de modèles l'IA lui a-t-elle proposés ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6a" value="wrong" />
+              <label class="option-box" for="q6a">Un seul</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6b" value="correct" />
+              <label class="option-box" for="q6b">Trois</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6c" value="wrong" />
+              <label class="option-box" for="q6c">Cinq</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">7. Comment Marc a-t-il trouvé l'aide de l'IA ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7a" value="wrong" />
+              <label class="option-box" for="q7a">Inutile</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7b" value="correct" />
+              <label class="option-box" for="q7b"
+                >Pratique, mais il s'est senti trop dépendant</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7c" value="wrong" />
+              <label class="option-box" for="q7c">Trop compliquée</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >8. Qu'est-ce que sa femme lui a fait remarquer en riant ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8a" value="wrong" />
+              <label class="option-box" for="q8a"
+                >Qu'il dépensait trop d'argent</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8b" value="correct" />
+              <label class="option-box" for="q8b"
+                >Qu'il devrait peut-être demander à l'IA s'il devait
+                continuer à demander à l'IA</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8c" value="wrong" />
+              <label class="option-box" for="q8c">Que ses lunettes étaient laides</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >9. Quelle monture Marc a-t-il finalement choisie ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9a" value="wrong" />
+              <label class="option-box" for="q9a"
+                >Une monture épaisse et colorée</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9b" value="correct" />
+              <label class="option-box" for="q9b"
+                >Une monture légère et discrète</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9c" value="wrong" />
+              <label class="option-box" for="q9c"
+                >Une monture sans style particulier</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >10. Quand les nouvelles lunettes sont-elles arrivées ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10a" value="wrong" />
+              <label class="option-box" for="q10a">Le jour même</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10b" value="correct" />
+              <label class="option-box" for="q10b">Une semaine plus tard</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10c" value="wrong" />
+              <label class="option-box" for="q10c">Un mois plus tard</label>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="score-display" id="score-box"></div>
+
+      <div class="controls">
+        <button
+          class="action-btn btn-check-answers"
+          type="button"
+          onclick="checkAnswers()"
+        >
+          Check Answers
+        </button>
+        <button
+          class="action-btn btn-reset"
+          type="button"
+          onclick="resetTest()"
+        >
+          Reset Test
+        </button>
+      </div>
+
+      <div class="page-nav">
+        <a href="listen-master1.html" class="page-btn">1</a>
+        <a href="listen-master2.html" class="page-btn active">2</a>
+      </div>
+    </div>
+
+    <script>
+      const audioFiles = {
+        male: "https://languages.rmlives.com/lessons/everyday/conv34/listen-master/listen-m.mp3",
+        female:
+          "https://languages.rmlives.com/lessons/everyday/conv34/listen-master/listen-f.mp3",
+        female_slow:
+          "https://languages.rmlives.com/lessons/everyday/conv34/listen-master/listen-ms.mp3",
+      };
+    </script>
+    <script src="/assets/js/listenMaster.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>
