@@ -246,6 +246,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "../conv35/conv35.html",
+      label: "Jul 16 - La cuisine et les plantes",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";

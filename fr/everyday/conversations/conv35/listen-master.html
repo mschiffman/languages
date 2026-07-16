@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listening Test: Dual Voice</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/assets/css/listenMaster.css" />
+  </head>
+  <body>
+    <div class="test-card">
+      <h2>🎧 Compréhension Orale</h2>
+      <div class="subtitle">
+        Select a voice, listen, and click the correct box.
+      </div>
+
+      <div class="voice-selector">
+        <button
+          class="voice-btn active-male"
+          id="btn-male"
+          onclick="setVoice('male')"
+        >
+          👨 Male Voice
+        </button>
+        <button class="voice-btn" id="btn-female" onclick="setVoice('female')">
+          👩 Female Voice
+        </button>
+        <button
+          class="voice-btn"
+          id="btn-female-slow"
+          onclick="setVoice('female_slow')"
+        >
+          👩 Female Voice - Slow
+        </button>
+      </div>
+
+      <div class="audio-container">
+        <audio id="main-player" controls>
+          <source
+            id="audio-source"
+            src="https://languages.rmlives.com/lessons/everyday/conv35/listen-master/listen-m.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button
+          onclick="toggleTranscript()"
+          style="
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+          "
+        >
+          👁️ Show/Hide Transcript
+        </button>
+        <div class="transcript-box" id="trans-box">
+          Après le petit-déjeuner, Nadia aide son mari à préparer le repas. Elle
+          épluche et hache quelques gousses d'ail, puis elle coupe les poivrons
+          et l'oignon. Comme elle est encore bien calée, elle pense zapper la
+          dégustation des boulettes. Une fois les légumes prêts, elle va
+          s'asseoir pour se ménager, car elle a mal au pied. Mais elle se
+          rappelle soudain qu'elle doit arroser les plantes avant qu'il ne fasse
+          trop chaud. La météo annonce près de 38 degrés, et le lantana est un
+          vrai gouffre à eau. Elle vérifie donc le système de goutte-à-goutte,
+          puis remarque que le chiendent commence encore à envahir la pelouse.
+        </div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="question-item">
+          <span class="q-text">1. Quand Nadia aide-t-elle son mari ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1a" value="wrong" />
+              <label class="option-box" for="q1a">Avant de se coucher</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1b" value="correct" />
+              <label class="option-box" for="q1b"
+                >Après le petit-déjeuner</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">Après le dîner</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >2. Qu'est-ce qu'elle épluche et hache ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2a" value="correct" />
+              <label class="option-box" for="q2a"
+                >Quelques gousses d'ail</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2b" value="wrong" />
+              <label class="option-box" for="q2b">Des pommes de terre</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2c" value="wrong" />
+              <label class="option-box" for="q2c">Des herbes fraîches</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >3. Quels légumes coupe-t-elle ensuite ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3a" value="wrong" />
+              <label class="option-box" for="q3a">Des carottes et du chou</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3b" value="correct" />
+              <label class="option-box" for="q3b"
+                >Les poivrons et l'oignon</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3c" value="wrong" />
+              <label class="option-box" for="q3c">Des tomates et des courgettes</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">4. Pourquoi pense-t-elle zapper la dégustation ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4a" value="wrong" />
+              <label class="option-box" for="q4a">Parce qu'elle n'aime pas les boulettes</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4b" value="wrong" />
+              <label class="option-box" for="q4b">Parce qu'elle doit sortir</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4c" value="correct" />
+              <label class="option-box" for="q4c"
+                >Parce qu'elle est encore bien calée</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >5. Pourquoi va-t-elle s'asseoir ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5a" value="correct" />
+              <label class="option-box" for="q5a"
+                >Pour se ménager, car elle a mal au pied</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5b" value="wrong" />
+              <label class="option-box" for="q5b">Pour lire un message</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5c" value="wrong" />
+              <label class="option-box" for="q5c">Pour goûter les boulettes</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">6. Que se rappelle-t-elle soudain ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6a" value="wrong" />
+              <label class="option-box" for="q6a">Qu'elle doit acheter du pain</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6b" value="correct" />
+              <label class="option-box" for="q6b"
+                >Qu'elle doit arroser les plantes</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6c" value="wrong" />
+              <label class="option-box" for="q6c">Qu'elle a oublié le couteau</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >7. Que dit la météo ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7a" value="wrong" />
+              <label class="option-box" for="q7a">Qu'il va pleuvoir toute la journée</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7b" value="wrong" />
+              <label class="option-box" for="q7b">Qu'il fera frais</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7c" value="correct" />
+              <label class="option-box" for="q7c">Qu'il fera près de 38 degrés</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >8. Quelle plante est décrite comme un gouffre à eau ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8a" value="correct" />
+              <label class="option-box" for="q8a">Le lantana</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8b" value="wrong" />
+              <label class="option-box" for="q8b">Le poivron</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8c" value="wrong" />
+              <label class="option-box" for="q8c">L'oignon</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >9. Que vérifie Nadia ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9a" value="wrong" />
+              <label class="option-box" for="q9a">La poêle à laver</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9b" value="correct" />
+              <label class="option-box" for="q9b"
+                >Le système de goutte-à-goutte</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9c" value="wrong" />
+              <label class="option-box" for="q9c">Le four de la cuisine</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >10. Que remarque-t-elle à la fin ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10a" value="wrong" />
+              <label class="option-box" for="q10a">Que les boulettes sont prêtes</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10b" value="wrong" />
+              <label class="option-box" for="q10b">Que la pelouse est sèche</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10c" value="correct" />
+              <label class="option-box" for="q10c">Que le chiendent envahit encore la pelouse</label>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="score-display" id="score-box"></div>
+      <div class="controls">
+        <button
+          class="action-btn btn-check-answers"
+          type="button"
+          onclick="checkAnswers()"
+        >
+          Check Answers
+        </button>
+        <button
+          class="action-btn btn-reset"
+          type="button"
+          onclick="resetTest()"
+        >
+          Reset Test
+        </button>
+      </div>
+      <div class="page-nav">
+        <a href="listen-master.html" class="page-btn active">1</a>
+      </div>
+    </div>
+
+    <script>
+      const audioFiles = {
+        male: "https://languages.rmlives.com/lessons/everyday/conv35/listen-master/listen-m.mp3",
+        female:
+          "https://languages.rmlives.com/lessons/everyday/conv35/listen-master/listen-f.mp3",
+        female_slow:
+          "https://languages.rmlives.com/lessons/everyday/conv35/listen-master/listen-ms.mp3",
+      };
+    </script>
+    <script src="/assets/js/listenMaster.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

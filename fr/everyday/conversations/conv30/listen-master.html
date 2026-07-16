@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listening Test: Dual Voice</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/assets/css/listenMaster.css" />
+  </head>
+  <body>
+    <div class="test-card">
+      <h2>🎧 Compréhension Orale</h2>
+      <div class="subtitle">
+        Select a voice, listen, and click the correct box.
+      </div>
+
+      <div class="voice-selector">
+        <button
+          class="voice-btn active-male"
+          id="btn-male"
+          onclick="setVoice('male')"
+        >
+          👨 Male Voice
+        </button>
+        <button class="voice-btn" id="btn-female" onclick="setVoice('female')">
+          👩 Female Voice
+        </button>
+        <button
+          class="voice-btn"
+          id="btn-female-slow"
+          onclick="setVoice('female_slow')"
+        >
+          👩 Female Voice - Slow
+        </button>
+      </div>
+
+      <div class="audio-container">
+        <audio id="main-player" controls>
+          <source
+            id="audio-source"
+            src="https://languages.rmlives.com/lessons/everyday/conv30/listen-master/listen-m.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button
+          onclick="toggleTranscript()"
+          style="
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+          "
+        >
+          👁️ Show/Hide Transcript
+        </button>
+        <div class="transcript-box" id="trans-box">
+          Clara devait choisir une adresse aux États-Unis pour recevoir son
+          courrier. Une entreprise lui proposait un service rapide, mais elle
+          aurait le droit d'ouvrir toutes ses lettres. Son mari trouvait cette
+          solution pratique, surtout pour garder leurs documents officiels.
+          Clara, elle, pensait aux relevés bancaires et aux informations
+          personnelles. Elle préférait demander à deux amis de confiance, même
+          s'ils voyageaient souvent. Le soir, ils ont comparé les deux options
+          calmement. Finalement, ils ont décidé d'appeler leurs amis avant de
+          signer quoi que ce soit. Pour Clara, gagner du temps ne valait pas la
+          peine de prendre un risque avec des inconnus.
+        </div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="question-item">
+          <span class="q-text">1. Que devait choisir Clara ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1a" value="wrong" />
+              <label class="option-box" for="q1a">Une nouvelle banque</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1b" value="correct" />
+              <label class="option-box" for="q1b"
+                >Une adresse aux États-Unis</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">Un billet d'avion</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >2. Qu'est-ce que l'entreprise aurait le droit de faire ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2a" value="correct" />
+              <label class="option-box" for="q2a"
+                >Ouvrir toutes ses lettres</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2b" value="wrong" />
+              <label class="option-box" for="q2b"
+                >Fermer son compte bancaire</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2c" value="wrong" />
+              <label class="option-box" for="q2c">Choisir ses amis</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >3. Pourquoi le mari trouvait-il cette solution pratique ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3a" value="wrong" />
+              <label class="option-box" for="q3a"
+                >Parce qu'elle était gratuite</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3b" value="correct" />
+              <label class="option-box" for="q3b"
+                >Pour garder leurs documents officiels</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3c" value="wrong" />
+              <label class="option-box" for="q3c">Pour éviter de voyager</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">4. À quoi Clara pensait-elle surtout ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4a" value="wrong" />
+              <label class="option-box" for="q4a"
+                >Aux vacances de ses amis</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4b" value="wrong" />
+              <label class="option-box" for="q4b">Au prix du service</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4c" value="correct" />
+              <label class="option-box" for="q4c"
+                >Aux relevés bancaires et aux informations personnelles</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >5. À qui Clara préférait-elle demander de l'aide ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5a" value="correct" />
+              <label class="option-box" for="q5a"
+                >À deux amis de confiance</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5b" value="wrong" />
+              <label class="option-box" for="q5b"
+                >À une entreprise inconnue</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5c" value="wrong" />
+              <label class="option-box" for="q5c">À son voisin</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">6. Quel était le problème avec ces amis ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6a" value="wrong" />
+              <label class="option-box" for="q6a"
+                >Ils habitaient trop loin</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6b" value="correct" />
+              <label class="option-box" for="q6b"
+                >Ils voyageaient souvent</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6c" value="wrong" />
+              <label class="option-box" for="q6c"
+                >Ils refusaient toujours d'aider</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >7. Quand ont-ils comparé les deux options ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7a" value="wrong" />
+              <label class="option-box" for="q7a">Le matin</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7b" value="wrong" />
+              <label class="option-box" for="q7b">Pendant le déjeuner</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7c" value="correct" />
+              <label class="option-box" for="q7c">Le soir</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >8. Qu'ont-ils décidé de faire avant de signer ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8a" value="correct" />
+              <label class="option-box" for="q8a">Appeler leurs amis</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8b" value="wrong" />
+              <label class="option-box" for="q8b">Changer de pays</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8c" value="wrong" />
+              <label class="option-box" for="q8c"
+                >Envoyer tous leurs documents</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >9. Quelle idée résume la position de Clara ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9a" value="wrong" />
+              <label class="option-box" for="q9a"
+                >La rapidité compte plus que tout</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9b" value="correct" />
+              <label class="option-box" for="q9b"
+                >La confiance est plus importante que la commodité</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9c" value="wrong" />
+              <label class="option-box" for="q9c"
+                >Les amis ne sont jamais fiables</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >10. Avec qui Clara voulait-elle éviter de prendre un risque ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10a" value="wrong" />
+              <label class="option-box" for="q10a">Avec son mari</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10b" value="wrong" />
+              <label class="option-box" for="q10b">Avec ses amis</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10c" value="correct" />
+              <label class="option-box" for="q10c">Avec des inconnus</label>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="score-display" id="score-box"></div>
+      <div class="controls">
+        <button
+          class="action-btn btn-check-answers"
+          type="button"
+          onclick="checkAnswers()"
+        >
+          Check Answers
+        </button>
+        <button
+          class="action-btn btn-reset"
+          type="button"
+          onclick="resetTest()"
+        >
+          Reset Test
+        </button>
+      </div>
+      <div class="page-nav">
+        <a href="listen-master.html" class="page-btn active">1</a>
+      </div>
+    </div>
+
+    <script>
+      const audioFiles = {
+        male: "https://languages.rmlives.com/lessons/everyday/conv30/listen-master/listen-m.mp3",
+        female:
+          "https://languages.rmlives.com/lessons/everyday/conv30/listen-master/listen-f.mp3",
+        female_slow:
+          "https://languages.rmlives.com/lessons/everyday/conv30/listen-master/listen-fs.mp3",
+      };
+    </script>
+    <script src="/assets/js/listenMaster.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>
