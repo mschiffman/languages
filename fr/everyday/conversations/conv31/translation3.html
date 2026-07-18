@@ -40,108 +40,7 @@
         Translate the sentences into French. (Watch your spelling!)
       </p>
 
-      <div id="quiz-area">
-        <div class="question-block" id="block-1">
-          <span class="english-prompt">1. when I married you</span>
-          <div class="input-wrap">
-            <input
-              type="text"
-              class="user-input"
-              id="q1"
-              placeholder="Type here..."
-            />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-1"></div>
-        </div>
-
-        <div class="question-block" id="block-2">
-          <span class="english-prompt">2. She must be on her throne.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q2" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-2"></div>
-        </div>
-
-        <div class="question-block" id="block-3">
-          <span class="english-prompt">3. But I don't deserve it.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q3" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-3"></div>
-        </div>
-
-        <div class="question-block" id="block-4">
-          <span class="english-prompt">4. It's magic.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q4" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-4"></div>
-        </div>
-
-        <div class="question-block" id="block-5">
-          <span class="english-prompt">5. Besides,</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q5" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-5"></div>
-        </div>
-
-        <div class="question-block" id="block-6">
-          <span class="english-prompt"
-            >6. Do you know how to open this jar?
-          </span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q6" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-6"></div>
-        </div>
-
-        <div class="question-block" id="block-7">
-          <span class="english-prompt">7. You see, I know everything.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q7" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-7"></div>
-        </div>
-
-        <div class="question-block" id="block-8">
-          <span class="english-prompt">8. Born that way. Can't help it.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q8" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-8"></div>
-        </div>
-
-        <div class="question-block" id="block-9">
-          <span class="english-prompt"
-            >9. Your first name was 'Always' and your last name 'Right'.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q9" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-9"></div>
-        </div>
-
-        <div class="question-block" id="block-10">
-          <span class="english-prompt"
-            >10. You tell me no often enough, though.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q10" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-10"></div>
-        </div>
-      </div>
+      <div id="quiz-area"></div>
 
       <div class="btn-row">
         <button class="btn-verify" onclick="checkTranslations()">
@@ -158,90 +57,56 @@
         <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
-
     <script>
-      // The Answer Key (Supports multiple correct variations separated by | )
-      const answerKey = {
-        q1: ["en t'épousant"],
-        q2: ["Elle doit être sur son trône"],
-        q3: ["Mais je mérite pas ça"],
-        q4: ["C'est magique"],
-        q5: ["D'ailleurs", "D'ailleurs,"],
-        q6: [
-          "tu sais comment on ouvre ce bocal",
-          "tu sais comment on ouvre ce bocal ?",
-        ],
-        q7: ["Tu vois, je sais tout"],
-        q8: [
-          "C'est de naissance. J'y peux rien",
-          "C'est de naissance, J'y peux rien.",
-        ],
-        q9: ["Ton prénom c'était 'Toujours' et ton nom de famille 'Raison'"],
-        q10: ["Tu me dis non assez souvent, pourtant"],
-      };
-
-      function checkTranslations() {
-        // Loop through each question ID
-        for (let i = 1; i <= 10; i++) {
-          const inputId = "q" + i;
-          const blockId = "block-" + i;
-          const msgId = "msg-" + i;
-
-          const inputEl = document.getElementById(inputId);
-          const blockEl = document.getElementById(blockId);
-          const msgEl = document.getElementById(msgId);
-
-          // Normalize user input: Lowercase, remove extra spaces, remove punctuation at end
-          let userVal = inputEl.value.trim().toLowerCase();
-          if (userVal.endsWith(".")) userVal = userVal.slice(0, -1); // Remove trailing dot
-
-          // Clean up accents for flexible matching (Optional, but nice to have)
-          // For strict mode, remove the next line.
-          // userVal = userVal.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-          // Get valid answers for this question
-          const validAnswers = answerKey[inputId].map((a) => a.toLowerCase());
-
-          // Check if user input matches ANY valid answer
-          // Note: If you removed accent stripping above, ensure inputs match exactly.
-          // Here we do a somewhat strict check but allow case insensitivity.
-
-          let isCorrect = false;
-          // Check against normalized answers
-          for (let ans of validAnswers) {
-            if (userVal === ans) isCorrect = true;
-          }
-
-          // UI Updates
-          if (isCorrect) {
-            blockEl.classList.add("correct-block");
-            blockEl.classList.remove("wrong-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#27ae60";
-            msgEl.innerText = "✅ Correct!";
-          } else {
-            blockEl.classList.add("wrong-block");
-            blockEl.classList.remove("correct-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#c0392b";
-            // Show the first valid answer as the correction
-            msgEl.innerText = `❌ Correction: "${answerKey[inputId][0]}"`;
-          }
-        }
-      }
-
-      function resetTranslations() {
-        for (let i = 1; i <= 10; i++) {
-          const inputEl = document.getElementById("q" + i);
-          const blockEl = document.getElementById("block-" + i);
-          const msgEl = document.getElementById("msg-" + i);
-
-          inputEl.value = "";
-          blockEl.classList.remove("correct-block", "wrong-block");
-          msgEl.style.display = "none";
-        }
-      }
+      const questions = [
+        {
+          english: "when I married you",
+          answers: ["en t'épousant", "en t'épousant,"],
+        },
+        {
+          english: "She must be on her throne.",
+          answers: ["Elle doit être sur son trône"],
+        },
+        {
+          english: "But I don't deserve it.",
+          answers: ["Mais je mérite pas ça", "Mais je ne mérite pas ça"],
+        },
+        { english: "It's magic.", answers: ["C'est magique"] },
+        { english: "Besides,", answers: ["D'ailleurs", "D'ailleurs,"] },
+        {
+          english: "Do you know how to open this jar?",
+          answers: [
+            "tu sais comment on ouvre ce bocal",
+            "tu sais comment on ouvre ce bocal ?",
+            "tu sais comment ouvrir ce bocal",
+            "tu sais comment ouvrir ce bocal ?",
+          ],
+        },
+        {
+          english: "You see, I know everything.",
+          answers: ["Tu vois, je sais tout"],
+        },
+        {
+          english: "Born that way. Can't help it.",
+          answers: [
+            "C'est de naissance. J'y peux rien",
+            "C'est de naissance. Je n'y peux rien",
+          ],
+        },
+        {
+          english: "Your first name was 'Always' and your last name 'Right'.",
+          answers: [
+            "Ton prénom c'était 'Toujours' et ton nom de famille 'Raison'",
+          ],
+        },
+        {
+          english: "You tell me no often enough, though.",
+          answers: ["Tu me dis non assez souvent, pourtant"],
+        },
+      ];
     </script>
+
+    <script src="exercise-feedback.js"></script>
     <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
   </body>
 </html>

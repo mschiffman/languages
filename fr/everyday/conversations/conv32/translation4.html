@@ -40,114 +40,7 @@
         Translate the sentences into French. (Watch your spelling!)
       </p>
 
-      <div id="quiz-area">
-        <div class="question-block" id="block-1">
-          <span class="english-prompt"
-            >1. One of these days, it might actually happen.</span
-          >
-          <div class="input-wrap">
-            <input
-              type="text"
-              class="user-input"
-              id="q1"
-              placeholder="Type here..."
-            />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-1"></div>
-        </div>
-
-        <div class="question-block" id="block-2">
-          <span class="english-prompt"
-            >2. The plant just keeps growing more, nonstop.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q2" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-2"></div>
-        </div>
-
-        <div class="question-block" id="block-3">
-          <span class="english-prompt">3. I haven't opened it in years.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q3" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-3"></div>
-        </div>
-
-        <div class="question-block" id="block-4">
-          <span class="english-prompt">4. ...but that thing is such a pain.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q4" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-4"></div>
-        </div>
-
-        <div class="question-block" id="block-5">
-          <span class="english-prompt">5. Do we need water?</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q5" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-5"></div>
-        </div>
-
-        <div class="question-block" id="block-6">
-          <span class="english-prompt"
-            >6. I might even try a few of them myself.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q6" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-6"></div>
-        </div>
-
-        <div class="question-block" id="block-7">
-          <span class="english-prompt">7. The weather forecast said yes.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q7" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-7"></div>
-        </div>
-
-        <div class="question-block" id="block-8">
-          <span class="english-prompt"
-            >8. Do we need anything else from H Mart?</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q8" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-8"></div>
-        </div>
-
-        <div class="question-block" id="block-9">
-          <span class="english-prompt"
-            >9. And there are tons of little butterflies on it.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q9" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-9"></div>
-        </div>
-
-        <div class="question-block" id="block-10">
-          <span class="english-prompt"
-            >10. I really need to build up some muscle.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q10" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-10"></div>
-        </div>
-      </div>
+      <div id="quiz-area"></div>
 
       <div class="btn-row">
         <button class="btn-verify" onclick="checkTranslations()">
@@ -164,84 +57,80 @@
         <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
-
     <script>
-      // The Answer Key (Supports multiple correct variations separated by | )
-      const answerKey = {
-        q1: ["Un de ces jours, ça finira peut-être par arriver"],
-        q2: ["La plante en refait pousser sans arrêt"],
-        q3: ["Ça fait des années que je l'ai pas ouvert"],
-        q4: ["Qu'est-ce que c'est pénible, ce truc"],
-        q5: ["Il nous faut de l'eau"],
-        q6: ["Je vais peut-être même en essayer quelques-unes moi-même"],
-        q7: ["La météo disait que oui"],
-        q8: ["On a besoin d'autre chose à H Mart"],
-        q9: ["Et y a plein de petits papillons dessus", "Y a plein de petits papillons dessus"],
-        q10: ["Faut vraiment que je me muscle un peu"],
-      };
-
-      function checkTranslations() {
-        // Loop through each question ID
-        for (let i = 1; i <= 10; i++) {
-          const inputId = "q" + i;
-          const blockId = "block-" + i;
-          const msgId = "msg-" + i;
-
-          const inputEl = document.getElementById(inputId);
-          const blockEl = document.getElementById(blockId);
-          const msgEl = document.getElementById(msgId);
-
-          // Normalize user input: Lowercase, remove extra spaces, remove punctuation at end
-          let userVal = inputEl.value.trim().toLowerCase();
-          if (userVal.endsWith(".")) userVal = userVal.slice(0, -1); // Remove trailing dot
-
-          // Clean up accents for flexible matching (Optional, but nice to have)
-          // For strict mode, remove the next line.
-          // userVal = userVal.normalize("NFD").replace(/[̀-ͯ]/g, "");
-
-          // Get valid answers for this question
-          const validAnswers = answerKey[inputId].map((a) => a.toLowerCase());
-
-          // Check if user input matches ANY valid answer
-          // Note: If you removed accent stripping above, ensure inputs match exactly.
-          // Here we do a somewhat strict check but allow case insensitivity.
-
-          let isCorrect = false;
-          // Check against normalized answers
-          for (let ans of validAnswers) {
-            if (userVal === ans) isCorrect = true;
-          }
-
-          // UI Updates
-          if (isCorrect) {
-            blockEl.classList.add("correct-block");
-            blockEl.classList.remove("wrong-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#27ae60";
-            msgEl.innerText = "✅ Correct!";
-          } else {
-            blockEl.classList.add("wrong-block");
-            blockEl.classList.remove("correct-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#c0392b";
-            // Show the first valid answer as the correction
-            msgEl.innerText = `❌ Correction: "${answerKey[inputId][0]}"`;
-          }
-        }
-      }
-
-      function resetTranslations() {
-        for (let i = 1; i <= 10; i++) {
-          const inputEl = document.getElementById("q" + i);
-          const blockEl = document.getElementById("block-" + i);
-          const msgEl = document.getElementById("msg-" + i);
-
-          inputEl.value = "";
-          blockEl.classList.remove("correct-block", "wrong-block");
-          msgEl.style.display = "none";
-        }
-      }
+      const questions = [
+        {
+          english: "One of these days, it might actually happen.",
+          answers: [
+            "Un de ces jours, ça finira peut-être par arriver",
+            "Un de ces jours, ça va peut-être finir par arriver",
+          ],
+        },
+        {
+          english: "The plant just keeps growing more, nonstop.",
+          answers: [
+            "La plante en refait pousser sans arrêt",
+            "La plante en refait pousser sans arrêt",
+            "La plante en repousse sans arrêt",
+          ],
+        },
+        {
+          english: "I haven't opened it in years.",
+          answers: [
+            "Ça fait des années que je l'ai pas ouvert",
+            "Ça fait des années que je ne l'ai pas ouvert",
+          ],
+        },
+        {
+          english: "...but that thing is such a pain.",
+          answers: ["Qu'est-ce que c'est pénible, ce truc"],
+        },
+        {
+          english: "Do we need water?",
+          answers: [
+            "Il nous faut de l'eau",
+            "Il nous faut de l'eau ?",
+            "On a besoin d'eau",
+          ],
+        },
+        {
+          english: "I might even try a few of them myself.",
+          answers: [
+            "Je vais peut-être même en essayer quelques-unes moi-même",
+            "Je vais même peut-être en essayer quelques-unes moi-même",
+          ],
+        },
+        {
+          english: "The weather forecast said yes.",
+          answers: ["La météo disait que oui", "La météo annonçait que oui"],
+        },
+        {
+          english: "Do we need anything else from H Mart?",
+          answers: [
+            "On a besoin d'autre chose à H Mart",
+            "On a besoin d'autre chose à H Mart",
+            "Il nous faut autre chose à H Mart",
+          ],
+        },
+        {
+          english: "And there are tons of little butterflies on it.",
+          answers: [
+            "Et y a plein de petits papillons dessus",
+            "Y a plein de petits papillons dessus",
+            "Et il y a plein de petits papillons dessus",
+            "Il y a plein de petits papillons dessus",
+          ],
+        },
+        {
+          english: "I really need to build up some muscle.",
+          answers: [
+            "Faut vraiment que je me muscle un peu",
+            "Il faut vraiment que je me muscle un peu",
+          ],
+        },
+      ];
     </script>
+    <script src="exercise-feedback.js"></script>
     <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
   </body>
 </html>

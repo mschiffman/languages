@@ -40,114 +40,7 @@
         Translate the sentences into French. (Watch your spelling!)
       </p>
 
-      <div id="quiz-area">
-        <div class="question-block" id="block-1">
-          <span class="english-prompt"
-            >1. I bought two donuts and a cupcake, they were absolutely
-            delicious.</span
-          >
-          <div class="input-wrap">
-            <input
-              type="text"
-              class="user-input"
-              id="q1"
-              placeholder="Type here..."
-            />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-1"></div>
-        </div>
-
-        <div class="question-block" id="block-2">
-          <span class="english-prompt">2. That's not a good thing.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q2" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-2"></div>
-        </div>
-
-        <div class="question-block" id="block-3">
-          <span class="english-prompt">3. I know.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q3" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-3"></div>
-        </div>
-
-        <div class="question-block" id="block-4">
-          <span class="english-prompt"
-            >4. But I shared my donuts with you.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q4" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-4"></div>
-        </div>
-
-        <div class="question-block" id="block-5">
-          <span class="english-prompt">5. My glasses are ready.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q5" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-5"></div>
-        </div>
-
-        <div class="question-block" id="block-6">
-          <span class="english-prompt">6. And then we'll be set.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q6" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-6"></div>
-        </div>
-
-        <div class="question-block" id="block-7">
-          <span class="english-prompt">7. You're really generous.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q7" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-7"></div>
-        </div>
-
-        <div class="question-block" id="block-8">
-          <span class="english-prompt"
-            >8. I'll call them to find out when yours will be ready.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q8" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-8"></div>
-        </div>
-
-        <div class="question-block" id="block-9">
-          <span class="english-prompt"
-            >9. And I thought to myself: "Instead of buying this sashimi
-            once a month, I could subscribe to an AI."</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q9" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-9"></div>
-        </div>
-
-        <div class="question-block" id="block-10">
-          <span class="english-prompt"
-            >10. Do they really sell that many every day?</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q10" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-10"></div>
-        </div>
-      </div>
+      <div id="quiz-area"></div>
 
       <div class="btn-row">
         <button class="btn-verify" onclick="checkTranslations()">
@@ -164,89 +57,62 @@
         <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
-
     <script>
-      // The Answer Key (Supports multiple correct variations separated by | )
-      const answerKey = {
-        q1: [
-          "J'ai acheté deux donuts et un cupcake, ils étaient absolument délicieux",
-        ],
-        q2: ["C'est pas une bonne chose"],
-        q3: ["Je sais"],
-        q4: ["Mais j'ai partagé mes donuts avec toi"],
-        q5: ["Mes lunettes sont prêtes"],
-        q6: ["Et là, on sera tranquilles"],
-        q7: ["T'es vraiment généreuse"],
-        q8: ["Je vais les appeler pour savoir quand les tiennes seront prêtes"],
-        q9: [
-          "Et je me suis dit : « Au lieu d'acheter ce sashimi une fois par mois, je peux m'abonner à une IA. »",
-          "Et je me suis dit : Au lieu d'acheter ce sashimi une fois par mois, je peux m'abonner à une IA",
-        ],
-        q10: ["Ils en vendent autant que ça tous les jours"],
-      };
-
-      function checkTranslations() {
-        // Loop through each question ID
-        for (let i = 1; i <= 10; i++) {
-          const inputId = "q" + i;
-          const blockId = "block-" + i;
-          const msgId = "msg-" + i;
-
-          const inputEl = document.getElementById(inputId);
-          const blockEl = document.getElementById(blockId);
-          const msgEl = document.getElementById(msgId);
-
-          // Normalize user input: Lowercase, remove extra spaces, remove punctuation at end
-          let userVal = inputEl.value.trim().toLowerCase();
-          if (userVal.endsWith(".")) userVal = userVal.slice(0, -1); // Remove trailing dot
-
-          // Clean up accents for flexible matching (Optional, but nice to have)
-          // For strict mode, remove the next line.
-          // userVal = userVal.normalize("NFD").replace(/[̀-ͯ]/g, "");
-
-          // Get valid answers for this question
-          const validAnswers = answerKey[inputId].map((a) => a.toLowerCase());
-
-          // Check if user input matches ANY valid answer
-          // Note: If you removed accent stripping above, ensure inputs match exactly.
-          // Here we do a somewhat strict check but allow case insensitivity.
-
-          let isCorrect = false;
-          // Check against normalized answers
-          for (let ans of validAnswers) {
-            if (userVal === ans) isCorrect = true;
-          }
-
-          // UI Updates
-          if (isCorrect) {
-            blockEl.classList.add("correct-block");
-            blockEl.classList.remove("wrong-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#27ae60";
-            msgEl.innerText = "✅ Correct!";
-          } else {
-            blockEl.classList.add("wrong-block");
-            blockEl.classList.remove("correct-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#c0392b";
-            // Show the first valid answer as the correction
-            msgEl.innerText = `❌ Correction: "${answerKey[inputId][0]}"`;
-          }
-        }
-      }
-
-      function resetTranslations() {
-        for (let i = 1; i <= 10; i++) {
-          const inputEl = document.getElementById("q" + i);
-          const blockEl = document.getElementById("block-" + i);
-          const msgEl = document.getElementById("msg-" + i);
-
-          inputEl.value = "";
-          blockEl.classList.remove("correct-block", "wrong-block");
-          msgEl.style.display = "none";
-        }
-      }
+      const questions = [
+        {
+          english:
+            "I bought two donuts and a cupcake, they were absolutely delicious.",
+          answers: [
+            "J'ai acheté deux donuts et un cupcake, ils étaient absolument délicieux",
+          ],
+        },
+        {
+          english: "That's not a good thing.",
+          answers: [
+            "C'est pas une bonne chose",
+            "Ce n'est pas une bonne chose",
+          ],
+        },
+        { english: "I know.", answers: ["Je sais", "Je sais bien"] },
+        {
+          english: "But I shared my donuts with you.",
+          answers: ["Mais j'ai partagé mes donuts avec toi"],
+        },
+        {
+          english: "My glasses are ready.",
+          answers: ["Mes lunettes sont prêtes"],
+        },
+        {
+          english: "And then we'll be set.",
+          answers: ["Et là, on sera tranquilles", "Et là, on sera tranquille"],
+        },
+        {
+          english: "You're really generous.",
+          answers: ["T'es vraiment généreuse", "Tu es vraiment généreuse"],
+        },
+        {
+          english: "I'll call them to find out when yours will be ready.",
+          answers: [
+            "Je vais les appeler pour savoir quand les tiennes seront prêtes",
+          ],
+        },
+        {
+          english:
+            'And I thought to myself: "Instead of buying this sashimi once a month, I could subscribe to an AI."',
+          answers: [
+            "Et je me suis dit : « Au lieu d'acheter ce sashimi une fois par mois, je peux m'abonner à une IA. »",
+            "Et je me suis dit : Au lieu d'acheter ce sashimi une fois par mois, je peux m'abonner à une IA",
+            "Et je me suis dit : « Au lieu d'acheter ce sashimi une fois par mois, je pourrais m'abonner à une IA. »",
+            "Et je me suis dit : Au lieu d'acheter ce sashimi une fois par mois, je pourrais m'abonner à une IA",
+          ],
+        },
+        {
+          english: "Do they really sell that many every day?",
+          answers: ["Ils en vendent autant que ça tous les jours"],
+        },
+      ];
     </script>
+    <script src="exercise-feedback.js"></script>
     <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
   </body>
 </html>

@@ -40,108 +40,7 @@
         Translate the sentences into French. (Watch your spelling!)
       </p>
 
-      <div id="quiz-area">
-        <div class="question-block" id="block-1">
-          <span class="english-prompt">1. It smells good.</span>
-          <div class="input-wrap">
-            <input
-              type="text"
-              class="user-input"
-              id="q1"
-              placeholder="Type here..."
-            />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-1"></div>
-        </div>
-
-        <div class="question-block" id="block-2">
-          <span class="english-prompt">2. Hey, it's funny.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q2" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-2"></div>
-        </div>
-
-        <div class="question-block" id="block-3">
-          <span class="english-prompt"
-            >3. Who would say no to this pretty little face?</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q3" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-3"></div>
-        </div>
-
-        <div class="question-block" id="block-4">
-          <span class="english-prompt">4. Isn't that already the case?</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q4" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-4"></div>
-        </div>
-
-        <div class="question-block" id="block-5">
-          <span class="english-prompt"
-            >5. Oh, come on. (dismissive 'Oh please')</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q5" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-5"></div>
-        </div>
-
-        <div class="question-block" id="block-6">
-          <span class="english-prompt">6. Yeah, right! (sarcastic)</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q6" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-6"></div>
-        </div>
-
-        <div class="question-block" id="block-7">
-          <span class="english-prompt">7. Do you want a bite (of it)?</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q7" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-7"></div>
-        </div>
-
-        <div class="question-block" id="block-8">
-          <span class="english-prompt">8. Totally / For sure / Absolutely</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q8" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-8"></div>
-        </div>
-
-        <div class="question-block" id="block-9">
-          <span class="english-prompt">9. You're really lucky.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q9" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-9"></div>
-        </div>
-
-        <div class="question-block" id="block-10">
-          <span class="english-prompt"
-            >10. You tell me no often enough, though.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q10" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-10"></div>
-        </div>
-      </div>
+      <div id="quiz-area"></div>
 
       <div class="btn-row">
         <button class="btn-verify" onclick="checkTranslations()">
@@ -158,91 +57,69 @@
         <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
-
     <script>
-      // The Answer Key (Supports multiple correct variations separated by | )
-      const answerKey = {
-        q1: ["Ça sent bon"],
-        q2: [
-          "Tiens, c'est marrant",
-          "Tiens, c'est drôle",
-          "Tiens, c'est rigolo",
-        ],
-        q3: [
-          "Qui dirait non à ce joli minois",
-          "Qui dirait non à ce joli minois ?",
-        ],
-        q4: ["C'est pas déjà le cas", "C'est pas déjà le cas ?"],
-        q5: ["ben voyons"],
-        q6: ["Tu parles", "Tu parles !"],
-        q7: ["T'en veux une bouchée", "T'en veux une bouchée ?"],
-        q8: ["Carrément", "Grave", "Absolument"],
-        q9: ["t'as vraiment de la chance", "tu as vraiment de la chance"],
-        q10: ["Tu me dis non assez souvent, pourtant"],
-      };
-
-      function checkTranslations() {
-        // Loop through each question ID
-        for (let i = 1; i <= 10; i++) {
-          const inputId = "q" + i;
-          const blockId = "block-" + i;
-          const msgId = "msg-" + i;
-
-          const inputEl = document.getElementById(inputId);
-          const blockEl = document.getElementById(blockId);
-          const msgEl = document.getElementById(msgId);
-
-          // Normalize user input: Lowercase, remove extra spaces, remove punctuation at end
-          let userVal = inputEl.value.trim().toLowerCase();
-          if (userVal.endsWith(".")) userVal = userVal.slice(0, -1); // Remove trailing dot
-
-          // Clean up accents for flexible matching (Optional, but nice to have)
-          // For strict mode, remove the next line.
-          // userVal = userVal.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-          // Get valid answers for this question
-          const validAnswers = answerKey[inputId].map((a) => a.toLowerCase());
-
-          // Check if user input matches ANY valid answer
-          // Note: If you removed accent stripping above, ensure inputs match exactly.
-          // Here we do a somewhat strict check but allow case insensitivity.
-
-          let isCorrect = false;
-          // Check against normalized answers
-          for (let ans of validAnswers) {
-            if (userVal === ans) isCorrect = true;
-          }
-
-          // UI Updates
-          if (isCorrect) {
-            blockEl.classList.add("correct-block");
-            blockEl.classList.remove("wrong-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#27ae60";
-            msgEl.innerText = "✅ Correct!";
-          } else {
-            blockEl.classList.add("wrong-block");
-            blockEl.classList.remove("correct-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#c0392b";
-            // Show the first valid answer as the correction
-            msgEl.innerText = `❌ Correction: "${answerKey[inputId][0]}"`;
-          }
-        }
-      }
-
-      function resetTranslations() {
-        for (let i = 1; i <= 10; i++) {
-          const inputEl = document.getElementById("q" + i);
-          const blockEl = document.getElementById("block-" + i);
-          const msgEl = document.getElementById("msg-" + i);
-
-          inputEl.value = "";
-          blockEl.classList.remove("correct-block", "wrong-block");
-          msgEl.style.display = "none";
-        }
-      }
+      const questions = [
+        { english: "It smells good.", answers: ["Ça sent bon"] },
+        {
+          english: "Hey, it's funny.",
+          answers: [
+            "Tiens, c'est marrant",
+            "Tiens, c'est drôle",
+            "Tiens, c'est rigolo",
+          ],
+        },
+        {
+          english: "Who would say no to this pretty little face?",
+          answers: [
+            "Qui dirait non à ce joli minois",
+            "Qui dirait non à ce joli minois ?",
+          ],
+        },
+        {
+          english: "Isn't that already the case?",
+          answers: [
+            "C'est pas déjà le cas",
+            "C'est pas déjà le cas ?",
+            "Ce n'est pas déjà le cas",
+            "Ce n'est pas déjà le cas ?",
+          ],
+        },
+        {
+          english: "Oh, come on. (dismissive 'Oh please')",
+          answers: ["ben voyons", "bah voyons"],
+        },
+        {
+          english: "Yeah, right! (sarcastic)",
+          answers: ["Tu parles", "Tu parles !"],
+        },
+        {
+          english: "Do you want a bite (of it)?",
+          answers: [
+            "T'en veux une bouchée",
+            "T'en veux une bouchée ?",
+            "Tu en veux une bouchée",
+            "Tu en veux une bouchée ?",
+          ],
+        },
+        {
+          english: "Totally / For sure / Absolutely",
+          answers: ["Carrément", "Grave", "Absolument"],
+        },
+        {
+          english: "You're really lucky.",
+          answers: [
+            "t'as vraiment de la chance",
+            "tu as vraiment de la chance",
+          ],
+        },
+        {
+          english: "You tell me no often enough, though.",
+          answers: ["Tu me dis non assez souvent, pourtant"],
+        },
+      ];
     </script>
+
+    <script src="exercise-feedback.js"></script>
     <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
   </body>
 </html>

@@ -40,115 +40,7 @@
         Translate the sentences into French. (Watch your spelling!)
       </p>
 
-      <div id="quiz-area">
-        <div class="question-block" id="block-1">
-          <span class="english-prompt"
-            >1. Apparently there's a lot of chlorine in the water.</span
-          >
-          <div class="input-wrap">
-            <input
-              type="text"
-              class="user-input"
-              id="q1"
-              placeholder="Type here..."
-            />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-1"></div>
-        </div>
-
-        <div class="question-block" id="block-2">
-          <span class="english-prompt"
-            >2. We might need to install a filtering showerhead.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q2" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-2"></div>
-        </div>
-
-        <div class="question-block" id="block-3">
-          <span class="english-prompt">3. We've never done that.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q3" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-3"></div>
-        </div>
-
-        <div class="question-block" id="block-4">
-          <span class="english-prompt"
-            >4. Going into town is a bit farther from Alila2 than from
-            Andaman@Quayside.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q4" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-4"></div>
-        </div>
-
-        <div class="question-block" id="block-5">
-          <span class="english-prompt">5. The kitchen is huge.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q5" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-5"></div>
-        </div>
-
-        <div class="question-block" id="block-6">
-          <span class="english-prompt">6. I was thinking about Malaysia.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q6" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-6"></div>
-        </div>
-
-        <div class="question-block" id="block-7">
-          <span class="english-prompt">7. Chlorine isn't good for hair.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q7" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-7"></div>
-        </div>
-
-        <div class="question-block" id="block-8">
-          <span class="english-prompt"
-            >8. To mix and match iconic stalls from all corners of the
-            island, we can use iOnefood.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q8" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-8"></div>
-        </div>
-
-        <div class="question-block" id="block-9">
-          <span class="english-prompt">9. They're weak fliers.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q9" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-9"></div>
-        </div>
-
-        <div class="question-block" id="block-10">
-          <span class="english-prompt"
-            >10. We'll need a live-in housekeeper before that, to teach her
-            our favorite dishes.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q10" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-10"></div>
-        </div>
-      </div>
+      <div id="quiz-area"></div>
 
       <div class="btn-row">
         <button class="btn-verify" onclick="checkTranslations()">
@@ -165,90 +57,71 @@
         <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
-
     <script>
-      // The Answer Key (Supports multiple correct variations separated by | )
-      const answerKey = {
-        q1: ["Il paraît qu'il y a beaucoup de chlore dans l'eau"],
-        q2: ["On devra peut-être installer un pommeau de douche filtrant"],
-        q3: ["On l'a jamais fait"],
-        q4: [
-          "Aller en ville, c'est un peu plus loin depuis Alila2 que depuis Andaman@Quayside",
-        ],
-        q5: ["La cuisine est immense"],
-        q6: ["Je pensais à la Malaisie"],
-        q7: ["Le chlore, c'est pas bon pour les cheveux"],
-        q8: [
-          "Pour panacher les stands emblématiques des quatre coins de l'île, on peut utiliser iOnefood",
-        ],
-        q9: ["Ils volent mal, ils sont trop faibles"],
-        q10: [
-          "Il nous faudra une bonne à demeure avant ça, pour lui apprendre nos plats préférés",
-        ],
-      };
-
-      function checkTranslations() {
-        // Loop through each question ID
-        for (let i = 1; i <= 10; i++) {
-          const inputId = "q" + i;
-          const blockId = "block-" + i;
-          const msgId = "msg-" + i;
-
-          const inputEl = document.getElementById(inputId);
-          const blockEl = document.getElementById(blockId);
-          const msgEl = document.getElementById(msgId);
-
-          // Normalize user input: Lowercase, remove extra spaces, remove punctuation at end
-          let userVal = inputEl.value.trim().toLowerCase();
-          if (userVal.endsWith(".")) userVal = userVal.slice(0, -1); // Remove trailing dot
-
-          // Clean up accents for flexible matching (Optional, but nice to have)
-          // For strict mode, remove the next line.
-          // userVal = userVal.normalize("NFD").replace(/[̀-ͯ]/g, "");
-
-          // Get valid answers for this question
-          const validAnswers = answerKey[inputId].map((a) => a.toLowerCase());
-
-          // Check if user input matches ANY valid answer
-          // Note: If you removed accent stripping above, ensure inputs match exactly.
-          // Here we do a somewhat strict check but allow case insensitivity.
-
-          let isCorrect = false;
-          // Check against normalized answers
-          for (let ans of validAnswers) {
-            if (userVal === ans) isCorrect = true;
-          }
-
-          // UI Updates
-          if (isCorrect) {
-            blockEl.classList.add("correct-block");
-            blockEl.classList.remove("wrong-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#27ae60";
-            msgEl.innerText = "✅ Correct!";
-          } else {
-            blockEl.classList.add("wrong-block");
-            blockEl.classList.remove("correct-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#c0392b";
-            // Show the first valid answer as the correction
-            msgEl.innerText = `❌ Correction: "${answerKey[inputId][0]}"`;
-          }
-        }
-      }
-
-      function resetTranslations() {
-        for (let i = 1; i <= 10; i++) {
-          const inputEl = document.getElementById("q" + i);
-          const blockEl = document.getElementById("block-" + i);
-          const msgEl = document.getElementById("msg-" + i);
-
-          inputEl.value = "";
-          blockEl.classList.remove("correct-block", "wrong-block");
-          msgEl.style.display = "none";
-        }
-      }
+      const questions = [
+        {
+          english: "Apparently there's a lot of chlorine in the water.",
+          answers: [
+            "Il paraît qu'il y a beaucoup de chlore dans l'eau",
+            "Il paraît qu'il y a beaucoup de chlore dans l'eau",
+            "Apparemment, il y a beaucoup de chlore dans l'eau",
+          ],
+        },
+        {
+          english: "We might need to install a filtering showerhead.",
+          answers: [
+            "On devra peut-être installer un pommeau de douche filtrant",
+            "On devra peut-être installer un pommeau de douche filtrant",
+            "On aura peut-être besoin d'installer un pommeau de douche filtrant",
+          ],
+        },
+        {
+          english: "We've never done that.",
+          answers: ["On l'a jamais fait", "On ne l'a jamais fait"],
+        },
+        {
+          english:
+            "Going into town is a bit farther from Alila2 than from Andaman@Quayside.",
+          answers: [
+            "Aller en ville, c'est un peu plus loin depuis Alila2 que depuis Andaman@Quayside",
+          ],
+        },
+        {
+          english: "The kitchen is huge.",
+          answers: ["La cuisine est immense", "La cuisine est énorme"],
+        },
+        {
+          english: "I was thinking about Malaysia.",
+          answers: ["Je pensais à la Malaisie"],
+        },
+        {
+          english: "Chlorine isn't good for hair.",
+          answers: [
+            "Le chlore, c'est pas bon pour les cheveux",
+            "Le chlore, ce n'est pas bon pour les cheveux",
+          ],
+        },
+        {
+          english:
+            "To mix and match iconic stalls from all corners of the island, we can use iOnefood.",
+          answers: [
+            "Pour panacher les stands emblématiques des quatre coins de l'île, on peut utiliser iOnefood",
+          ],
+        },
+        {
+          english: "They're weak fliers.",
+          answers: ["Ils volent mal, ils sont trop faibles"],
+        },
+        {
+          english:
+            "We'll need a live-in housekeeper before that, to teach her our favorite dishes.",
+          answers: [
+            "Il nous faudra une bonne à demeure avant ça, pour lui apprendre nos plats préférés",
+          ],
+        },
+      ];
     </script>
+    <script src="exercise-feedback.js"></script>
     <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
   </body>
 </html>

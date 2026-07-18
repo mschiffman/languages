@@ -23,7 +23,7 @@
     {
       type: "link",
       label: "Home",
-      href: "../../index.html",
+      href: "/sitemap.html",
       icon: "bi-house-door",
       classes: "d-flex align-items-center gap-2",
     },
@@ -120,7 +120,7 @@
       icon: "bi-collection",
       buttonClasses: "d-flex align-items-center justify-content-between",
       items: [
-        { label: "French Main", href: "../../../french.html" },
+        { label: "French Main", href: "/sitemap.html" },
         { label: "French Expressions", href: "../../expression/archive.html" },
         {
           label: "French Pronunciation",

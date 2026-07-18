@@ -4,7 +4,9 @@
 
 function setVoice(gender) {
   document.getElementById("audio-source").src = audioFiles[gender];
-  document.getElementById("main-player").load();
+  const player = document.getElementById("main-player");
+  player.load();
+  player.play();
 
   // Update Buttons
   const btnMale = document.getElementById("btn-male");
@@ -38,9 +40,7 @@ function checkAnswers() {
   questions.forEach((item) => {
     // Remove old styles
     const inputs = item.querySelectorAll("input");
-    inputs.forEach((i) =>
-      i.classList.remove("correct-answer", "wrong-answer"),
-    );
+    inputs.forEach((i) => i.classList.remove("correct-answer", "wrong-answer"));
 
     const selected = item.querySelector("input:checked");
 

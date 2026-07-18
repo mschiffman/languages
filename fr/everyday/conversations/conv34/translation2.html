@@ -40,123 +40,7 @@
         Translate the sentences into French. (Watch your spelling!)
       </p>
 
-      <div id="quiz-area">
-        <div class="question-block" id="block-1">
-          <span class="english-prompt"
-            >1. I have an appointment tomorrow at 9 o'clock.</span
-          >
-          <div class="input-wrap">
-            <input
-              type="text"
-              class="user-input"
-              id="q1"
-              placeholder="Type here..."
-            />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-1"></div>
-        </div>
-
-        <div class="question-block" id="block-2">
-          <span class="english-prompt"
-            >2. So it doesn't hurt to have several.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q2" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-2"></div>
-        </div>
-
-        <div class="question-block" id="block-3">
-          <span class="english-prompt"
-            >3. Plus, the French don't eat much.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q3" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-3"></div>
-        </div>
-
-        <div class="question-block" id="block-4">
-          <span class="english-prompt"
-            >4. You need to bring your sunglasses.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q4" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-4"></div>
-        </div>
-
-        <div class="question-block" id="block-5">
-          <span class="english-prompt"
-            >5. You see, that's why I love you.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q5" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-5"></div>
-        </div>
-
-        <div class="question-block" id="block-6">
-          <span class="english-prompt"
-            >6. I've heard that obesity is gaining ground in Europe
-            too.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q6" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-6"></div>
-        </div>
-
-        <div class="question-block" id="block-7">
-          <span class="english-prompt">7. No problem.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q7" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-7"></div>
-        </div>
-
-        <div class="question-block" id="block-8">
-          <span class="english-prompt"
-            >8. I dreamed about a sumptuous French pastry shop last
-            night.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q8" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-8"></div>
-        </div>
-
-        <div class="question-block" id="block-9">
-          <span class="english-prompt"
-            >9. I know the British are catching up to us on that.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q9" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-9"></div>
-        </div>
-
-        <div class="question-block" id="block-10">
-          <span class="english-prompt"
-            >10. It might be cheaper to do that in Malaysia, but we don't
-            know how good it is.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q10" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-10"></div>
-        </div>
-      </div>
+      <div id="quiz-area"></div>
 
       <div class="btn-row">
         <button class="btn-verify" onclick="checkTranslations()">
@@ -173,86 +57,82 @@
         <a href="translation5.html" class="page-btn">5</a>
       </div>
     </div>
-
     <script>
-      // The Answer Key (Supports multiple correct variations separated by | )
-      const answerKey = {
-        q1: ["Moi, j'ai rendez-vous demain à 9 heures"],
-        q2: ["Alors ça mange pas de pain d'en avoir plusieurs"],
-        q3: ["Et puis les Français, ils mangent pas beaucoup"],
-        q4: ["Faut que t'apportes tes lunettes de soleil"],
-        q5: ["Tu vois, c'est pour ça que je t'aime"],
-        q6: ["J'ai entendu dire que l'obésité gagne du terrain en Europe aussi"],
-        q7: ["Pas de souci"],
-        q8: ["J'ai rêvé d'une pâtisserie française somptueuse cette nuit"],
-        q9: ["Je sais que les Anglais sont en train de nous rattraper là-dessus"],
-        q10: [
-          "Ça serait peut-être moins cher de faire ça en Malaisie, mais on sait pas ce que ça vaut",
-        ],
-      };
-
-      function checkTranslations() {
-        // Loop through each question ID
-        for (let i = 1; i <= 10; i++) {
-          const inputId = "q" + i;
-          const blockId = "block-" + i;
-          const msgId = "msg-" + i;
-
-          const inputEl = document.getElementById(inputId);
-          const blockEl = document.getElementById(blockId);
-          const msgEl = document.getElementById(msgId);
-
-          // Normalize user input: Lowercase, remove extra spaces, remove punctuation at end
-          let userVal = inputEl.value.trim().toLowerCase();
-          if (userVal.endsWith(".")) userVal = userVal.slice(0, -1); // Remove trailing dot
-
-          // Clean up accents for flexible matching (Optional, but nice to have)
-          // For strict mode, remove the next line.
-          // userVal = userVal.normalize("NFD").replace(/[̀-ͯ]/g, "");
-
-          // Get valid answers for this question
-          const validAnswers = answerKey[inputId].map((a) => a.toLowerCase());
-
-          // Check if user input matches ANY valid answer
-          // Note: If you removed accent stripping above, ensure inputs match exactly.
-          // Here we do a somewhat strict check but allow case insensitivity.
-
-          let isCorrect = false;
-          // Check against normalized answers
-          for (let ans of validAnswers) {
-            if (userVal === ans) isCorrect = true;
-          }
-
-          // UI Updates
-          if (isCorrect) {
-            blockEl.classList.add("correct-block");
-            blockEl.classList.remove("wrong-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#27ae60";
-            msgEl.innerText = "✅ Correct!";
-          } else {
-            blockEl.classList.add("wrong-block");
-            blockEl.classList.remove("correct-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#c0392b";
-            // Show the first valid answer as the correction
-            msgEl.innerText = `❌ Correction: "${answerKey[inputId][0]}"`;
-          }
-        }
-      }
-
-      function resetTranslations() {
-        for (let i = 1; i <= 10; i++) {
-          const inputEl = document.getElementById("q" + i);
-          const blockEl = document.getElementById("block-" + i);
-          const msgEl = document.getElementById("msg-" + i);
-
-          inputEl.value = "";
-          blockEl.classList.remove("correct-block", "wrong-block");
-          msgEl.style.display = "none";
-        }
-      }
+      const questions = [
+        {
+          english: "I have an appointment tomorrow at 9 o'clock.",
+          answers: [
+            "Moi, j'ai rendez-vous demain à 9 heures",
+            "Moi, j'ai un rendez-vous demain à 9 heures",
+            "J'ai rendez-vous demain à 9 heures",
+          ],
+        },
+        {
+          english: "So it doesn't hurt to have several.",
+          answers: [
+            "Alors ça mange pas de pain d'en avoir plusieurs",
+            "Alors ça ne mange pas de pain d'en avoir plusieurs",
+          ],
+        },
+        {
+          english: "Plus, the French don't eat much.",
+          answers: [
+            "Et puis les Français, ils mangent pas beaucoup",
+            "Et puis les Français, ils ne mangent pas beaucoup",
+          ],
+        },
+        {
+          english: "You need to bring your sunglasses.",
+          answers: [
+            "Faut que t'apportes tes lunettes de soleil",
+            "Il faut que t'apportes tes lunettes de soleil",
+            "Faut que tu apportes tes lunettes de soleil",
+            "Il faut que tu apportes tes lunettes de soleil",
+            "Faut que t'amènes tes lunettes de soleil",
+            "Il faut que t'amènes tes lunettes de soleil",
+          ],
+        },
+        {
+          english: "You see, that's why I love you.",
+          answers: ["Tu vois, c'est pour ça que je t'aime"],
+        },
+        {
+          english: "I've heard that obesity is gaining ground in Europe too.",
+          answers: [
+            "J'ai entendu dire que l'obésité gagne du terrain en Europe aussi",
+            "J'ai entendu dire que l'obésité gagne du terrain en Europe aussi",
+            "J'ai entendu dire que l'obésité gagnait du terrain en Europe aussi",
+          ],
+        },
+        {
+          english: "No problem.",
+          answers: ["Pas de souci", "Pas de problème", "Aucun souci"],
+        },
+        {
+          english: "I dreamed about a sumptuous French pastry shop last night.",
+          answers: [
+            "J'ai rêvé d'une pâtisserie française somptueuse cette nuit",
+            "J'ai rêvé d'une somptueuse pâtisserie française cette nuit",
+          ],
+        },
+        {
+          english: "I know the British are catching up to us on that.",
+          answers: [
+            "Je sais que les Anglais sont en train de nous rattraper là-dessus",
+            "Je sais que les Britanniques sont en train de nous rattraper là-dessus",
+          ],
+        },
+        {
+          english:
+            "It might be cheaper to do that in Malaysia, but we don't know how good it is.",
+          answers: [
+            "Ça serait peut-être moins cher de faire ça en Malaisie, mais on sait pas ce que ça vaut",
+            "Ça serait peut-être moins cher de faire ça en Malaisie, mais on ne sait pas ce que ça vaut",
+          ],
+        },
+      ];
     </script>
+    <script src="exercise-feedback.js"></script>
     <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
   </body>
 </html>

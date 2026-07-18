@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Live exercise feedback — vanilla JS demo</title>
+    <style>
+      :root {
+        --ink: #1c2530;
+        --paper: #fbfaf7;
+        --line: #e5e1d8;
+        --muted: #6b7280;
+        --ok: #1f9d55; /* correct  */
+        --ok-bg: #e7f6ec;
+        --no: #c0392b; /* not yet  */
+        --no-bg: #fbe9e7;
+        --accent: #2f5d8a; /* ink-blue, not the usual terracotta */
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          16px/1.55 -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        padding: 2rem 1rem;
+      }
+      .wrap {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 1.35rem;
+        margin: 0 0 0.25rem;
+      }
+      .sub {
+        color: var(--muted);
+        margin: 0 0 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      /* live score bar — updates on every keystroke, no reload */
+      .score {
+        position: sticky;
+        top: 0;
+        background: var(--paper);
+        padding: 0.75rem 0 1rem;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .score b {
+        font-size: 1.1rem;
+      }
+      .bar {
+        flex: 1;
+        height: 8px;
+        background: var(--line);
+        border-radius: 99px;
+        overflow: hidden;
+      }
+      .bar > i {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: var(--ok);
+        transition: width 0.2s ease;
+      }
+
+      .item {
+        margin-bottom: 1.5rem;
+      }
+      .prompt {
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+      }
+      .prompt .en {
+        color: var(--muted);
+        font-weight: 400;
+        font-size: 0.85rem;
+        display: block;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 0.6rem 0.7rem;
+        font-size: 1rem;
+        border: 2px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        outline: none;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+      input:focus {
+        border-color: var(--accent);
+      }
+      input.ok {
+        border-color: var(--ok);
+        background: var(--ok-bg);
+      }
+      input.no {
+        border-color: var(--no);
+        background: var(--no-bg);
+      }
+      .hint {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 0.3rem;
+        min-height: 1.1em;
+      }
+      .hint.ok {
+        color: var(--ok);
+      }
+
+      .opts {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .opts label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-right: 1.2rem;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Translation — instant feedback</h1>
+      <p class="sub">
+        Type the French. Green = correct, red = not yet. Score updates as you
+        type — no page reload, no framework.
+      </p>
+
+      <div class="score">
+        <b><span id="got">0</span>/<span id="total">0</span></b>
+        <div class="bar"><i id="fill"></i></div>
+      </div>
+
+      <div id="exercise"></div>
+
+      <div class="opts">
+        <label
+          ><input type="checkbox" id="opt-accents" checked /> Accept answers
+          without accents</label
+        >
+        <label
+          ><input type="checkbox" id="opt-punct" checked /> Ignore
+          punctuation</label
+        >
+      </div>
+    </div>
+
+    <script>
+      /* -------------------------------------------------------------------------
+   This is the whole thing. In your site this would live in one shared file
+   (e.g. /assets/exercise-feedback.js) that every exercise page links to,
+   plus a small per-page ITEMS array that Claude Code generates from your
+   source material — exactly the "write logic once, generate data per page"
+   split you already use.
+   ------------------------------------------------------------------------- */
+
+      // Per-page data. Each item has the prompt and one or more accepted answers.
+      const ITEMS = [
+        {
+          en: "I'll do the dishes.",
+          fr: ["Je fais la vaisselle", "Je vais faire la vaisselle"],
+        },
+        {
+          en: "Can you water the plants?",
+          fr: ["Tu peux arroser les plantes", "Peux-tu arroser les plantes"],
+        },
+        { en: "This grass is everywhere.", fr: ["Cette herbe est partout"] },
+        {
+          en: "I can't wait to move to Penang.",
+          fr: ["J'ai hâte de déménager à Penang", "J'ai hâte d'aller à Penang"],
+        },
+      ];
+
+      const opts = { ignoreAccents: true, ignorePunct: true };
+
+      // Normalise so small, pedagogically-irrelevant differences don't read as wrong.
+      function normalize(s) {
+        s = s.trim().toLowerCase().replace(/\s+/g, " ");
+        if (opts.ignoreAccents)
+          s = s.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        if (opts.ignorePunct)
+          s = s
+            .replace(/[?!.,;:«»"'’]/g, "")
+            .replace(/\s+/g, " ")
+            .trim();
+        return s;
+      }
+
+      function isCorrect(value, answers) {
+        const n = normalize(value);
+        return answers.some((a) => normalize(a) === n);
+      }
+
+      // Build the page from ITEMS.
+      const box = document.getElementById("exercise");
+      document.getElementById("total").textContent = ITEMS.length;
+
+      ITEMS.forEach((item, i) => {
+        const wrap = document.createElement("div");
+        wrap.className = "item";
+        wrap.innerHTML = `
+    <div class="prompt">${item.en}<span class="en">→ tape la traduction française</span></div>
+    <input type="text" data-i="${i}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Answer ${i + 1}">
+    <div class="hint"></div>`;
+        box.appendChild(wrap);
+      });
+
+      const fill = document.getElementById("fill");
+      const got = document.getElementById("got");
+
+      // The one function that does the work, on every keystroke.
+      function check(input) {
+        const item = ITEMS[input.dataset.i];
+        const hint = input.parentElement.querySelector(".hint");
+        const val = input.value;
+
+        input.classList.remove("ok", "no");
+        hint.classList.remove("ok");
+        hint.textContent = "";
+
+        if (val.trim() === "") {
+          // empty → neutral, no red-shaming while the field is blank
+        } else if (isCorrect(val, item.fr)) {
+          input.classList.add("ok");
+          hint.classList.add("ok");
+          hint.textContent = "✓ correct";
+        } else {
+          input.classList.add("no");
+        }
+        updateScore();
+      }
+
+      function updateScore() {
+        const inputs = [...box.querySelectorAll("input")];
+        const correct = inputs.filter((el) =>
+          el.classList.contains("ok"),
+        ).length;
+        got.textContent = correct;
+        fill.style.width = (correct / ITEMS.length) * 100 + "%";
+      }
+
+      // Wire it up.
+      box.addEventListener("input", (e) => {
+        if (e.target.matches("input")) check(e.target);
+      });
+
+      // Live option toggles (accent / punctuation strictness) re-check everything.
+      document.getElementById("opt-accents").addEventListener("change", (e) => {
+        opts.ignoreAccents = e.target.checked;
+        recheckAll();
+      });
+      document.getElementById("opt-punct").addEventListener("change", (e) => {
+        opts.ignorePunct = e.target.checked;
+        recheckAll();
+      });
+      function recheckAll() {
+        box.querySelectorAll("input").forEach(check);
+      }
+    </script>
+  </body>
+</html>

@@ -40,107 +40,7 @@
         Translate the sentences into French. (Watch your spelling!)
       </p>
 
-      <div id="quiz-area">
-        <div class="question-block" id="block-1">
-          <span class="english-prompt"
-            >1. Gemini said we can order on Grabfood and Foodpanda.</span
-          >
-          <div class="input-wrap">
-            <input
-              type="text"
-              class="user-input"
-              id="q1"
-              placeholder="Type here..."
-            />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-1"></div>
-        </div>
-
-        <div class="question-block" id="block-2">
-          <span class="english-prompt"
-            >2. That's something to keep in mind.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q2" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-2"></div>
-        </div>
-
-        <div class="question-block" id="block-3">
-          <span class="english-prompt"
-            >3. Eating on the spot is best, but with the heat, it's not
-            always practical.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q3" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-3"></div>
-        </div>
-
-        <div class="question-block" id="block-4">
-          <span class="english-prompt">4. We'll see.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q4" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-4"></div>
-        </div>
-
-        <div class="question-block" id="block-5">
-          <span class="english-prompt"
-            >5. I don't know if the hawker stalls deliver.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q5" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-5"></div>
-        </div>
-
-        <div class="question-block" id="block-6">
-          <span class="english-prompt"
-            >6. But Alila2's layout is much better — more open, more
-            space.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q6" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-6"></div>
-        </div>
-
-        <div class="question-block" id="block-7">
-          <span class="english-prompt"
-            >7. A husband is good for lots of things.</span
-          >
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q7" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-7"></div>
-        </div>
-
-        <div class="question-block" id="block-8">
-          <span class="english-prompt">8. Costco and Amazon.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q8" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-8"></div>
-        </div>
-
-        <div class="question-block" id="block-9">
-          <span class="english-prompt">9. That would be nice.</span>
-          <div class="input-wrap">
-            <input type="text" class="user-input" id="q9" placeholder="..." />
-            <i class="bi bi-check-circle-fill check-icon"></i>
-          </div>
-          <div class="feedback-msg" id="msg-9"></div>
-        </div>
-      </div>
+      <div id="quiz-area"></div>
 
       <div class="btn-row">
         <button class="btn-verify" onclick="checkTranslations()">
@@ -157,88 +57,58 @@
         <a href="translation5.html" class="page-btn active">5</a>
       </div>
     </div>
-
     <script>
-      // The Answer Key (Supports multiple correct variations separated by | )
-      const answerKey = {
-        q1: ["Gemini a dit qu'on peut commander sur Grabfood et Foodpanda"],
-        q2: ["C'est à prendre en compte"],
-        q3: [
-          "Manger sur place, c'est le mieux, mais avec la chaleur, c'est pas toujours pratique",
-        ],
-        q4: ["On verra"],
-        q5: ["Je sais pas si les stands de hawker livrent"],
-        q6: [
-          "Mais l'agencement d'Alila2 est bien mieux — plus ouvert, plus d'espace",
-          "Mais l'agencement d'Alila2 est bien mieux, plus ouvert, plus d'espace",
-        ],
-        q7: ["Ça sert à plein de choses, un mari"],
-        q8: ["Costco et Amazon"],
-        q9: ["Ce serait sympa"],
-      };
-
-      function checkTranslations() {
-        // Loop through each question ID
-        for (let i = 1; i <= 9; i++) {
-          const inputId = "q" + i;
-          const blockId = "block-" + i;
-          const msgId = "msg-" + i;
-
-          const inputEl = document.getElementById(inputId);
-          const blockEl = document.getElementById(blockId);
-          const msgEl = document.getElementById(msgId);
-
-          // Normalize user input: Lowercase, remove extra spaces, remove punctuation at end
-          let userVal = inputEl.value.trim().toLowerCase();
-          if (userVal.endsWith(".")) userVal = userVal.slice(0, -1); // Remove trailing dot
-
-          // Clean up accents for flexible matching (Optional, but nice to have)
-          // For strict mode, remove the next line.
-          // userVal = userVal.normalize("NFD").replace(/[̀-ͯ]/g, "");
-
-          // Get valid answers for this question
-          const validAnswers = answerKey[inputId].map((a) => a.toLowerCase());
-
-          // Check if user input matches ANY valid answer
-          // Note: If you removed accent stripping above, ensure inputs match exactly.
-          // Here we do a somewhat strict check but allow case insensitivity.
-
-          let isCorrect = false;
-          // Check against normalized answers
-          for (let ans of validAnswers) {
-            if (userVal === ans) isCorrect = true;
-          }
-
-          // UI Updates
-          if (isCorrect) {
-            blockEl.classList.add("correct-block");
-            blockEl.classList.remove("wrong-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#27ae60";
-            msgEl.innerText = "✅ Correct!";
-          } else {
-            blockEl.classList.add("wrong-block");
-            blockEl.classList.remove("correct-block");
-            msgEl.style.display = "block";
-            msgEl.style.color = "#c0392b";
-            // Show the first valid answer as the correction
-            msgEl.innerText = `❌ Correction: "${answerKey[inputId][0]}"`;
-          }
-        }
-      }
-
-      function resetTranslations() {
-        for (let i = 1; i <= 9; i++) {
-          const inputEl = document.getElementById("q" + i);
-          const blockEl = document.getElementById("block-" + i);
-          const msgEl = document.getElementById("msg-" + i);
-
-          inputEl.value = "";
-          blockEl.classList.remove("correct-block", "wrong-block");
-          msgEl.style.display = "none";
-        }
-      }
+      const questions = [
+        {
+          english: "Gemini said we can order on Grabfood and Foodpanda.",
+          answers: [
+            "Gemini a dit qu'on peut commander sur Grabfood et Foodpanda",
+            "Gemini a dit qu'on pouvait commander sur Grabfood et Foodpanda",
+          ],
+        },
+        {
+          english: "That's something to keep in mind.",
+          answers: [
+            "C'est à prendre en compte",
+            "C'est à prendre en considération",
+          ],
+        },
+        {
+          english:
+            "Eating on the spot is best, but with the heat, it's not always practical.",
+          answers: [
+            "Manger sur place, c'est le mieux, mais avec la chaleur, c'est pas toujours pratique",
+            "Manger sur place, c'est le mieux, mais avec la chaleur, ce n'est pas toujours pratique",
+          ],
+        },
+        { english: "We'll see.", answers: ["On verra", "On verra bien"] },
+        {
+          english: "I don't know if the hawker stalls deliver.",
+          answers: [
+            "Je sais pas si les stands de hawker livrent",
+            "Je ne sais pas si les stands de hawker livrent",
+          ],
+        },
+        {
+          english:
+            "But Alila2's layout is much better — more open, more space.",
+          answers: [
+            "Mais l'agencement d'Alila2 est bien mieux — plus ouvert, plus d'espace",
+            "Mais l'agencement d'Alila2 est bien mieux, plus ouvert, plus d'espace",
+          ],
+        },
+        {
+          english: "A husband is good for lots of things.",
+          answers: ["Ça sert à plein de choses, un mari"],
+        },
+        { english: "Costco et Amazon.", answers: ["Costco et Amazon"] },
+        {
+          english: "That would be nice.",
+          answers: ["Ce serait sympa", "Ça serait sympa"],
+        },
+      ];
     </script>
+    <script src="exercise-feedback.js"></script>
     <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
   </body>
 </html>

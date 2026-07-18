@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Y / EN Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../assets/css/translation.css" />
+    <style>
+      .prompt-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .prompt-row .english-prompt {
+        margin-bottom: 0;
+      }
+      .note-wrapper {
+        position: relative;
+        flex-shrink: 0;
+      }
+      .note-btn {
+        background: linear-gradient(135deg, #e8f4ff, #cce8ff);
+        border: none;
+        border-radius: 8px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #3498db;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .note-btn:hover {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+      }
+      .note-wrapper::after {
+        content: attr(data-note);
+        font-family: "Segoe UI", sans-serif;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: #444;
+        position: absolute;
+        bottom: calc(100% + 8px);
+        right: 0;
+        background: white;
+        padding: 10px 12px;
+        border-radius: 8px;
+        width: 240px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        z-index: 20;
+        white-space: normal;
+        text-align: left;
+      }
+      .note-wrapper:hover::after {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="translation-card">
+      <h2>✍️ Practice: Y &amp; En</h2>
+      <p class="subtitle">
+        Translate the sentences into French, using <em>y</em> or
+        <em>en</em> where appropriate. (Watch your spelling!)
+      </p>
+
+      <div id="quiz-area">
+        <div class="question-block" id="block-1">
+          <div class="prompt-row">
+            <span class="english-prompt">1. Yes, I'm going there.</span>
+            <div
+              class="note-wrapper"
+              data-note="Y replaces à + place — here it stands in for à Paris (or wherever 'there' refers to)."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input
+              type="text"
+              class="user-input"
+              id="q1"
+              placeholder="Type here..."
+            />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-1"></div>
+        </div>
+
+        <div class="question-block" id="block-2">
+          <div class="prompt-row">
+            <span class="english-prompt">2. She lives there.</span>
+            <div
+              class="note-wrapper"
+              data-note="Y replaces en France (or wherever 'there' refers to) — French avoids repeating the place name."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q2" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-2"></div>
+        </div>
+
+        <div class="question-block" id="block-3">
+          <div class="prompt-row">
+            <span class="english-prompt">3. I'm not going there.</span>
+            <div
+              class="note-wrapper"
+              data-note="In the negative, y stays glued to the verb: ne + y + verb + pas."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q3" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-3"></div>
+        </div>
+
+        <div class="question-block" id="block-4">
+          <div class="prompt-row">
+            <span class="english-prompt">4. I'm going to go there.</span>
+            <div
+              class="note-wrapper"
+              data-note="In the near future (aller + infinitive), y moves right before the infinitive it modifies, not before aller."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q4" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-4"></div>
+        </div>
+
+        <div class="question-block" id="block-5">
+          <div class="prompt-row">
+            <span class="english-prompt">5. Are you thinking about it?</span>
+            <div
+              class="note-wrapper"
+              data-note="The expression is penser à + quelque chose (to think about something) — y replaces à + the thing."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q5" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-5"></div>
+        </div>
+
+        <div class="question-block" id="block-6">
+          <div class="prompt-row">
+            <span class="english-prompt">6. I answered it.</span>
+            <div
+              class="note-wrapper"
+              data-note="The expression is répondre à + quelque chose (to answer something); in the passé composé, y goes right before the auxiliary avoir."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q6" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-6"></div>
+        </div>
+
+        <div class="question-block" id="block-7">
+          <div class="prompt-row">
+            <span class="english-prompt">7. She's interested in it.</span>
+            <div
+              class="note-wrapper"
+              data-note="The expression is s'intéresser à + quelque chose (to be interested in something) — y sits between the reflexive pronoun and the verb."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q7" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-7"></div>
+        </div>
+
+        <div class="question-block" id="block-8">
+          <div class="prompt-row">
+            <span class="english-prompt">8. We're participating in it.</span>
+            <div
+              class="note-wrapper"
+              data-note="The expression is participer à + quelque chose (to participate in something)."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q8" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-8"></div>
+        </div>
+
+        <div class="question-block" id="block-9">
+          <div class="prompt-row">
+            <span class="english-prompt">9. Let's go!</span>
+            <div
+              class="note-wrapper"
+              data-note="In an affirmative command, y attaches after the verb with a hyphen: Allons-y !"
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q9" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-9"></div>
+        </div>
+
+        <div class="question-block" id="block-10">
+          <div class="prompt-row">
+            <span class="english-prompt">10. Go ahead!</span>
+            <div
+              class="note-wrapper"
+              data-note="Affirmative imperative of aller + y, joined with a hyphen; the -s is kept on vas before y, unlike a normal tu-imperative of an -er verb."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q10" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-10"></div>
+        </div>
+
+        <div class="question-block" id="block-11">
+          <div class="prompt-row">
+            <span class="english-prompt">11. I need some.</span>
+            <div
+              class="note-wrapper"
+              data-note="The expression is avoir besoin de + quelque chose (to need something) — en replaces de + the thing needed."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q11" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-11"></div>
+        </div>
+
+        <div class="question-block" id="block-12">
+          <div class="prompt-row">
+            <span class="english-prompt">12. Do you want some?</span>
+            <div
+              class="note-wrapper"
+              data-note="The expression is avoir envie de + quelque chose (to want/feel like something)."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q12" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-12"></div>
+        </div>
+
+        <div class="question-block" id="block-13">
+          <div class="prompt-row">
+            <span class="english-prompt">13. We're talking about it.</span>
+            <div
+              class="note-wrapper"
+              data-note="The expression is parler de + quelque chose (to talk about something)."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q13" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-13"></div>
+        </div>
+
+        <div class="question-block" id="block-14">
+          <div class="prompt-row">
+            <span class="english-prompt">14. I remember it.</span>
+            <div
+              class="note-wrapper"
+              data-note="The expression is se souvenir de + quelque chose (to remember something) — en sits between the reflexive pronoun and the verb."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q14" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-14"></div>
+        </div>
+
+        <div class="question-block" id="block-15">
+          <div class="prompt-row">
+            <span class="english-prompt"
+              >15. She's afraid of them. (animals/things)</span
+            >
+            <div
+              class="note-wrapper"
+              data-note="The expression is avoir peur de + quelque chose (to be afraid of something)."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q15" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-15"></div>
+        </div>
+
+        <div class="question-block" id="block-16">
+          <div class="prompt-row">
+            <span class="english-prompt">16. I have three of them.</span>
+            <div
+              class="note-wrapper"
+              data-note="En replaces the noun after a quantity; the number (trois) stays put right after the verb."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q16" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-16"></div>
+        </div>
+
+        <div class="question-block" id="block-17">
+          <div class="prompt-row">
+            <span class="english-prompt">17. I don't want any.</span>
+            <div
+              class="note-wrapper"
+              data-note="In the negative, en stays glued to the verb: ne + en + verb + pas."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q17" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-17"></div>
+        </div>
+
+        <div class="question-block" id="block-18">
+          <div class="prompt-row">
+            <span class="english-prompt">18. I'm going to buy some.</span>
+            <div
+              class="note-wrapper"
+              data-note="In the near future (aller + infinitive), en moves right before the infinitive it modifies, not before aller."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q18" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-18"></div>
+        </div>
+
+        <div class="question-block" id="block-19">
+          <div class="prompt-row">
+            <span class="english-prompt">19. Yes, I want some.</span>
+            <div
+              class="note-wrapper"
+              data-note="En replaces a partitive article (du, de la, des) + noun — here it stands in for du pain."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q19" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-19"></div>
+        </div>
+
+        <div class="question-block" id="block-20">
+          <div class="prompt-row">
+            <span class="english-prompt">20. I don't care.</span>
+            <div
+              class="note-wrapper"
+              data-note="Fixed idiom built on se ficher de + quelque chose — en is baked into the expression and doesn't translate literally."
+            >
+              <button type="button" class="note-btn" title="Notes">
+                <i class="bi bi-sticky"></i>
+              </button>
+            </div>
+          </div>
+          <div class="input-wrap">
+            <input type="text" class="user-input" id="q20" placeholder="..." />
+            <i class="bi bi-check-circle-fill check-icon"></i>
+          </div>
+          <div class="feedback-msg" id="msg-20"></div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-verify" onclick="checkTranslations()">
+          Check Answers
+        </button>
+        <button class="btn-reset" onclick="resetTranslations()">Reset</button>
+      </div>
+    </div>
+
+    <script>
+      // The Answer Key (Supports multiple correct variations separated by | )
+      const answerKey = {
+        q1: ["Oui, j'y vais"],
+        q2: ["Elle y habite"],
+        q3: ["Je n'y vais pas"],
+        q4: ["Je vais y aller"],
+        q5: ["Tu y penses", "Est-ce que tu y penses"],
+        q6: ["J'y ai répondu"],
+        q7: ["Elle s'y intéresse"],
+        q8: ["Nous y participons", "On y participe"],
+        q9: ["Allons-y"],
+        q10: ["Vas-y"],
+        q11: ["J'en ai besoin"],
+        q12: ["Tu en as envie", "Est-ce que tu en as envie"],
+        q13: ["Nous en parlons", "On en parle"],
+        q14: ["Je m'en souviens"],
+        q15: ["Elle en a peur"],
+        q16: ["J'en ai trois"],
+        q17: ["Je n'en veux pas", "J'en veux pas"],
+        q18: ["Je vais en acheter"],
+        q19: ["Oui, j'en veux"],
+        q20: ["Je m'en fiche"],
+      };
+
+      function checkTranslations() {
+        // Loop through each question ID
+        for (let i = 1; i <= 20; i++) {
+          const inputId = "q" + i;
+          const blockId = "block-" + i;
+          const msgId = "msg-" + i;
+
+          const inputEl = document.getElementById(inputId);
+          const blockEl = document.getElementById(blockId);
+          const msgEl = document.getElementById(msgId);
+
+          // Normalize user input: Lowercase, remove extra spaces, remove punctuation at end
+          let userVal = inputEl.value.trim().toLowerCase();
+          if (userVal.endsWith(".")) userVal = userVal.slice(0, -1); // Remove trailing dot
+          if (userVal.endsWith("!")) userVal = userVal.slice(0, -1); // Remove trailing exclamation
+          if (userVal.endsWith("?")) userVal = userVal.slice(0, -1); // Remove trailing question mark
+
+          // Get valid answers for this question
+          const validAnswers = answerKey[inputId].map((a) => a.toLowerCase());
+
+          // Check if user input matches ANY valid answer
+          let isCorrect = false;
+          for (let ans of validAnswers) {
+            if (userVal === ans) isCorrect = true;
+          }
+
+          // UI Updates
+          if (isCorrect) {
+            blockEl.classList.add("correct-block");
+            blockEl.classList.remove("wrong-block");
+            msgEl.style.display = "block";
+            msgEl.style.color = "#27ae60";
+            msgEl.innerText = "✅ Correct!";
+          } else {
+            blockEl.classList.add("wrong-block");
+            blockEl.classList.remove("correct-block");
+            msgEl.style.display = "block";
+            msgEl.style.color = "#c0392b";
+            // Show the first valid answer as the correction
+            msgEl.innerText = `❌ Correction: "${answerKey[inputId][0]}"`;
+          }
+        }
+      }
+
+      function resetTranslations() {
+        for (let i = 1; i <= 20; i++) {
+          const inputEl = document.getElementById("q" + i);
+          const blockEl = document.getElementById("block-" + i);
+          const msgEl = document.getElementById("msg-" + i);
+
+          inputEl.value = "";
+          blockEl.classList.remove("correct-block", "wrong-block");
+          msgEl.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
