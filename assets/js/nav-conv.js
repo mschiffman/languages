@@ -252,6 +252,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "../conv36/conv36.html",
+      label: "Jul 19 - Le mal de dos et une soirée film",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";

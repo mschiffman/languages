@@ -3,24 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <title>Listening Test: Dual Voice</title>
-
-    <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
     ></script>
-
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-CHXHM9CZKM");
     </script>
-
-    <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -55,7 +49,7 @@
           id="btn-female-slow"
           onclick="setVoice('female_slow')"
         >
-          👩 Male Voice - Slow
+          👩 Female Voice - Slow
         </button>
       </div>
 
@@ -63,7 +57,7 @@
         <audio id="main-player" controls>
           <source
             id="audio-source"
-            src="https://languages.rmlives.com/lessons/everyday/conv32/listen-master/listen-m.mp3"
+            src="https://languages.rmlives.com/lessons/everyday/conv36/listen-master/listen-m.mp3"
             type="audio/mpeg"
           />
           Your browser does not support the audio element.
@@ -82,235 +76,213 @@
           👁️ Show/Hide Transcript
         </button>
         <div class="transcript-box" id="trans-box">
-          Hier soir, Julie est rentrée tard à la maison. En ouvrant le frigo,
-          elle a remarqué qu'il n'y avait presque plus rien à manger. Elle a
-          demandé à son frère s'il avait fait les courses, mais il avait
-          complètement oublié. Alors, ils ont décidé d'aller au supermarché
-          ensemble. Ils ont acheté des légumes, du pain, du lait et quelques
-          fruits. Julie voulait aussi prendre un dessert, mais son frère a dit
-          qu'ils dépensaient déjà assez d'argent. Finalement, ils sont rentrés à
-          la maison et Julie a préparé un repas simple. Son frère a promis qu'il
-          n'oublierait plus de faire les courses la prochaine fois.
+          Hier, je me suis fait mal au dos en me penchant pour ramasser un
+          bidon dans le jardin. Aujourd'hui, ça va un peu mieux, mais je
+          préfère rester tranquille. Robert s'occupe de la vaisselle pendant
+          que je fais quelques petites tâches à la maison. Dans l'après-midi,
+          j'ai travaillé sur mon site de français et j'ai fait des exercices
+          de compréhension orale. Le soir, on a mangé une soupe aux boulettes,
+          puis on a regardé un thriller plein de suspense sur Apple TV.
         </div>
       </div>
 
       <form id="quiz-form">
         <div class="question-item">
-          <span class="q-text"
-            >1. Quand Julie est-elle rentrée à la maison ?</span
-          >
+          <span class="q-text">1. Quand est-ce que je me suis fait mal au dos ?</span>
           <div class="options-grid">
             <div class="option-wrapper">
               <input type="radio" name="q1" id="q1a" value="wrong" />
-              <label class="option-box" for="q1a">Hier matin</label>
+              <label class="option-box" for="q1a">Ce matin</label>
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q1" id="q1b" value="wrong" />
-              <label class="option-box" for="q1b">Cet après-midi</label>
+              <input type="radio" name="q1" id="q1b" value="correct" />
+              <label class="option-box" for="q1b">Hier</label>
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q1" id="q1c" value="correct" />
-              <label class="option-box" for="q1c">Hier soir, tard</label>
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">La semaine dernière</label>
             </div>
           </div>
         </div>
 
         <div class="question-item">
           <span class="q-text"
-            >2. Qu'a-t-elle remarqué en ouvrant le frigo ?</span
+            >2. Qu'est-ce que je faisais quand je me suis fait mal ?</span
           >
           <div class="options-grid">
             <div class="option-wrapper">
-              <input type="radio" name="q2" id="q2a" value="correct" />
-              <label class="option-box" for="q2a"
-                >Qu'il n'y avait presque plus rien à manger</label
-              >
+              <input type="radio" name="q2" id="q2a" value="wrong" />
+              <label class="option-box" for="q2a">Je faisais la vaisselle</label>
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q2" id="q2b" value="wrong" />
-              <label class="option-box" for="q2b">Qu'il était plein</label>
+              <input type="radio" name="q2" id="q2b" value="correct" />
+              <label class="option-box" for="q2b"
+                >Je me penchais pour ramasser un bidon</label
+              >
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q2" id="q2c" value="wrong" />
-              <label class="option-box" for="q2c">Qu'il était en panne</label>
+              <label class="option-box" for="q2c">Je faisais le lit</label>
             </div>
           </div>
         </div>
 
         <div class="question-item">
-          <span class="q-text">3. Le frère avait-il fait les courses ?</span>
+          <span class="q-text">3. Où est-ce que ça s'est passé ?</span>
           <div class="options-grid">
             <div class="option-wrapper">
               <input type="radio" name="q3" id="q3a" value="wrong" />
-              <label class="option-box" for="q3a">Oui, juste avant</label>
+              <label class="option-box" for="q3a">Dans la cuisine</label>
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q3" id="q3b" value="correct" />
-              <label class="option-box" for="q3b"
-                >Non, il avait complètement oublié</label
-              >
+              <input type="radio" name="q3" id="q3b" value="wrong" />
+              <label class="option-box" for="q3b">Dans le garage</label>
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q3" id="q3c" value="wrong" />
-              <label class="option-box" for="q3c"
-                >Il en avait fait une partie</label
-              >
+              <input type="radio" name="q3" id="q3c" value="correct" />
+              <label class="option-box" for="q3c">Dans le jardin</label>
             </div>
           </div>
         </div>
 
         <div class="question-item">
-          <span class="q-text">4. Qu'est-ce qu'ils ont acheté ensemble ?</span>
+          <span class="q-text">4. Comment je me sens aujourd'hui ?</span>
           <div class="options-grid">
             <div class="option-wrapper">
-              <input type="radio" name="q4" id="q4a" value="wrong" />
+              <input type="radio" name="q4" id="q4a" value="correct" />
               <label class="option-box" for="q4a"
-                >De la viande et du poisson</label
+                >Un peu mieux, mais je préfère rester tranquille</label
               >
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q4" id="q4b" value="wrong" />
-              <label class="option-box" for="q4b">Seulement un dessert</label>
+              <label class="option-box" for="q4b"
+                >Beaucoup mieux, je peux tout faire</label
+              >
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q4" id="q4c" value="correct" />
-              <label class="option-box" for="q4c"
-                >Des légumes, du pain, du lait et des fruits</label
-              >
+              <input type="radio" name="q4" id="q4c" value="wrong" />
+              <label class="option-box" for="q4c">Pire qu'hier</label>
             </div>
           </div>
         </div>
 
         <div class="question-item">
-          <span class="q-text">5. Qui voulait prendre un dessert ?</span>
+          <span class="q-text">5. Qui s'occupe de la vaisselle ?</span>
           <div class="options-grid">
             <div class="option-wrapper">
-              <input type="radio" name="q5" id="q5a" value="correct" />
-              <label class="option-box" for="q5a">Julie</label>
+              <input type="radio" name="q5" id="q5a" value="wrong" />
+              <label class="option-box" for="q5a">Moi</label>
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q5" id="q5b" value="wrong" />
-              <label class="option-box" for="q5b">Le frère</label>
+              <input type="radio" name="q5" id="q5b" value="correct" />
+              <label class="option-box" for="q5b">Robert</label>
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q5" id="q5c" value="wrong" />
-              <label class="option-box" for="q5c">Ni l'un ni l'autre</label>
+              <label class="option-box" for="q5c">Personne</label>
             </div>
           </div>
         </div>
 
         <div class="question-item">
           <span class="q-text"
-            >6. Pourquoi n'ont-ils pas pris de dessert ?</span
+            >6. Qu'est-ce que je fais pendant que Robert s'occupe de la
+            vaisselle ?</span
           >
           <div class="options-grid">
             <div class="option-wrapper">
               <input type="radio" name="q6" id="q6a" value="wrong" />
-              <label class="option-box" for="q6a">Il n'y en avait plus</label>
+              <label class="option-box" for="q6a">Je me repose au lit</label>
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q6" id="q6b" value="correct" />
               <label class="option-box" for="q6b"
-                >Le frère trouvait qu'ils dépensaient déjà assez</label
+                >Quelques petites tâches à la maison</label
               >
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q6" id="q6c" value="wrong" />
-              <label class="option-box" for="q6c">Julie n'aimait pas ça</label>
+              <label class="option-box" for="q6c">Je fais les courses</label>
             </div>
           </div>
         </div>
 
         <div class="question-item">
-          <span class="q-text">7. Qu'a fait Julie une fois rentrée ?</span>
+          <span class="q-text">7. Qu'est-ce que j'ai fait dans l'après-midi ?</span>
           <div class="options-grid">
             <div class="option-wrapper">
               <input type="radio" name="q7" id="q7a" value="wrong" />
-              <label class="option-box" for="q7a"
-                >Elle a commandé une pizza</label
-              >
+              <label class="option-box" for="q7a">J'ai fait une sieste</label>
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q7" id="q7b" value="wrong" />
+              <input type="radio" name="q7" id="q7b" value="correct" />
               <label class="option-box" for="q7b"
-                >Elle s'est couchée sans manger</label
+                >J'ai travaillé sur mon site de français</label
               >
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q7" id="q7c" value="correct" />
-              <label class="option-box" for="q7c"
-                >Elle a préparé un repas simple</label
-              >
+              <input type="radio" name="q7" id="q7c" value="wrong" />
+              <label class="option-box" for="q7c">Je suis allée chez le médecin</label>
             </div>
           </div>
         </div>
 
         <div class="question-item">
           <span class="q-text"
-            >8. La promesse du frère à la fin porte sur…</span
+            >8. Qu'est-ce que j'ai fait d'autre dans l'après-midi ?</span
           >
           <div class="options-grid">
             <div class="option-wrapper">
-              <input type="radio" name="q8" id="q8a" value="correct" />
-              <label class="option-box" for="q8a"
-                >l'avenir : ne plus oublier les courses</label
-              >
+              <input type="radio" name="q8" id="q8a" value="wrong" />
+              <label class="option-box" for="q8a">Des étirements</label>
             </div>
             <div class="option-wrapper">
-              <input type="radio" name="q8" id="q8b" value="wrong" />
-              <label class="option-box" for="q8b">ce qu'il a fait hier</label>
+              <input type="radio" name="q8" id="q8b" value="correct" />
+              <label class="option-box" for="q8b"
+                >Des exercices de compréhension orale</label
+              >
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q8" id="q8c" value="wrong" />
-              <label class="option-box" for="q8c">le repas de ce soir</label>
+              <label class="option-box" for="q8c">Du jardinage</label>
             </div>
           </div>
         </div>
 
         <div class="question-item">
-          <span class="q-text"
-            >9. Pourquoi ont-ils dû aller au supermarché ?</span
-          >
+          <span class="q-text">9. Qu'est-ce qu'on a mangé le soir ?</span>
           <div class="options-grid">
             <div class="option-wrapper">
               <input type="radio" name="q9" id="q9a" value="wrong" />
-              <label class="option-box" for="q9a"
-                >Le frère voulait se promener</label
-              >
+              <label class="option-box" for="q9a">Des pâtes</label>
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q9" id="q9b" value="correct" />
-              <label class="option-box" for="q9b"
-                >Il n'avait pas fait les courses et il ne restait presque
-                rien</label
-              >
+              <label class="option-box" for="q9b">Une soupe aux boulettes</label>
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q9" id="q9c" value="wrong" />
-              <label class="option-box" for="q9c"
-                >Le magasin allait fermer</label
-              >
+              <label class="option-box" for="q9c">Une pizza</label>
             </div>
           </div>
         </div>
 
         <div class="question-item">
-          <span class="q-text">10. Dans l'ensemble, la scène décrit…</span>
+          <span class="q-text">10. Qu'est-ce qu'on a regardé après le dîner ?</span>
           <div class="options-grid">
             <div class="option-wrapper">
               <input type="radio" name="q10" id="q10a" value="wrong" />
-              <label class="option-box" for="q10a"
-                >une vraie dispute entre eux</label
-              >
+              <label class="option-box" for="q10a">Un documentaire</label>
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q10" id="q10b" value="wrong" />
-              <label class="option-box" for="q10b">une occasion spéciale</label>
+              <label class="option-box" for="q10b">Une comédie</label>
             </div>
             <div class="option-wrapper">
               <input type="radio" name="q10" id="q10c" value="correct" />
               <label class="option-box" for="q10c"
-                >un petit tracas du quotidien, réglé ensemble</label
+                >Un thriller plein de suspense sur Apple TV</label
               >
             </div>
           </div>
@@ -318,7 +290,6 @@
       </form>
 
       <div class="score-display" id="score-box"></div>
-
       <div class="controls">
         <button
           class="action-btn btn-check-answers"
@@ -335,19 +306,18 @@
           Reset Test
         </button>
       </div>
-
       <div class="page-nav">
-        <a href="listen-master1.html" class="page-btn active">1</a>
+        <a href="listen-master.html" class="page-btn active">1</a>
       </div>
     </div>
 
     <script>
       const audioFiles = {
-        male: "https://languages.rmlives.com/lessons/everyday/conv32/listen-master/listen-m.mp3",
+        male: "https://languages.rmlives.com/lessons/everyday/conv36/listen-master/listen-m.mp3",
         female:
-          "https://languages.rmlives.com/lessons/everyday/conv32/listen-master/listen-f.mp3",
+          "https://languages.rmlives.com/lessons/everyday/conv36/listen-master/listen-f.mp3",
         female_slow:
-          "https://languages.rmlives.com/lessons/everyday/conv32/listen-master/listen-ms.mp3",
+          "https://languages.rmlives.com/lessons/everyday/conv36/listen-master/listen-ms.mp3",
       };
     </script>
     <script src="/assets/js/listenMaster.js"></script>

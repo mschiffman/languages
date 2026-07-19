@@ -6,10 +6,10 @@
   };
 
   function addStyles() {
-    if (document.getElementById("conv35-exercise-feedback-styles")) return;
+    if (document.getElementById("exercise-feedback-styles")) return;
 
     const style = document.createElement("style");
-    style.id = "conv35-exercise-feedback-styles";
+    style.id = "exercise-feedback-styles";
     style.textContent = `
       .live-score {
         background: #f8f9fa;
@@ -84,8 +84,85 @@
     document.head.appendChild(style);
   }
 
+  // --- Normalization helpers ------------------------------------------------
+  // Everything below is applied symmetrically to BOTH the learner's typed value
+  // and every stored answer (see isTextCorrect). Because both sides pass through
+  // the identical transform, these steps can only ever make matching MORE
+  // forgiving — they cannot invent a wrong "correct".
+
+  // Curly apostrophe (U+2019) -> straight ('). Always applied, so elisions like
+  // "j'ai" match whichever apostrophe a source file or a learner's keyboard
+  // produces. When "Ignore punctuation" is on, apostrophes are stripped anyway;
+  // this matters for the case where a user turns that option OFF.
+  function foldApostrophes(text) {
+    return text.replace(/\u2019/g, "'");
+  }
+
+  // Number words -> digits, so "vingt" matches "20", "cinq ans" matches "5 ans".
+  // "un"/"une" are deliberately NOT mapped: they double as articles, and folding
+  // them to "1" would hide masculine/feminine agreement (une -> 1 == un -> 1).
+  // Compound numbers ("vingt-cinq", "trente et un") are not handled; add the
+  // whole compound as its own key here if a specific exercise needs it.
+  const NUMBER_WORDS = {
+    deux: "2",
+    trois: "3",
+    quatre: "4",
+    cinq: "5",
+    six: "6",
+    sept: "7",
+    huit: "8",
+    neuf: "9",
+    dix: "10",
+    onze: "11",
+    douze: "12",
+    treize: "13",
+    quatorze: "14",
+    quinze: "15",
+    seize: "16",
+    vingt: "20",
+    trente: "30",
+    quarante: "40",
+    cinquante: "50",
+    soixante: "60",
+    cent: "100",
+    mille: "1000",
+  };
+
+  // Boundary is a captured non-letter (or start) plus a non-letter lookahead,
+  // using \p{L} so accented letters count as letters. This stops "cent" from
+  // matching inside "récent", "sept" inside "septembre", "vingt" in "vingtaine",
+  // etc. No lookbehind is used, for broad browser support.
+  const NUMBER_WORD_RE = new RegExp(
+    "([^\\p{L}]|^)(" + Object.keys(NUMBER_WORDS).join("|") + ")(?=[^\\p{L}]|$)",
+    "gu",
+  );
+
+  function wordsToDigits(text) {
+    return text.replace(
+      NUMBER_WORD_RE,
+      (match, boundary, word) => boundary + NUMBER_WORDS[word],
+    );
+  }
+
+  // Fold thousands separators so "100 000", "100000" and "100,000" all match.
+  // Only a separator followed by a group of EXACTLY three digits is removed, so
+  // French decimals like "3,5" are left intact. Loops to catch "1 000 000".
+  function foldNumberSeparators(text) {
+    let previous;
+    do {
+      previous = text;
+      text = text.replace(/(\d)[ ,](\d{3})(?=\D|$)/g, "$1$2");
+    } while (text !== previous);
+    return text;
+  }
+
   function normalize(value) {
     let text = value.trim().toLowerCase().replace(/\s+/g, " ");
+
+    // Always-on, independent of the accent/punctuation toggles.
+    text = foldApostrophes(text);
+    text = wordsToDigits(text);
+    text = foldNumberSeparators(text);
 
     if (state.ignoreAccents) {
       text = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");

@@ -3,26 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <title>Translation Quiz</title>
-
-    <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
     ></script>
-
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-CHXHM9CZKM");
     </script>
-
-    <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -39,16 +32,13 @@
       <p class="subtitle">
         Translate the sentences into French. (Watch your spelling!)
       </p>
-
       <div id="quiz-area"></div>
-
       <div class="btn-row">
         <button class="btn-verify" onclick="checkTranslations()">
           Check Answers
         </button>
         <button class="btn-reset" onclick="resetTranslations()">Reset</button>
       </div>
-
       <div class="page-nav">
         <a href="translation1.html" class="page-btn active">1</a>
         <a href="translation2.html" class="page-btn">2</a>
@@ -60,70 +50,52 @@
     <script>
       const questions = [
         {
-          english: "I imagine we'll get delivery more often.",
+          english: "What are you doing today?",
+          answers: ["Tu fais quoi aujourd'hui", "Qu'est-ce que tu fais aujourd'hui"],
+        },
+        {
+          english: "I woke up feeling great.",
+          answers: ["Je me suis réveillée en pleine forme"],
+        },
+        {
+          english: "We're going to publish it on Amazon next month.",
+          answers: ["On va le publier sur Amazon le mois prochain"],
+        },
+        {
+          english:
+            "It's about two guards who watch over a gorge where, unbeknownst to them, a private company is running secret experiments.",
           answers: [
-            "J'imagine qu'on se fera livrer plus souvent",
-            "J'imagine qu'on va se faire livrer plus souvent",
+            "Ça parle de deux gardes qui surveillent une gorge où, sans qu'ils le sachent, une boîte privée mène des expériences secrètes",
           ],
         },
         {
-          english: "Otherwise, you have to pay for Grab.",
+          english: "Did you take any medication?",
+          answers: ["Tu as pris des médicaments"],
+        },
+        {
+          english: "So we're working with Claude on the historical accuracy.",
+          answers: ["Du coup, on bosse avec Claude pour l'exactitude historique"],
+        },
+        { english: "That's a great idea.", answers: ["C'est une super idée"] },
+        {
+          english: "So I'm taking it easy today.",
           answers: [
-            "Sinon, faut payer le Grab",
-            "Sinon, il faut payer le Grab",
+            "Du coup, je reste tranquille aujourd'hui",
+            "Donc je reste tranquille aujourd'hui",
           ],
         },
         {
-          english: "Super convenient.",
-          answers: ["Super pratiques", "Super pratique"],
+          english: "The human body is really strange.",
+          answers: ["Le corps humain, c'est vraiment bizarre"],
         },
         {
-          english: "We'll have to get used to everything.",
-          answers: [
-            "Il va falloir s'habituer à tout",
-            "Va falloir s'habituer à tout",
-          ],
+          english: "What else did you do yesterday?",
+          answers: ["Tu as fait quoi d'autre hier"],
         },
+        { english: "Yes.", answers: ["Oui"] },
         {
-          english: "We'll be able to have breakfast on the balcony.",
-          answers: [
-            "On pourra prendre le petit-déj sur le balcon",
-            "On pourra prendre le petit-déjeuner sur le balcon",
-          ],
-        },
-        {
-          english: "We can't afford to lose any more.",
-          answers: [
-            "On peut pas se permettre d'en perdre plus",
-            "On ne peut pas se permettre d'en perdre plus",
-          ],
-        },
-        {
-          english: "The hot food will be packed in plastic, though.",
-          answers: [
-            "La bouffe chaude sera emballée dans du plastique, par contre",
-          ],
-        },
-        {
-          english: "Cooking ourselves is healthiest.",
-          answers: [
-            "Cuisiner nous-mêmes, c'est le plus sain",
-            "Cuisiner nous-mêmes, c'est ce qu'il y a de plus sain",
-          ],
-        },
-        {
-          english: "We might have to put in the mosquito screens ourselves.",
-          answers: [
-            "Faudra peut-être poser les moustiquaires nous-mêmes",
-            "Il faudra peut-être poser les moustiquaires nous-mêmes",
-          ],
-        },
-        {
-          english: "We need to put AC in the humid kitchen.",
-          answers: [
-            "Faut mettre la clim dans la cuisine humide",
-            "Il faut mettre la clim dans la cuisine humide",
-          ],
+          english: "I alternated heat and cold on my back.",
+          answers: ["J'ai alterné le chaud et le froid sur le dos"],
         },
       ];
     </script>

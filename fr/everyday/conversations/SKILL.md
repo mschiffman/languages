@@ -16,7 +16,23 @@ Each conversation lives in its own subfolder, `conversations/convN/`.
 | Listening Master (comprehension) | `fr/everyday/conversations/convN/listen-master.html` |
 | Translation Quiz (5 pages) | `fr/everyday/conversations/convN/translation1.html` – `translation5.html` |
 | Navigation script | `assets/js/nav-conv.js` |
+| Exercise scoring/feedback script (shared) | `assets/js/exercise-feedback.js` |
 | Source transcript | Provided as a `.txt` or `.md` file |
+
+**`assets/js/exercise-feedback.js` is shared across all conversations** — do not create a per-conversation copy of it. It auto-detects which page it's on (translation quiz, listen-master, or dictation, based on which elements/globals exist) and:
+
+- Renders the translation quiz's `questions` array into `#quiz-area` and scores it
+- Adds a live score box (correct / wrong / unanswered + percentage bar) to all three exercise types
+- Adds "Accept answers without accents" / "Ignore punctuation" toggle checkboxes that all answer-checking respects
+- Normalizes answers before comparing: folds curly apostrophes, spells-out number words to digits (`vingt` → `20`), and collapses thousands separators — so `answers` arrays only need to list genuinely different phrasings, not punctuation/formatting variants
+- Overrides `checkAnswers`/`resetTest` (listen-master) and `changeLevel`/`checkDictation`/etc. (dictation) after the page's own inline script defines them, so the page script can stay simple
+
+Every `translationN.html`, `listen.html`, and `listen-master.html` loads it the same way, right before `nav-utensils.js`:
+
+```html
+<script src="/assets/js/exercise-feedback.js"></script>
+<script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+```
 
 ---
 
@@ -124,6 +140,8 @@ Go through the conversation paragraph by paragraph and split each into individua
 
 For each sentence, record the French original and its English translation (already available from Step 2's `.translation` blocks — split into matching fragments). Number them sequentially in conversation order; this numbering drives the audio filenames in Step 5.
 
+This master bank (order, numbering, and one-sentence-per-entry) stays exactly as extracted — Step 5's dictation audio is recorded against these exact sentences and indices. **The chunking described in Step 6 is a further split applied only to that copy**, not to this master bank.
+
 ---
 
 ## Step 5 — Create `convN/listen.html`
@@ -137,18 +155,43 @@ Copy the most recent conversation's `listen.html` as a template (a "Smart Dictat
 
 Audio files are expected at `{audioBase}{NN}-{m|f}.mp3` where `NN` is the sentence's **original** Step 4 index (not its shuffled display position), zero-padded to 2 digits (e.g. `01-m.mp3`, `01-f.mp3`). Update `playAudio()` to build the filename from `audioNums[currentIndex]` rather than `currentIndex + 1`, since the two now differ.
 
+The page's inline script only needs to define `sentences`, `translations`, `audioNums`, `audioBase`, and the level-navigation/audio/hint functions shown in the template. Loading `assets/js/exercise-feedback.js` afterward (see [File locations](#file-locations)) adds the live score box and accent/punctuation toggles, and wraps `changeLevel`/`checkDictation`/`revealAnswer`/`resetDictation` so each level's correct/wrong status persists as the learner navigates between levels — don't duplicate that scoring logic in the page script.
+
 ---
 
 ## Step 6 — Create `convN/translation1.html` – `translation5.html`
 
-Copy the most recent conversation's `translationN.html` pages as templates. **Shuffle the Step 4 sentence bank into random order first**, then split the shuffled list into 5 pages of 10 questions each (the last page may have fewer if the bank isn't a multiple of 10) — do not keep conversation order, since that lets learners anticipate the next answer from memory of the dialogue. For each page, update:
+Copy the most recent conversation's `translationN.html` pages as templates. The page body only needs an empty `<div id="quiz-area"></div>` plus one inline script defining a `questions` array — `assets/js/exercise-feedback.js` renders the question blocks, wires up input checking, and adds the live score box at runtime:
+
+```html
+<div id="quiz-area"></div>
+...
+<script>
+  const questions = [
+    { english: "It's going to be very hot today.", answers: ["Il va faire très chaud aujourd'hui", "Il fera très chaud aujourd'hui"] },
+    { english: "I've got this.", answers: ["Je gère", "Je gère ça"] },
+    ...
+  ];
+</script>
+```
+
+Each entry is `{ english, answers }` — `answers` is an array of acceptable French translations (add alternate phrasings as extra array entries when there's more than one reasonable translation, e.g. with vs. without an em dash). You don't need to list accent-free or differently-punctuated variants — the shared script normalizes those away.
+
+### Chunk long/compound sentences into separate questions
+
+Before shuffling, go through the Step 4 sentence bank and **split any long or multi-clause sentence into meaningful chunks**, each becoming its own `questions` entry, instead of asking the learner to produce one long sentence in a single answer box. A chunk is worth splitting out when it's an independent clause with its own subject and verb (joined to the rest by `et`, `mais`, a comma, `parce que`, a relative clause, etc.) — not just any comma-separated fragment. For example:
+
+> "Ça doit être sympa de pouvoir partir comme ça n'importe quand dans l'année, quel que soit le temps."
+
+is better asked as two questions ("It must be nice to be able to leave like that anytime during the year." / "Whatever the weather.") than one. Short sentences and tightly-bound clauses (e.g. "Faut que je traite demain") stay whole — only split when it genuinely makes the question easier to answer without changing the meaning of either half. This chunking only affects the translation quiz's copy of the bank; it does not change Step 4's master numbering or Step 5's sentences/audio.
+
+**Shuffle the (possibly-chunked) list into random order first**, then split into 5 pages of 10 questions each (the last page may have fewer if the bank isn't a multiple of 10) — do not keep conversation order, since that lets learners anticipate the next answer from memory of the dialogue. For each page, update:
 
 - `<h2>` → `✍️ Translation Challenge (Page N)`
-- Each `.question-block`'s `english-prompt` → the English sentence
-- `answerKey` → maps `q1`…`q10` to an array of acceptable French answers (add alternate phrasings as extra array entries when there's more than one reasonable translation, e.g. with vs. without an em dash)
+- `questions` → the page's slice of the shuffled (and chunked) list
 - `page-nav` → mark the current page's `page-btn` as `active`
 
-These pages share `assets/css/translation.css` and reuse the same `checkTranslations()` / `resetTranslations()` script boilerplate — only the content arrays and page number differ.
+These pages share `assets/css/translation.css` and load `assets/js/exercise-feedback.js` (see the shared-script note in [File locations](#file-locations)) — only the `questions` array and page number differ.
 
 ---
 
@@ -160,6 +203,8 @@ Copy the most recent conversation's `listen-master.html` as a template (uses the
 - `#trans-box` → the narrative text
 - The 10 `.question-item` blocks → your comprehension questions, each with one `value="correct"` radio option
 - `page-nav` → `<a href="listen-master.html" class="page-btn active">1</a>` (if the narrative is long enough to need a second page, follow conv31's `listen-master1.html` / `listen-master2.html` split-page pattern instead)
+
+Load order matters: `assets/js/listenMaster.js` (voice switching, transcript toggle) then `assets/js/exercise-feedback.js` (see [File locations](#file-locations)), which overrides `checkAnswers`/`resetTest` to add the live, percentage-based score breakdown (correct/wrong/unanswered) that updates as each radio is selected, not just on submit.
 
 ---
 
@@ -224,8 +269,9 @@ There is only one entry to change — the node always links to the most recent c
 - [ ] `convN/tree-convN.html` created with 5–6 themed branches
 - [ ] Sentence bank extracted from the conversation (Step 4)
 - [ ] `convN/listen.html` created with the full sentence bank **shuffled** (random order), correct `audioBase`, and `audioNums` mapping each shuffled entry back to its original index
-- [ ] `convN/translation1.html`–`translation5.html` created, sentence bank **shuffled** then split 10/page with answer keys
+- [ ] `convN/translation1.html`–`translation5.html` created, sentence bank **chunked** (long sentences split into meaningful clauses) then **shuffled** and split 10/page as `questions` arrays
 - [ ] `convN/listen-master.html` created with an original narrative + 10 comprehension questions
+- [ ] All three exercise page types load `assets/js/exercise-feedback.js` (not a per-conversation copy) after the page's own script(s)
 - [ ] `convN.html` supplement section links to the mind map, translation, listening lab, and listening master pages
 - [ ] `nav-conv.js` updated with the new entry
 - [ ] `nav-conv.js?v=` bumped in **all** conversation HTML files (Step 9 PowerShell)
