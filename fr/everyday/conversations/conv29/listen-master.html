@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listening Test: Dual Voice</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/assets/css/listenMaster.css" />
+  </head>
+  <body>
+    <div class="test-card">
+      <h2>🎧 Compréhension Orale</h2>
+      <div class="subtitle">
+        Select a voice, listen, and click the correct box.
+      </div>
+
+      <div class="voice-selector">
+        <button
+          class="voice-btn active-male"
+          id="btn-male"
+          onclick="setVoice('male')"
+        >
+          👨 Male Voice
+        </button>
+        <button class="voice-btn" id="btn-female" onclick="setVoice('female')">
+          👩 Female Voice
+        </button>
+        <button
+          class="voice-btn"
+          id="btn-female-slow"
+          onclick="setVoice('female_slow')"
+        >
+          👩 Female Voice - Slow
+        </button>
+      </div>
+
+      <div class="audio-container">
+        <audio id="main-player" controls>
+          <source
+            id="audio-source"
+            src="https://languages.rmlives.com/lessons/everyday/conv29/listen-master/listen-m.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button
+          onclick="toggleTranscript()"
+          style="
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+          "
+        >
+          👁️ Show/Hide Transcript
+        </button>
+        <div class="transcript-box" id="trans-box">
+          Ce matin, Percida est passée récupérer des briques pour aménager son
+          jardin. Comme il allait faire très chaud, elle a décidé de s'y
+          mettre tout de suite. Robert lui a prêté des gants et un petit
+          chariot pour qu'elle ne s'esquinte pas les mains. Sa voiture pouvait
+          pas tout transporter d'un seul coup, alors elle a prévu de faire
+          deux allers-retours. Avant de partir, elle a goûté les petits pains
+          aux pommes de terre que Robert venait de préparer. Elle les a
+          trouvés tellement bons qu'elle en a pris deux pour la route.
+        </div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="question-item">
+          <span class="q-text"
+            >1. Quand est-ce que Percida est passée récupérer des
+            briques ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1a" value="correct" />
+              <label class="option-box" for="q1a">Ce matin</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1b" value="wrong" />
+              <label class="option-box" for="q1b">Hier soir</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">La semaine dernière</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >2. Pourquoi est-ce qu'elle a récupéré des briques ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2a" value="correct" />
+              <label class="option-box" for="q2a"
+                >Pour aménager son jardin</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2b" value="wrong" />
+              <label class="option-box" for="q2b">Pour construire un mur</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2c" value="wrong" />
+              <label class="option-box" for="q2c"
+                >Pour réparer la terrasse</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >3. Pourquoi a-t-elle décidé de s'y mettre tout de suite ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3a" value="wrong" />
+              <label class="option-box" for="q3a">Parce qu'elle était pressée</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3b" value="correct" />
+              <label class="option-box" for="q3b"
+                >Parce qu'il allait faire très chaud</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3c" value="wrong" />
+              <label class="option-box" for="q3c"
+                >Parce que Robert l'attendait</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">4. Qu'est-ce que Robert lui a prêté ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4a" value="wrong" />
+              <label class="option-box" for="q4a">Une échelle et un seau</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4b" value="correct" />
+              <label class="option-box" for="q4b"
+                >Des gants et un petit chariot</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4c" value="wrong" />
+              <label class="option-box" for="q4c"
+                >Une brouette et une pelle</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >5. Pourquoi Robert lui a-t-il prêté ces objets ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5a" value="correct" />
+              <label class="option-box" for="q5a"
+                >Pour qu'elle ne s'esquinte pas les mains</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5b" value="wrong" />
+              <label class="option-box" for="q5b">Pour qu'elle aille plus vite</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5c" value="wrong" />
+              <label class="option-box" for="q5c"
+                >Pour l'aider à porter les briques</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >6. Pourquoi a-t-elle prévu de faire deux allers-retours ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6a" value="correct" />
+              <label class="option-box" for="q6a"
+                >Sa voiture ne pouvait pas tout transporter d'un seul
+                coup</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6b" value="wrong" />
+              <label class="option-box" for="q6b"
+                >Elle voulait voir Robert deux fois</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6c" value="wrong" />
+              <label class="option-box" for="q6c"
+                >Les briques étaient trop lourdes pour le chariot</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >7. Qu'est-ce qu'elle a goûté avant de partir ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7a" value="wrong" />
+              <label class="option-box" for="q7a">Une tarte aux pommes</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7b" value="correct" />
+              <label class="option-box" for="q7b"
+                >Les petits pains aux pommes de terre</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7c" value="wrong" />
+              <label class="option-box" for="q7c">Une soupe</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">8. Qui avait préparé les petits pains ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8a" value="wrong" />
+              <label class="option-box" for="q8a">Percida</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8b" value="correct" />
+              <label class="option-box" for="q8b">Robert</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8c" value="wrong" />
+              <label class="option-box" for="q8c">Marissa</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >9. Comment a-t-elle trouvé les petits pains ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9a" value="wrong" />
+              <label class="option-box" for="q9a">Trop salés</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9b" value="correct" />
+              <label class="option-box" for="q9b">Tellement bons</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9c" value="wrong" />
+              <label class="option-box" for="q9c">Un peu secs</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >10. Qu'est-ce qu'elle a fait parce qu'elle les a trouvés si
+            bons ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10a" value="correct" />
+              <label class="option-box" for="q10a"
+                >Elle en a pris deux pour la route</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10b" value="wrong" />
+              <label class="option-box" for="q10b">Elle a demandé la recette</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10c" value="wrong" />
+              <label class="option-box" for="q10c"
+                >Elle en a laissé pour Robert</label
+              >
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="score-display" id="score-box"></div>
+      <div class="controls">
+        <button
+          class="action-btn btn-check-answers"
+          type="button"
+          onclick="checkAnswers()"
+        >
+          Check Answers
+        </button>
+        <button
+          class="action-btn btn-reset"
+          type="button"
+          onclick="resetTest()"
+        >
+          Reset Test
+        </button>
+      </div>
+      <div class="page-nav">
+        <a href="listen-master.html" class="page-btn active">1</a>
+      </div>
+    </div>
+
+    <script>
+      const audioFiles = {
+        male: "https://languages.rmlives.com/lessons/everyday/conv29/listen-master/listen-m.mp3",
+        female:
+          "https://languages.rmlives.com/lessons/everyday/conv29/listen-master/listen-f.mp3",
+        female_slow:
+          "https://languages.rmlives.com/lessons/everyday/conv29/listen-master/listen-fs.mp3",
+      };
+    </script>
+    <script src="/assets/js/listenMaster.js"></script>
+    <script src="/assets/js/exercise-feedback.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

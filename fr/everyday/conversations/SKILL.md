@@ -24,6 +24,7 @@ Each conversation lives in its own subfolder, `conversations/convN/`.
 - Renders the translation quiz's `questions` array into `#quiz-area` and scores it
 - Adds a live score box (correct / wrong / unanswered + percentage bar) to all three exercise types
 - Adds "Accept answers without accents" / "Ignore punctuation" toggle checkboxes that all answer-checking respects
+- Renders an optional hover note icon next to any translation-quiz question that has a `note` field, using the same pure-CSS `data-note`/`::after` tooltip technique as `fr/pimsleur/1.1.html`
 - Normalizes answers before comparing: folds curly apostrophes, spells-out number words to digits (`vingt` → `20`), and collapses thousands separators — so `answers` arrays only need to list genuinely different phrasings, not punctuation/formatting variants
 - Overrides `checkAnswers`/`resetTest` (listen-master) and `changeLevel`/`checkDictation`/etc. (dictation) after the page's own inline script defines them, so the page script can stay simple
 
@@ -177,6 +178,16 @@ Copy the most recent conversation's `translationN.html` pages as templates. The 
 ```
 
 Each entry is `{ english, answers }` — `answers` is an array of acceptable French translations (add alternate phrasings as extra array entries when there's more than one reasonable translation, e.g. with vs. without an em dash). You don't need to list accent-free or differently-punctuated variants — the shared script normalizes those away.
+
+Add an optional `note` string to a question when a word/construction is worth a grammar aside (e.g. explaining alternate phrasings, a false friend, a register difference). It renders as a small icon next to that question; hovering shows the note text in a tooltip — no extra markup needed beyond the field itself:
+
+```js
+{
+  english: "I mean, he has slowed down with age but he still has a lot of energy.",
+  answers: ["Enfin, il a ralenti avec l'âge, mais il a encore plein d'énergie"],
+  note: "Other ways to say \"I mean\": je veux dire ... (explain nuances)",
+}
+```
 
 ### Chunk long/compound sentences into separate questions
 

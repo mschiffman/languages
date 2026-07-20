@@ -80,8 +80,71 @@
         font-weight: 600;
         margin-top: 6px;
       }
+      .prompt-row {
+        align-items: flex-start;
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .prompt-row .english-prompt {
+        margin-bottom: 0;
+      }
+      .note-wrapper {
+        flex-shrink: 0;
+        position: relative;
+      }
+      .note-btn {
+        align-items: center;
+        background: linear-gradient(135deg, #e8f4ff, #cce8ff);
+        border: none;
+        border-radius: 8px;
+        color: #3498db;
+        cursor: pointer;
+        display: flex;
+        height: 28px;
+        justify-content: center;
+        transition: background 0.2s;
+        width: 28px;
+      }
+      .note-btn:hover {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+      }
+      .note-wrapper::after {
+        background: white;
+        border-radius: 8px;
+        bottom: calc(100% + 8px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+        color: #444;
+        content: attr(data-note);
+        font-family: "Segoe UI", sans-serif;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        opacity: 0;
+        padding: 10px 12px;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        text-align: left;
+        transition: opacity 0.2s ease;
+        white-space: normal;
+        width: 260px;
+        z-index: 20;
+      }
+      .note-wrapper:hover::after {
+        opacity: 1;
+      }
     `;
     document.head.appendChild(style);
+  }
+
+  function escapeHtml(text) {
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   }
 
   // --- Normalization helpers ------------------------------------------------
@@ -267,7 +330,21 @@
         .map(
           (question, index) => `
             <div class="question-block" id="block-${index + 1}">
-              <span class="english-prompt">${index + 1}. ${question.english}</span>
+              <div class="prompt-row">
+                <span class="english-prompt">${index + 1}. ${question.english}</span>
+                ${
+                  question.note
+                    ? `<div class="note-wrapper" data-note="${escapeHtml(question.note)}">
+                        <button type="button" class="note-btn" title="Notes">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                          </svg>
+                        </button>
+                      </div>`
+                    : ""
+                }
+              </div>
               <div class="input-wrap">
                 <input type="text" class="user-input" id="q${index + 1}" placeholder="Type here..." autocomplete="off" autocapitalize="off" spellcheck="false" />
                 <i class="bi bi-check-circle-fill check-icon"></i>

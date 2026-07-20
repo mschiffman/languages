@@ -25,7 +25,7 @@ document.getElementById("navbar").innerHTML = `
           <a class="nav-link active" href="/index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="archive.html">Archive</a>
+          <a class="nav-link active" href="archive.html" target="_blank">Archive</a>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -40,22 +40,7 @@ document.getElementById("navbar").innerHTML = `
           </a>
           <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
             <li>
-              <a class="dropdown-item" href="../../french.html">French Main</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="../pron/RFI260202/index.html">French Pronunciation</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="../enunciation/r/index.html">French Enunciation</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="../reading/index.html">Reading Practice</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="../grammar/index.html">French Grammar</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="../../comedy/index.html">French Jokes</a>
+              <a class="dropdown-item" href="/sitemap.html" target="_blank">French Main</a>
             </li>
           </ul>
         </li>
