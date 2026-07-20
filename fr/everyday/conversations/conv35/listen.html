@@ -362,12 +362,6 @@
         "They would do well to treat it too.",
       ];
 
-      const audioNums = [
-        38, 5, 35, 25, 12, 43, 2, 27, 15, 48, 8, 22, 29, 34, 37, 47, 20, 51, 44,
-        3, 11, 49, 17, 30, 41, 23, 13, 52, 39, 33, 24, 42, 10, 26, 50, 4, 54,
-        16, 32, 19, 1, 9, 31, 21, 40, 53, 28, 18, 36, 14, 7, 45, 6, 46,
-      ];
-
       let currentIndex = 0;
       const audioBase =
         "https://languages.rmlives.com/lessons/everyday/conv35/listen/";
@@ -390,7 +384,7 @@
       }
 
       function playAudio(gender) {
-        const num = String(audioNums[currentIndex]).padStart(2, "0");
+        const num = String(currentIndex + 1).padStart(2, "0");
         const player = document.getElementById("player");
         player.src = `${audioBase}${num}-${gender}.mp3`;
         player.play();

@@ -138,9 +138,9 @@ Both the Listening Lab (Step 5) and the Translation Quiz (Step 6) reuse the same
 
 Go through the conversation paragraph by paragraph and split each into individual sentences/clauses on `.`, `?`, `!`, keeping an ellipsis (`…`) as internal punctuation rather than a hard break. Be inclusive — even short fragments and interjections (e.g. `"Là."`, `"On verra."`) are kept, since they still have pedagogical value. Skip only pure non-lexical filler (e.g. a lone "Hmmm"). A typical 18–21 paragraph conversation yields roughly 45–50 sentences.
 
-For each sentence, record the French original and its English translation (already available from Step 2's `.translation` blocks — split into matching fragments). Number them sequentially in conversation order; this numbering drives the audio filenames in Step 5.
+For each sentence, record the French original and its English translation (already available from Step 2's `.translation` blocks — split into matching fragments), numbered sequentially in conversation order.
 
-This master bank (order, numbering, and one-sentence-per-entry) stays exactly as extracted — Step 5's dictation audio is recorded against these exact sentences and indices. **The chunking described in Step 6 is a further split applied only to that copy**, not to this master bank.
+This master bank (order and one-sentence-per-entry) stays exactly as extracted — Step 5 shuffles a copy of it, and the dictation audio is recorded against that shuffled order (not this conversation-order numbering). **The chunking described in Step 6 is a further split applied only to that copy**, not to this master bank.
 
 ---
 
@@ -148,14 +148,15 @@ This master bank (order, numbering, and one-sentence-per-entry) stays exactly as
 
 Copy the most recent conversation's `listen.html` as a template (a "Smart Dictation - 10 Levels" page, self-contained with inline CSS). Update:
 
-- `const sentences` → the French sentence bank from Step 4, **shuffled into random order** (do not present it in conversation order — that makes the audio predictable/skippable)
+- `const sentences` → the French sentence bank from Step 4, **chunked and shuffled into random order**:
+  - **Chunk first.** Split any long or multi-clause sentence into meaningful, independently-transcribable pieces, same criteria as Step 6's chunking (split on an independent clause with its own subject and verb — joined by `et`, `mais`, a comma, `parce que`, a relative clause, etc. — not just any comma). One long sentence dictated as a single entry is slow to record, slow to check, and easy to get wrong on a single missed word; shorter chunks keep each dictation level quick to attempt and verify. Short sentences and tightly-bound clauses stay whole. This chunking is applied to `listen.html`'s own copy of the bank — it does not change Step 4's master numbering.
+  - **Then shuffle** the (now-chunked) list into random order (do not present it in conversation order — that makes the audio predictable/skippable)
 - `const translations` → the matching English translations, reordered the same way so each entry still lines up with its sentence (used for the Hint button)
-- `const audioNums` → a parallel array giving each shuffled entry's **original** Step 4 index (1-based), since the pre-recorded audio files are named after conversation order, not display order
 - `const audioBase` → `https://languages.rmlives.com/lessons/everyday/convN/listen/`
 
-Audio files are expected at `{audioBase}{NN}-{m|f}.mp3` where `NN` is the sentence's **original** Step 4 index (not its shuffled display position), zero-padded to 2 digits (e.g. `01-m.mp3`, `01-f.mp3`). Update `playAudio()` to build the filename from `audioNums[currentIndex]` rather than `currentIndex + 1`, since the two now differ.
+Audio files are recorded **in this same shuffled order** and named sequentially: `{audioBase}{NN}-{m|f}.mp3` where `NN` is the sentence's shuffled display position (`currentIndex + 1`), zero-padded to 2 digits (e.g. `01-m.mp3`, `01-f.mp3`). `playAudio()` builds the filename directly from `currentIndex + 1` — no separate mapping array is needed.
 
-The page's inline script only needs to define `sentences`, `translations`, `audioNums`, `audioBase`, and the level-navigation/audio/hint functions shown in the template. Loading `assets/js/exercise-feedback.js` afterward (see [File locations](#file-locations)) adds the live score box and accent/punctuation toggles, and wraps `changeLevel`/`checkDictation`/`revealAnswer`/`resetDictation` so each level's correct/wrong status persists as the learner navigates between levels — don't duplicate that scoring logic in the page script.
+The page's inline script only needs to define `sentences`, `translations`, `audioBase`, and the level-navigation/audio/hint functions shown in the template. Loading `assets/js/exercise-feedback.js` afterward (see [File locations](#file-locations)) adds the live score box and accent/punctuation toggles, and wraps `changeLevel`/`checkDictation`/`revealAnswer`/`resetDictation` so each level's correct/wrong status persists as the learner navigates between levels — don't duplicate that scoring logic in the page script.
 
 ---
 
@@ -268,7 +269,7 @@ There is only one entry to change — the node always links to the most recent c
 - [ ] All French characters are correct UTF-8 (no `Ã©` artifacts)
 - [ ] `convN/tree-convN.html` created with 5–6 themed branches
 - [ ] Sentence bank extracted from the conversation (Step 4)
-- [ ] `convN/listen.html` created with the full sentence bank **shuffled** (random order), correct `audioBase`, and `audioNums` mapping each shuffled entry back to its original index
+- [ ] `convN/listen.html` created with the full sentence bank **chunked** (long/multi-clause sentences split into meaningful pieces) then **shuffled** (random order), correct `audioBase`; audio recorded in that same chunked/shuffled order and numbered sequentially (`01`, `02`, …)
 - [ ] `convN/translation1.html`–`translation5.html` created, sentence bank **chunked** (long sentences split into meaningful clauses) then **shuffled** and split 10/page as `questions` arrays
 - [ ] `convN/listen-master.html` created with an original narrative + 10 comprehension questions
 - [ ] All three exercise page types load `assets/js/exercise-feedback.js` (not a per-conversation copy) after the page's own script(s)

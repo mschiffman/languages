@@ -262,19 +262,23 @@
         "Et normalement il va encore pleuvoir aujourd'hui.",
         "C'est génial.",
         "On a mangé une soupe aux boulettes avec une salade.",
-        "Mais à part ça, je peux faire les autres tâches du quotidien, genre faire le lit, essuyer le plan de travail et arroser les plantes.",
+        "Mais à part ça, je peux faire les autres tâches du quotidien,",
+        "genre faire le lit, essuyer le plan de travail et arroser les plantes.",
         "C'est tout simplement brillant.",
         "Je veux commencer à parler français à la maison.",
         "J'ai mal au dos.",
         "Un peu mieux qu'hier, mais j'ai toujours mal.",
         "Et j'ai un peu étudié aussi.",
         "C'est divertissant.",
-        "Quand je me suis penchée pour ramasser un bidon d'un gallon, ça s'est mis à faire mal d'un coup.",
+        "Quand je me suis penchée pour ramasser un bidon d'un gallon,",
+        "ça s'est mis à faire mal d'un coup.",
         "Robert bosse déjà sur un autre.",
         "Oui.",
         "Ça fait combien de jours que tu as mal comme ça ?",
         "Vous allez le publier quand ?",
-        "Ça parle de deux gardes qui surveillent une gorge où, sans qu'ils le sachent, une boîte privée mène des expériences secrètes.",
+        "Ça parle de deux gardes qui surveillent une gorge où,",
+        "sans qu'ils le sachent,",
+        "une boîte privée mène des expériences secrètes.",
         "Oui, j'ai pris du Celebrex.",
         "Ça parle d'un médecin au 19e siècle et de ses aventures de voyage.",
         "L'abonnement était offert avec une carte de crédit que Robert a prise le mois dernier.",
@@ -283,7 +287,8 @@
         "Vous avez mangé quoi hier soir ?",
         "Ça fait plus mal quand je fais la vaisselle, alors c'est Robert qui finit par la faire.",
         "Robert a enfin fini son roman.",
-        "J'ai étudié des conversations du quotidien et j'ai fait des exercices de traduction et de compréhension orale.",
+        "J'ai étudié des conversations du quotidien",
+        "et j'ai fait des exercices de traduction et de compréhension orale.",
         "Pas grand-chose.",
         "Tu te sens comment aujourd'hui ?",
         "Oh, comme d'hab, j'ai bossé sur mon site de français.",
@@ -319,19 +324,23 @@
         "And it's supposed to rain again today.",
         "That's great.",
         "We had meatball soup with a salad.",
-        "But apart from that, I can do the other everyday tasks, like making the bed, wiping down the counter, and watering the plants.",
+        "But apart from that, I can do the other everyday tasks,",
+        "like making the bed, wiping down the counter, and watering the plants.",
         "It's simply brilliant.",
         "I want to start speaking French at home.",
         "My back hurts.",
         "A little better than yesterday, but I still hurt.",
         "And I studied a bit too.",
         "It's entertaining.",
-        "When I bent down to pick up a gallon jug, it suddenly started hurting.",
+        "When I bent down to pick up a gallon jug,",
+        "it suddenly started hurting.",
         "Robert's already working on another one.",
         "Yes.",
         "How many days have you had pain like this?",
         "When are you going to publish it?",
-        "It's about two guards who watch over a gorge where, unbeknownst to them, a private company is running secret experiments.",
+        "It's about two guards watching over a gorge where,",
+        "unbeknownst to them,",
+        "a private company is running secret experiments.",
         "Yes, I took some Celebrex.",
         "It's about a doctor in the 19th century and his travel adventures.",
         "The subscription came free with a credit card Robert got last month.",
@@ -340,7 +349,8 @@
         "What did you have for dinner last night?",
         "It hurts more when I do the dishes, so Robert ends up doing them.",
         "Robert finally finished his novel.",
-        "I studied everyday conversations and did some translation and listening comprehension exercises.",
+        "I studied everyday conversations",
+        "and did some translation and listening comprehension exercises.",
         "Not much.",
         "How are you feeling today?",
         "Oh, as usual, I worked on my French website.",
@@ -360,12 +370,6 @@
         "So I'm taking it easy today.",
         "What else did you do yesterday?",
         "What did you study?",
-      ];
-
-      const audioNums = [
-        1, 18, 35, 52, 15, 32, 49, 12, 29, 46, 9, 26, 43, 6, 23, 40, 3, 20, 37,
-        54, 17, 34, 51, 14, 31, 48, 11, 28, 45, 8, 25, 42, 5, 22, 39, 2, 19,
-        36, 53, 16, 33, 50, 13, 30, 47, 10, 27, 44, 7, 24, 41, 4, 21, 38,
       ];
 
       let currentIndex = 0;
@@ -390,7 +394,7 @@
       }
 
       function playAudio(gender) {
-        const num = String(audioNums[currentIndex]).padStart(2, "0");
+        const num = String(currentIndex + 1).padStart(2, "0");
         const player = document.getElementById("player");
         player.src = `${audioBase}${num}-${gender}.mp3`;
         player.play();
