@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Y / EN Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../assets/css/translation.css" />
+  </head>
+  <body>
+    <div class="translation-card">
+      <h2>✍️ Practice: En</h2>
+      <p class="subtitle">
+        Translate the sentences into French, using
+        <em>en</em>. (Watch your spelling!)
+      </p>
+
+      <div id="quiz-area"></div>
+
+      <div class="btn-row">
+        <button class="btn-verify" onclick="checkTranslations()">
+          Check Answers
+        </button>
+        <button class="btn-reset" onclick="resetTranslations()">Reset</button>
+      </div>
+
+      <div class="page-nav">
+        <a href="french-y-en-exercise1.html" class="page-btn">1</a>
+        <a href="french-y-en-exercise2.html" class="page-btn active">2</a>
+      </div>
+    </div>
+
+    <script>
+      const questions = [
+        {
+          english: "Do you have any more (of them)?",
+          answers: ["T'en as d'autres ?"],
+          note: "En replaces de + the things in question — here it stands in for whatever was already mentioned.",
+        },
+        {
+          english: "I only took one (of them).",
+          answers: ["J'en ai pris qu'un.", "Je n'en ai pris qu'un."],
+          note: "En replaces the noun after ne...que; in casual speech the ne is often dropped.",
+        },
+        {
+          english: "How many (of them) did you take?",
+          answers: ["T'en as pris combien ?", "Tu en as pris combien ?"],
+          note: "En replaces the noun being counted; combien stays at the end in casual word order.",
+        },
+        {
+          english: "Do you want some?",
+          answers: ["T'en veux ?", "Tu en veux ?"],
+          note: "En replaces a partitive amount of something already mentioned.",
+        },
+        {
+          english: "I only know one (of them).",
+          answers: ["J'en connais qu'un.", "Je n'en connais qu'un."],
+          note: "Same ne...que pattern as above, with connaître instead of prendre.",
+        },
+        {
+          english: "We're going to make 400 (of them).",
+          answers: ["On va en faire 400."],
+          note: "In the near future (aller + infinitive), en moves right before the infinitive it modifies, not before aller.",
+        },
+        {
+          english: "There aren't two (of them) like that...",
+          answers: [
+            "Il y en a pas deux comme ça...",
+            "Il n'y en a pas deux comme ça...",
+          ],
+          note: "Combines y (there is/are) with en (of them) — il y a becomes il y en a.",
+        },
+        {
+          english: "I don't know anything about it.",
+          answers: ["J'en sais rien.", "Je n'en sais rien."],
+          note: "Fixed idiom built on savoir de quelque chose; en is baked into the expression.",
+        },
+        {
+          english: "You've been telling me about it for so long.",
+          answers: ["Ça fait si longtemps que tu m'en parles."],
+          note: "The expression is parler de + quelque chose (to talk about something) — en replaces de + the thing.",
+        },
+        {
+          english: "We have already talked about it.",
+          answers: ["On en a déjà parlé."],
+          note: "In the passé composé, en goes right before the auxiliary avoir.",
+        },
+        {
+          english: "I'll take care of it.",
+          answers: ["Je m'en occupe."],
+          note: "The expression is s'occuper de + quelque chose — en sits between the reflexive pronoun and the verb.",
+        },
+        {
+          english: "I suspected it / I had a feeling about it.",
+          answers: ["Je m'en doutais."],
+          note: "The expression is se douter de + quelque chose — en replaces de + the thing suspected.",
+        },
+        {
+          english: "You have to free yourself from it.",
+          answers: ["Tu dois t'en libérer."],
+          note: "The expression is se libérer de + quelque chose — en attaches to the infinitive libérer.",
+        },
+        {
+          english: "I'm taking advantage of it.",
+          answers: ["J'en profite."],
+          note: "The expression is profiter de + quelque chose.",
+        },
+        {
+          english: "We/I don't care about it.",
+          answers: ["On s'en fout.", "Je m'en fous."],
+          note: "Very common informal phrase replacing se foutre de + quelque chose.",
+        },
+        {
+          english: "I'm fed up with it / I'm sick of it.",
+          answers: ["J'en ai marre."],
+          note: "Fixed idiom, avoir marre de + quelque chose — used heavily to express exasperation.",
+        },
+        {
+          english: "I can't take it anymore.",
+          answers: ["J'en peux plus.", "Je n'en peux plus."],
+          note: "Fixed idiom (ne) en pouvoir plus — used when someone is exhausted or frustrated.",
+        },
+        {
+          english: "I'm leaving.",
+          answers: ["Je m'en vais."],
+          note: "The expression is s'en aller (to go away) — en is fused into this idiom and doesn't translate literally.",
+        },
+        {
+          english: "Did you make it / Did you get out of it okay?",
+          answers: ["Tu t'en es sortie ?"],
+          note: "The expression is s'en sortir (to manage, to cope) — en is baked into the idiom.",
+        },
+        {
+          english: "You don't say / Tell me about it.",
+          answers: ["Tu m'en diras tant."],
+          note: "Fixed idiom used when reacting to gossip, an excuse, or an overly complicated story — en doesn't translate literally.",
+        },
+      ];
+    </script>
+    <script src="/assets/js/exercise-feedback.js"></script>
+  </body>
+</html>

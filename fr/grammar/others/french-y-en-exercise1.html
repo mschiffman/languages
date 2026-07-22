@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Y / EN Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../assets/css/translation.css" />
+  </head>
+  <body>
+    <div class="translation-card">
+      <h2>✍️ Practice: Y &amp; En</h2>
+      <p class="subtitle">
+        Translate the sentences into French, using <em>y</em> or
+        <em>en</em> where appropriate. (Watch your spelling!)
+      </p>
+
+      <div id="quiz-area"></div>
+
+      <div class="btn-row">
+        <button class="btn-verify" onclick="checkTranslations()">
+          Check Answers
+        </button>
+        <button class="btn-reset" onclick="resetTranslations()">Reset</button>
+      </div>
+
+      <div class="page-nav">
+        <a href="french-y-en-exercise1.html" class="page-btn active">1</a>
+        <a href="french-y-en-exercise2.html" class="page-btn">2</a>
+      </div>
+    </div>
+
+    <script>
+      const questions = [
+        {
+          english: "Yes, I'm going there.",
+          answers: ["Oui, j'y vais"],
+          note: "Y replaces à + place — here it stands in for à Paris (or wherever 'there' refers to).",
+        },
+        {
+          english: "She lives there.",
+          answers: ["Elle y habite"],
+          note: "Y replaces en France (or wherever 'there' refers to) — French avoids repeating the place name.",
+        },
+        {
+          english: "I'm not going there.",
+          answers: ["Je n'y vais pas"],
+          note: "In the negative, y stays glued to the verb: ne + y + verb + pas.",
+        },
+        {
+          english: "I'm going to go there.",
+          answers: ["Je vais y aller"],
+          note: "In the near future (aller + infinitive), y moves right before the infinitive it modifies, not before aller.",
+        },
+        {
+          english: "Are you thinking about it?",
+          answers: ["Tu y penses", "Est-ce que tu y penses"],
+          note: "The expression is penser à + quelque chose (to think about something) — y replaces à + the thing.",
+        },
+        {
+          english: "I answered it.",
+          answers: ["J'y ai répondu"],
+          note: "The expression is répondre à + quelque chose (to answer something); in the passé composé, y goes right before the auxiliary avoir.",
+        },
+        {
+          english: "She's interested in it.",
+          answers: ["Elle s'y intéresse"],
+          note: "The expression is s'intéresser à + quelque chose (to be interested in something) — y sits between the reflexive pronoun and the verb.",
+        },
+        {
+          english: "We're participating in it.",
+          answers: ["Nous y participons", "On y participe"],
+          note: "The expression is participer à + quelque chose (to participate in something).",
+        },
+        {
+          english: "Let's go!",
+          answers: ["Allons-y"],
+          note: "In an affirmative command, y attaches after the verb with a hyphen: Allons-y !",
+        },
+        {
+          english: "Go ahead!",
+          answers: ["Vas-y"],
+          note: "Affirmative imperative of aller + y, joined with a hyphen; the -s is kept on vas before y, unlike a normal tu-imperative of an -er verb.",
+        },
+        {
+          english: "I need some.",
+          answers: ["J'en ai besoin"],
+          note: "The expression is avoir besoin de + quelque chose (to need something) — en replaces de + the thing needed.",
+        },
+        {
+          english: "Do you want some?",
+          answers: ["Tu en as envie", "Est-ce que tu en as envie"],
+          note: "The expression is avoir envie de + quelque chose (to want/feel like something).",
+        },
+        {
+          english: "We're talking about it.",
+          answers: ["Nous en parlons", "On en parle"],
+          note: "The expression is parler de + quelque chose (to talk about something).",
+        },
+        {
+          english: "I remember it.",
+          answers: ["Je m'en souviens"],
+          note: "The expression is se souvenir de + quelque chose (to remember something) — en sits between the reflexive pronoun and the verb.",
+        },
+        {
+          english: "She's afraid of them. (animals/things)",
+          answers: ["Elle en a peur"],
+          note: "The expression is avoir peur de + quelque chose (to be afraid of something).",
+        },
+        {
+          english: "I have three of them.",
+          answers: ["J'en ai trois"],
+          note: "En replaces the noun after a quantity; the number (trois) stays put right after the verb.",
+        },
+        {
+          english: "I don't want any.",
+          answers: ["Je n'en veux pas", "J'en veux pas"],
+          note: "In the negative, en stays glued to the verb: ne + en + verb + pas.",
+        },
+        {
+          english: "I'm going to buy some.",
+          answers: ["Je vais en acheter"],
+          note: "In the near future (aller + infinitive), en moves right before the infinitive it modifies, not before aller.",
+        },
+        {
+          english: "Yes, I want some.",
+          answers: ["Oui, j'en veux"],
+          note: "En replaces a partitive article (du, de la, des) + noun — here it stands in for du pain.",
+        },
+        {
+          english: "I don't care.",
+          answers: ["Je m'en fiche"],
+          note: "Fixed idiom built on se ficher de + quelque chose — en is baked into the expression and doesn't translate literally.",
+        },
+      ];
+    </script>
+    <script src="/assets/js/exercise-feedback.js"></script>
+  </body>
+</html>
