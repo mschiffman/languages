@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listening Test: Dual Voice</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/assets/css/listenMaster.css" />
+  </head>
+  <body>
+    <div class="test-card">
+      <h2>🎧 Compréhension Orale</h2>
+      <div class="subtitle">
+        Select a voice, listen, and click the correct box.
+      </div>
+
+      <div class="voice-selector">
+        <button
+          class="voice-btn active-male"
+          id="btn-male"
+          onclick="setVoice('male')"
+        >
+          👨 Male Voice
+        </button>
+        <button class="voice-btn" id="btn-female" onclick="setVoice('female')">
+          👩 Female Voice
+        </button>
+        <button
+          class="voice-btn"
+          id="btn-female-slow"
+          onclick="setVoice('female_slow')"
+        >
+          👩 Female Voice - Slow
+        </button>
+      </div>
+
+      <div class="audio-container">
+        <audio id="main-player" controls>
+          <source
+            id="audio-source"
+            src="https://languages.rmlives.com/lessons/everyday/conv37/listen-master/listen-m.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button
+          onclick="toggleTranscript()"
+          style="
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+          "
+        >
+          👁️ Show/Hide Transcript
+        </button>
+        <div class="transcript-box" id="trans-box">
+          Ce matin, mon vieux grill ne voulait plus marcher. Le voyant
+          s'allumait, mais il ne chauffait pas du tout. J'ai nettoyé la prise
+          et les broches, puis j'ai réessayé plusieurs fois. Comme cet
+          appareil a plus de vingt ans, je me suis dit que ce ne serait pas
+          une grosse perte s'il me lâchait. Finalement, je l'ai laissé sécher
+          dans la buanderie et je suis allé boire un thé pour faire une pause.
+        </div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="question-item">
+          <span class="q-text"
+            >1. Quand est-ce que le grill est tombé en panne ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1a" value="correct" />
+              <label class="option-box" for="q1a">Ce matin</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1b" value="wrong" />
+              <label class="option-box" for="q1b">Hier soir</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">La semaine dernière</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">2. Quel appareil ne voulait plus marcher ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2a" value="wrong" />
+              <label class="option-box" for="q2a">Le four</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2b" value="correct" />
+              <label class="option-box" for="q2b">Le grill</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2c" value="wrong" />
+              <label class="option-box" for="q2c">La bouilloire</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">3. Qu'est-ce qui s'allumait ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3a" value="correct" />
+              <label class="option-box" for="q3a">Le voyant</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3b" value="wrong" />
+              <label class="option-box" for="q3b">L'écran</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3c" value="wrong" />
+              <label class="option-box" for="q3c">La lampe de la cuisine</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">4. Est-ce que l'appareil chauffait ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4a" value="wrong" />
+              <label class="option-box" for="q4a">Oui, très bien</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4b" value="correct" />
+              <label class="option-box" for="q4b">Non, pas du tout</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4c" value="wrong" />
+              <label class="option-box" for="q4c">Un peu, mais pas assez</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">5. Qu'est-ce que j'ai nettoyé ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5a" value="correct" />
+              <label class="option-box" for="q5a">La prise et les broches</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5b" value="wrong" />
+              <label class="option-box" for="q5b">Le filtre et la grille</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5c" value="wrong" />
+              <label class="option-box" for="q5c">Le bouton et le câble</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >6. Combien de fois est-ce que j'ai réessayé ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6a" value="wrong" />
+              <label class="option-box" for="q6a">Une seule fois</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6b" value="correct" />
+              <label class="option-box" for="q6b">Plusieurs fois</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6c" value="wrong" />
+              <label class="option-box" for="q6c">Je n'ai pas réessayé</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">7. Quel âge a cet appareil ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7a" value="wrong" />
+              <label class="option-box" for="q7a">Plus de dix ans</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7b" value="correct" />
+              <label class="option-box" for="q7b">Plus de vingt ans</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7c" value="wrong" />
+              <label class="option-box" for="q7c">Moins de cinq ans</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">8. Qu'est-ce que je me suis dit ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8a" value="wrong" />
+              <label class="option-box" for="q8a"
+                >Qu'il fallait absolument le réparer</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8b" value="correct" />
+              <label class="option-box" for="q8b"
+                >Que ce ne serait pas une grosse perte s'il me lâchait</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8c" value="wrong" />
+              <label class="option-box" for="q8c"
+                >Que j'allais en racheter un tout de suite</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >9. Où est-ce que j'ai laissé sécher l'appareil ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9a" value="wrong" />
+              <label class="option-box" for="q9a">Dans la cuisine</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9b" value="correct" />
+              <label class="option-box" for="q9b">Dans la buanderie</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9c" value="wrong" />
+              <label class="option-box" for="q9c">Dans le garage</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >10. Qu'est-ce que j'ai fait pour faire une pause ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10a" value="correct" />
+              <label class="option-box" for="q10a">Je suis allé boire un thé</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10b" value="wrong" />
+              <label class="option-box" for="q10b"
+                >Je suis allé me reposer au lit</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10c" value="wrong" />
+              <label class="option-box" for="q10c"
+                >Je suis allé faire un tour dans le jardin</label
+              >
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="score-display" id="score-box"></div>
+      <div class="controls">
+        <button
+          class="action-btn btn-check-answers"
+          type="button"
+          onclick="checkAnswers()"
+        >
+          Check Answers
+        </button>
+        <button
+          class="action-btn btn-reset"
+          type="button"
+          onclick="resetTest()"
+        >
+          Reset Test
+        </button>
+      </div>
+      <div class="page-nav">
+        <a href="listen-master.html" class="page-btn active">1</a>
+      </div>
+    </div>
+
+    <script>
+      const audioFiles = {
+        male: "https://languages.rmlives.com/lessons/everyday/conv37/listen-master/listen-m.mp3",
+        female:
+          "https://languages.rmlives.com/lessons/everyday/conv37/listen-master/listen-f.mp3",
+        female_slow:
+          "https://languages.rmlives.com/lessons/everyday/conv37/listen-master/listen-fs.mp3",
+      };
+    </script>
+    <script src="/assets/js/listenMaster.js"></script>
+    <script src="/assets/js/exercise-feedback.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

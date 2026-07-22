@@ -258,6 +258,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "../conv37/conv37.html",
+      label: "Jul 22 - Le grill à pancakes et le quota Claude",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
