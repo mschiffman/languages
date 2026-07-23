@@ -18,7 +18,10 @@
       "Bash(Select-Object FullName)",
       "Bash(Sort-Object FullName)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(find \"media/lessons/everyday\" -maxdepth 1 -type d 2>/dev/null; echo \"---\"; find / -iname \"everyday\" -type d 2>/dev/null | grep -i media)",
+      "Read(//c//**)",
+      "Bash(node -e ' *)"
     ],
     "additionalDirectories": [
       "\\tmp",
