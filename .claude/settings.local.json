@@ -16,7 +16,9 @@
       "Bash(Rename-Item \"c:\\\\Users\\\\Owner\\\\Desktop\\\\MAIN\\\\WEBSITE\\\\My Website\\\\rmlives\\\\media\\\\RFI260504\\\\2\\\\1.mp3\" \"01.mp3\")",
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Owner\\\\Desktop\\\\rmlives\" -Recurse -File)",
       "Bash(Select-Object FullName)",
-      "Bash(Sort-Object FullName)"
+      "Bash(Sort-Object FullName)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ],
     "additionalDirectories": [
       "\\tmp",
