@@ -270,6 +270,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "../conv39/conv39.html",
+      label: "Jul 24 - Le marché flottant",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
