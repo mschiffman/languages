@@ -264,6 +264,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "../conv38/conv38.html",
+      label: "Jul 23 - La géothermie",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Translation Quiz</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../../assets/css/translation.css" />
+  </head>
+  <body>
+    <div class="translation-card">
+      <h2>✍️ Translation Challenge (Page 1)</h2>
+      <p class="subtitle">
+        Translate the sentences into French. (Watch your spelling!)
+      </p>
+      <div id="quiz-area"></div>
+      <div class="btn-row">
+        <button class="btn-verify" onclick="checkTranslations()">
+          Check Answers
+        </button>
+        <button class="btn-reset" onclick="resetTranslations()">Reset</button>
+      </div>
+      <div class="page-nav">
+        <a href="translation1.html" class="page-btn active">1</a>
+        <a href="translation2.html" class="page-btn">2</a>
+        <a href="translation3.html" class="page-btn">3</a>
+        <a href="translation4.html" class="page-btn">4</a>
+        <a href="translation5.html" class="page-btn">5</a>
+        <a href="translation6.html" class="page-btn">6</a>
+        <a href="translation7.html" class="page-btn">7</a>
+        <a href="translation8.html" class="page-btn">8</a>
+        <a href="translation9.html" class="page-btn">9</a>
+      </div>
+    </div>
+    <script>
+      const questions = [
+        {
+          english: "Geothermal?",
+          answers: ["Géothermique"],
+        },
+        {
+          english:
+            "It's silent, that's actually one of the main selling points.",
+          answers: [
+            "C'est silencieux, c'est même un peu le principal argument",
+          ],
+        },
+        {
+          english: "Right.",
+          answers: ["Bon"],
+        },
+        {
+          english: "It's kind of a natural thermostat.",
+          answers: ["C'est un peu un thermostat naturel, quoi"],
+        },
+        {
+          english:
+            "They pump it up, heat the buildings, and reinject the water.",
+          answers: [
+            "Ils pompent, ils chauffent les immeubles, et ils réinjectent l'eau",
+          ],
+        },
+        {
+          english: "And in practice, what do they actually do with it?",
+          answers: ["Et concrètement, ils font quoi avec ça"],
+        },
+        {
+          english: "But the idea of using the ground's heat, no, not at all.",
+          answers: [
+            "Mais l'idée d'utiliser la chaleur du sol, alors là, pas du tout",
+          ],
+        },
+        {
+          english:
+            "What they're using is just the fact that three meters underground, the temperature barely moves all year.",
+          answers: [
+            "Eux, ils exploitent juste le fait qu'à trois mètres sous terre, la température, elle bouge quasiment pas de l'année",
+          ],
+          note: "sous terre = underground; bouger here means to shift/budge, not the more common 'to move (house)'",
+        },
+        {
+          english: "And the price?",
+          answers: ["Et le prix, alors"],
+        },
+        {
+          english: "...and my rose bushes?",
+          answers: ["Et mes rosiers", "...et mes rosiers"],
+        },
+      ];
+    </script>
+    <script src="/assets/js/exercise-feedback.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

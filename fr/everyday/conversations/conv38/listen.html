@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Smart Dictation - 10 Levels</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+      .dictation-card {
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        max-width: 600px;
+        width: 100%;
+      }
+      h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+      .level-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 8px;
+      }
+      .level-btn {
+        background: white;
+        border: 1px solid #dcdcdc;
+        padding: 5px 15px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #7f8c8d;
+        transition: all 0.2s;
+      }
+      .level-btn:hover {
+        background: #ecf0f1;
+        color: #2c3e50;
+      }
+      .level-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+      .level-indicator {
+        font-weight: bold;
+        color: #3498db;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+      .audio-controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+      .btn-audio {
+        background: #e1f5fe;
+        color: #0288d1;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-audio:hover {
+        background: #b3e5fc;
+        transform: scale(1.05);
+      }
+      .btn-slow {
+        background: #fff3e0;
+        color: #f57c00;
+      }
+      .btn-slow:hover {
+        background: #ffe0b2;
+      }
+      .btn-hint {
+        background: #f3e5f5;
+        color: #8e24aa;
+      }
+      .btn-hint:hover {
+        background: #e1bee7;
+      }
+      #player {
+        display: none;
+      }
+      .hint-box {
+        display: none;
+        margin: -10px 0 20px;
+        padding: 12px 15px;
+        border-radius: 8px;
+        background: #f3e5f5;
+        color: #6a1b9a;
+        font-style: italic;
+        text-align: center;
+      }
+      .hint-box.visible {
+        display: block;
+      }
+      textarea {
+        width: 100%;
+        height: 80px;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-family: "Segoe UI", sans-serif;
+        resize: none;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+      }
+      textarea:focus {
+        outline: none;
+        border-color: #3498db;
+      }
+      .feedback-area {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        background: #fafafa;
+        border: 1px dashed #ccc;
+        min-height: 40px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+      .diff-correct {
+        color: #27ae60;
+        font-weight: bold;
+      }
+      .diff-missing {
+        color: #c0392b;
+        text-decoration: line-through;
+        opacity: 0.6;
+        margin-right: 5px;
+      }
+      .diff-added {
+        color: #2980b9;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      .controls {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+      }
+      button.action-btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .btn-check {
+        background: #2ecc71;
+        color: white;
+      }
+      .btn-check:hover {
+        background: #27ae60;
+      }
+      .btn-reveal {
+        background: #f39c12;
+        color: white;
+      }
+      .btn-reset {
+        background: #95a5a6;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dictation-card">
+      <h2>🎧 Listening Lab</h2>
+      <div class="level-bar">
+        <button class="level-btn" id="prev-btn" onclick="changeLevel(-1)">
+          ◀ Prev
+        </button>
+        <span class="level-indicator" id="level-display">Level 1 / 10</span>
+        <button class="level-btn" id="next-btn" onclick="changeLevel(1)">
+          Next ▶
+        </button>
+      </div>
+      <div class="audio-controls">
+        <button class="btn-audio" onclick="playAudio('m')">
+          <span>👨</span> Male
+        </button>
+        <button class="btn-audio btn-slow" onclick="playAudio('f')">
+          <span>👩</span> Female
+        </button>
+        <button class="btn-audio btn-hint" onclick="toggleHint()">
+          <span>💡</span> Hint
+        </button>
+      </div>
+      <audio id="player"></audio>
+      <div class="hint-box" id="hint-box"></div>
+      <textarea id="user-input" placeholder="Type what you hear..."></textarea>
+      <div id="feedback" class="feedback-area">
+        <span style="color: #aaa; font-style: italic"
+          >Feedback will appear here...</span
+        >
+      </div>
+      <div class="controls">
+        <button class="action-btn btn-check" onclick="checkDictation()">
+          Check
+        </button>
+        <button class="action-btn btn-reset" onclick="resetDictation()">
+          Reset
+        </button>
+        <button class="action-btn btn-reveal" onclick="revealAnswer()">
+          Reveal
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const sentences = [
+        "Sérieux ?",
+        "Donc il fait frais en été et doux en hiver, sans rien faire.",
+        "Ah, c'est ça le problème.",
+        "Bon.",
+        "En hiver, le fluide descend froid, il remonte un peu réchauffé,",
+        "La pompe, oui.",
+        "Ils ont éventré tout le jardin.",
+        "C'est pas magique.",
+        "Des villes entières ?",
+        "Ah bon ?",
+        "Y a pas de gros bloc qui ronronne dehors, tout est enterré.",
+        "Je savais pas du tout.",
+        "Voilà.",
+        "Le trou coûte cher.",
+        "Et nous, dans notre baraque, on pourrait ?",
+        "et la pompe se charge du reste.",
+        "Mais l'idée d'utiliser la chaleur du sol, alors là, pas du tout.",
+        "Ouais, j'ai vu ça ce matin.",
+        "Si, si, bien sûr.",
+        "Genre où ?",
+        "Même en plein mois d'août ?",
+        "C'est silencieux, c'est même un peu le principal argument.",
+        "Personne le sait.",
+        "C'est la Terre qui bosse à ta place.",
+        "C'est un gros investissement au départ,",
+        "Techniquement, oui.",
+        "Et l'été, c'est l'inverse, j'imagine.",
+        "Ça fait dix mille ans que les gens se rassemblent autour des sources chaudes pour se soigner, pour cuisiner...",
+        "Ils font installer une pompe à chaleur géothermique.",
+        "Mais la pompe, elle fabrique pas la chaleur, elle la déplace.",
+        "Munich, Reykjavik évidemment, et Paris même, en partie.",
+        "Même en août.",
+        "Et ça tient combien de temps, ce truc-là ?",
+        "C'est enterré, c'est silencieux, ça fait pas parler de soi.",
+        "Et concrètement, ils font quoi avec ça ?",
+        "et tu le récupères sur des années.",
+        "Il faudrait juste accepter de ne plus avoir de pelouse pendant deux semaines.",
+        "Exactement.",
+        "Ah oui, les Romains, avec leurs thermes.",
+        "Géothermique ?",
+        "Et déplacer, ça coûte beaucoup moins cher que fabriquer.",
+        "Y a une nappe d'eau chaude sous la région, assez profonde.",
+        "C'est ça qui est fou, en fait.",
+        "Les boucles, dans le sol, ça peut durer cinquante ans.",
+        "Et pour faire de l'électricité, là par contre, il faut des volcans ?",
+        "Ils branchent un tuyau et hop ?",
+        "Si tu comptes déménager dans trois ans, franchement, ça vaut pas le coup.",
+        "...et mes rosiers ?",
+        "L'été, au lieu de capter la chaleur, on la rejette dans le sol.",
+        "Exactement.",
+        "Genre les geysers, l'Islande, tout ça ?",
+        "C'est là que t'as le gain.",
+        "Ils pompent, ils chauffent les immeubles, et ils réinjectent l'eau.",
+        "En haut, on passe de moins deux à trente-cinq degrés,",
+        "La pompe, elle, il faudra la changer avant, mais bon, comme n'importe quel appareil.",
+        "Pour l'électricité, oui, il te faut du très chaud.",
+        "En gros, oui.",
+        "Donc c'est un truc pour ceux qui restent.",
+        "Ah.",
+        "La maison se rafraîchit, et la Terre encaisse.",
+        "Eux, ils étaient malins :",
+        "Non, non, rien à voir.",
+        "Et ça fait du bruit ?",
+        "Ça tourne depuis les années soixante-dix.",
+        "et en bas, ça reste tranquillement autour de douze, treize.",
+        "Et le prix, alors ?",
+        "Des réservoirs profonds, de la vapeur.",
+        "Ils enterrent des boucles, tu vois, des grands serpentins,",
+        "Voilà, c'est exactement ça.",
+        "Là, on va peut-être rester au gaz, finalement.",
+        "C'est un peu un thermostat naturel, quoi.",
+        "ils faisaient carrément couler l'eau géothermique jusque dans leurs bains.",
+        "Ça, c'est la version carte postale.",
+        "Parce que leur ancienne clim, franchement, on l'entendait depuis chez nous.",
+        "Paris ?",
+        "Le sol et la roche, ça fait isolant, quoi.",
+        "Parce que là, ils ont quand même fait venir une pelleteuse.",
+        "C'est pour ça que l'Islande ou le Kenya en font beaucoup, et nous, beaucoup moins.",
+        "et ils font circuler un fluide dedans.",
+        "Et c'est récent, comme technologie ?",
+        "Dis, t'as vu le chantier chez les voisins ?",
+        "Attends, mais du coup, ça consomme quand même de l'électricité, non ?",
+        "Et aujourd'hui, y a des villes entières qui sont chauffées comme ça, avec des réseaux de chaleur.",
+        "Eux, ils exploitent juste le fait qu'à trois mètres sous terre, la température, elle bouge quasiment pas de l'année.",
+        "Justement, non.",
+      ];
+
+      const translations = [
+        "Seriously?",
+        "So it's cool in summer and mild in winter, all on its own.",
+        "Ah, that's the catch.",
+        "Right.",
+        "In winter the fluid goes down cold, comes back up a little warmer,",
+        "The pump, yes.",
+        "They've torn up the whole yard.",
+        "It's not magic.",
+        "Entire cities?",
+        "Really?",
+        "There's no big box humming away outside, it's all buried.",
+        "I had no idea.",
+        "Exactly.",
+        "The hole is what costs.",
+        "And us, in our place — could we?",
+        "and the pump handles the rest.",
+        "But the idea of using the ground's heat, no, not at all.",
+        "Yeah, I saw it this morning.",
+        "Of course it does.",
+        "Like where?",
+        "Even in the middle of August?",
+        "It's silent, that's actually one of the main selling points.",
+        "Nobody knows.",
+        "The Earth does the work for you.",
+        "It's a big investment up front,",
+        "Technically, yes.",
+        "And in summer it's the other way around, I'm guessing.",
+        "People have been gathering around hot springs for ten thousand years, to heal, to cook...",
+        "They're having a geothermal heat pump put in.",
+        "But the pump doesn't make the heat, it moves it.",
+        "Munich, Reykjavik obviously, and even Paris, partly.",
+        "Even in August.",
+        "And how long does something like that last?",
+        "It's buried, it's quiet, it doesn't make any noise about itself.",
+        "And in practice, what do they actually do with it?",
+        "and you earn it back over years.",
+        "You'd just have to accept not having a lawn for two weeks.",
+        "Exactly.",
+        "Oh right, the Romans, with their baths.",
+        "Geothermal?",
+        "And moving costs a lot less than making.",
+        "There's a hot water table under the region, fairly deep.",
+        "That's what's crazy about it, actually.",
+        "The loops, in the ground, can last fifty years.",
+        "And to make electricity — that's where you need volcanoes?",
+        "They hook up a pipe and that's it?",
+        "If you're planning to move in three years, honestly, it's not worth it.",
+        "...and my rose bushes?",
+        "In summer, instead of capturing the heat, you dump it into the ground.",
+        "Exactly.",
+        "Like geysers, Iceland, all that?",
+        "That's where the savings come from.",
+        "They pump it up, heat the buildings, and reinject the water.",
+        "Up top you go from minus two to thirty-five degrees,",
+        "The pump you'll have to replace before that, but well, like any appliance.",
+        "For electricity, yes, you need it really hot.",
+        "Pretty much, yeah.",
+        "So it's for people who are staying put.",
+        "Ah.",
+        "The house cools off and the Earth absorbs it.",
+        "They were clever:",
+        "No, no, nothing to do with it.",
+        "And is it noisy?",
+        "It's been running since the seventies.",
+        "and down there it just sits at twelve, thirteen.",
+        "And the price?",
+        "Deep reservoirs, steam.",
+        "They bury loops — big coils, you know —",
+        "That's exactly it.",
+        "Then maybe we stick with gas after all.",
+        "It's kind of a natural thermostat.",
+        "they piped geothermal water straight into their baths.",
+        "That's the postcard version.",
+        "Because their old AC, honestly, we could hear it from our place.",
+        "Paris?",
+        "Soil and rock work as insulation, basically.",
+        "Because they did bring in an excavator.",
+        "That's why Iceland or Kenya do a lot of it and we do much less.",
+        "and circulate a fluid through them.",
+        "And is it new, as technology goes?",
+        "Hey, did you see the mess at the neighbors' place?",
+        "Wait, but it still uses electricity, right?",
+        "And today there are entire cities heated that way, with district heating networks.",
+        "What they're using is just the fact that three meters underground, the temperature barely moves all year.",
+        "That's the thing — no.",
+      ];
+
+      let currentIndex = 0;
+      const audioBase =
+        "https://languages.rmlives.com/lessons/everyday/conv38/listen/";
+
+      function changeLevel(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = 0;
+        if (currentIndex >= sentences.length)
+          currentIndex = sentences.length - 1;
+        updateUI();
+        resetDictation();
+      }
+
+      function updateUI() {
+        document.getElementById("level-display").innerText =
+          `Level ${currentIndex + 1} / ${sentences.length}`;
+        document.getElementById("prev-btn").disabled = currentIndex === 0;
+        document.getElementById("next-btn").disabled =
+          currentIndex === sentences.length - 1;
+      }
+
+      function playAudio(gender) {
+        const num = String(currentIndex + 1).padStart(2, "0");
+        const player = document.getElementById("player");
+        player.src = `${audioBase}${num}-${gender}.mp3`;
+        player.play();
+      }
+
+      function checkDictation() {
+        const userText = document.getElementById("user-input").value.trim();
+        const feedbackDiv = document.getElementById("feedback");
+        if (!userText) {
+          feedbackDiv.innerHTML =
+            '<span style="color:#e74c3c">Please type something first!</span>';
+          return;
+        }
+        feedbackDiv.innerHTML = compareStrings(
+          sentences[currentIndex],
+          userText,
+        );
+      }
+
+      function revealAnswer() {
+        document.getElementById("user-input").value = sentences[currentIndex];
+        checkDictation();
+      }
+
+      function resetDictation() {
+        document.getElementById("user-input").value = "";
+        document.getElementById("feedback").innerHTML =
+          '<span style="color:#aaa; font-style:italic;">Feedback will appear here...</span>';
+        const hintBox = document.getElementById("hint-box");
+        hintBox.classList.remove("visible");
+        hintBox.innerText = "";
+      }
+
+      function toggleHint() {
+        const hintBox = document.getElementById("hint-box");
+        if (hintBox.classList.contains("visible")) {
+          hintBox.classList.remove("visible");
+        } else {
+          hintBox.innerText = translations[currentIndex];
+          hintBox.classList.add("visible");
+        }
+      }
+
+      function compareStrings(correct, user) {
+        let html = "";
+        const correctWords = correct.split(" ");
+        const userWords = user.split(" ");
+        const maxLength = Math.max(correctWords.length, userWords.length);
+        for (let i = 0; i < maxLength; i++) {
+          const cWord = correctWords[i] || "";
+          const uWord = userWords[i] || "";
+          const cleanC = cWord.toLowerCase().replace(/[.,?!]/g, "");
+          const cleanU = uWord.toLowerCase().replace(/[.,?!]/g, "");
+          if (cleanC === cleanU) {
+            html += `<span class="diff-correct">${cWord}</span> `;
+          } else {
+            if (cWord) html += `<span class="diff-added">${cWord}</span> `;
+            if (uWord) html += `<span class="diff-missing">${uWord}</span> `;
+          }
+        }
+        return html;
+      }
+
+      updateUI();
+    </script>
+    <script src="/assets/js/exercise-feedback.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

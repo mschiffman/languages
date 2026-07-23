@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Translation Quiz</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../../assets/css/translation.css" />
+  </head>
+  <body>
+    <div class="translation-card">
+      <h2>✍️ Translation Challenge (Page 9)</h2>
+      <p class="subtitle">
+        Translate the sentences into French. (Watch your spelling!)
+      </p>
+      <div id="quiz-area"></div>
+      <div class="btn-row">
+        <button class="btn-verify" onclick="checkTranslations()">
+          Check Answers
+        </button>
+        <button class="btn-reset" onclick="resetTranslations()">Reset</button>
+      </div>
+      <div class="page-nav">
+        <a href="translation1.html" class="page-btn">1</a>
+        <a href="translation2.html" class="page-btn">2</a>
+        <a href="translation3.html" class="page-btn">3</a>
+        <a href="translation4.html" class="page-btn">4</a>
+        <a href="translation5.html" class="page-btn">5</a>
+        <a href="translation6.html" class="page-btn">6</a>
+        <a href="translation7.html" class="page-btn">7</a>
+        <a href="translation8.html" class="page-btn">8</a>
+        <a href="translation9.html" class="page-btn active">9</a>
+      </div>
+    </div>
+    <script>
+      const questions = [
+        {
+          english: "And to make electricity — that's where you need volcanoes?",
+          answers: [
+            "Et pour faire de l'électricité, là par contre, il faut des volcans",
+          ],
+        },
+        {
+          english: "And in summer it's the other way around, I'm guessing.",
+          answers: ["Et l'été, c'est l'inverse, j'imagine"],
+        },
+        {
+          english: "Entire cities?",
+          answers: ["Des villes entières"],
+        },
+        {
+          english: "Soil and rock work as insulation, basically.",
+          answers: ["Le sol et la roche, ça fait isolant, quoi"],
+        },
+        {
+          english: "So it's for people who are staying put.",
+          answers: ["Donc c'est un truc pour ceux qui restent"],
+        },
+      ];
+    </script>
+    <script src="/assets/js/exercise-feedback.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>
