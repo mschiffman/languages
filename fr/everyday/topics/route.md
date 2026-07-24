@@ -19,7 +19,7 @@
 | <span onclick="playAudio('une trottinette')">une trottinette</span> | /yn tʁɔ.ti.nɛt/ | a scooter (kick scooter) |
 
 
-#### 🛣️ <span onclick="playAudio('L_infrastructure routière')">L'infrastructure routière</span>
+#### 🛣️ <span onclick="playAudio('L'infrastructure routière')">L'infrastructure routière</span>
 | Français | IPA | English |
 |--------|-----|---------|
 | <span onclick="playAudio('la rue')">la rue</span> | /la ʁy/ | the street |
