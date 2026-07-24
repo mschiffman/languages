@@ -19,7 +19,7 @@
 | <span onclick="playAudio('une trottinette')">une trottinette</span> | /yn tʁɔ.ti.nɛt/ | a scooter (kick scooter) |
 
 
-#### 🛣️ <span onclick="playAudio('L'infrastructure routière')">L'infrastructure routière</span>
+#### 🛣️ <span onclick="playAudio(&quot;L'infrastructure routière&quot;)">L'infrastructure routière</span>
 | Français | IPA | English |
 |--------|-----|---------|
 | <span onclick="playAudio('la rue')">la rue</span> | /la ʁy/ | the street |
@@ -227,7 +227,7 @@
 ### 🚗 <span onclick="playAudio('Les véhicules')">Les véhicules</span>
 
 10. <span onclick="playAudio('Des voitures roulent dans les deux sens')">Des voitures roulent dans les deux sens.</span>
-11. <span onclick="playAudio('Une voiture rouge s'arrête au feu')">Une voiture rouge s'arrête au feu.</span>
+11. <span onclick="playAudio(&quot;Une voiture rouge s'arrête au feu&quot;)">Une voiture rouge s'arrête au feu.</span>
 12. <span onclick="playAudio('Un bus circule sur la route')">Un bus circule sur la route.</span>
 13. <span onclick="playAudio('Les voitures respectent les feux de circulation')">Les voitures respectent les feux de circulation.</span>
 14. <span onclick="playAudio('Certaines voitures sont arrêtées')">Certaines voitures sont arrêtées.</span>

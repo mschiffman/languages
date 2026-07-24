@@ -179,10 +179,7 @@
   </head>
   <body>
     <div class="container py-4">
-      <a
-        href="../../index.html"
-        target="_blank"
-        class="btn btn-secondary mb-3"
+      <a href="../../index.html" target="_blank" class="btn btn-secondary mb-3"
         >Site Map</a
       >
       <button id="openAudio" type="button" class="btn btn-audio mb-3 ms-2">
@@ -228,11 +225,10 @@
 
     <script>
       // Global function to play audio
-      function playAudio(phrase) {
-        // Trim whitespace to ensure filename matches
+      function playAudio(audioId) {
         const audioElement = document.getElementById("audioElement");
         const audioWindow = document.getElementById("audioPlayerWindow");
-        audioElement.src = `https://languages.rmlives.com/lessons/everyday/marche/${phrase.trim()}.mp3`;
+        audioElement.src = `https://languages.rmlives.com/lessons/everyday/marche/${audioId}.mp3?v=2607240726`;
         audioWindow.style.display = "block";
         audioElement.play().catch((error) => {
           console.error("Error playing audio:", error);

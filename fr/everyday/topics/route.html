@@ -227,7 +227,7 @@
       // Global function to play audio
       function playAudio(phrase) {
         // Trim whitespace to ensure filename matches
-        const filename = phrase.trim().replace(/'/g, "_");
+        const filename = encodeURIComponent(phrase.trim());
         const audioElement = document.getElementById("audioElement");
         const audioWindow = document.getElementById("audioPlayerWindow");
         audioElement.src = `https://languages.rmlives.com/lessons/everyday/route/${filename}.mp3?v=260724`;
