@@ -232,7 +232,7 @@
         // Trim whitespace to ensure filename matches
         const audioElement = document.getElementById("audioElement");
         const audioWindow = document.getElementById("audioPlayerWindow");
-        audioElement.src = `/media/lessons/everyday/marche/${phrase.trim()}.mp3`;
+        audioElement.src = `https://languages.rmlives.com/lessons/everyday/marche/${phrase.trim()}.mp3`;
         audioWindow.style.display = "block";
         audioElement.play().catch((error) => {
           console.error("Error playing audio:", error);

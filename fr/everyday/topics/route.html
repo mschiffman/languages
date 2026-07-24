@@ -230,7 +230,7 @@
         const filename = phrase.trim().replace(/'/g, "_");
         const audioElement = document.getElementById("audioElement");
         const audioWindow = document.getElementById("audioPlayerWindow");
-        audioElement.src = `/media/lessons/everyday/route/${filename}.mp3`;
+        audioElement.src = `https://languages.rmlives.com/lessons/everyday/route/${filename}.mp3`;
         audioWindow.style.display = "block";
         audioElement.play().catch((error) => {
           console.error("Error playing audio:", error);
