@@ -175,6 +175,57 @@
           right: 20px;
         }
       }
+
+      /* Transcript Note Button */
+      .btn-note {
+        background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        border: none;
+        color: #fff;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn-note:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
+        color: #fff;
+      }
+      .note-wrapper {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .note-wrapper::after {
+        content: attr(data-note);
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background: #fff;
+        color: #333;
+        padding: 12px 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        width: 320px;
+        max-width: 80vw;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        white-space: normal;
+        text-align: left;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 1060;
+      }
+      .note-wrapper:hover::after,
+      .note-wrapper.active::after {
+        opacity: 1;
+      }
+      @media (max-width: 576px) {
+        .note-wrapper::after {
+          left: auto;
+          right: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -185,6 +236,14 @@
       <button id="openAudio" type="button" class="btn btn-audio mb-3 ms-2">
         🔊 Audio Player
       </button>
+      <div
+        class="note-wrapper mb-3 ms-2"
+        data-note="C’est un marché en plein air très animé. Plusieurs marchands vendent des fruits, des légumes, du pain, du fromage, de la viande et du poisson sur leurs étals. Les clients se promènent entre les stands, regardent les produits et discutent avec les vendeurs. Certains portent un panier ou un sac pendant qu’ils font leurs courses."
+      >
+        <button id="noteBtn" type="button" class="btn btn-note" title="Transcript">
+          📝 Transcript
+        </button>
+      </div>
 
       <div id="audioPlayerWindow">
         <div id="audioPlayerHeader">
@@ -247,7 +306,20 @@
         const progressBar = document.getElementById("progressBar");
 
         openAudioBtn.addEventListener("click", () => {
+          audioElement.src =
+            "https://languages.rmlives.com/lessons/everyday/marche/audio.mp3";
           audioWindow.style.display = "block";
+        });
+
+        // Transcript note button (hover handled by CSS; click toggles for touch devices)
+        const noteWrapper = document.querySelector(".note-wrapper");
+        const noteBtn = document.getElementById("noteBtn");
+        noteBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          noteWrapper.classList.toggle("active");
+        });
+        document.addEventListener("click", () => {
+          noteWrapper.classList.remove("active");
         });
 
         closeAudioBtn.addEventListener("click", () => {

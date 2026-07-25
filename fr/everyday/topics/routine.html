@@ -165,11 +165,8 @@
         transform: scale(1.1);
         box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
       }
-      #audioPlayerNote {
+      #progressContainer {
         padding: 0 15px 15px 15px;
-        font-size: 0.8rem;
-        color: #666;
-        text-align: center;
       }
       @media (max-width: 576px) {
         #audioPlayerWindow {
@@ -204,6 +201,57 @@
       .examples-panel.visible {
         display: block;
       }
+
+      /* Transcript Note Button */
+      .btn-note {
+        background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        border: none;
+        color: #fff;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn-note:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
+        color: #fff;
+      }
+      .note-wrapper {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .note-wrapper::after {
+        content: attr(data-note);
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background: #fff;
+        color: #333;
+        padding: 12px 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        width: 320px;
+        max-width: 80vw;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        white-space: normal;
+        text-align: left;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 1060;
+      }
+      .note-wrapper:hover::after,
+      .note-wrapper.active::after {
+        opacity: 1;
+      }
+      @media (max-width: 576px) {
+        .note-wrapper::after {
+          left: auto;
+          right: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -217,6 +265,14 @@
       <button id="openAudio" type="button" class="btn btn-audio mb-3 ms-2">
         🔊 Audio Player
       </button>
+      <div
+        class="note-wrapper mb-3 ms-2"
+        data-note="C’est la routine quotidienne d’une personne ordinaire. Le matin, elle se réveille, prend une douche et prend son petit-déjeuner avant de partir au travail. Le soir, elle rentre à la maison, prépare le dîner et se détend un peu devant la télévision. Enfin, elle se couche tôt pour être en forme le lendemain."
+      >
+        <button id="noteBtn" type="button" class="btn btn-note" title="Transcript">
+          📝 Transcript
+        </button>
+      </div>
 
       <div id="audioPlayerWindow">
         <div id="audioPlayerHeader">
@@ -230,7 +286,18 @@
           </button>
           <button id="stopBtn" title="Stop" type="button">&#9632;</button>
         </div>
-        <div id="audioPlayerNote">Text-to-speech playback</div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio id="audioElement"></audio>
       </div>
 
       <div class="mx-auto" style="max-width: 700px">
@@ -245,39 +312,20 @@
     </div>
 
     <script>
-      // Global function to play audio using speechSynthesis
-      function playAudio(text) {
-        if ("speechSynthesis" in window) {
-          window.speechSynthesis.cancel();
-          const utterance = new SpeechSynthesisUtterance(text);
-          utterance.lang = "fr-FR";
-          utterance.rate = 0.9;
-
-          const voices = window.speechSynthesis.getVoices();
-          const frenchVoice = voices.find((voice) =>
-            voice.lang.startsWith("fr"),
-          );
-          if (frenchVoice) {
-            utterance.voice = frenchVoice;
-          }
-
-          window.speechSynthesis.speak(utterance);
-          const audioWindow = document.getElementById("audioPlayerWindow");
-          if (audioWindow) {
-            audioWindow.style.display = "block";
-          }
-        }
+      // Global function to play audio
+      function playAudio(phrase) {
+        // Trim whitespace to ensure filename matches
+        const filename = phrase.trim().replace(/'/g, "_");
+        const audioElement = document.getElementById("audioElement");
+        const audioWindow = document.getElementById("audioPlayerWindow");
+        audioElement.src = `https://languages.rmlives.com/lessons/everyday/routine/${filename}.mp3`;
+        audioWindow.style.display = "block";
+        audioElement.play().catch((error) => {
+          console.error("Error playing audio:", error);
+        });
       }
 
-      // Pre-load voices
-      if ("speechSynthesis" in window) {
-        window.speechSynthesis.getVoices();
-        window.speechSynthesis.onvoiceschanged = function () {
-          window.speechSynthesis.getVoices();
-        };
-      }
-
-      // Audio player controls (play / pause / stop / drag)
+      // Audio player controls (play / pause / stop / seek / drag)
       document.addEventListener("DOMContentLoaded", () => {
         const openAudioBtn = document.getElementById("openAudio");
         const closeAudioBtn = document.getElementById("closeAudio");
@@ -285,34 +333,53 @@
         const playBtn = document.getElementById("playBtn");
         const pauseBtn = document.getElementById("pauseBtn");
         const stopBtn = document.getElementById("stopBtn");
+        const audioElement = document.getElementById("audioElement");
+        const progressBar = document.getElementById("progressBar");
 
         openAudioBtn.addEventListener("click", () => {
+          audioElement.src =
+            "https://languages.rmlives.com/lessons/everyday/routine/audio.mp3";
           audioWindow.style.display = "block";
+        });
+
+        // Transcript note button (hover handled by CSS; click toggles for touch devices)
+        const noteWrapper = document.querySelector(".note-wrapper");
+        const noteBtn = document.getElementById("noteBtn");
+        noteBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          noteWrapper.classList.toggle("active");
+        });
+        document.addEventListener("click", () => {
+          noteWrapper.classList.remove("active");
         });
 
         closeAudioBtn.addEventListener("click", () => {
           audioWindow.style.display = "none";
-          if ("speechSynthesis" in window) {
-            window.speechSynthesis.cancel();
-          }
+          audioElement.pause();
         });
 
         playBtn.addEventListener("click", () => {
-          if ("speechSynthesis" in window && window.speechSynthesis.paused) {
-            window.speechSynthesis.resume();
-          }
+          audioElement.play();
         });
 
         pauseBtn.addEventListener("click", () => {
-          if ("speechSynthesis" in window) {
-            window.speechSynthesis.pause();
-          }
+          audioElement.pause();
         });
 
         stopBtn.addEventListener("click", () => {
-          if ("speechSynthesis" in window) {
-            window.speechSynthesis.cancel();
-          }
+          audioElement.pause();
+          audioElement.currentTime = 0;
+          progressBar.value = 0;
+        });
+
+        audioElement.addEventListener("timeupdate", () => {
+          progressBar.value =
+            (audioElement.currentTime / audioElement.duration) * 100 || 0;
+        });
+
+        progressBar.addEventListener("input", () => {
+          audioElement.currentTime =
+            (progressBar.value / 100) * audioElement.duration;
         });
 
         // Draggable player window

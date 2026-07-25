@@ -175,6 +175,57 @@
           right: 20px;
         }
       }
+
+      /* Transcript Note Button */
+      .btn-note {
+        background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        border: none;
+        color: #fff;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn-note:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
+        color: #fff;
+      }
+      .note-wrapper {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .note-wrapper::after {
+        content: attr(data-note);
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background: #fff;
+        color: #333;
+        padding: 12px 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        width: 320px;
+        max-width: 80vw;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        white-space: normal;
+        text-align: left;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+        z-index: 1060;
+      }
+      .note-wrapper:hover::after,
+      .note-wrapper.active::after {
+        opacity: 1;
+      }
+      @media (max-width: 576px) {
+        .note-wrapper::after {
+          left: auto;
+          right: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -185,6 +236,19 @@
       <button id="openAudio" type="button" class="btn btn-audio mb-3 ms-2">
         🔊 Audio Player
       </button>
+      <div
+        class="note-wrapper mb-3 ms-2"
+        data-note="La circulation est assez dense à ce grand carrefour. Plusieurs voitures et un bus roulent sur la chaussée, tandis que des piétons traversent sur les passages piétons près des feux de circulation. On voit aussi des cyclistes, des trottoirs, un arrêt de bus et un parking avec des bornes de recharge. Tout le monde doit rester attentif pour circuler en toute sécurité."
+      >
+        <button
+          id="noteBtn"
+          type="button"
+          class="btn btn-note"
+          title="Transcript"
+        >
+          📝 Transcript
+        </button>
+      </div>
 
       <div id="audioPlayerWindow">
         <div id="audioPlayerHeader">
@@ -225,12 +289,10 @@
 
     <script>
       // Global function to play audio
-      function playAudio(phrase) {
-        // Trim whitespace to ensure filename matches
-        const filename = encodeURIComponent(phrase.trim());
+      function playAudio(audioId) {
         const audioElement = document.getElementById("audioElement");
         const audioWindow = document.getElementById("audioPlayerWindow");
-        audioElement.src = `https://languages.rmlives.com/lessons/everyday/route/${filename}.mp3?v=260724`;
+        audioElement.src = `/media/lessons/everyday/route/${audioId}.mp3?v=2607240726`;
         audioWindow.style.display = "block";
         audioElement.play().catch((error) => {
           console.error("Error playing audio:", error);
@@ -249,7 +311,20 @@
         const progressBar = document.getElementById("progressBar");
 
         openAudioBtn.addEventListener("click", () => {
+          audioElement.src =
+            "https://languages.rmlives.com/lessons/everyday/route/audio.mp3";
           audioWindow.style.display = "block";
+        });
+
+        // Transcript note button (hover handled by CSS; click toggles for touch devices)
+        const noteWrapper = document.querySelector(".note-wrapper");
+        const noteBtn = document.getElementById("noteBtn");
+        noteBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          noteWrapper.classList.toggle("active");
+        });
+        document.addEventListener("click", () => {
+          noteWrapper.classList.remove("active");
         });
 
         closeAudioBtn.addEventListener("click", () => {
@@ -318,7 +393,7 @@
       });
 
       // 1. Fetch the markdown file
-      fetch("route3.md")
+      fetch("route.md")
         .then((response) => {
           if (!response.ok) {
             throw new Error("Could not find route.md file");

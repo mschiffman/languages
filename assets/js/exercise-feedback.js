@@ -111,13 +111,12 @@
         background: linear-gradient(135deg, #3498db, #2980b9);
         color: white;
       }
-      .note-wrapper::after {
+      .note-tooltip {
         background: white;
         border-radius: 8px;
         bottom: calc(100% + 8px);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
         color: #444;
-        content: attr(data-note);
         font-family: "Segoe UI", sans-serif;
         font-size: 0.78rem;
         line-height: 1.5;
@@ -132,19 +131,11 @@
         width: 260px;
         z-index: 20;
       }
-      .note-wrapper:hover::after {
+      .note-wrapper:hover .note-tooltip {
         opacity: 1;
       }
     `;
     document.head.appendChild(style);
-  }
-
-  function escapeHtml(text) {
-    return text
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
   }
 
   // --- Normalization helpers ------------------------------------------------
@@ -334,13 +325,14 @@
                 <span class="english-prompt">${index + 1}. ${question.english}</span>
                 ${
                   question.note
-                    ? `<div class="note-wrapper" data-note="${escapeHtml(question.note)}">
+                    ? `<div class="note-wrapper">
                         <button type="button" class="note-btn" title="Notes">
                           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                             <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                           </svg>
                         </button>
+                        <div class="note-tooltip">${question.note}</div>
                       </div>`
                     : ""
                 }
