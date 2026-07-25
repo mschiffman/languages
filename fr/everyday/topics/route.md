@@ -161,96 +161,96 @@
 #### 🚥 <span onclick="playAudio('134')">La circulation</span>
 | Français | IPA | English |
 |--------|-----|---------|
-| <span onclick="playAudio('135')">la circulation</span> | /la siʁ.ky.la.sjɔ̃/ | traffic |
-| <span onclick="playAudio('136')">un embouteillage</span> | /ɛ̃.n‿ɑ̃.bu.tɛ.jaʒ/ | a traffic jam |
-| <span onclick="playAudio('137')">un bouchon</span> | /ɛ̃ bu.ʃɔ̃/ | a traffic jam (informal) |
-| <span onclick="playAudio('138')">la priorité</span> | /la pʁi.jɔ.ʁi.te/ | priority/right of way |
-| <span onclick="playAudio('139')">le code de la route</span> | /lə kɔd də la ʁut/ | traffic rules/highway code |
-| <span onclick="playAudio('140')">une infraction</span> | /yn ɛ̃.fʁak.sjɔ̃/ | a violation/offense |
-| <span onclick="playAudio('141')">une amende</span> | /yn a.mɑ̃d/ | a fine |
-| <span onclick="playAudio('142')">un accident</span> | /ɛ̃.n‿ak.si.dɑ̃/ | an accident |
-| <span onclick="playAudio('143')">une collision</span> | /yn kɔ.li.zjɔ̃/ | a collision |
-| <span onclick="playAudio('144')">un feu rouge grillé</span> | /ɛ̃ fø ʁuʒ gʁi.je/ | a red light run |
-| <span onclick="playAudio('145')">la sécurité routière</span> | /la se.ky.ʁi.te ʁu.tjɛʁ/ | road safety |
+| <span onclick="playAudio('134')">la circulation</span> | /la siʁ.ky.la.sjɔ̃/ | traffic |
+| <span onclick="playAudio('135')">un embouteillage</span> | /ɛ̃.n‿ɑ̃.bu.tɛ.jaʒ/ | a traffic jam |
+| <span onclick="playAudio('136')">un bouchon</span> | /ɛ̃ bu.ʃɔ̃/ | a traffic jam (informal) |
+| <span onclick="playAudio('137')">la priorité</span> | /la pʁi.jɔ.ʁi.te/ | priority/right of way |
+| <span onclick="playAudio('138')">le code de la route</span> | /lə kɔd də la ʁut/ | traffic rules/highway code |
+| <span onclick="playAudio('139')">une infraction</span> | /yn ɛ̃.fʁak.sjɔ̃/ | a violation/offense |
+| <span onclick="playAudio('140')">une amende</span> | /yn a.mɑ̃d/ | a fine |
+| <span onclick="playAudio('141')">un accident</span> | /ɛ̃.n‿ak.si.dɑ̃/ | an accident |
+| <span onclick="playAudio('142')">une collision</span> | /yn kɔ.li.zjɔ̃/ | a collision |
+| <span onclick="playAudio('143')">un feu rouge grillé</span> | /ɛ̃ fø ʁuʒ gʁi.je/ | a red light run |
+| <span onclick="playAudio('144')">la sécurité routière</span> | /la se.ky.ʁi.te ʁu.tjɛʁ/ | road safety |
 
-#### 💬 <span onclick="playAudio('146')">Expressions utiles</span>
+#### 💬 <span onclick="playAudio('145')">Expressions utiles</span>
 | Français | IPA | English |
 |--------|-----|---------|
-| <span onclick="playAudio('147')">respecter le code de la route</span> | /ʁɛs.pɛk.te lə kɔd də la ʁut/ | to follow traffic rules |
-| <span onclick="playAudio('148')">faire attention</span> | /fɛ.ʁ‿a.tɑ̃.sjɔ̃/ | to pay attention |
-| <span onclick="playAudio('149')">céder le passage</span> | /se.de lə pa.saʒ/ | to yield |
-| <span onclick="playAudio('150')">priorité aux piétons</span> | /pʁi.jɔ.ʁi.te o pje.tɔ̃/ | pedestrians have priority |
-| <span onclick="playAudio('151')">circuler en ville</span> | /siʁ.ky.le ɑ̃ vil/ | to get around in the city |
-| <span onclick="playAudio('152')">prendre le bus</span> | /pʁɑ̃dʁ lə bys/ | to take the bus |
-| <span onclick="playAudio('153')">être en retard</span> | /ɛtʁ ɑ̃ ʁə.taʁ/ | to be late |
-| <span onclick="playAudio('154')">être à l'heure</span> | /ɛ.tʁ‿a lœʁ/ | to be on time |
-| <span onclick="playAudio('155')">tourner à gauche</span> | /tuʁ.ne a goʃ/ | to turn left |
-| <span onclick="playAudio('156')">tourner à droite</span> | /tuʁ.ne a dʁwat/ | to turn right |
-| <span onclick="playAudio('157')">aller tout droit</span> | /a.le tu dʁwa/ | to go straight |
-| <span onclick="playAudio('158')">faire demi-tour</span> | /fɛʁ də.mi tuʁ/ | to make a U-turn |
-| <span onclick="playAudio('159')">se perdre</span> | /sə pɛʁdʁ/ | to get lost |
-| <span onclick="playAudio('160')">demander son chemin</span> | /də.mɑ̃.de sɔ̃ ʃə.mɛ̃/ | to ask for directions |
-| <span onclick="playAudio('161')">être coincé dans les embouteillages</span> | /ɛtʁ kwɛ̃.se dɑ̃ le.z‿ɑ̃.bu.tɛ.jaʒ/ | to be stuck in traffic |
-| <span onclick="playAudio('162')">rouler prudemment</span> | /ʁu.le pʁy.da.mɑ̃/ | to drive carefully |
-| <span onclick="playAudio('163')">mettre sa ceinture</span> | /mɛtʁ sa sɛ̃.tyʁ/ | to put on one's seatbelt |
-| <span onclick="playAudio('164')">avoir le permis de conduire</span> | /a.vwaʁ lə pɛʁ.mi də kɔ̃.dɥiʁ/ | to have a driver |
+| <span onclick="playAudio('146')">respecter le code de la route</span> | /ʁɛs.pɛk.te lə kɔd də la ʁut/ | to follow traffic rules |
+| <span onclick="playAudio('147')">faire attention</span> | /fɛ.ʁ‿a.tɑ̃.sjɔ̃/ | to pay attention |
+| <span onclick="playAudio('148')">céder le passage</span> | /se.de lə pa.saʒ/ | to yield |
+| <span onclick="playAudio('149')">priorité aux piétons</span> | /pʁi.jɔ.ʁi.te o pje.tɔ̃/ | pedestrians have priority |
+| <span onclick="playAudio('150')">circuler en ville</span> | /siʁ.ky.le ɑ̃ vil/ | to get around in the city |
+| <span onclick="playAudio('151')">prendre le bus</span> | /pʁɑ̃dʁ lə bys/ | to take the bus |
+| <span onclick="playAudio('152')">être en retard</span> | /ɛtʁ ɑ̃ ʁə.taʁ/ | to be late |
+| <span onclick="playAudio('153')">être à l'heure</span> | /ɛ.tʁ‿a lœʁ/ | to be on time |
+| <span onclick="playAudio('154')">tourner à gauche</span> | /tuʁ.ne a goʃ/ | to turn left |
+| <span onclick="playAudio('155')">tourner à droite</span> | /tuʁ.ne a dʁwat/ | to turn right |
+| <span onclick="playAudio('156')">aller tout droit</span> | /a.le tu dʁwa/ | to go straight |
+| <span onclick="playAudio('157')">faire demi-tour</span> | /fɛʁ də.mi tuʁ/ | to make a U-turn |
+| <span onclick="playAudio('158')">se perdre</span> | /sə pɛʁdʁ/ | to get lost |
+| <span onclick="playAudio('159')">demander son chemin</span> | /də.mɑ̃.de sɔ̃ ʃə.mɛ̃/ | to ask for directions |
+| <span onclick="playAudio('160')">être coincé dans les embouteillages</span> | /ɛtʁ kwɛ̃.se dɑ̃ le.z‿ɑ̃.bu.tɛ.jaʒ/ | to be stuck in traffic |
+| <span onclick="playAudio('161')">rouler prudemment</span> | /ʁu.le pʁy.da.mɑ̃/ | to drive carefully |
+| <span onclick="playAudio('162')">mettre sa ceinture</span> | /mɛtʁ sa sɛ̃.tyʁ/ | to put on one's seatbelt |
+| <span onclick="playAudio('163')">avoir le permis de conduire</span> | /a.vwaʁ lə pɛʁ.mi də kɔ̃.dɥiʁ/ | to have a driver |
 
-#### ✨ <span onclick="playAudio('165')">Adjectifs descriptifs</span>
+#### ✨ <span onclick="playAudio('164')">Adjectifs descriptifs</span>
 | Français | IPA | English |
 |--------|-----|---------|
-| <span onclick="playAudio('166')">large</span> | /laʁʒ/ | wide |
-| <span onclick="playAudio('167')">étroit(e)</span> | /e.tʁwa/e.tʁwat/ | narrow |
-| <span onclick="playAudio('168')">animé(e)</span> | /a.ni.me/ | busy/lively |
-| <span onclick="playAudio('169')">calme</span> | /kalm/ | calm/quiet |
-| <span onclick="playAudio('170')">bruyant(e)</span> | /bʁɥi.jɑ̃/bʁɥi.jɑ̃t/ | noisy |
-| <span onclick="playAudio('171')">dangereux/dangereuse</span> | /dɑ̃.ʒə.ʁø/dɑ̃.ʒə.ʁøz/ | dangerous |
-| <span onclick="playAudio('172')">sûr(e)</span> | /syʁ/ | safe |
-| <span onclick="playAudio('173')">bondé(e)</span> | /bɔ̃.de/ | crowded |
-| <span onclick="playAudio('174')">désert(e)</span> | /de.zɛʁ/de.zɛʁt/ | deserted |
-| <span onclick="playAudio('175')">propre</span> | /pʁɔpʁ/ | clean |
-| <span onclick="playAudio('176')">sale</span> | /sal/ | dirty |
+| <span onclick="playAudio('165')">large</span> | /laʁʒ/ | wide |
+| <span onclick="playAudio('166')">étroit(e)</span> | /e.tʁwa/e.tʁwat/ | narrow |
+| <span onclick="playAudio('167')">animé(e)</span> | /a.ni.me/ | busy/lively |
+| <span onclick="playAudio('168')">calme</span> | /kalm/ | calm/quiet |
+| <span onclick="playAudio('169')">bruyant(e)</span> | /bʁɥi.jɑ̃/bʁɥi.jɑ̃t/ | noisy |
+| <span onclick="playAudio('170')">dangereux/dangereuse</span> | /dɑ̃.ʒə.ʁø/dɑ̃.ʒə.ʁøz/ | dangerous |
+| <span onclick="playAudio('171')">sûr(e)</span> | /syʁ/ | safe |
+| <span onclick="playAudio('172')">bondé(e)</span> | /bɔ̃.de/ | crowded |
+| <span onclick="playAudio('173')">désert(e)</span> | /de.zɛʁ/de.zɛʁt/ | deserted |
+| <span onclick="playAudio('174')">propre</span> | /pʁɔpʁ/ | clean |
+| <span onclick="playAudio('175')">sale</span> | /sal/ | dirty |
 
-### 🏙️ <span onclick="playAudio('177')">Description générale</span>
-1. <span onclick="playAudio('178')">C'est un carrefour en ville.</span>
-2. <span onclick="playAudio('179')">Il y a beaucoup de circulation.</span>
-3. <span onclick="playAudio('180')">La rue est très animée.</span>
-4. <span onclick="playAudio('181')">On voit des voitures, des bus et des vélos.</span>
+### 🏙️ <span onclick="playAudio('176')">Description générale</span>
+1. <span onclick="playAudio('177')">C'est un carrefour en ville.</span>
+2. <span onclick="playAudio('178')">Il y a beaucoup de circulation.</span>
+3. <span onclick="playAudio('179')">La rue est très animée.</span>
+4. <span onclick="playAudio('180')">On voit des voitures, des bus et des vélos.</span>
 
-### 🚶 <span onclick="playAudio('182')">Les piétons</span>
+### 🚶 <span onclick="playAudio('181')">Les piétons</span>
 
-5. <span onclick="playAudio('183')">Des personnes traversent la rue.</span>
-6. <span onclick="playAudio('184')">Un couple traverse au passage piéton.</span>
-7. <span onclick="playAudio('185')">Des piétons attendent au feu rouge.</span>
-8. <span onclick="playAudio('186')">Une famille traverse la rue avec des enfants.</span>
-9. <span onclick="playAudio('187')">Certaines personnes marchent sur le trottoir.</span>
+5. <span onclick="playAudio('182')">Des personnes traversent la rue.</span>
+6. <span onclick="playAudio('183')">Un couple traverse au passage piéton.</span>
+7. <span onclick="playAudio('184')">Des piétons attendent au feu rouge.</span>
+8. <span onclick="playAudio('185')">Une famille traverse la rue avec des enfants.</span>
+9. <span onclick="playAudio('186')">Certaines personnes marchent sur le trottoir.</span>
 
-### 🚗 <span onclick="playAudio('188')">Les véhicules</span>
+### 🚗 <span onclick="playAudio('187')">Les véhicules</span>
 
-10. <span onclick="playAudio('189')">Des voitures roulent dans les deux sens.</span>
-11. <span onclick="playAudio('190')">Une voiture rouge s'arrête au feu.</span>
-12. <span onclick="playAudio('191')">Un bus circule sur la route.</span>
-13. <span onclick="playAudio('192')">Les voitures respectent les feux de circulation.</span>
-14. <span onclick="playAudio('193')">Certaines voitures sont arrêtées.</span>
+10. <span onclick="playAudio('188')">Des voitures roulent dans les deux sens.</span>
+11. <span onclick="playAudio('189')">Une voiture rouge s'arrête au feu.</span>
+12. <span onclick="playAudio('190')">Un bus circule sur la route.</span>
+13. <span onclick="playAudio('191')">Les voitures respectent les feux de circulation.</span>
+14. <span onclick="playAudio('192')">Certaines voitures sont arrêtées.</span>
 
-### 🚲 <span onclick="playAudio('194')">Les vélos et la mobilité</span>
+### 🚲 <span onclick="playAudio('193')">Les vélos et la mobilité</span>
 
-15. <span onclick="playAudio('195')">Il y a une piste cyclable.</span>
-16. <span onclick="playAudio('196')">Un cycliste roule sur la piste cyclable.</span>
-17. <span onclick="playAudio('197')">Il y a un parking à vélos.</span>
-18. <span onclick="playAudio('198')">Des vélos sont attachés au support.</span>
+15. <span onclick="playAudio('194')">Il y a une piste cyclable.</span>
+16. <span onclick="playAudio('195')">Un cycliste roule sur la piste cyclable.</span>
+17. <span onclick="playAudio('196')">Il y a un parking à vélos.</span>
+18. <span onclick="playAudio('197')">Des vélos sont attachés au support.</span>
 
-### 🚦<span onclick="playAudio('199')">Les équipements urbains</span>
+### 🚦<span onclick="playAudio('198')">Les équipements urbains</span>
 
-19. <span onclick="playAudio('200')">Il y a des feux de circulation.</span>
-20. <span onclick="playAudio('201')">On voit plusieurs passages piétons.</span>
-21. <span onclick="playAudio('202')">Il y a des panneaux de signalisation.</span>
-22. <span onclick="playAudio('203')">Des bornes de recharge sont installées sur le trottoir.</span>
+19. <span onclick="playAudio('199')">Il y a des feux de circulation.</span>
+20. <span onclick="playAudio('200')">On voit plusieurs passages piétons.</span>
+21. <span onclick="playAudio('201')">Il y a des panneaux de signalisation.</span>
+22. <span onclick="playAudio('202')">Des bornes de recharge sont installées sur le trottoir.</span>
 
-### 🌳 <span onclick="playAudio('204')">L'environnement</span>
+### 🌳 <span onclick="playAudio('203')">L'environnement</span>
 
-23. <span onclick="playAudio('205')">Il y a des arbres près du carrefour.</span>
-24. <span onclick="playAudio('206')">Des immeubles entourent la rue.</span>
-25. <span onclick="playAudio('207')">Le quartier semble moderne.</span>
+23. <span onclick="playAudio('204')">Il y a des arbres près du carrefour.</span>
+24. <span onclick="playAudio('205')">Des immeubles entourent la rue.</span>
+25. <span onclick="playAudio('206')">Le quartier semble moderne.</span>
 
 ---
 
@@ -351,41 +351,41 @@ arbres · immeubles · moderne
 
 </details>
 
-> <span onclick="playAudio('208')">**💬 Dialogue 1 — Piéton ↔ Conducteur (au passage piéton)**</span>
+> <span onclick="playAudio('207')">**💬 Dialogue 1 — Piéton ↔ Conducteur (au passage piéton)**</span>
 >
 > Piéton : Excusez-moi, je peux traverser ?<br>
 > Conducteur : Oui, allez-y.<br>
 > Piéton : Merci beaucoup.<br>
 > VConducteur : Pas de problème.
 
-> <span onclick="playAudio('209')">**💬 Dialogue 2 — Piéton ↔ Conducteur (feu rouge)**</span>
+> <span onclick="playAudio('208')">**💬 Dialogue 2 — Piéton ↔ Conducteur (feu rouge)**</span>
 >
 > Piéton : Le feu est vert pour les piétons.<br>
 > Conducteur : Oui, je m'arrête.<br>
 > Piéton : Merci.<br>
 > Conducteur : Bonne journée.
 
-> <span onclick="playAudio('210')">**💬 Dialogue 3 — Piéton ↔ Cycliste (attention !)**</span>
+> <span onclick="playAudio('209')">**💬 Dialogue 3 — Piéton ↔ Cycliste (attention !)**</span>
 >
 > Piéton : Attention !<br>
 > Cycliste : Oh, pardon !<br>
 > Piéton : Pas de souci.<br>
 > Cycliste : Merci.
 
-> <span onclick="playAudio('211')">**💬 Dialogue 4 — Piéton ↔ Cycliste (piste cyclable)**</span>
+> <span onclick="playAudio('210')">**💬 Dialogue 4 — Piéton ↔ Cycliste (piste cyclable)**</span>
 >
 > Piéton : Oups, désolé, je n'ai pas vu la piste cyclable.<br>
 > Cycliste : Ce n'est rien.<br>
 > Piéton : Je fais attention.<br>
 > Cycliste : Merci.
 
-> <span onclick="playAudio('212')">**💬 Dialogue 5 — Conducteur ↔ Cycliste**</span>
+> <span onclick="playAudio('211')">**💬 Dialogue 5 — Conducteur ↔ Cycliste**</span>
 >
 > Conducteur : Vas-y, je te laisse passer.<br>
 > Cycliste : Merci !<br>
 > Conducteur : Pas de problème.
 
-> <span onclick="playAudio('213')">**💬 Dialogue 6 — Cycliste ↔ Conducteur (presque collision)**</span>
+> <span onclick="playAudio('212')">**💬 Dialogue 6 — Cycliste ↔ Conducteur (presque collision)**</span>
 >
 > Cycliste : Le feu est rouge pour les voitures !<br>
 > Conducteur : Ah oui, désolé.<br>

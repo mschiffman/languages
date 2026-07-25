@@ -1,0 +1,221 @@
+body {
+  background-color: #f4f4f9;
+}
+
+/* --- Chat Bubble Styling --- */
+/* We interpret Blockquotes ( > text ) as AI/System responses */
+blockquote {
+  background: #ffffff;
+  border-left: 5px solid #6c5ce7; /* Purple accent */
+  margin: 1.5em 0;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  color: #333;
+}
+
+/* Styling for standard text (The "User" prompts) */
+p {
+  margin-bottom: 1em;
+  color: #2d3436;
+}
+
+/* Make "User:" or names bold and distinct */
+strong {
+  color: #d63031; /* Red accent for names */
+}
+
+/* Code Block Styling */
+pre {
+  background: #2d3436;
+  color: #dfe6e9;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+th {
+  background-color: #0174c1;
+  color: #ffffff;
+}
+/* Hover effect for audio elements */
+.audio-trigger:hover {
+  background-color: #e2e6ea;
+}
+
+/* Floating Audio Player */
+.btn-audio {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: #fff;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.btn-audio:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  color: #fff;
+}
+#audioPlayerWindow {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 280px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1050;
+  display: none;
+}
+#audioPlayerHeader {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 12px 15px;
+  border-radius: 12px 12px 0 0;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+#closeAudio {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#closeAudio:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+#audioPlayerControls {
+  padding: 20px;
+  text-align: center;
+}
+#audioPlayerControls button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  margin: 0 8px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+#audioPlayerControls button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+#progressContainer {
+  padding: 0 15px 15px 15px;
+}
+@media (max-width: 576px) {
+  #audioPlayerWindow {
+    width: calc(100% - 40px);
+    left: 20px;
+    right: 20px;
+  }
+}
+
+/* Examples button styling */
+.examples-btn {
+  background: none;
+  border: 1px solid #0174c1;
+  color: #0174c1;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  cursor: pointer;
+  margin-top: 4px;
+  display: inline-block;
+}
+.examples-btn:hover {
+  background: #0174c1;
+  color: white;
+}
+.examples-panel {
+  display: none;
+  margin-top: 6px;
+  color: #555;
+  font-size: 0.9em;
+}
+.examples-panel.visible {
+  display: block;
+}
+
+/* Transcript Note Button */
+.btn-note {
+  background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+  border: none;
+  color: #fff;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.btn-note:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
+  color: #fff;
+}
+.note-wrapper {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.note-wrapper::after {
+  content: attr(data-note);
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  color: #333;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 320px;
+  max-width: 80vw;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  white-space: normal;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1060;
+}
+.note-wrapper:hover::after,
+.note-wrapper.active::after {
+  opacity: 1;
+}
+@media (max-width: 576px) {
+  .note-wrapper::after {
+    left: auto;
+    right: 0;
+  }
+}
