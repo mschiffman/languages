@@ -12,7 +12,9 @@ Each Mélissa lesson lives in its own numbered subfolder under `fr/pron/Melissa/
 |---|---|
 | Lesson HTML | `fr/pron/Melissa/NN/index.html` (`NN` = 2-digit lesson number, e.g. `01`, `02`) |
 | Audio files (CDN) | `https://languages.rmlives.com/rfi/Melissa/NN/` |
-| Navigation script | `assets/js/nav-pron.js` |
+| Navigation script | `assets/js/nav-pron.js` (sidebar content/links) |
+| Navigation loader | `assets/js/nav-loader.js` (stable, never edited per lesson — loaded by every pron page) |
+| Navigation version | `assets/js/nav-version.json` (bump this, and only this, when `nav-pron.js` changes) |
 | Source transcript | Provided as French text, split into short chunks, plus an English translation |
 
 ---
@@ -33,7 +35,7 @@ Do not hand-write a `<audio>` tag per chunk with the French text baked into the 
 Copy `Melissa/01/index.html` as a template. Update:
 
 - `<h1>` → the interview's title/topic
-- `nav-pron.js?v=` → leave as-is for now; the final value is set in Step 5
+- The `<script type="module" src="/assets/js/nav-loader.js"></script>` tag → leave as-is; it's stable and never needs a per-lesson or per-change edit
 - `#audioElement` `src` → `https://languages.rmlives.com/rfi/Melissa/NN/audio.mp3`
 
 ### Main text (`#main-text`)
@@ -103,21 +105,17 @@ Label format: `Mélissa MM/DD/YY` (the date the lesson was added, e.g. `Mélissa
 
 ---
 
-## Step 5 — Bump the `nav-pron.js` version in all pronunciation HTMLs
+## Step 5 — Bump the version in `nav-version.json`
 
-Every time `nav-pron.js` changes, every HTML file that loads it must get a new `?v=` query string so browsers don't serve a cached copy. The version format is `yyMMddHHmm`.
+Every pronunciation page loads `nav-pron.js` indirectly through `assets/js/nav-loader.js`, which reads the version string from `assets/js/nav-version.json` (fetched with `cache: "no-store"`, so it's always current) and imports `nav-pron.js?v=<version>` accordingly. This means only **one file** needs to change whenever `nav-pron.js` changes — no more touching every pronunciation HTML page.
 
-```powershell
-$v = Get-Date -Format "yyMMddHHmm"
-$folder = "c:\Users\Owner\Desktop\MAIN\WEBSITE\My Website\languages\fr\pron"
-Get-ChildItem "$folder\*.html" -Recurse | ForEach-Object {
-    $c = Get-Content $_.FullName -Raw -Encoding UTF8
-    $u = $c -replace 'nav-pron\.js\?v=[^\s"]+', "nav-pron.js?v=$v"
-    if ($u -ne $c) { [System.IO.File]::WriteAllText($_.FullName, $u, [System.Text.Encoding]::UTF8) }
-}
+Update `assets/js/nav-version.json` to a new value, format `yyMMddHHmm`:
+
+```json
+{ "v": "yyMMddHHmm" }
 ```
 
-This must be run **after every** change to `nav-pron.js`, not just when adding a new lesson.
+This must be done **after every** change to `nav-pron.js`, not just when adding a new lesson.
 
 ---
 
@@ -144,5 +142,5 @@ There is only one entry to change — it always links to the single most recentl
 - [ ] All French characters are correct UTF-8
 - [ ] Hidden audio elements generated via the loop script (Step 3), not hand-written per file, pointing at `https://languages.rmlives.com/rfi/Melissa/NN/`
 - [ ] `nav-pron.js` updated: new link added inside the correct year's RFI News dropdown, labeled `Mélissa MM/DD/YY`, using a root-relative href
-- [ ] `nav-pron.js?v=` bumped in **all** pronunciation HTML files (Step 5 PowerShell)
+- [ ] `assets/js/nav-version.json` bumped (Step 5) — do not touch the `?v=` on individual HTML files, there isn't one anymore
 - [ ] `sitemap.html`'s `"French"` node updated to the newest lesson

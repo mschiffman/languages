@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="/assets/js/nav-loader.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French Interview - Adult Summer Camps</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio
+            id="audioElement"
+            src="https://languages.rmlives.com/rfi/Melissa/02/audio.mp3?v=2607251452"
+          ></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              Oui, franchement,</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              c'est un phénomène qui explose.</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              On voit de plus en plus d'adultes</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              qui repartent en colonie de vacances,</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              comme quand ils étaient gamins.</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              C'est-à-dire des vrais camps,</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              avec les cabanes,</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              les feux de camp,</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              les guimauves</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              qu'on fait griller le soir, tout ça.</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              Et je pense que ça</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              répond à un vrai besoin.</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              Les gens sont épuisés</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              par le boulot,</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              par les mails,</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              par cette course permanente —</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              donc ils ont envie de tout lâcher,</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              de se déconnecter,</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              de retrouver ce sentiment</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              d'insouciance qu'on avait, enfants.</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              Il y a aussi</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              cette histoire de solitude,</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              notamment chez les jeunes adultes</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              qui n'arrivent plus</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              à se faire des amis.</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              Et là, en un week-end,</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              ils repartent</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              avec une bande de copains.</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              C'est fou, quand même.</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              Beaucoup arrivent seuls</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              et repartent avec le sentiment</span
+            >
+            <span class="chunk" onclick="playAudio('audio32')">
+              de se connaître depuis toujours.</span
+            >
+            <span class="chunk" onclick="playAudio('audio33')">
+              Alors oui, ça coûte cher,</span
+            >
+            <span class="chunk" onclick="playAudio('audio34')">
+              dans les mille dollars le week-end —</span
+            >
+            <span class="chunk" onclick="playAudio('audio35')">
+              mais pour certains,</span
+            >
+            <span class="chunk" onclick="playAudio('audio36')">
+              l'aventure et les amitiés,</span
+            >
+            <span class="chunk" onclick="playAudio('audio37')">
+              ça n'a pas de prix.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Yes, honestly, it's a phenomenon that's exploding. We're seeing
+              more and more adults going back to summer camp, just like when
+              they were kids. That is, real camps, with cabins, campfires,
+              marshmallows you roast in the evening, all of that. And I think
+              it meets a real need. People are exhausted by work, by emails,
+              by this constant rush — so they want to let go of everything, to
+              disconnect, to find again that carefree feeling we had as
+              children. There's also this issue of loneliness, especially
+              among young adults who can no longer manage to make friends. And
+              there, in a single weekend, they leave with a whole group of
+              friends. It's crazy, really. Many arrive alone and leave with
+              the feeling of having known each other forever. So yes, it costs
+              a lot, around a thousand dollars for the weekend — but for some,
+              the adventure and the friendships are priceless.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio38')">
+                  phénomène /fenomɛn/
+                </td>
+                <td>phenomenon</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio39')">
+                  exploser /ɛksploze/
+                </td>
+                <td>to explode / skyrocket</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio40')">
+                  colonie de vacances /kɔlɔni də vakɑ̃s/
+                </td>
+                <td>summer camp</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  cabane /kaban/
+                </td>
+                <td>cabin</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  feu de camp /fø də kɑ̃/
+                </td>
+                <td>campfire</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  guimauve /gimov/
+                </td>
+                <td>marshmallow</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  griller /gʀije/
+                </td>
+                <td>to roast / toast</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  épuisé /epɥize/
+                </td>
+                <td>exhausted</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  course permanente /kuʀs pɛʀmanɑ̃t/
+                </td>
+                <td>constant rush / race</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  lâcher /lɑʃe/
+                </td>
+                <td>to let go</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  se déconnecter /sə dekɔnekte/
+                </td>
+                <td>to disconnect</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  insouciance /ɛ̃susjɑ̃s/
+                </td>
+                <td>carefree spirit</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  solitude /sɔlityd/
+                </td>
+                <td>loneliness</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  se connaître /sə kɔnɛtʀ/
+                </td>
+                <td>to know one another</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  amitié /amitje/
+                </td>
+                <td>friendship</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements (generated by script below) -->
+    <div id="hiddenAudioContainer"></div>
+    <script>
+      (function () {
+        const base = "https://languages.rmlives.com/rfi/Melissa/02/";
+        const container = document.getElementById("hiddenAudioContainer");
+        for (let i = 1; i <= 52; i++) {
+          const num = String(i).padStart(2, "0");
+          const audio = document.createElement("audio");
+          audio.id = "audio" + i;
+          audio.src = base + num + ".mp3?v=2607251452";
+          container.appendChild(audio);
+        }
+      })();
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="/assets/js/pron.js"></script>
+  </body>
+</html>

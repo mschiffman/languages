@@ -30,6 +30,9 @@ document.getElementById("navbar").innerHTML = `
         <a href="/fr/pron/Melissa/01/index.html" class="sidebar-link">
           <i class="bi bi-calendar"></i> Mélissa 07/13/26
         </a>
+        <a href="/fr/pron/Melissa/02/index.html" class="sidebar-link">
+          <i class="bi bi-calendar"></i> Mélissa 07/25/26
+        </a>
       </div>
     </div>
 
