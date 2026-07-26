@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aimer & détester</title>
+    <title>la date et l'heure</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -35,10 +35,7 @@
   </head>
   <body>
     <div class="container py-4">
-      <a
-        href="../../index.html"
-        target="_blank"
-        class="btn btn-secondary mb-3"
+      <a href="../../index.html" target="_blank" class="btn btn-secondary mb-3"
         >Site Map</a
       >
       <button id="openAudio" type="button" class="btn btn-audio mb-3 ms-2">
@@ -46,9 +43,14 @@
       </button>
       <div
         class="note-wrapper mb-3 ms-2"
-        data-note="Dans le parc, plusieurs amis parlent de leurs goûts. Marie adore se promener au soleil, mais elle déteste la pluie. Son ami préfère rester à la maison pour lire un bon livre. Chacun exprime ce qu’il aime, ce qu’il n’aime pas et ce qu’il préfère faire pendant son temps libre."
+        data-note="Sur le calendrier, on voit la date et l’heure du jour. Il est dix heures du matin, un lundi de printemps. Les gens se demandent l’heure et vérifient le jour de la semaine avant de commencer leur journée. Chacun organise ses activités selon l’heure et la date affichées."
       >
-        <button id="noteBtn" type="button" class="btn btn-note" title="Transcript">
+        <button
+          id="noteBtn"
+          type="button"
+          class="btn btn-note"
+          title="Transcript"
+        >
           📝 Transcript
         </button>
       </div>
@@ -79,19 +81,19 @@
         <audio id="audioElement"></audio>
       </div>
 
-      <div class="mx-auto" style="max-width: 700px">
+      <div class="mx-auto" style="max-width: 500px">
         <img
-          src="/img/everyday/park.jpg"
+          src="/img/everyday/date.jpg"
           alt=""
           class="img-fluid mb-4 rounded d-block mx-auto"
         />
       </div>
 
-      <div id="content">Loading aimer...</div>
+      <div id="content">Loading date_heure...</div>
     </div>
 
     <script>
-      initTopicPage("aimer_detester");
+      initTopicPage("date");
     </script>
   </body>
 </html>
