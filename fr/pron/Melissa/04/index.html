@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="/assets/js/nav-loader.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French Interview - Anti-CPE Crisis &amp; World News</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio
+            id="audioElement"
+            src="https://languages.rmlives.com/rfi/Melissa/04/audio.mp3"
+          ></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              Bonjour à tous, très bon réveil.</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              Après deux mois</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              de chaos anti-CPE, les
+            </span>
+            <span class="chunk" onclick="playAudio('audio4')">
+              présidents d'université</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              espèrent une reprise des cours</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')"> ce matin.</span>
+            <span class="chunk" onclick="playAudio('audio7')">
+              Quelques bastions de grévistes</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              résistent encore,</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              à Nantes et Toulouse notament.</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              Ailleurs, on s'active</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              pour rattraper le retard accumulé,</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              et beaucoup de responsables</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              sont écœurés</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              en découvrant l'étendue</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              des dégradations</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              dans les locaux des facs.</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              C'est le cas à Grenoble,</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              vous allez le voir,</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              où la casse est particulièrement lourde.</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              Et la coordination étudiante,</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              dont on a du mal</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              à évaluer le poids aujourd'hui</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              appelle à un élargissement</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              des revendications.</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              Une journée d'action</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              a été décidée</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              pour ce mardi</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              afin de dénoncer la loi</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              sur l'égalité des chances</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              dans son intégralité.</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              Les débats sur le Proche-Orient</span
+            >
+            <span class="chunk" onclick="playAudio('audio32')">
+              ont animé les membres</span
+            >
+            <span class="chunk" onclick="playAudio('audio33')">
+              du Conseil de sécurité de l'ONU.</span
+            >
+            <span class="chunk" onclick="playAudio('audio34')">
+              L'attentat-suicide de Tel-Aviv</span
+            >
+            <span class="chunk" onclick="playAudio('audio35')">
+              a été unanimement condamné.</span
+            >
+            <span class="chunk" onclick="playAudio('audio36')">
+              Il marque donc le retour</span
+            >
+            <span class="chunk" onclick="playAudio('audio37')">
+              de la terreur</span
+            >
+            <span class="chunk" onclick="playAudio('audio38')">
+              et met le Hamas</span
+            >
+            <span class="chunk" onclick="playAudio('audio39')">
+              face à ses contradictions</span
+            >
+            <span class="chunk" onclick="playAudio('audio40')">
+              avec l'Autorité palestinienne.</span
+            >
+            <span class="chunk" onclick="playAudio('audio41')">
+              À Jérusalem,</span
+            >
+            <span class="chunk" onclick="playAudio('audio42')">
+              on retrouve notre correspondant</span
+            >
+            <span class="chunk" onclick="playAudio('audio43')">
+              Jean-Marc Pillas.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Good morning everyone, a very good wake-up to you. After two
+              months of chaos over the CPE, university presidents are hoping
+              classes will resume this morning. A few bastions of strikers are
+              still holding out, notably in Nantes and Toulouse. Elsewhere,
+              people are scrambling to catch up on the backlog, and many
+              officials are disheartened to discover the extent of the damage to
+              university buildings. That's the case in Grenoble, as you'll see,
+              where the destruction is particularly severe. And the student
+              coordination committee, whose weight is hard to gauge today, is
+              calling for a broadening of the demands. A day of action has been
+              set for this Tuesday to denounce the equal-opportunity law in its
+              entirety. Debates over the Middle East occupied members of the UN
+              Security Council. The suicide bombing in Tel Aviv was unanimously
+              condemned. It marks the return of terror and confronts Hamas with
+              its own contradictions vis-à-vis the Palestinian Authority. In
+              Jerusalem, we go now to our correspondent Jean-Marc Pillas.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  réveil /ʁe.vɛj/
+                </td>
+                <td>wake-up / morning (news)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  gréviste /ɡʁe.vist/
+                </td>
+                <td>striker</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  résister /ʁe.zis.te/
+                </td>
+                <td>to resist / hold out</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  rattraper /ʁa.tʁa.pe/
+                </td>
+                <td>to catch up (on)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  retard /ʁə.taʁ/
+                </td>
+                <td>delay / backlog</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  écœuré /e.kœ.ʁe/
+                </td>
+                <td>disgusted / disheartened</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  étendue /e.tɑ̃.dy/
+                </td>
+                <td>extent</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  dégradations /de.ɡʁa.da.sjɔ̃/
+                </td>
+                <td>damage</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  locaux /lɔ.ko/
+                </td>
+                <td>premises</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  casse /kas/
+                </td>
+                <td>damage / breakage</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  évaluer /e.va.lɥe/
+                </td>
+                <td>to assess / gauge</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  poids /pwa/
+                </td>
+                <td>weight / influence</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  élargissement /e.laʁ.ʒis.mɑ̃/
+                </td>
+                <td>broadening / expansion</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  revendication /ʁə.vɑ̃.di.ka.sjɔ̃/
+                </td>
+                <td>demand</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  journée d'action /ʒuʁ.ne d‿ak.sjɔ̃/
+                </td>
+                <td>day of action</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  dénoncer /de.nɔ̃.se/
+                </td>
+                <td>to denounce</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  égalité des chances /e.ɡa.li.te de ʃɑ̃s/
+                </td>
+                <td>equal opportunity</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  intégralité /ɛ̃.te.ɡʁa.li.te/
+                </td>
+                <td>entirety</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">
+                  Conseil de sécurité /kɔ̃.sɛj də se.ky.ʁi.te/
+                </td>
+                <td>Security Council</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  attentat-suicide /a.tɑ̃.ta sɥi.sid/
+                </td>
+                <td>suicide attack / bombing</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">
+                  condamné /kɔ̃.dɑ̃.ne/
+                </td>
+                <td>condemned</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio65')">
+                  terreur /tɛ.ʁœʁ/
+                </td>
+                <td>terror</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio66')">
+                  contradiction /kɔ̃.tʁa.dik.sjɔ̃/
+                </td>
+                <td>contradiction</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio67')">
+                  correspondant /kɔ.ʁɛs.pɔ̃.dɑ̃/
+                </td>
+                <td>correspondent</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements (generated by script below) -->
+    <div id="hiddenAudioContainer"></div>
+    <script>
+      (function () {
+        const base = "https://languages.rmlives.com/rfi/Melissa/04/";
+        const container = document.getElementById("hiddenAudioContainer");
+        for (let i = 1; i <= 67; i++) {
+          const num = String(i).padStart(2, "0");
+          const audio = document.createElement("audio");
+          audio.id = "audio" + i;
+          audio.src = base + num + ".mp3";
+          container.appendChild(audio);
+        }
+      })();
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="/assets/js/pron.js"></script>
+  </body>
+</html>

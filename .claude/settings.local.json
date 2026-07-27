@@ -42,7 +42,15 @@
       "Bash(xargs -r kill)",
       "Bash(netstat -ano)",
       "Bash(powershell -Command \"Stop-Process -Id 10128 -Force\")",
-      "Bash(taskkill //F //PID 10128)"
+      "Bash(taskkill //F //PID 10128)",
+      "Bash(git add *)",
+      "Bash(curl -sI \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3\")",
+      "Bash(curl -v -I \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3\")",
+      "Bash(curl -sD - -o /dev/null --ssl-revoke-best-effort \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3\")",
+      "Bash(curl -sD - -o /dev/null --ssl-revoke-best-effort \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3?v=2607250726\")",
+      "Bash(curl -sD - -o /dev/null --ssl-revoke-best-effort -H \"Range: bytes=0-100\" \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3\")",
+      "Bash(curl -sD - -o /dev/null --ssl-revoke-best-effort -X OPTIONS \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3\")",
+      "Bash(curl -sD - -o /dev/null --ssl-revoke-best-effort -H \"Origin: https://rmlives.com\" -H \"Referer: https://rmlives.com/fr/everyday/topics/aimer.html\" \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3\")"
     ],
     "additionalDirectories": [
       "\\tmp",

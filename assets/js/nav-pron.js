@@ -33,6 +33,12 @@ document.getElementById("navbar").innerHTML = `
         <a href="/fr/pron/Melissa/02/index.html" class="sidebar-link">
           <i class="bi bi-calendar"></i> Mélissa 07/25/26
         </a>
+        <a href="/fr/pron/Melissa/03/index.html" class="sidebar-link">
+          <i class="bi bi-calendar"></i> Mélissa 07/27/26
+        </a>
+        <a href="/fr/pron/Melissa/04/index.html" class="sidebar-link">
+          <i class="bi bi-calendar"></i> Mélissa 07/27/26
+        </a>
       </div>
     </div>
 
@@ -138,3 +144,5 @@ document.getElementById("navbar").innerHTML = `
 </div>
 </div>
 `;
+
+document.dispatchEvent(new CustomEvent("navbar:loaded"));

@@ -10,8 +10,78 @@ if (typeof window !== "undefined") {
   window.playAudio = playAudio;
 }
 
+// Sidebar setup (navbar is injected asynchronously by nav-loader.js, so this
+// runs off a "navbar:loaded" event rather than DOMContentLoaded)
+let sidebarInitialized = false;
+function initSidebar() {
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const leftSidebar = document.getElementById("leftSidebar");
+  if (!hamburgerBtn || !leftSidebar || sidebarInitialized) {
+    return;
+  }
+  sidebarInitialized = true;
+
+  const closeSidebarForMobile = () => {
+    leftSidebar.classList.remove("active");
+    hamburgerBtn.classList.remove("active");
+  };
+
+  hamburgerBtn.addEventListener("click", () => {
+    const isOpen = leftSidebar.classList.toggle("active");
+    hamburgerBtn.classList.toggle("active", isOpen);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      closeSidebarForMobile();
+    }
+  });
+
+  closeSidebarForMobile();
+
+  // Sidebar dropdown toggles
+  document.querySelectorAll(".sidebar-dropdown-toggle").forEach((button) => {
+    const dropdown = button.closest(".sidebar-dropdown");
+    const isOpen = dropdown.classList.contains("open");
+    button.setAttribute("aria-expanded", isOpen);
+    button.addEventListener("click", () => {
+      const nowOpen = dropdown.classList.toggle("open");
+      button.setAttribute("aria-expanded", nowOpen);
+    });
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll(".sidebar-link").forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          // Update active link
+          document
+            .querySelectorAll(".sidebar-link")
+            .forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+        }
+      }
+
+      if (window.innerWidth <= 768) {
+        closeSidebarForMobile();
+      }
+    });
+  });
+}
+
+document.addEventListener("navbar:loaded", initSidebar);
+
 // Audio Player Window Controls
 document.addEventListener("DOMContentLoaded", function () {
+  // In case the navbar was already injected before this listener registered
+  initSidebar();
+
   const openAudioBtn = document.getElementById("openAudio");
   const closeAudioBtn = document.getElementById("closeAudio");
   const audioWindow = document.getElementById("audioPlayerWindow");
@@ -20,31 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const stopBtn = document.getElementById("stopBtn");
   const audioElement = document.getElementById("audioElement");
   const progressBar = document.getElementById("progressBar");
-  const hamburgerBtn = document.getElementById("hamburgerBtn");
-  const leftSidebar = document.getElementById("leftSidebar");
-
-  const closeSidebarForMobile = () => {
-    if (!hamburgerBtn || !leftSidebar) {
-      return;
-    }
-    leftSidebar.classList.remove("active");
-    hamburgerBtn.classList.remove("active");
-  };
-
-  if (hamburgerBtn && leftSidebar) {
-    hamburgerBtn.addEventListener("click", () => {
-      const isOpen = leftSidebar.classList.toggle("active");
-      hamburgerBtn.classList.toggle("active", isOpen);
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 768) {
-        closeSidebarForMobile();
-      }
-    });
-
-    closeSidebarForMobile();
-  }
 
   // Open/Close audio player
   openAudioBtn.addEventListener("click", function () {
@@ -147,41 +192,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         span.classList.add("active");
         activeChunk = span;
-      }
-    });
-  });
-
-  // Sidebar dropdown toggles
-  document.querySelectorAll(".sidebar-dropdown-toggle").forEach((button) => {
-    const dropdown = button.closest(".sidebar-dropdown");
-    const isOpen = dropdown.classList.contains("open");
-    button.setAttribute("aria-expanded", isOpen);
-    button.addEventListener("click", () => {
-      const nowOpen = dropdown.classList.toggle("open");
-      button.setAttribute("aria-expanded", nowOpen);
-    });
-  });
-
-  // Smooth scrolling for navigation links
-  document.querySelectorAll(".sidebar-link").forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
-      if (href && href.startsWith("#")) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-
-          // Update active link
-          document
-            .querySelectorAll(".sidebar-link")
-            .forEach((l) => l.classList.remove("active"));
-          this.classList.add("active");
-        }
-      }
-
-      if (window.innerWidth <= 768) {
-        closeSidebarForMobile();
       }
     });
   });

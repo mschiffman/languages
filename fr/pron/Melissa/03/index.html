@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pronunciation Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/pron.css" />
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script type="module" src="/assets/js/nav-loader.js"></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <div class="top-header">
+        <h1>French Interview - Saint-Jacut</h1>
+      </div>
+
+      <div class="content-container">
+        <!-- Audio Player Button -->
+        <div class="mb-4">
+          <button id="openAudio" class="btn-audio">
+            <i class="bi bi-play-circle"></i> Open Audio Player
+          </button>
+        </div>
+
+        <!-- Draggable Audio Player Window -->
+        <div id="audioPlayerWindow">
+          <div id="audioPlayerHeader">
+            <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+            <button id="closeAudio">&times;</button>
+          </div>
+          <div id="audioPlayerControls">
+            <button id="playBtn" title="Play">&#9658;</button>
+            <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+            <button id="stopBtn" title="Stop">&#9632;</button>
+          </div>
+          <div id="progressContainer">
+            <input
+              type="range"
+              id="progressBar"
+              min="0"
+              max="100"
+              step="0.1"
+              value="0"
+              class="form-range"
+            />
+          </div>
+          <audio
+            id="audioElement"
+            src="https://languages.rmlives.com/rfi/Melissa/03/audio.mp3"
+          ></audio>
+        </div>
+
+        <!-- Main Text Content -->
+
+        <p style="color: brown; font-size: 1.1em">
+          <i>Click anywhere in the paragraph to hear the pronunciation</i>.
+        </p>
+
+        <div class="content-box" id="main-text">
+          <p class="text-content">
+            <span class="chunk" onclick="playAudio('audio1')">
+              Ah, Saint-Jacut...</span
+            >
+            <span class="chunk" onclick="playAudio('audio2')">
+              Je me souviens encore</span
+            >
+            <span class="chunk" onclick="playAudio('audio3')">
+              de la première fois</span
+            >
+            <span class="chunk" onclick="playAudio('audio4')">
+              que j'y suis allée.</span
+            >
+            <span class="chunk" onclick="playAudio('audio5')">
+              C'est une petite presqu'île,</span
+            >
+            <span class="chunk" onclick="playAudio('audio6')">
+              tout au bout des Côtes-d'Armor,</span
+            >
+            <span class="chunk" onclick="playAudio('audio7')">
+              avec la mer des deux côtés —</span
+            >
+            <span class="chunk" onclick="playAudio('audio8')">
+              où qu'on aille,</span
+            >
+            <span class="chunk" onclick="playAudio('audio9')">
+              on n'est jamais loin de l'eau.</span
+            >
+            <span class="chunk" onclick="playAudio('audio10')">
+              À l'époque,</span
+            >
+            <span class="chunk" onclick="playAudio('audio11')">
+              j'y venais surtout pour me reposer,</span
+            >
+            <span class="chunk" onclick="playAudio('audio12')">
+              pour souffler un peu.</span
+            >
+            <span class="chunk" onclick="playAudio('audio13')">
+              Et puis, j'ai fini par y revenir</span
+            >
+            <span class="chunk" onclick="playAudio('audio14')">
+              chaque année,</span
+            >
+            <span class="chunk" onclick="playAudio('audio15')">
+              sans vraiment savoir pourquoi.</span
+            >
+            <span class="chunk" onclick="playAudio('audio16')">
+              Ce que j'aimais, c'était l'air —</span
+            >
+            <span class="chunk" onclick="playAudio('audio17')">
+              cet air frais, un peu salé,</span
+            >
+            <span class="chunk" onclick="playAudio('audio18')">
+              même en plein été.</span
+            >
+            <span class="chunk" onclick="playAudio('audio19')">
+              Le matin, à marée basse,</span
+            >
+            <span class="chunk" onclick="playAudio('audio20')">
+              la mer se retirait si loin</span
+            >
+            <span class="chunk" onclick="playAudio('audio21')">
+              qu'on aurait dit</span
+            >
+            <span class="chunk" onclick="playAudio('audio22')">
+              qu'elle avait changé d'avis.</span
+            >
+            <span class="chunk" onclick="playAudio('audio23')">
+              Il y avait cette vieille abbaye,</span
+            >
+            <span class="chunk" onclick="playAudio('audio24')">
+              tout au bout du village,</span
+            >
+            <span class="chunk" onclick="playAudio('audio25')">
+              tenue par des sœurs</span
+            >
+            <span class="chunk" onclick="playAudio('audio26')">
+              qui accueillaient les gens</span
+            >
+            <span class="chunk" onclick="playAudio('audio27')">
+              toute l'année.</span
+            >
+            <span class="chunk" onclick="playAudio('audio28')">
+              Une chambre toute simple,</span
+            >
+            <span class="chunk" onclick="playAudio('audio29')">
+              des repas partagés,</span
+            >
+            <span class="chunk" onclick="playAudio('audio30')">
+              et le silence —</span
+            >
+            <span class="chunk" onclick="playAudio('audio31')">
+              surtout le silence.</span
+            >
+            <span class="chunk" onclick="playAudio('audio32')">
+              Je crois que c'est là</span
+            >
+            <span class="chunk" onclick="playAudio('audio33')">
+              que j'ai été le plus heureuse,</span
+            >
+            <span class="chunk" onclick="playAudio('audio34')">
+              sans même m'en rendre compte.</span
+            >
+            <span class="chunk" onclick="playAudio('audio35')">
+              Et parfois, encore aujourd'hui,</span
+            >
+            <span class="chunk" onclick="playAudio('audio36')">
+              quand le vent tombe le soir,</span
+            >
+            <span class="chunk" onclick="playAudio('audio37')">
+              je repense à cet endroit,</span
+            >
+            <span class="chunk" onclick="playAudio('audio38')">
+              et je me dis</span
+            >
+            <span class="chunk" onclick="playAudio('audio39')">
+              que je pourrais très bien</span
+            >
+            <span class="chunk" onclick="playAudio('audio40')">
+              y finir mes jours.</span
+            >
+          </p>
+
+          <hr />
+
+          <p class="text-content">
+            <span>
+              Ah, Saint-Jacut... I still remember the first time I went there.
+              It's a little peninsula, right at the tip of the Côtes-d'Armor,
+              with the sea on both sides — wherever you go, you're never far
+              from the water. Back then, I came mostly to rest, to catch my
+              breath a little. And then I ended up coming back every year,
+              without really knowing why. What I loved was the air — that cool,
+              slightly salty air, even in the middle of summer. In the morning,
+              at low tide, the sea would pull back so far you'd think it had
+              changed its mind. There was that old abbey, right at the end of
+              the village, run by sisters who welcomed people all year round. A
+              very simple room, shared meals, and the silence — above all, the
+              silence. I think that's where I was happiest, without even
+              realizing it. And sometimes, even today, when the wind dies down
+              in the evening, I think back to that place, and I tell myself I
+              could very well end my days there.
+            </span>
+          </p>
+        </div>
+
+        <!-- Glossary Section -->
+        <div class="content-box" id="glossary">
+          <div class="glossary-title"><i class="bi bi-book"></i> GLOSSARY</div>
+
+          <table class="glossary-table">
+            <thead>
+              <tr style="color: #3498db; font-weight: 600">
+                <th style="padding: 12px 8px">FRENCH</th>
+                <th style="padding: 12px 8px">ENGLISH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="words" onclick="playAudio('audio41')">
+                  Saint-Jacut /sɛ̃ ʒa.ky/
+                </td>
+                <td>Saint-Jacut</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio42')">
+                  Côtes-d'Armor /kot daʁ.mɔʁ/
+                </td>
+                <td>Côtes-d'Armor</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio43')">
+                  se souvenir /sə suvniʀ/
+                </td>
+                <td>to remember</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio44')">
+                  presqu'île /pʀɛskil/
+                </td>
+                <td>peninsula</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio45')">
+                  au bout de /o bu də/
+                </td>
+                <td>at the end / tip of</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio46')">
+                  où que /u kə/
+                </td>
+                <td>wherever</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio47')">
+                  à l'époque /a lepɔk/
+                </td>
+                <td>back then</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio48')">
+                  se reposer /sə ʀəpoze/
+                </td>
+                <td>to rest</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio49')">
+                  souffler /sufle/
+                </td>
+                <td>to catch one's breath</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio50')">
+                  finir par /finiʀ paʀ/
+                </td>
+                <td>to end up (doing)</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio51')">
+                  frais /fʀɛ/
+                </td>
+                <td>cool / fresh</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio52')">
+                  salé /sale/
+                </td>
+                <td>salty</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio53')">
+                  marée basse /maʀe bas/
+                </td>
+                <td>low tide</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio54')">
+                  se retirer /sə ʀətiʀe/
+                </td>
+                <td>to pull back / recede</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio55')">
+                  changer d'avis /ʃɑ̃ʒe davi/
+                </td>
+                <td>to change one's mind</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio56')">
+                  abbaye /abei/
+                </td>
+                <td>abbey</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio57')">
+                  tenu par /təny paʀ/
+                </td>
+                <td>run by</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio58')">
+                  accueillir /akœjiʀ/
+                </td>
+                <td>to welcome</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio59')">
+                  repas /ʀəpa/
+                </td>
+                <td>meal</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio60')">
+                  partagé /paʀtaʒe/
+                </td>
+                <td>shared</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio61')">
+                  se rendre compte /sə ʀɑ̃dʀ kɔ̃t/
+                </td>
+                <td>to realize</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio62')">
+                  le vent tombe /lə vɑ̃ tɔ̃b/
+                </td>
+                <td>the wind dies down</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio63')">
+                  repenser à /ʀəpɑ̃se a/
+                </td>
+                <td>to think back to</td>
+              </tr>
+              <tr>
+                <td class="words" onclick="playAudio('audio64')">
+                  finir ses jours /finiʀ se ʒuʀ/
+                </td>
+                <td>to live out one's days</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Elements (generated by script below) -->
+    <div id="hiddenAudioContainer"></div>
+    <script>
+      (function () {
+        const base = "https://languages.rmlives.com/rfi/Melissa/03/";
+        const container = document.getElementById("hiddenAudioContainer");
+        for (let i = 1; i <= 62; i++) {
+          const num = String(i).padStart(2, "0");
+          const audio = document.createElement("audio");
+          audio.id = "audio" + i;
+          audio.src = base + num + ".mp3";
+          container.appendChild(audio);
+        }
+      })();
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="/assets/js/pron.js"></script>
+  </body>
+</html>
