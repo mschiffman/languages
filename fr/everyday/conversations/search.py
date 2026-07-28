@@ -3,7 +3,7 @@
 
 from pathlib import Path
 
-SEARCH_TEXT = "marché"
+SEARCH_TEXT = "how hot is it"
 
 def main():
     root = Path(".")
