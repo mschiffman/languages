@@ -1,8 +1,24 @@
 // Play audio function
+const audioPool = {};
+
 function playAudio(id) {
   const audio = document.getElementById(id);
   if (audio) {
     audio.play();
+    return;
+  }
+
+  // Fallback: pages that set window.AUDIO_BASE_URL play numbered files
+  // (e.g. "01") directly from that base URL instead of declaring an
+  // <audio> element per word.
+  if (typeof window !== "undefined" && window.AUDIO_BASE_URL) {
+    const ext = window.AUDIO_EXT || "m4a";
+    const src = `${window.AUDIO_BASE_URL}${id}.${ext}`;
+    if (!audioPool[src]) {
+      audioPool[src] = new Audio(src);
+    }
+    audioPool[src].currentTime = 0;
+    audioPool[src].play();
   }
 }
 
