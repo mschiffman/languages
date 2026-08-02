@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Listening Test: Dual Voice</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/assets/css/listenMaster.css" />
+  </head>
+  <body>
+    <div class="test-card">
+      <h2>🎧 Compréhension Orale</h2>
+      <div class="subtitle">
+        Select a voice, listen, and click the correct box.
+      </div>
+
+      <div class="voice-selector">
+        <button
+          class="voice-btn active-male"
+          id="btn-male"
+          onclick="setVoice('male')"
+        >
+          👨 Male Voice
+        </button>
+        <button class="voice-btn" id="btn-female" onclick="setVoice('female')">
+          👩 Female Voice
+        </button>
+        <button
+          class="voice-btn"
+          id="btn-female-slow"
+          onclick="setVoice('female_slow')"
+        >
+          👩 Female Voice - Slow
+        </button>
+      </div>
+
+      <div class="audio-container">
+        <audio id="main-player" controls>
+          <source
+            id="audio-source"
+            src="https://languages.rmlives.com/lessons/everyday/conv40/listen-master/listen-m.mp3"
+            type="audio/mpeg"
+          />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button
+          onclick="toggleTranscript()"
+          style="
+            background: none;
+            border: none;
+            color: #3498db;
+            text-decoration: underline;
+            cursor: pointer;
+          "
+        >
+          👁️ Show/Hide Transcript
+        </button>
+        <div class="transcript-box" id="trans-box">
+          Avant un grand déménagement à l'étranger, il faut trier ses
+          affaires. On a passé tout un week-end à vider les placards et à
+          faire des piles : à garder, à donner, à jeter. Ma sœur avait
+          beaucoup trop de vêtements d'hiver alors qu'on partait vivre dans
+          un pays tropical. Elle a fini par donner la moitié de sa
+          garde-robe à une association. Pour remplacer les vêtements
+          chauds, on a décidé d'acheter des chemises légères, plus adaptées
+          à la chaleur. Le problème, c'est qu'on n'en trouve pas beaucoup
+          dans notre ville, donc on attendra d'être en Californie avant de
+          partir. On a aussi gardé quelques pulls, parce qu'on prévoit un
+          séjour en Europe après l'Asie. Finalement, le tri a pris plus de
+          temps que prévu, mais le résultat valait le coup : moins de
+          bagages, et un déménagement beaucoup plus simple.
+        </div>
+      </div>
+
+      <form id="quiz-form">
+        <div class="question-item">
+          <span class="q-text"
+            >1. Qu'est-ce qu'on a fait pendant tout un week-end ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1a" value="correct" />
+              <label class="option-box" for="q1a"
+                >Vider les placards et trier les affaires</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1b" value="wrong" />
+              <label class="option-box" for="q1b">Repeindre la maison</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q1" id="q1c" value="wrong" />
+              <label class="option-box" for="q1c">Organiser une fête</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >2. Comment a-t-on organisé les affaires ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2a" value="correct" />
+              <label class="option-box" for="q2a"
+                >En trois piles : à garder, à donner, à jeter</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2b" value="wrong" />
+              <label class="option-box" for="q2b">Par couleur</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q2" id="q2c" value="wrong" />
+              <label class="option-box" for="q2c"
+                >Par saison uniquement</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >3. Pourquoi la garde-robe de la sœur posait problème ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3a" value="correct" />
+              <label class="option-box" for="q3a"
+                >Elle avait trop de vêtements d'hiver pour un pays
+                tropical</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3b" value="wrong" />
+              <label class="option-box" for="q3b"
+                >Elle n'avait pas assez de vêtements</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q3" id="q3c" value="wrong" />
+              <label class="option-box" for="q3c"
+                >Elle avait perdu ses vêtements</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >4. Qu'a-t-elle fait de la moitié de sa garde-robe ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4a" value="correct" />
+              <label class="option-box" for="q4a"
+                >Elle l'a donnée à une association</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4b" value="wrong" />
+              <label class="option-box" for="q4b"
+                >Elle l'a vendue en ligne</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q4" id="q4c" value="wrong" />
+              <label class="option-box" for="q4c"
+                >Elle l'a gardée dans un garde-meuble</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >5. Que veut-on acheter pour remplacer les vêtements
+            chauds ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5a" value="correct" />
+              <label class="option-box" for="q5a"
+                >Des chemises légères</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5b" value="wrong" />
+              <label class="option-box" for="q5b">Des manteaux</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q5" id="q5c" value="wrong" />
+              <label class="option-box" for="q5c"
+                >Des chaussures de randonnée</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >6. Où va-t-on attendre pour acheter ces chemises ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6a" value="correct" />
+              <label class="option-box" for="q6a">En Californie</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6b" value="wrong" />
+              <label class="option-box" for="q6b">Dans leur ville</label>
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q6" id="q6c" value="wrong" />
+              <label class="option-box" for="q6c">En Europe</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >7. Pourquoi a-t-on gardé quelques pulls ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7a" value="correct" />
+              <label class="option-box" for="q7a"
+                >Parce qu'ils prévoient un séjour en Europe après
+                l'Asie</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7b" value="wrong" />
+              <label class="option-box" for="q7b"
+                >Parce qu'il va faire froid en Asie</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q7" id="q7c" value="wrong" />
+              <label class="option-box" for="q7c"
+                >Parce qu'ils n'ont pas eu le temps de les trier</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">8. Le tri a-t-il pris le temps prévu ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8a" value="correct" />
+              <label class="option-box" for="q8a"
+                >Non, plus de temps que prévu</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8b" value="wrong" />
+              <label class="option-box" for="q8b"
+                >Oui, exactement le temps prévu</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q8" id="q8c" value="wrong" />
+              <label class="option-box" for="q8c"
+                >Non, moins de temps que prévu</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text">9. Quel a été le résultat du tri ?</span>
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9a" value="correct" />
+              <label class="option-box" for="q9a"
+                >Moins de bagages et un déménagement plus simple</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9b" value="wrong" />
+              <label class="option-box" for="q9b"
+                >Plus de bagages qu'avant</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q9" id="q9c" value="wrong" />
+              <label class="option-box" for="q9c">Aucun changement</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="q-text"
+            >10. De quoi parle principalement ce texte ?</span
+          >
+          <div class="options-grid">
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10a" value="correct" />
+              <label class="option-box" for="q10a"
+                >Du tri des affaires avant un déménagement à
+                l'étranger</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10b" value="wrong" />
+              <label class="option-box" for="q10b"
+                >D'un voyage touristique</label
+              >
+            </div>
+            <div class="option-wrapper">
+              <input type="radio" name="q10" id="q10c" value="wrong" />
+              <label class="option-box" for="q10c"
+                >D'une rénovation de maison</label
+              >
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="score-display" id="score-box"></div>
+      <div class="controls">
+        <button
+          class="action-btn btn-check-answers"
+          type="button"
+          onclick="checkAnswers()"
+        >
+          Check Answers
+        </button>
+        <button
+          class="action-btn btn-reset"
+          type="button"
+          onclick="resetTest()"
+        >
+          Reset Test
+        </button>
+      </div>
+      <div class="page-nav">
+        <a href="listen-master.html" class="page-btn active">1</a>
+      </div>
+    </div>
+
+    <script>
+      const audioFiles = {
+        male: "https://languages.rmlives.com/lessons/everyday/conv40/listen-master/listen-m.mp3",
+        female:
+          "https://languages.rmlives.com/lessons/everyday/conv40/listen-master/listen-f.mp3",
+        female_slow:
+          "https://languages.rmlives.com/lessons/everyday/conv40/listen-master/listen-fs.mp3",
+      };
+    </script>
+    <script src="/assets/js/listenMaster.js"></script>
+    <script src="/assets/js/exercise-feedback.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

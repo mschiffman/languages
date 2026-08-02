@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Translation Quiz</title>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+    <link href="/img/favicon.png" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../../../../assets/css/translation.css" />
+  </head>
+  <body>
+    <div class="translation-card">
+      <h2>✍️ Translation Challenge (Page 4)</h2>
+      <p class="subtitle">
+        Translate the sentences into French. (Watch your spelling!)
+      </p>
+      <div id="quiz-area"></div>
+      <div class="btn-row">
+        <button class="btn-verify" onclick="checkTranslations()">
+          Check Answers
+        </button>
+        <button class="btn-reset" onclick="resetTranslations()">Reset</button>
+      </div>
+      <div class="page-nav">
+        <a href="translation1.html" class="page-btn">1</a>
+        <a href="translation2.html" class="page-btn">2</a>
+        <a href="translation3.html" class="page-btn">3</a>
+        <a href="translation4.html" class="page-btn active">4</a>
+        <a href="translation5.html" class="page-btn">5</a>
+        <a href="translation6.html" class="page-btn">6</a>
+      </div>
+    </div>
+    <script>
+      const questions = [
+        {
+          english: "The clouds are coming in.",
+          answers: ["Les nuages arrivent"],
+        },
+        {
+          english: "That's actually what I was going to ask you.",
+          answers: ["C'est justement ce que j'allais te demander"],
+        },
+        {
+          english: "Go through my shirts",
+          answers: ["Fais le tri dans mes chemises"],
+        },
+        {
+          english: "Falls Lake could get its water level back up.",
+          answers: ["Falls Lake pourra remonter son niveau d'eau"],
+        },
+        {
+          english:
+            "At least one of us needs to be in shape to handle the suitcases when we travel.",
+          answers: [
+            "Faut qu'au moins l'un de nous soit en forme pour gérer les valises quand on voyage",
+          ],
+          note: "\"Faut\" is the colloquial, spoken-French way of dropping \"il\" from \"il faut.\"",
+        },
+        {
+          english: "Okay.",
+          answers: ["D'accord", "Ok"],
+        },
+        {
+          english: "He said: \"We'll always need human supervision.",
+          answers: [
+            "Il a dit : \"Mais on aura toujours besoin d'une supervision humaine",
+          ],
+        },
+        {
+          english: "Maybe Monday.",
+          answers: ["Peut-être lundi"],
+        },
+        {
+          english: "We'll see what he says.",
+          answers: ["On verra ce qu'il dit"],
+        },
+        {
+          english: "They keep you cool",
+          answers: ["Elles te tiennent au frais"],
+        },
+      ];
+    </script>
+    <script src="/assets/js/exercise-feedback.js"></script>
+    <script type="module" src="../../../../assets/js/nav-utensils.js"></script>
+  </body>
+</html>

@@ -276,6 +276,12 @@
       year: "2026",
       month: "July",
     },
+    {
+      href: "../conv40/conv40.html",
+      label: "Jul 25 - Les chemises hawaïennes et l'IA en radiologie",
+      year: "2026",
+      month: "July",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
