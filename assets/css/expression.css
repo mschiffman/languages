@@ -74,6 +74,14 @@ body {
   color: #6c757d;
   font-size: 14px;
 }
+.head[data-clip],
+.expression-quote[data-clip] {
+  cursor: pointer;
+}
+.head[data-clip]:hover,
+.expression-quote[data-clip]:hover {
+  opacity: 0.75;
+}
 .phonetic {
   font-family: sans-serif;
   font-size: 18px;

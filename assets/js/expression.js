@@ -110,3 +110,41 @@
       new bootstrap.Tooltip(tooltipTriggerEl, { placement: 'top' })
       );
   });
+
+  // Click-to-play audio for .head / .expression-quote elements carrying a
+  // data-clip number. Base path is derived from the current page's filename
+  // (e.g. iMean.html -> .../lessons/expression/iMean/01.mp3), so no per-page
+  // config is needed.
+  const initExpressionAudio = () => {
+    const clipElements = document.querySelectorAll('.head[data-clip], .expression-quote[data-clip]');
+    if (!clipElements.length) {
+      return;
+    }
+
+    const slug = window.location.pathname.split('/').pop().replace(/\.html$/, '');
+    const basePath = `https://languages.rmlives.com/lessons/expression/${slug}`;
+    let currentAudio = null;
+
+    clipElements.forEach((el) => {
+      el.addEventListener('click', () => {
+        const clip = el.dataset.clip;
+        if (!clip) {
+          return;
+        }
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
+        currentAudio = new Audio(`${basePath}/${clip}.mp3`);
+        currentAudio.play().catch((error) => {
+          console.error('Audio playback failed:', error);
+        });
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initExpressionAudio);
+  } else {
+    initExpressionAudio();
+  }

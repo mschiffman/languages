@@ -52,7 +52,8 @@
       "Bash(curl -sD - -o /dev/null --ssl-revoke-best-effort -X OPTIONS \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3\")",
       "Bash(curl -sD - -o /dev/null --ssl-revoke-best-effort -H \"Origin: https://rmlives.com\" -H \"Referer: https://rmlives.com/fr/everyday/topics/aimer.html\" \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3\")",
       "Bash(python \"C:\\\\Users\\\\Owner\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Owner-Desktop-MAIN-WEBSITE-My-Website-languages\\\\3957dabc-fd09-4941-a117-8668a28ee5e1\\\\scratchpad\\\\transform_audio.py\")",
-      "Bash(python \"C:\\\\Users\\\\Owner\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Owner-Desktop-MAIN-WEBSITE-My-Website-languages\\\\3957dabc-fd09-4941-a117-8668a28ee5e1\\\\scratchpad\\\\transform_2.py\")"
+      "Bash(python \"C:\\\\Users\\\\Owner\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Owner-Desktop-MAIN-WEBSITE-My-Website-languages\\\\3957dabc-fd09-4941-a117-8668a28ee5e1\\\\scratchpad\\\\transform_2.py\")",
+      "Bash(python scripts_wire_audio.py)"
     ],
     "additionalDirectories": [
       "\\tmp",
