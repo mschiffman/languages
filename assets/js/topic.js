@@ -2,8 +2,9 @@
 // audio player controls, transcript note tooltip, examples toggle,
 // and markdown-to-HTML content loading.
 
-const AUDIO_HOST = "https://languages.rmlives.com/lessons/everyday";
-const AUDIO_VERSION = "2607250726";
+// const AUDIO_HOST = "https://languages.rmlives.com/lessons/everyday";
+const AUDIO_HOST = "/media/lessons/everyday";
+const AUDIO_VERSION = "2608071226";
 
 function initTopicPage(topic) {
   // Global function to play audio, invoked from onclick="playAudio('...')"

@@ -53,7 +53,8 @@
       "Bash(curl -sD - -o /dev/null --ssl-revoke-best-effort -H \"Origin: https://rmlives.com\" -H \"Referer: https://rmlives.com/fr/everyday/topics/aimer.html\" \"https://languages.rmlives.com/lessons/everyday/aimer/1.mp3\")",
       "Bash(python \"C:\\\\Users\\\\Owner\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Owner-Desktop-MAIN-WEBSITE-My-Website-languages\\\\3957dabc-fd09-4941-a117-8668a28ee5e1\\\\scratchpad\\\\transform_audio.py\")",
       "Bash(python \"C:\\\\Users\\\\Owner\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Owner-Desktop-MAIN-WEBSITE-My-Website-languages\\\\3957dabc-fd09-4941-a117-8668a28ee5e1\\\\scratchpad\\\\transform_2.py\")",
-      "Bash(python scripts_wire_audio.py)"
+      "Bash(python scripts_wire_audio.py)",
+      "Bash(python \"C:\\\\Users\\\\Owner\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Owner-Desktop-MAIN-WEBSITE-My-Website-languages\\\\743c19b4-d6ad-4bd6-968a-1a038bcb80ee\\\\scratchpad\\\\rename_routine_audio.py\")"
     ],
     "additionalDirectories": [
       "\\tmp",
