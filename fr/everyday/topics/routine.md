@@ -78,7 +78,7 @@
 |--------|-----|---------|
 | <span onclick="playAudio('107')">faire les courses</span> | <span onclick="playAudio('108')">aller au supermarché</span> | to buy groceries <button class="examples-btn" type="button" data-target="ex-groceries">Examples</button><div class="examples-panel" id="ex-groceries"><em>Je fais les courses le samedi matin.</em><br><em>Je vais au supermarché après le travail.</em></div> |
 | <span onclick="playAudio('109')">sortir le chien</span> | <span onclick="playAudio('110')">promener le chien</span> / <span onclick="playAudio('111')">sortir le clebs</span> (fam.) | to walk the dog <button class="examples-btn" type="button" data-target="ex-walkdog">Examples</button><div class="examples-panel" id="ex-walkdog"><em>Je sors le chien deux fois par jour.</em><br><em>Je sors le clebs tôt le matin.</em></div> |
-| <span onclick="playAudio('112')">nourrir le chien / chat</span> | <span onclick="playAudio('113')">donner à manger au chat</span> | to feed the pet <button class="examples-btn" type="button" data-target="ex-feedpet">Examples</button><div class="examples-panel" id="ex-feedpet"><em>Je nourris le chat deux fois par jour.</em><br><em>Je donne à manger au chat avant de partir.</em></div> |
+| <span onclick="playAudio('112')">nourrir le chien ou chat</span> | <span onclick="playAudio('113')">donner à manger au chat</span> | to feed the pet <button class="examples-btn" type="button" data-target="ex-feedpet">Examples</button><div class="examples-panel" id="ex-feedpet"><em>Je nourris le chat deux fois par jour.</em><br><em>Je donne à manger au chat avant de partir.</em></div> |
 | <span onclick="playAudio('114')">arroser les plantes</span> | <span onclick="playAudio('115')">arroser</span> | to water the plants <button class="examples-btn" type="button" data-target="ex-waterplants">Examples</button><div class="examples-panel" id="ex-waterplants"><em>J'arrose les plantes deux fois par semaine.</em><br><em>J'arrose rapidement avant de partir.</em></div> |
 | <span onclick="playAudio('116')">payer les factures</span> | <span onclick="playAudio('117')">régler les factures</span> | to pay the bills <button class="examples-btn" type="button" data-target="ex-bills">Examples</button><div class="examples-panel" id="ex-bills"><em>Je paie les factures en ligne.</em><br><em>Je règle les factures le premier du mois.</em></div> |
 | <span onclick="playAudio('118')">sortir les poubelles</span> | <span onclick="playAudio('119')">descendre les poubelles</span> | to take out the trash <button class="examples-btn" type="button" data-target="ex-trash">Examples</button><div class="examples-panel" id="ex-trash"><em>Je sors les poubelles le lundi soir.</em><br><em>Je descends les poubelles avant de dormir.</em></div> |
@@ -114,52 +114,52 @@
 - <span onclick="playAudio('145')">**Je me prépare.**</span> — I get ready.
 - <span onclick="playAudio('146')">**Je me pose.**</span> — I relax / settle down. <button class="examples-btn" type="button" data-target="ex-expr-pose">Examples</button><div class="examples-panel" id="ex-expr-pose"><em>Je rentre, je me pose, et je regarde un film.</em> — I come home, relax, and watch a movie.</div>
 
-#### 🛌 <span onclick="playAudio('147')">Getting up (Very Informal)</span>
+#### 🛌 Getting up (Very Informal)
 
-- <span onclick="playAudio('148')">**Je suis KO.**</span> — I'm exhausted.
-- <span onclick="playAudio('149')">**J'ai la tête dans le cul.**</span> — I'm half asleep. (vulg.)
-- <span onclick="playAudio('150')">**Je suis pas réveillé.**</span> — I'm not awake yet.
+- <span onclick="playAudio('147')">**Je suis KO.**</span> — I'm exhausted.
+- <span onclick="playAudio('148')">**J'ai la tête dans le cul.**</span> — I'm half asleep. (vulg.)
+- <span onclick="playAudio('149')">**Je suis pas réveillé.**</span> — I'm not awake yet.
 
-#### ☕ <span onclick="playAudio('151')">Morning routine</span>
+#### ☕ Morning routine
 
-- <span onclick="playAudio('152')">**Je prends un café vite fait.**</span> — I quickly grab a coffee.
-- <span onclick="playAudio('137')">**Je mange un truc.**</span> — I eat something.
-- <span onclick="playAudio('145')">**Je me prépare.**</span> — I get ready.
+- <span onclick="playAudio('150')">**Je prends un café vite fait.**</span> — I quickly grab a coffee.
+- <span onclick="playAudio('151')">**Je mange un truc.**</span> — I eat something.
+- <span onclick="playAudio('152')">**Je me prépare.**</span> — I get ready.
 
-#### 🚶 <span onclick="playAudio('153')">Leaving</span>
+#### 🚶 Leaving
 
-- <span onclick="playAudio('154')">**Je file.**</span> — I'm off.
-- <span onclick="playAudio('155')">**J'y vais.**</span> — I'm heading out.
-- <span onclick="playAudio('156')">**Je dois y aller.**</span> — I have to go.
-- <span onclick="playAudio('157')">**Je me casse.**</span> — I'm out. (fam.)
+- <span onclick="playAudio('153')">**Je file.**</span> — I'm off.
+- <span onclick="playAudio('154')">**J'y vais.**</span> — I'm heading out.
+- <span onclick="playAudio('155')">**Je dois y aller.**</span> — I have to go.
+- <span onclick="playAudio('156')">**Je me casse.**</span> — I'm out. (fam.)
 
-#### 🏠 <span onclick="playAudio('158')">Coming home</span>
+#### 🏠 Coming home
 
-- <span onclick="playAudio('139')">**Je rentre.**</span> — I'm heading home.
-- <span onclick="playAudio('159')">**Je suis rentré(e).**</span> — I'm back home.
-- <span onclick="playAudio('146')">**Je me pose.**</span> — I relax / settle down.
+- <span onclick="playAudio('157')">**Je rentre.**</span> — I'm heading home.
+- <span onclick="playAudio('158')">**Je suis rentré(e).**</span> — I'm back home.
+- <span onclick="playAudio('159')">**Je me pose.**</span> — I relax / settle down.
 
-#### 🛋 <span onclick="playAudio('160')">Relaxing</span>
+#### 🛋 Relaxing
 
-- <span onclick="playAudio('161')">**Je traîne.**</span> — I hang around.
-- <span onclick="playAudio('162')">**Je glande.**</span> — I do nothing / waste time. (fam.)
-- <span onclick="playAudio('163')">**Je mate une série.**</span> — I watch a series. (fam.)
+- <span onclick="playAudio('160')">**Je traîne.**</span> — I hang around.
+- <span onclick="playAudio('161')">**Je glande.**</span> — I do nothing / waste time. (fam.)
+- <span onclick="playAudio('162')">**Je mate une série.**</span> — I watch a series. (fam.)
 
-#### 🌙 <span onclick="playAudio('164')">Night</span>
+#### 🌙 Night
 
-- <span onclick="playAudio('165')">**Je suis crevé(e).**</span> — I'm exhausted.
-- <span onclick="playAudio('166')">**Je vais dormir.**</span> — I'm going to sleep.
-- <span onclick="playAudio('143')">**Je vais me coucher.**</span> — I'm going to bed.
+- <span onclick="playAudio('163')">**Je suis crevé(e).**</span> — I'm exhausted.
+- <span onclick="playAudio('164')">**Je vais dormir.**</span> — I'm going to sleep.
+- <span onclick="playAudio('165')">**Je vais me coucher.**</span> — I'm going to bed.
 
-#### 💬 <span onclick="playAudio('167')">Very common conversational fillers</span>
+#### 💬 Very common conversational fillers
 
-- <span onclick="playAudio('168')">**Bon.**</span> — Alright / well.
-- <span onclick="playAudio('169')">**Allez.**</span> — Come on / okay.
+- <span onclick="playAudio('166')">**Bon.**</span> — Alright / well.
+- <span onclick="playAudio('167')">**Allez.**</span> — Come on / okay.
   - _Bon, je vais me coucher. / Allez, j'y vais._
 
 ---
 
-### 📖 <span onclick="playAudio('170')">Note de grammaire</span>
+### 📖 <span onclick="playAudio('168')">Note de grammaire</span>
 
 **Reflexive Verbs for Body Actions**
 
@@ -167,83 +167,83 @@ French daily routines often use **reflexive verbs**:
 
 - <span onclick="playAudio('004')">se réveiller</span> — to wake up
 - <span onclick="playAudio('006')">se lever</span> — to get up
-- <span onclick="playAudio('171')">se laver</span> — to wash
-- <span onclick="playAudio('172')">se coucher</span> — to go to bed
-- <span onclick="playAudio('127')">s'endormir</span> — to fall asleep
+- <span onclick="playAudio('169')">se laver</span> — to wash
+- <span onclick="playAudio('170')">se coucher</span> — to go to bed
+- <span onclick="playAudio('171')">s'endormir</span> — to fall asleep
 
 **Structure:** se + verb + definite article
 
-✅ <span onclick="playAudio('173')">Je me lave les mains.</span> — I wash my hands.
+✅ <span onclick="playAudio('172')">Je me lave les mains.</span> — I wash my hands.
 
 ❌ Je lave mes mains.
 
 ---
 
-### 🎭 <span onclick="playAudio('174')">Expressions qui semblent bizarres littéralement</span>
+### 🎭 <span onclick="playAudio('173')">Expressions qui semblent bizarres littéralement</span>
 
 | Expression                                                    | Literal                 | Real meaning                  |
 | ------------------------------------------------------------- | ----------------------- | ----------------------------- |
-| <span onclick="playAudio('157')">Je me casse.</span>          | I break myself.         | I'm leaving.                  |
+| <span onclick="playAudio('156')">Je me casse.</span>          | I break myself.         | I'm leaving.                  |
 | <span onclick="playAudio('146')">Je me pose.</span>           | I place myself.         | I relax / settle down.        |
-| <span onclick="playAudio('175')">Je me prends la tête.</span> | I take my head.         | I'm stressing / overthinking. |
-| <span onclick="playAudio('176')">Je me fais un café.</span>   | I make myself a coffee. | I'll make a coffee.           |
-| <span onclick="playAudio('161')">Je traîne.</span>            | I drag.                 | I hang around / chill.        |
-| <span onclick="playAudio('177')">Ça marche.</span>            | It walks.               | OK / that works.              |
-| <span onclick="playAudio('178')">Je gère.</span>              | I manage.               | I got this / I'll handle it.  |
+| <span onclick="playAudio('174')">Je me prends la tête.</span> | I take my head.         | I'm stressing / overthinking. |
+| <span onclick="playAudio('175')">Je me fais un café.</span>   | I make myself a coffee. | I'll make a coffee.           |
+| <span onclick="playAudio('160')">Je traîne.</span>            | I drag.                 | I hang around / chill.        |
+| <span onclick="playAudio('176')">Ça marche.</span>            | It walks.               | OK / that works.              |
+| <span onclick="playAudio('177')">Je gère.</span>              | I manage.               | I got this / I'll handle it.  |
 
 ---
 
-### 🔧 <span onclick="playAudio('179')">« Truc » et « Machin » — Words for "Thing"</span>
+### 🔧 <span onclick="playAudio('178')">"Truc" et "Machin" — Words for "Thing"</span>
 
 **truc** = thing / stuff / something — Very common in everyday conversation.
 **machin** = thing / what's-it-called / thingamajig — Used when you don't remember the name.
 
 #### Examples with « truc »
 
-- <span onclick="playAudio('180')">Je cherche un truc.</span> — I'm looking for something.
-- <span onclick="playAudio('181')">Tu peux me passer ce truc ?</span> — Can you pass me that thing?
-- <span onclick="playAudio('182')">C'est quoi ce truc ?</span> — What is this thing?
-- <span onclick="playAudio('183')">Je veux un truc comme ça.</span> — I want something like that.
-- <span onclick="playAudio('184')">C'était un truc de fou.</span> — It was crazy.
+- <span onclick="playAudio('179')">Je cherche un truc.</span> — I'm looking for something.
+- <span onclick="playAudio('180')">Tu peux me passer ce truc ?</span> — Can you pass me that thing?
+- <span onclick="playAudio('181')">C'est quoi ce truc ?</span> — What is this thing?
+- <span onclick="playAudio('182')">Je veux un truc comme ça.</span> — I want something like that.
+- <span onclick="playAudio('183')">C'était un truc de fou.</span> — It was crazy.
 
 #### Examples with « machin »
 
-- <span onclick="playAudio('185')">Passe-moi le machin là.</span> — Pass me that thing there.
-- <span onclick="playAudio('186')">Comment s'appelle ce machin ?</span> — What's that thing called?
-- <span onclick="playAudio('187')">Le machin pour ouvrir les bouteilles.</span> — The thing for opening bottles.
+- <span onclick="playAudio('184')">Passe-moi le machin là.</span> — Pass me that thing there.
+- <span onclick="playAudio('185')">Comment s'appelle ce machin ?</span> — What's that thing called?
+- <span onclick="playAudio('186')">Le machin pour ouvrir les bouteilles.</span> — The thing for opening bottles.
 
 | Mot                                                | Meaning                  |
 | -------------------------------------------------- | ------------------------ |
-| <span onclick="playAudio('188')">truc</span>       | thing                    |
-| <span onclick="playAudio('189')">machin</span>     | thing / what's-it-called |
-| <span onclick="playAudio('190')">bidule</span>     | gadget / thingy          |
-| <span onclick="playAudio('191')">truc-muche</span> | thingamajig              |
+| <span onclick="playAudio('187')">truc</span>       | thing                    |
+| <span onclick="playAudio('188')">machin</span>     | thing / what's-it-called |
+| <span onclick="playAudio('189')">bidule</span>     | gadget / thingy          |
+| <span onclick="playAudio('190')">truc-muche</span> | thingamajig              |
 
 ---
 
-### 🗣️ <span onclick="playAudio('192')">Dialogues</span>
+### 🗣️ Dialogues
 
-> <span onclick="playAudio('193')">**🌅 A Natural Daily Routine**</span>
+> **🌅 A Natural Daily Routine**
 >
 > **Morning**<br>
-> <span onclick="playAudio('194')">Je me réveille vers sept heures.</span> — I wake up around seven.<br>
-> <span onclick="playAudio('195')">Je me lève et je prends une douche.</span> — I get up and take a shower.<br>
-> <span onclick="playAudio('196')">Je me brosse les dents et je m'habille.</span> — I brush my teeth and get dressed.<br>
-> <span onclick="playAudio('197')">Je prends un café et je mange un petit truc.</span> — I have a coffee and eat something small.<br>
-> <span onclick="playAudio('198')">Ensuite, je pars au travail.</span> — Then I leave for work.
+> <span onclick="playAudio('191')">Je me réveille vers sept heures.</span> — I wake up around seven.<br>
+> <span onclick="playAudio('192')">Je me lève et je prends une douche.</span> — I get up and take a shower.<br>
+> <span onclick="playAudio('193')">Je me brosse les dents et je m'habille.</span> — I brush my teeth and get dressed.<br>
+> <span onclick="playAudio('194')">Je prends un café et je mange un petit truc.</span> — I have a coffee and eat something small.<br>
+> <span onclick="playAudio('195')">Ensuite, je pars au travail.</span> — Then I leave for work.
 
 > **Daytime**<br>
-> <span onclick="playAudio('199')">Je travaille toute la matinée.</span> — I work all morning.<br>
-> <span onclick="playAudio('200')">À midi, je déjeune avec des collègues.</span> — At noon, I have lunch with colleagues.<br>
-> <span onclick="playAudio('201')">L'après-midi, je continue à travailler.</span> — In the afternoon, I keep working.
+> <span onclick="playAudio('196')">Je travaille toute la matinée.</span> — I work all morning.<br>
+> <span onclick="playAudio('197')">À midi, je déjeune avec des collègues.</span> — At noon, I have lunch with colleagues.<br>
+> <span onclick="playAudio('198')">L'après-midi, je continue à travailler.</span> — In the afternoon, I keep working.
 
 > **Evening**<br>
-> <span onclick="playAudio('202')">Je rentre à la maison vers six heures.</span> — I come home around six.<br>
-> <span onclick="playAudio('203')">Je prépare le dîner ou je commande quelque chose.</span> — I prepare dinner or order something.<br>
-> <span onclick="playAudio('204')">Après le dîner, je regarde la télé ou je lis un peu.</span> — After dinner, I watch TV or read a bit.
+> <span onclick="playAudio('199')">Je rentre à la maison vers six heures.</span> — I come home around six.<br>
+> <span onclick="playAudio('200')">Je prépare le dîner ou je commande quelque chose.</span> — I prepare dinner or order something.<br>
+> <span onclick="playAudio('201')">Après le dîner, je regarde la télé ou je lis un peu.</span> — After dinner, I watch TV or read a bit.
 
 > **Night**<br>
-> <span onclick="playAudio('205')">Je vais me coucher vers onze heures.</span> — I go to bed around eleven.
+> <span onclick="playAudio('202')">Je vais me coucher vers onze heures.</span> — I go to bed around eleven.
 
 ---
 
@@ -302,7 +302,7 @@ French daily routines often use **reflexive verbs**:
 
 ### 🧩 2) Cloze Dialogues (A2)
 
-> <span onclick="playAudio('206')">**☀️ Cloze 1 — Morning conversation**</span>
+> **☀️ Cloze 1 — Morning conversation**
 >
 > A: Tu te **\_\_\_\_** à quelle heure demain ? (wake up)<br>
 > B: Je me **\_\_\_\_** vers 7 heures. (get up)<br>
@@ -313,7 +313,7 @@ French daily routines often use **reflexive verbs**:
 > réveilles, lève, prends, prends
 > </details>
 
-> <span onclick="playAudio('207')">**🌆 Cloze 2 — After work**</span>
+> **🌆 Cloze 2 — After work**
 >
 > A: Tu **\_\_\_\_** à quelle heure ce soir ? (come home)<br>
 > B: Je **\_\_\_\_** vers 19h. Je suis **\_\_\_\_**. (exhausted)<br>
@@ -324,7 +324,7 @@ French daily routines often use **reflexive verbs**:
 > rentres, rentre, crevé(e), fait, pose
 > </details>
 
-> <span onclick="playAudio('208')">**📺 Cloze 3 — Plans for the evening**</span>
+> **📺 Cloze 3 — Plans for the evening**
 >
 > A: Tu fais quoi ce soir ?<br>
 > B: Je **\_\_\_\_** un peu, et après je **\_\_\_\_** une série. (hang around, watch)<br>
@@ -335,7 +335,7 @@ French daily routines often use **reflexive verbs**:
 > traîne, mate, coucher
 > </details>
 
-> <span onclick="playAudio('209')">**🚶 Cloze 4 — Leaving**</span>
+> **🚶 Cloze 4 — Leaving**
 >
 > A: Bon, je dois **\_\_\_\_**. (to go)<br>
 > B: Déjà ? Tu **\_\_\_\_** où ? (are going)<br>
@@ -346,7 +346,7 @@ French daily routines often use **reflexive verbs**:
 > y aller, vas, boulot, bourre, allez
 > </details>
 
-> <span onclick="playAudio('210')">**🌅 Cloze 5 — Weekend morning**</span>
+> **🌅 Cloze 5 — Weekend morning**
 >
 > A: Tu as fait la **\_\_\_\_** matinée ? (sleep in)<br>
 > B: Oui, j'ai **\_\_\_\_** au lit. (lounged)<br>
@@ -421,10 +421,95 @@ _\_ Je regarde la télé<br>
 
 ### ⚡ 5) Ultra Useful Phrases
 
-- <span onclick="playAudio('211')">**Je me lève tôt demain.**</span> — I'm getting up early tomorrow.
-- <span onclick="playAudio('212')">**Je prends une douche et j'arrive.**</span> — I'll take a shower and I'll be right there.
-- <span onclick="playAudio('213')">**Je prends un café avant de partir.**</span> — I have a coffee before leaving.
-- <span onclick="playAudio('214')">**Je rentre tard ce soir.**</span> — I'm coming home late tonight.
-- <span onclick="playAudio('215')">**Je traîne à la maison aujourd'hui.**</span> — I'm just hanging out at home today.
-- <span onclick="playAudio('216')">**Bon, je vais me coucher.**</span> — Alright, I'm going to bed.
-- <span onclick="playAudio('217')">**Je rentre, je me pose, et je regarde un film.**</span> — I come home, relax, and watch a movie.
+- <span onclick="playAudio('203')">**Je me lève tôt demain.**</span> — I'm getting up early tomorrow.
+- <span onclick="playAudio('204')">**Je prends une douche et j'arrive.**</span> — I'll take a shower and I'll be right there.
+- <span onclick="playAudio('205')">**Je prends un café avant de partir.**</span> — I have a coffee before leaving.
+- <span onclick="playAudio('206')">**Je rentre tard ce soir.**</span> — I'm coming home late tonight.
+- <span onclick="playAudio('207')">**Je traîne à la maison aujourd'hui.**</span> — I'm just hanging out at home today.
+- <span onclick="playAudio('208')">**Bon, je vais me coucher.**</span> — Alright, I'm going to bed.
+- <span onclick="playAudio('209')">**Je rentre, je me pose, et je regarde un film.**</span> — I come home, relax, and watch a movie.
+
+---
+
+### 🗣️ <span onclick="playAudio('210')">Dialogues supplémentaires — La routine quotidienne (A2-B1)</span>
+
+Six dialogues, chacun 7 répliques maximum, en français parlé.
+
+> <span onclick="playAudio('211')">**🌅 Dialogue 1 — Le réveil difficile**</span>
+>
+> **Sophie** — Salut… t'as une tête. Ça va ?<br>
+> **Emma** — Je suis pas réveillée, moi. J'ai du mal à émerger.<br>
+> **Sophie** — Il a sonné à quelle heure, ton réveil ?<br>
+> **Emma** — Six heures et demie. Je l'ai éteint et j'ai traîné au lit vingt minutes.<br>
+> **Sophie** — Résultat, t'es à la bourre.<br>
+> **Emma** — Grave. J'ai même pas eu le temps de me doucher.<br>
+> **Sophie** — Allez, prends un café vite fait, ça ira mieux.
+>
+> _Vocabulaire ciblé : je suis pas réveillée · émerger (fam.) · le réveil sonne · traîner au lit · être à la bourre (fam.) · se doucher · prendre un café vite fait · allez_
+
+> <span onclick="playAudio('212')">**🥐 Dialogue 2 — Avant de partir**</span>
+>
+> **Julie** — Bon, je me prépare. Tu pars à quelle heure ?<br>
+> **Marc** — Dans dix minutes. Je checke mes mails et j'y vais.<br>
+> **Julie** — T'as préparé ta gamelle ?<br>
+> **Marc** — Ouais, hier soir. Y a juste le lit que j'ai pas fait.<br>
+> **Julie** — Je le ferai. Tu prends le petit-déj ?<br>
+> **Marc** — Non, je mange un truc dans le métro. Allez, je file.<br>
+> **Julie** — Ça marche. Bonne journée !
+>
+> _Vocabulaire ciblé : bon · je me prépare · checker ses mails (fam.) · j'y vais · préparer sa gamelle (fam.) · faire le lit · prendre le petit-déj (fam.) · manger un truc · je file · ça marche_
+
+> <span onclick="playAudio('213')">**🚇 Dialogue 3 — Le trajet du matin**</span>
+>
+> **Léa** — Tu prends la voiture ce matin ?<br>
+> **Thomas** — Non, avec les embouteillages je prends le métro. Et toi ?<br>
+> **Léa** — Le bus. Je lis les infos ou je scrolle, c'est reposant.<br>
+> **Thomas** — Moi je fais une sieste debout, oui. Tu arrives à l'heure, au moins ?<br>
+> **Léa** — Toujours. C'est Antoine qui se pointe à dix heures.<br>
+> **Thomas** — Il est à la bourre tous les jours, lui.<br>
+> **Léa** — Et il te dit qu'il gère.
+>
+> _Vocabulaire ciblé : prendre la voiture · prendre le métro · prendre le bus · lire les infos · scroller (fam.) · faire une sieste · arriver à l'heure · se pointer (fam.) · être à la bourre (fam.) · je gère_
+
+> <span onclick="playAudio('214')">**💼 Dialogue 4 — À midi, au boulot**</span>
+>
+> **Nadia** — On casse la croûte ensemble à midi ?<br>
+> **Paul** — Ouais, je peux souffler une heure. Après, j'ai deux réunions.<br>
+> **Nadia** — T'as l'air crevé.<br>
+> **Paul** — Je fais des heures sup' toute la semaine. Et je me prends la tête avec ce dossier.<br>
+> **Nadia** — Tu finis le boulot à quelle heure ce soir ?<br>
+> **Paul** — Vingt heures, si tout va bien. Je gère, t'inquiète.<br>
+> **Nadia** — Bon. Pause déjeuner d'abord, alors.
+>
+> _Vocabulaire ciblé : casser la croûte (fam.) · souffler · être crevé (fam.) · faire des heures sup' · se prendre la tête · finir le boulot · je gère · faire une pause_
+
+> <span onclick="playAudio('215')">**🏠 Dialogue 5 — La soirée à la maison**</span>
+>
+> **Claire** — Je suis rentrée ! Tu fais à manger ou on commande ?<br>
+> **Yanis** — Je fais un truc vite fait. Toi, tu te poses, t'as une tête.<br>
+> **Claire** — Merci. Je suis crevée. Je débarrasse après, promis.<br>
+> **Yanis** — Laisse, je passe le lave-vaisselle. On mate une série ?<br>
+> **Claire** — Un épisode, pas plus. Je veux pas me coucher à minuit.<br>
+> **Yanis** — Ça marche. T'as mis le réveil pour demain ?<br>
+> **Claire** — Pas encore. Je pose une alarme et je vais dormir.
+>
+> _Vocabulaire ciblé : je suis rentré(e) · faire à manger · se poser · être crevé(e) (fam.) · débarrasser · passer le lave-vaisselle · mater une série (fam.) · se coucher · mettre le réveil · poser une alarme · aller dormir_
+
+> <span onclick="playAudio('216')">**🧹 Dialogue 6 — Le programme du week-end**</span>
+>
+> **Hugo** — Tu fais quoi samedi ?<br>
+> **Amina** — Le matin, grasse mat'. Après, les courses, et je descends les poubelles.<br>
+> **Hugo** — La grande vie.<br>
+> **Amina** — Attends, y a mieux : j'arrose les plantes et je règle les factures.<br>
+> **Hugo** — Et le chien ?<br>
+> **Amina** — Je sors le clebs vers cinq heures, puis je pique un roupillon. Le soir, je sors avec des potes.<br>
+> **Hugo** — Ah, enfin ! On va boire un verre avec vous, alors.
+>
+> _Vocabulaire ciblé : faire la grasse mat' · faire les courses · descendre les poubelles · arroser les plantes · régler les factures · sortir le clebs (fam.) · piquer un roupillon (fam.) · sortir avec des potes (fam.) · aller boire un verre_
+
+#### 📌 <span onclick="playAudio('217')">À retenir</span>
+
+- **Le parlé mange les mots** : _t'as_ (tu as), _y a_ (il y a), _je veux pas_ (je ne veux pas), _j'ai même pas eu_ — le _ne_ disparaît presque toujours à l'oral.
+- **Les verbes pronominaux dominent la routine** : se réveiller, se lever, se doucher, se préparer, se poser, se coucher. Structure : _se_ + verbe + article défini — _je me lave les mains_ (jamais _mes mains_).
+- **Quatre mots-outils reviennent partout** : **bon** (transition), **allez** (on y va), **ça marche** (d'accord), **grave** (tout à fait, fam.).
+- **Registre** : _gamelle, clebs, crevé, à la bourre, mater, scroller_ sont familiers — parfaits entre amis ou collègues proches, à éviter avec un supérieur ou un inconnu.

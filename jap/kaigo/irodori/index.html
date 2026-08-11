@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="my">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f5f5f3" />
+    <meta name="description" content="ဂျပန်စကား လေ့လာရန် — အခမဲ့" />
+    <link rel="manifest" href="manifest.json" />
+    <title>日本語 — ဂျပန်စကား</title>
+
+    <style>
+      /* Drop a subset file at fonts/NotoSansMyanmar-subset.woff2.
+         If absent, the stack below falls back to the device font. */
+      @font-face {
+        font-family: "Noto Sans Myanmar Local";
+        src: url("fonts/NotoSansMyanmar-subset.woff2") format("woff2");
+        font-display: swap;
+        font-weight: 400 700;
+      }
+
+      :root {
+        --bg: #f5f5f3;
+        --card: #ffffff;
+        --text: #181818;
+        --muted: #6b6b6b;
+        --border: #ddddda;
+        --button: #181818;
+        --button-text: #ffffff;
+        --soft: #eeeeeb;
+        --ok: #1c6b45;
+        --max-width: 520px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          "Noto Sans Myanmar Local",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          "Noto Sans Myanmar",
+          "Myanmar Text",
+          sans-serif;
+      }
+
+      button {
+        font: inherit;
+        color: inherit;
+      }
+
+      .app {
+        width: min(100%, var(--max-width));
+        min-height: 100svh;
+        margin: 0 auto;
+        background: var(--bg);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+
+      /* ---------- HEADER ---------- */
+
+      header {
+        padding: calc(16px + env(safe-area-inset-top)) 18px 14px;
+      }
+
+      .topline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 1.15rem;
+        font-weight: 700;
+      }
+
+      .counter {
+        color: var(--muted);
+        font-size: 0.9rem;
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .lesson-title {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .lesson-picker {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .lesson-picker label {
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .lesson-picker select {
+        width: 100%;
+        min-width: 0;
+        min-height: 42px;
+        padding: 8px 34px 8px 11px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--card);
+        color: var(--text);
+        font: inherit;
+      }
+
+      .progress {
+        height: 7px;
+        margin-top: 15px;
+        overflow: hidden;
+        border-radius: 99px;
+        background: #dededb;
+      }
+
+      .progress-fill {
+        height: 100%;
+        width: 0;
+        background: var(--text);
+        transition: width 180ms ease;
+      }
+
+      /* ---------- STORAGE STRIP ---------- */
+
+      .storage {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+
+        margin: 12px 14px 0;
+        padding: 11px 14px;
+
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--card);
+
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+
+      .storage-text {
+        color: var(--muted);
+      }
+
+      .storage-text strong {
+        display: block;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .storage-text.saved strong {
+        color: var(--ok);
+      }
+
+      .storage-button {
+        flex: none;
+        padding: 9px 14px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--soft);
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        touch-action: manipulation;
+      }
+
+      .storage-button.primary {
+        border-color: var(--text);
+        background: var(--text);
+        color: var(--button-text);
+      }
+
+      .storage-button:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
+
+      /* ---------- NOTICE ---------- */
+
+      .notice {
+        margin: 12px 14px 0;
+        padding: 11px 14px;
+        border: 1px solid #e2d9b8;
+        border-radius: 12px;
+        background: #faf4e0;
+        color: #6a5a2a;
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+
+      .notice[hidden] {
+        display: none;
+      }
+
+      /* ---------- MAIN CARD ---------- */
+
+      main {
+        padding: 12px 14px 20px;
+      }
+
+      .card {
+        min-height: 430px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px 20px 22px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .mode-label {
+        margin-bottom: 28px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .japanese {
+        margin: 0;
+        font-size: clamp(2rem, 9vw, 2.8rem);
+        line-height: 1.35;
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      }
+
+      .burmese {
+        margin-top: 22px;
+        font-size: 1.35rem;
+        line-height: 1.65;
+      }
+
+      .bracket-note {
+        color: var(--muted);
+      }
+
+      .burmese .bracket-note {
+        font-size: 0.75em;
+      }
+
+      .english {
+        margin-top: 8px;
+        color: #1d4ed8;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      .romaji {
+        min-height: 28px;
+        margin-top: 17px;
+        color: var(--muted);
+        font-size: 1rem;
+        font-style: italic;
+      }
+
+      .prompt {
+        margin: 10px 0;
+        font-size: 1.4rem;
+        line-height: 1.65;
+      }
+
+      .prompt-english {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .glyph {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        line-height: 1;
+      }
+
+      .reveal {
+        width: 100%;
+        margin-top: 25px;
+      }
+
+      /* ---------- BUTTONS ---------- */
+
+      .actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 30px;
+      }
+
+      .main-button,
+      .secondary-button,
+      .nav-button {
+        min-height: 54px;
+        border-radius: 14px;
+        cursor: pointer;
+        touch-action: manipulation;
+      }
+
+      .main-button {
+        border: 0;
+        background: var(--button);
+        color: var(--button-text);
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .main-button:disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+
+      .secondary-button {
+        border: 1px solid var(--border);
+        background: var(--soft);
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .secondary-button:disabled,
+      .main-button:disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+
+      .secondary-button:disabled:active,
+      .main-button:disabled:active {
+        transform: none;
+      }
+
+      .main-button:active,
+      .secondary-button:active,
+      .nav-button:active {
+        transform: scale(0.98);
+      }
+
+      .small-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .navigation {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.3fr;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .nav-button {
+        border: 1px solid var(--border);
+        background: white;
+        font-weight: 700;
+      }
+
+      .nav-button.next {
+        background: var(--text);
+        color: white;
+        border-color: var(--text);
+      }
+
+      .nav-button:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+
+      /* ---------- FOCUS + MOTION ---------- */
+
+      :focus-visible {
+        outline: 3px solid #2f6fd0;
+        outline-offset: 2px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+        }
+
+        .main-button:active,
+        .secondary-button:active,
+        .nav-button:active {
+          transform: none;
+        }
+      }
+
+      /* ---------- DESKTOP ---------- */
+
+      @media (min-width: 700px) {
+        body {
+          padding: 25px 0;
+        }
+
+        .app {
+          min-height: calc(100vh - 50px);
+          border-radius: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <header>
+        <div class="topline">
+          <h1 id="lessonHeading">日本語</h1>
+          <div class="counter" id="counter">—</div>
+        </div>
+
+        <div class="lesson-title" id="lessonTitle"></div>
+
+        <div class="lesson-picker">
+          <label for="lessonSelect">သင်ခန်းစာ • Lesson</label>
+          <select id="lessonSelect"></select>
+        </div>
+
+        <div class="progress">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </header>
+
+      <div class="notice" id="browserNotice" hidden>
+        ပိုကောင်းစွာ အသုံးပြုနိုင်ရန် Chrome ဖြင့် ဖွင့်ပါ။<br />
+        For audio and offline saving, open this page in Chrome.
+      </div>
+
+      <div class="storage" id="storageStrip">
+        <div class="storage-text" id="storageText">
+          <strong>—</strong>
+          စစ်ဆေးနေသည်…
+        </div>
+        <button class="storage-button primary" id="storageButton" type="button">
+          —
+        </button>
+      </div>
+
+      <main>
+        <section class="card" id="card">
+          <div class="mode-label" id="modeLabel">LEARN</div>
+
+          <div id="content"></div>
+
+          <div class="actions">
+            <button class="main-button" id="audioButton" type="button">
+              ▶ နားထောင်မယ် • Listen
+            </button>
+
+            <div class="small-actions">
+              <button class="secondary-button" id="romajiButton" type="button">
+                abc Romaji
+              </button>
+
+              <button class="secondary-button" id="speedButton" type="button">
+                1.0× Speed
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <div class="navigation">
+          <button class="nav-button" id="previousButton" type="button">
+            ← နောက်သို့
+          </button>
+
+          <button
+            class="nav-button"
+            id="restartButton"
+            type="button"
+            aria-label="Restart from slide 1"
+          >
+            ↺ အစက
+          </button>
+
+          <button class="nav-button next" id="nextButton" type="button">
+            ရှေ့သို့ →
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <audio id="player" preload="metadata" playsinline></audio>
+
+    <script src="lessons.js"></script>
+    <script>
+      "use strict";
+
+      /* =================================================================
+         CONFIG
+         ================================================================= */
+
+      var AUDIO_CACHE = "kaigo-audio-v1";
+      var SPEEDS = [0.75, 0.9, 1.0];
+
+      var lesson = LESSONS[0];
+      var selectedLessonKey = "kaigo:selected-lesson";
+
+      try {
+        var selectedLessonId = localStorage.getItem(selectedLessonKey);
+        var selectedLesson = LESSONS.find(function (item) {
+          return item.id === selectedLessonId;
+        });
+        if (selectedLesson) lesson = selectedLesson;
+      } catch (e) {}
+
+      var progressKey = "kaigo:progress:" + lesson.id;
+      var speedKey = "kaigo:speed";
+
+      /* =================================================================
+         STATE
+         ================================================================= */
+
+      var current = 0;
+      var showRomaji = false;
+
+      var sprite = null;
+      var audioUrl = null;
+      var audioObjectUrl = null;
+      var audioReady = false;
+      var audioLoadToken = 0;
+      var stopAt = 0;
+      var rafId = 0;
+
+      var speedIndex = 2;
+
+      /* =================================================================
+         ELEMENTS
+         ================================================================= */
+
+      var content = document.getElementById("content");
+      var counter = document.getElementById("counter");
+      var progressFill = document.getElementById("progressFill");
+      var previousButton = document.getElementById("previousButton");
+      var restartButton = document.getElementById("restartButton");
+      var nextButton = document.getElementById("nextButton");
+      var audioButton = document.getElementById("audioButton");
+      var romajiButton = document.getElementById("romajiButton");
+      var speedButton = document.getElementById("speedButton");
+      var modeLabel = document.getElementById("modeLabel");
+      var player = document.getElementById("player");
+      var lessonHeading = document.getElementById("lessonHeading");
+      var lessonTitle = document.getElementById("lessonTitle");
+      var storageText = document.getElementById("storageText");
+      var storageButton = document.getElementById("storageButton");
+      var storageStrip = document.getElementById("storageStrip");
+      var browserNotice = document.getElementById("browserNotice");
+      var lessonSelect = document.getElementById("lessonSelect");
+
+      /* =================================================================
+         IN-APP BROWSER DETECTION
+
+         Most of this audience arrives from a Facebook or Viber link.
+         Those in-app webviews throttle audio and cannot install a PWA.
+         ================================================================= */
+
+      (function detectWebview() {
+        var ua = navigator.userAgent || "";
+        var inApp = /FBAN|FBAV|FB_IAB|Instagram|Line\/|Viber|MicroMessenger/i.test(
+          ua
+        );
+        if (inApp) browserNotice.hidden = false;
+      })();
+
+      /* =================================================================
+         AUDIO SOURCE
+         ================================================================= */
+
+      function pickAudioUrl(targetLesson) {
+        return "audio/" + targetLesson.id + "/lesson.mp3";
+      }
+
+      function unloadAudio() {
+        audioLoadToken += 1;
+        player.pause();
+        cancelAnimationFrame(rafId);
+        stopAt = 0;
+        sprite = null;
+        audioUrl = null;
+        audioReady = false;
+
+        if (audioObjectUrl) {
+          URL.revokeObjectURL(audioObjectUrl);
+          audioObjectUrl = null;
+        }
+
+        player.removeAttribute("src");
+        player.load();
+        storageStrip.style.display = "none";
+      }
+
+      /* The sprite is fetched whole and handed to the player as a Blob
+         rather than a URL. Seeking to an offset on a normal src issues a
+         byte-range request, and a Range request will not reliably match a
+         full cached response once the lesson is saved offline. Holding the
+         file in memory sidesteps that entirely, makes every seek instant,
+         and behaves identically online and off. At ~135 KB the memory cost
+         is irrelevant. */
+      function loadSprite() {
+        var targetLesson = lesson;
+        var token = ++audioLoadToken;
+        var requestedAudioUrl = pickAudioUrl(targetLesson);
+        var spriteUrl = "audio/" + targetLesson.id + "/sprite.json";
+
+        audioUrl = requestedAudioUrl;
+        audioReady = false;
+        storageStrip.style.display = "none";
+        syncControls();
+
+        return Promise.all([
+          fetch(spriteUrl).then(function (r) {
+            if (!r.ok) throw new Error("no sprite map");
+            return r.json();
+          }),
+          fetch(requestedAudioUrl).then(function (r) {
+            if (!r.ok) throw new Error("no audio");
+            return r.blob();
+          }),
+        ])
+          .then(function (results) {
+            if (token !== audioLoadToken) return;
+            sprite = results[0].clips || results[0];
+            audioObjectUrl = URL.createObjectURL(results[1]);
+            player.src = audioObjectUrl;
+            audioReady = true;
+            syncControls();
+          })
+          .catch(function () {
+            if (token !== audioLoadToken) return;
+            sprite = null;
+            audioReady = false;
+            syncControls();
+          });
+      }
+
+      /* =================================================================
+         SPRITE PLAYBACK
+
+         One file per lesson, seeked by offset. rAF stops at clip end;
+         timeupdate is the backstop if rAF is throttled.
+         ================================================================= */
+
+      function playClip(clipId) {
+        if (!audioReady || !sprite) return;
+
+        var t = sprite[clipId];
+        if (!t) return;
+
+        cancelAnimationFrame(rafId);
+
+        player.playbackRate = SPEEDS[speedIndex];
+        if ("preservesPitch" in player) player.preservesPitch = true;
+        if ("mozPreservesPitch" in player) player.mozPreservesPitch = true;
+        if ("webkitPreservesPitch" in player) player.webkitPreservesPitch = true;
+
+        stopAt = t.start + t.dur;
+
+        var begin = function () {
+          player.currentTime = t.start;
+          var p = player.play();
+          if (p && p.catch) p.catch(function () {});
+          rafId = requestAnimationFrame(watch);
+        };
+
+        if (player.readyState >= 1) {
+          begin();
+        } else {
+          player.addEventListener("loadedmetadata", begin, { once: true });
+          player.load();
+        }
+      }
+
+      function watch() {
+        if (player.paused) return;
+        if (player.currentTime >= stopAt) {
+          player.pause();
+          return;
+        }
+        rafId = requestAnimationFrame(watch);
+      }
+
+      player.addEventListener("timeupdate", function () {
+        if (!player.paused && stopAt && player.currentTime >= stopAt) {
+          player.pause();
+        }
+      });
+
+      function currentClip() {
+        var item = lesson.phrases[indexFor(lesson.phrases)];
+        return item ? item.clip : null;
+      }
+
+      function playCurrent() {
+        var clip = currentClip();
+        if (clip) playClip(clip);
+      }
+
+      audioButton.addEventListener("click", playCurrent);
+
+      /* =================================================================
+         RENDER
+         ================================================================= */
+
+      function indexFor(list) {
+        return Math.min(current, list.length - 1);
+      }
+
+      function escapeHtml(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      /* Lesson copy is authored locally in lessons.js. Escape everything first,
+         then restore only simple, attribute-free formatting tags. */
+      function lessonHtml(s) {
+        return escapeHtml(s).replace(
+          /&lt;(\/?)(br|i|em|b|strong|u|s|sub|sup|small|mark)\s*\/?&gt;/gi,
+          "<$1$2>",
+        );
+      }
+
+      function bracketedHtml(s) {
+        return lessonHtml(s).replace(
+          /(\([^()]*\)|\[[^\[\]]*\]|（[^（）]*）)/g,
+          '<span class="bracket-note">$1</span>',
+        );
+      }
+
+      function render() {
+        showRomaji = false;
+        romajiButton.textContent = "abc Romaji";
+
+        var list = lesson.phrases;
+        var index = indexFor(list);
+        var item = list[index];
+
+        counter.textContent = index + 1 + " / " + list.length;
+        progressFill.style.width = ((index + 1) / list.length) * 100 + "%";
+
+        previousButton.disabled = index === 0;
+        nextButton.textContent =
+          index === list.length - 1 ? "ပြီးပြီ ✓" : "ရှေ့သို့ →";
+
+        modeLabel.textContent = "LEARN";
+        renderLearn(item);
+
+        syncControls();
+        saveProgress();
+      }
+
+      function renderLearn(item) {
+        content.innerHTML =
+          '<h2 class="japanese">' +
+          lessonHtml(item.japanese) +
+          "</h2>" +
+          '<div class="burmese">' +
+          bracketedHtml(item.burmese) +
+          "</div>" +
+          '<div class="english">' +
+          bracketedHtml(item.english) +
+          "</div>" +
+          '<div class="romaji" id="romajiText"></div>';
+      }
+
+      /* =================================================================
+         ROMAJI
+         ================================================================= */
+
+      /* The completion screen has no Romaji target, so disable the control
+         there instead of letting it update an element that is not present. */
+      function romajiTarget() {
+        var el = document.getElementById("romajiText");
+        return el && el.offsetParent !== null ? el : null;
+      }
+
+      function syncControls() {
+        var available = Boolean(romajiTarget());
+
+        romajiButton.disabled = !available;
+
+        if (!available) {
+          showRomaji = false;
+          romajiButton.textContent = "abc Romaji";
+        }
+
+        audioButton.disabled = !audioReady;
+
+        if (!audioReady) {
+          audioButton.textContent = "အသံ မရှိသေးပါ • No audio yet";
+        } else {
+          audioButton.textContent = "▶ နားထောင်မယ် • Listen";
+        }
+      }
+
+      romajiButton.addEventListener("click", function () {
+        var element = romajiTarget();
+        if (!element) return;
+
+        showRomaji = !showRomaji;
+
+        var text = lesson.phrases[indexFor(lesson.phrases)].romaji;
+
+        element.innerHTML = showRomaji ? lessonHtml(text) : "";
+        romajiButton.textContent = showRomaji ? "Hide Romaji" : "abc Romaji";
+      });
+
+      /* =================================================================
+         SPEED LADDER — 0.75 / 0.9 / 1.0
+         ================================================================= */
+
+      function applySpeed() {
+        var rate = SPEEDS[speedIndex];
+        player.playbackRate = rate;
+        speedButton.textContent =
+          rate === 1 ? "1.0× Speed" : rate.toFixed(2).replace(/0$/, "") + "× ဖြည်း";
+        try {
+          localStorage.setItem(speedKey, String(speedIndex));
+        } catch (e) {}
+      }
+
+      speedButton.addEventListener("click", function () {
+        speedIndex = (speedIndex + 1) % SPEEDS.length;
+        applySpeed();
+      });
+
+      /* =================================================================
+         NAVIGATION
+         ================================================================= */
+
+      nextButton.addEventListener("click", function () {
+        var list = lesson.phrases;
+        if (current < list.length - 1) {
+          current += 1;
+          render();
+        } else {
+          showDone();
+        }
+      });
+
+      previousButton.addEventListener("click", function () {
+        if (current > 0) {
+          current -= 1;
+          render();
+        }
+      });
+
+      function restartSlides() {
+        player.pause();
+        cancelAnimationFrame(rafId);
+        stopAt = 0;
+        current = 0;
+        render();
+      }
+
+      restartButton.addEventListener("click", restartSlides);
+
+      function syncLessonDetails() {
+        lessonHeading.innerHTML = "日本語 • " + lessonHtml(lesson.titleJapanese);
+        lessonTitle.innerHTML = lessonHtml(lesson.titleBurmese);
+        lessonSelect.value = lesson.id;
+      }
+
+      function switchLesson(lessonId) {
+        var nextLesson = LESSONS.find(function (item) {
+          return item.id === lessonId;
+        });
+
+        if (!nextLesson || nextLesson === lesson) return;
+
+        unloadAudio();
+        lesson = nextLesson;
+        progressKey = "kaigo:progress:" + lesson.id;
+        current = 0;
+        showRomaji = false;
+
+        try {
+          localStorage.setItem(selectedLessonKey, lesson.id);
+        } catch (e) {}
+
+        restoreProgress();
+        syncLessonDetails();
+        render();
+        loadSprite().then(refreshStorage);
+      }
+
+      lessonSelect.addEventListener("change", function () {
+        switchLesson(lessonSelect.value);
+      });
+
+      function showDone() {
+        modeLabel.textContent = "DONE";
+        content.innerHTML =
+          '<div class="glyph">✓</div>' +
+          '<div class="prompt">ပြီးပါပြီ။</div>' +
+          '<div class="prompt-english">Lesson complete.</div>' +
+          '<button class="secondary-button reveal" type="button" data-restart="1">' +
+          "အစကပြန်စမယ် • Start again</button>";
+
+        syncControls();
+      }
+
+      content.addEventListener("click", function (event) {
+        if (!event.target.closest("[data-restart]")) return;
+        restartSlides();
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowRight") nextButton.click();
+        if (event.key === "ArrowLeft") previousButton.click();
+        if (event.key === " ") {
+          event.preventDefault();
+          playCurrent();
+        }
+      });
+
+      /* =================================================================
+         PROGRESS
+         ================================================================= */
+
+      function saveProgress() {
+        try {
+          localStorage.setItem(progressKey, String(current));
+        } catch (e) {}
+      }
+
+      function restoreProgress() {
+        try {
+          var saved = Number(localStorage.getItem(progressKey) || 0);
+          if (saved >= 0 && saved < lesson.phrases.length) current = saved;
+
+          var savedSpeed = localStorage.getItem(speedKey);
+          if (savedSpeed !== null && SPEEDS[Number(savedSpeed)]) {
+            speedIndex = Number(savedSpeed);
+          }
+        } catch (e) {}
+      }
+
+      /* =================================================================
+         OFFLINE STORAGE — opt-in, per lesson, size shown before download
+         ================================================================= */
+
+      function formatBytes(bytes) {
+        if (!bytes) return "";
+        if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + " KB";
+        return (bytes / 1024 / 1024).toFixed(1) + " MB";
+      }
+
+      function isCached() {
+        if (!("caches" in window) || !audioUrl) return Promise.resolve(false);
+        return caches
+          .open(AUDIO_CACHE)
+          .then(function (c) {
+            return c.match(audioUrl);
+          })
+          .then(function (hit) {
+            return Boolean(hit);
+          })
+          .catch(function () {
+            return false;
+          });
+      }
+
+      function audioSize() {
+        return fetch(audioUrl, { method: "HEAD" })
+          .then(function (r) {
+            return Number(r.headers.get("content-length") || 0);
+          })
+          .catch(function () {
+            return 0;
+          });
+      }
+
+      function refreshStorage() {
+        if (!("serviceWorker" in navigator) || !audioUrl || !audioReady) {
+          storageStrip.style.display = "none";
+          return;
+        }
+
+        storageStrip.style.display = "";
+
+        isCached().then(function (cached) {
+          if (cached) {
+            storageText.className = "storage-text saved";
+            storageText.innerHTML =
+              "<strong>✓ အင်တာနက် မလိုပါ</strong>Saved — works offline";
+            storageButton.textContent = "ဖျက်မယ် • Delete";
+            storageButton.className = "storage-button";
+            storageButton.disabled = false;
+            storageButton.onclick = deleteLesson;
+          } else {
+            audioSize().then(function (bytes) {
+              var size = formatBytes(bytes);
+              storageText.className = "storage-text";
+              storageText.innerHTML =
+                "<strong>အင်တာနက် မလိုဘဲ သုံးရန်</strong>Save for offline use";
+              storageButton.textContent =
+                "သိမ်းမယ်" + (size ? " (" + size + ")" : "");
+              storageButton.className = "storage-button primary";
+              storageButton.disabled = false;
+              storageButton.onclick = saveLesson;
+            });
+          }
+        });
+      }
+
+      function saveLesson() {
+        storageButton.disabled = true;
+        storageButton.textContent = "သိမ်းနေသည်…";
+
+        if (navigator.storage && navigator.storage.persist) {
+          navigator.storage.persist();
+        }
+
+        caches
+          .open(AUDIO_CACHE)
+          .then(function (cache) {
+            return cache.addAll([
+              audioUrl,
+              "audio/" + lesson.id + "/sprite.json",
+            ]);
+          })
+          .then(refreshStorage)
+          .catch(function () {
+            storageButton.disabled = false;
+            storageButton.textContent = "မရပါ • Failed — try again";
+          });
+      }
+
+      function deleteLesson() {
+        caches
+          .open(AUDIO_CACHE)
+          .then(function (cache) {
+            return Promise.all([
+              cache.delete(audioUrl),
+              cache.delete("audio/" + lesson.id + "/sprite.json"),
+            ]);
+          })
+          .then(refreshStorage);
+      }
+
+      /* =================================================================
+         SERVICE WORKER
+         ================================================================= */
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("sw.js").catch(function () {});
+        });
+      }
+
+      /* =================================================================
+         START
+         ================================================================= */
+
+      LESSONS.forEach(function (item) {
+        var option = document.createElement("option");
+        option.value = item.id;
+        option.textContent = item.titleJapanese + " — " + item.titleEnglish;
+        lessonSelect.appendChild(option);
+      });
+
+      syncLessonDetails();
+
+      restoreProgress();
+      applySpeed();
+      render();
+
+      loadSprite().then(refreshStorage);
+    </script>
+  </body>
+</html>

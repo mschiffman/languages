@@ -1,0 +1,3 @@
+Drop NotoSansMyanmar-subset.woff2 here. See README.md for the pyftsubset command.
+Without it the app falls back to the device font — fine on most current
+Android, unreliable on old handsets.
