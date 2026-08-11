@@ -326,19 +326,31 @@
     </style>
   </head>
   <body>
-    <button class="panel-open-btn" id="panel-open-btn" title="Show Nodes panel">Nodes &#9654;</button>
+    <button class="panel-open-btn" id="panel-open-btn" title="Show Nodes panel">
+      Nodes &#9654;
+    </button>
 
     <div class="info-panel" id="info-panel">
       <div class="panel-header">
         <h3>Nodes</h3>
-        <div style="display:flex;align-items:center;gap:6px;">
-          <select id="language-select" class="language-select" title="Switch language">
+        <div style="display: flex; align-items: center; gap: 6px">
+          <select
+            id="language-select"
+            class="language-select"
+            title="Switch language"
+          >
             <option value="index.html">French</option>
             <option value="japanese.html" selected>Japanese</option>
             <option value="english.html">English</option>
             <option value="korean.html">Korean</option>
           </select>
-          <button class="panel-close-btn" id="panel-close-btn" title="Hide panel">&#10005;</button>
+          <button
+            class="panel-close-btn"
+            id="panel-close-btn"
+            title="Hide panel"
+          >
+            &#10005;
+          </button>
         </div>
       </div>
       <p>
@@ -390,10 +402,17 @@
             level: 1,
             url: "jap/grammar/tenses.html",
           },
+          {
+            id: "Irodori",
+            group: 0,
+            level: 1,
+            url: "jap/kaigo/irodori/index.html",
+          },
         ],
         links: [
           { source: "Japanese", target: "Pimsleur" },
           { source: "Japanese", target: "Grammar" },
+          { source: "Japanese", target: "Irodori" },
         ],
       };
 
@@ -688,11 +707,13 @@
       });
 
       // Language switcher
-      document.getElementById("language-select").addEventListener("change", (e) => {
-        if (e.target.value !== "japanese.html") {
-          window.location.href = e.target.value;
-        }
-      });
+      document
+        .getElementById("language-select")
+        .addEventListener("change", (e) => {
+          if (e.target.value !== "japanese.html") {
+            window.location.href = e.target.value;
+          }
+        });
 
       // Handle window resize
       window.addEventListener("resize", () => {
