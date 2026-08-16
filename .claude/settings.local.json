@@ -78,7 +78,17 @@
       "Bash(py verify.py)",
       "Bash(where ffmpeg *)",
       "Bash(where ffprobe *)",
-      "Bash(python build-audio.py 02)"
+      "Bash(python build-audio.py 02)",
+      "Bash(ffprobe -version)",
+      "Bash(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"audio/01/lesson.mp3\")",
+      "Bash(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"audio/01/src/19.mp3\")",
+      "Bash(ffmpeg -hide_banner -loglevel info -y -i \"audio/01/lesson.mp3\" -ss 18.653 -t 0.582 -af \"volumedetect\" -f null -)",
+      "Bash(ffmpeg -hide_banner -loglevel info -y -i \"audio/01/src/19.mp3\" -af \"volumedetect\" -f null -)",
+      "Bash(ffprobe -v error -show_entries format=duration,format=bit_rate -of default=noprint_wrappers=1 audio/01/lesson.mp3)",
+      "Bash(python -c \"print\\(round\\(18.653+0.582,3\\)\\)\")",
+      "Bash(python -)",
+      "Bash(ffprobe -v error -show_entries stream=bit_rate -select_streams a:0 -of default=noprint_wrappers=1:nokey=1 audio/01/lesson.mp3)",
+      "Bash(python verify.py)"
     ],
     "additionalDirectories": [
       "\\tmp",

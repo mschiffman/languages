@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reading Practice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/read.css" />
+    <style>
+      img {
+        width: 500px !important;
+        height: auto;
+      }
+      .french-text .plants-image {
+        float: left;
+        width: 500px !important;
+        max-width: 50%;
+        margin: 0 1.5rem 1rem 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger-btn" id="hamburgerBtn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Left Sidebar Navigation -->
+    <div id="navbar"></div>
+    <script
+      type="module"
+      src="../../assets/js/nav-read.js?v=2608131039"
+    ></script>
+
+    <!-- Main Content Area -->
+
+    <div class="main-content">
+      <!-- Audio Player Button -->
+      <div class="mb-4">
+        <button id="openAudio" class="btn-audio">
+          <i class="bi bi-play-circle"></i> Open Audio Player
+        </button>
+      </div>
+
+      <!-- Draggable Audio Player Window -->
+      <div id="audioPlayerWindow">
+        <div id="audioPlayerHeader">
+          <span><i class="bi bi-music-note-beamed"></i> Audio Player</span>
+          <button id="closeAudio">&times;</button>
+        </div>
+        <div id="audioPlayerControls">
+          <button id="playBtn" title="Play">&#9658;</button>
+          <button id="pauseBtn" title="Pause">&#10074;&#10074;</button>
+          <button id="stopBtn" title="Stop">&#9632;</button>
+        </div>
+        <div id="progressContainer">
+          <input
+            type="range"
+            id="progressBar"
+            min="0"
+            max="100"
+            step="0.1"
+            value="0"
+            class="form-range"
+          />
+        </div>
+        <audio
+          id="audioElement"
+          src="https://languages.rmlives.com/lessons/read/plants/audio.mp3"
+        ></audio>
+      </div>
+      <!-- End Audio Player -->
+      <div class="top-header">
+        <h1>La conversation silencieuse</h1>
+      </div>
+      <h5>
+        Une plante ne peut ni s'enfuir, ni crier, ni même bouger. Alors comment
+        fait-elle pour se défendre — et pour prévenir celles qui poussent tout
+        autour d'elle&nbsp;?
+      </h5>
+      <div class="french-text" data-aos="fade-up">
+        <h5>🌼 French</h5>
+        <p>
+          <img class="plants-image" src="/img/plants.jpg" alt="" />
+          Imagine une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʃənij/"
+            data-meaning="caterpillar"
+            >chenille</span
+          >
+          qui se pose sur un plant de tomate et commence à dévorer une feuille.
+          La plante ne peut pas s'enfuir. Elle ne peut pas appeler à l'aide.
+          Elle n'a ni cerveau, ni nerfs, ni voix. Et pourtant, elle est loin
+          d'être sans défense.
+        </p>
+        <p>
+          Dès la première morsure, quelque chose se met en marche. À l'intérieur
+          de ses
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/selyl/"
+            data-meaning="cell"
+            >cellules</span
+          >, le taux de
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kalsjɔm/"
+            data-meaning="calcium"
+            >calcium</span
+          >
+          change brusquement, comme un signal d'alarme qui se propage. La plante
+          se met alors à fabriquer des substances défensives — et pas seulement
+          là où la chenille attaque, mais aussi dans des feuilles encore
+          intactes, à l'autre bout de la plante. C'est ce qu'on appelle une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/siɲalizasjɔ̃/"
+            data-meaning="signaling"
+            >signalisation</span
+          >
+          interne&nbsp;: un message chimique qui voyage dans tout l'organisme.
+        </p>
+        <p>
+          Mais il se passe encore autre chose. La feuille blessée libère dans
+          l'air de minuscules
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mɔlekyl vɔlatil/"
+            data-meaning="volatile molecule"
+            >molécules volatiles</span
+          >. Tu ne les vois pas, tu ne les sens presque pas — et pourtant, les
+          plantes voisines, elles, les détectent.
+        </p>
+        <p>
+          Alors, un autre plant de tomate, juste à côté, peut se mettre à
+          renforcer ses propres défenses. Avant même que la chenille ne
+          l'atteigne.
+        </p>
+        <p>
+          La première plante est-elle en train d'avertir sa voisine&nbsp;?
+          Peut-être. Mais les scientifiques choisissent leurs mots avec
+          prudence. Ces molécules font sans doute simplement partie du
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sistɛm də defɑ̃s/"
+            data-meaning="defense system"
+            >système de défense</span
+          >
+          de la plante blessée — et les voisines ont appris, au fil de
+          l'évolution, à les capter. Autrement dit, la voisine ne reçoit pas
+          vraiment un message&nbsp;: elle
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ekute o pɔʀt/"
+            data-meaning="to eavesdrop"
+            >écoute aux portes</span
+          >.
+        </p>
+        <p>Et la conversation ne s'arrête pas à la surface.</p>
+        <p>
+          Sous la terre, les
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀasin/"
+            data-meaning="root"
+            >racines</span
+          >
+          libèrent sans cesse des substances dans le sol. Les plantes détectent
+          celles produites par d'autres racines, et certaines expériences
+          suggèrent une chose étonnante&nbsp;: elles ne réagissent pas de la
+          même façon face à des inconnues et face à leurs propres sœurs. Chez
+          certaines espèces, des plantes qui poussent à côté de leurs parentes
+          se disputent moins farouchement l'espace souterrain. Comme si elles se
+          reconnaissaient.
+        </p>
+        <p>
+          Mais il existe, plus bas encore, un monde caché. Des
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʃɑ̃piɲɔ̃/"
+            data-meaning="fungus"
+            >champignons</span
+          >
+          tissent dans le sol des fils d'une finesse extrême. Certains
+          s'associent aux racines des plantes&nbsp;: cette alliance porte un
+          nom, la
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/mikɔʀiz/"
+            data-meaning="mycorrhiza"
+            >mycorhize</span
+          >. Le champignon reçoit des sucres, et la plante, en échange, accède
+          plus facilement à l'eau et aux minéraux. C'est une
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/sɛ̃bjoz/"
+            data-meaning="symbiosis"
+            >symbiose</span
+          >, un marché où chacun trouve son compte.
+        </p>
+        <p>
+          Et parfois, le même
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/ʀezo mikɔʀizjɛ̃/"
+            data-meaning="mycorrhizal network"
+            >réseau mycorhizien</span
+          >
+          relie plusieurs plantes entre elles. Les scientifiques ont montré que
+          du
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/kaʀbɔn/"
+            data-meaning="carbon"
+            >carbone</span
+          >
+          et des signaux chimiques peuvent y circuler, passant d'une plante à
+          une autre. On a rêvé d'y voir des arbres qui nourrissent leurs amis ou
+          veillent sur leurs enfants… Mais prudence&nbsp;: rien ne prouve une
+          telle intention. Ce réseau souterrain est d'une complexité
+          vertigineuse, et les chercheurs cherchent encore à comprendre ce qui
+          s'y joue vraiment.
+        </p>
+        <p>
+          Alors, les plantes ont-elles des sentiments&nbsp;? Rien, aujourd'hui,
+          ne permet de croire qu'elles ressentent la peur, la douleur, l'amour
+          ou l'amitié comme le font les animaux. Mais ce n'est peut-être pas la
+          question la plus fascinante.
+        </p>
+        <p>
+          Car une plante peut
+          <span
+            class="word-info"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="/pɛʀsəvwaʀ/"
+            data-meaning="to perceive, sense"
+            >percevoir</span
+          >
+          la lumière, la gravité, le toucher, l'eau, les substances chimiques,
+          ses propres blessures, et la présence d'autres êtres vivants autour
+          d'elle. Elle peut modifier son comportement selon ce qu'elle détecte.
+          Elle peut se préparer au danger. Elle peut réagir différemment selon
+          qui pousse à ses côtés.
+        </p>
+        <p>
+          <i style="font-size: 0.95em; color: rgb(215, 0, 129)"
+            >Une forêt paraît silencieuse. Un jardin paraît immobile. Mais sur
+            le plan chimique, ni l'un ni l'autre ne
+            <span
+              class="word-info"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="/sə tɛʀ/"
+              data-meaning="to fall/be silent"
+              data-origin="se taire /sə tɛʀ/"
+              >se taisent</span
+            >
+            jamais. Sous tes pieds, autour de toi, une conversation se poursuit
+            — sans un bruit.</i
+          >
+        </p>
+      </div>
+      <br />
+      <div class="english-text" data-aos="fade-up">
+        <h5><i class="bi bi-translate"></i> &nbsp;English</h5>
+        <p>
+          A plant can neither run away, nor cry out, nor even move. So how does
+          it defend itself — and warn the ones growing all around it?
+        </p>
+        <p>
+          Imagine a caterpillar landing on a tomato plant and beginning to
+          devour a leaf. The plant cannot run away. It cannot call for help. It
+          has no brain, no nerves, no voice. And yet it is far from defenseless.
+        </p>
+        <p>
+          From the very first bite, something is set in motion. Inside its
+          cells, the level of calcium shifts abruptly, like an alarm spreading.
+          The plant begins to manufacture defensive substances — and not only
+          where the caterpillar is attacking, but also in leaves that are still
+          untouched, at the far end of the plant. This is called internal
+          signaling: a chemical message that travels through the whole organism.
+        </p>
+        <p>
+          But something else happens too. The wounded leaf releases tiny
+          volatile molecules into the air. You can't see them, you can barely
+          smell them — and yet the neighboring plants can detect them.
+        </p>
+        <p>
+          So a tomato plant right next door may begin to strengthen its own
+          defenses. Even before the caterpillar reaches it.
+        </p>
+        <p>
+          Is the first plant warning its neighbor? Perhaps. But scientists
+          choose their words carefully. These molecules are probably just part
+          of the wounded plant's own defense system — and the neighbors have
+          learned, over the course of evolution, to pick them up. In other
+          words, the neighbor isn't really receiving a message: it's
+          eavesdropping.
+        </p>
+        <p>And the conversation doesn't stop at the surface.</p>
+        <p>
+          Beneath the soil, roots constantly release substances into the earth.
+          Plants detect the ones produced by other roots, and certain
+          experiments suggest something surprising: they don't react the same
+          way to strangers as they do to their own sisters. In some species,
+          plants growing beside their relatives compete less fiercely for
+          underground space. As if they recognized one another.
+        </p>
+        <p>
+          But there is, deeper still, a hidden world. Fungi weave threads of
+          extreme fineness through the soil. Some of them join with plant roots:
+          this alliance has a name, the mycorrhiza. The fungus receives sugars,
+          and the plant, in exchange, gains easier access to water and minerals.
+          It's a symbiosis, a bargain in which each side comes out ahead.
+        </p>
+        <p>
+          And sometimes the same mycorrhizal network links several plants
+          together. Scientists have shown that carbon and chemical signals can
+          travel through it, passing from one plant to another. People have
+          dreamed of seeing trees that feed their friends or watch over their
+          children… But be careful: nothing proves any such intention. This
+          underground network is dizzyingly complex, and researchers are still
+          trying to understand what truly plays out within it.
+        </p>
+        <p>
+          So do plants have feelings? Nothing today allows us to believe they
+          feel fear, pain, love, or friendship the way animals do. But that may
+          not be the most fascinating question.
+        </p>
+        <p>
+          Because a plant can perceive light, gravity, touch, water, chemical
+          substances, its own injuries, and the presence of other living things
+          around it. It can change its behavior according to what it detects. It
+          can prepare for danger. It can respond differently depending on who is
+          growing beside it.
+        </p>
+        <p>
+          <i
+            >A forest looks silent. A garden looks still. But chemically,
+            neither one is ever quiet. Beneath your feet, all around you, a
+            conversation goes on — without a sound.</i
+          >
+        </p>
+      </div>
+      <br />
+      <!-- Glossary Section -->
+      <div class="glossary-section" data-aos="fade-up">
+        <h5><i class="bi bi-journal-bookmark"></i> &nbsp;GLOSSARY</h5>
+        <br />
+
+        <table class="glossary-table">
+          <tbody>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/chenille.mp3"
+              >
+                chenille
+              </td>
+              <td style="width: 40px"></td>
+              <td>caterpillar</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/cellule.mp3"
+              >
+                cellule
+              </td>
+              <td style="width: 40px"></td>
+              <td>cell</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/calcium.mp3"
+              >
+                calcium
+              </td>
+              <td style="width: 40px"></td>
+              <td>calcium</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/signalisation.mp3"
+              >
+                signalisation
+              </td>
+              <td style="width: 40px"></td>
+              <td>signaling</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/molecule-volatile.mp3"
+              >
+                molécule volatile
+              </td>
+              <td style="width: 40px"></td>
+              <td>volatile molecule</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/systeme-de-defense.mp3"
+              >
+                système de défense
+              </td>
+              <td style="width: 40px"></td>
+              <td>defense system</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/ecouter-aux-portes.mp3"
+              >
+                écouter aux portes
+              </td>
+              <td style="width: 40px"></td>
+              <td>to eavesdrop</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/racine.mp3"
+              >
+                racine
+              </td>
+              <td style="width: 40px"></td>
+              <td>root</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/champignon.mp3"
+              >
+                champignon
+              </td>
+              <td style="width: 40px"></td>
+              <td>fungus</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/mycorhize.mp3"
+              >
+                mycorhize
+              </td>
+              <td style="width: 40px"></td>
+              <td>mycorrhiza</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/symbiose.mp3"
+              >
+                symbiose
+              </td>
+              <td style="width: 40px"></td>
+              <td>symbiosis</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/reseau-mycorhizien.mp3"
+              >
+                réseau mycorhizien
+              </td>
+              <td style="width: 40px"></td>
+              <td>mycorrhizal network</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/carbone.mp3"
+              >
+                carbone
+              </td>
+              <td style="width: 40px"></td>
+              <td>carbon</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/percevoir.mp3"
+              >
+                percevoir
+              </td>
+              <td style="width: 40px"></td>
+              <td>to perceive, sense</td>
+            </tr>
+            <tr>
+              <td
+                class="glossary-word"
+                data-audio="https://languages.rmlives.com/lessons/read/plants/se-taire.mp3"
+              >
+                se taire
+              </td>
+              <td style="width: 40px"></td>
+              <td>to fall/be silent</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <div class="supplemental-section" data-aos="fade-up">
+        <h5>
+          <i class="bi bi-file-earmark-text"></i> &nbsp;Supplemental Section
+        </h5>
+        <ul>
+          <a href="video-plants.html" target="_blank"
+            ><li>Plants video (NotebookLM)</li></a
+          >
+          <a
+            href="https://languages.rmlives.com/lessons/read/plants/audio-plants.m4a"
+            target="_blank"
+            ><li>Plants audio (NotebookLM)</li></a
+          >
+        </ul>
+      </div>
+    </div>
+
+    <button
+      id="scrollTopBtn"
+      class="btn btn-primary scroll-top-btn"
+      type="button"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script type="module" src="../../assets/js/read.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentAudio = null;
+
+        const words = document.querySelectorAll(".glossary-word");
+
+        words.forEach((word) => {
+          word.addEventListener("click", function () {
+            const audioSrc = this.getAttribute("data-audio");
+
+            if (audioSrc) {
+              if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+              }
+
+              currentAudio = new Audio(audioSrc);
+              currentAudio.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
