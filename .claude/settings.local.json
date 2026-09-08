@@ -88,7 +88,8 @@
       "Bash(python -c \"print\\(round\\(18.653+0.582,3\\)\\)\")",
       "Bash(python -)",
       "Bash(ffprobe -v error -show_entries stream=bit_rate -select_streams a:0 -of default=noprint_wrappers=1:nokey=1 audio/01/lesson.mp3)",
-      "Bash(python verify.py)"
+      "Bash(python verify.py)",
+      "Bash(git commit -m 'Add refusal expressions page and wire into archive *)"
     ],
     "additionalDirectories": [
       "\\tmp",
