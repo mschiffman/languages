@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Lion and the Mouse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">The&nbsp;Lion</span> and the
+            <span class="mouse">Mouse</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/lion/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 25.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/lion/";
+      const AUD_DIR = "/media/eng/yt/lion/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..24 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["The Lion and the Mouse", 1]],
+            [
+              ["A lion was sleeping", 2],
+              ["in the forest.", 3],
+            ],
+            [
+              ["A little mouse", 4],
+              ["ran over his paw.", 5],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["The lion woke up.", 6]],
+            [["He caught the mouse.", 7]],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ['"Please let me go,"', 8],
+              ["said the mouse.", 9],
+            ],
+            [
+              ['"One day,', 10],
+              ['I can help you."', 11],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["The lion laughed", 12],
+              ["but he let the mouse go.", 13],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ["Later, the lion was caught", 14],
+              ["in a hunter's net.", 15],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["The mouse heard", 16],
+              ["the lion roar.", 17],
+            ],
+            [["He ran to help.", 18]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ["The mouse bit the ropes", 19],
+              ["with his sharp teeth.", 20],
+            ],
+            [["Soon the lion was free.", 21]],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [
+              ["The lion said,", 22],
+              ['"Thank you, little mouse."', 23],
+            ],
+            [
+              ["Even a small friend", 24],
+              ["can help a big friend.", 25],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

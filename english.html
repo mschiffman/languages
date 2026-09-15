@@ -468,9 +468,40 @@
             level: 3,
             url: "eng/enunciation/ua/index.html",
           },
+
+          // Eng children
+          {
+            id: "Youtube",
+            group: 2,
+            level: 1,
+          },
+
+          // Youtube children
+          {
+            id: "The Lion and the Mouse",
+            group: 2,
+            level: 2,
+            url: "youtube/lion_mouse.html",
+          },
+          {
+            id: "A Busy Morning",
+            group: 2,
+            level: 2,
+            url: "youtube/1_busyMorning.html",
+          },
+          {
+            id: "Where Are My Shoes?",
+            group: 2,
+            level: 2,
+            url: "youtube/2_whereShoes.html",
+          },
         ],
         links: [
           { source: "Eng", target: "Enunciation" },
+          { source: "Eng", target: "Youtube" },
+          { source: "Youtube", target: "The Lion and the Mouse" },
+          { source: "Youtube", target: "A Busy Morning" },
+          { source: "Youtube", target: "Where Are My Shoes?" },
           { source: "Enunciation", target: "Vowels" },
           { source: "Enunciation", target: "Diphthongs" },
           { source: "Enunciation", target: "Consonants" },
@@ -597,7 +628,7 @@
       const groups = [...new Set(graphData.nodes.map((d) => d.group))].sort();
       const groupLabels = {};
       graphData.nodes.forEach((n) => {
-        if (n.level === 0) groupLabels[n.group] = n.id;
+        if (n.level === 0 || n.level === 1) groupLabels[n.group] = n.id;
       });
 
       groups.forEach((groupId) => {
