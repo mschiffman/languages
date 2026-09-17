@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 1 — The five vowels · Japanese Writing</title>
+<script src="https://cdn.tailwindcss.com?plugins="></script>
+<style id="app">
+  :root{
+    --paper:#FBFAF7;
+    --ink:#1A1A1A;
+    --muted:#6B6459;
+    --line:#E6E1D8;
+    --indigo:#2B4C7E;
+    --indigo-soft:#EAF0F7;
+    --vermilion:#B34A34;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+    --jp:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Noto Sans CJK JP","Yu Gothic",YuGothic,Meiryo,"MS PGothic",sans-serif;
+  }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:1.0625rem;
+    line-height:1.7;
+    letter-spacing:.005em;
+  }
+  .ui{ font-family:var(--sans); }
+  .nav-bg{ background:rgba(251,250,247,.9); backdrop-filter:saturate(180%) blur(8px); -webkit-backdrop-filter:saturate(180%) blur(8px); }
+  .jp{ font-family:var(--jp); font-weight:500; }
+  .romaji{ font-family:var(--sans); }
+
+  /* script colours for the three-systems example */
+  .k-hira{ color:var(--indigo); }
+  .k-kata{ color:var(--vermilion); }
+  .k-kanji{ color:var(--ink); font-weight:700; }
+  .dot{ display:inline-block; width:.5rem; height:.5rem; border-radius:9999px; margin-right:.2rem; vertical-align:middle; }
+
+  /* hero kana */
+  .hero-kana span{ display:inline-block; }
+
+  /* hairline table */
+  table.vowels{ border-collapse:collapse; width:100%; }
+  table.vowels th, table.vowels td{ border-bottom:1px solid var(--line); padding:.7rem .5rem; text-align:left; vertical-align:middle; }
+  table.vowels thead th{
+    font-family:var(--sans); font-size:.8rem; font-weight:600; color:var(--muted);
+    letter-spacing:.02em; border-bottom:2px solid var(--ink);
+  }
+  table.vowels tbody tr:last-child td{ border-bottom:none; }
+
+  /* reveal cards */
+  .reveal{
+    font-family:var(--sans);
+    background:#fff; border:1px solid var(--line); border-radius:.75rem;
+    cursor:pointer; text-align:center; width:100%;
+    transition:border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+  }
+  .reveal:hover{ border-color:#cfc9bd; }
+  .reveal:focus-visible{ outline:2px solid var(--indigo); outline-offset:2px; }
+  .reveal .answer{
+    display:block; max-height:0; opacity:0; overflow:hidden;
+    transition:max-height .22s ease, opacity .18s ease, margin .22s ease;
+  }
+  .reveal[aria-pressed="true"]{ border-color:var(--vermilion); background:#fff; }
+  .reveal[aria-pressed="true"] .answer{ max-height:4rem; opacity:1; margin-top:.4rem; }
+  .reveal[aria-pressed="true"] .prompt-hint{ opacity:0; }
+  .answer .rom{ color:var(--vermilion); font-weight:600; }
+  .answer .mean{ color:var(--muted); }
+
+  /* nav (built by JS) */
+  .navbtn-line{ transition:transform .22s ease, opacity .22s ease; transform-origin:center; }
+  .nav-open .top{ transform:translateY(6px) rotate(45deg); }
+  .nav-open .mid{ opacity:0; }
+  .nav-open .bot{ transform:translateY(-6px) rotate(-45deg); }
+  #nav-panel{
+    transition:opacity .18s ease, transform .18s ease;
+    transform:translateY(-6px); opacity:0; pointer-events:none;
+  }
+  #nav-panel.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; animation:none !important; }
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- JS inserts the hamburger nav into here -->
+<div id="site-nav"></div>
+
+<main class="mx-auto max-w-2xl px-5 sm:px-6 pt-24 pb-24">
+
+  <!-- Hero -->
+  <header class="mb-12">
+    <p class="ui text-sm text-[var(--muted)] mb-3">Lesson 1</p>
+    <div class="hero-kana jp text-[var(--ink)] leading-none flex flex-wrap gap-x-5 gap-y-2 text-6xl sm:text-7xl mb-5">
+      <span>あ</span><span>い</span><span>う</span><span>え</span><span>お</span>
+    </div>
+    <h1 class="ui text-xl sm:text-2xl font-semibold tracking-tight">
+      The five vowels
+    </h1>
+    <p class="romaji text-[var(--indigo)] text-lg mt-1">a · i · u · e · o</p>
+  </header>
+
+  <p class="mb-10">
+    Before the vowels, a quick map of the whole system — Japanese is written with three
+    scripts working together, and it helps to know where you are.
+  </p>
+
+  <!-- Three writing systems -->
+  <section class="mb-12">
+    <h2 class="ui text-base font-semibold mb-4">The three writing systems</h2>
+    <table class="vowels mb-6">
+      <thead>
+        <tr><th>Script</th><th>What it's for</th><th>Example</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ui font-semibold">Hiragana</span> <span class="jp text-[var(--muted)]">ひらがな</span></td>
+          <td>native Japanese words and grammar</td>
+          <td class="jp">ありがとう <span class="ui text-sm text-[var(--muted)]">— thank you</span></td>
+        </tr>
+        <tr>
+          <td><span class="ui font-semibold">Katakana</span> <span class="jp text-[var(--muted)]">カタカナ</span></td>
+          <td>foreign and loan words, emphasis</td>
+          <td class="jp">コーヒー <span class="ui text-sm text-[var(--muted)]">— coffee</span></td>
+        </tr>
+        <tr>
+          <td><span class="ui font-semibold">Kanji</span> <span class="jp text-[var(--muted)]">漢字</span></td>
+          <td>meaning-based characters, adopted from Chinese</td>
+          <td class="jp">水 <span class="ui text-sm text-[var(--muted)]">— water</span>　本 <span class="ui text-sm text-[var(--muted)]">— book</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="mb-4">One ordinary sentence usually weaves all three together:</p>
+    <div class="bg-white border border-[var(--line)] rounded-lg p-5">
+      <p class="jp text-2xl leading-relaxed mb-2">
+        <span class="k-kanji">私</span><span class="k-hira">は</span><span class="k-kata">コーヒー</span><span class="k-hira">を</span><span class="k-kanji">飲</span><span class="k-hira">みます</span>。
+      </p>
+      <p class="text-[var(--muted)] italic mb-4">I drink coffee.</p>
+      <div class="ui text-xs flex flex-wrap gap-x-6 gap-y-2">
+        <span><span class="dot" style="background:var(--ink)"></span>Kanji <span class="jp text-[var(--muted)]">私・飲</span></span>
+        <span><span class="dot" style="background:var(--indigo)"></span>Hiragana <span class="jp text-[var(--muted)]">は・を・みます</span></span>
+        <span><span class="dot" style="background:var(--vermilion)"></span>Katakana <span class="jp text-[var(--muted)]">コーヒー</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bridge into hiragana -->
+  <p class="mb-10">
+    This course begins with <strong>hiragana</strong> — the script for native words and
+    grammar, and the one you sound out. Its first five characters are the vowels at the top
+    of this page: <span class="jp">あ い う え お</span>. Every Japanese syllable is built
+    from these five sounds, so they are the natural place to begin.
+  </p>
+
+  <!-- Vowel table -->
+  <section class="mb-12">
+    <table class="vowels">
+      <thead>
+        <tr><th>Hiragana</th><th>Romaji</th><th>Approximate sound</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="jp text-3xl">あ</td><td class="romaji text-lg">a</td><td>like the <em>a</em> in <em>father</em></td></tr>
+        <tr><td class="jp text-3xl">い</td><td class="romaji text-lg">i</td><td>like the <em>ee</em> in <em>see</em></td></tr>
+        <tr><td class="jp text-3xl">う</td><td class="romaji text-lg">u</td><td>a short, light <em>u</em> — lips relaxed, not the rounded <em>oo</em> of English</td></tr>
+        <tr><td class="jp text-3xl">え</td><td class="romaji text-lg">e</td><td>like the <em>e</em> in <em>bed</em></td></tr>
+        <tr><td class="jp text-3xl">お</td><td class="romaji text-lg">o</td><td>a short, clean <em>o</em></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Fixed order -->
+  <section class="mb-12">
+    <div class="jp text-4xl sm:text-5xl tracking-wide mb-2">あ　い　う　え　お</div>
+    <div class="romaji text-[var(--indigo)] text-lg mb-3">a — i — u — e — o</div>
+    <p>
+      This order never changes. You will meet it again and again — in dictionaries, in verb
+      tables, in the layout of the full kana chart — so it is worth fixing in memory as a
+      little chant: <strong>a-i-u-e-o</strong>.
+    </p>
+  </section>
+
+  <!-- Regularity + purity -->
+  <section class="mb-12 space-y-5">
+    <p>
+      Notice something useful straight away: Japanese spelling is far more regular than
+      English. Once you know the kana, you can usually look at a word and know exactly how
+      it is pronounced.
+    </p>
+    <p>
+      One habit to build early — keep each vowel <em>pure and steady</em>. English vowels
+      tend to glide: the <em>o</em> in <em>go</em> slides toward <em>oo</em>, the <em>a</em>
+      in <em>day</em> toward <em>ee</em>. Japanese vowels do not. Say each one as a single,
+      clean sound, then stop.
+    </p>
+  </section>
+
+  <!-- Real words -->
+  <section class="mb-12">
+    <h2 class="ui text-base font-semibold mb-4">You can already read real words</h2>
+    <ul class="divide-y divide-[var(--line)] border-t border-b border-[var(--line)]">
+      <li class="flex items-baseline gap-4 py-3">
+        <span class="jp text-2xl w-16">あい</span>
+        <span class="romaji text-[var(--indigo)] w-16">ai</span>
+        <span class="text-[var(--muted)]">love</span>
+      </li>
+      <li class="flex items-baseline gap-4 py-3">
+        <span class="jp text-2xl w-16">いえ</span>
+        <span class="romaji text-[var(--indigo)] w-16">ie</span>
+        <span class="text-[var(--muted)]">house, home</span>
+      </li>
+      <li class="flex items-baseline gap-4 py-3">
+        <span class="jp text-2xl w-16">うえ</span>
+        <span class="romaji text-[var(--indigo)] w-16">ue</span>
+        <span class="text-[var(--muted)]">above, on top</span>
+      </li>
+      <li class="flex items-baseline gap-4 py-3">
+        <span class="jp text-2xl w-16">あお</span>
+        <span class="romaji text-[var(--indigo)] w-16">ao</span>
+        <span class="text-[var(--muted)]">blue</span>
+      </li>
+      <li class="flex items-baseline gap-4 py-3">
+        <span class="jp text-2xl w-16">いい</span>
+        <span class="romaji text-[var(--indigo)] w-16">ii</span>
+        <span class="text-[var(--muted)]">good</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Writing -->
+  <section class="mb-12">
+    <h2 class="ui text-base font-semibold mb-4">Writing the kana</h2>
+    <p class="mb-5">
+      Japanese is written with a fixed stroke order. Two rules cover most of it:
+      <strong>top to bottom</strong>, and <strong>left to right</strong> (a horizontal
+      stroke usually comes before the vertical one that crosses it). Following the standard
+      order keeps your writing legible now and makes it much faster later.
+    </p>
+    <div class="grid grid-cols-5 gap-2 text-center">
+      <div class="py-3 rounded-lg bg-white border border-[var(--line)]">
+        <div class="jp text-4xl">あ</div><div class="ui text-xs text-[var(--muted)] mt-2">3 strokes</div>
+      </div>
+      <div class="py-3 rounded-lg bg-white border border-[var(--line)]">
+        <div class="jp text-4xl">い</div><div class="ui text-xs text-[var(--muted)] mt-2">2 strokes</div>
+      </div>
+      <div class="py-3 rounded-lg bg-white border border-[var(--line)]">
+        <div class="jp text-4xl">う</div><div class="ui text-xs text-[var(--muted)] mt-2">2 strokes</div>
+      </div>
+      <div class="py-3 rounded-lg bg-white border border-[var(--line)]">
+        <div class="jp text-4xl">え</div><div class="ui text-xs text-[var(--muted)] mt-2">2 strokes</div>
+      </div>
+      <div class="py-3 rounded-lg bg-white border border-[var(--line)]">
+        <div class="jp text-4xl">お</div><div class="ui text-xs text-[var(--muted)] mt-2">3 strokes</div>
+      </div>
+    </div>
+    <p class="ui text-sm text-[var(--muted)] mt-4">Copy each one several times, keeping to the order above.</p>
+  </section>
+
+  <!-- Reading test -->
+  <section class="mb-12">
+    <h2 class="ui text-base font-semibold mb-1">Reading test</h2>
+    <p class="ui text-sm text-[var(--muted)] mb-5">Read each one aloud first, then tap the card to check.</p>
+    <div class="grid grid-cols-2 sm:grid-cols-5 gap-3" id="test">
+      <button class="reveal p-4" aria-pressed="false">
+        <span class="ui text-xs text-[var(--muted)] block mb-1">①</span>
+        <span class="jp text-3xl block">あお</span>
+        <span class="prompt-hint ui text-xs text-[var(--muted)] block mt-2">tap</span>
+        <span class="answer"><span class="rom">ao</span> · <span class="mean">blue</span></span>
+      </button>
+      <button class="reveal p-4" aria-pressed="false">
+        <span class="ui text-xs text-[var(--muted)] block mb-1">②</span>
+        <span class="jp text-3xl block">いえ</span>
+        <span class="prompt-hint ui text-xs text-[var(--muted)] block mt-2">tap</span>
+        <span class="answer"><span class="rom">ie</span> · <span class="mean">house</span></span>
+      </button>
+      <button class="reveal p-4" aria-pressed="false">
+        <span class="ui text-xs text-[var(--muted)] block mb-1">③</span>
+        <span class="jp text-3xl block">うえ</span>
+        <span class="prompt-hint ui text-xs text-[var(--muted)] block mt-2">tap</span>
+        <span class="answer"><span class="rom">ue</span> · <span class="mean">above</span></span>
+      </button>
+      <button class="reveal p-4" aria-pressed="false">
+        <span class="ui text-xs text-[var(--muted)] block mb-1">④</span>
+        <span class="jp text-3xl block">あい</span>
+        <span class="prompt-hint ui text-xs text-[var(--muted)] block mt-2">tap</span>
+        <span class="answer"><span class="rom">ai</span> · <span class="mean">love</span></span>
+      </button>
+      <button class="reveal p-4" aria-pressed="false">
+        <span class="ui text-xs text-[var(--muted)] block mb-1">⑤</span>
+        <span class="jp text-3xl block">いい</span>
+        <span class="prompt-hint ui text-xs text-[var(--muted)] block mt-2">tap</span>
+        <span class="answer"><span class="rom">ii</span> · <span class="mean">good</span></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Pronunciation note -->
+  <section class="mb-12 border-l-2 border-[var(--indigo)] pl-5 bg-[var(--indigo-soft)] py-4 pr-4 rounded-r-lg">
+    <p>
+      A note on <span class="jp">いえ</span> (<span class="romaji">ie</span>). Don't let English
+      pull it into “eye-ee.” The two vowels stay separate and clean: <strong>i – e</strong>.
+      This holds whenever vowels sit side by side in Japanese — each one keeps its own clear sound.
+    </p>
+  </section>
+
+  <!-- Forward pointer -->
+  <footer class="pt-6 border-t border-[var(--line)]">
+    <p class="ui text-sm text-[var(--muted)]">Next: Lesson 2 — <span class="jp">か き く け こ</span></p>
+  </footer>
+
+</main>
+
+<script>
+/* ---- Lessons: single source of truth for the hamburger menu ---- */
+const LESSONS = [
+  { n: 1, kana: "あいうえお", label: "The five vowels", href: "lesson1.html", available: true },
+  { n: 2, kana: "かきくけこ", label: "K-row",           href: "lesson2.html", available: false },
+  { n: 3, kana: "さしすせそ", label: "S-row",           href: "lesson3.html", available: false },
+];
+const CURRENT = "lesson1.html";
+
+/* ---- Build + insert the collapsed hamburger nav ---- */
+(function buildNav(){
+  const mount = document.getElementById("site-nav");
+
+  const items = LESSONS.map(l => {
+    const isCurrent = l.href === CURRENT;
+    const soon = !l.available && !isCurrent;
+    const tag = isCurrent
+      ? '<span class="ui text-[11px] text-[var(--indigo)] font-semibold">current</span>'
+      : soon ? '<span class="ui text-[11px] text-[var(--muted)]">soon</span>' : '';
+    const base = 'flex items-center justify-between gap-3 px-4 py-3 border-b border-[var(--line)]';
+    const inner = `
+      <span class="flex items-baseline gap-3 min-w-0">
+        <span class="ui text-xs text-[var(--muted)] w-10 shrink-0">Lesson ${l.n}</span>
+        <span class="jp text-lg shrink-0">${l.kana}</span>
+        <span class="ui text-sm text-[var(--muted)] truncate">${l.label}</span>
+      </span>${tag}`;
+    if (soon) {
+      return `<li class="${base} opacity-60 cursor-default" aria-disabled="true">${inner}</li>`;
+    }
+    return `<li><a href="${l.href}" class="${base} ${isCurrent ? 'bg-[var(--indigo-soft)]' : 'hover:bg-black/[.03]'}">${inner}</a></li>`;
+  }).join("");
+
+  mount.innerHTML = `
+    <header class="ui nav-bg fixed top-0 inset-x-0 z-40 border-b border-[var(--line)]">
+      <div class="mx-auto max-w-2xl px-5 sm:px-6 h-16 flex items-center gap-3">
+        <button id="nav-toggle" aria-label="Open lessons menu" aria-expanded="false" aria-controls="nav-panel"
+          class="grid place-items-center w-10 h-10 -ml-2 rounded-md hover:bg-black/[.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--indigo)]">
+          <span class="relative block w-5 h-4" id="nav-icon">
+            <span class="navbtn-line top absolute inset-x-0 top-0 h-0.5 bg-[var(--ink)]"></span>
+            <span class="navbtn-line mid absolute inset-x-0 top-1.5 h-0.5 bg-[var(--ink)]"></span>
+            <span class="navbtn-line bot absolute inset-x-0 top-3 h-0.5 bg-[var(--ink)]"></span>
+          </span>
+        </button>
+        <span class="text-sm font-semibold tracking-tight">Japanese Writing</span>
+        <span class="ml-auto text-xs text-[var(--muted)]">Lesson 1</span>
+      </div>
+      <nav id="nav-panel" class="absolute top-16 inset-x-0 bg-[var(--paper)] border-b border-[var(--line)] shadow-sm">
+        <ul class="mx-auto max-w-2xl">${items}</ul>
+      </nav>
+    </header>
+    <div id="nav-scrim" class="fixed inset-0 z-30 hidden"></div>`;
+
+  const toggle = document.getElementById("nav-toggle");
+  const panel  = document.getElementById("nav-panel");
+  const icon   = document.getElementById("nav-icon");
+  const scrim  = document.getElementById("nav-scrim");
+
+  function open(){
+    panel.classList.add("open"); icon.classList.add("nav-open");
+    scrim.classList.remove("hidden"); toggle.setAttribute("aria-expanded","true");
+    toggle.setAttribute("aria-label","Close lessons menu");
+    const first = panel.querySelector("a"); if (first) first.focus({preventScroll:true});
+  }
+  function close(){
+    panel.classList.remove("open"); icon.classList.remove("nav-open");
+    scrim.classList.add("hidden"); toggle.setAttribute("aria-expanded","false");
+    toggle.setAttribute("aria-label","Open lessons menu");
+  }
+  toggle.addEventListener("click", () =>
+    toggle.getAttribute("aria-expanded") === "true" ? close() : open());
+  scrim.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+})();
+
+/* ---- Reading test: tap to reveal ---- */
+document.getElementById("test").addEventListener("click", e => {
+  const card = e.target.closest(".reveal");
+  if (!card) return;
+  const on = card.getAttribute("aria-pressed") === "true";
+  card.setAttribute("aria-pressed", String(!on));
+});
+</script>
+</body>
+</html>
