@@ -14,6 +14,7 @@ body{font-family:'Andika','Segoe UI',system-ui,sans-serif;color:var(--forest);
   padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);}
 
 header{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.7rem 1.1rem .4rem;}
+.has-lesson-nav header{padding-left:3.6rem;}
 .menu{width:48px;height:48px;flex:0 0 auto;border:3px solid var(--forest);border-radius:14px;background:var(--paper);
   display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;}
 .menu span{display:block;width:22px;height:2.5px;background:var(--forest);border-radius:2px;box-shadow:0 -7px 0 var(--forest),0 7px 0 var(--forest);}
@@ -67,4 +68,40 @@ footer{flex:0 0 auto;display:flex;align-items:center;justify-content:space-betwe
   font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.5rem;cursor:pointer;transition:transform .1s ease, background .12s ease;-webkit-tap-highlight-color:transparent;}
 .tile:active{transform:scale(.94);} .tile:hover{background:var(--leaf-tint);}
 
+/* ---- lessons menu (shared across yt* reader pages; see nav-ytstory.js) ---- */
+.nav-menu{position:fixed;top:16px;left:16px;z-index:110;}
+.nav-toggle{width:40px;height:40px;border:2px solid var(--forest);border-radius:12px;background:var(--paper);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease;-webkit-tap-highlight-color:transparent;}
+.nav-toggle:hover{background:#fff;}
+.nav-toggle:focus-visible{outline:3px solid var(--forest-soft);outline-offset:2px;}
+.hamburger-icon,.hamburger-icon::before,.hamburger-icon::after{display:block;width:18px;height:2px;background:var(--forest);border-radius:2px;}
+.hamburger-icon{position:relative;transition:background .2s ease, transform .2s ease;}
+.hamburger-icon::before,.hamburger-icon::after{content:"";position:absolute;left:0;transition:top .2s ease, transform .2s ease;}
+.hamburger-icon::before{top:-6px;} .hamburger-icon::after{top:6px;}
+.nav-menu.active .hamburger-icon{background:transparent;}
+.nav-menu.active .hamburger-icon::before{top:0;transform:rotate(45deg);}
+.nav-menu.active .hamburger-icon::after{top:0;transform:rotate(-45deg);}
+.nav-dropdown{position:absolute;top:calc(100% + .5rem);left:0;width:max(220px,62vw);max-width:280px;max-height:70dvh;overflow-y:auto;
+  background:var(--paper);border:2px solid var(--forest);border-radius:16px;box-shadow:var(--shadow);padding:.4rem;
+  opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s ease, transform .2s ease, visibility .2s;}
+.nav-menu.active .nav-dropdown{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-level-btn{width:100%;text-align:left;background:none;border:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem;
+  color:var(--forest);padding:.55rem .6rem;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  gap:.4rem;-webkit-tap-highlight-color:transparent;}
+.nav-level-btn:hover{background:var(--leaf-tint);}
+.nav-level-btn:focus-visible{outline:3px solid var(--forest-soft);outline-offset:2px;}
+.nav-level-btn::after{content:"\25B8";font-size:.8em;color:var(--forest-soft);transition:transform .2s ease;}
+.nav-level-btn[aria-expanded="true"]::after{transform:rotate(90deg);}
+.nav-sublist{list-style:none;margin:0;padding:.1rem 0 .35rem .7rem;}
+.nav-sublist[hidden]{display:none;}
+.nav-sublist li{margin:0;}
+.nav-item{display:block;padding:.42rem .6rem;border-radius:8px;color:var(--forest-soft);text-decoration:none;font-size:.95rem;}
+.nav-item:hover{background:var(--leaf-tint);}
+.nav-item.current{background:var(--gold);color:var(--forest);font-weight:700;}
+.nav-empty{display:block;padding:.42rem .6rem;color:var(--forest-soft);opacity:.65;font-style:italic;font-size:.9rem;}
+
+@media (max-width:400px){
+  .nav-toggle{width:36px;height:36px;}
+  .has-lesson-nav header{padding-left:3.2rem;}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
