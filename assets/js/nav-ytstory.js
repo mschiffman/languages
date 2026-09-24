@@ -5,7 +5,10 @@
 --------------------------------------------------------------- */
 (function () {
   const LEVELS = [
-    { name: "Level 1", lessons: [] },
+    {
+      name: "Level 1",
+      lessons: [{ title: "Alphabet A–Z", href: "1.1_ABC.html" }],
+    },
     {
       name: "Level 2",
       lessons: [
@@ -15,6 +18,8 @@
         { title: "Let's get ready", href: "2.4_getReady.html" },
         { title: "We're Late!", href: "2.5_late.html" },
         { title: "After School", href: "2.6_afterSchool.html" },
+        { title: "Clean Up, Please", href: "2.7_clean.html" },
+        { title: "What Do You Want to Do?", href: "2.8_do.html" },
       ],
     },
   ];

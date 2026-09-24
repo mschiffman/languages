@@ -5,6 +5,10 @@
    (see the per-story <script> block for the data shape)
 --------------------------------------------------------------- */
 
+/* Offline single-file builds define EMBED = { "<url>": dataURI };
+   online pages don't, so this falls back to the plain URL. */
+const media = (url) => (typeof EMBED !== "undefined" && EMBED[url]) || url;
+
 const pad = (n) => String(n).padStart(2, "0");
 const track = document.getElementById("track");
 const counter = document.getElementById("counter");
@@ -23,7 +27,7 @@ pages.forEach((page, i) => {
   const art = document.createElement("div");
   art.className = "art";
   const img = new Image();
-  img.src = `${IMG_DIR}${page.img}.${IMG_EXT}`;
+  img.src = media(`${IMG_DIR}${page.img}.${IMG_EXT}`);
   img.alt = `Illustration for page ${i + 1}`;
   img.onerror = () => {
     art.innerHTML = `<div class="missing"><b>${page.img}.${IMG_EXT}</b>illustration goes here</div>`;
@@ -80,7 +84,7 @@ function stopAll() {
 function playFile(num) {
   player.pause();
   player.currentTime = 0;
-  player.src = `${AUD_DIR}${num}.${AUD_EXT}`;
+  player.src = media(`${AUD_DIR}${num}.${AUD_EXT}`);
   const p = player.play();
   if (p && p.catch) p.catch(() => {}); // ignore if file not present yet
 }

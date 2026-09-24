@@ -22,3 +22,7 @@ Thumbs.db
 
 # Local media files
 media/
+
+# Generated offline story files and cached audio (see eng/build_single.py)
+eng/single/
+eng/yt/
