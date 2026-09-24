@@ -81,10 +81,14 @@ footer{flex:0 0 auto;display:flex;align-items:center;justify-content:space-betwe
 .nav-menu.active .hamburger-icon{background:transparent;}
 .nav-menu.active .hamburger-icon::before{top:0;transform:rotate(45deg);}
 .nav-menu.active .hamburger-icon::after{top:0;transform:rotate(-45deg);}
-.nav-dropdown{position:absolute;top:calc(100% + .5rem);left:0;width:max(220px,62vw);max-width:280px;max-height:70dvh;overflow-y:auto;
+.nav-dropdown{position:absolute;top:calc(100% + .5rem);left:0;width:max(220px,62vw);max-width:280px;max-height:calc(100dvh - 88px);overflow-y:auto;overscroll-behavior:contain;
   background:var(--paper);border:2px solid var(--forest);border-radius:16px;box-shadow:var(--shadow);padding:.4rem;
   opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s ease, transform .2s ease, visibility .2s;}
 .nav-menu.active .nav-dropdown{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown::-webkit-scrollbar{width:10px;}
+.nav-dropdown::-webkit-scrollbar-track{background:var(--leaf-tint);border-radius:8px;margin:8px 0;}
+.nav-dropdown::-webkit-scrollbar-thumb{background:var(--forest-soft);border-radius:8px;border:2px solid var(--leaf-tint);}
+@supports not selector(::-webkit-scrollbar){.nav-dropdown{scrollbar-width:thin;scrollbar-color:var(--forest-soft) var(--leaf-tint);}}
 .nav-level-btn{width:100%;text-align:left;background:none;border:none;font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem;
   color:var(--forest);padding:.55rem .6rem;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
   gap:.4rem;-webkit-tap-highlight-color:transparent;}

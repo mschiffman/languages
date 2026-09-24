@@ -20,6 +20,7 @@
         { title: "After School", href: "2.6_afterSchool.html" },
         { title: "Clean Up, Please", href: "2.7_clean.html" },
         { title: "What Do You Want to Do?", href: "2.8_do.html" },
+        { title: "I'm tired", href: "2.9_tired.html" },
       ],
     },
   ];

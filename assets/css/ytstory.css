@@ -165,8 +165,9 @@ header {
   left: 0;
   width: max(220px, 62vw);
   max-width: 280px;
-  max-height: 70dvh;
+  max-height: calc(100dvh - 88px);
   overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--paper);
   border: 2px solid var(--forest);
   border-radius: 16px;
@@ -184,6 +185,26 @@ header {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+/* always-visible scrollbar (overlay scrollbars on phones hide until dragged) */
+.nav-dropdown::-webkit-scrollbar {
+  width: 10px;
+}
+.nav-dropdown::-webkit-scrollbar-track {
+  background: var(--leaf-tint);
+  border-radius: 8px;
+  margin: 8px 0;
+}
+.nav-dropdown::-webkit-scrollbar-thumb {
+  background: var(--forest-soft);
+  border-radius: 8px;
+  border: 2px solid var(--leaf-tint);
+}
+@supports not selector(::-webkit-scrollbar) {
+  .nav-dropdown {
+    scrollbar-width: thin;
+    scrollbar-color: var(--forest-soft) var(--leaf-tint);
+  }
 }
 
 .nav-level-btn {
