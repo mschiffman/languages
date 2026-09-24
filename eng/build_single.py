@@ -21,8 +21,8 @@ lessons menu links between the single files keep working).
 
 Media lookup
   images : the page's IMG_DIR, relative to the site root (e.g. img/ytstory/2.7_clean/)
-  audio  : eng/yt/<story>/NN.mp3, then eng/offlineStories/<story>/audio/ (legacy),
-           otherwise downloaded from the page's AUD_DIR and cached in eng/yt/<story>/
+  audio  : eng/yt/<story>/NN.mp3, otherwise downloaded from the page's AUD_DIR
+           and cached there
 """
 import argparse
 import base64
@@ -38,7 +38,6 @@ YOUTUBE = ROOT / "youtube"
 DEFAULT_OUT = ENG / "single"
 FONTS_CSS = ENG / "offline_fonts.css"
 AUDIO_CACHE = ENG / "yt"
-LEGACY_AUDIO = ENG / "offlineStories"
 
 MIME = {
     ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
@@ -88,9 +87,9 @@ def expected_media(html: str, img_ext: str, aud_ext: str):
 
 def find_audio(url_name: str, slug: str, aud_dir: str) -> Path:
     name = url_name.split("?")[0]  # AUD_EXT may carry a cache-buster, e.g. "mp3?v=123"
-    for folder in (AUDIO_CACHE / slug, LEGACY_AUDIO / slug / "audio"):
-        if (folder / name).is_file():
-            return folder / name
+    cached = AUDIO_CACHE / slug / name
+    if cached.is_file():
+        return cached
     if aud_dir.startswith("http"):
         dest = AUDIO_CACHE / slug / name
         try:
