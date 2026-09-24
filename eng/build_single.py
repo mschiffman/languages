@@ -13,11 +13,11 @@ collapses one into ONE .html that opens offline (tablet / SD card):
 Usage (from anywhere):
     python eng/build_single.py                      build every page in youtube/
     python eng/build_single.py 2.7_clean 2.8_do     build just these
-    python eng/build_single.py --no-nav 2.7_clean   leave out the lessons menu
     python eng/build_single.py --out some/dir       write somewhere else
 
-Output goes to eng/single/<name>.html (same file names as youtube/, so the
-lessons menu links between the single files keep working).
+Output goes to eng/single/<name>.html (same file names as youtube/). The lessons
+menu (assets/js/nav-*.js) is always left out: it didn't work on the Android
+tablet, and leaving it out means new lessons never need adding to a menu.
 
 Media lookup
   images : the page's IMG_DIR, relative to the site root (e.g. img/ytstory/2.7_clean/)
@@ -143,7 +143,7 @@ def site_file(url: str) -> Path:
     return p
 
 
-def build(page: Path, out_dir: Path, nav: bool) -> Path:
+def build(page: Path, out_dir: Path) -> Path:
     html = page.read_text(encoding="utf-8")
     title = re.search(r"<title>(.*?)</title>", html, re.S)
     head = re.search(r"<head>(.*?)</head>", html, re.S)
@@ -174,8 +174,8 @@ def build(page: Path, out_dir: Path, nav: bool) -> Path:
             url = src.group(1)
             if url.startswith("http"):
                 return ""  # external (analytics etc.) - useless offline
-            if not nav and "nav-" in url:
-                return ""
+            if "nav-" in url:
+                return ""  # lessons menu - not wanted in the offline files
             return inline_script(site_file(url).read_text(encoding="utf-8"))
         return inline_script(code.strip("\n"))
 
@@ -205,7 +205,6 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Build offline single-file stories from youtube/*.html")
     ap.add_argument("names", nargs="*", help="story names, e.g. 2.7_clean (default: all)")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT, help=f"output folder (default {DEFAULT_OUT})")
-    ap.add_argument("--no-nav", action="store_true", help="leave out the lessons menu")
     args = ap.parse_args()
 
     if args.names:
@@ -225,7 +224,7 @@ def main() -> int:
     for page in pages:
         print(f"{page.name}")
         try:
-            dest = build(page, args.out, nav=not args.no_nav)
+            dest = build(page, args.out)
             print(f"  -> {dest}  ({dest.stat().st_size / 1024 / 1024:.2f} MB)")
         except BuildError as e:
             failed += 1

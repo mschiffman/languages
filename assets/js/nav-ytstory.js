@@ -7,7 +7,11 @@
   const LEVELS = [
     {
       name: "Level 1",
-      lessons: [{ title: "Alphabet A–Z", href: "1.1_ABC.html" }],
+      lessons: [
+        { title: "Alphabet A–Z", href: "1.1_ABC.html" },
+        { title: "Words", href: "1.2_words.html" },
+        { title: "A or An", href: "1.3_aORan.html" },
+      ],
     },
     {
       name: "Level 2",
@@ -21,6 +25,7 @@
         { title: "Clean Up, Please", href: "2.7_clean.html" },
         { title: "What Do You Want to Do?", href: "2.8_do.html" },
         { title: "I'm tired", href: "2.9_tired.html" },
+        { title: "What a day!", href: "2.10_day.html" },
       ],
     },
   ];
