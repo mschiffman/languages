@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Alphabet</title>
+    <link rel="stylesheet" href="assets/app.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <button class="menu" id="menuBtn" aria-label="All letters">
+          <span></span>
+        </button>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span><span class="a">A</span> to <span class="z">Z</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 26</div>
+      </header>
+
+      <main>
+        <div
+          class="letter"
+          id="letter"
+          role="button"
+          tabindex="0"
+          aria-label="Tap to hear the letter name"
+        >
+          <div class="glyph" id="glyph">Aa</div>
+          <div class="hint">tap the letter</div>
+        </div>
+        <div class="keyword">
+          <div class="art"><img id="kwimg" alt="" /></div>
+          <div
+            class="word"
+            id="word"
+            role="button"
+            tabindex="0"
+            aria-label="Tap to hear the word"
+          >
+            apple
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous letter">
+          &#8592;
+        </button>
+        <button class="play" id="play" aria-label="Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" /></svg
+          ><span id="playLabel">Play</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next letter">&#8594;</button>
+      </footer>
+    </div>
+
+    <!-- letter grid (hamburger) -->
+    <div class="sheet" id="sheet" hidden>
+      <div class="sheet-head">
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            /></svg
+          ><span>All letters</span>
+        </div>
+        <button class="close" id="closeBtn" aria-label="Close">&#10005;</button>
+      </div>
+      <div class="tiles" id="tiles"></div>
+    </div>
+
+    <script>
+      /* ---- the whole alphabet: one line per letter ---- */
+      const LETTERS = [
+        { L: "A", w: "apple" },
+        { L: "B", w: "ball" },
+        { L: "C", w: "cat" },
+        { L: "D", w: "dog" },
+        { L: "E", w: "egg" },
+        { L: "F", w: "fish" },
+        { L: "G", w: "grape" },
+        { L: "H", w: "house" },
+        { L: "I", w: "igloo" },
+        { L: "J", w: "jug" },
+        { L: "K", w: "king" },
+        { L: "L", w: "log" },
+        { L: "M", w: "mat" },
+        { L: "N", w: "nose" },
+        { L: "O", w: "owl" },
+        { L: "P", w: "pen" },
+        { L: "Q", w: "queen" },
+        { L: "R", w: "rat" },
+        { L: "S", w: "sun" },
+        { L: "T", w: "tree" },
+        { L: "U", w: "umbrella" },
+        { L: "V", w: "vase" },
+        { L: "W", w: "water" },
+        { L: "X", w: "xylophone" },
+        { L: "Y", w: "yolk" },
+        { L: "Z", w: "zebra" },
+      ];
+
+      /* media lives beside index.html; the bundler fills EMBED for the single-file build */
+      const EMBED = {}; /*__INLINE_ASSETS__*/
+      const imgSrc = (L) => {
+        const n = String(LETTERS.findIndex((x) => x.L === L) + 1).padStart(
+          2,
+          "0",
+        );
+        const f = `/img/ytstory/alphabet/${n}.jpg`;
+        return EMBED[f] || f;
+      };
+      const audSrc = (L, kind) => {
+        const idx = LETTERS.findIndex((x) => x.L === L);
+        const n = String(idx * 2 + (kind === "name" ? 1 : 2)).padStart(2, "0");
+        const f = `audio/${n}.mp3`;
+        return (
+          EMBED[f] ||
+          `https://languages.rmlives.com/eng/yt/1.1_alphabet/${n}.mp3`
+        );
+      };
+
+      const glyphEl = document.getElementById("glyph");
+      const wordEl = document.getElementById("word");
+      const imgEl = document.getElementById("kwimg");
+      const letterEl = document.getElementById("letter");
+      const counter = document.getElementById("counter");
+      const prevBtn = document.getElementById("prev");
+      const nextBtn = document.getElementById("next");
+      const playBtn = document.getElementById("play");
+      const playLabel = document.getElementById("playLabel");
+
+      let cur = 0;
+      const player = new Audio();
+      let active = null;
+      let seq = null;
+
+      function clearActive() {
+        if (active) {
+          active.classList.remove("playing");
+          active = null;
+        }
+      }
+      function setStop(on) {
+        playBtn.classList.toggle("stop", on);
+        playLabel.textContent = on ? "Stop" : "Play";
+      }
+      function stopAll() {
+        player.pause();
+        player.onended = null;
+        seq = null;
+        clearActive();
+        setStop(false);
+      }
+      function playSrc(src) {
+        player.pause();
+        player.currentTime = 0;
+        player.src = src;
+        const p = player.play();
+        if (p && p.catch) p.catch(() => {});
+      }
+
+      function playOne(kind, el) {
+        if (seq) stopAll();
+        else player.onended = clearActive;
+        clearActive();
+        active = el;
+        el.classList.add("playing");
+        playSrc(audSrc(LETTERS[cur].L, kind));
+      }
+      letterEl.addEventListener("click", () => playOne("name", letterEl));
+      wordEl.addEventListener("click", () => playOne("word", wordEl));
+      [letterEl, wordEl].forEach((el) =>
+        el.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            el.click();
+          }
+        }),
+      );
+
+      /* Play = letter name -> word */
+      playBtn.addEventListener("click", () => {
+        if (seq) {
+          stopAll();
+          return;
+        }
+        seq = [
+          ["name", letterEl],
+          ["word", wordEl],
+        ];
+        setStop(true);
+        let i = 0;
+        const step = () => {
+          if (!seq || i >= seq.length) {
+            stopAll();
+            return;
+          }
+          clearActive();
+          const [kind, el] = seq[i];
+          active = el;
+          el.classList.add("playing");
+          player.onended = () => {
+            i++;
+            step();
+          };
+          playSrc(audSrc(LETTERS[cur].L, kind));
+        };
+        step();
+      });
+
+      function render(i) {
+        cur = Math.max(0, Math.min(LETTERS.length - 1, i));
+        const { L, w } = LETTERS[cur];
+        glyphEl.textContent = L + L.toLowerCase();
+        wordEl.textContent = w;
+        imgEl.onerror = () => {
+          imgEl.replaceWith(
+            Object.assign(document.createElement("div"), {
+              className: "ph",
+              textContent: w,
+            }),
+          );
+        };
+        imgEl.src = imgSrc(L);
+        counter.textContent = `${cur + 1} / ${LETTERS.length}`;
+        prevBtn.disabled = cur === 0;
+        nextBtn.disabled = cur === LETTERS.length - 1;
+        stopAll();
+      }
+      prevBtn.addEventListener("click", () => render(cur - 1));
+      nextBtn.addEventListener("click", () => render(cur + 1));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") render(cur - 1);
+        if (e.key === "ArrowRight") render(cur + 1);
+      });
+
+      /* swipe */
+      let x0 = null,
+        y0 = null;
+      document.querySelector("main").addEventListener(
+        "touchstart",
+        (e) => {
+          x0 = e.touches[0].clientX;
+          y0 = e.touches[0].clientY;
+        },
+        { passive: true },
+      );
+      document.querySelector("main").addEventListener(
+        "touchend",
+        (e) => {
+          if (x0 === null) return;
+          const dx = e.changedTouches[0].clientX - x0,
+            dy = e.changedTouches[0].clientY - y0;
+          if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4)
+            render(cur - Math.sign(dx));
+          x0 = y0 = null;
+        },
+        { passive: true },
+      );
+
+      /* letter grid */
+      const sheet = document.getElementById("sheet");
+      const tiles = document.getElementById("tiles");
+      LETTERS.forEach((L, idx) => {
+        const t = document.createElement("button");
+        t.className = "tile";
+        t.textContent = L.L;
+        t.setAttribute("aria-label", `${L.L}, ${L.w}`);
+        t.addEventListener("click", () => {
+          render(idx);
+          closeSheet();
+        });
+        tiles.appendChild(t);
+      });
+      function openSheet() {
+        stopAll();
+        sheet.hidden = false;
+      }
+      function closeSheet() {
+        sheet.hidden = true;
+      }
+      document.getElementById("menuBtn").addEventListener("click", openSheet);
+      document.getElementById("closeBtn").addEventListener("click", closeSheet);
+      sheet.addEventListener("click", (e) => {
+        if (e.target === sheet) closeSheet();
+      });
+
+      render(0);
+    </script>
+  </body>
+</html>

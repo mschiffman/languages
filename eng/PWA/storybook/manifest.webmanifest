@@ -1,0 +1,48 @@
+{
+  "name": "Storybook - read along",
+  "short_name": "Storybook",
+  "description": "Picture stories that read themselves aloud. Tap any phrase to hear it.",
+  "id": "/storybook/",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#f1f6ea",
+  "theme_color": "#274b2f",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "books", "kids"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "The Lion and the Mouse",
+      "url": "./story.html?id=lion-mouse",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "The Tortoise and the Hare",
+      "url": "./story.html?id=tortoise-hare",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>A Busy Morning</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>A Busy Morning</span>
+        </div>
+        <div class="counter" id="counter">1 / 7</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/1_busyMorning/1.jpg … 7.jpg   (one per book page)
+     audio  : 01.mp3 … 22.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/2.1_busyMorning/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/2.1_busyMorning/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..22 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["A Busy Morning", 1]],
+            [["It is morning.", 2]],
+            [["Ring! Ring!", 3]],
+            [["Wake up, Mia!", 4]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["Good morning.", 5]],
+            [["I’m sleepy.", 6]],
+            [["I get up.", 7]],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["I wash my face.", 8]],
+            [["I brush my hair.", 9]],
+            [["I get dressed.", 10]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["Where are my socks?", 11]],
+            [["Here they are!", 12]],
+            [["Thank you, Mom.", 13]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["I’m hungry.", 14]],
+            [["I eat breakfast.", 15]],
+            [["Yum!", 16]],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["Hurry up, Mia!", 17]],
+            [["I’m almost ready.", 18]],
+            [["I put on my shoes.", 19]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["I have my bag.", 20]],
+            [["I’m ready.", 21]],
+            [["Let’s go!", 22]],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

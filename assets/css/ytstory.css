@@ -92,11 +92,10 @@ header {
 
 /* ---- lessons menu ---- */
 .nav-menu {
-  position: absolute;
-  top: 50%;
-  left: 0.75rem;
-  transform: translateY(-50%);
-  z-index: 30;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 110;
 }
 .nav-toggle {
   width: 40px;

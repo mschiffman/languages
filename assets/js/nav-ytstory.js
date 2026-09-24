@@ -9,9 +9,12 @@
     {
       name: "Level 2",
       lessons: [
-        { title: "A Busy Morning", href: "1_busyMorning.html" },
-        { title: "Where Are My Shoes?", href: "2_whereShoes.html" },
-        { title: "I’m Hungry", href: "3_breakfast.html" },
+        { title: "A Busy Morning", href: "2.1_busyMorning.html" },
+        { title: "Where Are My Shoes?", href: "2.2_whereShoes.html" },
+        { title: "I’m Hungry", href: "2.3_breakfast.html" },
+        { title: "Let's get ready", href: "2.4_getReady.html" },
+        { title: "We're Late!", href: "2.5_late.html" },
+        { title: "After School", href: "2.6_afterSchool.html" },
       ],
     },
   ];
@@ -45,10 +48,7 @@
     levelBtn.type = "button";
     levelBtn.className = "nav-level-btn";
     levelBtn.textContent = level.name;
-    levelBtn.setAttribute(
-      "aria-expanded",
-      levelHasCurrent ? "true" : "false",
-    );
+    levelBtn.setAttribute("aria-expanded", levelHasCurrent ? "true" : "false");
 
     const sublist = document.createElement("ul");
     sublist.className = "nav-sublist";
