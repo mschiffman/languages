@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
     />
-    <title>The Lion and the Mouse</title>
+    <title>The Fox and the Grapes</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -49,8 +49,8 @@
             />
           </svg>
           <span
-            ><span class="lion">The&nbsp;Lion</span> and the
-            <span class="mouse">Mouse</span></span
+            ><span class="lion">The&nbsp;Fox</span> and the
+            <span class="mouse">Grapes</span></span
           >
         </div>
         <div class="counter" id="counter">1 / 8</div>
@@ -77,48 +77,67 @@
     <script>
       /* ---------------------------------------------------------------
    Media:
-     images : /img/ytstory/lion/1.jpg … 8.jpg   (one per book page)
-     audio  : 01.mp3 … 25.mp3 next to this file (one per phrase, in reading order)
+     images : /img/ytstory/grapes/1.jpg … 8.jpg   (one per book page)
+     audio  : 1.mp3 … 51.mp3 in AUD_DIR (one per phrase, in reading order)
    To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
 --------------------------------------------------------------- */
-      const IMG_DIR = "/img/ytstory/lion/";
-      const AUD_DIR = "https://languages.rmlives.com/eng/yt/lion/";
+      const IMG_DIR = "/img/ytstory/grapes/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/grapes/";
       const IMG_EXT = "jpg";
       const AUD_EXT = "mp3";
 
-      /* pages -> sentences -> chunks. Audio numbers run 1..24 in order. */
+      /* pages -> sentences -> chunks. Audio numbers run 1..51 in order. */
       const pages = [
         {
           img: 1,
           sentences: [
-            [["The Lion and the Mouse", 1]],
+            [["The Fox and the Grapes", 1]],
             [
-              ["A lion was sleeping", 2],
-              ["in the forest.", 3],
+              ["One sunny afternoon,", 2],
+              ["a fox was walking", 3],
+              ["through the countryside.", 4],
             ],
+            [["He was hot and hungry.", 5]],
             [
-              ["A little mouse", 4],
-              ["ran over his paw.", 5],
+              ["Then he saw something", 6],
+              ["hanging from a vine.", 7],
             ],
+            [["A big bunch of", 8]],
+            [["purple grapes!", 9]],
           ],
         },
         {
           img: 2,
           sentences: [
-            [["The lion woke up.", 6]],
-            [["He caught the mouse.", 7]],
+            [["The grapes looked", 10]],
+            [["sweet and juicy.", 11]],
+            [
+              ['"Oh, those grapes"', 12],
+              ['"look delicious!"', 13],
+              ["said the fox.", 14],
+            ],
+            [
+              ["He stood under the vine", 15],
+              ["and looked up.", 16],
+            ],
+            [["But the grapes were very high.", 17]],
           ],
         },
         {
           img: 3,
           sentences: [
+            [["The fox jumped.", 18]],
             [
-              ['"Please let me go,"', 8],
-              ["said the mouse.", 9],
+              ["He stretched his paws", 19],
+              ["as high as he could.", 20],
             ],
             [
-              ['"One day,', 10],
-              ['I can help you."', 11],
+              ["But he could not", 21],
+              ["reach the grapes.", 22],
+            ],
+            [
+              ['"Almost!"', 23],
+              ["he said.", 24],
             ],
           ],
         },
@@ -126,17 +145,30 @@
           img: 4,
           sentences: [
             [
-              ["The lion laughed", 12],
-              ["but he let the mouse go.", 13],
+              ["He stepped back", 25],
+              ["and ran toward the vine.", 26],
+            ],
+            [["Then he jumped again.", 27]],
+            [
+              ["Higher and higher", 28],
+              ["he jumped.", 29],
+            ],
+            [
+              ["But the grapes were", 30],
+              ["still out of reach.", 31],
             ],
           ],
         },
         {
           img: 5,
           sentences: [
+            [["The fox tried again.", 32]],
+            [["And again.", 33]],
+            [["And again.", 34]],
+            [["Soon, he was tired.", 35]],
             [
-              ["Later, the lion was caught", 14],
-              ["in a hunter's net.", 15],
+              ["He sat down", 36],
+              ["and looked at the grapes.", 37],
             ],
           ],
         },
@@ -144,32 +176,47 @@
           img: 6,
           sentences: [
             [
-              ["The mouse heard", 16],
-              ["the lion roar.", 17],
+              ['"I don\'t want"', 38],
+              ['"those grapes anyway,"', 39],
+              ["he said.", 40],
             ],
-            [["He ran to help.", 18]],
+            [['"They are probably sour."', 41]],
+            [
+              ["The fox turned around", 42],
+              ["and walked away.", 43],
+            ],
           ],
         },
         {
           img: 7,
           sentences: [
+            [["But the grapes were not sour.", 44]],
             [
-              ["The mouse bit the ropes", 19],
-              ["with his sharp teeth.", 20],
+              ["The fox only said that", 45],
+              ["because he could not reach them.", 46],
             ],
-            [["Soon the lion was free.", 21]],
+            [
+              ["Sometimes we pretend", 47],
+              ["we do not want something", 48],
+              ["when we cannot have it.", 49],
+            ],
           ],
         },
         {
           img: 8,
           sentences: [
             [
-              ["The lion said,", 22],
-              ['"Thank you, little mouse."', 23],
+              ["The fox disappeared", 50],
+              ["down the path.", 51],
             ],
             [
-              ["Even a small friend", 24],
-              ["can help a big friend.", 25],
+              ["The grapes still hung from the vine,", 52],
+              ["shining in the afternoon sun.", 53],
+            ],
+            [
+              ["Moral:", 54],
+              ["It is easy to dislike something", 55],
+              ["when we cannot have it.", 56],
             ],
           ],
         },

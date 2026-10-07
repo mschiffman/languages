@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
     />
-    <title>The Lion and the Mouse</title>
+    <title>The Hare and the Tortoise</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -49,11 +49,11 @@
             />
           </svg>
           <span
-            ><span class="lion">The&nbsp;Lion</span> and the
-            <span class="mouse">Mouse</span></span
+            ><span class="lion">The&nbsp;Hare</span> and the
+            <span class="mouse">Tortoise</span></span
           >
         </div>
-        <div class="counter" id="counter">1 / 8</div>
+        <div class="counter" id="counter">1 / 4</div>
       </header>
 
       <div class="viewport">
@@ -77,48 +77,84 @@
     <script>
       /* ---------------------------------------------------------------
    Media:
-     images : /img/ytstory/lion/1.jpg … 8.jpg   (one per book page)
-     audio  : 01.mp3 … 25.mp3 next to this file (one per phrase, in reading order)
+     images : /img/ytstory/hare/1.jpg … 4.jpg   (one per book page)
+     audio  : 1.mp3 … 48.mp3 in AUD_DIR (one per phrase, in reading order)
    To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
 --------------------------------------------------------------- */
-      const IMG_DIR = "/img/ytstory/lion/";
-      const AUD_DIR = "https://languages.rmlives.com/eng/yt/lion/";
+      const IMG_DIR = "/img/ytstory/hare/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/hare/";
       const IMG_EXT = "jpg";
-      const AUD_EXT = "mp3";
+      const AUD_EXT = "mp3?v=261007";
 
-      /* pages -> sentences -> chunks. Audio numbers run 1..24 in order. */
+      /* pages -> sentences -> chunks. Audio numbers run 1..48 in order. */
       const pages = [
         {
           img: 1,
           sentences: [
-            [["The Lion and the Mouse", 1]],
+            [["The Hare and the Tortoise", 1]],
+            [["Hello!", 2]],
             [
-              ["A lion was sleeping", 2],
-              ["in the forest.", 3],
+              ["Today, we are going to read", 3],
+              ["a little story together.", 4],
+            ],
+            [["Look at the picture.", 5]],
+            [["What do you see?", 6]],
+            [
+              ["A hare and a tortoise", 7],
+              ["are in the forest.", 8],
+            ],
+            [["The hare is very fast.", 9]],
+            [["The tortoise is very slow.", 10]],
+            [
+              ["The hare makes fun", 11],
+              ["of the tortoise.", 12],
             ],
             [
-              ["A little mouse", 4],
-              ["ran over his paw.", 5],
+              ['"You are so slow!"', 13],
+              ["he says.", 14],
+            ],
+            [
+              ["The tortoise answers:", 15],
+              ['"Maybe. But I can race you."', 16],
             ],
           ],
         },
         {
           img: 2,
           sentences: [
-            [["The lion woke up.", 6]],
-            [["He caught the mouse.", 7]],
+            [["The hare bursts out laughing.", 17]],
+            [
+              ['"A race? With me?', 18],
+              ['All right!"', 19],
+            ],
+            [["The animals come to watch.", 20]],
+            [
+              ["The fox cries:", 21],
+              ['"Ready? Go!"', 22],
+            ],
+            [["The hare runs off very fast.", 23]],
+            [
+              ["The tortoise moves forward", 24],
+              ["slowly, step by step.", 25],
+            ],
           ],
         },
         {
           img: 3,
           sentences: [
+            [["The hare looks behind him.", 26]],
+            [["The tortoise is far away.", 27]],
             [
-              ['"Please let me go,"', 8],
-              ["said the mouse.", 9],
+              ["So he says:", 28],
+              ['"I have time.', 29],
+              ['I am going to rest."', 30],
             ],
+            [["He lies down under a tree.", 31]],
+            [["Soon, he falls asleep.", 32]],
+            [["Meanwhile, the tortoise keeps going.", 33]],
             [
-              ['"One day,', 10],
-              ['I can help you."', 11],
+              ["She walks on and on,", 34],
+              ["without stopping.", 35],
             ],
           ],
         },
@@ -126,50 +162,28 @@
           img: 4,
           sentences: [
             [
-              ["The lion laughed", 12],
-              ["but he let the mouse go.", 13],
-            ],
-          ],
-        },
-        {
-          img: 5,
-          sentences: [
-            [
-              ["Later, the lion was caught", 14],
-              ["in a hunter's net.", 15],
-            ],
-          ],
-        },
-        {
-          img: 6,
-          sentences: [
-            [
-              ["The mouse heard", 16],
-              ["the lion roar.", 17],
-            ],
-            [["He ran to help.", 18]],
-          ],
-        },
-        {
-          img: 7,
-          sentences: [
-            [
-              ["The mouse bit the ropes", 19],
-              ["with his sharp teeth.", 20],
-            ],
-            [["Soon the lion was free.", 21]],
-          ],
-        },
-        {
-          img: 8,
-          sentences: [
-            [
-              ["The lion said,", 22],
-              ['"Thank you, little mouse."', 23],
+              ["When the hare wakes up,", 36],
+              ["he is surprised.", 37],
             ],
             [
-              ["Even a small friend", 24],
-              ["can help a big friend.", 25],
+              ["The tortoise is almost", 38],
+              ["at the finish line!", 39],
+            ],
+            [
+              ["The hare runs as fast as he can,", 40],
+              ["but it is too late.", 41],
+            ],
+            [["The tortoise wins the race.", 42]],
+            [["All the animals clap.", 43]],
+            [
+              ["The tortoise smiles and says:", 44],
+              ['"Slowly, but without stopping,', 45],
+              ['we move forward."', 46],
+            ],
+            [
+              ["Moral:", 47],
+              ["Slow and steady", 48],
+              ["wins the race.", 49],
             ],
           ],
         },
