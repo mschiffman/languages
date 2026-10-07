@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
     />
-    <title>Reading words</title>
+    <title>We're Going to the Zoo!</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -48,9 +48,9 @@
               stroke-linecap="round"
             />
           </svg>
-          <span>Reading words</span>
+          <span>We're Going to the Zoo!</span>
         </div>
-        <div class="counter" id="counter">1 / 8</div>
+        <div class="counter" id="counter">1 / 14</div>
       </header>
 
       <div class="viewport">
@@ -73,53 +73,101 @@
 
     <script>
       /* ---------------------------------------------------------------
-         Media:
-           images : /img/ytstory/1.2_words/1.jpg … 8.jpg   (one per book page)
-           audio  : 1.mp3 … 16.mp3 in AUD_DIR (one per phrase, in reading order)
-         To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
-      --------------------------------------------------------------- */
-      const IMG_DIR = "/img/ytstory/1.2_words/";
-      const AUD_DIR = "https://languages.rmlives.com/eng/yt/1.2_words/";
+   Media:
+     images : /img/ytstory/2.11_zoo/1.jpg … 14.jpg   (one per book page)
+     audio  : 01.mp3 … 42.mp3 (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/2.11_zoo/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/2.11_zoo/";
       const IMG_EXT = "jpg";
       const AUD_EXT = "mp3";
 
-      /* pages -> sentences -> chunks. Audio numbers run 1..16 in order. */
+      /* pages -> sentences -> chunks. Audio numbers run 1..42 in order. */
       const pages = [
         {
           img: 1,
-          sentences: [[["Let's read words.", 1]], [["Look and listen.", 2]]],
+          sentences: [
+            [["Mia, wake up!", 1]],
+            [["We're going to the zoo today.", 2]],
+            [["The zoo?", 3]],
+            [["Yay!", 4]],
+            [["I want to see the elephants!", 5]],
+            [["Then let's get ready.", 6]],
+          ],
         },
         {
           img: 2,
-          sentences: [[["b-o-o-k", 3]], [["book", 4]]],
+          sentences: [
+            [["What do you want to wear?", 7]],
+            [["My pink shirt and blue shorts.", 8]],
+            [["Good choice.", 9]],
+            [["It's warm outside.", 10]],
+          ],
         },
         {
           img: 3,
-          sentences: [[["p-e-n", 5]], [["pen", 6]]],
+          sentences: [
+            [["Where are my shoes?", 11]],
+            [["Look under the bed.", 12]],
+            [["Oh!", 13]],
+            [["Here they are.", 14]],
+          ],
         },
         {
           img: 4,
-          sentences: [[["c-u-p", 7]], [["cup", 8]]],
+          sentences: [
+             [["Put them on, please.", 15]],
+             [["And don't forget your hat.", 16]],
+             [["Okay, Mom.", 17]],           
+          ],
         },
         {
           img: 5,
-          sentences: [[["b-a-g", 9]], [["bag", 10]]],
+          sentences: [
+            [["Do I need my backpack?", 18]],
+            [["Yes.", 19]],
+            [["Put your water bottle in it.", 20]],
+            [["Can I take a snack too?", 21]],
+            [["Of course.", 22]],
+            [["Take a banana.", 23]],
+          ],
         },
         {
           img: 6,
-          sentences: [[["c-a-t", 11]], [["cat", 12]]],
+          sentences: [
+            [["I have my hat, my water, and my snack.", 24]],
+            [["I'm ready!", 25]],
+            [["Do you have everything?", 26]],
+            [["Hmm... wait!", 27]],
+            [["I need my sunglasses.", 28]],
+            [["They're on the table.", 29]],
+            [["Got them!", 30]],
+          ],
         },
         {
           img: 7,
-          sentences: [[["d-o-g", 13]], [["dog", 14]]],
+          sentences: [
+            [["Now I'm ready.", 31]],
+            [["Great.", 32]],
+            [["Let's go!", 33]],
+            [["Yay!", 34]],
+            [["I hope we see the monkeys!", 35]],
+            [["I'm sure we will.", 36]],
+          ],
         },
         {
           img: 8,
           sentences: [
-            [["I can read words!", 15]],
-            [["book, pen, cup, bag, cat, dog", 16]],
+            
+            [["What about the giraffes?", 37]],
+            [["We'll see them too.", 38]],
+            [["This is going to be fun!", 39]],
+            [["Yes, it is.", 40]],
+            [["Come on, zoo girl!", 41]],
+            [["I'm coming, Mom!", 42]],
           ],
-        },
+        },        
       ];
     </script>
     <script src="/assets/js/nav-ytstory.js"></script>

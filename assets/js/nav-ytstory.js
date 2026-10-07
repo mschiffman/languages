@@ -11,6 +11,15 @@
         { title: "Alphabet A–Z", href: "1.1_ABC.html" },
         { title: "Words", href: "1.2_words.html" },
         { title: "A or An", href: "1.3_aORan.html" },
+        { title: "What is it?", href: "1.4_what.html" },
+        { title: "This and That", href: "1.5_thisThat.html" },
+        { title: "Singular and Plural", href: "1.6_singularPlural.html" },
+        { title: "What are they?", href: "1.7_they.html" },
+        { title: "These and Those", href: "1.8_theseThose.html" },
+        { title: "Do you have...?", href: "1.9_doYouHave.html" },
+        { title: "I have. I don't have.", href: "1.10_iHave.html" },
+        { title: "He has. She has.", href: "1.11_heSheHas.html" },
+        { title: "He doesn't have. She doesn't have.", href: "1.12_doesnt.html" },
       ],
     },
     {
@@ -26,6 +35,7 @@
         { title: "What Do You Want to Do?", href: "2.8_do.html" },
         { title: "I'm tired", href: "2.9_tired.html" },
         { title: "What a day!", href: "2.10_day.html" },
+        { title: "We're Going to the Zoo!", href: "2.11_zoo.html" },
       ],
     },
   ];

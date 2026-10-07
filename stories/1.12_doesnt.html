@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
     />
-    <title>Reading words</title>
+    <title>He doesn't have. She doesn't have.</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -48,7 +48,7 @@
               stroke-linecap="round"
             />
           </svg>
-          <span>Reading words</span>
+          <span>He doesn't have. She doesn't have.</span>
         </div>
         <div class="counter" id="counter">1 / 8</div>
       </header>
@@ -74,50 +74,82 @@
     <script>
       /* ---------------------------------------------------------------
          Media:
-           images : /img/ytstory/1.2_words/1.jpg … 8.jpg   (one per book page)
+           images : /img/ytstory/1.12_doesnt/1.jpg … 8.jpg   (one per book page)
            audio  : 1.mp3 … 16.mp3 in AUD_DIR (one per phrase, in reading order)
          To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
       --------------------------------------------------------------- */
-      const IMG_DIR = "/img/ytstory/1.2_words/";
-      const AUD_DIR = "https://languages.rmlives.com/eng/yt/1.2_words/";
+      const IMG_DIR = "/img/ytstory/1.12_doesnt/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/1.12_doesnt/";
       const IMG_EXT = "jpg";
-      const AUD_EXT = "mp3";
+      const AUD_EXT = "mp3?v=261007";
 
       /* pages -> sentences -> chunks. Audio numbers run 1..16 in order. */
       const pages = [
         {
           img: 1,
-          sentences: [[["Let's read words.", 1]], [["Look and listen.", 2]]],
+          sentences: [
+            [["He doesn't have.", 1]],
+            [["She doesn't have.", 2]],
+            [["Let's learn.", 3]],
+          ],
         },
         {
           img: 2,
-          sentences: [[["b-o-o-k", 3]], [["book", 4]]],
+          sentences: [
+            [["Does he have a pen?", 4]],
+            [["No, he doesn't.", 5]],
+            [["He doesn't have a pen.", 6]],
+          ],
         },
         {
           img: 3,
-          sentences: [[["p-e-n", 5]], [["pen", 6]]],
+          sentences: [
+            [["Does she have a book?", 7]],
+            [["No, she doesn't.", 8]],
+            [["She doesn't have a book.", 9]],
+          ],
         },
         {
           img: 4,
-          sentences: [[["c-u-p", 7]], [["cup", 8]]],
+          sentences: [
+            [["Does he have a bag?", 10]],
+            [["No, he doesn't.", 5]],
+            [["He doesn't have a bag.", 11]],
+          ],
         },
         {
           img: 5,
-          sentences: [[["b-a-g", 9]], [["bag", 10]]],
+          sentences: [
+            [["Does she have an eraser?", 12]],
+            [["No, she doesn't.", 8]],
+            [["She doesn't have an eraser.", 13]],
+          ],
         },
         {
           img: 6,
-          sentences: [[["c-a-t", 11]], [["cat", 12]]],
+          sentences: [
+            [["Does he have an umbrella?", 14]],
+            [["No, he doesn't.", 5]],
+            [["He doesn't have an umbrella.", 15]],
+          ],
         },
         {
           img: 7,
-          sentences: [[["d-o-g", 13]], [["dog", 14]]],
+          sentences: [
+            [["Does she have a cup?", 16]],
+            [["No, she doesn't.", 8]],
+            [["She doesn't have a cup.", 17]],
+          ],
         },
         {
           img: 8,
           sentences: [
-            [["I can read words!", 15]],
-            [["book, pen, cup, bag, cat, dog", 16]],
+            [["He doesn't have a pen.", 6]],
+            [["She doesn't have a book.", 9]],
+            [["He doesn't have a bag.", 11]],
+            [["She doesn't have an eraser.", 13]],
+            [["He doesn't have an umbrella.", 15]],
+            [["She doesn't have a cup.", 17]],
           ],
         },
       ];

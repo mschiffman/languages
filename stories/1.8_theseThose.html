@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
     />
-    <title>Reading words</title>
+    <title>These and Those</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -48,7 +48,7 @@
               stroke-linecap="round"
             />
           </svg>
-          <span>Reading words</span>
+          <span>These and Those</span>
         </div>
         <div class="counter" id="counter">1 / 8</div>
       </header>
@@ -78,46 +78,48 @@
            audio  : 1.mp3 … 16.mp3 in AUD_DIR (one per phrase, in reading order)
          To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
       --------------------------------------------------------------- */
-      const IMG_DIR = "/img/ytstory/1.2_words/";
-      const AUD_DIR = "https://languages.rmlives.com/eng/yt/1.2_words/";
+      const IMG_DIR = "/img/ytstory/1.8_theseThose/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/1.8_theseThose/";
       const IMG_EXT = "jpg";
-      const AUD_EXT = "mp3";
+      const AUD_EXT = "mp3?v=260925";
 
       /* pages -> sentences -> chunks. Audio numbers run 1..16 in order. */
       const pages = [
         {
           img: 1,
-          sentences: [[["Let's read words.", 1]], [["Look and listen.", 2]]],
+          sentences: [[["These and those.", 1]], [["Let's learn.", 2]]],
         },
         {
           img: 2,
-          sentences: [[["b-o-o-k", 3]], [["book", 4]]],
+          sentences: [[["What are these?", 3]], [["These are books.", 4]]],
         },
         {
           img: 3,
-          sentences: [[["p-e-n", 5]], [["pen", 6]]],
+          sentences: [[["What are those?", 5]], [["Those are books.", 6]]],
         },
         {
           img: 4,
-          sentences: [[["c-u-p", 7]], [["cup", 8]]],
+          sentences: [[["What are these?", 3]], [["These are pens.", 7]]],
         },
         {
           img: 5,
-          sentences: [[["b-a-g", 9]], [["bag", 10]]],
+          sentences: [[["What are those?", 5]], [["Those are bags.", 8]]],
         },
         {
           img: 6,
-          sentences: [[["c-a-t", 11]], [["cat", 12]]],
+          sentences: [[["What are these?", 3]], [["These are cups.", 9]]],
         },
         {
           img: 7,
-          sentences: [[["d-o-g", 13]], [["dog", 14]]],
+          sentences: [[["What are those?", 5]], [["Those are cats.", 10]]],
         },
         {
           img: 8,
           sentences: [
-            [["I can read words!", 15]],
-            [["book, pen, cup, bag, cat, dog", 16]],
+            [["These are near.", 11]],
+            [["Those are far.", 12]],
+            [["What are these?", 3]],
+            [["What are those?", 5]],
           ],
         },
       ];

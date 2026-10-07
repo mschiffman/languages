@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Build self-contained offline story files straight from the site pages in youtube/.
+Build self-contained offline story files straight from the site pages in stories/.
 
-Each youtube/<name>.html is a thin page: markup + story data, with the shared
+Each stories/<name>.html is a thin page: markup + story data, with the shared
 CSS/JS (assets/css/yt*.css, assets/js/*.js) loaded from the site. This script
 collapses one into ONE .html that opens offline (tablet / SD card):
 
@@ -11,11 +11,11 @@ collapses one into ONE .html that opens offline (tablet / SD card):
   - drops Google Analytics and the Google Fonts links
 
 Usage (from anywhere):
-    python eng/build_single.py                      build every page in youtube/
+    python eng/build_single.py                      build every page in stories/
     python eng/build_single.py 2.7_clean 2.8_do     build just these
     python eng/build_single.py --out some/dir       write somewhere else
 
-Output goes to eng/single/<name>.html (same file names as youtube/). The lessons
+Output goes to eng/single/<name>.html (same file names as stories/). The lessons
 menu (assets/js/nav-*.js) is always left out: it didn't work on the Android
 tablet, and leaving it out means new lessons never need adding to a menu.
 
@@ -34,7 +34,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent  # site root (the "languages" folder)
 ENG = ROOT / "eng"
-YOUTUBE = ROOT / "youtube"
+STORIES = ROOT / "stories"
 DEFAULT_OUT = ENG / "single"
 FONTS_CSS = ENG / "offline_fonts.css"
 AUDIO_CACHE = ENG / "yt"
@@ -202,7 +202,7 @@ def build(page: Path, out_dir: Path) -> Path:
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    ap = argparse.ArgumentParser(description="Build offline single-file stories from youtube/*.html")
+    ap = argparse.ArgumentParser(description="Build offline single-file stories from stories/*.html")
     ap.add_argument("names", nargs="*", help="story names, e.g. 2.7_clean (default: all)")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT, help=f"output folder (default {DEFAULT_OUT})")
     args = ap.parse_args()
@@ -212,13 +212,13 @@ def main() -> int:
         for n in args.names:
             p = Path(n)
             if not p.is_file():
-                p = YOUTUBE / (n if n.endswith(".html") else n + ".html")
+                p = STORIES / (n if n.endswith(".html") else n + ".html")
             if not p.is_file():
                 print(f"error: no such page: {n}")
                 return 1
             pages.append(p)
     else:
-        pages = sorted(YOUTUBE.glob("*.html"))
+        pages = sorted(STORIES.glob("*.html"))
 
     failed = 0
     for page in pages:

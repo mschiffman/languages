@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
     />
-    <title>Reading words</title>
+    <title>This and That</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -48,7 +48,7 @@
               stroke-linecap="round"
             />
           </svg>
-          <span>Reading words</span>
+          <span>This and That</span>
         </div>
         <div class="counter" id="counter">1 / 8</div>
       </header>
@@ -78,8 +78,8 @@
            audio  : 1.mp3 … 16.mp3 in AUD_DIR (one per phrase, in reading order)
          To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
       --------------------------------------------------------------- */
-      const IMG_DIR = "/img/ytstory/1.2_words/";
-      const AUD_DIR = "https://languages.rmlives.com/eng/yt/1.2_words/";
+      const IMG_DIR = "/img/ytstory/1.5_thisThat/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/1.5_thisThat/";
       const IMG_EXT = "jpg";
       const AUD_EXT = "mp3";
 
@@ -87,37 +87,39 @@
       const pages = [
         {
           img: 1,
-          sentences: [[["Let's read words.", 1]], [["Look and listen.", 2]]],
+          sentences: [[["This and that.", 1]], [["Let's learn.", 2]]],
         },
         {
           img: 2,
-          sentences: [[["b-o-o-k", 3]], [["book", 4]]],
+          sentences: [[["This is a book.", 3]]],
         },
         {
           img: 3,
-          sentences: [[["p-e-n", 5]], [["pen", 6]]],
+          sentences: [[["That is a book.", 4]]],
         },
         {
           img: 4,
-          sentences: [[["c-u-p", 7]], [["cup", 8]]],
+          sentences: [[["This is a pen.", 5]]],
         },
         {
           img: 5,
-          sentences: [[["b-a-g", 9]], [["bag", 10]]],
+          sentences: [[["That is a bag.", 6]]],
         },
         {
           img: 6,
-          sentences: [[["c-a-t", 11]], [["cat", 12]]],
+          sentences: [[["What is this?", 7]], [["This is an eraser.", 8]]],
         },
         {
           img: 7,
-          sentences: [[["d-o-g", 13]], [["dog", 14]]],
+          sentences: [[["What is that?", 9]], [["That is an umbrella.", 10]]],
         },
         {
           img: 8,
           sentences: [
-            [["I can read words!", 15]],
-            [["book, pen, cup, bag, cat, dog", 16]],
+            [["This is near.", 11]],
+            [["That is far.", 12]],
+            [["What is this?", 7]],
+            [["What is that?", 9]],
           ],
         },
       ];

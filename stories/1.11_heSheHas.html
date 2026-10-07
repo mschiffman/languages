@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
     />
-    <title>Reading words</title>
+    <title>He has. She has.</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -48,7 +48,7 @@
               stroke-linecap="round"
             />
           </svg>
-          <span>Reading words</span>
+          <span>He has. She has.</span>
         </div>
         <div class="counter" id="counter">1 / 8</div>
       </header>
@@ -78,46 +78,74 @@
            audio  : 1.mp3 … 16.mp3 in AUD_DIR (one per phrase, in reading order)
          To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
       --------------------------------------------------------------- */
-      const IMG_DIR = "/img/ytstory/1.2_words/";
-      const AUD_DIR = "https://languages.rmlives.com/eng/yt/1.2_words/";
+      const IMG_DIR = "/img/ytstory/1.11_heSheHas/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/1.11_heSheHas/";
       const IMG_EXT = "jpg";
-      const AUD_EXT = "mp3";
+      const AUD_EXT = "mp3?v=261007";
 
       /* pages -> sentences -> chunks. Audio numbers run 1..16 in order. */
       const pages = [
         {
           img: 1,
-          sentences: [[["Let's read words.", 1]], [["Look and listen.", 2]]],
+          sentences: [[["He has.", 1]], [["She has.", 2]], [["Let's learn.", 3]]],
         },
         {
           img: 2,
-          sentences: [[["b-o-o-k", 3]], [["book", 4]]],
+          sentences: [
+            [["Does she have a book?", 4]],
+            [["Yes, she does.", 5]],
+            [["She has a book", 6]],
+          ],
         },
         {
           img: 3,
-          sentences: [[["p-e-n", 5]], [["pen", 6]]],
+          sentences: [
+            [["Does he have a pen?", 7]],
+            [["Yes, he does.", 8]],
+            [["He has a pen.", 9]],
+          ],
         },
         {
           img: 4,
-          sentences: [[["c-u-p", 7]], [["cup", 8]]],
+          sentences: [
+            [["Does she have a bag?", 10]],
+            [["Yes, she does.", 5]],
+            [["She has a bag.", 11]],
+          ],
         },
         {
           img: 5,
-          sentences: [[["b-a-g", 9]], [["bag", 10]]],
+          sentences: [
+            [["Does he have an eraser?", 12]],
+            [["Yes, he does.", 8]],
+            [["He has an eraser.", 13]],
+          ],
         },
         {
           img: 6,
-          sentences: [[["c-a-t", 11]], [["cat", 12]]],
+          sentences: [
+            [["Does she have an umbrella?", 14]],
+            [["Yes, she does.", 5]],
+            [["She has an umbrella.", 15]],
+          ],
         },
         {
           img: 7,
-          sentences: [[["d-o-g", 13]], [["dog", 14]]],
+          sentences: [
+            [["Does he have a cup?", 16]],
+            [["Yes, he does.", 8]],
+            [["He has a cup.", 17]],
+          ],
         },
         {
           img: 8,
           sentences: [
-            [["I can read words!", 15]],
-            [["book, pen, cup, bag, cat, dog", 16]],
+            [["She has a book.", 6]],
+            [["He has a pen.", 9]],
+            [["She has a bag.", 11]],
+            [["He has an eraser.", 13]],
+            [["She has an umbrella.", 15]],
+            [["He has a cup.", 17]],
           ],
         },
       ];
