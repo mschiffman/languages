@@ -1,23 +1,14 @@
 /* ---------------------------------------------------------------
-   Collapsed stories menu for the Aesop's Fables reader pages.
+   Collapsed stories menu for the story reader pages (fairy tales etc.).
    Inserts a hamburger toggle + accordion dropdown into the page header.
-   Styled by ytstory.css (same classes as nav-ytstory.js).
-   Add new fables by extending GROUPS below.
+   Styled by ytstory.css (same classes as nav-aesop.js).
+   Add new stories by extending GROUPS below.
 --------------------------------------------------------------- */
 (function () {
   const GROUPS = [
     {
-      name: "Aesop’s Fables",
-      lessons: [
-        { title: "The Lion and the Mouse", href: "lion_mouse.html" },
-        { title: "The Hare and the Tortoise", href: "hare_tortoise.html" },
-        { title: "The Fox and the Grapes", href: "fox_grapes.html" },
-        { title: "The Boy Who Cried Wolf", href: "boy_wolf.html" },
-        {
-          title: "The Goose That Laid the Golden Eggs",
-          href: "goose_golden_eggs.html",
-        },
-      ],
+      name: "Stories",
+      lessons: [{ title: "Jack and the Beanstalk", href: "Jack_beanstalk.html" }],
     },
   ];
 

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Goose That Laid the Golden Eggs</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">The&nbsp;Goose</span> That Laid the
+            <span class="mouse">Golden Eggs</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/goose/1.jpg … 8.jpg   (one per book page)
+     audio  : 1.mp3 … 53.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/goose/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/goose/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..53 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["The Goose That Laid the Golden Eggs", 1]],
+            [
+              ["A poor farmer", 2],
+              ["lived on a small farm.", 3],
+            ],
+            [["He had a goose.", 4]],
+            [
+              ["Every morning,", 5],
+              ["he gave her food and water.", 6],
+            ],
+            [
+              ["The goose lived happily", 7],
+              ["in the yard.", 8],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["One morning,", 9],
+              ["the farmer went to the goose's nest.", 10],
+            ],
+            [["He saw a strange egg.", 11]],
+            [["It was bright and shiny.", 12]],
+            [["The farmer picked it up.", 13]],
+            [
+              ['"It looks like gold!"', 14],
+              ["he said.", 15],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["The farmer took the egg to town.", 16]],
+            [["A man looked at it carefully.", 17]],
+            [
+              ['"This egg is made of real gold!"', 18],
+              ["he said.", 19],
+            ],
+            [
+              ["The farmer sold the egg", 20],
+              ["for a lot of money.", 21],
+            ],
+            [["He went home very happy.", 22]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["The next morning,", 23],
+              ["there was another golden egg.", 24],
+            ],
+            [
+              ["And the next morning,", 25],
+              ["there was another.", 26],
+            ],
+            [
+              ["Every day,", 27],
+              ["the goose laid one golden egg.", 28],
+            ],
+            [
+              ["Soon,", 29],
+              ["the farmer had plenty of money.", 30],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["But the farmer was not satisfied.", 31]],
+            [
+              ['"One egg a day is too slow,"', 32],
+              ["he thought.", 33],
+            ],
+            [['"I want all the gold now!"', 34]],
+            [["The farmer became greedy.", 35]],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["The farmer looked at the goose.", 36]],
+            [
+              ['"There must be a lot of gold inside her,"', 37],
+              ["he thought.", 38],
+            ],
+            [
+              ['"If I get it all at once,', 39],
+              ['I will be very rich."', 40],
+            ],
+            [["He made a terrible decision.", 41]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["But there was no gold inside the goose.", 42]],
+            [["And now the farmer had lost", 43]],
+            [["his wonderful goose.", 44]],
+            [["There would be no more golden eggs.", 45]],
+            [["The farmer looked at the empty nest.", 46]],
+            [["He was very sorry.", 47]],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [["The farmer had wanted too much.", 48]],
+            [
+              ["Because of his greed,", 49],
+              ["he lost what he already had.", 50],
+            ],
+            [
+              ["Sometimes,", 51],
+              ["having enough is better than", 52],
+              ["always wanting more.", 53],
+            ],
+            [
+              ["Moral:", 54],
+              ["Greed can make us lose", 55],
+              ["what we already have.", 56],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-aesop.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

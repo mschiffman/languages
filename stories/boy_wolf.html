@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Boy Who Cried Wolf</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">The&nbsp;Boy</span> Who Cried
+            <span class="mouse">Wolf</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/wolf/1.jpg … 8.jpg   (one per book page)
+     audio  : 1.mp3 … 61.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/wolf/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/wolf/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=2610072020";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..61 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["The Boy Who Cried Wolf", 1]],
+            [
+              ["A young shepherd boy", 2],
+              ["watched his sheep every day.", 3],
+            ],
+            [
+              ["He took them", 4],
+              ["to a green hill near the village.", 5],
+            ],
+            [
+              ["The sheep ate grass", 6],
+              ["while the boy sat under a tree.", 7],
+            ],
+            [
+              ["Sometimes,", 8],
+              ["he became very bored.", 9],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["One day,", 10],
+              ["the boy had an idea.", 11],
+            ],
+            [
+              ["He jumped up", 12],
+              ["and shouted,", 13],
+            ],
+            [
+              ['"Wolf! Wolf!', 14],
+              ['A wolf is chasing the sheep!"', 15],
+            ],
+            [
+              ["The villagers heard him", 16],
+              ["and ran up the hill.", 17],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["They came with sticks and tools", 18],
+              ["to help him.", 19],
+            ],
+            [["But there was no wolf.", 20]],
+            [
+              ["The sheep were quietly", 21],
+              ["eating grass.", 22],
+            ],
+            [["The boy laughed.", 23]],
+            [
+              ['"I fooled you!"', 24],
+              ["he said.", 25],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["The villagers were not happy.", 26]],
+            [
+              ['"That is not funny,"', 27],
+              ["one man said.", 28],
+            ],
+            [
+              ["But a few days later,", 29],
+              ["the boy did it again.", 30],
+            ],
+            [
+              ['"Wolf! Wolf!', 31],
+              ['Help me!"', 32],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ["Once again,", 33],
+              ["the villagers ran up the hill.", 34],
+            ],
+            [
+              ["And once again,", 35],
+              ["there was no wolf.", 36],
+            ],
+            [["The boy laughed and laughed.", 37]],
+            [
+              ["The villagers shook their heads", 38],
+              ["and went home.", 39],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["Then one afternoon,", 40],
+              ["a real wolf came out of the forest.", 41],
+            ],
+            [["The sheep became frightened.", 42]],
+            [["The boy was frightened too.", 43]],
+            [
+              ['"Wolf! Wolf!"', 44],
+              ["he cried.", 45],
+            ],
+            [['"Please help me!"', 46]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["The villagers heard him shouting.", 47]],
+            [
+              ["But this time,", 48],
+              ["nobody came.", 49],
+            ],
+            [
+              ['"He is trying to fool us again,"', 50],
+              ["they said.", 51],
+            ],
+            [
+              ["The boy shouted louder,", 52],
+              ["but no one believed him.", 53],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [["The wolf chased the sheep away.", 54]],
+            [
+              ["The boy finally understood", 55],
+              ["what he had done.", 56],
+            ],
+            [
+              ["When we tell lies,", 57],
+              ["people stop believing us.", 58],
+            ],
+            [
+              ["Moral:", 59],
+              ["A liar will not be believed,", 60],
+              ["even when he tells the truth.", 61],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-aesop.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

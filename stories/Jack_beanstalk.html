@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Jack and the Beanstalk</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">Jack</span> and the
+            <span class="mouse">Beanstalk</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/beanstalk/1.jpg … 8.jpg   (one per book page)
+     audio  : 1.mp3 … 73.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/beanstalk/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/beanstalk/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..73 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Jack and the Beanstalk", 1]],
+            [
+              ["Once there was a boy", 2],
+              ["named Jack.", 3],
+            ],
+            [
+              ["He lived with his mother", 4],
+              ["in a small cottage.", 5],
+            ],
+            [["They were very poor.", 6]],
+            [["One day, Jack's mother said,", 7]],
+            [['"We have no money left.', 8]],
+            [
+              ["You must take our cow", 9],
+              ['to market and sell her."', 10],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["Jack took the cow", 11],
+              ["and started down the road.", 12],
+            ],
+            [
+              ["On the way,", 13],
+              ["he met a strange old man.", 14],
+            ],
+            [["The old man smiled and said,", 15]],
+            [
+              ['"I will give you these magic beans', 16],
+              ['for your cow."', 17],
+            ],
+            [["Jack looked at the beans.", 18]],
+            [
+              ["They were small,", 19],
+              ["but bright and unusual.", 20],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["Jack thought the beans looked special.", 21]],
+            [["So he gave the cow to the old man.", 22]],
+            [["Then he ran home with the beans.", 23]],
+            [
+              ["But when Jack's mother saw them,", 24],
+              ["she was angry.", 25],
+            ],
+            [
+              ['"Beans!" she cried.', 26],
+              ['"What a foolish trade!"', 27],
+            ],
+            [
+              ["She threw the beans", 28],
+              ["out the window.", 29],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["The next morning,", 30],
+              ["Jack saw something amazing.", 31],
+            ],
+            [
+              ["A giant beanstalk", 32],
+              ["had grown outside the cottage.", 33],
+            ],
+            [
+              ["It reached up, up, up", 34],
+              ["into the sky.", 35],
+            ],
+            [["Jack stared at it in wonder.", 36]],
+            [["Then he began to climb.", 37]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["Jack climbed high above the clouds.", 38]],
+            [
+              ["At the top,", 39],
+              ["he found a strange land.", 40],
+            ],
+            [["There stood a huge castle.", 41]],
+            [["Inside lived a giant.", 42]],
+            [["The giant was big and frightening.", 43]],
+            [["Jack hid quickly.", 44]],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["In the castle,", 45],
+              ["Jack saw many treasures.", 46],
+            ],
+            [
+              ["He saw gold", 47],
+              ["and a hen that laid golden eggs.", 48],
+            ],
+            [
+              ["He heard the giant say,", 49],
+              ['"Fee-fi-fo-fum!"', 50],
+            ],
+            [
+              ["Jack was afraid,", 51],
+              ["but he was brave too.", 52],
+            ],
+            [
+              ["When the giant fell asleep,", 53],
+              ["Jack took the hen and ran.", 54],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["Jack hurried down the beanstalk.", 55]],
+            [
+              ["But the giant woke up", 56],
+              ["and followed him.", 57],
+            ],
+            [
+              ["Down, down, down", 58],
+              ["came the giant.", 59],
+            ],
+            [
+              ["Jack reached the ground", 60],
+              ["and shouted,", 61],
+            ],
+            [
+              ['"Mother!', 62],
+              ['Bring me an axe!"', 63],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [
+              ["Jack chopped the beanstalk", 64],
+              ["with all his strength.", 65],
+            ],
+            [
+              ["The giant fell down", 66],
+              ["with a mighty crash.", 67],
+            ],
+            [
+              ["At last,", 68],
+              ["Jack and his mother were safe.", 69],
+            ],
+            [
+              ["The golden hen helped them", 70],
+              ["live in comfort.", 71],
+            ],
+            [
+              ["Moral:", 72],
+              ["Courage and quick thinking", 73],
+              ["can change your life.", 74],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-stories.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
