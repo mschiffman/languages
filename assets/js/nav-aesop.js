@@ -17,6 +17,7 @@
           title: "The Goose That Laid the Golden Eggs",
           href: "goose_golden_eggs.html",
         },
+        { title: "The Ant and the Grasshopper", href: "ant_grasshopper.html" },
       ],
     },
   ];

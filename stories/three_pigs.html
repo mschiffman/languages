@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Three Little Pigs</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">The&nbsp;Three</span> Little
+            <span class="mouse">Pigs</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/pigs/1.jpg … 8.jpg   (one per book page)
+     audio  : 1.mp3 … 56.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/pigs/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/pigs/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..56 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["The Three Little Pigs", 1]],
+            [["Once there were three little pigs.", 2]],
+            [["They were brothers.", 3]],
+            [
+              ["One day, they left home", 4],
+              ["to build houses of their own.", 5],
+            ],
+            [
+              ["Each pig chose", 6],
+              ["a different way to build.", 7],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["The first little pig", 8],
+              ["built his house with straw.", 9],
+            ],
+            [
+              ['"It is quick and easy,"', 10],
+              ["he said.", 11],
+            ],
+            [["Soon, his little house was finished.", 12]],
+            [["He went inside to rest.", 13]],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["The second little pig", 14],
+              ["built his house with sticks.", 15],
+            ],
+            [
+              ['"This is strong enough,"', 16],
+              ["he said.", 17],
+            ],
+            [["He finished quickly too.", 18]],
+            [["Then he sat down happily.", 19]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["The third little pig", 20],
+              ["worked very hard.", 21],
+            ],
+            [["He built his house with bricks.", 22]],
+            [["It took much longer.", 23]],
+            [["But the house was strong and solid.", 24]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ["Soon, a hungry wolf", 25],
+              ["came along.", 26],
+            ],
+            [["He stopped at the straw house.", 27]],
+            [
+              ['"Little pig, little pig,', 28],
+              ['let me come in!"', 29],
+            ],
+            [
+              ['"No, no!"', 30],
+              ["cried the pig.", 31],
+            ],
+            [
+              ["\"Then I'll huff, and I'll puff,", 32],
+              ["and I'll blow your house down!\"", 33],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["The wolf blew down the straw house.", 34]],
+            [
+              ["The first pig ran", 35],
+              ["to his brother's stick house.", 36],
+            ],
+            [["But the wolf came there too.", 37]],
+            [["He huffed and puffed again.", 38]],
+            [["The stick house fell down.", 39]],
+            [["Both pigs ran to the brick house.", 40]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["The wolf came to the brick house.", 41]],
+            [["He huffed.", 42]],
+            [["He puffed.", 43]],
+            [["He blew as hard as he could.", 44]],
+            [["But the brick house did not move.", 45]],
+            [["The three pigs were safe inside.", 46]],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [
+              ["At last, the wolf gave up", 47],
+              ["and went away.", 48],
+            ],
+            [
+              ["The three little pigs", 49],
+              ["were very relieved.", 50],
+            ],
+            [
+              ["The first two pigs understood", 51],
+              ["why their brother", 52],
+              ["had worked so hard.", 53],
+            ],
+            [
+              ["Moral:", 54],
+              ["Good work takes time,", 55],
+              ["but it can keep us safe.", 56],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-stories.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

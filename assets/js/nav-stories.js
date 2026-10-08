@@ -8,7 +8,10 @@
   const GROUPS = [
     {
       name: "Stories",
-      lessons: [{ title: "Jack and the Beanstalk", href: "Jack_beanstalk.html" }],
+      lessons: [
+        { title: "Jack and the Beanstalk", href: "Jack_beanstalk.html" },
+        { title: "The Three Little Pigs", href: "three_pigs.html" },
+      ],
     },
   ];
 
