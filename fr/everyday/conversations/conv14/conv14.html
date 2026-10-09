@@ -83,7 +83,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/01.mp3"
+          data-audio="01.mp3"
         ></audio>
         <p>
           Fais comme si tu étais mon amie et qu'on discutait simplement. Hier,
@@ -159,7 +159,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/02.mp3"
+          data-audio="02.mp3"
         ></audio>
         <p>
           Ah oui, je comprends, c'est difficile pour le corps, surtout après 6
@@ -205,7 +205,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/03.mp3"
+          data-audio="03.mp3"
         ></audio>
         <p>
           Là, j'ai mal au dos et aux genoux. Je suis sûr(e) que demain j'irai
@@ -247,7 +247,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/04.mp3"
+          data-audio="04.mp3"
         ></audio>
         <p>
           Oui, la situation est vraiment terrible, je comprends que tu aies mal
@@ -291,7 +291,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/05.mp3"
+          data-audio="05.mp3"
         ></audio>
         <p>
           Oh, je
@@ -370,7 +370,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/06.mp3"
+          data-audio="06.mp3"
         ></audio>
         <p>
           Ah oui, les "hondi" qui arrêtent, c'est très dur pour ta famille, et
@@ -412,7 +412,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/07.mp3"
+          data-audio="07.mp3"
         ></audio>
         <p>
           J'envoie
@@ -476,7 +476,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/08.mp3"
+          data-audio="08.mp3"
         ></audio>
         <p>
           Tu fais beaucoup pour ta famille, c'est très
@@ -519,7 +519,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/09.mp3"
+          data-audio="09.mp3"
         ></audio>
         <p>
           Dans notre culture, les devoirs envers la famille sont pris très au
@@ -604,7 +604,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/10.mp3"
+          data-audio="10.mp3"
         ></audio>
         <p>
           Oui, je comprends très bien, c'est beau comme vision de la famille, tu
@@ -640,7 +640,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/11.mp3"
+          data-audio="11.mp3"
         ></audio>
         <p>
           Je soutiens ma famille depuis que j'ai commencé à travailler, c'est
@@ -701,7 +701,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/12.mp3"
+          data-audio="12.mp3"
         ></audio>
         <p>
           Tu as beaucoup donné à ta famille depuis longtemps, c'est une grande
@@ -747,7 +747,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/13.mp3"
+          data-audio="13.mp3"
         ></audio>
         <p>
           On
@@ -804,7 +804,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/14.mp3"
+          data-audio="14.mp3"
         ></audio>
         <p>
           Tu as déjà un bon plan pour éviter la chaleur et la fumée, c'est très
@@ -835,7 +835,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/15.mp3"
+          data-audio="15.mp3"
         ></audio>
         <p>
           Le japonais est bien plus facile, mais j'ai déjà une grande
@@ -875,7 +875,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260527/16.mp3"
+          data-audio="16.mp3"
         ></audio>
         <p>
           Ah, tu as déjà beaucoup de base en français, c'est super, et le
@@ -959,5 +959,13 @@
       crossorigin
       src="../../../../assets/js/nav-conv.js?v=2607311603"
     ></script>
+    <script>
+      // Audio files for this conversation live in one folder; each <audio>
+      // has data-audio="N.mp3" (add ?v=... there to bust the cache).
+      const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv14/";
+      document.querySelectorAll("audio[data-audio]").forEach(function (a) {
+        a.src = AUD_DIR + a.dataset.audio;
+      });
+    </script>
   </body>
 </html>

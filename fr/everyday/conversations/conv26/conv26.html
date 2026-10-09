@@ -83,7 +83,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/01.mp3"
+          data-audio="01.mp3"
         ></audio>
         <p>
           Je grossis, mes
@@ -109,7 +109,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/02.mp3"
+          data-audio="02.mp3"
         ></audio>
         <p>
           Tu pèses combien ?
@@ -126,7 +126,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/03.mp3"
+          data-audio="03.mp3"
         ></audio>
         <p>
           Là, je fais 53,7 kg.
@@ -143,7 +143,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/04.mp3"
+          data-audio="04.mp3"
         ></audio>
         <p>
           Ça reste dans
@@ -169,7 +169,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/05.mp3"
+          data-audio="05.mp3"
         ></audio>
         <p>
           Ouais, mais j'étais à 49,9. Faut que je fasse quelque chose, et vite.
@@ -198,7 +198,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/06.mp3"
+          data-audio="06.mp3"
         ></audio>
         <p>
           Si tu manges moins, tu vas perdre du muscle et de l'os. Ce qu'il faut,
@@ -230,7 +230,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/07.mp3"
+          data-audio="07.mp3"
         ></audio>
         <p>
           Je m'y prends comment ?
@@ -247,7 +247,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/08.mp3"
+          data-audio="08.mp3"
         ></audio>
         <p>
           Tu perds du poids lentement en mangeant assez de protéines et en
@@ -276,7 +276,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/09.mp3"
+          data-audio="09.mp3"
         ></audio>
         <p>
           Avant, je faisais du sport
@@ -314,7 +314,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/10.mp3"
+          data-audio="10.mp3"
         ></audio>
         <p>
           T'es pas obligée de faire toute une séance. Des squats,
@@ -344,7 +344,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/11.mp3"
+          data-audio="11.mp3"
         ></audio>
         <p>
           Super idée. Je peux rajouter les exercices d'abdos de Mary Helen
@@ -375,7 +375,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/12.mp3"
+          data-audio="12.mp3"
         ></audio>
         <p>
           Rajoute
@@ -404,7 +404,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/13.mp3"
+          data-audio="13.mp3"
         ></audio>
         <p>
           Il y a quelques années, je pouvais manger que
@@ -443,7 +443,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/14.mp3"
+          data-audio="14.mp3"
         ></audio>
         <p>
           Ça, c'est une grosse réduction de calories. Il faut viser à peu près
@@ -474,7 +474,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260627/15.mp3"
+          data-audio="15.mp3"
         ></audio>
         <p>
           Ok, je vais essayer de
@@ -560,5 +560,13 @@
       crossorigin
       src="../../../../assets/js/nav-conv.js?v=2607311603"
     ></script>
+    <script>
+      // Audio files for this conversation live in one folder; each <audio>
+      // has data-audio="N.mp3" (add ?v=... there to bust the cache).
+      const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv26/";
+      document.querySelectorAll("audio[data-audio]").forEach(function (a) {
+        a.src = AUD_DIR + a.dataset.audio;
+      });
+    </script>
   </body>
 </html>

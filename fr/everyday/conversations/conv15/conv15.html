@@ -83,7 +83,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/01.mp3"
+          data-audio="01.mp3"
         ></audio>
         <p>
           Besoin d'aide ?
@@ -100,7 +100,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/02.mp3"
+          data-audio="02.mp3"
         ></audio>
         <p>
           J'ai les mains qui se
@@ -139,7 +139,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/03.mp3"
+          data-audio="03.mp3"
         ></audio>
         <p>
           Laisse-moi faire. T'aurais dû vendre tous tes bonsaïs. Je sais pas
@@ -160,7 +160,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/04.mp3"
+          data-audio="04.mp3"
         ></audio>
         <p>
           Bah, j'ai cette idée depuis un moment. Je veux tester ce design.
@@ -177,7 +177,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/05.mp3"
+          data-audio="05.mp3"
         ></audio>
         <p>
           Faut que tu connaisses tes limites physiques. Regarde ce qui est
@@ -198,7 +198,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/06.mp3"
+          data-audio="06.mp3"
         ></audio>
         <p>
           C'est pour ça qu'ils vendent leur maison et
@@ -228,7 +228,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/07.mp3"
+          data-audio="07.mp3"
         ></audio>
         <p>
           C'est dingue. Il a d'autres
@@ -254,7 +254,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/08.mp3"
+          data-audio="08.mp3"
         ></audio>
         <p>
           Je crois pas. Pas à ma connaissance.
@@ -271,7 +271,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/09.mp3"
+          data-audio="09.mp3"
         ></audio>
         <p>
           Sans loisir, t'attends juste la mort. Certaines personnes n'ont aucun
@@ -311,7 +311,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/10.mp3"
+          data-audio="10.mp3"
         ></audio>
         <p>
           Ouais, moi aussi j'en ai quelques-uns.
@@ -328,7 +328,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/11.mp3"
+          data-audio="11.mp3"
         ></audio>
         <p>
           T'as un nouveau passe-temps maintenant. L'écriture. J'espère que ton
@@ -351,7 +351,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/12.mp3"
+          data-audio="12.mp3"
         ></audio>
         <p>
           J'en suis au chapitre 13. Je relis et j'<span
@@ -379,7 +379,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/13.mp3"
+          data-audio="13.mp3"
         ></audio>
         <p>
           Tu t'amuses bien ?
@@ -396,7 +396,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/14.mp3"
+          data-audio="14.mp3"
         ></audio>
         <p>
           Oui. Gemini m'aide pour les recherches historiques.
@@ -413,7 +413,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260530/15.mp3"
+          data-audio="15.mp3"
         ></audio>
         <p>
           C'est super. On n'aura plus de
@@ -504,5 +504,13 @@
       crossorigin
       src="../../../../assets/js/nav-conv.js?v=2607311603"
     ></script>
+    <script>
+      // Audio files for this conversation live in one folder; each <audio>
+      // has data-audio="N.mp3" (add ?v=... there to bust the cache).
+      const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv15/";
+      document.querySelectorAll("audio[data-audio]").forEach(function (a) {
+        a.src = AUD_DIR + a.dataset.audio;
+      });
+    </script>
   </body>
 </html>

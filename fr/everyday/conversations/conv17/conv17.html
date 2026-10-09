@@ -83,7 +83,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/01.mp3"
+          data-audio="01.mp3"
         ></audio>
         <p>
           Joyeux anniversaire, mon petit frère !
@@ -100,7 +100,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/02.mp3"
+          data-audio="02.mp3"
         ></audio>
         <p>
           Merci.
@@ -117,7 +117,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/03.mp3"
+          data-audio="03.mp3"
         ></audio>
         <p>
           T'as fait quelque chose de spécial aujourd'hui ?
@@ -134,7 +134,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/04.mp3"
+          data-audio="04.mp3"
         ></audio>
         <p>
           Non, on a juste acheté un
@@ -175,7 +175,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/05.mp3"
+          data-audio="05.mp3"
         ></audio>
         <p>
           Oh, il est bien plus vieux que toi. Moi j'ai 64 ans. Et Robert en a
@@ -206,7 +206,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/06.mp3"
+          data-audio="06.mp3"
         ></audio>
         <p>
           Je ressens pareil. Moi j'ai eu 55 ans aujourd'hui. Donc Ko Ko en a 66,
@@ -227,7 +227,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/07.mp3"
+          data-audio="07.mp3"
         ></audio>
         <p>
           Ouais, les quatre premiers d'entre nous ont chacun un an d'écart. T'es
@@ -248,7 +248,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/08.mp3"
+          data-audio="08.mp3"
         ></audio>
         <p>
           C'est vrai. Toe Toe est mort à 13 ans. Sinon il aurait 59 ans
@@ -266,7 +266,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/09.mp3"
+          data-audio="09.mp3"
         ></audio>
         <p>
           C'est vraiment dommage qu'il soit parti. C'était le plus intelligent
@@ -284,7 +284,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/10.mp3"
+          data-audio="10.mp3"
         ></audio>
         <p>
           Ah, mon ami parlait de la Malaisie. Il travaillait pour une
@@ -313,7 +313,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/11.mp3"
+          data-audio="11.mp3"
         ></audio>
         <p>
           C'est ce que j'ai entendu dire aussi. C'est comment la
@@ -341,7 +341,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/12.mp3"
+          data-audio="12.mp3"
         ></audio>
         <p>
           On est en pleine
@@ -370,7 +370,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/13.mp3"
+          data-audio="13.mp3"
         ></audio>
         <p>
           Et l'électricité ? C'est stable ?
@@ -387,7 +387,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/14.mp3"
+          data-audio="14.mp3"
         ></audio>
         <p>
           Heureusement, l'électricité est stable. On peut faire tourner la
@@ -428,7 +428,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/15.mp3"
+          data-audio="15.mp3"
         ></audio>
         <p>
           Ici on a pas de cas de COVID. On est juste en pleine sécheresse. On a
@@ -475,7 +475,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/16.mp3"
+          data-audio="16.mp3"
         ></audio>
         <p>
           Bon, c'est comme ça. Qu'est-ce qu'on peut faire ?
@@ -492,7 +492,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/17.mp3"
+          data-audio="17.mp3"
         ></audio>
         <p>
           Exactement. Allez, profite bien du reste de la journée. Bonne nuit !
@@ -509,7 +509,7 @@
         <audio
           controls
           class="mb-2"
-          src="https://languages.rmlives.com/lessons/everyday/260601/18.mp3"
+          data-audio="18.mp3"
         ></audio>
         <p>
           Merci. Salut !
@@ -586,5 +586,13 @@
       crossorigin
       src="../../../../assets/js/nav-conv.js?v=2607311603"
     ></script>
+    <script>
+      // Audio files for this conversation live in one folder; each <audio>
+      // has data-audio="N.mp3" (add ?v=... there to bust the cache).
+      const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv17/";
+      document.querySelectorAll("audio[data-audio]").forEach(function (a) {
+        a.src = AUD_DIR + a.dataset.audio;
+      });
+    </script>
   </body>
 </html>
