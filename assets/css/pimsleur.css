@@ -418,3 +418,8 @@
         color: rgba(0, 200, 255, 0.9);
         background: rgba(0, 200, 255, 0.06);
       }
+      .lesson-link.active {
+        color: var(--cyan);
+        background: rgba(0, 200, 255, 0.1);
+        font-weight: 600;
+      }

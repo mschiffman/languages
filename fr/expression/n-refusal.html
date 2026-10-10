@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Refusing</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">REFUSAL</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Refusing
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Refuser
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">28</span> expressions · Refusal · Bonne chance !
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 28.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/refusal/";
+      const AUD_EXT = "mp3?v=261009";
+
+      const categories = [
+        {
+          en: "Politely turning something down",
+          fr: "Refuser poliment",
+          desc: "The everyday declines for food, drink, invitations and requests.",
+          cards: [
+            ["Sans façon.", "No thank you, really.", "Literally ‘without ceremony’. A sincere no that heads off the ‘go on, just a little’ insistence. Classic at the table, slightly old-fashioned."],
+            ["Non merci.", "No thank you.", "The dinner-table workhorse. Here ça va means ‘I'm fine as I am’, not ‘how are you’. A bare merci is ambiguous, so add non."],
+            ["Non, ça va, merci.", "No, I'm fine, thanks.", "The dinner-table workhorse. Here ça va means ‘I'm fine as I am’, not ‘how are you’. A bare merci is ambiguous, so add non."],
+            ["Je peux pas.", "I can't.", "Refuses on grounds of ability or logistics, so it rarely offends. Usually followed by an excuse. Spoken drops the ne: je peux pas, written je ne peux pas."],
+            ["C'est impossible.", "It's impossible.", "Refuses on grounds of ability or logistics, so it rarely offends. Usually followed by an excuse. Spoken drops the ne: je peux pas, written je ne peux pas."],
+            ["Je vais m'en passer.", "I'll do without. / I'll pass.", "From se passer de (to do without). Neutral: states your choice without judging the offer."],
+            ["Une autre fois (peut-être).", "Another time, perhaps.", "A soft no dressed as a rain check. Either a genuine postponement or a gentle brush-off; the tone decides."],
+          ],
+        },
+        {
+          en: "Can't be bothered / not interested",
+          fr: "Pas intéressé",
+          desc: "Softer than a hard no, but they clearly signal a lack of interest, energy or necessity.",
+          cards: [
+            ["J'ai pas envie.", "I don't feel like it.", "A refusal grounded purely in mood. Takes de + infinitive or noun. Dropped ne; full form je n'ai pas envie."],
+            ["Pas envie.", "I don't feel like it.", "A refusal grounded purely in mood. Takes de + infinitive or noun. Dropped ne; full form je n'ai pas envie."],
+            ["Ça m'intéresse pas.", "I'm not interested.", "About the thing's appeal, not your mood. The standard brush-off for a pitch or unwanted offer. Full form ça ne m'intéresse pas."],
+            ["C'est pas la peine.", "There's no need.", "La peine = the trouble or effort. Rejects help, an explanation or an effort as unnecessary; gentle or curt by tone."],
+            ["Pas la peine.", "There's no need.", "La peine = the trouble or effort. Rejects help, an explanation or an effort as unnecessary; gentle or curt by tone."],
+          ],
+        },
+        {
+          en: "A firm, flat no",
+          fr: "Un non catégorique",
+          desc: "“No way,” “Absolutely not” — a firm, non-negotiable boundary.",
+          cards: [
+            ["Pas question.", "Out of the question.", "Clipped, conversational form of il n'est pas question de. Emphatic."],
+            ["Hors de question.", "No way. / Out of the question.", "Same meaning as pas question, a register up (fine at work). Takes que + subjunctive, or de + infinitive."],
+            ["C'est non !", "The answer is no!", "Names the refusal as a settled decision. Abrupt and final, as when discussion is over."],
+            ["Absolument pas.", "Absolutely not.", "Flat, unambiguous denial of a suggestion or accusation. Neutral: clear without being crude."],
+            ["Certainement pas.", "Certainly not.", "Flat, unambiguous denial of a suggestion or accusation. Neutral: clear without being crude."],
+            ["Rien du tout !", "Nothing at all!", "Slams ne… rien shut: not even a fraction. Also tacks onto a bare negation: je suis obligée de rien du tout."],
+          ],
+        },
+        {
+          en: "Forbidding / “don't count on it”",
+          fr: "Interdire",
+          desc: "Refusing before the request is made, or refusing to take part.",
+          cards: [
+            ["N'y pense même pas.", "Don't even think about it.", "Pre-emptive: refuses the idea before the person can act on it. Direct but not vulgar."],
+            ["Compte pas sur moi.", "Don't count on me.", "I'm out; I won't be part of it. Takes pour + noun or infinitive. Full form ne compte pas sur moi."],
+            ["N'y compte pas.", "Don't count on it.", "Refuses by killing the expectation rather than bowing out of the request."],
+            ["En aucun cas.", "Under no circumstances.", "Formal and administrative: the register of rules, contracts and official notices."],
+          ],
+        },
+        {
+          en: "Slangier / emphatic refusals",
+          fr: "Refus emphatiques",
+          desc: "Colourful nos: real, but rarer. Save them for effect.",
+          cards: [
+            ["Même pas en rêve.", "Not even in my dreams.", "Colloquial and a little cheeky. For friends, family and peers, not the workplace."],
+            ["Jamais de la vie !", "Never! / Not on your life!", "Emphatic and expressive but not rude. Safe in most casual settings."],
+            ["Tu peux toujours courir.", "You can keep dreaming.", "Literally ‘you can always run’. Familiar and a bit mocking. Often third person: il peut toujours courir."],
+            ["Compte là-dessus…", "Yeah, don't hold your breath.", "Read with irony, it means the opposite of ‘count on it’. Folk version: compte là-dessus et bois de l'eau fraîche."],
+          ],
+        },
+        {
+          en: "The nuance: impossible, not refused",
+          fr: "Impossible n'est pas refus",
+          desc: "‘No way’ in the sense of ‘can't be done’. Don't mix these up with a refusal.",
+          cards: [
+            ["Pas moyen (de…).", "There's no way to…", "The focus is an obstacle, not your will: something can't be done, rather than you declining."],
+            ["Il n'y a pas moyen.", "There's no way.", "Fuller and slightly more formal. Trap: English ‘no way!’ also means disbelief, which is c'est pas vrai !, not hors de question."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

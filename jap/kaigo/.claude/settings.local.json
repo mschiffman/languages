@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ffmpeg -version)",
+      "Bash(ffprobe -version)",
+      "Bash(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 batch.mp3)",
+      "Bash(python3 split-batch.py 01 batch.mp3 --dry-run)",
+      "Bash(python split-batch.py 01 batch.mp3 --dry-run)",
+      "Bash(PYTHONUTF8=1 python3 split-batch.py 01 batch.mp3 --dry-run --threshold -35)",
+      "Bash(PYTHONUTF8=1 python3 split-batch.py 01 batch.mp3 --dry-run --threshold -30 --min-silence 0.4)",
+      "Bash(PYTHONUTF8=1 py split-batch.py 01 batch.mp3 --dry-run --threshold -35)",
+      "Bash(ffmpeg -hide_banner -i batch.mp3 -af volumedetect -f null -)",
+      "Bash(ffmpeg -hide_banner -loglevel error -y -f concat -safe 0 -i concat.txt -c:a libopus -b:a 32k -ac 1 -application audio ../lesson.opus)",
+      "Bash(ffmpeg -hide_banner -loglevel error -y -f concat -safe 0 -i concat.txt -c:a libmp3lame -b:a 64k -ac 1 ../lesson.mp3)",
+      "Bash(cd \"c:/Users/Owner/Downloads/files/kaigo-lesson-01/kaigo/audio/01\" && rm -rf .work 2>&1; ls -la | grep -i work)",
+      "Bash(py verify.py)",
+      "Bash(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 lesson.opus)"
+    ]
+  }
+}

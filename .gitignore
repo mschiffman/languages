@@ -30,3 +30,7 @@ eng/yt/
 # Downloads cached by jap/Pimsleur/build_single.py (Tailwind, fonts)
 jap/Pimsleur/.build_cache/
 fr/pimsleur/.build_cache/
+fr/expression/.build_cache/
+
+# Generated offline expression pages (see fr/expression/build_single.py)
+fr/expression/single/
