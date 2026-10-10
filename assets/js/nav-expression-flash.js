@@ -2,12 +2,14 @@
    Hamburger sidebar for the expression flashcard pages
    (fr/expression/n-*.html). Inserts the menu markup into <body> and
    lists every expression category. Styled by pimsleur.css.
-   Add new categories by extending CATEGORIES below.
+   Add new categories by extending CATEGORIES below; mark the ones that
+   have a flashcard page (n-<href>) with flash: true so the menu keeps
+   readers on the flashcards.
 --------------------------------------------------------------- */
 (function () {
   const CATEGORIES = [
     { label: "🥰 Admiration", href: "admiration.html" },
-    { label: "👍 Agree", href: "agree.html" },
+    { label: "👍 Agree", href: "agree.html", flash: true },
     { label: "👎 Disagree", href: "disagree.html" },
     { label: "😤 Annoyance", href: "annoyance.html" },
     { label: "🙏 Apology", href: "apology.html" },
@@ -26,17 +28,17 @@
     { label: "💐 Gratitude", href: "thank.html" },
     { label: "👋 Greetings & Goodbyes", href: "greetings.html" },
     { label: "🗣️ Idioms", href: "idioms.html" },
-    { label: "💭 I Mean", href: "iMean.html" },
+    { label: "💭 I Mean", href: "iMean.html", flash: true },
     { label: "🎈 Interjections and Fillers", href: "fillers.html" },
     { label: "🎲 Miscellaneous", href: "miscellaneous.html" },
     { label: "🗳️ Opinion", href: "opinion.html" },
     { label: "😐 Quality Critique", href: "quality.html" },
     { label: "🤗 Reassurance", href: "reassurance.html" },
-    { label: "🙅 Refusal", href: "refusal.html" },
+    { label: "🙅 Refusal", href: "refusal.html", flash: true },
     { label: "😔 Regret", href: "regret.html" },
     { label: "🍽️ Restaurant", href: "restaurant.html" },
     { label: "🌱 Suggestion", href: "suggestion.html" },
-    { label: "💡 Understanding", href: "understand.html" },
+    { label: "💡 Understanding", href: "understand.html", flash: true },
     { label: "✨ Et voilà", href: "voila.html" },
     { label: "🎁 Wishes", href: "wishes.html" },
     { label: "🤔 What's Wrong / Checking In", href: "whatswrong.html" },
@@ -88,7 +90,7 @@
     const a = document.createElement("a");
     a.className = "lesson-link";
     a.textContent = cat.label;
-    a.href = cat.href;
+    a.href = cat.flash ? "n-" + cat.href : cat.href;
     if (currentFile === cat.href || currentFile === "n-" + cat.href) {
       a.classList.add("active");
     }

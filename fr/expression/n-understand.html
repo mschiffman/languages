@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Understanding</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">UNDERSTANDING</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Understanding
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Comprendre
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">21</span> expressions · Understanding · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 21.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/understand/";
+      const AUD_EXT = "mp3?v=261010";
+
+      const categories = [
+        {
+          en: "Simply understanding",
+          fr: "Comprendre",
+          desc: "The everyday ways to say you've got the point.",
+          cards: [
+            ["Je comprends.", "I understand.", "",
+              "— Je peux pas venir, j'ai du boulot. — Je comprends, pas de souci.", "— I can't come, I've got work. — I understand, no problem.",
+              "Ah, je comprends mieux !", "Oh, that explains it!"],
+            ["Je vois.", "I see.", "A short acknowledgment while listening. Tone matters: a flat, drawn-out je vois can mean you've drawn an unflattering conclusion. Casual: ouais, je vois.",
+              "— Il n'est jamais venu. — Je vois.", "— He never showed up. — I see."],
+            ["Je vois ce que tu veux dire.", "I see what you mean.", "Recognises the idea or logic behind what was said; often a lead-in to a but. Formal: je vois ce que vous voulez dire.",
+              "Je vois ce que tu veux dire, mais c'est trop cher.", "I see what you mean, but it's too expensive."],
+            ["J'ai compris.", "Got it. / I understood.", "",
+              "— Tu tournes à gauche après la poste. — D'accord, j'ai compris.", "— You turn left after the post office. — OK, got it.",
+              "— Tu as bien compris ? — Oui, oui, j'ai compris.", "— Did you understand? — Yes, yes, I understood."],
+            ["C'est bon, j'ai compris.", "OK, I've got it.", "Signals you're up to speed, and often that you'd like the explaining to stop. Can sound impatient.",
+              "C'est bon, j'ai compris, tu me l'as déjà dit trois fois.", "OK, I get it, you've already told me three times."],
+          ],
+        },
+        {
+          en: "Following the thought",
+          fr: "Suivre",
+          desc: "For tracking an explanation as it unfolds, or seeing where it's heading.",
+          cards: [
+            ["Je te suis.", "I'm with you. / I follow you.", "Said while someone is still explaining: go on, I'm following. Je suis is from suivre here, not être. Checking on the listener: tu me suis ?",
+              "— Tu prends la clé, tu ouvres le boîtier… — Oui, je te suis.", "— You take the key, you open the box… — Yes, I'm with you."],
+            ["J'y suis !", "Got it! / Now I'm with you.", "The moment the penny drops after some confusion; nothing to do with location. Its opposite: tu n'y es pas du tout (you've got it all wrong).",
+              "Ah, j'y suis ! Tu parles de l'ancien voisin.", "Oh, now I've got it! You mean the old neighbour."],
+            ["Je vois où tu veux en venir.", "I see where you're going with this.", "From en venir à (to get at). Often a little wary: you've spotted the request or argument coming. Impatient question form: où tu veux en venir ?",
+              "Je vois où tu veux en venir : tu veux m'emprunter la voiture.", "I see where you're going with this: you want to borrow the car."],
+            ["Je vois le genre.", "I know the type.", "Recognises a familiar type of person or situation, usually with a hint of disapproval.",
+              "— Il ne parle que de lui. — Ah, je vois le genre.", "— He only ever talks about himself. — Ah, I know the type."],
+            ["Je vois le topo.", "I get the picture.", "Le topo = the rundown, the overview. Colloquial: you've grasped the whole situation and don't need the details.",
+              "— Bref, il est parti avec la caisse. — OK, je vois le topo.", "— Long story short, he ran off with the takings. — OK, I get the picture."],
+          ],
+        },
+        {
+          en: "Casual & slang",
+          fr: "Familier",
+          desc: "Everyday spoken ‘got it’. Fine with friends, too relaxed for a job interview.",
+          cards: [
+            ["J'ai pigé.", "Got it. / I get it.", "From piger (to get, to grasp), familiar. The past tense marks the moment it clicked. Negative: j'ai rien pigé (I didn't get a thing).",
+              "Ah, j'ai pigé ! C'est une blague.", "Oh, I get it! It's a joke."],
+            ["Je pige.", "I get it.", "Present tense: you're following right now. Very common in the negative, je pige rien, and as a check: tu piges ?",
+              "— Tu piges ? — Ouais, je pige.", "— Get it? — Yeah, I get it."],
+            ["Je capte.", "I get it. / I'm with you.", "Literally ‘I'm picking up the signal’, like a radio or phone (ça capte pas ici = no signal here). Younger and slangier than piger.",
+              "Ah, maintenant je capte.", "Oh, now I get it."],
+          ],
+        },
+        {
+          en: "Empathy & validation",
+          fr: "Empathie",
+          desc: "Understanding the feeling, not just the facts. They acknowledge without necessarily agreeing.",
+          cards: [
+            ["Je te comprends.", "I understand you. / I hear you.", "Adding te shifts it from the information to the person: I see why you feel or act that way. Warm and sympathetic.",
+              "— J'en peux plus de ce boulot. — Je te comprends.", "— I can't take this job any more. — I hear you."],
+            ["Je sais ce que tu veux dire.", "I know what you mean.", "Goes beyond je vois ce que tu veux dire: you've been there too. Often opened with ouais in speech.",
+              "Ouais, je sais ce que tu veux dire, moi aussi je déteste les lundis.", "Yeah, I know what you mean, I hate Mondays too."],
+            ["Je comprends ce que tu ressens.", "I understand how you feel.", "",
+              "Je comprends ce que tu ressens, c'est vraiment injuste.", "I understand how you feel, it's really unfair.",
+              "Je comprends ce que vous ressentez, et je suis désolé.", "I understand how you feel, and I'm sorry."],
+            ["Je comprends ta position.", "I understand your position.", "Calm and diplomatic: acknowledges the other side's view, usually before stating yours. Formal: je comprends votre position.",
+              "Je comprends ta position, mais on ne peut pas faire d'exception.", "I understand your position, but we can't make an exception."],
+            ["Je t'entends.", "I hear you.", "Validation, not agreement: your feelings are acknowledged. Used just like the English, and often followed by mais.",
+              "Je t'entends, mais je crois que tu exagères un peu.", "I hear you, but I think you're exaggerating a bit."],
+            ["Je te crois.", "I believe you.", "Not understanding as such, but the reassurance someone needs when they're afraid of not being believed.",
+              "— Je te jure que c'est pas moi ! — Je te crois.", "— I swear it wasn't me! — I believe you."],
+          ],
+        },
+        {
+          en: "Spot on / totally",
+          fr: "Tout à fait",
+          desc: "Confirming that someone else has understood, or that something goes without saying.",
+          cards: [
+            ["C'est clair !", "Totally! / For sure!", "In conversation it's mostly enthusiastic agreement, not ‘that's clear’. For literal clarity, ask: c'est clair pour toi ?",
+              "— Ce film était beaucoup trop long. — C'est clair !", "— That film was way too long. — Totally!"],
+            ["T'as tout compris !", "You've got it! / Spot on!", "Confirms someone has grasped the whole picture. Full form tu as tout compris. Watch the irony: t'as tout compris, toi… means they've got it all wrong.",
+              "— Donc il faut payer avant d'entrer ? — Voilà, t'as tout compris !", "— So you have to pay before going in? — Exactly, you've got it!"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

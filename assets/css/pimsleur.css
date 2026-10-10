@@ -140,8 +140,15 @@
         white-space: normal;
       }
 
-      .note-wrapper:hover::after {
+      .note-wrapper:hover::after,
+      .note-wrapper.show::after {
         opacity: 1;
+      }
+
+      /* Expression flashcards: note + example on separate lines */
+      .note-wrapper.note-multiline::after {
+        white-space: pre-line;
+        width: 260px;
       }
 
       .badge {

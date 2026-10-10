@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — I Mean</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">I MEAN</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          I Mean
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Je veux dire
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">21</span> expressions · I Mean · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 21.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/iMean/";
+      const AUD_EXT = "mp3?v=261010";
+
+      const categories = [
+        {
+          en: "Correcting yourself",
+          fr: "Se corriger",
+          desc: "Repairing what you just said: a wrong word, a wrong fact, or a statement that came out too strong.",
+          cards: [
+            ["Je veux dire…", "I mean…", "The direct equivalent of ‘I mean’, for refining or correcting your words. In speech it shrinks to j'veux dire.",
+              "Je veux dire le présent.", "I mean the present.",
+              "C'est pas ce que je veux dire…", "That's not what I mean…"],
+            ["Enfin…", "Well… / I mean…", "The most common French backtrack, used to soften or correct mid-sentence. Tone matters: a drawn-out enfin… repairs, a sharp enfin ! means ‘for goodness' sake!’.",
+              "Il est vraiment désagréable… enfin, pas toujours.", "He's really unpleasant… well, not always.",
+              "Je veux dire le présent. Enfin, tu m'as compris, quoi.", "I mean the present. Well, you know what I mean."],
+            ["Enfin, je veux dire…", "Well, I mean…", "",
+              "Enfin, je veux dire… être seule, ça me va.", "Well, I mean… being alone suits me fine.",
+              "C'était nul… enfin, je veux dire, ça aurait pu être mieux.", "It was rubbish… I mean, it could have been better."],
+            ["En fait…", "Actually… / In fact…", "Gives the real version: corrects a fact, clears up a misunderstanding, or leads into what you really want to say. Closer to ‘actually’ than ‘I mean’.",
+              "Je l'ai vu hier… en fait, c'était avant-hier.", "I saw him yesterday… actually, it was the day before.",
+              "Alors en fait, Wali, j'aimerais te parler de l'autre soir.", "So actually, Wali, I'd like to talk to you about the other night."],
+            ["Ou plutôt…", "Or rather…", "Swaps in a more accurate word. Also je dirais plutôt… (I'd rather say…).",
+              "Il est en colère — ou plutôt déçu.", "He's angry — or rather, disappointed."],
+          ],
+        },
+        {
+          en: "Explaining it another way",
+          fr: "Reformuler",
+          desc: "Saying the same thing again, more clearly or more precisely.",
+          cards: [
+            ["C'est-à-dire que…", "That is to say… / What I mean is…", "Adds precision or spells out what you meant. Que + a full clause; without que it introduces a word or phrase: à distance, c'est-à-dire chez lui.",
+              "Il travaille à distance, c'est-à-dire qu'il ne va jamais au bureau.", "He works remotely, meaning he never goes into the office.",
+              "C'est-à-dire que c'est essentiel que vous soyez toutes là.", "What I mean is, it's essential that you're all here."],
+            ["C'est-à-dire ?", "Meaning what? / You mean?", "As a question, it asks the other person to explain themselves. Neutral, sometimes a little challenging.",
+              "— J'ai pris une décision. — Donc… c'est-à-dire ?", "— I've made a decision. — So… meaning what?"],
+            ["Autrement dit…", "In other words…", "Restates the point in plainer terms, often drawing the conclusion the other person hasn't said out loud.",
+              "Il ne répond plus. Autrement dit, il n'est pas intéressé.", "He's stopped answering. In other words, he's not interested."],
+            ["Ce que je veux dire, c'est que…", "What I mean is…", "Steps back to make your point clearly, often after being misunderstood. Very natural in conversation.",
+              "Ce que je veux dire, c'est qu'on devrait attendre un peu.", "What I mean is, we should wait a bit."],
+            ["Je veux dire par là que…", "By that I mean…", "Explains the remark you just made. A little more careful and formal than ce que je veux dire.",
+              "Je veux dire par là qu'il faut rester prudent.", "By that I mean we need to stay careful."],
+          ],
+        },
+        {
+          en: "Searching for words",
+          fr: "Chercher ses mots",
+          desc: "Buying time, or softening something awkward to say.",
+          cards: [
+            ["Comment dire…", "How can I put it…", "A pause while you look for the right word, often before something delicate. Also as a question: comment dire ?",
+              "Mais… comment dire ? T'avais connu d'autres mecs ?", "But… how can I put it? Had you been with other guys?",
+              "Il est… comment dire… un peu particulier.", "He's… how can I put it… a bit odd."],
+            ["Je sais pas comment dire.", "I don't know how to put it.", "Admits you can't find the words, usually about something personal or emotional. Full form je ne sais pas comment le dire.",
+              "Ça m'a permis… je sais pas comment dire.", "It allowed me to… I don't know how to put it."],
+            ["Disons que…", "Let's say… / Let's put it this way…", "Softens or qualifies an answer instead of giving a blunt one. Diplomatic and very common.",
+              "— Tu n'aimes vraiment pas les vacances. — Non, disons que je suis content de retrouver le lycée.", "— You really don't like the holidays. — No, let's just say I'm happy to be back at school.",
+              "— Tu l'as aimé ? — Disons que ce n'est pas mon film préféré.", "— Did you like it? — Let's say it's not my favourite film."],
+            ["En quelque sorte.", "In a way. / Sort of.", "Admits that a word is only roughly right. Can also stand alone as a cautious yes.",
+              "C'est en quelque sorte mon mentor.", "He's sort of my mentor."],
+          ],
+        },
+        {
+          en: "Spoken & qualifying",
+          fr: "À l'oral",
+          desc: "Everyday spoken fillers, and the little words that take the edge off what you just said.",
+          cards: [
+            ["Genre…", "Like…", "Informal filler for an example, an impression or an approximation, used just like English ‘like’. Avoid it in formal speech.",
+              "Genre, j'avais retrouvé une peau de tomate…", "Like, I'd found a bit of tomato skin…",
+              "Il m'a regardée, genre, comme si j'étais folle.", "He looked at me, like, as if I was crazy."],
+            ["Ben… / Bah…", "Well… / Um…", "The hesitation before an answer, often an awkward or obvious one. Spoken forms of bien; ben non and bah oui are everywhere.",
+              "Ben… je sais pas trop.", "Well… I'm not really sure."],
+            ["Non mais je veux dire…", "No, but I mean…", "Insists on your point or protests at something. Non mais is a common opener for indignation and isn't really a ‘no’.",
+              "Non mais je veux dire, c'est abusé.", "No, but I mean, that's way over the top."],
+            ["Après…", "Then again… / Mind you…", "Very common in speech for adding a ‘but’ to what you just said. Not the time word here.",
+              "C'est cher. Après, la qualité est là.", "It's expensive. Then again, the quality is there."],
+            ["Cela dit…", "That said…", "Concedes a point that balances what came before. Ceci dit is just as common in speech.",
+              "Il est souvent en retard. Cela dit, il a fait des efforts.", "He's often late. That said, he has made an effort."],
+          ],
+        },
+        {
+          en: "Checking they follow",
+          fr: "Tu vois ?",
+          desc: "Making sure the listener is still with you.",
+          cards: [
+            ["Tu vois…", "You see… / You know…", "Checks that the listener is following your train of thought. Formal or plural: vous voyez.",
+              "Tu vois ? Elle aime pas danser.", "You see? She doesn't like dancing.",
+              "C'est difficile à expliquer, tu vois…", "It's hard to explain, you know…"],
+            ["Tu vois ce que je veux dire ?", "You know what I mean?", "Asks directly whether the point, or the thing left unsaid, got across. Formal: vous voyez ce que je veux dire ?",
+              "Il est gentil, mais… tu vois ce que je veux dire ?", "He's nice, but… you know what I mean?"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

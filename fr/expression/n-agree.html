@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Agreement</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">AGREEMENT</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Agreeing
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Être d'accord
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">21</span> expressions · Agreement · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 21.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/agree/";
+      const AUD_EXT = "mp3?v=261010";
+
+      const categories = [
+        {
+          en: "Everyday agreement",
+          fr: "D'accord",
+          desc: "The basic yes to a plan, a request or an opinion.",
+          cards: [
+            ["D'accord.", "OK. / Agreed.", "The all-purpose yes to a plan or request. Clipped in speech to d'acc, or simply OK.",
+              "— On se retrouve à huit heures devant le cinéma ? — D'accord.", "— Shall we meet at eight outside the cinema? — OK."],
+            ["Je suis d'accord.", "I agree.", "Agreement with an opinion, not just consent to a plan. Avec + person: je suis d'accord avec toi. Disagreeing is simply je suis pas d'accord.",
+              "Je suis d'accord avec toi, c'est beaucoup trop cher.", "I agree with you, it's way too expensive."],
+            ["On est d'accord.", "We agree. / Agreed.", "",
+              "— On partage l'addition ? — On est d'accord.", "— Shall we split the bill? — Agreed.",
+              "Tu rentres avant minuit, on est d'accord ?", "You're home before midnight, are we clear?"],
+            ["Ça marche.", "Sounds good. / Deal.", "Literally ‘that works’. A casual yes to an arrangement; also what a waiter says on taking your order.",
+              "— Je passe te prendre vers sept heures ? — Ça marche !", "— I'll pick you up around seven? — Sounds good!"],
+          ],
+        },
+        {
+          en: "Strong & emphatic",
+          fr: "Tout à fait",
+          desc: "Total agreement: you're fully behind what was just said.",
+          cards: [
+            ["Tout à fait !", "Exactly! / Absolutely!", "An emphatic yes, polite enough for any setting. Constant in interviews and on the phone.",
+              "— Donc vous partez lundi ? — Tout à fait.", "— So you're leaving on Monday? — That's right."],
+            ["Tout à fait d'accord.", "Completely agreed.", "The strongest neutral form of je suis d'accord: clear, polite and complete. Often with je suis in front.",
+              "Je suis tout à fait d'accord, il faut lui dire la vérité.", "I completely agree, we have to tell him the truth."],
+            ["Absolument !", "Absolutely!", "Total endorsement of an idea. Careful: absolument pas flips it to ‘absolutely not’.",
+              "— Tu crois qu'elle va accepter ? — Absolument !", "— Do you think she'll say yes? — Absolutely!"],
+            ["Exactement !", "Exactly!", "Confirms that someone has put it exactly right. Shorter spoken form: exact !",
+              "— Donc c'est lui qui a tout organisé ? — Exactement !", "— So he's the one who planned it all? — Exactly!"],
+            ["Parfaitement !", "Precisely! / Quite so!", "A notch more formal and emphatic than exactement. Often defiant, when you stand by something you said or did.",
+              "— Tu lui as dit non ? — Parfaitement ! Et je recommencerais.", "— You told him no? — I certainly did! And I'd do it again."],
+            ["Bien sûr !", "Of course!", "A warm, ready yes. Mais bien sûr ! is warmer still, but said slowly and flat it turns sarcastic: ‘yeah, right’.",
+              "— Tu peux m'aider à déménager ? — Bien sûr !", "— Can you help me move? — Of course!"],
+          ],
+        },
+        {
+          en: "You're right / that's true",
+          fr: "Avoir raison",
+          desc: "Confirming the facts, or conceding the other person's point.",
+          cards: [
+            ["C'est vrai.", "That's true.", "Validates a point someone has just made. As a question, c'est vrai ? means ‘really?’.",
+              "— Il fait froid ici. — C'est vrai, je vais fermer la fenêtre.", "— It's cold in here. — True, I'll close the window."],
+            ["T'as raison.", "You're right.", "Spoken contraction of tu as raison; formal vous avez raison. Of someone else: Claire a raison.",
+              "— On devrait partir tôt pour éviter les bouchons. — T'as raison.", "— We should leave early to beat the traffic. — You're right."],
+            ["C'est ça.", "That's it. / That's right.", "Confirms a description or summary. A drawn-out c'est ça, oui… is sarcastic: ‘yeah, sure’.",
+              "— Vous êtes monsieur Martin ? — C'est ça.", "— You're Mr Martin? — That's right."],
+            ["Justement !", "Exactly! / That's just the point!", "Picks up what the other person said and turns it into your argument. Not a plain ‘exactly’: it means that's precisely why.",
+              "— Mais il pleut ! — Justement, on va au cinéma.", "— But it's raining! — Exactly, so we're going to the cinema."],
+          ],
+        },
+        {
+          en: "Casual & slang",
+          fr: "Familier",
+          desc: "‘Totally!’ among friends. Too relaxed for a job interview.",
+          cards: [
+            ["C'est clair !", "Totally! / For sure!", "Agreement with something obvious; not ‘that's clear’. For literal clarity, ask: c'est clair pour toi ?",
+              "— Ce resto est génial. — C'est clair !", "— This restaurant is great. — Totally!"],
+            ["Carrément !", "Totally! / Definitely!", "Enthusiastic and informal, often a yes to a proposal. As an adverb it means outright: il est carrément fou.",
+              "— On part à la mer ce week-end ? — Carrément !", "— Shall we go to the seaside this weekend? — Definitely!"],
+            ["Grave !", "Totally! / I know, right!", "Hugely popular slang for intense agreement. As an adverb it intensifies: j'ai grave faim. In standard French grave means serious.",
+              "— J'ai trop faim, pas toi ? — Grave !", "— I'm starving, aren't you? — Totally!"],
+          ],
+        },
+        {
+          en: "Open or reluctant",
+          fr: "Bon, d'accord",
+          desc: "From an easy-going ‘why not’ to going along with something you don't quite buy.",
+          cards: [
+            ["Pourquoi pas.", "Why not.", "Willing but uncommitted. Also makes a suggestion: pourquoi pas demain ?",
+              "— On essaie le nouveau resto thaï ? — Pourquoi pas.", "— Shall we try the new Thai place? — Why not."],
+            ["Si tu le dis…", "If you say so…", "Goes along with a claim while making clear you don't believe it. Formal: si vous le dites.",
+              "— Je vais arrêter de fumer demain. — Si tu le dis…", "— I'm quitting smoking tomorrow. — If you say so…"],
+            ["Comme tu veux.", "As you like. / Whatever you want.", "Accommodating when said lightly; resigned or sulky when said flat. Formal: comme vous voulez.",
+              "— Je préfère rester ici ce soir. — Comme tu veux.", "— I'd rather stay in tonight. — Whatever you want."],
+            ["On va dire ça.", "Let's go with that.", "Accepts what was said while hinting you have your doubts, usually with a smile. Also on va dire ça comme ça.",
+              "— J'étais en retard à cause des embouteillages. — On va dire ça.", "— I was late because of the traffic jams. — Let's go with that."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>
