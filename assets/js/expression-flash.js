@@ -30,7 +30,7 @@
     <div class="card p-5 flex items-center gap-4 shadow-md">
       <button class="sound-btn" data-audio="${esc(`${AUD_DIR}${pad(++audioNum)}.${AUD_EXT}`)}" title="Play audio">${SPEAKER}</button>
       <div class="flex-1 min-w-0">
-        <p class="phrase text-base mb-1">${esc(fr)}</p>
+        <p class="phrase text-lg mb-1">${esc(fr)}</p>
         <p class="english">${esc(en)}</p>
       </div>
       <div class="note-wrapper" data-note="${esc(note)}">
