@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Annoyance</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">ANNOYANCE</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Annoyance
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          L'agacement
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">23</span> expressions · Annoyance · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 23.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/annoyance/";
+      const AUD_EXT = "mp3?v=261011";
+
+      const categories = [
+        {
+          en: "It's annoying",
+          fr: "Ça m'énerve",
+          desc: "Everyday ways to say something is getting to you. Safe almost anywhere.",
+          cards: [
+            ["C'est agaçant.", "It's irritating.", "Neutral and fine anywhere. To say what it does to you: ça m'agace (‘it bugs me’), or in the past, ça m'a agacé(e).",
+              "Il me coupe la parole tout le temps, c'est agaçant.", "He keeps interrupting me, it's irritating."],
+            ["Ça m'énerve !", "It drives me mad! / It gets on my nerves!", "The everyday word for annoyance. Énerver means to irritate, not to make nervous; for that, use stresser.",
+              "Ça m'énerve quand les gens parlent fort au téléphone dans le train.", "It drives me mad when people talk loudly on the phone on the train."],
+            ["C'est pénible.", "It's a pain.", "Tiresome, wearing. Works for people too: il est pénible, celui-là !",
+              "Ces travaux tous les matins à sept heures, c'est pénible.", "These roadworks every morning at seven, it's such a pain."],
+            ["Ça me tape sur les nerfs.", "It gets on my nerves.", "Literally ‘it hits me on the nerves’. Same register as ça m'énerve, but more vivid. Of a person: tu me tapes sur les nerfs.",
+              "Ce bruit de perceuse me tape sur les nerfs.", "That drilling noise is getting on my nerves."],
+          ],
+        },
+        {
+          en: "Fed up",
+          fr: "J'en ai marre",
+          desc: "Casual and blunt: for friends and family, not the boss.",
+          cards: [
+            ["J'en ai marre !", "I'm sick of it!", "The go-to casual complaint. J'en ai marre de + noun or infinitive: j'en ai marre d'attendre.",
+              "J'en ai marre de cette pluie, ça fait deux semaines !", "I'm sick of this rain, it's been two weeks!"],
+            ["J'en ai ras le bol !", "I've had it up to here!", "Literally ‘I'm full to the brim of the bowl’, often with a hand swept over the head. A notch stronger than j'en ai marre. The noun is hyphenated: le ras-le-bol.",
+              "J'en ai ras le bol de faire le ménage tout seul !", "I've had it with doing all the housework on my own!"],
+            ["Ça me soûle.", "It's doing my head in.", "Soûler is literally ‘to get someone drunk’; here, to wear someone out. Soûle sounds like /sul/. Huge with younger speakers: tu me soûles !",
+              "Il me parle de son match depuis une heure, ça me soûle.", "He's been going on about his match for an hour, it's doing my head in."],
+            ["C'est chiant !", "It's a pain in the neck!", "Vulgar (from chier) but extremely common among friends. Also means ‘boring’: ce film est chiant. Polite version: c'est pénible.",
+              "Il faut tout refaire depuis le début ? C'est chiant !", "We have to redo it all from scratch? What a pain!"],
+          ],
+        },
+        {
+          en: "Snapping at someone",
+          fr: "Tu m'énerves",
+          desc: "Aimed straight at the person getting on your nerves.",
+          cards: [
+            ["Tu m'énerves !", "You're getting on my nerves!", "Blunt but everyday between siblings, partners and friends. To someone you call vous, it's a real confrontation.",
+              "Arrête de toucher à mes affaires, tu m'énerves !", "Stop touching my stuff, you're getting on my nerves!"],
+            ["Tu me casses les pieds !", "You're being a pain!", "Literally ‘you're breaking my feet’. Mild and familiar. A pest is un casse-pieds: quel casse-pieds !",
+              "Tu me casses les pieds avec tes questions !", "You're driving me up the wall with your questions!"],
+            ["T'es sérieux, là ?", "Are you serious right now?", "Exasperation rather than disbelief: là (‘right now’) sharpens it. To a woman: t'es sérieuse ?",
+              "Tu as encore oublié les clés ? T'es sérieux, là ?", "You forgot the keys again? Are you serious right now?"],
+            ["Pourquoi tu t'énerves ?", "Why are you getting worked up?", "S'énerver = to lose your temper. Often asked by the person causing it, which only makes things worse.",
+              "— Je te l'ai dit cent fois ! — Oh là, pourquoi tu t'énerves ?", "— I've told you a hundred times! — Whoa, why are you getting worked up?"],
+            ["Pourquoi tu fais la gueule ?", "Why are you sulking?", "Faire la gueule = to sulk. Gueule /ɡœl/ is slang for ‘mug’, so it's informal; neutral: faire la tête.",
+              "— Pourquoi tu fais la gueule ? — Je fais pas la gueule !", "— Why are you sulking? — I'm not sulking!"],
+          ],
+        },
+        {
+          en: "Exasperation",
+          fr: "N'importe quoi",
+          desc: "For the absurd, the unfair and the depressingly familiar.",
+          cards: [
+            ["C'est n'importe quoi !", "That's ridiculous! / What nonsense!", "For anything absurd, unfair or badly done. Cut to n'importe quoi ! as a dismissive retort.",
+              "Quinze euros pour un café ? C'est n'importe quoi !", "Fifteen euros for a coffee? That's ridiculous!"],
+            ["Allez, c'est reparti !", "Here we go again!", "Exasperated when the same problem or argument comes back. Said brightly, it just means ‘off we go again’.",
+              "Encore une panne d'ordinateur ? Allez, c'est reparti !", "Another computer crash? Here we go again!"],
+            ["Qu'est-ce que c'est que ce bazar ?", "What on earth is this mess?", "Bazar = a mess or a commotion. For noise: qu'est-ce que c'est que ce raffut ? Casual: c'est quoi ce bazar ?",
+              "Je pars cinq minutes et… qu'est-ce que c'est que ce bazar ?", "I leave for five minutes and… what on earth is this mess?"],
+            ["T'es de mauvaise foi !", "You know that's not true!", "Mauvaise foi = refusing to admit the obvious to win an argument. A constant accusation in French arguments; also c'est de la mauvaise foi.",
+              "— J'ai jamais dit ça ! — Si, tu l'as dit. T'es de mauvaise foi !", "— I never said that! — Yes, you did. You know that's not true!"],
+            ["Je perds mon temps.", "I'm wasting my time.", "Giving up on a pointless effort or conversation. Aimed at someone: tu me fais perdre mon temps.",
+              "J'essaie de lui expliquer depuis une heure, je perds mon temps.", "I've been trying to explain it to him for an hour, I'm wasting my time."],
+          ],
+        },
+        {
+          en: "That's enough!",
+          fr: "Ça suffit",
+          desc: "Drawing the line: stop it, quiet down, leave me alone.",
+          cards: [
+            ["Ça suffit !", "That's enough!", "Stops an argument or behaviour on the spot; the classic parent's line. Stronger: ça suffit maintenant !",
+              "Ça suffit, vous deux ! Allez dans vos chambres.", "That's enough, you two! Go to your rooms."],
+            ["Arrête un peu !", "Give it a rest! / Cut it out!", "Un peu doesn't soften it here; it means ‘come on, enough’. To vous or several people: arrêtez un peu.",
+              "Arrête un peu de te plaindre, on est en vacances !", "Give the complaining a rest, we're on holiday!"],
+            ["Ça commence à bien faire !", "This is getting beyond a joke!", "A warning that your patience is about to run out. Literally ‘it's starting to do well’, said with heavy irony.",
+              "Trois fois que tu arrives en retard cette semaine, ça commence à bien faire !", "That's the third time you've been late this week, this is getting beyond a joke!"],
+            ["Chut !", "Shh! / Hush!", "The t is pronounced: /ʃyt/. Politer: un peu de silence, s'il vous plaît.",
+              "Chut ! Le bébé dort.", "Shh! The baby's asleep."],
+            ["Lâche-moi !", "Leave me alone! / Get off my back!", "Lâcher = to let go of. Jokier: lâche-moi les baskets ! Politer: laisse-moi tranquille.",
+              "Lâche-moi, je t'ai dit que je ferais la vaisselle plus tard !", "Get off my back, I told you I'd do the dishes later!"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

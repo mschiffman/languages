@@ -34,3 +34,6 @@ fr/expression/.build_cache/
 
 # Generated offline expression pages (see fr/expression/build_single.py)
 fr/expression/single/
+
+# Python bytecode
+__pycache__/

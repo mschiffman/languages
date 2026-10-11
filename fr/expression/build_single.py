@@ -24,7 +24,7 @@ Usage (from anywhere):
 
 Output goes to fr/expression/single/<name>.html.
 
-Audio lookup, per file:  media/lessons/Expressions/<topic>/NN.mp3 (the local copy), then
+Audio lookup, per file:  media/lessons/expressions/<topic>/NN.mp3 (the local copy), then
 fr/expression/.build_cache/audio/<topic>/NN.mp3, otherwise downloaded from the page's AUD_DIR
 into that cache. Network is only needed the first time (audio, Tailwind, fonts).
 """
@@ -40,7 +40,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent  # site root (the "LANGUAGES" folder)
-MEDIA = ROOT / "media" / "lessons" / "Expressions"
+MEDIA = ROOT / "media" / "lessons" / "expressions"
 DEFAULT_OUT = HERE / "single"
 CACHE = HERE / ".build_cache"
 
