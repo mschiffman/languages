@@ -37,3 +37,6 @@ fr/expression/single/
 
 # Python bytecode
 __pycache__/
+
+# Personal material, kept local only
+fr/PERSONAL/

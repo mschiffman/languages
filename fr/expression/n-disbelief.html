@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Disbelief</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">DISBELIEF</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Disbelief
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          J'y crois pas !
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">34</span> expressions · Disbelief · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 34.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/disbelief/";
+      const AUD_EXT = "mp3?v=261012";
+
+      const categories = [
+        {
+          en: "Really?",
+          fr: "Ah bon ?",
+          desc: "Mild surprise: checking that you heard right.",
+          cards: [
+            ["Ah bon ?", "Really? / Oh yeah?", "The everyday reaction to news you didn't expect. Neutral, polite, and said dozens of times a day.",
+              "— Il a démissionné hier. — Ah bon ? Pourquoi ?", "— He resigned yesterday. — Really? Why?"],
+            ["Sérieux ?", "Seriously?", "Casual and very common. Also t'es sérieux ? when you doubt the person rather than the news.",
+              "— J'ai gagné deux places pour le concert. — Sérieux ?", "— I won two tickets for the concert. — Seriously?"],
+            ["Sans blague ?", "No kidding?", "Genuine surprise. Said flatly, it turns ironic: ‘you don't say’.",
+              "— Elle s'est mariée à Las Vegas. — Sans blague ?", "— She got married in Las Vegas. — No kidding?"],
+            ["Quoi ?", "What?", "The instant reaction. Hein ? is more casual still; quoi ?! with a rising tone signals shock.",
+              "— J'ai vendu la voiture. — Quoi ? Mais pourquoi ?", "— I sold the car. — What? But why?"],
+          ],
+        },
+        {
+          en: "You're kidding",
+          fr: "Tu plaisantes ?",
+          desc: "Asking whether the other person is joking, or telling them they can't be serious.",
+          cards: [
+            ["Tu plaisantes ?", "You're kidding?", "Neutral and safe in any company. Formal: vous plaisantez ?",
+              "— Le train est annulé. — Tu plaisantes ? C'est le dernier !", "— The train's cancelled. — You're kidding? It's the last one!"],
+            ["Tu rigoles (ou quoi) ?", "Are you joking (or what)?", "More casual than tu plaisantes. Adding ou quoi makes it more incredulous, even a bit annoyed.",
+              "— Je pars vivre au Canada. — Tu rigoles ou quoi ?", "— I'm moving to Canada. — Are you joking or what?"],
+            ["T'es pas sérieux !", "You can't be serious!", "Disbelief aimed at someone's idea or behaviour. Among friends, often with mec on the end: t'es pas sérieux, mec.",
+              "T'es pas sérieux ! Tu as invité ton ex à mon anniversaire ?", "You can't be serious! You invited your ex to my birthday?"],
+            ["Sans déconner ?", "No kidding? / Seriously?", "The slangy version of sans blague. Déconner (to mess about) is vulgar, so keep it to friends. Shortened: sans déc ?",
+              "— Il a eu son permis du premier coup. — Sans déconner ?", "— He passed his driving test first time. — Seriously?"],
+            ["Tu te fous de moi ?", "Are you kidding me?", "‘Are you making fun of me?’ Rude and angry: you suspect you're being had. Formal: vous vous foutez de moi ? Ruder still: tu te fous de ma gueule ?",
+              "Quarante euros pour un sandwich ? Vous vous foutez de moi ?", "Forty euros for a sandwich? Are you kidding me?"],
+          ],
+        },
+        {
+          en: "I can't believe it",
+          fr: "J'y crois pas",
+          desc: "Flat-out disbelief: the news is too much to take in.",
+          cards: [
+            ["J'y crois pas !", "I don't believe it!", "Spoken French drops the ne; written: je n'y crois pas. Je le crois pas is just as common in films.",
+              "Il a réussi son bac ? J'y crois pas !", "He passed his exams? I don't believe it!"],
+            ["C'est pas vrai !", "No way! / It can't be true!", "Not a claim that something is false, just shock. Also an exasperated ‘oh no!’ when things go wrong: c'est pas vrai, ça !",
+              "— On a gagné ! — C'est pas vrai !", "— We won! — No way!",
+              "C'est pas vrai, ça ! J'ai encore oublié mes clés.", "Oh, for goodness' sake! I've forgotten my keys again."],
+            ["C'est pas possible !", "That's impossible! / No way!", "Shock or protest. Shortened: pas possible ! Clipped to one word: impossible !",
+              "— Elle a quatre-vingts ans. — C'est pas possible, elle en fait soixante !", "— She's eighty. — No way, she looks sixty!"],
+            ["J'en reviens pas !", "I can't get over it!", "Revenir de: to recover from a surprise. Full form: je n'en reviens pas. Works for good news and bad.",
+              "J'en reviens pas, il a tout rangé sans qu'on lui demande !", "I can't get over it, he tidied everything without being asked!"],
+            ["Je rêve !", "I must be dreaming!", "Usually indignant rather than delighted. Je rêve ou… ? means ‘am I seeing things, or…?’",
+              "Je rêve ou il a encore pris ma place de parking ?", "Am I seeing things, or has he taken my parking space again?"],
+            ["C'est incroyable !", "It's unbelievable!", "Often outrage at someone's behaviour. The positive version, c'est incroyable !, is more about amazement.",
+              "C'est pas croyable, il est encore en retard !", "Unbelievable, he's late again!"],
+            ["Vous allez pas le croire.", "You're not going to believe this.", "Announces news before you tell it. Informal: tu vas pas le croire.",
+              "Vous allez pas le croire : j'ai croisé Brad Pitt à la boulangerie !", "You're not going to believe this: I ran into Brad Pitt at the bakery!"],
+          ],
+        },
+        {
+          en: "That's crazy",
+          fr: "C'est dingue !",
+          desc: "Shock at something absurd or extraordinary, good or bad.",
+          cards: [
+            ["C'est dingue !", "That's crazy!", "Dingue means crazy. Non mais c'est dingue ! adds indignation.",
+              "C'est dingue, on habite dans la même rue depuis dix ans !", "That's crazy, we've lived on the same street for ten years!"],
+            ["C'est un truc de fou !", "That's insane! / That's mad!", "Casual, popular with younger speakers. Also c'est un truc de malade !, even more slangy.",
+              "Trois buts en cinq minutes, c'est un truc de fou !", "Three goals in five minutes, that's insane!"],
+            ["J'hallucine !", "I can't believe my eyes!", "Literally ‘I'm hallucinating’. Amazed or outraged; j'hallucine complètement is stronger.",
+              "J'hallucine ! Tu as repeint toute la maison en un week-end ?", "I can't believe my eyes! You painted the whole house in one weekend?"],
+            ["C'est quoi, ce délire ?", "What is this madness?", "Slang for ‘what on earth is going on?’ Délire is craziness, so the question asks what this mad situation is.",
+              "Il y a des poules dans la cuisine ! C'est quoi, ce délire ?", "There are chickens in the kitchen! What on earth is going on?"],
+            ["Oh la vache !", "Holy cow!", "Mild slang for surprise or admiration; vache means cow. Fine among friends, a bit colourful for the office.",
+              "Oh la vache ! T'as vu la taille de ce gâteau ?", "Holy cow! Have you seen the size of that cake?"],
+            ["Mais non !", "No! / You're joking!", "With a rising, drawn-out tone, it's astonished, not a refusal. The other person may answer mais si !",
+              "— Paul et Julie se séparent. — Mais non !", "— Paul and Julie are splitting up. — No!"],
+          ],
+        },
+        {
+          en: "Skeptical & ironic",
+          fr: "Mon œil !",
+          desc: "You've heard it, and you don't buy it.",
+          cards: [
+            ["Mon œil !", "My foot! / Yeah, right!", "Often said while pulling down your lower eyelid with one finger. Playful rather than rude.",
+              "— Je me suis couché à dix heures hier soir. — Mon œil !", "— I went to bed at ten last night. — Yeah, right!"],
+            ["Tu parles !", "Yeah, right! / As if!", "Ironic: the opposite of what was said is true. Tu parles d'un… ! means ‘some…!’, as in tu parles d'une surprise !",
+              "— Il va t'aider à déménager ? — Tu parles ! Il a disparu.", "— Is he going to help you move? — As if! He's vanished."],
+            ["Mais bien sûr…", "Yeah, of course…", "Said slowly and flatly, it means the opposite: ‘sure, and I'm the Queen of England’. Said warmly, it's a real yes.",
+              "— C'est le chien qui a mangé mes devoirs. — Mais bien sûr…", "— The dog ate my homework. — Yeah, of course…"],
+            ["N'importe quoi !", "Nonsense! / Rubbish!", "Dismisses a claim outright. With c'est in front it's more emphatic: c'est n'importe quoi !",
+              "— Les Français mangent des escargots tous les jours. — N'importe quoi !", "— The French eat snails every day. — Rubbish!"],
+            ["À d'autres !", "Pull the other one!", "Literally ‘(tell it) to others’: I'm not falling for it. A little old-fashioned but still heard.",
+              "— J'ai couru le marathon en deux heures. — À d'autres !", "— I ran the marathon in two hours. — Pull the other one!"],
+          ],
+        },
+        {
+          en: "But it's true!",
+          fr: "Je te jure",
+          desc: "When they don't believe you: insisting it really happened.",
+          cards: [
+            ["Mais si !", "Yes, it is! / Yes, really!", "The answer to a negative: si contradicts a no where oui can't. Mais non ! — Mais si !",
+              "— Il n'a pas pu dire ça. — Mais si, je l'ai entendu !", "— He can't have said that. — He did, I heard him!"],
+            ["Je te jure !", "I swear!", "Spoken j'te jure. Also a filler when you're exasperated: je te jure, ce gamin…",
+              "Je te jure, c'est la vérité !", "I swear, it's the truth!"],
+            ["Je te mens pas.", "I'm not lying.", "Spoken j'te mens pas. Adds weight to something hard to believe. Formal: je ne vous mens pas.",
+              "Je te mens pas, il faisait trente degrés en février.", "I'm not lying, it was thirty degrees in February."],
+            ["Je t'assure.", "I promise you. / Honestly.", "Calmer than je te jure. Fuller: je t'assure que c'est vrai. Formal: je vous assure.",
+              "— Tu as vraiment fini ? — Oui, je t'assure.", "— Have you really finished? — Yes, honestly."],
+            ["Tu peux me croire.", "Believe me.", "Reassures someone who's doubting. Formal: vous pouvez me croire.",
+              "C'est le meilleur resto du quartier, tu peux me croire.", "It's the best restaurant in the area, believe me."],
+            ["Je l'ai vu de mes propres yeux.", "I saw it with my own eyes.", "The last word when someone still doubts you. Of something heard: je l'ai entendu de mes propres oreilles.",
+              "Un sanglier dans le centre-ville ! Je l'ai vu de mes propres yeux.", "A wild boar in the town centre! I saw it with my own eyes."],
+            ["C'est fou, mais c'est vrai.", "It's crazy, but it's true.", "Admits the story sounds unlikely before insisting on it. Often with et pourtant… (and yet…).",
+              "On s'est rencontrés trois fois par hasard dans la même semaine. C'est fou, mais c'est vrai.", "We bumped into each other by chance three times in one week. It's crazy, but it's true."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

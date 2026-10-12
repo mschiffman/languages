@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Admiration</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">ADMIRATION</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Admiring
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Quelle merveille !
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">30</span> expressions · Admiration · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 30.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/admiration/";
+      const AUD_EXT = "mp3?v=261012";
+
+      const categories = [
+        {
+          en: "Breathtaking views",
+          fr: "Quelle vue !",
+          desc: "For a panorama, a landscape, the view from a terrace or a window.",
+          cards: [
+            ["Quelle vue !", "What a view!", "Quel(le) + noun is the go-to exclamation, no verb needed: quel paysage !, quelle maison !",
+              "Waouh, quelle vue ! On voit jusqu'à la mer.", "Wow, what a view! You can see all the way to the sea."],
+            ["La vue est imprenable.", "The view is unbeatable.", "Literally ‘impregnable’: nothing can ever be built in front of it. A favorite of estate agents: vue imprenable sur la mer.",
+              "Du balcon, la vue est imprenable sur toute la vallée.", "From the balcony, there's an unbeatable view over the whole valley."],
+            ["C'est à couper le souffle !", "It's breathtaking!", "Literally ‘it cuts your breath’. Also after a noun: une vue à couper le souffle.",
+              "Le coucher de soleil sur le lac, c'est à couper le souffle.", "The sunset over the lake is breathtaking."],
+            ["C'est grandiose !", "It's awe-inspiring!", "Not pompous like English ‘grandiose’: pure praise for something vast and impressive. Majestueux (majestic) is close.",
+              "Les montagnes, les glaciers… c'est grandiose !", "The mountains, the glaciers… it's awe-inspiring!"],
+            ["C'est une des plus belles vues que j'aie jamais vues.", "It's one of the most beautiful views I've ever seen.", "After une des plus belles…, que takes the subjunctive: j'aie vu. Jamais means ‘ever’ here.",
+              "C'est un des plus beaux endroits que j'aie jamais visités.", "It's one of the most beautiful places I've ever visited."],
+          ],
+        },
+        {
+          en: "Simply beautiful",
+          fr: "C'est beau",
+          desc: "All-purpose wonder at something lovely: a place, a piece of music, a moment.",
+          cards: [
+            ["C'est tellement beau !", "It's so beautiful!", "Tellement = so. Casual speech often says c'est trop beau, with the same meaning.",
+              "Regarde la lumière sur les toits, c'est tellement beau !", "Look at the light on the rooftops, it's so beautiful!"],
+            ["C'est magnifique !", "It's gorgeous!", "The everyday top-tier word for beauty, far more common than English ‘magnificent’.",
+              "— Tu as vu la cathédrale ? — Oui, c'est magnifique !", "— Did you see the cathedral? — Yes, it's gorgeous!"],
+            ["Quelle beauté !", "How beautiful! / What a beauty!", "For a landscape, a work of art, a person, even a well-made object.",
+              "Quelle beauté, ce vieux pont en pierre !", "What a beauty, that old stone bridge!"],
+            ["C'est sublime.", "It's sublime.", "A step above magnifique, often for art, music, food or a landscape.",
+              "Ce concerto est sublime, je l'écoute en boucle.", "This concerto is sublime, I listen to it on repeat."],
+            ["C'est absolument magique.", "It's absolutely magical.", "For atmosphere: snow at night, a candle-lit village, a first visit somewhere.",
+              "Paris sous la neige, c'est absolument magique.", "Paris in the snow is absolutely magical."],
+          ],
+        },
+        {
+          en: "Homes with charm",
+          fr: "Chez vous",
+          desc: "Complimenting someone's house or flat, or a place you're visiting.",
+          cards: [
+            ["C'est magnifique chez vous !", "Your home is beautiful!", "Chez vous = your place. The natural compliment as you step through the door. Informal: c'est super beau chez toi !",
+              "Merci de nous recevoir. C'est magnifique chez vous !", "Thanks for having us. Your home is beautiful!"],
+            ["Qu'est-ce que c'est charmant !", "How charming!", "Qu'est-ce que + statement turns it into an exclamation: qu'est-ce que c'est beau !",
+              "Qu'est-ce que c'est charmant, ce petit jardin !", "What a charming little garden!"],
+            ["Ça a un charme fou.", "It has so much charm.", "Fou (crazy) as an intensifier: un charme fou, un talent fou, un monde fou (a huge crowd).",
+              "Les poutres, la cheminée… cette maison a un charme fou.", "The beams, the fireplace… this house has so much charm."],
+            ["Ça a du caractère.", "It has character.", "For a place with personality: old stone, odd corners, original features.",
+              "L'appartement est petit, mais il a du caractère.", "The flat is small, but it has character."],
+            ["C'est une maison de rêve.", "It's a dream house.", "De rêve = dream, after any noun: des vacances de rêve, un cadre de rêve.",
+              "Une piscine, la vue sur la mer… c'est une maison de rêve !", "A pool, a sea view… it's a dream house!"],
+            ["C'est hors du commun.", "It's out of the ordinary.", "Praise for something truly unusual. Atypique, another estate-agent favorite, is a milder ‘quirky, unusual’.",
+              "Un loft dans une ancienne église ? C'est hors du commun !", "A loft in an old church? That's really something else!"],
+            ["On se croirait dans un film !", "It's like being in a movie!", "On se croirait… = it feels like…, literally ‘one would think oneself…’: on se croirait en Italie.",
+              "Cette villa au bord de la mer… on se croirait dans un film américain !", "This seaside villa… it's like being in an American movie!"],
+          ],
+        },
+        {
+          en: "Amazed & impressed",
+          fr: "Je suis bluffé",
+          desc: "When something goes beyond anything you expected.",
+          cards: [
+            ["C'est incroyable !", "It's incredible!", "Admiration or shock, depending on tone; here it's the good kind. Short form: incroyable !",
+              "Tu as fait tout ça toi-même ? C'est incroyable !", "You did all this yourself? It's incredible!"],
+            ["C'est spectaculaire !", "It's spectacular!", "",
+              "Le feu d'artifice du 14 juillet était spectaculaire.", "The Bastille Day fireworks were spectacular.",
+              "Vu d'en haut, le canyon est spectaculaire.", "Seen from above, the canyon is spectacular."],
+            ["C'est exceptionnel.", "It's exceptional.", "Quality that stands out from everything else: a meal, a wine, a performance.",
+              "Ce vin est exceptionnel, c'est quelle année ?", "This wine is exceptional, what year is it?"],
+            ["Je suis bluffé(e) !", "I'm blown away!", "Casual. Bluffer usually means ‘to bluff’, but être bluffé means amazed, bowled over.",
+              "Ton gâteau est parfait, je suis bluffée !", "Your cake is perfect, I'm blown away!"],
+            ["Il n'y a rien à redire.", "There's nothing to fault.", "Literally ‘there's nothing to say against it’: it's flawless. Casual equivalent: zéro défaut.",
+              "La cuisine, la déco, la lumière… il n'y a rien à redire.", "The kitchen, the decor, the light… there's nothing to fault."],
+            ["C'est au-delà de tous mes rêves.", "It's beyond my wildest dreams.", "When reality outdoes what you imagined. Also au-delà de mes espérances, beyond my hopes.",
+              "Ce voyage était au-delà de tous mes rêves.", "This trip was beyond my wildest dreams."],
+          ],
+        },
+        {
+          en: "Admiring people",
+          fr: "Admirer quelqu'un",
+          desc: "Admiration for someone's talent, character or achievements.",
+          cards: [
+            ["Vous êtes extraordinaire.", "You're extraordinary.", "Strong, sincere praise to someone's face. Informal: t'es extraordinaire.",
+              "Merci pour tout ce que vous faites. Vous êtes extraordinaire.", "Thank you for everything you do. You're extraordinary."],
+            ["J'admire ton courage.", "I admire your courage.", "Admirer + quality: ta patience, ta force, ton calme. Formal: j'admire votre courage.",
+              "Reprendre des études à cinquante ans ? J'admire ton courage.", "Going back to school at fifty? I admire your courage."],
+            ["C'est un acteur extraordinaire.", "He's an extraordinary actor.", "Use c'est un(e) + noun, not il est un: c'est une chanteuse incroyable.",
+              "Tu connais François Berléand ? C'est un acteur extraordinaire.", "Do you know François Berléand? He's an extraordinary actor."],
+            ["C'est un de mes acteurs préférés.", "He's one of my favorite actors.", "Un(e) de mes + plural noun; préféré agrees with it: une de mes actrices préférées.",
+              "Je vais voir sa nouvelle pièce, c'est une de mes actrices préférées.", "I'm going to see her new play, she's one of my favorite actresses."],
+            ["Il a du charisme.", "He has charisma.", "Avoir du + quality: du talent, du charme, du caractère (strength of character).",
+              "Dès qu'il entre dans une pièce, tout le monde l'écoute. Il a du charisme.", "As soon as he walks into a room, everyone listens. He has charisma."],
+            ["Elle a du répondant.", "She's quick with a comeback.", "Someone who always has an answer and holds their own in a conversation or debate. Said with approval.",
+              "Ma petite-fille n'a que dix ans, mais elle a du répondant !", "My granddaughter is only ten, but she always has a comeback!"],
+            ["Elle force l'admiration.", "She's truly admirable.", "Literally ‘she compels admiration’. Slightly formal: for someone whose courage or work earns everyone's respect.",
+              "Elle a élevé quatre enfants seule et monté son entreprise. Elle force l'admiration.", "She raised four kids alone and built her own business. She's truly admirable."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

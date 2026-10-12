@@ -8,19 +8,19 @@
 --------------------------------------------------------------- */
 (function () {
   const CATEGORIES = [
-    { label: "🥰 Admiration", href: "admiration.html" },
+    { label: "🥰 Admiration", href: "admiration.html", flash: true },
     { label: "👍 Agree", href: "agree.html", flash: true },
     { label: "👎 Disagree", href: "disagree.html" },
     { label: "😤 Annoyance", href: "annoyance.html", flash: true },
     { label: "🙏 Apology", href: "apology.html" },
-    { label: "🆘 Asking & Offering Help", href: "help.html" },
+    { label: "🆘 Asking & Offering Help", href: "help.html", flash: true },
     { label: "❓ Clarify", href: "clarify.html" },
     { label: "🏆 Compliment", href: "compliment.html" },
     { label: "🎉 Congratulating", href: "congrats.html", flash: true },
     { label: "🔗 Connectors", href: "connectors.html" },
     { label: "🧐 Critique", href: "critique.html" },
     { label: "🧭 Directions & Transportation", href: "directions.html" },
-    { label: "😲 Disbelief", href: "disbelief.html" },
+    { label: "😲 Disbelief", href: "disbelief.html", flash: true },
     { label: "😌 Doucement", href: "doucement.html" },
     { label: "🎉 Excitement", href: "excitement.html", flash: true },
     { label: "❗ Exclamation", href: "exclamation.html", flash: true },

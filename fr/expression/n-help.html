@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Asking &amp; Offering Help</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">HELP</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Help
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Demander et offrir de l'aide
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">31</span> expressions · Help · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 31.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/help/";
+      const AUD_EXT = "mp3?v=261012";
+
+      const categories = [
+        {
+          en: "Emergencies",
+          fr: "Au secours !",
+          desc: "Shouting for help when something is really wrong.",
+          cards: [
+            ["Au secours !", "Help!", "The cry for real danger: someone drowning, a fire, an attack. Not for asking a colleague to lend a hand.",
+              "Au secours ! Il y a quelqu'un dans l'eau !", "Help! There's someone in the water!"],
+            ["À l'aide !", "Help!", "Also a genuine call for help, a shade less dramatic. Often used jokingly when you're overwhelmed.",
+              "À l'aide ! Je n'arrive pas à fermer cette valise.", "Help! I can't get this suitcase shut."],
+          ],
+        },
+        {
+          en: "Asking a friend",
+          fr: "Tu peux m'aider ?",
+          desc: "Everyday requests to people you call tu.",
+          cards: [
+            ["Tu peux m'aider ?", "Can you help me?", "The everyday request. Name the task with à + infinitive: tu peux m'aider à porter ça ? Formal: vous pouvez m'aider ?",
+              "Tu peux m'aider à porter les courses ?", "Can you help me carry the shopping?"],
+            ["Aide-moi !", "Help me!", "A direct command, fine between friends when your hands are full. Formal or plural: aidez-moi !",
+              "Aide-moi, c'est trop lourd !", "Help me, it's too heavy!"],
+            ["Viens m'aider.", "Come and help me.", "Calls someone over to a task. Adding un peu makes it friendlier: viens un peu m'aider. To several people: venez m'aider.",
+              "Viens m'aider à mettre la table.", "Come and help me set the table."],
+            ["J'ai besoin d'aide.", "I need help.", "",
+              "J'ai besoin d'aide pour remplir ce formulaire.", "I need help filling in this form.",
+              "J'ai besoin de ton aide pour déménager samedi.", "I need your help moving on Saturday."],
+            ["Il faut que tu m'aides.", "You have to help me.", "Urgent, almost pleading. In speech the il is often dropped: faut que tu m'aides.",
+              "Il faut que tu m'aides, je ne comprends rien à ces impôts.", "You have to help me, I can't make head or tail of these taxes."],
+            ["Tu peux me donner un coup de main ?", "Can you give me a hand?", "Un coup de main is ‘a hand’: a bit of practical help with a task. Very common, and lighter than aider.",
+              "Tu peux me donner un coup de main avec la vaisselle ?", "Can you give me a hand with the washing-up?"],
+            ["Quelqu'un peut m'aider ?", "Can somebody help me?", "Thrown out to a room or a group rather than one person.",
+              "Quelqu'un peut m'aider à pousser la table ?", "Can somebody help me push the table?"],
+          ],
+        },
+        {
+          en: "Asking politely",
+          fr: "Vous pourriez m'aider ?",
+          desc: "Strangers, shops, offices: the conditional and vous.",
+          cards: [
+            ["Vous pourriez m'aider ?", "Could you help me?", "The conditional pourriez softens the request. Most formal: pourriez-vous m'aider, s'il vous plaît ?",
+              "Excusez-moi, vous pourriez m'aider ? Je cherche la gare.", "Excuse me, could you help me? I'm looking for the station."],
+            ["J'aurais besoin d'un coup de main.", "I could use a hand.", "J'aurais besoin is the gentle conditional of j'ai besoin. A good opener with a stranger, after excusez-moi.",
+              "Excusez-moi, j'aurais besoin d'un coup de main pour monter ma valise.", "Excuse me, I could use a hand getting my suitcase up."],
+            ["Je peux vous demander un service ?", "Can I ask you a favour?", "Un service is a favour; to do someone a favour is rendre service. Informal: tu peux me rendre un service ?",
+              "Je peux vous demander un service ? Vous pourriez garder ma place une minute ?", "Can I ask you a favour? Could you keep my seat for a minute?"],
+          ],
+        },
+        {
+          en: "Offering help",
+          fr: "Je peux vous aider ?",
+          desc: "Spotting someone who's stuck and stepping in.",
+          cards: [
+            ["Je peux vous aider ?", "Can I help you?", "The standard offer to a stranger, and what shop assistants say. Informal: je peux t'aider ?",
+              "— Je peux vous aider ? — Oui, je cherche un pull en taille M.", "— Can I help you? — Yes, I'm looking for a jumper in a medium."],
+            ["Qu'est-ce que je peux faire pour vous ?", "What can I do for you?", "The service phrase: reception desks, shops, the phone. More formal: que puis-je faire pour vous ?",
+              "Bonjour madame, qu'est-ce que je peux faire pour vous ?", "Good morning, what can I do for you?"],
+            ["Tu as besoin d'aide ?", "Do you need help?", "Spoken as t'as besoin d'aide ? Pared right down: besoin d'aide ?",
+              "T'as besoin d'aide avec tes devoirs ?", "Do you need help with your homework?"],
+            ["Besoin d'un coup de main ?", "Need a hand?", "Casual, with the verb dropped. In full: tu as besoin d'un coup de main ? The de is required, never besoin un coup.",
+              "— Besoin d'un coup de main ? — Oh oui, merci, ces cartons pèsent une tonne.", "— Need a hand? — Oh yes, thanks, these boxes weigh a ton."],
+            ["Je te donne un coup de main.", "I'll give you a hand.", "Not a question: the present tense means you're already on your way over.",
+              "Attends, je te donne un coup de main avec ce carton.", "Hang on, I'll give you a hand with that box."],
+            ["Avec plaisir !", "With pleasure! / Happy to!", "A ready yes when someone asks you for help. Also accepts an invitation.",
+              "— Tu peux m'aider à monter le canapé ? — Avec plaisir !", "— Can you help me get the sofa upstairs? — Happy to!"],
+          ],
+        },
+        {
+          en: "Taking charge & reassuring",
+          fr: "Je m'en occupe",
+          desc: "Taking a task off someone's hands, or letting them know you're there.",
+          cards: [
+            ["Laisse-moi t'aider.", "Let me help you.", "A warm, insistent offer. Formal: laissez-moi vous aider. Shorter and more eager: laisse-moi faire ! (let me do it!).",
+              "Laisse-moi t'aider, tu ne vas pas porter ça toute seule.", "Let me help you, you're not carrying that on your own."],
+            ["Laisse, je m'en occupe.", "Leave it, I'll take care of it.", "Takes the whole job over. Same meaning: laisse, je m'en charge.",
+              "Laisse, je m'en occupe, va te reposer.", "Leave it, I'll take care of it, go and have a rest."],
+            ["Tu veux que je m'en occupe ?", "Do you want me to handle it?", "The same offer as a question, leaving the decision to the other person. Formal: vous voulez que je m'en occupe ?",
+              "Tu as l'air débordé. Tu veux que je m'en occupe ?", "You look swamped. Do you want me to handle it?"],
+            ["T'inquiète, je gère.", "Don't worry, I've got this.", "Very casual. T'inquiète is short for ne t'inquiète pas; gérer means to handle or manage.",
+              "— Tu sais réparer ça ? — T'inquiète, je gère.", "— Do you know how to fix that? — Don't worry, I've got this."],
+            ["Tu peux compter sur moi.", "You can count on me.", "A promise to help, now or later. Formal: vous pouvez compter sur moi.",
+              "— Tu viendras m'aider samedi ? — Bien sûr, tu peux compter sur moi.", "— Will you come and help me on Saturday? — Of course, you can count on me."],
+            ["Dis-moi ce que je peux faire.", "Tell me what I can do.", "An open offer, often to someone going through something hard. Formal: dites-moi ce que je peux faire.",
+              "Je suis désolé pour ton père. Dis-moi ce que je peux faire.", "I'm sorry about your dad. Tell me what I can do."],
+            ["N'hésite pas à demander.", "Don't hesitate to ask.", "Leaves the door open for later. Formal: n'hésitez pas. Often just n'hésite pas ! on its own.",
+              "Si tu as besoin de quoi que ce soit, n'hésite pas à demander.", "If you need anything at all, don't hesitate to ask."],
+          ],
+        },
+        {
+          en: "Accepting or declining",
+          fr: "Je veux bien / Ça va",
+          desc: "Saying yes to an offer gratefully, or turning it down kindly.",
+          cards: [
+            ["Oui, je veux bien.", "Yes, please. / I'd like that.", "The natural yes to an offer. Je veux bien is softer than je veux, which can sound demanding.",
+              "— Je peux t'aider ? — Oui, merci, je veux bien.", "— Can I help you? — Yes, thanks, I'd like that."],
+            ["Volontiers !", "Gladly! / I'd love that.", "A warm, slightly elevated yes to an offer, whether it's help or a cup of coffee.",
+              "— Je vous aide à porter ça ? — Volontiers, merci !", "— Shall I help you carry that? — Gladly, thank you!"],
+            ["Ce serait gentil.", "That would be kind.", "Grateful acceptance of an offer still to come. Fuller: ce serait très gentil de ta part.",
+              "— Je peux passer te chercher à la gare. — Ce serait gentil, merci.", "— I can pick you up from the station. — That would be kind, thanks."],
+            ["Non merci, ça va.", "No thanks, I'm fine.", "A light, polite no. Also non merci, c'est bon or merci, ça ira (‘thanks, I'll be fine’).",
+              "— Besoin d'aide ? — Non merci, ça va.", "— Need help? — No thanks, I'm fine."],
+            ["C'est gentil, mais je me débrouille.", "That's kind, but I can manage.", "Se débrouiller means to manage or cope on your own. Also c'est gentil, mais ça va aller.",
+              "— Je t'aide avec ton CV ? — C'est gentil, mais je me débrouille.", "— Shall I help you with your CV? — That's kind, but I can manage."],
+            ["Merci quand même.", "Thanks anyway.", "Softens a no after an offer, so the person doesn't feel brushed off.",
+              "— Tu veux que je t'emmène ? — Non, je vais marcher. Merci quand même !", "— Do you want a lift? — No, I'll walk. Thanks anyway!"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>
