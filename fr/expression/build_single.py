@@ -10,9 +10,15 @@ opens offline (tablet / SD card / email attachment):
     embedded as base64 in an EMBED map, which expression-flash.js reads before the URL
   - the shared stylesheet and card script (assets/css/pimsleur.css, assets/js/expression-flash.js)
     are inlined
-  - the Tailwind CDN script is inlined (downloaded once, cached) so the utility classes work offline
+  - the Tailwind CDN script (~400 KB runtime compiler) is replaced by the CSS it would generate:
+    the standalone Tailwind CLI, same version as the CDN, compiles just the classes used by the page
+    and its inlined scripts (CLI downloaded once, cached). If the CLI can't run, the CDN script is
+    inlined instead, as before.
   - the Google Fonts <link> is replaced by base64 woff2 @font-face rules, subset by Google to
-    just the characters the page uses (downloaded once per page, cached)
+    just the characters the page uses (downloaded once per page, cached). Google serves a variable
+    font as the same file under several weights; each file is embedded once, as one weight range.
+  - the audio is embedded exactly as recorded (best quality, for shadowing);
+    build_single_small.py makes 96 kbps mono copies for sharing
   - the category menu (assets/js/nav-expression-flash.js) is left out: its links point at
     other pages that aren't in the offline file
   - the favicon is embedded; Google Analytics is dropped
@@ -32,8 +38,11 @@ import argparse
 import base64
 import hashlib
 import json
+import platform
 import re
+import subprocess
 import sys
+import tempfile
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -45,6 +54,7 @@ DEFAULT_OUT = HERE / "single"
 CACHE = HERE / ".build_cache"
 
 TAILWIND_URL = "https://cdn.tailwindcss.com"
+TAILWIND_CLI = "https://github.com/tailwindlabs/tailwindcss/releases/download/v{ver}/tailwindcss-{plat}"
 # Google serves woff2 only to browsers it recognises; the audio host 403s the default Python UA
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 
@@ -122,22 +132,22 @@ def collect_embed(html: str) -> dict:
     for i in range(1, n + 1):
         url = f"{aud_dir}{i:02d}.{aud_ext}"  # expression-flash.js numbers cards 01, 02, ...
         name = f"{i:02d}.{aud_ext}".split("?")[0]  # AUD_EXT may carry a cache-buster, e.g. "mp3?v=123"
-        local = MEDIA / topic / name
-        if local.is_file():
-            embed[url] = data_uri(local)
-            continue
-        if not aud_dir.startswith("http"):
-            raise BuildError(f"audio {name} not found (looked in {local.parent})")
-        key = f"audio/{topic}/{name}"
-        cached(key, url)
-        embed[url] = data_uri(CACHE / key)
+        src = MEDIA / topic / name
+        if not src.is_file():
+            if not aud_dir.startswith("http"):
+                raise BuildError(f"audio {name} not found (looked in {src.parent})")
+            key = f"audio/{topic}/{name}"
+            cached(key, url)
+            src = CACHE / key
+        embed[url] = data_uri(src)
     return embed
 
 
 # ---------------------------------------------------------------- fonts
 def embedded_fonts(html: str, link_href: str) -> str:
     """@font-face CSS for the families in a Google Fonts link, subset to the characters in html."""
-    text = "".join(sorted({c for c in html if c.isprintable() and not c.isspace()} | set(" ")))
+    # + the spaces expression-flash.js inserts at runtime (U+202F before ! ? ; : », U+00A0 via &nbsp;)
+    text = "".join(sorted({c for c in html if c.isprintable() and not c.isspace()} | set("   ")))
     families = re.findall(r"family=([^&]+)", link_href.replace("&amp;", "&"))
     css_parts = []
     for fam in families:
@@ -146,12 +156,51 @@ def embedded_fonts(html: str, link_href: str) -> str:
         key = "font-" + hashlib.sha1(url.encode()).hexdigest()[:16] + ".css"
         css = cached(key, url).decode("utf-8")
 
-        def to_data(m):
-            font = cached("woff2-" + hashlib.sha1(m.group(1).encode()).hexdigest()[:16] + ".woff2", m.group(1))
-            return "url(data:font/woff2;base64," + base64.b64encode(font).decode("ascii") + ")"
+        # A variable font comes back as one file under each requested weight (Playfair 400/700,
+        # Roboto 400/500). Keep one @font-face per file, spanning those weights, so it's embedded once.
+        faces = {}
+        for block in re.findall(r"@font-face\s*\{[^}]*\}", css):
+            src = re.search(r"url\((https://[^)]+)\)", block).group(1)
+            style = re.search(r"font-style:\s*(\w+)", block).group(1)
+            weight = int(re.search(r"font-weight:\s*(\d+)", block).group(1))
+            faces.setdefault((style, src), [block, []])[1].append(weight)
 
-        css_parts.append(re.sub(r"url\((https://[^)]+)\)", to_data, css))
+        for (_, src), (block, weights) in faces.items():
+            font = cached("woff2-" + hashlib.sha1(src.encode()).hexdigest()[:16] + ".woff2", src)
+            w = str(weights[0]) if len(weights) == 1 else f"{min(weights)} {max(weights)}"
+            block = re.sub(r"font-weight:\s*\d+", "font-weight: " + w, block)
+            css_parts.append(block.replace(src, "data:font/woff2;base64," + base64.b64encode(font).decode("ascii")))
     return "\n".join(css_parts)
+
+
+# ---------------------------------------------------------------- tailwind
+def tailwind_cli(version: str) -> Path:
+    """The standalone Tailwind CLI for this machine, downloaded once into the cache."""
+    arch = "arm64" if platform.machine().lower() in ("arm64", "aarch64") else "x64"
+    plat = {"Windows": f"windows-{arch}.exe", "Darwin": f"macos-{arch}"}.get(platform.system(), f"linux-{arch}")
+    key = f"tailwindcss-{version}-{plat}"
+    exe = CACHE / key
+    cached(key, TAILWIND_CLI.format(ver=version, plat=plat))
+    exe.chmod(0o755)
+    return exe
+
+
+def tailwind_css(content: list[Path]) -> str:
+    """The CSS the Tailwind CDN would generate for the classes in these files, minified."""
+    cdn = cached("tailwind.js", TAILWIND_URL).decode("utf-8")
+    m = re.search(r"tailwindcss v\$\{(\w+)\}", cdn)
+    m = m and re.search(rf"\b{m.group(1)}=\"(\d+\.\d+\.\d+)\"", cdn)
+    if not m:
+        raise BuildError("can't find the Tailwind version in the CDN script")
+    with tempfile.TemporaryDirectory() as tmp:
+        src, out = Path(tmp, "in.css"), Path(tmp, "out.css")
+        src.write_text("@tailwind base;\n@tailwind components;\n@tailwind utilities;\n")
+        r = subprocess.run([str(tailwind_cli(m.group(1))), "-i", str(src), "-o", str(out), "--minify",
+                            "--content", ",".join(p.as_posix() for p in content)],
+                           capture_output=True, text=True, check=False)
+        if r.returncode or not out.is_file():
+            raise BuildError(f"tailwind CLI failed: {r.stderr.strip()}")
+        return out.read_text(encoding="utf-8")
 
 
 # ---------------------------------------------------------------- build
@@ -176,11 +225,17 @@ def build(page: Path, out_dir: Path) -> Path:
     if fonts_css:
         html = html.replace("</head>", f"<style>\n/* embedded fonts */\n{fonts_css}\n</style>\n</head>", 1)
 
-    # ---- Tailwind CDN -> inline copy ----
+    # ---- Tailwind CDN -> the CSS it would generate (or, failing that, an inline copy) ----
     tw = re.search(r'<script\b[^>]*src="https://cdn\.tailwindcss\.com[^"]*"[^>]*>\s*</script>', html)
     if tw:
-        code = cached("tailwind.js", TAILWIND_URL).decode("utf-8")
-        html = html.replace(tw.group(0), inline_script(code), 1)
+        scripts = [local_file(s, page) for s in re.findall(r'<script\b[^>]*src="(?!https?:)([^"]+)"', html)
+                   if "/nav-" not in s and not s.startswith("nav-")]
+        try:
+            inline = "<style>\n" + tailwind_css([page, *scripts]) + "\n</style>"
+        except BuildError as e:
+            print(f"  warning: {e}; inlining the Tailwind CDN script instead")
+            inline = inline_script(cached("tailwind.js", TAILWIND_URL).decode("utf-8"))
+        html = html.replace(tw.group(0), inline, 1)
 
     # ---- Google Analytics: external tag + the inline dataLayer/gtag snippet ----
     html = re.sub(r'<script\b[^>]*src="https://www\.googletagmanager\.com[^"]*"[^>]*>\s*</script>\s*', "", html)

@@ -26,6 +26,7 @@ media/
 # Generated offline story files and cached audio (see eng/build_single.py)
 eng/single/
 eng/yt/
+eng/.build_cache/
 
 # Downloads cached by jap/Pimsleur/build_single.py (Tailwind, fonts)
 jap/Pimsleur/.build_cache/
@@ -34,6 +35,7 @@ fr/expression/.build_cache/
 
 # Generated offline expression pages (see fr/expression/build_single.py)
 fr/expression/single/
+fr/expression/single_small/
 
 # Python bytecode
 __pycache__/

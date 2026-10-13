@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Suggestions</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">SUGGESTIONS</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Suggesting
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Faire une proposition
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">37</span> expressions · Suggestions · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 37.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/suggestion/";
+      const AUD_EXT = "mp3?v=261013";
+
+      const categories = [
+        {
+          en: "Asking for ideas",
+          fr: "On fait quoi ?",
+          desc: "Throwing the decision open: what now, what do you suggest?",
+          cards: [
+            ["On fait quoi ?", "What shall we do?", "The everyday way to ask for a plan. Add maintenant or alors when you're stuck. Fuller: qu'est-ce qu'on fait ? About a thing: on en fait quoi ? (what do we do with it?)",
+              "— Le dernier train est parti. — Bon, on fait quoi, maintenant ?", "— The last train has gone. — Right, what do we do now?"],
+            ["Tu proposes quoi ?", "What do you suggest?", "Hands the decision to the other person, sometimes as a challenge after they've shot your idea down. Formal: qu'est-ce que vous proposez ?",
+              "— J'en ai marre du resto italien. — D'accord, tu proposes quoi ?", "— I'm sick of the Italian place. — Fine, what do you suggest?"],
+            ["T'as une idée ?", "Any ideas?", "Spoken form of tu as une idée ? Clipped right down: une idée ? Formal: vous avez une idée ?",
+              "Il faut trouver un cadeau pour Léa. T'as une idée ?", "We need to find a present for Léa. Any ideas?"],
+          ],
+        },
+        {
+          en: "Let's…",
+          fr: "On y va ?",
+          desc: "Friendly proposals to do something together.",
+          cards: [
+            ["On y va ?", "Shall we go?", "Any on + verb becomes a suggestion with a rising voice at the end: on commande une pizza ? on le rend au magasin ?",
+              "Il est déjà huit heures. On y va ?", "It's already eight o'clock. Shall we go?"],
+            ["Ça te dit ?", "Do you fancy it? / How about it?", "Literally ‘does it say something to you?’. The idea can go before or after: un ciné, ça te dit ? Formal or plural: ça vous dit ?",
+              "Une soirée entre potes samedi, ça te dit ?", "How about a night out with friends on Saturday?",
+              "Ça vous dit, un verre pour fêter ça ?", "How about a drink to celebrate?"],
+            ["Ça te dirait de… ?", "Would you like to…?", "The conditional of ça te dit, + de + infinitive: a gentle invitation. Formal: ça vous dirait de… ?",
+              "Ça te dirait de venir dîner dimanche ?", "Would you like to come for dinner on Sunday?"],
+            ["Et si on sortait ce soir ?", "How about going out tonight?", "Et si + imperfect is a light, tempting ‘what if we…’. Works with tu too: et si tu faisais une pause ?",
+              "Il fait trop beau. Et si on allait pique-niquer ?", "It's too nice out. How about a picnic?"],
+            ["On pourrait…", "We could…", "The conditional softens the idea and leaves room to say no. Plainer and surer: on peut…",
+              "On pourrait manger chinois ce soir, non ?", "We could have Chinese tonight, couldn't we?",
+              "Pour éviter les disputes, on peut faire un planning pour la salle de bains.", "To avoid arguments, we can draw up a rota for the bathroom."],
+            ["Allons-y !", "Let's go!", "The nous imperative means ‘let's…’: regardons un film, parlons français. A touch more formal than on + verb, which is what people mostly say.",
+              "Allons-y, sinon on va rater le début.", "Let's go, or we'll miss the beginning."],
+          ],
+        },
+        {
+          en: "Putting forward a proposal",
+          fr: "Je propose…",
+          desc: "Meetings, negotiations, group decisions: putting an idea on the table.",
+          cards: [
+            ["Je propose qu'on…", "I suggest we…", "Takes the subjunctive: qu'on fasse, qu'on aille, qu'on prenne. With an infinitive it includes you: je propose de partir tôt.",
+              "On est trop nombreux. Je propose qu'on fasse deux groupes.", "There are too many of us. I suggest we split into two groups."],
+            ["Je vous propose de…", "I suggest you… / May I suggest…", "Proposer à quelqu'un de + infinitive. Standard in hotels, shops and meetings. With a noun it's an offer: je vous propose un café ?",
+              "Celle-ci est un peu petite. Je vous propose de voir les autres suites.", "This one's a bit small. May I suggest you look at the other suites."],
+            ["J'ai une proposition à te faire.", "I've got a proposal for you.", "Opens a pitch or a deal. Formal: j'ai une proposition à vous faire. Film-style: j'ai un marché à vous proposer (I have a deal for you).",
+              "J'ai une proposition à te faire : tu gardes le chat et je te prête ma voiture.", "I've got a proposal for you: you look after the cat and I lend you my car."],
+            ["Ce serait bien qu'on…", "It would be good if we…", "A tactful nudge. Que + subjunctive: qu'on revienne, qu'on parte. With an infinitive: ce serait bien de prévenir Marc.",
+              "Ce serait bien qu'on revienne avec une meilleure offre.", "It would be good if we came back with a better offer."],
+            ["C'est juste une proposition.", "It's just a suggestion.", "Takes the pressure off what you've just suggested. Add essaie, au moins ! (at least give it a try!) to keep pushing.",
+              "— Que je me coupe les cheveux ? — C'est juste une proposition. Essaie, au moins !", "— Cut my hair? — It's just a suggestion. At least give it a try!"],
+          ],
+        },
+        {
+          en: "Giving advice",
+          fr: "Tu devrais…",
+          desc: "Telling someone what you'd do in their place.",
+          cards: [
+            ["Tu devrais…", "You should…", "The conditional of devoir: friendly advice, not an order. Formal: vous devriez. Tu dois is much stronger: ‘you must’.",
+              "Tu devrais lui parler, elle n'attend que ça.", "You should talk to her, it's all she's waiting for.",
+              "T'as l'air crevée. Tu devrais te faire une infusion et aller te coucher.", "You look shattered. You should make yourself a herbal tea and go to bed."],
+            ["Tu ferais mieux de…", "You'd better…", "Stronger than tu devrais, often with a hint of warning. Formal: vous feriez mieux de.",
+              "Tu ferais mieux de partir maintenant, il va y avoir des bouchons.", "You'd better leave now, there's going to be traffic."],
+            ["Si j'étais toi…", "If I were you…", "Si + imperfect, then the conditional: si j'étais toi, je partirais. Formal: si j'étais vous.",
+              "Si j'étais vous, j'abattrais ce mur pour avoir une grande cuisine.", "If I were you, I'd knock down this wall to get a big kitchen."],
+            ["À ta place…", "If I were you… / In your shoes…", "Shorter than si j'étais toi and very common. Still followed by the conditional. Formal: à votre place.",
+              "À ta place, j'accepterais le poste.", "If I were you, I'd take the job."],
+            ["Pourquoi tu ne l'appelles pas ?", "Why don't you call her?", "Pourquoi + present + pas turns a question into a suggestion. In speech the ne goes: pourquoi tu l'appelles pas ? Neutral: pourquoi ne pas l'appeler ?",
+              "— Je ne sais pas si Julie vient ce soir. — Pourquoi tu ne l'appelles pas ?", "— I don't know if Julie's coming tonight. — Why don't you call her?"],
+            ["Il faudrait que tu…", "You ought to… / You'd need to…", "Softer than il faut. Que + subjunctive. In speech the il disappears: faudrait que tu dises à Paul que…",
+              "Faudrait que tu dises à Paul que la réunion est annulée.", "You'd need to tell Paul the meeting's cancelled."],
+            ["Il vaudrait mieux…", "It would be better to…", "Advice with a reason behind it. + infinitive, or que + subjunctive. Spoken: vaudrait mieux.",
+              "Il vaudrait mieux réserver, c'est toujours plein le samedi.", "It would be better to book, it's always full on Saturdays."],
+            ["Tu pourrais peut-être…", "Maybe you could…", "The gentlest way to advise. Peut-être que can also open the sentence: peut-être que Marc serait d'accord pour nous aider.",
+              "Tu pourrais peut-être lui écrire un petit mot ?", "Maybe you could write her a little note?"],
+          ],
+        },
+        {
+          en: "Saying yes",
+          fr: "Bonne idée !",
+          desc: "Welcoming an idea, from a quick yes to real enthusiasm.",
+          cards: [
+            ["Bonne idée !", "Good idea!", "Also c'est une bonne idée, or among friends super idée ! Grudging: c'est une bonne idée, quand même (it is a good idea, after all).",
+              "— Et si on invitait tes parents ? — Oh oui, bonne idée !", "— What if we invited your parents? — Oh yes, good idea!"],
+            ["Ça me dit bien !", "I like the sound of that!", "The yes to ça te dit ? Shorter: ça me dit !",
+              "— Une balade au bord de la mer, ça te dit ? — Ça me dit bien !", "— How about a walk by the sea? — I like the sound of that!"],
+            ["Je suis partant(e) !", "I'm in! / Count me in!", "Partant means up for it. As a question: t'es partant ? (are you in?)",
+              "— On fait un escape game samedi ? — Je suis partante !", "— Shall we do an escape room on Saturday? — Count me in!"],
+            ["J'aime bien cette idée.", "I like that idea.", "A considered yes. With moi in front, you take a side in a group: moi, j'aime bien cette proposition.",
+              "Moi, j'aime bien cette proposition. On vote ?", "Personally, I like this proposal. Shall we vote?"],
+            ["Ça vaut le coup d'essayer.", "It's worth a try.", "Valoir le coup: to be worth it. More formal: ta solution mérite d'être testée.",
+              "— On pourrait changer de fournisseur. — Ça vaut le coup d'essayer.", "— We could change suppliers. — It's worth a try."],
+            ["Va pour la pizza !", "Pizza it is!", "Va pour + the option settles a choice. On its own: va pour ça ! (fine, let's do that!)",
+              "— Pizza ou sushis ? — Allez, va pour la pizza !", "— Pizza or sushi? — Go on then, pizza it is!"],
+          ],
+        },
+        {
+          en: "Not sure yet",
+          fr: "Je vais réfléchir",
+          desc: "Buying time before you say yes or no.",
+          cards: [
+            ["Je vais y réfléchir.", "I'll think about it.", "An honest maybe, though often a polite no in disguise. Also laisse-moi réfléchir (let me think).",
+              "— Tu veux reprendre mon appartement ? — Je vais y réfléchir.", "— Do you want to take over my flat? — I'll think about it."],
+            ["Faut que je réfléchisse.", "I need to think about it.", "Spoken form of il faut que je réfléchisse. Firmer than je vais y réfléchir: you won't be rushed.",
+              "C'est beaucoup d'argent. Faut que je réfléchisse.", "That's a lot of money. I need to think about it."],
+            ["Je sais pas trop…", "I'm not so sure…", "Hesitation, often the first step towards no. Spoken for je ne sais pas trop.",
+              "— On part camper ce week-end ? — Je sais pas trop… il va pleuvoir.", "— Shall we go camping this weekend? — I'm not so sure… it's going to rain."],
+          ],
+        },
+        {
+          en: "Saying no",
+          fr: "Bof…",
+          desc: "Turning an idea down, from gently to bluntly.",
+          cards: [
+            ["Ça me dit pas trop.", "I don't really feel like it.", "The polite no to ça te dit ? Same idea: ça me tente pas trop. Firmer: ça me dit rien.",
+              "— Un karaoké ce soir ? — Ça me dit pas trop, je suis crevé.", "— Karaoke tonight? — I don't really feel like it, I'm shattered."],
+            ["Bof, pas trop.", "Meh, not really.", "Bof is a shrug in word form: lukewarm, unenthusiastic. Casual.",
+              "— Un film d'horreur ce soir ? — Bof, pas trop.", "— A horror film tonight? — Meh, not really."],
+            ["Je préfère pas.", "I'd rather not.", "Soft and polite. Spoken for je préfère ne pas. A reason makes it kinder.",
+              "— Tu veux conduire ? — Je préfère pas, je suis trop fatigué.", "— Do you want to drive? — I'd rather not, I'm too tired."],
+            ["Je ne suis pas sûr(e) que ce soit une bonne idée.", "I'm not sure that's a good idea.", "A diplomatic no: doubt + subjunctive. More formal and final: je ne suis pas favorable à… (I'm not in favour of…).",
+              "Lui prêter de l'argent ? Je ne suis pas sûre que ce soit une bonne idée.", "Lend him money? I'm not sure that's a good idea."],
+            ["Désolé(e), mais non.", "Sorry, but no.", "Polite but final: there's nothing to discuss.",
+              "— Je peux emprunter ta voiture ce week-end ? — Désolée, mais non.", "— Can I borrow your car this weekend? — Sorry, but no."],
+            ["C'est nul comme idée.", "That's a rubbish idea.", "Blunt and casual. In films you'll hear the vulgar c'est une idée de merde. Dismissive: c'est même pas une proposition (that's not even a suggestion).",
+              "— On fait la fête mardi soir ? — C'est nul comme idée, on bosse le lendemain.", "— Party on Tuesday night? — That's a rubbish idea, we're working the next day."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

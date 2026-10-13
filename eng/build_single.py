@@ -7,13 +7,18 @@ CSS/JS (assets/css/yt*.css, assets/js/*.js) loaded from the site. This script
 collapses one into ONE .html that opens offline (tablet / SD card):
 
   - inlines the shared stylesheet(s), scripts and offline fonts (eng/offline_fonts.css)
-  - embeds every image and audio file the story uses as base64 (EMBED map)
+  - embeds every image and audio file the story uses as base64 (EMBED map):
+      images -> as-is (they are resized and converted to JPG beforehand)
+      audio  -> 96 kbps mono MP3 (ffmpeg)            the originals are up to 320 kbps stereo
+    Shrunk audio is cached in eng/.build_cache/ and redone when the original changes.
+    It is skipped for a file it wouldn't make smaller.
   - drops Google Analytics and the Google Fonts links
 
 Usage (from anywhere):
     python eng/build_single.py                      build every page in stories/
     python eng/build_single.py 2.7_clean 2.8_do     build just these
     python eng/build_single.py --out some/dir       write somewhere else
+    python eng/build_single.py --kbps 0             embed the original audio untouched
 
 Output goes to eng/single/<name>.html (same file names as stories/). The lessons
 menu (assets/js/nav-*.js) is always left out: it didn't work on the Android
@@ -28,6 +33,8 @@ import argparse
 import base64
 import json
 import re
+import shutil
+import subprocess
 import sys
 import urllib.request
 from pathlib import Path
@@ -39,6 +46,7 @@ DEFAULT_OUT = ENG / "single"
 FONTS_CSS = ENG / "offline_fonts.css"
 AUDIO_CACHE = ENG / "yt"
 AUDIO_BACKUP = ROOT / "media" / "eng" / "yt"  # the user's own backup copy
+CACHE = ENG / ".build_cache"  # shrunk audio
 
 MIME = {
     ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
@@ -54,6 +62,30 @@ class BuildError(Exception):
 def data_uri(path: Path) -> str:
     mime = MIME[path.suffix.lower()]
     return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
+
+
+def fresh(out: Path, src: Path) -> bool:
+    return out.is_file() and out.stat().st_mtime >= src.stat().st_mtime
+
+
+def smaller(out: Path, src: Path) -> Path:
+    return out if out.stat().st_size < src.stat().st_size else src
+
+
+def shrink_audio(src: Path, slug: str, kbps: int) -> Path:
+    """src as a kbps mono MP3 (cached), or src itself if that wouldn't be smaller."""
+    out = CACHE / f"audio-{kbps}k" / slug / src.name
+    if not fresh(out, src):
+        ffmpeg = shutil.which("ffmpeg")
+        if not ffmpeg:
+            raise BuildError("shrinking the audio needs ffmpeg on PATH (or use --kbps 0)")
+        out.parent.mkdir(parents=True, exist_ok=True)
+        r = subprocess.run([ffmpeg, "-v", "error", "-y", "-i", str(src), "-map_metadata", "-1",
+                            "-ac", "1", "-c:a", "libmp3lame", "-b:a", f"{kbps}k", str(out)],
+                           capture_output=True, text=True, check=False)
+        if r.returncode:
+            raise BuildError(f"ffmpeg failed on {src}: {r.stderr.strip()}")
+    return smaller(out, src)
 
 
 def js_const(html: str, name: str, default=None) -> str:
@@ -109,7 +141,7 @@ def find_audio(url_name: str, slug: str, aud_dir: str) -> Path:
     raise BuildError(f"audio {name} not found (looked in {AUDIO_CACHE / slug})")
 
 
-def collect_embed(html: str) -> dict:
+def collect_embed(html: str, kbps: int) -> dict:
     img_dir = js_const(html, "IMG_DIR")
     aud_dir = js_const(html, "AUD_DIR")
     img_ext = js_const(html, "IMG_EXT", "jpg")
@@ -126,7 +158,8 @@ def collect_embed(html: str) -> dict:
         else:
             missing.append(str(p))
     for name in auds:
-        embed[aud_dir + name] = data_uri(find_audio(name, slug, aud_dir))
+        p = find_audio(name, slug, aud_dir)
+        embed[aud_dir + name] = data_uri(shrink_audio(p, slug, kbps) if kbps else p)
     if missing:
         raise BuildError("missing images:\n       " + "\n       ".join(missing))
     return embed
@@ -143,7 +176,7 @@ def site_file(url: str) -> Path:
     return p
 
 
-def build(page: Path, out_dir: Path) -> Path:
+def build(page: Path, out_dir: Path, kbps: int = 96) -> Path:
     html = page.read_text(encoding="utf-8")
     title = re.search(r"<title>(.*?)</title>", html, re.S)
     head = re.search(r"<head>(.*?)</head>", html, re.S)
@@ -151,7 +184,7 @@ def build(page: Path, out_dir: Path) -> Path:
     if not (title and head and body):
         raise BuildError("expected <title>, <head> and <body>")
 
-    embed = collect_embed(html)
+    embed = collect_embed(html, kbps)
 
     # ---- <style>: offline fonts + every local stylesheet the page links ----
     css_urls = re.findall(r'<link[^>]*rel="stylesheet"[^>]*href="(/[^"]+)"', head.group(1))
@@ -205,6 +238,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Build offline single-file stories from stories/*.html")
     ap.add_argument("names", nargs="*", help="story names, e.g. 2.7_clean (default: all)")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT, help=f"output folder (default {DEFAULT_OUT})")
+    ap.add_argument("--kbps", type=int, default=96,
+                    help="re-encode audio to this many kbps mono MP3 (default 96, needs ffmpeg; 0 = as-is)")
     args = ap.parse_args()
 
     if args.names:
@@ -224,7 +259,7 @@ def main() -> int:
     for page in pages:
         print(f"{page.name}")
         try:
-            dest = build(page, args.out)
+            dest = build(page, args.out, args.kbps)
             print(f"  -> {dest}  ({dest.stat().st_size / 1024 / 1024:.2f} MB)")
         except BuildError as e:
             failed += 1

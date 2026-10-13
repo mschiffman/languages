@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Reassurance</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">REASSURANCE</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Reassuring
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Rassurer &amp; encourager
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">32</span> expressions · Reassurance · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 32.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/reassurance/";
+      const AUD_EXT = "mp3?v=261013";
+
+      const categories = [
+        {
+          en: "It'll be OK",
+          fr: "Ça va aller",
+          desc: "Comforting someone who's upset, scared or dreading what's ahead.",
+          cards: [
+            ["Ça va aller.", "It'll be OK.", "The go-to comfort, often with a pet name: allez, mon bonhomme, ça va aller. Shorter and a little old-fashioned: ça ira.",
+              "Allez, ma puce, ça va aller. Je suis là.", "Come on, sweetheart, it'll be OK. I'm here.",
+              "Bouge pas, et ça ira.", "Keep still and you'll be fine."],
+            ["Tout va bien se passer.", "Everything's going to be fine.", "For something still to come: an exam, an operation, a trip. Same thing: ça va bien se passer. Je suis sûr(e) que… adds conviction.",
+              "Ça va très bien se passer, les vacances avec ton papa.", "The holiday with your dad is going to go really well.",
+              "Je suis sûre que tout va bien se passer, le chirurgien est excellent.", "I'm sure everything will be fine, the surgeon is excellent."],
+            ["Ça va s'arranger.", "It'll sort itself out.", "For a problem or a row that needs time. Stronger: tout va rentrer dans l'ordre (everything will get back to normal).",
+              "T'inquiète pas, ça va s'arranger avec ton frère.", "Don't worry, things will sort themselves out with your brother."],
+            ["Tout va bien.", "It's all right.", "In the moment, to someone frightened or shaken: you're safe, nothing bad is happening.",
+              "Tout va bien, t'en fais pas ! C'était juste l'orage.", "It's all right, don't worry! It was just the storm."],
+          ],
+        },
+        {
+          en: "Don't worry",
+          fr: "T'inquiète pas",
+          desc: "Taking the worry off someone's shoulders.",
+          cards: [
+            ["T'inquiète pas.", "Don't worry.", "Spoken form of ne t'inquiète pas. Formal: ne vous inquiétez pas. Very casual: t'inquiète ! on its own.",
+              "T'inquiète pas, on arrive dans cinq minutes.", "Don't worry, we'll be there in five minutes."],
+            ["T'en fais pas.", "Don't worry about it.", "S'en faire means to fret. Formal: ne vous en faites pas.",
+              "T'en fais pas, on va assurer.", "Don't worry, we're going to nail it."],
+            ["Faut pas vous inquiéter.", "There's no need to worry.", "Gentle and a little professional: doctors, teachers, staff. Spoken for il ne faut pas. Informal: faut pas t'inquiéter.",
+              "Faut pas vous inquiéter, c'est une opération de routine.", "There's no need to worry, it's a routine operation."],
+            ["Rassurez-vous.", "Rest assured.", "Leads straight into the reassuring fact. Informal: rassure-toi.",
+              "Rassurez-vous, aujourd'hui, il est en parfaite santé.", "Rest assured, today he's in perfect health."],
+            ["Pas de panique !", "Don't panic!", "Light, often humorous: something's gone wrong, but it can be fixed.",
+              "Pas de panique, j'ai un double des clés.", "Don't panic, I've got a spare set of keys."],
+          ],
+        },
+        {
+          en: "It's nothing",
+          fr: "C'est pas grave",
+          desc: "Shrinking a mistake or mishap down to size.",
+          cards: [
+            ["C'est pas grave.", "It doesn't matter. / No big deal.", "Spoken for ce n'est pas grave. The standard reply to an apology.",
+              "— J'ai cassé ton verre. — C'est pas grave.", "— I broke your glass. — No big deal."],
+            ["C'est rien.", "It's nothing.", "Spoken for ce n'est rien. Often followed by ça arrive à tout le monde (it happens to everyone).",
+              "T'inquiète, c'est rien, ça arrive à tout le monde.", "Don't worry, it's nothing, it happens to everyone."],
+            ["Pas de souci.", "No problem.", "Reassures someone who's apologising or asking a favour. Spoken: y a pas de souci.",
+              "— Désolé, je serai un peu en retard. — Pas de souci, je t'attends.", "— Sorry, I'll be a bit late. — No problem, I'll wait for you."],
+            ["C'est pas la fin du monde.", "It's not the end of the world.", "Puts a disappointment in perspective.",
+              "T'as raté ton permis ? C'est pas la fin du monde, tu le repasseras.", "You failed your driving test? It's not the end of the world, you'll take it again."],
+          ],
+        },
+        {
+          en: "Steadying someone",
+          fr: "Respire",
+          desc: "Calming panic or fear in the moment.",
+          cards: [
+            ["Respire.", "Breathe.", "Softer than calme-toi, which can sound dismissive to someone upset. Respire un bon coup: take a deep breath.",
+              "Respire un bon coup. Voilà, doucement.", "Take a deep breath. That's it, nice and slow."],
+            ["Du calme.", "Easy. / Calm down.", "Less pointed than calme-toi: it's about the situation, not the person. Doubled: du calme, du calme.",
+              "Du calme, on a encore le temps d'attraper le train.", "Easy, we've still got time to catch the train."],
+            ["N'aie pas peur.", "Don't be afraid.", "For children, animals, frightening moments. Formal or plural: n'ayez pas peur.",
+              "N'ayez pas peur, le chien est très gentil.", "Don't be afraid, the dog is really friendly."],
+            ["Aie confiance.", "Trust me. / Have faith.", "Aie is the imperative of avoir. More everyday: fais-moi confiance.",
+              "Aie confiance, j'arrive.", "Trust me, I'm on my way."],
+          ],
+        },
+        {
+          en: "I'm here",
+          fr: "Je suis là",
+          desc: "Letting someone know they're not alone.",
+          cards: [
+            ["Je suis là.", "I'm here.", "Simple presence, often the most comforting thing to say. Fuller: je suis là pour toi.",
+              "Pleure si tu veux, je suis là.", "Cry if you need to, I'm here."],
+            ["On est avec toi.", "We're with you. / We're behind you.", "Support from a group: family, friends, a team.",
+              "Quoi que tu décides, on est avec toi.", "Whatever you decide, we're behind you."],
+            ["T'es pas tout(e) seul(e).", "You're not alone.", "Spoken for tu n'es pas tout seul. For a problem as well as loneliness.",
+              "T'es pas toute seule, on va trouver une solution ensemble.", "You're not alone, we'll find a solution together."],
+          ],
+        },
+        {
+          en: "Cheering someone on",
+          fr: "Vas-y !",
+          desc: "Encouraging someone facing a challenge.",
+          cards: [
+            ["Vas-y !", "Go for it!", "The push to start: a jump, a speech, a phone call. Formal or plural: allez-y !",
+              "Vas-y, appelle-le, qu'est-ce que tu risques ?", "Go on, call him, what have you got to lose?"],
+            ["Tu peux le faire !", "You can do it!", "",
+              "Tu peux le faire, t'as bossé dur pour ça !", "You can do it, you've worked hard for this!",
+              "Encore cinq cents mètres, tu peux le faire !", "Another five hundred metres, you can do it!"],
+            ["Tu vas y arriver.", "You'll get there. / You'll manage.", "Confidence in the outcome, for something that takes time.",
+              "C'est dur au début, mais tu vas y arriver.", "It's hard at first, but you'll get there."],
+            ["Courage !", "Hang in there! / Good luck!", "Not ‘be brave’: it's for a hard day, an exam, a move. As a parting wish: bon courage !",
+              "Encore deux jours d'examens ? Courage !", "Two more days of exams? Hang in there!"],
+            ["Accroche-toi !", "Hang on in there!", "Keep going through the hard part. Same idea: tiens bon !",
+              "Accroche-toi, c'est bientôt fini.", "Hang on in there, it's nearly over."],
+            ["Lâche rien !", "Don't give up!", "Casual and punchy, from ne lâche rien. Common in sport.",
+              "Lâche rien, t'es presque au sommet !", "Don't give up, you're nearly at the top!"],
+            ["Encore un effort !", "One last push!", "When the finish line is in sight.",
+              "Encore un effort, on a presque fini de peindre.", "One last push, we've almost finished painting."],
+            ["Faut pas perdre espoir.", "You mustn't lose hope.", "For a long, uncertain wait. Spoken for il ne faut pas perdre espoir; often after allez.",
+              "Allez, faut pas perdre espoir, ils vont le retrouver.", "Come on, you mustn't lose hope, they'll find him."],
+          ],
+        },
+        {
+          en: "Confidence in them",
+          fr: "Tu gères !",
+          desc: "Telling someone they're doing fine, or that it'll all work out.",
+          cards: [
+            ["Tu gères !", "You're doing great! / You've got this!", "Casual praise for someone handling something tricky. Gérer: to handle.",
+              "Trois enfants et un boulot ? Franchement, tu gères !", "Three kids and a job? Honestly, you're doing great!"],
+            ["Tu t'en sors très bien.", "You're doing really well.", "S'en sortir: to cope, to manage. Warm and reassuring for a beginner. Formal: vous vous en sortez très bien.",
+              "Ne t'excuse pas, tu t'en sors très bien pour une première fois.", "Don't apologise, you're doing really well for a first time."],
+            ["C'est déjà bien.", "That's already good.", "Tempers disappointment: what you've done counts.",
+              "T'as eu 12 ? C'est déjà bien, t'as fait des progrès.", "You got 12? That's already good, you've made progress."],
+            ["Ça va le faire.", "It'll work out. / We'll pull it off.", "Casual and upbeat, about a plan or a tight deadline.",
+              "On a deux heures pour tout ranger ? Ça va le faire.", "We've got two hours to tidy everything? We'll pull it off."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>
