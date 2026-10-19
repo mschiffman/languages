@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>How Do Plants Make Food?</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M12 21v-9" stroke="#6B4A2B" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M12 12C12 8 9 5 4 5c0 4 3 7 8 7Z" fill="#8FC07E" />
+            <path d="M12 10c0-3 2.5-5.5 7-5.5 0 3.5-2.5 5.5-7 5.5Z" fill="#3f9a3a" />
+          </svg>
+          <span>How do plants make <span style="color: #3f9a3a">food</span>?</span>
+        </div>
+        <div class="counter" id="counter">1 / 7</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s1.4_plantFood/1.jpg … 7.jpg   (one per book page)
+     audio  : 01.mp3 … 51.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s1.4_plantFood/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s1.4_plantFood/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=1019261826";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..51 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Plants are living things.", 1]],
+            [
+              ["They need food", 2],
+              ["to live and grow.", 3],
+            ],
+            [
+              ["But plants do not eat", 4],
+              ["like people or animals.", 5],
+            ],
+            [["So how do plants make food?", 6]],
+            [["Let's find out!", 7]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["Plants need sunlight.", 8]],
+            [["The Sun gives plants energy.", 9]],
+            [
+              ["Leaves catch sunlight", 10],
+              ["during the day.", 11],
+            ],
+            [
+              ["This sunlight helps the plant", 12],
+              ["make food.", 13],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["Plants also need water.", 14]],
+            [
+              ["Their roots take in water", 15],
+              ["from the soil.", 16],
+            ],
+            [
+              ["Roots also take in nutrients", 17],
+              ["from the soil.", 18],
+            ],
+            [
+              ["Then the water and nutrients", 19],
+              ["move up through the stem.", 20],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["Plants need something", 21],
+              ["from the air too.", 22],
+            ],
+            [
+              ["They take in a gas", 23],
+              ["called carbon dioxide.", 24],
+            ],
+            [
+              ["Tiny openings in the leaves", 25],
+              ["let this gas come in.", 26],
+            ],
+            [
+              ["Now the plant has sunlight, water", 27],
+              ["nutrients, and carbon dioxide.", 28],
+            ],
+            [["It is ready to make food!", 29]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ["The leaves use sunlight, water,", 30],
+              ["nutrients, and carbon dioxide.", 31],
+            ],
+            [
+              ["Then the plant makes sugar,", 32],
+              ["which is its food.", 33],
+            ],
+            [
+              ["This process", 34],
+              ["is called photosynthesis.", 35],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["When plants make food,", 36],
+              ["they also make oxygen.", 37],
+            ],
+            [
+              ["They release oxygen", 38],
+              ["into the air.", 39],
+            ],
+            [
+              ["People and animals need oxygen", 40],
+              ["to breathe.", 41],
+            ],
+            [["So plants help us too!", 42]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ["Plants need sunlight, water,", 43],
+              ["nutrients, and carbon dioxide,", 44],
+              ["to make food.", 45],
+            ],
+            [
+              ["They get nutrients from the soil", 46],
+              ["through their roots.", 47],
+            ],
+            [
+              ["That is how plants", 48],
+              ["live and grow.", 49],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

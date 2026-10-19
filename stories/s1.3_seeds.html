@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>How Do Seeds Grow?</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M12 21v-9" stroke="#6B4A2B" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M12 12C12 8 9 5 4 5c0 4 3 7 8 7Z" fill="#8FC07E" />
+            <path d="M12 10c0-3 2.5-5.5 7-5.5 0 3.5-2.5 5.5-7 5.5Z" fill="#3f9a3a" />
+          </svg>
+          <span>How do seeds <span style="color: #3f9a3a">grow</span>?</span>
+        </div>
+        <div class="counter" id="counter">1 / 7</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s1.3_seeds/1.jpg … 7.jpg   (one per book page)
+     audio  : 01.mp3 … 58.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s1.3_seeds/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s1.3_seeds/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..58 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Look at this tiny seed.", 1]],
+            [
+              ["It does not look", 2],
+              ["like a plant yet.", 3],
+            ],
+            [["But a seed is alive!", 4]],
+            [
+              ["Inside the seed", 5],
+              ["is a baby plant.", 6],
+            ],
+            [["It is waiting to grow.", 7]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["A seed needs", 8],
+              ["the right conditions to grow.", 9],
+            ],
+            [["It needs water, air, and warmth.", 10]],
+            [
+              ["When the seed gets water,", 11],
+              ["it begins to wake up.", 12],
+            ],
+            [
+              ["This first step", 13],
+              ["is called germination.", 14],
+            ],
+            [
+              ["Now the seed", 15],
+              ["is ready to grow.", 16],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["The first part to come out", 17],
+              ["is the root.", 18],
+            ],
+            [
+              ["The root grows downward", 19],
+              ["into the soil.", 20],
+            ],
+            [
+              ["It helps the baby plant", 21],
+              ["stay in place.", 22],
+            ],
+            [
+              ["The root also takes in water", 23],
+              ["and nutrients.", 24],
+            ],
+            [["This helps the young plant grow.", 25]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["Next, a little shoot", 26],
+              ["begins to grow upward.", 27],
+            ],
+            [["It pushes through the soil.", 28]],
+            [
+              ["Soon, the baby plant", 29],
+              ["comes out into the light.", 30],
+            ],
+            [
+              ["The stem begins", 31],
+              ["to grow taller.", 32],
+            ],
+            [
+              ["Now the seedling", 33],
+              ["is above the ground.", 34],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["Small leaves begin to open.", 35]],
+            [["These are the plant's first leaves.", 36]],
+            [
+              ["Now the young plant", 37],
+              ["can use sunlight", 38],
+              ["to make food.", 39],
+            ],
+            [["This helps it grow stronger.", 40]],
+            [
+              ["The seed is becoming", 41],
+              ["a real little plant.", 42],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["The roots grow deeper.", 43]],
+            [["The stem grows taller.", 44]],
+            [["More leaves appear.", 45]],
+            [
+              ["Now the plant can take in", 46],
+              ["water, air, and sunlight", 47],
+              ["every day.", 48],
+            ],
+            [["It keeps growing bigger and stronger.", 49]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["So, how do seeds grow?", 50]],
+            [
+              ["First, the seed gets", 51],
+              ["water, air, and warmth.", 52],
+            ],
+            [
+              ["Then the root grows down,", 53],
+              ["and the shoot grows up.", 54],
+            ],
+            [
+              ["Leaves open,", 55],
+              ["and the plant begins making food.", 56],
+            ],
+            [
+              ["That is how a tiny seed", 57],
+              ["becomes a new plant!", 58],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

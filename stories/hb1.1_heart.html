@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Your Amazing Heart</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 21s-7.5-4.6-9.5-9.3C1.1 8.3 3.2 4.5 6.9 4.5c2.1 0 3.9 1.1 5.1 2.9 1.2-1.8 3-2.9 5.1-2.9 3.7 0 5.8 3.8 4.4 7.2C19.5 16.4 12 21 12 21Z"
+              fill="#E5534B"
+            />
+          </svg>
+          <span>Your amazing <span style="color: #d1342f">heart</span>!</span>
+        </div>
+        <div class="counter" id="counter">1 / 7</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/hb1.1_heart/1.jpg … 7.jpg   (one per book page)
+     audio  : 01.mp3 … 58.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/hb1.1_heart/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/hb1.1_heart/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..58 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [
+              ["Hello!", 1],
+              ["My name is Ruby.", 2],
+            ],
+            [["I'm a red blood cell.", 3]],
+            [
+              ["I travel around your body", 4],
+              ["all day and night.", 5],
+            ],
+            [
+              ["My job is to carry oxygen", 6],
+              ["to your body's cells.", 7],
+            ],
+            [["Come with me!", 8]],
+            [["Let's explore your amazing heart!", 9]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["Here I come,", 10],
+              ["back from the body!", 11],
+            ],
+            [
+              ["I've delivered my oxygen,", 12],
+              ["and now I'm returning to the heart.", 13],
+            ],
+            [
+              ["I enter a room", 14],
+              ["called the right atrium.", 15],
+            ],
+            [["It's one of the heart's four chambers.", 16]],
+            [
+              ["This room collects blood", 17],
+              ["returning from the body.", 18],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["Whoosh!", 19],
+              ["A little door opens!", 20],
+            ],
+            [["It's called the tricuspid valve.", 21]],
+            [
+              ["I pass through it", 22],
+              ["into the right ventricle.", 23],
+            ],
+            [["This is a strong pumping room.", 24]],
+            [["SQUEEZE!", 25]],
+            [
+              ["The heart pushes me", 26],
+              ["toward the lungs!", 27],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["I'm traveling through the pulmonary artery.", 28]],
+            [
+              ["It takes me from the heart", 29],
+              ["to the lungs.", 30],
+            ],
+            [
+              ["Here, I release carbon dioxide", 31],
+              ["and pick up fresh oxygen.", 32],
+            ],
+            [["Wonderful!", 33]],
+            [["I'm ready to deliver oxygen again!", 34]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["Back to the heart I go!", 35]],
+            [["I travel through the pulmonary veins.", 36]],
+            [["Now I enter the left atrium.", 37]],
+            [
+              ["This room receives blood", 38],
+              ["coming from the lungs.", 39],
+            ],
+            [["I'm carrying fresh oxygen!", 40]],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["Another little door opens!", 41]],
+            [["It's called the mitral valve.", 42]],
+            [["I enter the left ventricle.", 43]],
+            [
+              ["This is the heart's strongest", 44],
+              ["pumping chamber.", 45],
+            ],
+            [["THUMP!", 46]],
+            [
+              ["It pushes me into the aorta,", 47],
+              ["the body's largest artery!", 48],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ["Off I go", 49],
+              ["to deliver oxygen to the body!", 50],
+            ],
+            [
+              ["The body's cells need oxygen", 51],
+              ["to work and stay alive.", 52],
+            ],
+            [
+              ["Then I'll return", 53],
+              ["to the right side of the heart.", 54],
+            ],
+            [["My journey will begin again!", 55]],
+            [
+              ["Your heart keeps pumping,", 56],
+              ["day and night.", 57],
+            ],
+            [["What an amazing heart!", 58]],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

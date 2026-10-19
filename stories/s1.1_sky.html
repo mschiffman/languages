@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Why Is the Sky Blue?</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>Why is the sky <span style="color: #2f7fd1">blue</span>?</span>
+        </div>
+        <div class="counter" id="counter">1 / 7</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s1.1_sky/1.jpg … 7.jpg   (one per book page)
+     audio  : 01.mp3 … 30.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s1.1_sky/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s1.1_sky/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..30 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Look up!", 1]],
+            [["What color is the sky?", 2]],
+            [["It is blue!", 3]],
+            [["But why is the sky blue?", 4]],
+            [["Let's find out!", 5]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["The Sun gives us light.", 6]],
+            [["Sunlight looks white.", 7]],
+            [["But did you know?", 8]],
+            [["Sunlight has many colors inside it!", 9]],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["Look at a rainbow!", 10]],
+            [["Can you see the colors?", 11]],
+            [["Red, orange, yellow, green, blue, and violet!", 12]],
+            [["All these colors are in sunlight.", 13]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["The Earth has air all around it.", 14]],
+            [["We cannot see the air.", 15]],
+            [["But it is there!", 16]],
+            [["Sunlight travels through the air.", 17]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["The air has very tiny molecules.", 18]],
+            [["When sunlight hits them, blue light spreads in many directions.", 19]],
+            [["Scientists call this scattering.", 20]],
+            [["That is why the sky looks blue!", 21]],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["Look at the sky in the evening!", 22]],
+            [["It can be orange, pink, or red.", 23]],
+            [["Sunlight travels through more air when the Sun is low.", 24]],
+            [["Much of the blue light scatters away before reaching us.", 25]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["Why is the sky blue?", 26]],
+            [["Because air scatters blue light!", 27]],
+            [["Why can sunsets look red?", 28]],
+            [["Because much of the blue light scatters away.", 29]],
+            [["Now you know!", 30]],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
