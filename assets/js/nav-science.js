@@ -13,6 +13,7 @@
         { title: "Why Is the Grass Green?", href: "s1.2_grass.html" },
         { title: "How Do Seeds Grow?", href: "s1.3_seeds.html" },
         { title: "How Do Plants Make Food?", href: "s1.4_plantFood.html" },
+        { title: "Why Do We Have Day and Night?", href: "s1.5_dayNight.html" },
       ],
     },
     {

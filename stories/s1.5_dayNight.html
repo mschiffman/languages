@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Why Do We Have Day and Night?</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <circle cx="9" cy="12" r="6" fill="#F2B632" />
+            <path d="M15 4a8 8 0 1 0 0 16 6.5 6.5 0 0 1 0-16Z" fill="#2E3F7A" />
+          </svg>
+          <span>Why do we have <span style="color: #E0A21B">day</span> and <span style="color: #2E3F7A">night</span>?</span>
+        </div>
+        <div class="counter" id="counter">1 / 7</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s1.5_dayNight/1.jpg … 7.jpg   (one per book page)
+     audio  : 01.mp3 … 44.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s1.5_dayNight/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s1.5_dayNight/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=1020261200";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..44 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Sometimes it is bright outside.", 1]],
+            [["Sometimes it is dark.", 2]],
+            [
+              ["In the day,", 3],
+              ["we see the Sun.", 4],
+            ],
+            [
+              ["At night, we see", 5],
+              ["the Moon and stars.", 6],
+            ],
+            [["Why do we have day and night?", 7]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["We live on Earth.", 8]],
+            [["Earth is always moving.", 9]],
+            [["It spins around and around.", 10]],
+            [
+              ["This spinning", 11],
+              ["is called rotation.", 12],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["The Sun shines all the time.", 13]],
+            [
+              ["But only one side of Earth", 14],
+              ["faces the Sun at a time.", 15],
+            ],
+            [["That side gets light.", 16]],
+            [["That is daytime.", 17]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["The other side of Earth", 18],
+              ["is turned away from the Sun.", 19],
+            ],
+            [["That side does not get sunlight.", 20]],
+            [["It is dark there.", 21]],
+            [["That is nighttime.", 22]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ["Earth keeps turning", 23],
+              ["all day and all night.", 24],
+            ],
+            [
+              ["A place that has day", 25],
+              ["will later have night.", 26],
+            ],
+            [
+              ["A place that has night", 27],
+              ["will later have day.", 28],
+            ],
+            [
+              ["That is because", 29],
+              ["Earth keeps spinning.", 30],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["Earth takes about 24 hours", 31],
+              ["to turn one full time.", 32],
+            ],
+            [["That is one whole day.", 33]],
+            [
+              ["So day and night happen", 34],
+              ["again and again.", 35],
+            ],
+            [
+              ["Every day,", 36],
+              ["Earth turns once.", 37],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["Why do we have day and night?", 38]],
+            [["Because Earth spins.", 39]],
+            [
+              ["The side facing the Sun", 40],
+              ["has day.", 41],
+            ],
+            [
+              ["The side turned away", 42],
+              ["has night.", 43],
+            ],
+            [["Now you know!", 44]],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
