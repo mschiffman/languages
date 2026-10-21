@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Phonetic Practice</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonetic Practice — French /œ̃/</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -24,162 +24,243 @@
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <link rel="stylesheet" href="../../../assets/css/pimsleur.css" />
     <style>
-      .sub {
-        font-weight: bold;
-        background-color: #e9ffff;
-        font-size: 25px;
+      [data-audio] {
+        cursor: pointer;
+      }
+      .phonetic {
+        font-size: 0.85rem;
+      }
+      .pair-vs {
+        align-self: center;
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        color: #aaa;
+        text-transform: uppercase;
+      }
+      .pager a {
+        padding: 6px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 200, 255, 0.4);
+        color: rgba(255, 255, 255, 0.75);
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        transition: background 0.2s;
+      }
+      .pager a:hover {
+        background: rgba(0, 200, 255, 0.12);
+      }
+      .pager a.active {
+        background: linear-gradient(135deg, var(--blue-accent), var(--cyan));
+        border-color: transparent;
+        color: white;
       }
     </style>
   </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
 
-  <body>
-    <!-- Hamburger Menu Button -->
-    <button class="hamburger-btn" id="hamburgerBtn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Left Sidebar Navigation -->
-    <div id="navbar"></div>
-    <script type="module" src="../../../assets/js/nav-enun.js?v=260225"></script>
-
-    <!-- Main Content Area -->
-
-    <div class="main-content">
-      <div class="top-header">
-        <h1>French /œ̃/</h1>
+    <div class="relative z-10 w-full px-4 sm:px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">PHONETICS</span>
+          <span class="badge">NASAL VOWEL</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          /œ̃/
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          un, lundi, parfum
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Tap a word to hear it
+        </p>
       </div>
 
-      <div class="content-container">
-        <!-- Spacer preserved after removing the audio player -->
-        <div class="mb-2" aria-hidden="true"></div>
+      <!-- Cards are rendered from `groups` below -->
+      <div id="cards"></div>
 
-        <!-- Main Text Content -->
-
-        <p style="color: brown; font-size: 1.1em; margin-top: 0">
-          <i>Click on the words to hear the pronunciation.<br /></i>
-          <span style="color: #8a2be2; font-size: 0.9em"
-            >This rarest vowel sound is disappearing from French. Many speakers
-            now pronounce it the same as ɛ̃ (as in "pain" or "vin")</span
-          >.
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">14</span> words · French /œ̃/ · Bonne chance&#8239;!
         </p>
-
-        <!-- Glossary Section -->
-        <div class="content-box" id="glossary">
-          <div class="glossary-title">
-            <i class="bi bi-book"></i> &nbsp;-um, -un
-          </div>
-
-          <table class="glossary-table">
-            <thead>
-              <tr style="color: #3498db; font-weight: 600">
-                <th style="padding: 12px 8px">FRENCH</th>
-                <th style="padding: 12px 8px">ENGLISH</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td onclick="playAudio('audio1')">à jeun /aʒœ̃/</td>
-                <td>on an empty stomach</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio2')">aucun /okœ̃/</td>
-                <td>none, not any</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio3')">brun /bʀœ̃/</td>
-                <td>brown</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio4')">chacun /ʃakœ̃/</td>
-                <td>each one</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio5')">commun /kɔmœ̃/</td>
-                <td>common</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio6')">défunt /defœ̃/</td>
-                <td>deceased</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio7')">emprunt /ɑ̃pʀœ̃/</td>
-                <td>loan, borrowing</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio8')">humble /œ̃b/</td>
-                <td>humble</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio9')">importun /ɛ̃pɔʀtœ̃/</td>
-                <td>bothersome</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio10')">lundi /lœ̃di/</td>
-                <td>Monday</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio11')">opportun /ɔpɔʀtœ̃/</td>
-                <td>opportune</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio12')">parfum /paʀfœ̃/</td>
-                <td>perfume / flavor</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio13')">quelqu'un /kɛlkœ̃/</td>
-                <td>somebody / anybody</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio14')">un /œ̃/</td>
-                <td>one</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
 
-    <!-- Hidden Audio Elements -->
-    <audio id="audio1" src="https://languages.rmlives.com/phonetics/œ̃/01-à jeun.m4a"></audio>
-    <audio id="audio2" src="https://languages.rmlives.com/phonetics/œ̃/02-aucun.m4a"></audio>
-    <audio id="audio3" src="https://languages.rmlives.com/phonetics/œ̃/03-brun.m4a"></audio>
-    <audio id="audio4" src="https://languages.rmlives.com/phonetics/œ̃/04-chacun.m4a"></audio>
-    <audio id="audio5" src="https://languages.rmlives.com/phonetics/œ̃/05-commun.m4a"></audio>
-    <audio id="audio6" src="https://languages.rmlives.com/phonetics/œ̃/06-défunt.m4a"></audio>
-    <audio id="audio7" src="https://languages.rmlives.com/phonetics/œ̃/07-emprunt.m4a"></audio>
-    <audio id="audio8" src="https://languages.rmlives.com/phonetics/œ̃/08-humble.m4a"></audio>
-    <audio id="audio9" src="https://languages.rmlives.com/phonetics/œ̃/09-importun.m4a"></audio>
-    <audio id="audio10" src="https://languages.rmlives.com/phonetics/œ̃/10-lundi.m4a"></audio>
-    <audio id="audio11" src="https://languages.rmlives.com/phonetics/œ̃/11-opportun.m4a"></audio>
-    <audio id="audio12" src="https://languages.rmlives.com/phonetics/œ̃/12-parfum.m4a"></audio>
-    <audio id="audio13" src="https://languages.rmlives.com/phonetics/œ̃/13-quelqu'un.m4a"></audio>
-    <audio id="audio14" src="https://languages.rmlives.com/phonetics/œ̃/14-un.m4a"></audio>
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : NN-<word>.m4a in AUD_DIR (01-à jeun.m4a … 14-un.m4a),
+             numbered in reading order across all groups
+   groups -> words: [French, IPA, English, file?]
+     file is the audio file name (no extension) when it isn't the usual
+     one; numbering continues from its number, so it also covers gaps.
+   groups -> pairs: [[French, IPA, English], [French, IPA, English]]
+     two contrasting words side by side, each with its own audio.
+   title is "" when the page has a single, self-explanatory group.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/phonetics/œ̃/";
+      const AUD_EXT = "m4a";
+      const AUD_NAME = (n, word) => `${n}-${word}`;
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+      const groups = [
+        {
+          title: "-um, -un",
+          words: [
+            ["à jeun", "/aʒœ̃/", "on an empty stomach"],
+            ["aucun", "/okœ̃/", "none, not any"],
+            ["brun", "/bʀœ̃/", "brown"],
+            ["chacun", "/ʃakœ̃/", "each one"],
+            ["commun", "/kɔmœ̃/", "common"],
+            ["défunt", "/defœ̃/", "deceased"],
+            ["emprunt", "/ɑ̃pʀœ̃/", "loan, borrowing"],
+            ["humble", "/œ̃bl/", "humble"],
+            ["importun", "/ɛ̃pɔʀtœ̃/", "bothersome"],
+            ["lundi", "/lœ̃di/", "Monday"],
+            ["opportun", "/ɔpɔʀtœ̃/", "opportune"],
+            ["parfum", "/paʀfœ̃/", "perfume / flavor"],
+            ["quelqu'un", "/kɛlkœ̃/", "somebody / anybody"],
+            ["un", "/œ̃/", "one"],
+          ],
+        },
+      ];
 
-    <!-- Custom JavaScript -->
-    <script type="module" src="../../../assets/js/phonetic.js"></script>
+      (function () {
+        const SPEAKER = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>`;
+        const pad = (n) => String(n).padStart(2, "0");
+        let audioNum = 0;
+        let wordCount = 0;
+
+        // Audio files are numbered in reading order across all groups.
+        const audio = (fr, file) => {
+          wordCount++;
+          if (file) audioNum = parseInt(file, 10);
+          const name = file || AUD_NAME(pad(++audioNum), fr);
+          return `data-audio="${AUD_DIR}${name}.${AUD_EXT}"`;
+        };
+
+        const text = (fr, ipa, en) => `
+              <div class="flex-1 min-w-0">
+                <p class="phrase text-lg leading-tight" lang="fr">${fr}</p>
+                <p class="phonetic">${ipa}</p>
+                <p class="english">${en}</p>
+              </div>`;
+
+        const card = ([fr, ipa, en, file]) => `
+          <div class="card p-3 sm:p-4 flex items-center gap-3 shadow-md" ${audio(fr, file)}>
+            <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+          </div>`;
+
+        const half = ([fr, ipa, en, file]) => `
+            <div class="flex-1 min-w-0 flex items-center gap-3" ${audio(fr, file)}>
+              <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+            </div>`;
+
+        const pair = ([a, b]) => `
+          <div class="card p-3 sm:p-4 flex gap-3 shadow-md">${half(a)}
+            <span class="pair-vs">vs</span>${half(b)}
+          </div>`;
+
+        const section = (g, i) => `
+          ${g.title ? `<div class="${i ? "mt-14 " : ""}mb-6">
+            <h2 class="text-3xl font-bold" style="font-family: 'Playfair Display', serif; color: white">${g.title}</h2>
+            ${g.desc ? `<p class="mt-1 text-sm" style="color: rgba(255, 255, 255, 0.55); font-family: 'Roboto', sans-serif">${g.desc}</p>` : ""}
+            <div class="header-line w-48 mt-3"></div>
+          </div>` : ""}
+          ${g.pairs
+            ? `<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-5">${g.pairs.map(pair).join("")}`
+            : `<div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">${g.words.map(card).join("")}`}
+          </div>`;
+
+        document.getElementById("cards").innerHTML = groups
+          .map(section)
+          .join("");
+
+        // Tapping a card (or one side of a pair) plays it; one clip at a time.
+        let playing = null;
+        document.querySelectorAll("#cards [data-audio]").forEach((el) => {
+          el.addEventListener("click", () => {
+            if (playing) playing.pause();
+            playing = new Audio(el.dataset.audio);
+            playing.play();
+          });
+        });
+
+        document.getElementById("count").textContent = wordCount;
+      })();
+    </script>
+    <script src="../../../assets/js/nav-enun-flash.js"></script>
   </body>
 </html>

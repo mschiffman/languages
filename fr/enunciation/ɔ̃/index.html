@@ -1,349 +1,302 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Phonetic Practice</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonetic Practice — French /ɔ̃/</title>
 
-  <!-- Google tag (gtag.js) -->
-  <script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
-  ></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag("config", "G-CHXHM9CZKM");
-  </script>
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
 
-  <!-- Favicons -->
-  <link href="/img/favicon.png" rel="icon" />
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link
-  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-  rel="stylesheet"
-  />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../assets/css/pimsleur.css" />
+    <style>
+      [data-audio] {
+        cursor: pointer;
+      }
+      .phonetic {
+        font-size: 0.85rem;
+      }
+      .pair-vs {
+        align-self: center;
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        color: #aaa;
+        text-transform: uppercase;
+      }
+      .pager a {
+        padding: 6px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 200, 255, 0.4);
+        color: rgba(255, 255, 255, 0.75);
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        transition: background 0.2s;
+      }
+      .pager a:hover {
+        background: rgba(0, 200, 255, 0.12);
+      }
+      .pager a.active {
+        background: linear-gradient(135deg, var(--blue-accent), var(--cyan));
+        border-color: transparent;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
 
-  <!-- Bootstrap CSS -->
-  <link
-  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-  rel="stylesheet"
-  />
-  <link
-  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
-  rel="stylesheet"
-  />
-  <link rel="stylesheet" href="../../../assets/css/pron.css" />
-  <style>
-    .sub {
-      font-weight: bold;
-      background-color: #e9ffff;
-      font-size: 25px;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Hamburger Menu Button -->
-  <button class="hamburger-btn" id="hamburgerBtn">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <!-- Left Sidebar Navigation -->
-  <div id="navbar"></div>
-  <script type="module" src="../../../assets/js/nav-enun.js?v=260225"></script>
-
-<!-- Main Content Area -->
-
-<div class="main-content">
-  <div class="top-header">
-    <h1>French /ɔ̃/</h1>
-  </div>
-
-  <div class="content-container">
-    <!-- Spacer preserved after removing the audio player -->
-    <div class="mb-2" aria-hidden="true"></div>
-
-    <!-- Main Text Content -->
-
-    <p style="color: brown; font-size: 1.1em; margin-top: 0">
-      <i>Click on the words to hear the pronunciation.</i><br>
-      <span style="color:#8A2BE2;font-size:.9em">The difference between ɑ̃ and ɔ̃ is comparable to the difference between British “b<u>on</u>” and “b<u>orn</u>.”</span>
-    </p>
-
-    <!-- Glossary Section -->
-    <div class="content-box" id="glossary">
-      <div class="glossary-title">
-        <i class="bi bi-book"></i> &nbsp;-om, -on
+    <div class="relative z-10 w-full px-4 sm:px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">PHONETICS</span>
+          <span class="badge">NASAL VOWEL</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          /ɔ̃/
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          bon, monde, garçon
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Tap a word to hear it
+        </p>
       </div>
 
-      <table class="glossary-table">
-        <thead>
-          <tr style="color: #3498db; font-weight: 600">
-            <th style="padding: 12px 8px">FRENCH</th>
-            <th style="padding: 12px 8px">ENGLISH</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td colspan="2" class="blue">om / on</td>
-            </tr>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio1')">bon /bɔ̃/</td>
-            <td>good</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio2')">bonjour /bɔ̃ʒuʀ/</td>
-            <td>good morning/afternoon</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio3')">bonsoir /bɔ̃swaʀ/</td>
-            <td>good evening</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio4')">champignon /ʃɑ̃piɲɔ̃/</td>
-            <td>mushroom</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio5')">combien /kɔ̃bjɛ̃/</td>
-            <td>how many / how much</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio6')">compagnon /kɔ̃paɲɔ̃/</td>
-            <td>companion / partner</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio7')">competition /kɔ̃petisjɔ̃/</td>
-            <td>competition</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio8')">complètement /kɔ̃plɛtmɑ̃/</td>
-            <td>completely / fully</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio9')">compliquè /kɔ̃plike/</td>
-            <td>complicated</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio10')">comportement /kɔ̃pɔʀtəmɑ̃/</td>
-            <td>behaviour</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio11')">comprend /kɔ̃pʀɑ̃/</td>
-            <td>understand</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio12')">confiance /kɔ̃fjɑ̃s/</td>
-            <td>trust / confidence</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio13')">content /kɔ̃tɑ̃/</td>
-            <td>happy</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio14')">donc /dɔ̃k/</td>
-            <td>therefore / then</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio15')">fond /fɔ̃/</td>
-            <td>background / bottom</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio16')">frontière /fʀɔ̃tjɛʀ/</td>
-            <td>border</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio17')">garçon /ɡaʀsɔ̃/</td>
-            <td>boy</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio18')">long /lɔ̃/</td>
-            <td>long</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio19')">maison /mɛzɔ̃/</td>
-            <td>home / house</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio20')">million /miljɔ̃/</td>
-            <td>million</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio21')">mon /mɔ̃/</td>
-            <td>my</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio22')">monde /mɔ̃d/</td>
-            <td>world</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio23')">mouton /mutɔ̃/</td>
-            <td>sheep</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio24')">non /nɔ̃/</td>
-            <td>no</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio25')">plonger /plɔ̃ʒe/</td>
-            <td>dive</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio26')">prénom /pʀenɔ̃/</td>
-            <td>first name</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio27')">question /kɛstjɔ̃/</td>
-            <td>question</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio28')">rencontre /ʀɑ̃kɔ̃tʀ/</td>
-            <td>encounter</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio29')">rèponse /ʀepɔ̃s/</td>
-            <td>answer</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio30')">salon /salɔ̃/</td>
-            <td>lounge / sitting room</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio31')">sinon /sinɔ̃/</td>
-            <td>otherwise</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio32')">solution /sɔlysjɔ̃/</td>
-            <td>solution</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio33')">sont /sɔ̃/</td>
-            <td>are</td>
-          </tr>
-          <tr>
-          <tr>
-            <td onclick="playAudio('audio34')">tomber /tɔ̃be/</td>
-            <td>to fall / to drop</td>
-          </tr>
-          <tr>
-            <td onclick="playAudio('audio35')">vont /vɔ̃/</td>
-            <td>go</td>
-          </tr>
-           <tr>
-            <td colspan="2" class="blue">ɔ̃ and ɑ̃</td>
-          </tr>
-          <tr>
-            <td><span onclick="playAudio('audio36')">bon </span>- <span onclick="playAudio('audio37')">banc</td>
-            <td>good - bench</td>
-          </tr>
-          <tr>
-            <td><span onclick="playAudio('audio38')">don </span>- <span onclick="playAudio('audio39')">dans</td>
-            <td>donation - in</td>
-          </tr>
-          <tr>
-            <td><span onclick="playAudio('audio40')">fond </span>- <span onclick="playAudio('audio41')">fend</td>
-            <td>bottom - split</td>
-          </tr>
-          <tr>
-            <td><span onclick="playAudio('audio42')">front </span>- <span onclick="playAudio('audio43')">franc</td>
-            <td>forehead - frank</td>
-          </tr>
-          <tr>
-            <td><span onclick="playAudio('audio44')">long </span>- <span onclick="playAudio('audio45')">lent</td>
-            <td>long - slow</td>
-          </tr>
-          <tr>
-            <td><span onclick="playAudio('audio46')">mont </span>- <span onclick="playAudio('audio47')">ment</td>
-            <td>mount - lie</td>
-          </tr>
-          <tr>
-            <td><span onclick="playAudio('audio48')">rond </span>- <span onclick="playAudio('audio49')">rend</td>
-            <td>round - give back</td>
-          </tr>
-          <tr>
-            <td><span onclick="playAudio('audio50')">son </span>- <span onclick="playAudio('audio51')">sans</td>
-            <td>sount - without</td>
-          </tr>
-          <tr>
-            <td><span onclick="playAudio('audio52')">ton </span>- <span onclick="playAudio('audio53')">tant</td>
-            <td>your - so much</td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- Cards are rendered from `groups` below -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">53</span> words · French /ɔ̃/ · Bonne chance&#8239;!
+        </p>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- Hidden Audio Elements -->
-<audio id="audio1" src="https://languages.rmlives.com/phonetics/ɔ̃/01-bon.m4a"></audio>
-<audio id="audio2" src="https://languages.rmlives.com/phonetics/ɔ̃/02-bonjour.m4a"></audio>
-<audio id="audio3" src="https://languages.rmlives.com/phonetics/ɔ̃/03-bonsoir.m4a"></audio>
-<audio id="audio4" src="https://languages.rmlives.com/phonetics/ɔ̃/04-champignon.m4a"></audio>
-<audio id="audio5" src="https://languages.rmlives.com/phonetics/ɔ̃/05-combien.m4a"></audio>
-<audio id="audio6" src="https://languages.rmlives.com/phonetics/ɔ̃/06-compagnon.m4a"></audio>
-<audio id="audio7" src="https://languages.rmlives.com/phonetics/ɔ̃/07-competition.m4a"></audio>
-<audio id="audio8" src="https://languages.rmlives.com/phonetics/ɔ̃/08-complètement.m4a"></audio>
-<audio id="audio9" src="https://languages.rmlives.com/phonetics/ɔ̃/09-compliquè.m4a"></audio>
-<audio id="audio10" src="https://languages.rmlives.com/phonetics/ɔ̃/10-comportement.m4a"></audio>
-<audio id="audio11" src="https://languages.rmlives.com/phonetics/ɔ̃/11-comprend.m4a"></audio>
-<audio id="audio12" src="https://languages.rmlives.com/phonetics/ɔ̃/12-confiance.m4a"></audio>
-<audio id="audio13" src="https://languages.rmlives.com/phonetics/ɔ̃/13-content.m4a"></audio>
-<audio id="audio14" src="https://languages.rmlives.com/phonetics/ɔ̃/14-donc.m4a"></audio>
-<audio id="audio15" src="https://languages.rmlives.com/phonetics/ɔ̃/15-fond.m4a"></audio>
-<audio id="audio16" src="https://languages.rmlives.com/phonetics/ɔ̃/16-frontière.m4a"></audio>
-<audio id="audio17" src="https://languages.rmlives.com/phonetics/ɔ̃/17-garçon.m4a"></audio>
-<audio id="audio18" src="https://languages.rmlives.com/phonetics/ɔ̃/18-long.m4a"></audio>
-<audio id="audio19" src="https://languages.rmlives.com/phonetics/ɔ̃/19-maison.m4a"></audio>
-<audio id="audio20" src="https://languages.rmlives.com/phonetics/ɔ̃/20-million.m4a"></audio>
-<audio id="audio21" src="https://languages.rmlives.com/phonetics/ɔ̃/21-mon.m4a"></audio>
-<audio id="audio22" src="https://languages.rmlives.com/phonetics/ɔ̃/22-monde.m4a"></audio>
-<audio id="audio23" src="https://languages.rmlives.com/phonetics/ɔ̃/23-mouton.m4a"></audio>
-<audio id="audio24" src="https://languages.rmlives.com/phonetics/ɔ̃/24-non.m4a"></audio>
-<audio id="audio25" src="https://languages.rmlives.com/phonetics/ɔ̃/25-plonger.m4a"></audio>
-<audio id="audio26" src="https://languages.rmlives.com/phonetics/ɔ̃/26-prénom.m4a"></audio>
-<audio id="audio27" src="https://languages.rmlives.com/phonetics/ɔ̃/27-question.m4a"></audio>
-<audio id="audio28" src="https://languages.rmlives.com/phonetics/ɔ̃/28-rencontre.m4a"></audio>
-<audio id="audio29" src="https://languages.rmlives.com/phonetics/ɔ̃/29-rèponse.m4a"></audio>
-<audio id="audio30" src="https://languages.rmlives.com/phonetics/ɔ̃/30-salon.m4a"></audio>
-<audio id="audio31" src="https://languages.rmlives.com/phonetics/ɔ̃/31-sinon.m4a"></audio>
-<audio id="audio32" src="https://languages.rmlives.com/phonetics/ɔ̃/32-solution.m4a"></audio>
-<audio id="audio33" src="https://languages.rmlives.com/phonetics/ɔ̃/33-sont.m4a"></audio>
-<audio id="audio34" src="https://languages.rmlives.com/phonetics/ɔ̃/34-tomber.m4a"></audio>
-<audio id="audio35" src="https://languages.rmlives.com/phonetics/ɔ̃/35-vont.m4a"></audio>
-<audio id="audio36" src="https://languages.rmlives.com/phonetics/ɔ̃/36-bon.m4a"></audio>
-<audio id="audio37" src="https://languages.rmlives.com/phonetics/ɔ̃/37-banc.m4a"></audio>
-<audio id="audio38" src="https://languages.rmlives.com/phonetics/ɔ̃/38-don.m4a"></audio>
-<audio id="audio39" src="https://languages.rmlives.com/phonetics/ɔ̃/39-dans.m4a"></audio>
-<audio id="audio40" src="https://languages.rmlives.com/phonetics/ɔ̃/40-fond.m4a"></audio>
-<audio id="audio41" src="https://languages.rmlives.com/phonetics/ɔ̃/41-fend.m4a"></audio>
-<audio id="audio42" src="https://languages.rmlives.com/phonetics/ɔ̃/42-front.m4a"></audio>
-<audio id="audio43" src="https://languages.rmlives.com/phonetics/ɔ̃/43-franc.m4a"></audio>
-<audio id="audio44" src="https://languages.rmlives.com/phonetics/ɔ̃/44-long.m4a"></audio>
-<audio id="audio45" src="https://languages.rmlives.com/phonetics/ɔ̃/45-lent.m4a"></audio>
-<audio id="audio46" src="https://languages.rmlives.com/phonetics/ɔ̃/46-mont.m4a"></audio>
-<audio id="audio47" src="https://languages.rmlives.com/phonetics/ɔ̃/47-ment.m4a"></audio>
-<audio id="audio48" src="https://languages.rmlives.com/phonetics/ɔ̃/48-rond.m4a"></audio>
-<audio id="audio49" src="https://languages.rmlives.com/phonetics/ɔ̃/49-rend.m4a"></audio>
-<audio id="audio50" src="https://languages.rmlives.com/phonetics/ɔ̃/50-son.m4a"></audio>
-<audio id="audio51" src="https://languages.rmlives.com/phonetics/ɔ̃/51-sans.m4a"></audio>
-<audio id="audio52" src="https://languages.rmlives.com/phonetics/ɔ̃/52-ton.m4a"></audio>
-<audio id="audio53" src="https://languages.rmlives.com/phonetics/ɔ̃/53-tant.m4a"></audio>
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : NN-<word>.m4a in AUD_DIR (01-bon.m4a … 53-tant.m4a),
+             numbered in reading order across all groups
+   groups -> words: [French, IPA, English, file?]
+     file is the audio file name (no extension) when it isn't the usual
+     one; numbering continues from its number, so it also covers gaps.
+   groups -> pairs: [[French, IPA, English], [French, IPA, English]]
+     two contrasting words side by side, each with its own audio.
+   title is "" when the page has a single, self-explanatory group.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/phonetics/ɔ̃/";
+      const AUD_EXT = "m4a";
+      const AUD_NAME = (n, word) => `${n}-${word}`;
 
-<!-- Bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+      const groups = [
+        {
+          title: "om / on",
+          words: [
+            ["bon", "/bɔ̃/", "good"],
+            ["bonjour", "/bɔ̃ʒuʀ/", "good morning/afternoon"],
+            ["bonsoir", "/bɔ̃swaʀ/", "good evening"],
+            ["champignon", "/ʃɑ̃piɲɔ̃/", "mushroom"],
+            ["combien", "/kɔ̃bjɛ̃/", "how many / how much"],
+            ["compagnon", "/kɔ̃paɲɔ̃/", "companion / partner"],
+            ["compétition", "/kɔ̃petisjɔ̃/", "competition", "07-competition"],
+            ["complètement", "/kɔ̃plɛtmɑ̃/", "completely / fully"],
+            ["compliqué", "/kɔ̃plike/", "complicated", "09-compliquè"],
+            ["comportement", "/kɔ̃pɔʀtəmɑ̃/", "behaviour"],
+            ["comprend", "/kɔ̃pʀɑ̃/", "understand"],
+            ["confiance", "/kɔ̃fjɑ̃s/", "trust / confidence"],
+            ["content", "/kɔ̃tɑ̃/", "happy"],
+            ["donc", "/dɔ̃k/", "therefore / then"],
+            ["fond", "/fɔ̃/", "background / bottom"],
+            ["frontière", "/fʀɔ̃tjɛʀ/", "border"],
+            ["garçon", "/ɡaʀsɔ̃/", "boy"],
+            ["long", "/lɔ̃/", "long"],
+            ["maison", "/mɛzɔ̃/", "home / house"],
+            ["million", "/miljɔ̃/", "million"],
+            ["mon", "/mɔ̃/", "my"],
+            ["monde", "/mɔ̃d/", "world"],
+            ["mouton", "/mutɔ̃/", "sheep"],
+            ["non", "/nɔ̃/", "no"],
+            ["plonger", "/plɔ̃ʒe/", "dive"],
+            ["prénom", "/pʀenɔ̃/", "first name"],
+            ["question", "/kɛstjɔ̃/", "question"],
+            ["rencontre", "/ʀɑ̃kɔ̃tʀ/", "encounter"],
+            ["réponse", "/ʀepɔ̃s/", "answer", "29-rèponse"],
+            ["salon", "/salɔ̃/", "lounge / sitting room"],
+            ["sinon", "/sinɔ̃/", "otherwise"],
+            ["solution", "/sɔlysjɔ̃/", "solution"],
+            ["sont", "/sɔ̃/", "are"],
+            ["tomber", "/tɔ̃be/", "to fall / to drop"],
+            ["vont", "/vɔ̃/", "go"],
+          ],
+        },
+        {
+          title: "/ɔ̃/ vs /ɑ̃/",
+          desc: "Left: /ɔ̃/. Right: /ɑ̃/.",
+          pairs: [
+            [["bon", "/bɔ̃/", "good"], ["banc", "/bɑ̃/", "bench"]],
+            [["don", "/dɔ̃/", "donation"], ["dans", "/dɑ̃/", "in"]],
+            [["fond", "/fɔ̃/", "bottom"], ["fend", "/fɑ̃/", "split"]],
+            [["front", "/fʀɔ̃/", "forehead"], ["franc", "/fʀɑ̃/", "frank"]],
+            [["long", "/lɔ̃/", "long"], ["lent", "/lɑ̃/", "slow"]],
+            [["mont", "/mɔ̃/", "mount"], ["ment", "/mɑ̃/", "lie"]],
+            [["rond", "/ʀɔ̃/", "round"], ["rend", "/ʀɑ̃/", "give back"]],
+            [["son", "/sɔ̃/", "sound"], ["sans", "/sɑ̃/", "without"]],
+            [["ton", "/tɔ̃/", "your"], ["tant", "/tɑ̃/", "so much"]],
+          ],
+        },
+      ];
 
-<!-- Custom JavaScript -->
-<script type="module" src="../../../assets/js/phonetic.js"></script>
-</body>
+      (function () {
+        const SPEAKER = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>`;
+        const pad = (n) => String(n).padStart(2, "0");
+        let audioNum = 0;
+        let wordCount = 0;
+
+        // Audio files are numbered in reading order across all groups.
+        const audio = (fr, file) => {
+          wordCount++;
+          if (file) audioNum = parseInt(file, 10);
+          const name = file || AUD_NAME(pad(++audioNum), fr);
+          return `data-audio="${AUD_DIR}${name}.${AUD_EXT}"`;
+        };
+
+        const text = (fr, ipa, en) => `
+              <div class="flex-1 min-w-0">
+                <p class="phrase text-lg leading-tight" lang="fr">${fr}</p>
+                <p class="phonetic">${ipa}</p>
+                <p class="english">${en}</p>
+              </div>`;
+
+        const card = ([fr, ipa, en, file]) => `
+          <div class="card p-3 sm:p-4 flex items-center gap-3 shadow-md" ${audio(fr, file)}>
+            <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+          </div>`;
+
+        const half = ([fr, ipa, en, file]) => `
+            <div class="flex-1 min-w-0 flex items-center gap-3" ${audio(fr, file)}>
+              <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+            </div>`;
+
+        const pair = ([a, b]) => `
+          <div class="card p-3 sm:p-4 flex gap-3 shadow-md">${half(a)}
+            <span class="pair-vs">vs</span>${half(b)}
+          </div>`;
+
+        const section = (g, i) => `
+          ${g.title ? `<div class="${i ? "mt-14 " : ""}mb-6">
+            <h2 class="text-3xl font-bold" style="font-family: 'Playfair Display', serif; color: white">${g.title}</h2>
+            ${g.desc ? `<p class="mt-1 text-sm" style="color: rgba(255, 255, 255, 0.55); font-family: 'Roboto', sans-serif">${g.desc}</p>` : ""}
+            <div class="header-line w-48 mt-3"></div>
+          </div>` : ""}
+          ${g.pairs
+            ? `<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-5">${g.pairs.map(pair).join("")}`
+            : `<div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">${g.words.map(card).join("")}`}
+          </div>`;
+
+        document.getElementById("cards").innerHTML = groups
+          .map(section)
+          .join("");
+
+        // Tapping a card (or one side of a pair) plays it; one clip at a time.
+        let playing = null;
+        document.querySelectorAll("#cards [data-audio]").forEach((el) => {
+          el.addEventListener("click", () => {
+            if (playing) playing.pause();
+            playing = new Audio(el.dataset.audio);
+            playing.play();
+          });
+        });
+
+        document.getElementById("count").textContent = wordCount;
+      })();
+    </script>
+    <script src="../../../assets/js/nav-enun-flash.js"></script>
+  </body>
 </html>

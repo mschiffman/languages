@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Phonetic Practice</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonetic Practice — French /y/</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -24,287 +24,275 @@
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <link rel="stylesheet" href="../../../assets/css/pimsleur.css" />
     <style>
-      .sub {
-        font-weight: bold;
-        background-color: #e9ffff;
-        font-size: 25px;
+      [data-audio] {
+        cursor: pointer;
+      }
+      .phonetic {
+        font-size: 0.85rem;
+      }
+      .pair-vs {
+        align-self: center;
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        color: #aaa;
+        text-transform: uppercase;
+      }
+      .pager a {
+        padding: 6px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 200, 255, 0.4);
+        color: rgba(255, 255, 255, 0.75);
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        transition: background 0.2s;
+      }
+      .pager a:hover {
+        background: rgba(0, 200, 255, 0.12);
+      }
+      .pager a.active {
+        background: linear-gradient(135deg, var(--blue-accent), var(--cyan));
+        border-color: transparent;
+        color: white;
       }
     </style>
   </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
 
-  <body>
-    <!-- Hamburger Menu Button -->
-    <button class="hamburger-btn" id="hamburgerBtn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Left Sidebar Navigation -->
-    <div id="navbar"></div>
-    <script type="module" src="../../../assets/js/nav-enun.js?v=260225"></script>
-
-    <!-- Main Content Area -->
-
-    <div class="main-content">
-      <div class="top-header">
-        <h1>French /y/</h1>
+    <div class="relative z-10 w-full px-4 sm:px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">PHONETICS</span>
+          <span class="badge">ORAL VOWEL</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          /y/
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          tu, rue, voiture
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Tap a word to hear it
+        </p>
       </div>
 
-      <div class="content-container">
-        <!-- Spacer preserved after removing the audio player -->
-        <div class="mb-2" aria-hidden="true"></div>
+      <!-- Cards are rendered from `groups` below -->
+      <div id="cards"></div>
 
-        <!-- Main Text Content -->
-
-        <p style="color: brown; font-size: 1.1em; margin-top: 0">
-          <i>Click on the words to hear the pronunciation.</i>
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">36</span> words · French /y/ · Bonne chance&#8239;!
         </p>
-
-        <!-- Glossary Section -->
-        <div class="content-box" id="glossary">
-          <div class="glossary-title">
-            <i class="bi bi-book"></i> &nbsp;consonant+u, consonant+ue,
-            consonant+u+consonant
-          </div>
-
-          <table class="glossary-table">
-            <thead>
-              <tr style="color: #3498db; font-weight: 600">
-                <th style="padding: 12px 8px">FRENCH</th>
-                <th style="padding: 12px 8px">ENGLISH</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr></tr>
-              <tr>
-                <td colspan="2" class="blue">consonant + u</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio1')">bu /by/</td>
-                <td>drunk - past participle of "boire"</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio2')">du /dy/</td>
-                <td>de + le</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio3')">nu /ny/</td>
-                <td>naked</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio4')">ru /ry/</td>
-                <td>stream / brook</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio5')">tu /ty/</td>
-                <td>you</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="blue">consonant + ue</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio6')">bue /by/</td>
-                <td>drunk</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio7')">mue /my/</td>
-                <td>molting</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio8')">rue /ry/</td>
-                <td>street</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio9')">tue /ty/</td>
-                <td>kill</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio10')">vue /vy/</td>
-                <td>eyesight / view</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="blue">consonant + u + consonant</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio11')">adulte /adylt/</td>
-                <td>adult</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio12')">aventure /avɑ̃tyʀ/</td>
-                <td>adventure</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio13')">bureau /byʀo/</td>
-                <td>desk / office</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio14')">dessus /d(ə)sy/</td>
-                <td>on top</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio15')">dur /dyʀ/</td>
-                <td>hard</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio16')">durer /dyʀe/</td>
-                <td>to last</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio17')">entendu /ɑ̃tɑ̃dy/</td>
-                <td>heard</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio18')">humain /ymɛ̃/</td>
-                <td>human</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio19')">lecture /lɛktyʀ/</td>
-                <td>reading</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio20')">mesure /m(ə)zyʀ/</td>
-                <td>measure / measurement</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio21')">mur /myʀ/</td>
-                <td>wall</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio22')">naturel /natyʀɛl/</td>
-                <td>natural</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio23')">perdu /pɛʀdy/</td>
-                <td>lost</td>
-              </tr>
-              <tr>
-                <td class="col-6" onclick="playAudio('audio24')">
-                  plus /ply(s)/
-                </td>
-                <td>
-                  more ("s" is pronounced in "plus de", in front of adjs
-                  beginning with vowels, at the end of a sentence meaning
-                  "more", when "plus" is used as a noun. "s" is not pronounced
-                  in negative constructions.)
-                </td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio25')">plusieurs /plyzjœʀ/</td>
-                <td>several</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio26')">plutôt /plyto/</td>
-                <td>rather</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio27')">rue /ʀy/</td>
-                <td>street</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio28')">sur /syʀ/</td>
-                <td>on / in</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio29')">surface /syʀfas/</td>
-                <td>surface</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio30')">surplomber /syʀplɔ̃be/</td>
-                <td>to look down / overlook</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio31')">surprise /syʀpʀiz/</td>
-                <td>surprise</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio32')">surtout /syʀtu/</td>
-                <td>especially</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio33')">truc /tʀyk/</td>
-                <td>thing / trick</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio34')">ultra /yltʀa/</td>
-                <td>ultra</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio35')">univers /ynivɛʀ/</td>
-                <td>universe</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio36')">voiture /vwatyʀ/</td>
-                <td>car</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
 
-    <!-- Hidden Audio Elements -->
-    <audio id="audio1" src="https://languages.rmlives.com/phonetics/y/01-bu.m4a"></audio>
-    <audio id="audio2" src="https://languages.rmlives.com/phonetics/y/02-du.m4a"></audio>
-    <audio id="audio3" src="https://languages.rmlives.com/phonetics/y/03-nu.m4a"></audio>
-    <audio id="audio4" src="https://languages.rmlives.com/phonetics/y/04-ru.m4a"></audio>
-    <audio id="audio5" src="https://languages.rmlives.com/phonetics/y/05-tu.m4a"></audio>
-    <audio id="audio6" src="https://languages.rmlives.com/phonetics/y/06-bue.m4a"></audio>
-    <audio id="audio7" src="https://languages.rmlives.com/phonetics/y/07-mue.m4a"></audio>
-    <audio id="audio8" src="https://languages.rmlives.com/phonetics/y/08-rue.m4a"></audio>
-    <audio id="audio9" src="https://languages.rmlives.com/phonetics/y/09-tue.m4a"></audio>
-    <audio id="audio10" src="https://languages.rmlives.com/phonetics/y/10-vue.m4a"></audio>
-    <audio id="audio11" src="https://languages.rmlives.com/phonetics/y/11-adulte.m4a"></audio>
-    <audio id="audio12" src="https://languages.rmlives.com/phonetics/y/12-aventure.m4a"></audio>
-    <audio id="audio13" src="https://languages.rmlives.com/phonetics/y/13-bureau.m4a"></audio>
-    <audio id="audio14" src="https://languages.rmlives.com/phonetics/y/14-dessus.m4a"></audio>
-    <audio id="audio15" src="https://languages.rmlives.com/phonetics/y/15-dur.m4a"></audio>
-    <audio id="audio16" src="https://languages.rmlives.com/phonetics/y/16-durer.m4a"></audio>
-    <audio id="audio17" src="https://languages.rmlives.com/phonetics/y/17-entendu.m4a"></audio>
-    <audio id="audio18" src="https://languages.rmlives.com/phonetics/y/18-humain.m4a"></audio>
-    <audio id="audio19" src="https://languages.rmlives.com/phonetics/y/19-lecture.m4a"></audio>
-    <audio id="audio20" src="https://languages.rmlives.com/phonetics/y/20-mesure.m4a"></audio>
-    <audio id="audio21" src="https://languages.rmlives.com/phonetics/y/21-mur.m4a"></audio>
-    <audio id="audio22" src="https://languages.rmlives.com/phonetics/y/22-naturel.m4a"></audio>
-    <audio id="audio23" src="https://languages.rmlives.com/phonetics/y/23-perdu.m4a"></audio>
-    <audio id="audio24" src="https://languages.rmlives.com/phonetics/y/24-plus.m4a"></audio>
-    <audio id="audio25" src="https://languages.rmlives.com/phonetics/y/25-plusieurs.m4a"></audio>
-    <audio id="audio26" src="https://languages.rmlives.com/phonetics/y/26-plutôt.m4a"></audio>
-    <audio id="audio27" src="https://languages.rmlives.com/phonetics/y/27-rue.m4a"></audio>
-    <audio id="audio28" src="https://languages.rmlives.com/phonetics/y/28-sur.m4a"></audio>
-    <audio id="audio29" src="https://languages.rmlives.com/phonetics/y/29-surface.m4a"></audio>
-    <audio id="audio30" src="https://languages.rmlives.com/phonetics/y/30-surplomber.m4a"></audio>
-    <audio id="audio31" src="https://languages.rmlives.com/phonetics/y/31-surprise.m4a"></audio>
-    <audio id="audio32" src="https://languages.rmlives.com/phonetics/y/32-surtout.m4a"></audio>
-    <audio id="audio33" src="https://languages.rmlives.com/phonetics/y/33-truc.m4a"></audio>
-    <audio id="audio34" src="https://languages.rmlives.com/phonetics/y/34-ultra.m4a"></audio>
-    <audio id="audio35" src="https://languages.rmlives.com/phonetics/y/35-univers.m4a"></audio>
-    <audio id="audio36" src="https://languages.rmlives.com/phonetics/y/36-voiture.m4a"></audio>
-    <audio id="audio37" src="https://languages.rmlives.com/phonetics/y/37-vue.m4a"></audio>
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : NN-<word>.m4a in AUD_DIR (01-bu.m4a … 36-voiture.m4a),
+             numbered in reading order across all groups
+   groups -> words: [French, IPA, English, file?]
+     file is the audio file name (no extension) when it isn't the usual
+     one; numbering continues from its number, so it also covers gaps.
+   groups -> pairs: [[French, IPA, English], [French, IPA, English]]
+     two contrasting words side by side, each with its own audio.
+   title is "" when the page has a single, self-explanatory group.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/phonetics/y/";
+      const AUD_EXT = "m4a";
+      const AUD_NAME = (n, word) => `${n}-${word}`;
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+      const groups = [
+        {
+          title: "consonant + u",
+          words: [
+            ["bu", "/by/", "drunk - past participle of \"boire\""],
+            ["du", "/dy/", "de + le"],
+            ["nu", "/ny/", "naked"],
+            ["ru", "/ʀy/", "stream / brook"],
+            ["tu", "/ty/", "you"],
+          ],
+        },
+        {
+          title: "consonant + ue",
+          words: [
+            ["bue", "/by/", "drunk"],
+            ["mue", "/my/", "molting"],
+            ["rue", "/ʀy/", "street"],
+            ["tue", "/ty/", "kill"],
+            ["vue", "/vy/", "eyesight / view"],
+          ],
+        },
+        {
+          title: "consonant + u + consonant",
+          words: [
+            ["adulte", "/adylt/", "adult"],
+            ["aventure", "/avɑ̃tyʀ/", "adventure"],
+            ["bureau", "/byʀo/", "desk / office"],
+            ["dessus", "/d(ə)sy/", "on top"],
+            ["dur", "/dyʀ/", "hard"],
+            ["durer", "/dyʀe/", "to last"],
+            ["entendu", "/ɑ̃tɑ̃dy/", "heard"],
+            ["humain", "/ymɛ̃/", "human"],
+            ["lecture", "/lɛktyʀ/", "reading"],
+            ["mesure", "/m(ə)zyʀ/", "measure / measurement"],
+            ["mur", "/myʀ/", "wall"],
+            ["naturel", "/natyʀɛl/", "natural"],
+            ["perdu", "/pɛʀdy/", "lost"],
+            ["plus", "/ply(s)/", "more"],
+            ["plusieurs", "/plyzjœʀ/", "several"],
+            ["plutôt", "/plyto/", "rather"],
+            ["rue", "/ʀy/", "street"],
+            ["sur", "/syʀ/", "on / in"],
+            ["surface", "/syʀfas/", "surface"],
+            ["surplomber", "/syʀplɔ̃be/", "to look down / overlook"],
+            ["surprise", "/syʀpʀiz/", "surprise"],
+            ["surtout", "/syʀtu/", "especially"],
+            ["truc", "/tʀyk/", "thing / trick"],
+            ["ultra", "/yltʀa/", "ultra"],
+            ["univers", "/ynivɛʀ/", "universe"],
+            ["voiture", "/vwatyʀ/", "car"],
+          ],
+        },
+      ];
 
-    <!-- Custom JavaScript -->
-    <script type="module" src="../../../assets/js/phonetic.js"></script>
+      (function () {
+        const SPEAKER = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>`;
+        const pad = (n) => String(n).padStart(2, "0");
+        let audioNum = 0;
+        let wordCount = 0;
+
+        // Audio files are numbered in reading order across all groups.
+        const audio = (fr, file) => {
+          wordCount++;
+          if (file) audioNum = parseInt(file, 10);
+          const name = file || AUD_NAME(pad(++audioNum), fr);
+          return `data-audio="${AUD_DIR}${name}.${AUD_EXT}"`;
+        };
+
+        const text = (fr, ipa, en) => `
+              <div class="flex-1 min-w-0">
+                <p class="phrase text-lg leading-tight" lang="fr">${fr}</p>
+                <p class="phonetic">${ipa}</p>
+                <p class="english">${en}</p>
+              </div>`;
+
+        const card = ([fr, ipa, en, file]) => `
+          <div class="card p-3 sm:p-4 flex items-center gap-3 shadow-md" ${audio(fr, file)}>
+            <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+          </div>`;
+
+        const half = ([fr, ipa, en, file]) => `
+            <div class="flex-1 min-w-0 flex items-center gap-3" ${audio(fr, file)}>
+              <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+            </div>`;
+
+        const pair = ([a, b]) => `
+          <div class="card p-3 sm:p-4 flex gap-3 shadow-md">${half(a)}
+            <span class="pair-vs">vs</span>${half(b)}
+          </div>`;
+
+        const section = (g, i) => `
+          ${g.title ? `<div class="${i ? "mt-14 " : ""}mb-6">
+            <h2 class="text-3xl font-bold" style="font-family: 'Playfair Display', serif; color: white">${g.title}</h2>
+            ${g.desc ? `<p class="mt-1 text-sm" style="color: rgba(255, 255, 255, 0.55); font-family: 'Roboto', sans-serif">${g.desc}</p>` : ""}
+            <div class="header-line w-48 mt-3"></div>
+          </div>` : ""}
+          ${g.pairs
+            ? `<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-5">${g.pairs.map(pair).join("")}`
+            : `<div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">${g.words.map(card).join("")}`}
+          </div>`;
+
+        document.getElementById("cards").innerHTML = groups
+          .map(section)
+          .join("");
+
+        // Tapping a card (or one side of a pair) plays it; one clip at a time.
+        let playing = null;
+        document.querySelectorAll("#cards [data-audio]").forEach((el) => {
+          el.addEventListener("click", () => {
+            if (playing) playing.pause();
+            playing = new Audio(el.dataset.audio);
+            playing.play();
+          });
+        });
+
+        document.getElementById("count").textContent = wordCount;
+      })();
+    </script>
+    <script src="../../../assets/js/nav-enun-flash.js"></script>
   </body>
 </html>

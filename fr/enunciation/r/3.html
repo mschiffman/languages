@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Phonetic Practice</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonetic Practice — French /ʀ/ · R at the end</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -24,251 +24,266 @@
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../../assets/css/pron.css?v=251027" />
+    <link rel="stylesheet" href="../../../assets/css/pimsleur.css" />
+    <style>
+      [data-audio] {
+        cursor: pointer;
+      }
+      .phonetic {
+        font-size: 0.85rem;
+      }
+      .pair-vs {
+        align-self: center;
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        color: #aaa;
+        text-transform: uppercase;
+      }
+      .pager a {
+        padding: 6px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 200, 255, 0.4);
+        color: rgba(255, 255, 255, 0.75);
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        transition: background 0.2s;
+      }
+      .pager a:hover {
+        background: rgba(0, 200, 255, 0.12);
+      }
+      .pager a.active {
+        background: linear-gradient(135deg, var(--blue-accent), var(--cyan));
+        border-color: transparent;
+        color: white;
+      }
+    </style>
   </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
 
-  <body>
-    <!-- Hamburger Menu Button -->
-    <button class="hamburger-btn" id="hamburgerBtn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Left Sidebar Navigation -->
-    <div id="navbar"></div>
-    <script type="module" src="../../../assets/js/nav-enun.js?v=260225"></script>
-
-    <!-- Main Content Area -->
-
-    <div class="main-content">
-      <div class="top-header">
-        <h1>French /ʀ/</h1>
-      </div>
-
-      <div class="content-container">
-        <!-- Spacer preserved after removing the audio player -->
-        <div class="mb-2" aria-hidden="true"></div>
-
-        <!-- Main Text Content -->
-
-        <p style="color: brown; font-size: 1.1em; margin-top: 0">
-          <i>Click on the words to hear the pronunciation</i>.
-        </p>
-
-        <!-- Glossary Section -->
-        <div class="content-box" id="glossary">
-          <div class="glossary-title">
-            <i class="bi bi-book"></i> &nbsp;R at the end
-          </div>
-
-          <table class="glossary-table">
-            <thead>
-              <tr style="color: #3498db; font-weight: 600">
-                <th style="padding: 12px 8px">FRENCH</th>
-                <th style="padding: 12px 8px">ENGLISH</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td onclick="playAudio('audio1')">accord /akɔʀ/</td>
-                <td>agree</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio2')">adore /adɔʀ/</td>
-                <td>to love</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio3')">alors /alɔʀ/</td>
-                <td>then, so, at that time</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio4')">amour /amuʀ/</td>
-                <td>love</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio5')">avenir /av(ə)niʀ/</td>
-                <td>future</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio6')">bizarre /bizaʀ/</td>
-                <td>strange, odd</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio7')">court /kuʀ/</td>
-                <td>short</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio8')">dire /diʀ/</td>
-                <td>say</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio9')">encore /ɑ̃kɔʀ/</td>
-                <td>again, still</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio10')">fier /fjɛʀ/</td>
-                <td>proud</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio11')">frère /fʀɛʀ/</td>
-                <td>brother</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio12')">hebdomadaire /ɛbdɔmadɛʀ/</td>
-                <td>weekly</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio13')">heure /œʀ/</td>
-                <td>hour</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio14')">hier /ijɛʀ/</td>
-                <td>yesterday</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio15')">jour /ʒuʀ/</td>
-                <td>day</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio16')">leur /lœʀ/</td>
-                <td>their</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio17')">mère /mɛʀ/</td>
-                <td>mother</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio18')">père /pɛʀ/</td>
-                <td>father</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio19')">pour /puʀ/</td>
-                <td>for, to do sth</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio20')">quart /kaʀ/</td>
-                <td>quarter</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio21')">sœur /sœʀ/</td>
-                <td>sister</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio22')">soir /swaʀ/</td>
-                <td>evening</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio23')">tard /taʀ/</td>
-                <td>late</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio24')">autre /otʀ/</td>
-                <td>other</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio25')">chambre /ʃɑ̃bʀ/</td>
-                <td>room</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio26')">libre /libʀ/</td>
-                <td>free</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio27')">mètre /mɛtʀ/</td>
-                <td>meter</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio28')">nôtre /notʀ/</td>
-                <td>our</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio29')">ouvrir /uvʀiʀ/</td>
-                <td>open</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio30')">peut-être /pøtɛtʀ/</td>
-                <td>maybe</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio31')">quatre /katʀ/</td>
-                <td>four</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio32')">votre /vɔtʀ/</td>
-                <td>your</td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="relative z-10 w-full px-4 sm:px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">PHONETICS</span>
+          <span class="badge">CONSONANT</span>
         </div>
-      </div>
-    </div>
-
-    <!-- Hidden Audio Elements -->
-    <audio id="audio1" src="https://languages.rmlives.com/phonetics/r/3/01-accord.m4a"></audio>
-    <audio id="audio2" src="https://languages.rmlives.com/phonetics/r/3/02-adore.m4a"></audio>
-    <audio id="audio3" src="https://languages.rmlives.com/phonetics/r/3/03-alors.m4a"></audio>
-    <audio id="audio4" src="https://languages.rmlives.com/phonetics/r/3/04-amour.m4a"></audio>
-    <audio id="audio5" src="https://languages.rmlives.com/phonetics/r/3/05-avenir.m4a"></audio>
-    <audio id="audio6" src="https://languages.rmlives.com/phonetics/r/3/06-bizarre.m4a"></audio>
-    <audio id="audio7" src="https://languages.rmlives.com/phonetics/r/3/07-court.m4a"></audio>
-    <audio id="audio8" src="https://languages.rmlives.com/phonetics/r/3/08-dire.m4a"></audio>
-    <audio id="audio9" src="https://languages.rmlives.com/phonetics/r/3/09-encore.m4a"></audio>
-    <audio id="audio10" src="https://languages.rmlives.com/phonetics/r/3/10-fier.m4a"></audio>
-    <audio id="audio11" src="https://languages.rmlives.com/phonetics/r/3/11-frère.m4a"></audio>
-    <audio id="audio12" src="https://languages.rmlives.com/phonetics/r/3/12-hebdomadaire.m4a"></audio>
-    <audio id="audio13" src="https://languages.rmlives.com/phonetics/r/3/13-heure.m4a"></audio>
-    <audio id="audio14" src="https://languages.rmlives.com/phonetics/r/3/14-hier.m4a"></audio>
-    <audio id="audio15" src="https://languages.rmlives.com/phonetics/r/3/15-hier.m4a"></audio>
-    <audio id="audio16" src="https://languages.rmlives.com/phonetics/r/3/16-leur.m4a"></audio>
-    <audio id="audio17" src="https://languages.rmlives.com/phonetics/r/3/17-mère.m4a"></audio>
-    <audio id="audio18" src="https://languages.rmlives.com/phonetics/r/3/18-père.m4a"></audio>
-    <audio id="audio19" src="https://languages.rmlives.com/phonetics/r/3/19-pour.m4a"></audio>
-    <audio id="audio20" src="https://languages.rmlives.com/phonetics/r/3/20-quart.m4a"></audio>
-    <audio id="audio21" src="https://languages.rmlives.com/phonetics/r/3/21-sœur.m4a"></audio>
-    <audio id="audio22" src="https://languages.rmlives.com/phonetics/r/3/22-soir.m4a"></audio>
-    <audio id="audio23" src="https://languages.rmlives.com/phonetics/r/3/23-tard.m4a"></audio>
-    <audio id="audio24" src="https://languages.rmlives.com/phonetics/r/3/24-autre.m4a"></audio>
-    <audio id="audio25" src="https://languages.rmlives.com/phonetics/r/3/25-chambre.m4a"></audio>
-    <audio id="audio26" src="https://languages.rmlives.com/phonetics/r/3/26-libre.m4a"></audio>
-    <audio id="audio27" src="https://languages.rmlives.com/phonetics/r/3/27-mètre.m4a"></audio>
-    <audio id="audio28" src="https://languages.rmlives.com/phonetics/r/3/28-nôtre.m4a"></audio>
-    <audio id="audio29" src="https://languages.rmlives.com/phonetics/r/3/29-ouvrir.m4a"></audio>
-    <audio id="audio30" src="https://languages.rmlives.com/phonetics/r/3/30-peut-être.m4a"></audio>
-    <audio id="audio31" src="https://languages.rmlives.com/phonetics/r/3/31-quatre.m4a"></audio>
-    <audio id="audio32" src="https://languages.rmlives.com/phonetics/r/3/32-votre.m4a"></audio>
-
-    <div class="container my-5">
-      <div class="d-flex flex-wrap justify-content-center gap-3">
-        <a class="btn btn-outline-primary px-4" href="index.html">R-Front</a>
-        <a class="btn btn-outline-primary px-4" href="2.html">R-Middle</a>
-        <a class="btn btn-primary px-4" href="3.html" aria-current="page"
-          >R-End</a
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
         >
+          /ʀ/
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          amour, soir, quatre
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Tap a word to hear it
+        </p>
+        <nav class="pager mt-6 flex flex-wrap justify-center gap-3">
+          <a href="index.html">R-Front</a>
+          <a href="2.html">R-Middle</a>
+          <a href="3.html" class="active" aria-current="page">R-End</a>
+        </nav>
+      </div>
+
+      <!-- Cards are rendered from `groups` below -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">32</span> words · French /ʀ/ · Bonne chance&#8239;!
+        </p>
       </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : NN-<word>.m4a in AUD_DIR (01-accord.m4a … 32-votre.m4a),
+             numbered in reading order across all groups
+   groups -> words: [French, IPA, English, file?]
+     file is the audio file name (no extension) when it isn't the usual
+     one; numbering continues from its number, so it also covers gaps.
+   groups -> pairs: [[French, IPA, English], [French, IPA, English]]
+     two contrasting words side by side, each with its own audio.
+   title is "" when the page has a single, self-explanatory group.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/phonetics/r/3/";
+      const AUD_EXT = "m4a";
+      const AUD_NAME = (n, word) => `${n}-${word}`;
 
-    <!-- Custom JavaScript -->
-    <script type="module" src="../../../assets/js/phonetic.js"></script>
+      const groups = [
+        {
+          title: "R at the end",
+          words: [
+            ["accord", "/akɔʀ/", "agreement"],
+            ["adore", "/adɔʀ/", "to love"],
+            ["alors", "/alɔʀ/", "then, so, at that time"],
+            ["amour", "/amuʀ/", "love"],
+            ["avenir", "/av(ə)niʀ/", "future"],
+            ["bizarre", "/bizaʀ/", "strange, odd"],
+            ["court", "/kuʀ/", "short"],
+            ["dire", "/diʀ/", "say"],
+            ["encore", "/ɑ̃kɔʀ/", "again, still"],
+            ["fier", "/fjɛʀ/", "proud"],
+            ["frère", "/fʀɛʀ/", "brother"],
+            ["hebdomadaire", "/ɛbdɔmadɛʀ/", "weekly"],
+            ["heure", "/œʀ/", "hour"],
+            ["hier", "/ijɛʀ/", "yesterday"],
+            ["jour", "/ʒuʀ/", "day", "15-hier"],
+            ["leur", "/lœʀ/", "their"],
+            ["mère", "/mɛʀ/", "mother"],
+            ["père", "/pɛʀ/", "father"],
+            ["pour", "/puʀ/", "for, to do sth"],
+            ["quart", "/kaʀ/", "quarter"],
+            ["sœur", "/sœʀ/", "sister"],
+            ["soir", "/swaʀ/", "evening"],
+            ["tard", "/taʀ/", "late"],
+            ["autre", "/otʀ/", "other"],
+            ["chambre", "/ʃɑ̃bʀ/", "room"],
+            ["libre", "/libʀ/", "free"],
+            ["mètre", "/mɛtʀ/", "meter"],
+            ["nôtre", "/notʀ/", "our"],
+            ["ouvrir", "/uvʀiʀ/", "open"],
+            ["peut-être", "/pøtɛtʀ/", "maybe"],
+            ["quatre", "/katʀ/", "four"],
+            ["votre", "/vɔtʀ/", "your"],
+          ],
+        },
+      ];
+
+      (function () {
+        const SPEAKER = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>`;
+        const pad = (n) => String(n).padStart(2, "0");
+        let audioNum = 0;
+        let wordCount = 0;
+
+        // Audio files are numbered in reading order across all groups.
+        const audio = (fr, file) => {
+          wordCount++;
+          if (file) audioNum = parseInt(file, 10);
+          const name = file || AUD_NAME(pad(++audioNum), fr);
+          return `data-audio="${AUD_DIR}${name}.${AUD_EXT}"`;
+        };
+
+        const text = (fr, ipa, en) => `
+              <div class="flex-1 min-w-0">
+                <p class="phrase text-lg leading-tight" lang="fr">${fr}</p>
+                <p class="phonetic">${ipa}</p>
+                <p class="english">${en}</p>
+              </div>`;
+
+        const card = ([fr, ipa, en, file]) => `
+          <div class="card p-3 sm:p-4 flex items-center gap-3 shadow-md" ${audio(fr, file)}>
+            <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+          </div>`;
+
+        const half = ([fr, ipa, en, file]) => `
+            <div class="flex-1 min-w-0 flex items-center gap-3" ${audio(fr, file)}>
+              <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+            </div>`;
+
+        const pair = ([a, b]) => `
+          <div class="card p-3 sm:p-4 flex gap-3 shadow-md">${half(a)}
+            <span class="pair-vs">vs</span>${half(b)}
+          </div>`;
+
+        const section = (g, i) => `
+          ${g.title ? `<div class="${i ? "mt-14 " : ""}mb-6">
+            <h2 class="text-3xl font-bold" style="font-family: 'Playfair Display', serif; color: white">${g.title}</h2>
+            ${g.desc ? `<p class="mt-1 text-sm" style="color: rgba(255, 255, 255, 0.55); font-family: 'Roboto', sans-serif">${g.desc}</p>` : ""}
+            <div class="header-line w-48 mt-3"></div>
+          </div>` : ""}
+          ${g.pairs
+            ? `<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-5">${g.pairs.map(pair).join("")}`
+            : `<div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">${g.words.map(card).join("")}`}
+          </div>`;
+
+        document.getElementById("cards").innerHTML = groups
+          .map(section)
+          .join("");
+
+        // Tapping a card (or one side of a pair) plays it; one clip at a time.
+        let playing = null;
+        document.querySelectorAll("#cards [data-audio]").forEach((el) => {
+          el.addEventListener("click", () => {
+            if (playing) playing.pause();
+            playing = new Audio(el.dataset.audio);
+            playing.play();
+          });
+        });
+
+        document.getElementById("count").textContent = wordCount;
+      })();
+    </script>
+    <script src="../../../assets/js/nav-enun-flash.js"></script>
   </body>
 </html>

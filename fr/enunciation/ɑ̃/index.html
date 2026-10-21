@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Phonetic Practice</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonetic Practice — French /ɑ̃/</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -24,313 +24,286 @@
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <link rel="stylesheet" href="../../../assets/css/pimsleur.css" />
     <style>
-      .sub {
-        font-weight: bold;
-        background-color: #e9ffff;
-        font-size: 25px;
+      [data-audio] {
+        cursor: pointer;
+      }
+      .phonetic {
+        font-size: 0.85rem;
+      }
+      .pair-vs {
+        align-self: center;
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        color: #aaa;
+        text-transform: uppercase;
+      }
+      .pager a {
+        padding: 6px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 200, 255, 0.4);
+        color: rgba(255, 255, 255, 0.75);
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        transition: background 0.2s;
+      }
+      .pager a:hover {
+        background: rgba(0, 200, 255, 0.12);
+      }
+      .pager a.active {
+        background: linear-gradient(135deg, var(--blue-accent), var(--cyan));
+        border-color: transparent;
+        color: white;
       }
     </style>
   </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
 
-  <body>
-    <!-- Hamburger Menu Button -->
-    <button class="hamburger-btn" id="hamburgerBtn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Left Sidebar Navigation -->
-    <div id="navbar"></div>
-    <script
-      type="module"
-      src="../../../assets/js/nav-enun.js?v=260225"
-    ></script>
-
-    <!-- Main Content Area -->
-
-    <div class="main-content">
-      <div class="top-header">
-        <h1>French /ɑ̃/</h1>
+    <div class="relative z-10 w-full px-4 sm:px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">PHONETICS</span>
+          <span class="badge">NASAL VOWEL</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          /ɑ̃/
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          enfant, temps, chambre
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Tap a word to hear it
+        </p>
       </div>
 
-      <div class="content-container">
-        <!-- Spacer preserved after removing the audio player -->
-        <div class="mb-2" aria-hidden="true"></div>
+      <!-- Cards are rendered from `groups` below -->
+      <div id="cards"></div>
 
-        <!-- Main Text Content -->
-
-        <p style="color: brown; font-size: 1.1em; margin-top: 0">
-          <i>Click on the words to hear the pronunciation.</i>
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">42</span> words · French /ɑ̃/ · Bonne chance&#8239;!
         </p>
-
-        <!-- Glossary Section -->
-        <div class="content-box" id="glossary">
-          <div class="glossary-title">
-            <i class="bi bi-book"></i> &nbsp;-am, -an, -em, -en
-          </div>
-
-          <table class="glossary-table">
-            <thead>
-              <tr style="color: #3498db; font-weight: 600">
-                <th style="padding: 12px 8px">FRENCH</th>
-                <th style="padding: 12px 8px">ENGLISH</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="2" class="blue">am</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio1')">campagne /kɑ̃paɲ/</td>
-                <td>countryside / campaign</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio2')">chambre /ʃɑ̃bʀ/</td>
-                <td>bedroom / room</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio3')">champagne /ʃɑ̃paɲ/</td>
-                <td>champagne</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio4')">champignon /ʃɑ̃piɲɔ̃/</td>
-                <td>mushroom</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="blue">an</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio5')">an /ɑ̃/</td>
-                <td>year</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio6')">courant /kuʀɑ̃/</td>
-                <td>current / trend / common</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio7')">dans /dɑ̃/</td>
-                <td>in</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio8')">demande /d(ə)mɑ̃d/</td>
-                <td>request</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio9')">dimanche /dimɑ̃ʃ/</td>
-                <td>Sunday</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio10')">grand /ɡʀɑ̃/</td>
-                <td>big</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio11')">grisant /ɡʀizɑ̃/</td>
-                <td>exhilarating</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio12')">maman /mamɑ̃/</td>
-                <td>mum</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio13')">marrant /maʀɑ̃/</td>
-                <td>funny</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio14')">naissance /nɛsɑ̃s/</td>
-                <td>birth</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio15')">plan /plɑ̃/</td>
-                <td>plan / map / flat</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio16')">quand /kɑ̃/</td>
-                <td>when</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio17')">sang /sɑ̃/</td>
-                <td>blood</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio18')">sans /sɑ̃/</td>
-                <td>without</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio19')">santé /sɑ̃te/</td>
-                <td>health</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="blue">em</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio20')">décembre /desɑ̃bʀ/</td>
-                <td>December</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio21')">emballée /ɑ̃bale/</td>
-                <td>to wrap</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio22')">embouteillage /ɑ̃butɛjaʒ/</td>
-                <td>traffic jam</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio23')">embrasser /ɑ̃bʀase/</td>
-                <td>to kiss</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio24')">emmener /ɑ̃m(ə)ne/</td>
-                <td>to take</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio25')">semble /sɑ̃ble/</td>
-                <td>to seem</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio26')">temps /tɑ̃/</td>
-                <td>weather / time</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio27')">tremble /tʀɑ̃bl/</td>
-                <td>aspen</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="blue">en</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio28')">absolument /apsɔlymɑ̃/</td>
-                <td>absolutely</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio29')">attendre /atɑ̃dʀ/</td>
-                <td>wait</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio30')">encore /ɑ̃kɔʀ/</td>
-                <td>still / even / again</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio31')">endroit /ɑ̃dʀwa/</td>
-                <td>place</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio32')">enfant /ɑ̃fɑ̃/</td>
-                <td>child</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio33')">ensemble /ɑ̃sɑ̃bl/</td>
-                <td>together</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio34')">entre /ɑ̃tʀ/</td>
-                <td>between</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio35')">gens /ʒɑ̃/</td>
-                <td>people</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio36')">mentir /mɑ̃tiʀ/</td>
-                <td>lie</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio37')">parent /paʀɑ̃/</td>
-                <td>parent</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio38')">pendant /pɑ̃dɑ̃/</td>
-                <td>during / while</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio39')">potentiel /pɔtɑ̃sjɛl/</td>
-                <td>potential</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio40')">prendre /pʀɑ̃dʀ/</td>
-                <td>take</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio41')">sens /sɑ̃s/</td>
-                <td>sense / direction</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio42')">souvent /suvɑ̃/</td>
-                <td>often</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
 
-    <!-- Hidden Audio Elements -->
-    <audio id="audio1" src="https://languages.rmlives.com/phonetics/ɑ̃/01-campagne.m4a"></audio>
-    <audio id="audio2" src="https://languages.rmlives.com/phonetics/ɑ̃/02-chambre.m4a"></audio>
-    <audio id="audio3" src="https://languages.rmlives.com/phonetics/ɑ̃/03-champagne.m4a"></audio>
-    <audio id="audio4" src="https://languages.rmlives.com/phonetics/ɑ̃/04-champignon.m4a"></audio>
-    <audio id="audio5" src="https://languages.rmlives.com/phonetics/ɑ̃/05-an.m4a"></audio>
-    <audio id="audio6" src="https://languages.rmlives.com/phonetics/ɑ̃/06-courant.m4a"></audio>
-    <audio id="audio7" src="https://languages.rmlives.com/phonetics/ɑ̃/07-dans.m4a"></audio>
-    <audio id="audio8" src="https://languages.rmlives.com/phonetics/ɑ̃/08-demande.m4a"></audio>
-    <audio id="audio9" src="https://languages.rmlives.com/phonetics/ɑ̃/09-dimanche.m4a"></audio>
-    <audio id="audio10" src="https://languages.rmlives.com/phonetics/ɑ̃/10-grand.m4a"></audio>
-    <audio id="audio11" src="https://languages.rmlives.com/phonetics/ɑ̃/11-grisant.m4a"></audio>
-    <audio id="audio12" src="https://languages.rmlives.com/phonetics/ɑ̃/12-mamam.m4a"></audio>
-    <audio id="audio13" src="https://languages.rmlives.com/phonetics/ɑ̃/13-marrant.m4a"></audio>
-    <audio id="audio14" src="https://languages.rmlives.com/phonetics/ɑ̃/14-naissance.m4a"></audio>
-    <audio id="audio15" src="https://languages.rmlives.com/phonetics/ɑ̃/15-plan.m4a"></audio>
-    <audio id="audio16" src="https://languages.rmlives.com/phonetics/ɑ̃/16-quand.m4a"></audio>
-    <audio id="audio17" src="https://languages.rmlives.com/phonetics/ɑ̃/17-sang.m4a"></audio>
-    <audio id="audio18" src="https://languages.rmlives.com/phonetics/ɑ̃/18-sans.m4a"></audio>
-    <audio id="audio19" src="https://languages.rmlives.com/phonetics/ɑ̃/19-santé.m4a"></audio>
-    <audio id="audio20" src="https://languages.rmlives.com/phonetics/ɑ̃/20-décembre.m4a"></audio>
-    <audio id="audio21" src="https://languages.rmlives.com/phonetics/ɑ̃/21-emballée.m4a"></audio>
-    <audio id="audio22" src="https://languages.rmlives.com/phonetics/ɑ̃/22-embouteillage.m4a"></audio>
-    <audio id="audio23" src="https://languages.rmlives.com/phonetics/ɑ̃/23-embrasser.m4a"></audio>
-    <audio id="audio24" src="https://languages.rmlives.com/phonetics/ɑ̃/24-emmener.m4a"></audio>
-    <audio id="audio25" src="https://languages.rmlives.com/phonetics/ɑ̃/25-semble.m4a"></audio>
-    <audio id="audio26" src="https://languages.rmlives.com/phonetics/ɑ̃/26-temps.m4a"></audio>
-    <audio id="audio27" src="https://languages.rmlives.com/phonetics/ɑ̃/27-tremble.m4a"></audio>
-    <audio id="audio28" src="https://languages.rmlives.com/phonetics/ɑ̃/28-absolument.m4a"></audio>
-    <audio id="audio29" src="https://languages.rmlives.com/phonetics/ɑ̃/29-attendre.m4a"></audio>
-    <audio id="audio30" src="https://languages.rmlives.com/phonetics/ɑ̃/30-encore.m4a"></audio>
-    <audio id="audio31" src="https://languages.rmlives.com/phonetics/ɑ̃/31-endroit.m4a"></audio>
-    <audio id="audio32" src="https://languages.rmlives.com/phonetics/ɑ̃/32-enfant.m4a"></audio>
-    <audio id="audio33" src="https://languages.rmlives.com/phonetics/ɑ̃/33-ensemble.m4a"></audio>
-    <audio id="audio34" src="https://languages.rmlives.com/phonetics/ɑ̃/34-entre.m4a"></audio>
-    <audio id="audio35" src="https://languages.rmlives.com/phonetics/ɑ̃/35-gens.m4a"></audio>
-    <audio id="audio36" src="https://languages.rmlives.com/phonetics/ɑ̃/36-mentir.m4a"></audio>
-    <audio id="audio37" src="https://languages.rmlives.com/phonetics/ɑ̃/37-parent.m4a"></audio>
-    <audio id="audio38" src="https://languages.rmlives.com/phonetics/ɑ̃/38-pendant.m4a"></audio>
-    <audio id="audio39" src="https://languages.rmlives.com/phonetics/ɑ̃/39-potentiel.m4a"></audio>
-    <audio id="audio40" src="https://languages.rmlives.com/phonetics/ɑ̃/40-prendre.m4a"></audio>
-    <audio id="audio41" src="https://languages.rmlives.com/phonetics/ɑ̃/41-sens.m4a"></audio>
-    <audio id="audio42" src="https://languages.rmlives.com/phonetics/ɑ̃/42-souvent.m4a"></audio>
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : NN-<word>.m4a in AUD_DIR (01-campagne.m4a … 42-souvent.m4a),
+             numbered in reading order across all groups
+   groups -> words: [French, IPA, English, file?]
+     file is the audio file name (no extension) when it isn't the usual
+     one; numbering continues from its number, so it also covers gaps.
+   groups -> pairs: [[French, IPA, English], [French, IPA, English]]
+     two contrasting words side by side, each with its own audio.
+   title is "" when the page has a single, self-explanatory group.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/phonetics/ɑ̃/";
+      const AUD_EXT = "m4a";
+      const AUD_NAME = (n, word) => `${n}-${word}`;
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+      const groups = [
+        {
+          title: "am",
+          words: [
+            ["campagne", "/kɑ̃paɲ/", "countryside / campaign"],
+            ["chambre", "/ʃɑ̃bʀ/", "bedroom / room"],
+            ["champagne", "/ʃɑ̃paɲ/", "champagne"],
+            ["champignon", "/ʃɑ̃piɲɔ̃/", "mushroom"],
+          ],
+        },
+        {
+          title: "an",
+          words: [
+            ["an", "/ɑ̃/", "year"],
+            ["courant", "/kuʀɑ̃/", "current / trend / common"],
+            ["dans", "/dɑ̃/", "in"],
+            ["demande", "/d(ə)mɑ̃d/", "request"],
+            ["dimanche", "/dimɑ̃ʃ/", "Sunday"],
+            ["grand", "/ɡʀɑ̃/", "big"],
+            ["grisant", "/ɡʀizɑ̃/", "exhilarating"],
+            ["maman", "/mamɑ̃/", "mum", "12-mamam"],
+            ["marrant", "/maʀɑ̃/", "funny"],
+            ["naissance", "/nɛsɑ̃s/", "birth"],
+            ["plan", "/plɑ̃/", "plan / map / flat"],
+            ["quand", "/kɑ̃/", "when"],
+            ["sang", "/sɑ̃/", "blood"],
+            ["sans", "/sɑ̃/", "without"],
+            ["santé", "/sɑ̃te/", "health"],
+          ],
+        },
+        {
+          title: "em",
+          words: [
+            ["décembre", "/desɑ̃bʀ/", "December"],
+            ["emballée", "/ɑ̃bale/", "wrapped / thrilled"],
+            ["embouteillage", "/ɑ̃butɛjaʒ/", "traffic jam"],
+            ["embrasser", "/ɑ̃bʀase/", "to kiss"],
+            ["emmener", "/ɑ̃m(ə)ne/", "to take"],
+            ["semble", "/sɑ̃bl/", "to seem"],
+            ["temps", "/tɑ̃/", "weather / time"],
+            ["tremble", "/tʀɑ̃bl/", "aspen"],
+          ],
+        },
+        {
+          title: "en",
+          words: [
+            ["absolument", "/apsɔlymɑ̃/", "absolutely"],
+            ["attendre", "/atɑ̃dʀ/", "wait"],
+            ["encore", "/ɑ̃kɔʀ/", "still / even / again"],
+            ["endroit", "/ɑ̃dʀwa/", "place"],
+            ["enfant", "/ɑ̃fɑ̃/", "child"],
+            ["ensemble", "/ɑ̃sɑ̃bl/", "together"],
+            ["entre", "/ɑ̃tʀ/", "between"],
+            ["gens", "/ʒɑ̃/", "people"],
+            ["mentir", "/mɑ̃tiʀ/", "lie"],
+            ["parent", "/paʀɑ̃/", "parent"],
+            ["pendant", "/pɑ̃dɑ̃/", "during / while"],
+            ["potentiel", "/pɔtɑ̃sjɛl/", "potential"],
+            ["prendre", "/pʀɑ̃dʀ/", "take"],
+            ["sens", "/sɑ̃s/", "sense / direction"],
+            ["souvent", "/suvɑ̃/", "often"],
+          ],
+        },
+      ];
 
-    <!-- Custom JavaScript -->
-    <script type="module" src="../../../assets/js/phonetic.js"></script>
+      (function () {
+        const SPEAKER = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>`;
+        const pad = (n) => String(n).padStart(2, "0");
+        let audioNum = 0;
+        let wordCount = 0;
+
+        // Audio files are numbered in reading order across all groups.
+        const audio = (fr, file) => {
+          wordCount++;
+          if (file) audioNum = parseInt(file, 10);
+          const name = file || AUD_NAME(pad(++audioNum), fr);
+          return `data-audio="${AUD_DIR}${name}.${AUD_EXT}"`;
+        };
+
+        const text = (fr, ipa, en) => `
+              <div class="flex-1 min-w-0">
+                <p class="phrase text-lg leading-tight" lang="fr">${fr}</p>
+                <p class="phonetic">${ipa}</p>
+                <p class="english">${en}</p>
+              </div>`;
+
+        const card = ([fr, ipa, en, file]) => `
+          <div class="card p-3 sm:p-4 flex items-center gap-3 shadow-md" ${audio(fr, file)}>
+            <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+          </div>`;
+
+        const half = ([fr, ipa, en, file]) => `
+            <div class="flex-1 min-w-0 flex items-center gap-3" ${audio(fr, file)}>
+              <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+            </div>`;
+
+        const pair = ([a, b]) => `
+          <div class="card p-3 sm:p-4 flex gap-3 shadow-md">${half(a)}
+            <span class="pair-vs">vs</span>${half(b)}
+          </div>`;
+
+        const section = (g, i) => `
+          ${g.title ? `<div class="${i ? "mt-14 " : ""}mb-6">
+            <h2 class="text-3xl font-bold" style="font-family: 'Playfair Display', serif; color: white">${g.title}</h2>
+            ${g.desc ? `<p class="mt-1 text-sm" style="color: rgba(255, 255, 255, 0.55); font-family: 'Roboto', sans-serif">${g.desc}</p>` : ""}
+            <div class="header-line w-48 mt-3"></div>
+          </div>` : ""}
+          ${g.pairs
+            ? `<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-5">${g.pairs.map(pair).join("")}`
+            : `<div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">${g.words.map(card).join("")}`}
+          </div>`;
+
+        document.getElementById("cards").innerHTML = groups
+          .map(section)
+          .join("");
+
+        // Tapping a card (or one side of a pair) plays it; one clip at a time.
+        let playing = null;
+        document.querySelectorAll("#cards [data-audio]").forEach((el) => {
+          el.addEventListener("click", () => {
+            if (playing) playing.pause();
+            playing = new Audio(el.dataset.audio);
+            playing.play();
+          });
+        });
+
+        document.getElementById("count").textContent = wordCount;
+      })();
+    </script>
+    <script src="../../../assets/js/nav-enun-flash.js"></script>
   </body>
 </html>

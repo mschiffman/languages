@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Phonetic Practice</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phonetic Practice — French /o/</title>
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -24,289 +24,273 @@
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../../assets/css/pron.css" />
+    <link rel="stylesheet" href="../../../assets/css/pimsleur.css" />
     <style>
-      .sub {
-        font-weight: bold;
-        background-color: #e9ffff;
-        font-size: 25px;
+      [data-audio] {
+        cursor: pointer;
+      }
+      .phonetic {
+        font-size: 0.85rem;
+      }
+      .pair-vs {
+        align-self: center;
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+        color: #aaa;
+        text-transform: uppercase;
+      }
+      .pager a {
+        padding: 6px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 200, 255, 0.4);
+        color: rgba(255, 255, 255, 0.75);
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        transition: background 0.2s;
+      }
+      .pager a:hover {
+        background: rgba(0, 200, 255, 0.12);
+      }
+      .pager a.active {
+        background: linear-gradient(135deg, var(--blue-accent), var(--cyan));
+        border-color: transparent;
+        color: white;
       }
     </style>
   </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
 
-  <body>
-    <!-- Hamburger Menu Button -->
-    <button class="hamburger-btn" id="hamburgerBtn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <!-- Left Sidebar Navigation -->
-    <div id="navbar"></div>
-    <script type="module" src="../../../assets/js/nav-enun.js?v=260225"></script>
-
-    <!-- Main Content Area -->
-
-    <div class="main-content">
-      <div class="top-header">
-        <h1>French /o/</h1>
+    <div class="relative z-10 w-full px-4 sm:px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">PHONETICS</span>
+          <span class="badge">ORAL VOWEL</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          /o/
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          aussi, chaude, bientôt
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Tap a word to hear it
+        </p>
       </div>
 
-      <div class="content-container">
-        <!-- Spacer preserved after removing the audio player -->
-        <div class="mb-2" aria-hidden="true"></div>
+      <!-- Cards are rendered from `groups` below -->
+      <div id="cards"></div>
 
-        <!-- Main Text Content -->
-
-        <p style="color: brown; font-size: 1.1em; margin-top: 0">
-          <i>Click on the words to hear the pronunciation.</i>
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">39</span> words · French /o/ · Bonne chance&#8239;!
         </p>
-
-        <!-- Glossary Section -->
-        <div class="content-box" id="glossary">
-          <div class="glossary-title">
-            <i class="bi bi-book"></i> &nbsp;au, ô
-          </div>
-
-          <table class="glossary-table">
-            <thead>
-              <tr style="color: #3498db; font-weight: 600">
-                <th style="padding: 12px 8px">FRENCH</th>
-                <th style="padding: 12px 8px">ENGLISH</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="2" class="blue">au</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio1')">animaux /animo/</td>
-                <td>animals</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio2')">applaudir /aplodiʀ/</td>
-                <td>to clap / applaud</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio3')">aussi /osi/</td>
-                <td>also / too</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio4')">autant /otɑ̃/</td>
-                <td>so much / might as well</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio5')">autre /otʀ/</td>
-                <td>other</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio6')">cauchemar /koʃmaʀ/</td>
-                <td>nightmare</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio7')">cause /koz/</td>
-                <td>cause</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio8')">cautionner /kosjɔne/</td>
-                <td>to guarantee / support</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio9')">chaude /ʃod/</td>
-                <td>warm / hot</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio10')">chauffer /ʃofe/</td>
-                <td>to heat</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio11')">chauffeur /ʃofœʀ/</td>
-                <td>driver</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio12')">chaussette /ʃosɛt/</td>
-                <td>sock</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio13')">chauve /ʃov/</td>
-                <td>bald</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio14')">chevaux /ʃ(ə)vo/</td>
-                <td>horses (cheval)</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio15')">costaud /kɔsto/</td>
-                <td>strong / beefy</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio16')">épauler /epole/</td>
-                <td>to back up / to support</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio17')">faut /fo/</td>
-                <td>to need to / to have to (falloir)</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio18')">faux /fo/</td>
-                <td>fake / untrue</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio19')">gauche /ɡoʃ/</td>
-                <td>left side</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio20')">haut /o/</td>
-                <td>high / aloud</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio21')">hauteur /otœʀ/</td>
-                <td>height</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio22')">jaune /ʒon/</td>
-                <td>yellow</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio23')">paumé /pome/</td>
-                <td>feel confused / physically lost</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio24')">pauvre /povʀ/</td>
-                <td>poor</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio25')">sauf /sof/</td>
-                <td>except</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio26')">saumon /somɔ̃/</td>
-                <td>salmon</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio27')">sauver /sove/</td>
-                <td>to save</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio28')">taule /tol/</td>
-                <td>jail</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio29')">travaux /tʀavo/</td>
-                <td>work</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio30')">vaut /vo/</td>
-                <td>to be worth (valoir)</td>
-              </tr>
-              <tr>
-                <td colspan="2" class="blue">ô</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio31')">Allô /alo/</td>
-                <td>hello</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio32')">bientôt /bjɛ̃to/</td>
-                <td>soon</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio33')">contrôle /kɔ̃tʀol/</td>
-                <td>control</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio34')">côté /kote/</td>
-                <td>side</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio35')">drôle /dʀol/</td>
-                <td>funny</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio36')">hôtel /otɛl/</td>
-                <td>hotel</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio37')">plutôt /plyto/</td>
-                <td>quite / rather</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio38')">tôt /to/</td>
-                <td>early</td>
-              </tr>
-              <tr>
-                <td onclick="playAudio('audio39')">trône /tʀon/</td>
-                <td>throne</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
     </div>
 
-    <!-- Hidden Audio Elements -->
-    <audio id="audio1" src="https://languages.rmlives.com/phonetics/o/01-animaux.m4a"></audio>
-    <audio id="audio2" src="https://languages.rmlives.com/phonetics/o/02-applaudir.m4a"></audio>
-    <audio id="audio3" src="https://languages.rmlives.com/phonetics/o/03-aussi.m4a"></audio>
-    <audio id="audio4" src="https://languages.rmlives.com/phonetics/o/04-autant.m4a"></audio>
-    <audio id="audio5" src="https://languages.rmlives.com/phonetics/o/05-autre.m4a"></audio>
-    <audio id="audio6" src="https://languages.rmlives.com/phonetics/o/06-cauchemar.m4a"></audio>
-    <audio id="audio7" src="https://languages.rmlives.com/phonetics/o/07-cause.m4a"></audio>
-    <audio id="audio8" src="https://languages.rmlives.com/phonetics/o/08-cautionner.m4a"></audio>
-    <audio id="audio9" src="https://languages.rmlives.com/phonetics/o/09-chaude.m4a"></audio>
-    <audio id="audio10" src="https://languages.rmlives.com/phonetics/o/10-chauffer.m4a"></audio>
-    <audio id="audio11" src="https://languages.rmlives.com/phonetics/o/11-chauffeur.m4a"></audio>
-    <audio id="audio12" src="https://languages.rmlives.com/phonetics/o/12-chaussette.m4a"></audio>
-    <audio id="audio13" src="https://languages.rmlives.com/phonetics/o/13-chauve.m4a"></audio>
-    <audio id="audio14" src="https://languages.rmlives.com/phonetics/o/14-chevaux.m4a"></audio>
-    <audio id="audio15" src="https://languages.rmlives.com/phonetics/o/15-costaud.m4a"></audio>
-    <audio id="audio16" src="https://languages.rmlives.com/phonetics/o/16-épauler.m4a"></audio>
-    <audio id="audio17" src="https://languages.rmlives.com/phonetics/o/17-faut.m4a"></audio>
-    <audio id="audio18" src="https://languages.rmlives.com/phonetics/o/18-faux.m4a"></audio>
-    <audio id="audio19" src="https://languages.rmlives.com/phonetics/o/19-gauche.m4a"></audio>
-    <audio id="audio20" src="https://languages.rmlives.com/phonetics/o/20-haut.m4a"></audio>
-    <audio id="audio21" src="https://languages.rmlives.com/phonetics/o/21-hauteur.m4a"></audio>
-    <audio id="audio22" src="https://languages.rmlives.com/phonetics/o/22-jaune.m4a"></audio>
-    <audio id="audio23" src="https://languages.rmlives.com/phonetics/o/23-paumé.m4a"></audio>
-    <audio id="audio24" src="https://languages.rmlives.com/phonetics/o/24-pauvre.m4a"></audio>
-    <audio id="audio25" src="https://languages.rmlives.com/phonetics/o/25-sauf.m4a"></audio>
-    <audio id="audio26" src="https://languages.rmlives.com/phonetics/o/26-saumon.m4a"></audio>
-    <audio id="audio27" src="https://languages.rmlives.com/phonetics/o/27-sauver.m4a"></audio>
-    <audio id="audio28" src="https://languages.rmlives.com/phonetics/o/28-taule.m4a"></audio>
-    <audio id="audio29" src="https://languages.rmlives.com/phonetics/o/29-travaux.m4a"></audio>
-    <audio id="audio30" src="https://languages.rmlives.com/phonetics/o/30-vaut.m4a"></audio>
-    <audio id="audio31" src="https://languages.rmlives.com/phonetics/o/31-Allô.m4a"></audio>
-    <audio id="audio32" src="https://languages.rmlives.com/phonetics/o/32-bientôt.m4a"></audio>
-    <audio id="audio33" src="https://languages.rmlives.com/phonetics/o/33-contrôle.m4a"></audio>
-    <audio id="audio34" src="https://languages.rmlives.com/phonetics/o/34-côté.m4a"></audio>
-    <audio id="audio35" src="https://languages.rmlives.com/phonetics/o/35-drôle.m4a"></audio>
-    <audio id="audio36" src="https://languages.rmlives.com/phonetics/o/36-hôtel.m4a"></audio>
-    <audio id="audio37" src="https://languages.rmlives.com/phonetics/o/37-plutôt.m4a"></audio>
-    <audio id="audio38" src="https://languages.rmlives.com/phonetics/o/38-tôt.m4a"></audio>
-    <audio id="audio39" src="https://languages.rmlives.com/phonetics/o/39-trône.m4a"></audio>
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : NN-<word>.m4a in AUD_DIR (01-animaux.m4a … 39-trône.m4a),
+             numbered in reading order across all groups
+   groups -> words: [French, IPA, English, file?]
+     file is the audio file name (no extension) when it isn't the usual
+     one; numbering continues from its number, so it also covers gaps.
+   groups -> pairs: [[French, IPA, English], [French, IPA, English]]
+     two contrasting words side by side, each with its own audio.
+   title is "" when the page has a single, self-explanatory group.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/phonetics/o/";
+      const AUD_EXT = "m4a";
+      const AUD_NAME = (n, word) => `${n}-${word}`;
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+      const groups = [
+        {
+          title: "au",
+          words: [
+            ["animaux", "/animo/", "animals"],
+            ["applaudir", "/aplodiʀ/", "to clap / applaud"],
+            ["aussi", "/osi/", "also / too"],
+            ["autant", "/otɑ̃/", "so much / might as well"],
+            ["autre", "/otʀ/", "other"],
+            ["cauchemar", "/koʃmaʀ/", "nightmare"],
+            ["cause", "/koz/", "cause"],
+            ["cautionner", "/kosjɔne/", "to guarantee / support"],
+            ["chaude", "/ʃod/", "warm / hot"],
+            ["chauffer", "/ʃofe/", "to heat"],
+            ["chauffeur", "/ʃofœʀ/", "driver"],
+            ["chaussette", "/ʃosɛt/", "sock"],
+            ["chauve", "/ʃov/", "bald"],
+            ["chevaux", "/ʃ(ə)vo/", "horses (cheval)"],
+            ["costaud", "/kɔsto/", "strong / beefy"],
+            ["épauler", "/epole/", "to back up / to support"],
+            ["faut", "/fo/", "to need to / to have to (falloir)"],
+            ["faux", "/fo/", "fake / untrue"],
+            ["gauche", "/ɡoʃ/", "left side"],
+            ["haut", "/o/", "high / aloud"],
+            ["hauteur", "/otœʀ/", "height"],
+            ["jaune", "/ʒon/", "yellow"],
+            ["paumé", "/pome/", "feel confused / physically lost"],
+            ["pauvre", "/povʀ/", "poor"],
+            ["sauf", "/sof/", "except"],
+            ["saumon", "/somɔ̃/", "salmon"],
+            ["sauver", "/sove/", "to save"],
+            ["taule", "/tol/", "jail"],
+            ["travaux", "/tʀavo/", "work"],
+            ["vaut", "/vo/", "to be worth (valoir)"],
+          ],
+        },
+        {
+          title: "ô",
+          words: [
+            ["Allô", "/alo/", "hello"],
+            ["bientôt", "/bjɛ̃to/", "soon"],
+            ["contrôle", "/kɔ̃tʀol/", "control"],
+            ["côté", "/kote/", "side"],
+            ["drôle", "/dʀol/", "funny"],
+            ["hôtel", "/otɛl/", "hotel"],
+            ["plutôt", "/plyto/", "quite / rather"],
+            ["tôt", "/to/", "early"],
+            ["trône", "/tʀon/", "throne"],
+          ],
+        },
+      ];
 
-    <!-- Custom JavaScript -->
-    <script type="module" src="../../../assets/js/phonetic.js"></script>
+      (function () {
+        const SPEAKER = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>`;
+        const pad = (n) => String(n).padStart(2, "0");
+        let audioNum = 0;
+        let wordCount = 0;
+
+        // Audio files are numbered in reading order across all groups.
+        const audio = (fr, file) => {
+          wordCount++;
+          if (file) audioNum = parseInt(file, 10);
+          const name = file || AUD_NAME(pad(++audioNum), fr);
+          return `data-audio="${AUD_DIR}${name}.${AUD_EXT}"`;
+        };
+
+        const text = (fr, ipa, en) => `
+              <div class="flex-1 min-w-0">
+                <p class="phrase text-lg leading-tight" lang="fr">${fr}</p>
+                <p class="phonetic">${ipa}</p>
+                <p class="english">${en}</p>
+              </div>`;
+
+        const card = ([fr, ipa, en, file]) => `
+          <div class="card p-3 sm:p-4 flex items-center gap-3 shadow-md" ${audio(fr, file)}>
+            <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+          </div>`;
+
+        const half = ([fr, ipa, en, file]) => `
+            <div class="flex-1 min-w-0 flex items-center gap-3" ${audio(fr, file)}>
+              <button class="sound-btn" title="Play audio" aria-label="Play ${fr}">${SPEAKER}</button>${text(fr, ipa, en)}
+            </div>`;
+
+        const pair = ([a, b]) => `
+          <div class="card p-3 sm:p-4 flex gap-3 shadow-md">${half(a)}
+            <span class="pair-vs">vs</span>${half(b)}
+          </div>`;
+
+        const section = (g, i) => `
+          ${g.title ? `<div class="${i ? "mt-14 " : ""}mb-6">
+            <h2 class="text-3xl font-bold" style="font-family: 'Playfair Display', serif; color: white">${g.title}</h2>
+            ${g.desc ? `<p class="mt-1 text-sm" style="color: rgba(255, 255, 255, 0.55); font-family: 'Roboto', sans-serif">${g.desc}</p>` : ""}
+            <div class="header-line w-48 mt-3"></div>
+          </div>` : ""}
+          ${g.pairs
+            ? `<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-5">${g.pairs.map(pair).join("")}`
+            : `<div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-5">${g.words.map(card).join("")}`}
+          </div>`;
+
+        document.getElementById("cards").innerHTML = groups
+          .map(section)
+          .join("");
+
+        // Tapping a card (or one side of a pair) plays it; one clip at a time.
+        let playing = null;
+        document.querySelectorAll("#cards [data-audio]").forEach((el) => {
+          el.addEventListener("click", () => {
+            if (playing) playing.pause();
+            playing = new Audio(el.dataset.audio);
+            playing.play();
+          });
+        });
+
+        document.getElementById("count").textContent = wordCount;
+      })();
+    </script>
+    <script src="../../../assets/js/nav-enun-flash.js"></script>
   </body>
 </html>
