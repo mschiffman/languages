@@ -58,6 +58,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -75,7 +81,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -85,9 +91,12 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Demain, c'est déjà le 10 ? Ah oui, le vide-grenier ! Il faut qu'on se
-          prépare. Elka m'a dit que les premiers chineurs arrivent dès six
-          heures.
+          <span class="chunk" data-audio="01_1.mp3">Demain, c'est déjà le 10 ?</span>
+          <span class="chunk" data-audio="01_2.mp3">Ah oui, le vide-grenier !</span>
+          <span class="chunk" data-audio="01_3.mp3">Il faut qu'on se prépare.</span>
+          <span class="chunk" data-audio="01_4.mp3">Elka m'a dit que</span>
+          <span class="chunk" data-audio="01_5.mp3">les premiers chineurs</span>
+          <span class="chunk" data-audio="01_6.mp3">arrivent dès six heures.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -107,8 +116,10 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Je regarde la météo. Gemini annonce 60 % de risque de pluie à partir
-          de six heures.
+          <span class="chunk" data-audio="02_1.mp3">Je regarde la météo.</span>
+          <span class="chunk" data-audio="02_2.mp3">Gemini annonce</span>
+          <span class="chunk" data-audio="02_3.mp3">60 % de risque de pluie</span>
+          <span class="chunk" data-audio="02_4.mp3">à partir de six heures.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -128,8 +139,10 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Alors il va falloir annuler. J'ai pas envie de courir partout sous la
-          pluie.
+          <span class="chunk" data-audio="03_1.mp3">Alors il va falloir annuler.</span>
+          <span class="chunk" data-audio="03_2.mp3">J'ai pas envie</span>
+          <span class="chunk" data-audio="03_3.mp3">de courir partout</span>
+          <span class="chunk" data-audio="03_4.mp3">sous la pluie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -149,7 +162,9 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Moi non plus. On le fera un autre week-end.
+          <span class="chunk" data-audio="04_1.mp3">Moi non plus.</span>
+          <span class="chunk" data-audio="04_2.mp3">On le fera</span>
+          <span class="chunk" data-audio="04_3.mp3">un autre week-end.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -166,8 +181,12 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Mon neveu est intéressé par certains de nos meubles. Il va les mettre
-          au garde-meuble, au cas où il reviendrait un jour aux États-Unis.
+          <span class="chunk" data-audio="05_1.mp3">Mon neveu est intéressé</span>
+          <span class="chunk" data-audio="05_2.mp3">par certains de nos meubles.</span>
+          <span class="chunk" data-audio="05_3.mp3">Il va les mettre</span>
+          <span class="chunk" data-audio="05_4.mp3">au garde-meuble,</span>
+          <span class="chunk" data-audio="05_5.mp3">au cas où il reviendrait</span>
+          <span class="chunk" data-audio="05_6.mp3">un jour aux États-Unis.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -187,8 +206,12 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Ben, ça nous évitera le casse-tête de nous débarrasser de tous ces
-          meubles lourds. Les meubles d'occasion, c'est dur à vendre.
+          <span class="chunk" data-audio="06_1.mp3">Ben, ça nous évitera</span>
+          <span class="chunk" data-audio="06_2.mp3">le casse-tête</span>
+          <span class="chunk" data-audio="06_3.mp3">de nous débarrasser</span>
+          <span class="chunk" data-audio="06_4.mp3">de tous ces meubles lourds.</span>
+          <span class="chunk" data-audio="06_5.mp3">Les meubles d'occasion,</span>
+          <span class="chunk" data-audio="06_6.mp3">c'est dur à vendre.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -208,9 +231,14 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Je sais. La plupart des gens n'ont ni l'aide ni un véhicule assez
-          grand pour les transporter. Même quand tu les donnes, personne ne veut
-          se taper le déménagement.
+          <span class="chunk" data-audio="07_1.mp3">Je sais.</span>
+          <span class="chunk" data-audio="07_2.mp3">La plupart des gens</span>
+          <span class="chunk" data-audio="07_3.mp3">n'ont ni l'aide</span>
+          <span class="chunk" data-audio="07_4.mp3">ni un véhicule assez grand</span>
+          <span class="chunk" data-audio="07_5.mp3">pour les transporter.</span>
+          <span class="chunk" data-audio="07_6.mp3">Même quand tu les donnes,</span>
+          <span class="chunk" data-audio="07_7.mp3">personne ne veut</span>
+          <span class="chunk" data-audio="07_8.mp3">se taper le déménagement.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -231,10 +259,17 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Steve nous a bien aidés aujourd'hui, il a descendu les cartons de
-          l'étage jusqu'au garage. Avec ton cou et mon dos, on ne devrait ni
-          l'un ni l'autre porter des trucs lourds. Je vais l'inviter à déjeuner chez Umi jeudi prochain. Tu viens avec
-          nous ?
+          <span class="chunk" data-audio="08_1.mp3">Steve nous a bien aidés aujourd'hui,</span>
+          <span class="chunk" data-audio="08_2.mp3">il a descendu les cartons</span>
+          <span class="chunk" data-audio="08_3.mp3">de l'étage jusqu'au garage.</span>
+          <span class="chunk" data-audio="08_4.mp3">Avec ton cou et mon dos,</span>
+          <span class="chunk" data-audio="08_5.mp3">on ne devrait</span>
+          <span class="chunk" data-audio="08_6.mp3">ni l'un ni l'autre</span>
+          <span class="chunk" data-audio="08_7.mp3">porter des trucs lourds.</span>
+          <span class="chunk" data-audio="08_8.mp3">Je vais l'inviter</span>
+          <span class="chunk" data-audio="08_9.mp3">à déjeuner chez Umi</span>
+          <span class="chunk" data-audio="08_10.mp3">jeudi prochain.</span>
+          <span class="chunk" data-audio="08_11.mp3">Tu viens avec nous ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -256,8 +291,11 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Ouais, pourquoi pas. Le soir, ça vaut pas le coup de payer plus cher,
-          surtout qu'ils servent pas de homard.
+          <span class="chunk" data-audio="09_1.mp3">Ouais, pourquoi pas.</span>
+          <span class="chunk" data-audio="09_2.mp3">Le soir, ça vaut pas le coup</span>
+          <span class="chunk" data-audio="09_3.mp3">de payer plus cher,</span>
+          <span class="chunk" data-audio="09_4.mp3">surtout qu'ils servent pas</span>
+          <span class="chunk" data-audio="09_5.mp3">de homard.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -277,7 +315,10 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Je sais. Et la dernière fois, ils avaient même pas attendri l'ormeau.
+          <span class="chunk" data-audio="10_1.mp3">Je sais.</span>
+          <span class="chunk" data-audio="10_2.mp3">Et la dernière fois,</span>
+          <span class="chunk" data-audio="10_3.mp3">ils avaient même pas</span>
+          <span class="chunk" data-audio="10_4.mp3">attendri l'ormeau.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -297,8 +338,11 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Moi, je prends surtout des sashimis et d'autres fruits de mer.
-          Faudrait que je goûte leurs soupes un jour.
+          <span class="chunk" data-audio="11_1.mp3">Moi, je prends surtout</span>
+          <span class="chunk" data-audio="11_2.mp3">des sashimis</span>
+          <span class="chunk" data-audio="11_3.mp3">et d'autres fruits de mer.</span>
+          <span class="chunk" data-audio="11_4.mp3">Faudrait que je goûte</span>
+          <span class="chunk" data-audio="11_5.mp3">leurs soupes un jour.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -318,7 +362,9 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Moi aussi. J'aime bien leur canard rôti et leurs travers de bœuf.
+          <span class="chunk" data-audio="12_1.mp3">Moi aussi.</span>
+          <span class="chunk" data-audio="12_2.mp3">J'aime bien leur canard rôti</span>
+          <span class="chunk" data-audio="12_3.mp3">et leurs travers de bœuf.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -335,7 +381,9 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          On en a vraiment pour son argent. Il y a un choix énorme.
+          <span class="chunk" data-audio="13_1.mp3">On en a vraiment</span>
+          <span class="chunk" data-audio="13_2.mp3">pour son argent.</span>
+          <span class="chunk" data-audio="13_3.mp3">Il y a un choix énorme.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -355,7 +403,8 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Alors, on le refait quand, ce vide-grenier ?
+          <span class="chunk" data-audio="14_1.mp3">Alors, on le refait quand,</span>
+          <span class="chunk" data-audio="14_2.mp3">ce vide-grenier ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -372,7 +421,9 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Forcément un week-end. Je peux passer une annonce sur Facebook.
+          <span class="chunk" data-audio="15_1.mp3">Forcément un week-end.</span>
+          <span class="chunk" data-audio="15_2.mp3">Je peux passer une annonce</span>
+          <span class="chunk" data-audio="15_3.mp3">sur Facebook.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -389,8 +440,10 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          On a beaucoup plus de monde quand tout le quartier fait son
-          vide-grenier le même jour.
+          <span class="chunk" data-audio="16_1.mp3">On a beaucoup plus de monde</span>
+          <span class="chunk" data-audio="16_2.mp3">quand tout le quartier</span>
+          <span class="chunk" data-audio="16_3.mp3">fait son vide-grenier</span>
+          <span class="chunk" data-audio="16_4.mp3">le même jour.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -409,7 +462,9 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          C'est vrai. On participera au prochain, si la météo le permet.
+          <span class="chunk" data-audio="17_1.mp3">C'est vrai.</span>
+          <span class="chunk" data-audio="17_2.mp3">On participera au prochain,</span>
+          <span class="chunk" data-audio="17_3.mp3">si la météo le permet.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -426,7 +481,8 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          On a tellement de trucs dont se débarrasser.
+          <span class="chunk" data-audio="18_1.mp3">On a tellement de trucs</span>
+          <span class="chunk" data-audio="18_2.mp3">dont se débarrasser.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -443,8 +499,11 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Bah, si la maison se vend pas, on pourra pas déménager de toute
-          façon. Au moins, ça nous laissera plus de temps pour trier.
+          <span class="chunk" data-audio="19_1.mp3">Bah, si la maison se vend pas,</span>
+          <span class="chunk" data-audio="19_2.mp3">on pourra pas déménager</span>
+          <span class="chunk" data-audio="19_3.mp3">de toute façon.</span>
+          <span class="chunk" data-audio="19_4.mp3">Au moins, ça nous laissera</span>
+          <span class="chunk" data-audio="19_5.mp3">plus de temps pour trier.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -524,6 +583,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv41/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv41/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>
