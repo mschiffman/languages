@@ -37,6 +37,10 @@ fr/expression/.build_cache/
 fr/expression/single/
 fr/expression/single_small/
 
+# Generated offline conversation pages, with embedded audio
+# (see fr/everyday/conversations/make_single.py)
+fr/everyday/conversations/single/
+
 # Python bytecode
 __pycache__/
 
