@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,9 +92,15 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          On n'a pas beaucoup de pollinisateurs cette année. D'habitude, on a
-          environ 600 abeilles. Là, on en a à peine quatre ou cinq douzaines,
-          devant et derrière la maison.
+          <span class="chunk" data-audio="01_1.mp3">On n'a pas beaucoup</span>
+          <span class="chunk" data-audio="01_2.mp3">de pollinisateurs</span>
+          <span class="chunk" data-audio="01_3.mp3">cette année.</span>
+          <span class="chunk" data-audio="01_4.mp3">D'habitude,</span>
+          <span class="chunk" data-audio="01_5.mp3">on a environ 600 abeilles.</span>
+          <span class="chunk" data-audio="01_6.mp3">Là,</span>
+          <span class="chunk" data-audio="01_7.mp3">on en a à peine</span>
+          <span class="chunk" data-audio="01_8.mp3">quatre ou cinq douzaines,</span>
+          <span class="chunk" data-audio="01_9.mp3">devant et derrière la maison.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -109,8 +121,13 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Ouais, je vois rarement des papillons. Le temps était complètement
-          détraqué au printemps. Leur population a dû s'effondrer.
+          <span class="chunk" data-audio="02_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="02_2.mp3">je vois rarement des papillons.</span>
+          <span class="chunk" data-audio="02_3.mp3">Le temps était</span>
+          <span class="chunk" data-audio="02_4.mp3">complètement détraqué</span>
+          <span class="chunk" data-audio="02_5.mp3">au printemps.</span>
+          <span class="chunk" data-audio="02_6.mp3">Leur population</span>
+          <span class="chunk" data-audio="02_7.mp3">a dû s'effondrer.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -155,9 +172,13 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Le jardin est en pleine floraison en ce moment. Le buffet est garni,
-          mais y'a pas grand monde. Oh regarde, y'a deux papillons sur le
-          lantana.
+          <span class="chunk" data-audio="03_1.mp3">Le jardin est en pleine floraison</span>
+          <span class="chunk" data-audio="03_2.mp3">en ce moment.</span>
+          <span class="chunk" data-audio="03_3.mp3">Le buffet est garni,</span>
+          <span class="chunk" data-audio="03_4.mp3">mais y'a pas grand monde.</span>
+          <span class="chunk" data-audio="03_5.mp3">Oh regarde,</span>
+          <span class="chunk" data-audio="03_6.mp3">y'a deux papillons</span>
+          <span class="chunk" data-audio="03_7.mp3">sur le lantana.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -177,7 +198,7 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Je les vois.
+          <span class="chunk" data-audio="04_1.mp3">Je les vois.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -194,7 +215,8 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Je me demande si c'est un couple.
+          <span class="chunk" data-audio="05_1.mp3">Je me demande</span>
+          <span class="chunk" data-audio="05_2.mp3">si c'est un couple.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -211,9 +233,13 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Laisse-moi vérifier. C'est écrit que les papillons sont des insectes
-          solitaires. Ils traînent pas ensemble. Ces deux-là se retrouvent sur
-          la même plante juste par hasard.
+          <span class="chunk" data-audio="06_1.mp3">Laisse-moi vérifier.</span>
+          <span class="chunk" data-audio="06_2.mp3">C'est écrit que les papillons</span>
+          <span class="chunk" data-audio="06_3.mp3">sont des insectes solitaires.</span>
+          <span class="chunk" data-audio="06_4.mp3">Ils traînent pas ensemble.</span>
+          <span class="chunk" data-audio="06_5.mp3">Ces deux-là se retrouvent</span>
+          <span class="chunk" data-audio="06_6.mp3">sur la même plante</span>
+          <span class="chunk" data-audio="06_7.mp3">juste par hasard.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -233,9 +259,12 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Prendre soin des pollinisateurs et des oiseaux, ça nourrit mon côté
-          maternel. En Malaisie, on n'a plus de jardin. De qui je vais m'occuper
-          ?
+          <span class="chunk" data-audio="07_1.mp3">Prendre soin des pollinisateurs</span>
+          <span class="chunk" data-audio="07_2.mp3">et des oiseaux,</span>
+          <span class="chunk" data-audio="07_3.mp3">ça nourrit mon côté maternel.</span>
+          <span class="chunk" data-audio="07_4.mp3">En Malaisie,</span>
+          <span class="chunk" data-audio="07_5.mp3">on n'a plus de jardin.</span>
+          <span class="chunk" data-audio="07_6.mp3">De qui je vais m'occuper ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -256,7 +285,7 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          De moi.
+          <span class="chunk" data-audio="08_1.mp3">De moi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -273,26 +302,18 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          C'est exactement ce que je me disais. Tu vas finir par devenir un mari
-          birman,
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃu.ʃu.te/"
-            data-meaning="pampered, coddled"
-            >chouchouté</span
-          >
-          du matin au soir. Tu seras tellement gâté que tu finiras par dire :
-          "<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʒɑ̃ ɛ ʁa lə bɔl/"
-            data-meaning="I'm sick and tired of it, I've had enough"
-            >J'en ai ras-le-bol</span
-          >
-          de ce truc de mari birman. Je veux redevenir un mari américain."
+          <span class="chunk" data-audio="09_1.mp3">C'est exactement</span>
+          <span class="chunk" data-audio="09_2.mp3">ce que je me disais.</span>
+          <span class="chunk" data-audio="09_3.mp3">Tu vas finir par devenir</span>
+          <span class="chunk" data-audio="09_4.mp3">un mari birman,</span>
+          <span class="chunk" data-audio="09_5.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃu.ʃu.te/" data-meaning="pampered, coddled" >chouchouté</span ></span>
+          <span class="chunk" data-audio="09_6.mp3">du matin au soir.</span>
+          <span class="chunk" data-audio="09_7.mp3">Tu seras tellement gâté</span>
+          <span class="chunk" data-audio="09_8.mp3">que tu finiras par dire :</span>
+          <span class="chunk" data-audio="09_9.mp3">"<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʒɑ̃ ɛ ʁa lə bɔl/" data-meaning="I'm sick and tired of it, I've had enough" >J'en ai ras-le-bol</span ></span>
+          <span class="chunk" data-audio="09_10.mp3">de ce truc de mari birman.</span>
+          <span class="chunk" data-audio="09_11.mp3">Je veux redevenir</span>
+          <span class="chunk" data-audio="09_12.mp3">un mari américain."</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -314,7 +335,8 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Je le croirai quand je le verrai.
+          <span class="chunk" data-audio="10_1.mp3">Je le croirai</span>
+          <span class="chunk" data-audio="10_2.mp3">quand je le verrai.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -331,16 +353,11 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Dans le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʁɛɲ a.ni.mal/"
-            data-meaning="animal kingdom"
-            >règne animal</span
-          >, quand y'a de la nourriture en abondance, la population augmente.
-          Peut-être qu'elle va remonter.
+          <span class="chunk" data-audio="11_1.mp3">Dans le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʁɛɲ a.ni.mal/" data-meaning="animal kingdom" >règne animal</span >,</span>
+          <span class="chunk" data-audio="11_2.mp3">quand y'a de la nourriture</span>
+          <span class="chunk" data-audio="11_3.mp3">en abondance,</span>
+          <span class="chunk" data-audio="11_4.mp3">la population augmente.</span>
+          <span class="chunk" data-audio="11_5.mp3">Peut-être qu'elle va remonter.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -360,19 +377,20 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Ouais, le règne animal, c'est fascinant. À Bakersfield, une bonne
-          année avec de la pluie faisait grimper la population de lapins et
-          d'écureuils. Du coup, leurs prédateurs, les serpents, se multipliaient
-          aussi. Puis quand les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʁwa/"
-            data-meaning="prey"
-            >proies</span
-          >
-          diminuaient, les serpents crevaient.
+          <span class="chunk" data-audio="12_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="12_2.mp3">le règne animal,</span>
+          <span class="chunk" data-audio="12_3.mp3">c'est fascinant.</span>
+          <span class="chunk" data-audio="12_4.mp3">À Bakersfield,</span>
+          <span class="chunk" data-audio="12_5.mp3">une bonne année avec de la pluie</span>
+          <span class="chunk" data-audio="12_6.mp3">faisait grimper la population</span>
+          <span class="chunk" data-audio="12_7.mp3">de lapins et d'écureuils.</span>
+          <span class="chunk" data-audio="12_8.mp3">Du coup,</span>
+          <span class="chunk" data-audio="12_9.mp3">leurs prédateurs,</span>
+          <span class="chunk" data-audio="12_10.mp3">les serpents,</span>
+          <span class="chunk" data-audio="12_11.mp3">se multipliaient aussi.</span>
+          <span class="chunk" data-audio="12_12.mp3">Puis quand les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʁwa/" data-meaning="prey" >proies</span ></span>
+          <span class="chunk" data-audio="12_13.mp3">diminuaient,</span>
+          <span class="chunk" data-audio="12_14.mp3">les serpents crevaient.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -394,7 +412,8 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Au fait, tu veux refaire pipi ?
+          <span class="chunk" data-audio="13_1.mp3">Au fait,</span>
+          <span class="chunk" data-audio="13_2.mp3">tu veux refaire pipi ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -411,7 +430,8 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Ouais. J'irai après toi.
+          <span class="chunk" data-audio="14_1.mp3">Ouais.</span>
+          <span class="chunk" data-audio="14_2.mp3">J'irai après toi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -428,7 +448,8 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Hé, sors de ma cuisine.
+          <span class="chunk" data-audio="15_1.mp3">Hé,</span>
+          <span class="chunk" data-audio="15_2.mp3">sors de ma cuisine.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -445,8 +466,12 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Je suis même pas dans la cuisine en train de faire ta vaisselle. Bon,
-          je suis un peu dans la cuisine, je m'essuie juste les mains.
+          <span class="chunk" data-audio="16_1.mp3">Je suis même pas</span>
+          <span class="chunk" data-audio="16_2.mp3">dans la cuisine</span>
+          <span class="chunk" data-audio="16_3.mp3">en train de faire ta vaisselle.</span>
+          <span class="chunk" data-audio="16_4.mp3">Bon,</span>
+          <span class="chunk" data-audio="16_5.mp3">je suis un peu dans la cuisine,</span>
+          <span class="chunk" data-audio="16_6.mp3">je m'essuie juste les mains.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -466,7 +491,8 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          OK. À toi.
+          <span class="chunk" data-audio="17_1.mp3">OK.</span>
+          <span class="chunk" data-audio="17_2.mp3">À toi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -483,7 +509,7 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          On parlait de quoi déjà ?
+          <span class="chunk" data-audio="18_1.mp3">On parlait de quoi déjà ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -500,25 +526,17 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Du jardin et des pollinisateurs. Au fait, à notre âge, il faut savoir
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/lə.ve lə pje/"
-            data-meaning="to slow down, to ease off"
-            >lever le pied</span
-          >. Faut pas tout vouloir faire en une journée. Quand on est fatigués,
-          on s'arrête. C'est là qu'on
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tʁe.byʃ/"
-            data-meaning="trips, stumbles"
-            >trébuche</span
-          >
-          et qu'on tombe.
+          <span class="chunk" data-audio="19_1.mp3">Du jardin</span>
+          <span class="chunk" data-audio="19_2.mp3">et des pollinisateurs.</span>
+          <span class="chunk" data-audio="19_3.mp3">Au fait,</span>
+          <span class="chunk" data-audio="19_4.mp3">à notre âge,</span>
+          <span class="chunk" data-audio="19_5.mp3">il faut savoir <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/lə.ve lə pje/" data-meaning="to slow down, to ease off" >lever le pied</span >.</span>
+          <span class="chunk" data-audio="19_6.mp3">Faut pas tout vouloir faire</span>
+          <span class="chunk" data-audio="19_7.mp3">en une journée.</span>
+          <span class="chunk" data-audio="19_8.mp3">Quand on est fatigués,</span>
+          <span class="chunk" data-audio="19_9.mp3">on s'arrête.</span>
+          <span class="chunk" data-audio="19_10.mp3">C'est là qu'on <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tʁe.byʃ/" data-meaning="trips, stumbles" >trébuche</span ></span>
+          <span class="chunk" data-audio="19_11.mp3">et qu'on tombe.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -539,7 +557,7 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          Comme Ken ?
+          <span class="chunk" data-audio="20_1.mp3">Comme Ken ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -556,7 +574,8 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          Oui, exactement. Comment il va ?
+          <span class="chunk" data-audio="21_1.mp3">Oui, exactement.</span>
+          <span class="chunk" data-audio="21_2.mp3">Comment il va ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -573,7 +592,10 @@
           data-audio="22.mp3"
         ></audio>
         <p>
-          Il a toujours mal. Ça va mettre du temps à guérir. Il a 83 ans.
+          <span class="chunk" data-audio="22_1.mp3">Il a toujours mal.</span>
+          <span class="chunk" data-audio="22_2.mp3">Ça va mettre du temps</span>
+          <span class="chunk" data-audio="22_3.mp3">à guérir.</span>
+          <span class="chunk" data-audio="22_4.mp3">Il a 83 ans.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -590,7 +612,8 @@
           data-audio="23.mp3"
         ></audio>
         <p>
-          Ils ont emménagé dans la nouvelle maison ?
+          <span class="chunk" data-audio="23_1.mp3">Ils ont emménagé</span>
+          <span class="chunk" data-audio="23_2.mp3">dans la nouvelle maison ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -607,8 +630,13 @@
           data-audio="24.mp3"
         ></audio>
         <p>
-          Non, la vente sera finalisée à la fin du mois. Ils auront deux crédits
-          sur le dos jusqu'à ce qu'ils vendent leur maison actuelle.
+          <span class="chunk" data-audio="24_1.mp3">Non,</span>
+          <span class="chunk" data-audio="24_2.mp3">la vente sera finalisée</span>
+          <span class="chunk" data-audio="24_3.mp3">à la fin du mois.</span>
+          <span class="chunk" data-audio="24_4.mp3">Ils auront deux crédits</span>
+          <span class="chunk" data-audio="24_5.mp3">sur le dos</span>
+          <span class="chunk" data-audio="24_6.mp3">jusqu'à ce qu'ils vendent</span>
+          <span class="chunk" data-audio="24_7.mp3">leur maison actuelle.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -628,25 +656,11 @@
           data-audio="25.mp3"
         ></audio>
         <p>
-          Il a encore un crédit sur la maison ? Il a peut-être fait un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃.pʁœ̃/"
-            data-meaning="loan, borrowing"
-            >emprunt</span
-          >
-          quand leur
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʒɑ̃dʁ/"
-            data-meaning="son-in-law"
-            >gendre</span
-          >
-          a perdu son boulot.
+          <span class="chunk" data-audio="25_1.mp3">Il a encore un crédit</span>
+          <span class="chunk" data-audio="25_2.mp3">sur la maison ?</span>
+          <span class="chunk" data-audio="25_3.mp3">Il a peut-être fait un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃.pʁœ̃/" data-meaning="loan, borrowing" >emprunt</span ></span>
+          <span class="chunk" data-audio="25_4.mp3">quand leur <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʒɑ̃dʁ/" data-meaning="son-in-law" >gendre</span ></span>
+          <span class="chunk" data-audio="25_5.mp3">a perdu son boulot.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -666,16 +680,11 @@
           data-audio="26.mp3"
         ></audio>
         <p>
-          Je sais pas. La famille de leur fille va s'occuper du déménagement et
-          de lui jusqu'à ce qu'il
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sə ʁə.mɛt/"
-            data-meaning="recovers (from se remettre)"
-            >se remette</span
-          >.
+          <span class="chunk" data-audio="26_1.mp3">Je sais pas.</span>
+          <span class="chunk" data-audio="26_2.mp3">La famille de leur fille</span>
+          <span class="chunk" data-audio="26_3.mp3">va s'occuper du déménagement</span>
+          <span class="chunk" data-audio="26_4.mp3">et de lui</span>
+          <span class="chunk" data-audio="26_5.mp3">jusqu'à ce qu'il <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sə ʁə.mɛt/" data-meaning="recovers (from se remettre)" >se remette</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -695,7 +704,7 @@
           data-audio="27.mp3"
         ></audio>
         <p>
-          C'est gentil, ça.
+          <span class="chunk" data-audio="27_1.mp3">C'est gentil, ça.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -783,6 +792,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv24/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv24/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

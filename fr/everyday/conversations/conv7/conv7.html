@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,61 +92,18 @@
           data-audio="1.mp3"
         ></audio>
         <p>
-          On pourrait faire un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʒø/"
-            data-meaning="game"
-            >jeu</span
-          >
-          de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀol/"
-            data-meaning="role"
-            >rôle</span
-          >
-          où tu serais mon amie, une Française
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/maʀje/"
-            data-meaning="married"
-            >mariée</span
-          >
-          à un Américain et vivant aux États-Unis. Ton mari aurait 92 ans et toi
-          75, et il
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sufʀiʀɛ/"
-            data-meaning="would suffer"
-            >souffrirait</span
-          >
-          de graves problèmes de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sɑ̃te/"
-            data-meaning="health"
-            >santé</span
-          >, notamment un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɑ̃sɛʀ/"
-            data-meaning="cancer"
-            >cancer</span
-          >
-          du sang.
+          <span class="chunk" data-audio="1_1.mp3">On pourrait faire</span>
+          <span class="chunk" data-audio="1_2.mp3">un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʒø/" data-meaning="game" >jeu</span > de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀol/" data-meaning="role" >rôle</span ></span>
+          <span class="chunk" data-audio="1_3.mp3">où tu serais mon amie,</span>
+          <span class="chunk" data-audio="1_4.mp3">une Française</span>
+          <span class="chunk" data-audio="1_5.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/maʀje/" data-meaning="married" >mariée</span > à un Américain</span>
+          <span class="chunk" data-audio="1_6.mp3">et vivant aux États-Unis.</span>
+          <span class="chunk" data-audio="1_7.mp3">Ton mari aurait 92 ans</span>
+          <span class="chunk" data-audio="1_8.mp3">et toi 75,</span>
+          <span class="chunk" data-audio="1_9.mp3">et il <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sufʀiʀɛ/" data-meaning="would suffer" >souffrirait</span ></span>
+          <span class="chunk" data-audio="1_10.mp3">de graves problèmes de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sɑ̃te/" data-meaning="health" >santé</span >,</span>
+          <span class="chunk" data-audio="1_11.mp3">notamment</span>
+          <span class="chunk" data-audio="1_12.mp3">un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɑ̃sɛʀ/" data-meaning="cancer" >cancer</span > du sang.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -161,25 +124,13 @@
           data-audio="2.mp3"
         ></audio>
         <p>
-          D'accord, merci pour les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/detaj/"
-            data-meaning="details"
-            >détails</span
-          >. Dans ce jeu de rôle, tu es qui exactement : ma fille, une amie, ou
-          une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vwazin/"
-            data-meaning="neighbor"
-            >voisine</span
-          >
-          ?
+          <span class="chunk" data-audio="2_1.mp3">D'accord,</span>
+          <span class="chunk" data-audio="2_2.mp3">merci pour les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/detaj/" data-meaning="details" >détails</span >.</span>
+          <span class="chunk" data-audio="2_3.mp3">Dans ce jeu de rôle,</span>
+          <span class="chunk" data-audio="2_4.mp3">tu es qui exactement :</span>
+          <span class="chunk" data-audio="2_5.mp3">ma fille,</span>
+          <span class="chunk" data-audio="2_6.mp3">une amie,</span>
+          <span class="chunk" data-audio="2_7.mp3">ou une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vwazin/" data-meaning="neighbor" >voisine</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -198,16 +149,10 @@
           data-audio="3.mp3"
         ></audio>
         <p>
-          Je suis une amie qui
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/abit/"
-            data-meaning="lives"
-            >habite</span
-          >
-          à Raleigh, et toi tu habites en Californie.
+          <span class="chunk" data-audio="3_1.mp3">Je suis une amie</span>
+          <span class="chunk" data-audio="3_2.mp3">qui <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/abit/" data-meaning="lives" >habite</span > à Raleigh,</span>
+          <span class="chunk" data-audio="3_3.mp3">et toi</span>
+          <span class="chunk" data-audio="3_4.mp3">tu habites en Californie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -223,16 +168,11 @@
           data-audio="4.mp3"
         ></audio>
         <p>
-          Salut, je suis
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔ̃tɑ̃t/"
-            data-meaning="happy"
-            >contente</span
-          >
-          de te parler. Comment vas-tu aujourd'hui à Raleigh ?
+          <span class="chunk" data-audio="4_1.mp3">Salut,</span>
+          <span class="chunk" data-audio="4_2.mp3">je suis <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔ̃tɑ̃t/" data-meaning="happy" >contente</span ></span>
+          <span class="chunk" data-audio="4_3.mp3">de te parler.</span>
+          <span class="chunk" data-audio="4_4.mp3">Comment vas-tu aujourd'hui</span>
+          <span class="chunk" data-audio="4_5.mp3">à Raleigh ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -248,34 +188,12 @@
           data-audio="5.mp3"
         ></audio>
         <p>
-          Ça va très bien. Avec le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀɛ̃tɑ̃/"
-            data-meaning="spring"
-            >printemps</span
-          >
-          on a beaucoup de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/bulo/"
-            data-meaning="work (informal)"
-            >boulot</span
-          >
-          en ce moment. Et toi, comment va ton
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vjø/"
-            data-meaning="old man (affectionate)"
-            >vieux</span
-          >
-          ?
+          <span class="chunk" data-audio="5_1.mp3">Ça va très bien.</span>
+          <span class="chunk" data-audio="5_2.mp3">Avec le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀɛ̃tɑ̃/" data-meaning="spring" >printemps</span ></span>
+          <span class="chunk" data-audio="5_3.mp3">on a beaucoup de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/bulo/" data-meaning="work (informal)" >boulot</span ></span>
+          <span class="chunk" data-audio="5_4.mp3">en ce moment.</span>
+          <span class="chunk" data-audio="5_5.mp3">Et toi,</span>
+          <span class="chunk" data-audio="5_6.mp3">comment va ton <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vjø/" data-meaning="old man (affectionate)" >vieux</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -294,50 +212,20 @@
           data-audio="6.mp3"
         ></audio>
         <p>
-          Ah, je suis contente pour toi, le printemps c'est joli. Mon mari est
-          très
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fatiɡe/"
-            data-meaning="tired"
-            >fatigué</span
-          >, il a mal
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/suvɑ̃/"
-            data-meaning="often"
-            >souvent</span
-          >, les médecins disent que le cancer
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/avɑ̃s/"
-            data-meaning="advances"
-            >avance</span
-          >. Je me sens un peu
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tʀist/"
-            data-meaning="sad"
-            >triste</span
-          >
-          et
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/stʀese/"
-            data-meaning="stressed"
-            >stressée</span
-          >, mais j'essaie d'être forte. Et toi, tu as du temps en ce moment
-          pour parler un peu plus souvent au téléphone avec moi ?
+          <span class="chunk" data-audio="6_1.mp3">Ah,</span>
+          <span class="chunk" data-audio="6_2.mp3">je suis contente pour toi,</span>
+          <span class="chunk" data-audio="6_3.mp3">le printemps c'est joli.</span>
+          <span class="chunk" data-audio="6_4.mp3">Mon mari est très <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fatiɡe/" data-meaning="tired" >fatigué</span >,</span>
+          <span class="chunk" data-audio="6_5.mp3">il a mal <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/suvɑ̃/" data-meaning="often" >souvent</span >,</span>
+          <span class="chunk" data-audio="6_6.mp3">les médecins disent</span>
+          <span class="chunk" data-audio="6_7.mp3">que le cancer <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/avɑ̃s/" data-meaning="advances" >avance</span >.</span>
+          <span class="chunk" data-audio="6_8.mp3">Je me sens un peu <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tʀist/" data-meaning="sad" >triste</span ></span>
+          <span class="chunk" data-audio="6_9.mp3">et <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/stʀese/" data-meaning="stressed" >stressée</span >,</span>
+          <span class="chunk" data-audio="6_10.mp3">mais j'essaie d'être forte.</span>
+          <span class="chunk" data-audio="6_11.mp3">Et toi,</span>
+          <span class="chunk" data-audio="6_12.mp3">tu as du temps en ce moment</span>
+          <span class="chunk" data-audio="6_13.mp3">pour parler un peu plus souvent</span>
+          <span class="chunk" data-audio="6_14.mp3">au téléphone avec moi ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -358,43 +246,21 @@
           data-audio="7.mp3"
         ></audio>
         <p>
-          Bien sûr, j'aurai toujours du temps pour toi. Au fait, j'ai une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/nuvɛl/"
-            data-meaning="news"
-            >nouvelle</span
-          >
-          à t'annoncer : Robert et moi allons
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/demenaʒe/"
-            data-meaning="to move (house)"
-            >déménager</span
-          >
-          en Malaisie l'année prochaine. Nous allons vendre nos plantes en pot
-          et nos
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/bɔ̃zaj/"
-            data-meaning="bonsai"
-            >bonsaïs</span
-          >. Robert gagne
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀatikəmɑ̃.də.lɔʀ/"
-            data-meaning="practically gold (making a lot of money)"
-            >pratiquement de l'or</span
-          >
-          en ce moment.
+          <span class="chunk" data-audio="7_1.mp3">Bien sûr,</span>
+          <span class="chunk" data-audio="7_2.mp3">j'aurai toujours du temps</span>
+          <span class="chunk" data-audio="7_3.mp3">pour toi.</span>
+          <span class="chunk" data-audio="7_4.mp3">Au fait,</span>
+          <span class="chunk" data-audio="7_5.mp3">j'ai une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/nuvɛl/" data-meaning="news" >nouvelle</span ></span>
+          <span class="chunk" data-audio="7_6.mp3">à t'annoncer :</span>
+          <span class="chunk" data-audio="7_7.mp3">Robert et moi</span>
+          <span class="chunk" data-audio="7_8.mp3">allons <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/demenaʒe/" data-meaning="to move (house)" >déménager</span > en Malaisie</span>
+          <span class="chunk" data-audio="7_9.mp3">l'année prochaine.</span>
+          <span class="chunk" data-audio="7_10.mp3">Nous allons vendre</span>
+          <span class="chunk" data-audio="7_11.mp3">nos plantes en pot</span>
+          <span class="chunk" data-audio="7_12.mp3">et nos <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/bɔ̃zaj/" data-meaning="bonsai" >bonsaïs</span >.</span>
+          <span class="chunk" data-audio="7_13.mp3">Robert gagne</span>
+          <span class="chunk" data-audio="7_14.mp3"><span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀatikəmɑ̃.də.lɔʀ/" data-meaning="practically gold (making a lot of money)" >pratiquement de l'or</span ></span>
+          <span class="chunk" data-audio="7_15.mp3">en ce moment.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -415,26 +281,14 @@
           data-audio="8.mp3"
         ></audio>
         <p>
-          Oh là là, en Malaisie, c'est une grande nouvelle, c'est très loin ! Tu
-          es contente de partir si loin, ou tu as un peu
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pœʀ/"
-            data-meaning="fear"
-            >peur</span
-          >
-          de ce
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃɑ̃ʒmɑ̃/"
-            data-meaning="change"
-            >changement</span
-          >
-          ?
+          <span class="chunk" data-audio="8_1.mp3">Oh là là,</span>
+          <span class="chunk" data-audio="8_2.mp3">en Malaisie,</span>
+          <span class="chunk" data-audio="8_3.mp3">c'est une grande nouvelle,</span>
+          <span class="chunk" data-audio="8_4.mp3">c'est très loin !</span>
+          <span class="chunk" data-audio="8_5.mp3">Tu es contente</span>
+          <span class="chunk" data-audio="8_6.mp3">de partir si loin,</span>
+          <span class="chunk" data-audio="8_7.mp3">ou tu as un peu <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pœʀ/" data-meaning="fear" >peur</span ></span>
+          <span class="chunk" data-audio="8_8.mp3">de ce <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃɑ̃ʒmɑ̃/" data-meaning="change" >changement</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -453,52 +307,17 @@
           data-audio="9.mp3?v=260505"
         ></audio>
         <p>
-          On est à la fois
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛksite/"
-            data-meaning="excited"
-            >excités</span
-          >
-          et un peu
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃ksjø/"
-            data-meaning="anxious"
-            >anxieux</span
-          >
-          à l'idée d'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/afʀɔ̃te/"
-            data-meaning="to face"
-            >affronter</span
-          >
-          la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃalœʀ/"
-            data-meaning="heat"
-            >chaleur</span
-          >
-          là-bas. Y'a qu'une seule saison : l'été. La prochaine fois que tu iras
-          voir ton fils à Bali, tu pourras en
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀɔfite/"
-            data-meaning="to take advantage"
-            >profiter</span
-          >
-          pour passer nous voir.
+          <span class="chunk" data-audio="9_1.mp3">On est à la fois <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛksite/" data-meaning="excited" >excités</span ></span>
+          <span class="chunk" data-audio="9_2.mp3">et un peu <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃ksjø/" data-meaning="anxious" >anxieux</span ></span>
+          <span class="chunk" data-audio="9_3.mp3">à l'idée d'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/afʀɔ̃te/" data-meaning="to face" >affronter</span > la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃalœʀ/" data-meaning="heat" >chaleur</span ></span>
+          <span class="chunk" data-audio="9_4.mp3">là-bas.</span>
+          <span class="chunk" data-audio="9_5.mp3">Y'a qu'une seule saison :</span>
+          <span class="chunk" data-audio="9_6.mp3">l'été.</span>
+          <span class="chunk" data-audio="9_7.mp3">La prochaine fois</span>
+          <span class="chunk" data-audio="9_8.mp3">que tu iras voir ton fils</span>
+          <span class="chunk" data-audio="9_9.mp3">à Bali,</span>
+          <span class="chunk" data-audio="9_10.mp3">tu pourras en <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀɔfite/" data-meaning="to take advantage" >profiter</span ></span>
+          <span class="chunk" data-audio="9_11.mp3">pour passer nous voir.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -518,34 +337,18 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Oh, c'est gentil d'y penser, j'aimerais beaucoup passer vous voir, si
-          mon mari peut encore
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vwajaʒe/"
-            data-meaning="to travel"
-            >voyager</span
-          >. Tu vas habiter dans une grande ville en Malaisie, ou dans un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃dʀwa/"
-            data-meaning="place"
-            >endroit</span
-          >
-          plus calme, à la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɑ̃paɲ/"
-            data-meaning="countryside"
-            >campagne</span
-          >
-          ou près de la mer ?
+          <span class="chunk" data-audio="10_1.mp3">Oh,</span>
+          <span class="chunk" data-audio="10_2.mp3">c'est gentil d'y penser,</span>
+          <span class="chunk" data-audio="10_3.mp3">j'aimerais beaucoup</span>
+          <span class="chunk" data-audio="10_4.mp3">passer vous voir,</span>
+          <span class="chunk" data-audio="10_5.mp3">si mon mari</span>
+          <span class="chunk" data-audio="10_6.mp3">peut encore <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vwajaʒe/" data-meaning="to travel" >voyager</span >.</span>
+          <span class="chunk" data-audio="10_7.mp3">Tu vas habiter</span>
+          <span class="chunk" data-audio="10_8.mp3">dans une grande ville</span>
+          <span class="chunk" data-audio="10_9.mp3">en Malaisie,</span>
+          <span class="chunk" data-audio="10_10.mp3">ou dans un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃dʀwa/" data-meaning="place" >endroit</span > plus calme,</span>
+          <span class="chunk" data-audio="10_11.mp3">à la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɑ̃paɲ/" data-meaning="countryside" >campagne</span ></span>
+          <span class="chunk" data-audio="10_12.mp3">ou près de la mer ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -565,74 +368,37 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          On va s'installer à Penang. Nous avons déjà retenu un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/apaʀtəmɑ̃/"
-            data-meaning="apartment"
-            >appartement</span
-          >
-          de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/stɑ̃diŋ/"
-            data-meaning="high-end/luxury"
-            >standing</span
-          >
-          avec vue sur l'océan, dans une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀezidɑ̃s/"
-            data-meaning="residence"
-            >résidence</span
-          >
-          qui offre un service de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔ̃sjɛʀʒəʀi/"
-            data-meaning="concierge service"
-            >conciergerie</span
-          >
-          ainsi que sept acres de plans d'eau et de parc privé. Nous prévoyons
-          de nous
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀɔm(ə)ne/"
-            data-meaning="to walk"
-            >promener</span
-          >
-          chaque matin dans le parc et le long de la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀɔm(ə)nad/"
-            data-meaning="promenade/walkway"
-            >promenade</span
-          >
-          en bord de mer. La cuisine locale y serait par ailleurs excellente. De
-          plus, Georgetown est inscrite au
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/patʀimwan/"
-            data-meaning="heritage"
-            >patrimoine</span
-          >
-          mondial de l'UNESCO. Nous pourrons utiliser la Malaisie comme base
-          pour voyager dans toute l'Asie, en particulier au Japon, au Népal et
-          au Bhoutan.
+          <span class="chunk" data-audio="11_1.mp3">On va s'installer à Penang.</span>
+          <span class="chunk" data-audio="11_2.mp3">Nous avons déjà retenu</span>
+          <span class="chunk" data-audio="11_3.mp3">un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/apaʀtəmɑ̃/" data-meaning="apartment" >appartement</span > de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/stɑ̃diŋ/" data-meaning="high-end/luxury" >standing</span ></span>
+          <span class="chunk" data-audio="11_4.mp3">avec vue sur l'océan,</span>
+          <span class="chunk" data-audio="11_5.mp3">dans une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀezidɑ̃s/" data-meaning="residence" >résidence</span ></span>
+          <span class="chunk" data-audio="11_6.mp3">qui offre</span>
+          <span class="chunk" data-audio="11_7.mp3">un service de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔ̃sjɛʀʒəʀi/" data-meaning="concierge service" >conciergerie</span ></span>
+          <span class="chunk" data-audio="11_8.mp3">ainsi que sept acres</span>
+          <span class="chunk" data-audio="11_9.mp3">de plans d'eau</span>
+          <span class="chunk" data-audio="11_10.mp3">et de parc privé.</span>
+          <span class="chunk" data-audio="11_11.mp3">Nous prévoyons</span>
+          <span class="chunk" data-audio="11_12.mp3">de nous <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀɔm(ə)ne/" data-meaning="to walk" >promener</span ></span>
+          <span class="chunk" data-audio="11_13.mp3">chaque matin</span>
+          <span class="chunk" data-audio="11_14.mp3">dans le parc</span>
+          <span class="chunk" data-audio="11_15.mp3">et le long de la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀɔm(ə)nad/" data-meaning="promenade/walkway" >promenade</span ></span>
+          <span class="chunk" data-audio="11_16.mp3">en bord de mer.</span>
+          <span class="chunk" data-audio="11_17.mp3">La cuisine locale</span>
+          <span class="chunk" data-audio="11_18.mp3">y serait par ailleurs</span>
+          <span class="chunk" data-audio="11_19.mp3">excellente.</span>
+          <span class="chunk" data-audio="11_20.mp3">De plus,</span>
+          <span class="chunk" data-audio="11_21.mp3">Georgetown est inscrite</span>
+          <span class="chunk" data-audio="11_22.mp3">au <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/patʀimwan/" data-meaning="heritage" >patrimoine</span > mondial</span>
+          <span class="chunk" data-audio="11_23.mp3">de l'UNESCO.</span>
+          <span class="chunk" data-audio="11_24.mp3">Nous pourrons utiliser</span>
+          <span class="chunk" data-audio="11_25.mp3">la Malaisie comme base</span>
+          <span class="chunk" data-audio="11_26.mp3">pour voyager</span>
+          <span class="chunk" data-audio="11_27.mp3">dans toute l'Asie,</span>
+          <span class="chunk" data-audio="11_28.mp3">en particulier</span>
+          <span class="chunk" data-audio="11_29.mp3">au Japon,</span>
+          <span class="chunk" data-audio="11_30.mp3">au Népal</span>
+          <span class="chunk" data-audio="11_31.mp3">et au Bhoutan.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -657,17 +423,19 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Oh là là, Marissa, ta nouvelle vie semble
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛ̃kʀwajabl/"
-            data-meaning="incredible"
-            >incroyable</span
-          >, je suis contente pour toi, vraiment. Avec tout ça, est-ce que
-          quelque chose te fait encore un peu peur pour ce déménagement, par
-          exemple la langue, les médecins, ou être loin de ta famille ?
+          <span class="chunk" data-audio="12_1.mp3">Oh là là,</span>
+          <span class="chunk" data-audio="12_2.mp3">Marissa,</span>
+          <span class="chunk" data-audio="12_3.mp3">ta nouvelle vie</span>
+          <span class="chunk" data-audio="12_4.mp3">semble <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛ̃kʀwajabl/" data-meaning="incredible" >incroyable</span >,</span>
+          <span class="chunk" data-audio="12_5.mp3">je suis contente pour toi,</span>
+          <span class="chunk" data-audio="12_6.mp3">vraiment.</span>
+          <span class="chunk" data-audio="12_7.mp3">Avec tout ça,</span>
+          <span class="chunk" data-audio="12_8.mp3">est-ce que quelque chose</span>
+          <span class="chunk" data-audio="12_9.mp3">te fait encore un peu peur</span>
+          <span class="chunk" data-audio="12_10.mp3">pour ce déménagement,</span>
+          <span class="chunk" data-audio="12_11.mp3">par exemple la langue,</span>
+          <span class="chunk" data-audio="12_12.mp3">les médecins,</span>
+          <span class="chunk" data-audio="12_13.mp3">ou être loin de ta famille ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -688,60 +456,27 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Tout le monde y parle anglais, donc la langue ne posera aucun
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/susi/"
-            data-meaning="worry/problem"
-            >souci</span
-          >. En plus, le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sistɛm/"
-            data-meaning="system"
-            >système</span
-          >
-          de santé est de tout
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀəmje.ɔʀdʀ/"
-            data-meaning="first-rate"
-            >premier ordre</span
-          >. Il n'est pas nécessaire de prendre
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀɑ̃devu/"
-            data-meaning="appointment"
-            >rendez-vous</span
-          >
-          pour voir un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/spesjalist/"
-            data-meaning="specialist"
-            >spécialiste</span
-          >
-          : tu peux simplement te présenter sur place. Et si tu ne peux pas te
-          déplacer, le médecin peut venir à
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dɔmisil/"
-            data-meaning="home"
-            >domicile</span
-          >. Enfin, je serai plus près de la Birmanie, où vivent ma famille et
-          mes amis.
+          <span class="chunk" data-audio="13_1.mp3">Tout le monde</span>
+          <span class="chunk" data-audio="13_2.mp3">y parle anglais,</span>
+          <span class="chunk" data-audio="13_3.mp3">donc la langue</span>
+          <span class="chunk" data-audio="13_4.mp3">ne posera aucun <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/susi/" data-meaning="worry/problem" >souci</span >.</span>
+          <span class="chunk" data-audio="13_5.mp3">En plus,</span>
+          <span class="chunk" data-audio="13_6.mp3">le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sistɛm/" data-meaning="system" >système</span > de santé</span>
+          <span class="chunk" data-audio="13_7.mp3">est de tout <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀəmje.ɔʀdʀ/" data-meaning="first-rate" >premier ordre</span >.</span>
+          <span class="chunk" data-audio="13_8.mp3">Il n'est pas nécessaire</span>
+          <span class="chunk" data-audio="13_9.mp3">de prendre <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀɑ̃devu/" data-meaning="appointment" >rendez-vous</span ></span>
+          <span class="chunk" data-audio="13_10.mp3">pour voir un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/spesjalist/" data-meaning="specialist" >spécialiste</span > :</span>
+          <span class="chunk" data-audio="13_11.mp3">tu peux simplement</span>
+          <span class="chunk" data-audio="13_12.mp3">te présenter sur place.</span>
+          <span class="chunk" data-audio="13_13.mp3">Et si tu ne peux pas</span>
+          <span class="chunk" data-audio="13_14.mp3">te déplacer,</span>
+          <span class="chunk" data-audio="13_15.mp3">le médecin</span>
+          <span class="chunk" data-audio="13_16.mp3">peut venir à <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dɔmisil/" data-meaning="home" >domicile</span >.</span>
+          <span class="chunk" data-audio="13_17.mp3">Enfin,</span>
+          <span class="chunk" data-audio="13_18.mp3">je serai plus près</span>
+          <span class="chunk" data-audio="13_19.mp3">de la Birmanie,</span>
+          <span class="chunk" data-audio="13_20.mp3">où vivent ma famille</span>
+          <span class="chunk" data-audio="13_21.mp3">et mes amis.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -763,27 +498,20 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Ah oui, alors c'est parfait pour toi : bonne médecine, anglais, et ta
-          famille plus près, je comprends très bien ton choix. Tu penses rester
-          longtemps en Malaisie, peut-être pour ta
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀətʀɛt/"
-            data-meaning="retirement"
-            >retraite</span
-          >
-          complète, ou tu vois ça comme une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/avɑ̃tyʀ/"
-            data-meaning="adventure"
-            >aventure</span
-          >
-          pour quelques années seulement ?
+          <span class="chunk" data-audio="14_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="14_2.mp3">alors c'est parfait pour toi :</span>
+          <span class="chunk" data-audio="14_3.mp3">bonne médecine,</span>
+          <span class="chunk" data-audio="14_4.mp3">anglais,</span>
+          <span class="chunk" data-audio="14_5.mp3">et ta famille plus près,</span>
+          <span class="chunk" data-audio="14_6.mp3">je comprends très bien</span>
+          <span class="chunk" data-audio="14_7.mp3">ton choix.</span>
+          <span class="chunk" data-audio="14_8.mp3">Tu penses rester longtemps</span>
+          <span class="chunk" data-audio="14_9.mp3">en Malaisie,</span>
+          <span class="chunk" data-audio="14_10.mp3">peut-être</span>
+          <span class="chunk" data-audio="14_11.mp3">pour ta <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀətʀɛt/" data-meaning="retirement" >retraite</span > complète,</span>
+          <span class="chunk" data-audio="14_12.mp3">ou tu vois ça</span>
+          <span class="chunk" data-audio="14_13.mp3">comme une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/avɑ̃tyʀ/" data-meaning="adventure" >aventure</span ></span>
+          <span class="chunk" data-audio="14_14.mp3">pour quelques années seulement ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -804,50 +532,22 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          On a l'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛ̃tɑ̃sjɔ̃/"
-            data-meaning="intention"
-            >intention</span
-          >
-          d'y rester jusqu'à la fin de nos jours. On pourra toujours changer de
-          pays si les choses
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/evɔly/"
-            data-meaning="evolve"
-            >évoluent</span
-          >, mais notre projet est de rester en Asie. Les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/mɛzɔ̃.də.ʀətʀɛt/"
-            data-meaning="retirement homes"
-            >maisons de retraite</span
-          >
-          sont très chères aux États-Unis. On fait ce choix pour
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/asyʀe/"
-            data-meaning="to ensure"
-            >assurer</span
-          >
-          notre
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vjɛjɛs/"
-            data-meaning="old age"
-            >vieillesse</span
-          >. On est plus tout jeunes : Robert a eu 80 ans cette année.
+          <span class="chunk" data-audio="15_1.mp3">On a l'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛ̃tɑ̃sjɔ̃/" data-meaning="intention" >intention</span ></span>
+          <span class="chunk" data-audio="15_2.mp3">d'y rester</span>
+          <span class="chunk" data-audio="15_3.mp3">jusqu'à la fin de nos jours.</span>
+          <span class="chunk" data-audio="15_4.mp3">On pourra toujours</span>
+          <span class="chunk" data-audio="15_5.mp3">changer de pays</span>
+          <span class="chunk" data-audio="15_6.mp3">si les choses <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/evɔly/" data-meaning="evolve" >évoluent</span >,</span>
+          <span class="chunk" data-audio="15_7.mp3">mais notre projet</span>
+          <span class="chunk" data-audio="15_8.mp3">est de rester en Asie.</span>
+          <span class="chunk" data-audio="15_9.mp3">Les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/mɛzɔ̃.də.ʀətʀɛt/" data-meaning="retirement homes" >maisons de retraite</span ></span>
+          <span class="chunk" data-audio="15_10.mp3">sont très chères</span>
+          <span class="chunk" data-audio="15_11.mp3">aux États-Unis.</span>
+          <span class="chunk" data-audio="15_12.mp3">On fait ce choix</span>
+          <span class="chunk" data-audio="15_13.mp3">pour <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/asyʀe/" data-meaning="to ensure" >assurer</span > notre <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vjɛjɛs/" data-meaning="old age" >vieillesse</span >.</span>
+          <span class="chunk" data-audio="15_14.mp3">On est plus tout jeunes :</span>
+          <span class="chunk" data-audio="15_15.mp3">Robert a eu 80 ans</span>
+          <span class="chunk" data-audio="15_16.mp3">cette année.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -869,44 +569,20 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Je comprends très bien, Marissa, c'est
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/lɔʒik/"
-            data-meaning="logical"
-            >logique</span
-          >
-          de penser à la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sekyʀite/"
-            data-meaning="security"
-            >sécurité</span
-          >
-          et à l'argent, surtout avec l'âge, et l'Asie peut être une bonne
-          solution. Tu te sens plutôt
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀasyʀe/"
-            data-meaning="reassured"
-            >rassurée</span
-          >
-          avec ce plan pour votre vieillesse, ou tu gardes encore une petite
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛ̃kjetyd/"
-            data-meaning="worry"
-            >inquiétude</span
-          >
-          dans ton cœur ?
+          <span class="chunk" data-audio="16_1.mp3">Je comprends très bien,</span>
+          <span class="chunk" data-audio="16_2.mp3">Marissa,</span>
+          <span class="chunk" data-audio="16_3.mp3">c'est <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/lɔʒik/" data-meaning="logical" >logique</span ></span>
+          <span class="chunk" data-audio="16_4.mp3">de penser à la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sekyʀite/" data-meaning="security" >sécurité</span ></span>
+          <span class="chunk" data-audio="16_5.mp3">et à l'argent,</span>
+          <span class="chunk" data-audio="16_6.mp3">surtout avec l'âge,</span>
+          <span class="chunk" data-audio="16_7.mp3">et l'Asie</span>
+          <span class="chunk" data-audio="16_8.mp3">peut être une bonne solution.</span>
+          <span class="chunk" data-audio="16_9.mp3">Tu te sens plutôt <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀasyʀe/" data-meaning="reassured" >rassurée</span ></span>
+          <span class="chunk" data-audio="16_10.mp3">avec ce plan</span>
+          <span class="chunk" data-audio="16_11.mp3">pour votre vieillesse,</span>
+          <span class="chunk" data-audio="16_12.mp3">ou tu gardes encore</span>
+          <span class="chunk" data-audio="16_13.mp3">une petite <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛ̃kjetyd/" data-meaning="worry" >inquiétude</span ></span>
+          <span class="chunk" data-audio="16_14.mp3">dans ton cœur ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -927,60 +603,24 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          On est très
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃tuzjast/"
-            data-meaning="enthusiastic"
-            >enthousiastes</span
-          >. Pour la première fois de notre vie, on n'aura plus aucune
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pɔsesjɔ̃/"
-            data-meaning="possession"
-            >possession</span
-          >
-          : pas de maison, pas de voiture et peut-être même pas de meubles.
-          C'est
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛkstʀɛməmɑ̃/"
-            data-meaning="extremely"
-            >extrêmement</span
-          >
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/libeʀatœʀ/"
-            data-meaning="liberating"
-            >libérateur</span
-          >. Mais assez parlé de moi. Comment se passe ta vie en ce moment ?
-          Cela doit être
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/epʀuvɑ̃/"
-            data-meaning="trying/difficult"
-            >éprouvant</span
-          >
-          d'être
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/edɑ̃/"
-            data-meaning="caregiver"
-            >aidant</span
-          >
-          à temps plein tout en gérant la maison et le jardin.
+          <span class="chunk" data-audio="17_1.mp3">On est très <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃tuzjast/" data-meaning="enthusiastic" >enthousiastes</span >.</span>
+          <span class="chunk" data-audio="17_2.mp3">Pour la première fois</span>
+          <span class="chunk" data-audio="17_3.mp3">de notre vie,</span>
+          <span class="chunk" data-audio="17_4.mp3">on n'aura plus</span>
+          <span class="chunk" data-audio="17_5.mp3">aucune <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pɔsesjɔ̃/" data-meaning="possession" >possession</span > :</span>
+          <span class="chunk" data-audio="17_6.mp3">pas de maison,</span>
+          <span class="chunk" data-audio="17_7.mp3">pas de voiture</span>
+          <span class="chunk" data-audio="17_8.mp3">et peut-être même</span>
+          <span class="chunk" data-audio="17_9.mp3">pas de meubles.</span>
+          <span class="chunk" data-audio="17_10.mp3">C'est <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛkstʀɛməmɑ̃/" data-meaning="extremely" >extrêmement</span > <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/libeʀatœʀ/" data-meaning="liberating" >libérateur</span >.</span>
+          <span class="chunk" data-audio="17_11.mp3">Mais assez parlé de moi.</span>
+          <span class="chunk" data-audio="17_12.mp3">Comment se passe ta vie</span>
+          <span class="chunk" data-audio="17_13.mp3">en ce moment ?</span>
+          <span class="chunk" data-audio="17_14.mp3">Cela doit être <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/epʀuvɑ̃/" data-meaning="trying/difficult" >éprouvant</span ></span>
+          <span class="chunk" data-audio="17_15.mp3">d'être <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/edɑ̃/" data-meaning="caregiver" >aidant</span ></span>
+          <span class="chunk" data-audio="17_16.mp3">à temps plein</span>
+          <span class="chunk" data-audio="17_17.mp3">tout en gérant la maison</span>
+          <span class="chunk" data-audio="17_18.mp3">et le jardin.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1002,19 +642,21 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Oui, c'est très difficile, je suis fatiguée presque tout le temps, je
-          dois tout faire pour mon mari et pour la maison, et parfois je me sens
-          un peu
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sœl/"
-            data-meaning="alone"
-            >seule</span
-          >. Quand tu dis que tu n'auras plus de possessions, tu penses que toi
-          aussi tu pourrais te sentir plus « libre » dans ta tête, et peut-être
-          moins stressée ?
+          <span class="chunk" data-audio="18_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="18_2.mp3">c'est très difficile,</span>
+          <span class="chunk" data-audio="18_3.mp3">je suis fatiguée</span>
+          <span class="chunk" data-audio="18_4.mp3">presque tout le temps,</span>
+          <span class="chunk" data-audio="18_5.mp3">je dois tout faire</span>
+          <span class="chunk" data-audio="18_6.mp3">pour mon mari</span>
+          <span class="chunk" data-audio="18_7.mp3">et pour la maison,</span>
+          <span class="chunk" data-audio="18_8.mp3">et parfois</span>
+          <span class="chunk" data-audio="18_9.mp3">je me sens un peu <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sœl/" data-meaning="alone" >seule</span >.</span>
+          <span class="chunk" data-audio="18_10.mp3">Quand tu dis</span>
+          <span class="chunk" data-audio="18_11.mp3">que tu n'auras plus de possessions,</span>
+          <span class="chunk" data-audio="18_12.mp3">tu penses que toi aussi</span>
+          <span class="chunk" data-audio="18_13.mp3">tu pourrais te sentir</span>
+          <span class="chunk" data-audio="18_14.mp3">plus « libre » dans ta tête,</span>
+          <span class="chunk" data-audio="18_15.mp3">et peut-être moins stressée ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1035,34 +677,22 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Oui, tout à fait. On aura vraiment l'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛspʀi/"
-            data-meaning="mind/spirit"
-            >esprit</span
-          >
-          plus libre. Et si la Malaisie ne nous
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔ̃vjɛ̃/"
-            data-meaning="suits"
-            >convient</span
-          >
-          pas, on pourra toujours partir dans un autre pays d'Asie. J'ai une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀefeʀɑ̃s/"
-            data-meaning="preference"
-            >préférence</span
-          >
-          pour le Japon, mais c'est un pays cher et on n'y parle pas beaucoup
-          anglais. Robert et moi avons donc commencé à apprendre le japonais.
+          <span class="chunk" data-audio="19_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="19_2.mp3">tout à fait.</span>
+          <span class="chunk" data-audio="19_3.mp3">On aura vraiment l'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛspʀi/" data-meaning="mind/spirit" >esprit</span ></span>
+          <span class="chunk" data-audio="19_4.mp3">plus libre.</span>
+          <span class="chunk" data-audio="19_5.mp3">Et si la Malaisie</span>
+          <span class="chunk" data-audio="19_6.mp3">ne nous <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔ̃vjɛ̃/" data-meaning="suits" >convient</span > pas,</span>
+          <span class="chunk" data-audio="19_7.mp3">on pourra toujours partir</span>
+          <span class="chunk" data-audio="19_8.mp3">dans un autre pays d'Asie.</span>
+          <span class="chunk" data-audio="19_9.mp3">J'ai une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀefeʀɑ̃s/" data-meaning="preference" >préférence</span ></span>
+          <span class="chunk" data-audio="19_10.mp3">pour le Japon,</span>
+          <span class="chunk" data-audio="19_11.mp3">mais c'est un pays cher</span>
+          <span class="chunk" data-audio="19_12.mp3">et on n'y parle pas</span>
+          <span class="chunk" data-audio="19_13.mp3">beaucoup anglais.</span>
+          <span class="chunk" data-audio="19_14.mp3">Robert et moi</span>
+          <span class="chunk" data-audio="19_15.mp3">avons donc commencé</span>
+          <span class="chunk" data-audio="19_16.mp3">à apprendre le japonais.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1084,24 +714,18 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          C'est super que vous appreniez le japonais, ça montre que vous avez
-          encore beaucoup de projets et d'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/enɛʀʒi/"
-            data-meaning="energy"
-            >énergie</span
-          >, j'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/admiʀ/"
-            data-meaning="admire"
-            >admire</span
-          >
-          ça. Tu apprends le japonais comment, avec une appli, un prof, ou des
-          livres à la maison ?
+          <span class="chunk" data-audio="20_1.mp3">C'est super</span>
+          <span class="chunk" data-audio="20_2.mp3">que vous appreniez le japonais,</span>
+          <span class="chunk" data-audio="20_3.mp3">ça montre</span>
+          <span class="chunk" data-audio="20_4.mp3">que vous avez encore</span>
+          <span class="chunk" data-audio="20_5.mp3">beaucoup de projets</span>
+          <span class="chunk" data-audio="20_6.mp3">et d'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/enɛʀʒi/" data-meaning="energy" >énergie</span >,</span>
+          <span class="chunk" data-audio="20_7.mp3">j'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/admiʀ/" data-meaning="admire" >admire</span > ça.</span>
+          <span class="chunk" data-audio="20_8.mp3">Tu apprends le japonais</span>
+          <span class="chunk" data-audio="20_9.mp3">comment,</span>
+          <span class="chunk" data-audio="20_10.mp3">avec une appli,</span>
+          <span class="chunk" data-audio="20_11.mp3">un prof,</span>
+          <span class="chunk" data-audio="20_12.mp3">ou des livres à la maison ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1121,16 +745,10 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          On se sert simplement de Pimsleur, on a pris un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/abɔnmɑ̃/"
-            data-meaning="subscription"
-            >abonnement</span
-          >
-          à vie.
+          <span class="chunk" data-audio="21_1.mp3">On se sert simplement</span>
+          <span class="chunk" data-audio="21_2.mp3">de Pimsleur,</span>
+          <span class="chunk" data-audio="21_3.mp3">on a pris</span>
+          <span class="chunk" data-audio="21_4.mp3">un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/abɔnmɑ̃/" data-meaning="subscription" >abonnement</span > à vie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1146,9 +764,16 @@
           data-audio="22.mp3"
         ></audio>
         <p>
-          Ah oui, Pimsleur, c'est pratique, tu peux écouter et répéter partout,
-          même en marchant. Tu fais ton japonais tous les jours, ou seulement
-          quelques fois par semaine ?
+          <span class="chunk" data-audio="22_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="22_2.mp3">Pimsleur,</span>
+          <span class="chunk" data-audio="22_3.mp3">c'est pratique,</span>
+          <span class="chunk" data-audio="22_4.mp3">tu peux écouter</span>
+          <span class="chunk" data-audio="22_5.mp3">et répéter partout,</span>
+          <span class="chunk" data-audio="22_6.mp3">même en marchant.</span>
+          <span class="chunk" data-audio="22_7.mp3">Tu fais ton japonais</span>
+          <span class="chunk" data-audio="22_8.mp3">tous les jours,</span>
+          <span class="chunk" data-audio="22_9.mp3">ou seulement</span>
+          <span class="chunk" data-audio="22_10.mp3">quelques fois par semaine ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1168,123 +793,42 @@
           data-audio="23.mp3"
         ></audio>
         <p>
-          J'essaie d'en faire tous les jours, sauf quand je suis vraiment
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/debɔʀde/"
-            data-meaning="overwhelmed"
-            >débordée</span
-          >. Hier, la journée a été particulièrement
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃaʀʒe/"
-            data-meaning="busy"
-            >chargée</span
-          >. Notre
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʒaʀdinje/"
-            data-meaning="gardener"
-            >jardinier</span
-          >
-          a
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pylveʀize/"
-            data-meaning="sprayed"
-            >pulvérisé</span
-          >
-          du Roundup sur le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/masif/"
-            data-meaning="flower bed"
-            >massif</span
-          >
-          de fleurs devant la maison, et beaucoup de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/soʒ/"
-            data-meaning="sage (plant)"
-            >sauges</span
-          >
-          ont été touchées. J'ai dû en
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/deteʀe/"
-            data-meaning="to dig up"
-            >déterrer</span
-          >
-          certaines et en
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀabatʀ/"
-            data-meaning="to cut back"
-            >rabattre</span
-          >
-          d'autres à une quinzaine de centimètres du sol. Ensuite, j'ai
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/epɑ̃dy/"
-            data-meaning="spread"
-            >épandu</span
-          >
-          de l'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/asid.ymik/"
-            data-meaning="humic acid"
-            >acide humique</span
-          >
-          en granulés et de l'Azomite, puis j'ai recouvert le tout d'une couche
-          d'environ 5 centimètres de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔ̃pɔst/"
-            data-meaning="compost"
-            >compost</span
-          >
-          certifié. Il pleut aujourd'hui, donc c'est le temps idéal pour que le
-          compost se
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tas/"
-            data-meaning="to settle"
-            >tasse</span
-          >
-          bien. Quel travail ! J'ai des
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kuʀbatyʀ/"
-            data-meaning="muscle soreness"
-            >courbatures</span
-          >
-          aujourd'hui, et il reste encore énormément à faire au jardin.
+          <span class="chunk" data-audio="23_1.mp3">J'essaie d'en faire</span>
+          <span class="chunk" data-audio="23_2.mp3">tous les jours,</span>
+          <span class="chunk" data-audio="23_3.mp3">sauf quand je suis</span>
+          <span class="chunk" data-audio="23_4.mp3">vraiment <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/debɔʀde/" data-meaning="overwhelmed" >débordée</span >.</span>
+          <span class="chunk" data-audio="23_5.mp3">Hier,</span>
+          <span class="chunk" data-audio="23_6.mp3">la journée a été</span>
+          <span class="chunk" data-audio="23_7.mp3">particulièrement <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃaʀʒe/" data-meaning="busy" >chargée</span >.</span>
+          <span class="chunk" data-audio="23_8.mp3">Notre <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʒaʀdinje/" data-meaning="gardener" >jardinier</span ></span>
+          <span class="chunk" data-audio="23_9.mp3">a <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pylveʀize/" data-meaning="sprayed" >pulvérisé</span > du Roundup</span>
+          <span class="chunk" data-audio="23_10.mp3">sur le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/masif/" data-meaning="flower bed" >massif</span > de fleurs</span>
+          <span class="chunk" data-audio="23_11.mp3">devant la maison,</span>
+          <span class="chunk" data-audio="23_12.mp3">et beaucoup de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/soʒ/" data-meaning="sage (plant)" >sauges</span ></span>
+          <span class="chunk" data-audio="23_13.mp3">ont été touchées.</span>
+          <span class="chunk" data-audio="23_14.mp3">J'ai dû en <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/deteʀe/" data-meaning="to dig up" >déterrer</span > certaines</span>
+          <span class="chunk" data-audio="23_15.mp3">et en <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀabatʀ/" data-meaning="to cut back" >rabattre</span > d'autres</span>
+          <span class="chunk" data-audio="23_16.mp3">à une quinzaine de centimètres</span>
+          <span class="chunk" data-audio="23_17.mp3">du sol.</span>
+          <span class="chunk" data-audio="23_18.mp3">Ensuite,</span>
+          <span class="chunk" data-audio="23_19.mp3">j'ai <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/epɑ̃dy/" data-meaning="spread" >épandu</span ></span>
+          <span class="chunk" data-audio="23_20.mp3">de l'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/asid.ymik/" data-meaning="humic acid" >acide humique</span ></span>
+          <span class="chunk" data-audio="23_21.mp3">en granulés</span>
+          <span class="chunk" data-audio="23_22.mp3">et de l'Azomite,</span>
+          <span class="chunk" data-audio="23_23.mp3">puis j'ai recouvert le tout</span>
+          <span class="chunk" data-audio="23_24.mp3">d'une couche</span>
+          <span class="chunk" data-audio="23_25.mp3">d'environ 5 centimètres</span>
+          <span class="chunk" data-audio="23_26.mp3">de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔ̃pɔst/" data-meaning="compost" >compost</span > certifié.</span>
+          <span class="chunk" data-audio="23_27.mp3">Il pleut aujourd'hui,</span>
+          <span class="chunk" data-audio="23_28.mp3">donc c'est le temps idéal</span>
+          <span class="chunk" data-audio="23_29.mp3">pour que le compost</span>
+          <span class="chunk" data-audio="23_30.mp3">se <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tas/" data-meaning="to settle" >tasse</span > bien.</span>
+          <span class="chunk" data-audio="23_31.mp3">Quel travail !</span>
+          <span class="chunk" data-audio="23_32.mp3">J'ai des <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kuʀbatyʀ/" data-meaning="muscle soreness" >courbatures</span ></span>
+          <span class="chunk" data-audio="23_33.mp3">aujourd'hui,</span>
+          <span class="chunk" data-audio="23_34.mp3">et il reste encore</span>
+          <span class="chunk" data-audio="23_35.mp3">énormément à faire</span>
+          <span class="chunk" data-audio="23_36.mp3">au jardin.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1310,10 +854,19 @@
           data-audio="24.mp3"
         ></audio>
         <p>
-          Oh là là, quel gros travail, je comprends que tu as mal partout, mais
-          tes plantes ont de la chance, tu les protèges très bien. Tu peux te
-          reposer un peu aujourd'hui avec la pluie, ou tu dois encore faire
-          quelque chose dans le jardin ?
+          <span class="chunk" data-audio="24_1.mp3">Oh là là,</span>
+          <span class="chunk" data-audio="24_2.mp3">quel gros travail,</span>
+          <span class="chunk" data-audio="24_3.mp3">je comprends</span>
+          <span class="chunk" data-audio="24_4.mp3">que tu as mal partout,</span>
+          <span class="chunk" data-audio="24_5.mp3">mais tes plantes</span>
+          <span class="chunk" data-audio="24_6.mp3">ont de la chance,</span>
+          <span class="chunk" data-audio="24_7.mp3">tu les protèges très bien.</span>
+          <span class="chunk" data-audio="24_8.mp3">Tu peux te reposer un peu</span>
+          <span class="chunk" data-audio="24_9.mp3">aujourd'hui</span>
+          <span class="chunk" data-audio="24_10.mp3">avec la pluie,</span>
+          <span class="chunk" data-audio="24_11.mp3">ou tu dois encore</span>
+          <span class="chunk" data-audio="24_12.mp3">faire quelque chose</span>
+          <span class="chunk" data-audio="24_13.mp3">dans le jardin ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1334,17 +887,16 @@
           data-audio="25.mp3"
         ></audio>
         <p>
-          Avec toute cette pluie, je ne peux pas m'occuper du jardin
-          aujourd'hui. J'en profite donc pour rester à l'intérieur, étudier le
-          français et le japonais, et avancer sur mon
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sit.wɛb/"
-            data-meaning="website"
-            >site web</span
-          >.
+          <span class="chunk" data-audio="25_1.mp3">Avec toute cette pluie,</span>
+          <span class="chunk" data-audio="25_2.mp3">je ne peux pas</span>
+          <span class="chunk" data-audio="25_3.mp3">m'occuper du jardin</span>
+          <span class="chunk" data-audio="25_4.mp3">aujourd'hui.</span>
+          <span class="chunk" data-audio="25_5.mp3">J'en profite donc</span>
+          <span class="chunk" data-audio="25_6.mp3">pour rester à l'intérieur,</span>
+          <span class="chunk" data-audio="25_7.mp3">étudier le français</span>
+          <span class="chunk" data-audio="25_8.mp3">et le japonais,</span>
+          <span class="chunk" data-audio="25_9.mp3">et avancer</span>
+          <span class="chunk" data-audio="25_10.mp3">sur mon <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sit.wɛb/" data-meaning="website" >site web</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1364,18 +916,18 @@
           data-audio="26.mp3"
         ></audio>
         <p>
-          C'est une bonne idée de rester au chaud à la maison, et c'est bien
-          d'utiliser ce temps pour les langues et ton site. Sur ton site web, tu
-          écris plutôt sur le jardin, sur tes voyages, ou sur un autre
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/syʒɛ/"
-            data-meaning="subject"
-            >sujet</span
-          >
-          ?
+          <span class="chunk" data-audio="26_1.mp3">C'est une bonne idée</span>
+          <span class="chunk" data-audio="26_2.mp3">de rester au chaud</span>
+          <span class="chunk" data-audio="26_3.mp3">à la maison,</span>
+          <span class="chunk" data-audio="26_4.mp3">et c'est bien</span>
+          <span class="chunk" data-audio="26_5.mp3">d'utiliser ce temps</span>
+          <span class="chunk" data-audio="26_6.mp3">pour les langues</span>
+          <span class="chunk" data-audio="26_7.mp3">et ton site.</span>
+          <span class="chunk" data-audio="26_8.mp3">Sur ton site web,</span>
+          <span class="chunk" data-audio="26_9.mp3">tu écris plutôt</span>
+          <span class="chunk" data-audio="26_10.mp3">sur le jardin,</span>
+          <span class="chunk" data-audio="26_11.mp3">sur tes voyages,</span>
+          <span class="chunk" data-audio="26_12.mp3">ou sur un autre <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/syʒɛ/" data-meaning="subject" >sujet</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1395,25 +947,15 @@
           data-audio="27.mp3"
         ></audio>
         <p>
-          En fait, je prépare mes propres
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fiʃ/"
-            data-meaning="cards/sheets"
-            >fiches</span
-          >
-          de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀevizjɔ̃/"
-            data-meaning="revision"
-            >révision</span
-          >, adaptées à ma façon d'apprendre. Du coup, c'est surtout des notes
-          pour le français et le japonais.
+          <span class="chunk" data-audio="27_1.mp3">En fait,</span>
+          <span class="chunk" data-audio="27_2.mp3">je prépare</span>
+          <span class="chunk" data-audio="27_3.mp3">mes propres <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fiʃ/" data-meaning="cards/sheets" >fiches</span > de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀevizjɔ̃/" data-meaning="revision" >révision</span >,</span>
+          <span class="chunk" data-audio="27_4.mp3">adaptées</span>
+          <span class="chunk" data-audio="27_5.mp3">à ma façon d'apprendre.</span>
+          <span class="chunk" data-audio="27_6.mp3">Du coup,</span>
+          <span class="chunk" data-audio="27_7.mp3">c'est surtout des notes</span>
+          <span class="chunk" data-audio="27_8.mp3">pour le français</span>
+          <span class="chunk" data-audio="27_9.mp3">et le japonais.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1432,41 +974,16 @@
           data-audio="28.mp3"
         ></audio>
         <p>
-          Ah d'accord, c'est très intelligent, comme ça tes notes sont vraiment
-          faites pour toi, pour ta façon de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/memɔʀize/"
-            data-meaning="to memorize"
-            >mémoriser</span
-          >. Tu préfères créer des notes pour la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɡʀamɛʀ/"
-            data-meaning="grammar"
-            >grammaire</span
-          >, pour le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vɔkabylɛʀ/"
-            data-meaning="vocabulary"
-            >vocabulaire</span
-          >, ou pour des dialogues de la vie
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔtidjɛn/"
-            data-meaning="daily"
-            >quotidienne</span
-          >
-          ?
+          <span class="chunk" data-audio="28_1.mp3">Ah d'accord,</span>
+          <span class="chunk" data-audio="28_2.mp3">c'est très intelligent,</span>
+          <span class="chunk" data-audio="28_3.mp3">comme ça tes notes</span>
+          <span class="chunk" data-audio="28_4.mp3">sont vraiment faites pour toi,</span>
+          <span class="chunk" data-audio="28_5.mp3">pour ta façon de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/memɔʀize/" data-meaning="to memorize" >mémoriser</span >.</span>
+          <span class="chunk" data-audio="28_6.mp3">Tu préfères créer des notes</span>
+          <span class="chunk" data-audio="28_7.mp3">pour la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɡʀamɛʀ/" data-meaning="grammar" >grammaire</span >,</span>
+          <span class="chunk" data-audio="28_8.mp3">pour le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vɔkabylɛʀ/" data-meaning="vocabulary" >vocabulaire</span >,</span>
+          <span class="chunk" data-audio="28_9.mp3">ou pour des dialogues</span>
+          <span class="chunk" data-audio="28_10.mp3">de la vie <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔtidjɛn/" data-meaning="daily" >quotidienne</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1549,6 +1066,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv7/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv7/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

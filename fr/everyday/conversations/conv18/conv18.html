@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,7 +92,9 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Les livres DK me plaisent énormément. J'aurais adoré grandir avec eux.
+          <span class="chunk" data-audio="01_1.mp3">Les livres DK</span>
+          <span class="chunk" data-audio="01_2.mp3">me plaisent énormément.</span>
+          <span class="chunk" data-audio="01_3.mp3">J'aurais adoré grandir avec eux.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -105,9 +113,14 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Ah oui, les livres DK sont super, très clairs et beaux. Tu lis quels
-          types de livres DK en ce moment, par exemple science, voyage,
-          histoire, autre chose ?
+          <span class="chunk" data-audio="02_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="02_2.mp3">les livres DK sont super,</span>
+          <span class="chunk" data-audio="02_3.mp3">très clairs et beaux.</span>
+          <span class="chunk" data-audio="02_4.mp3">Tu lis quels types de livres DK</span>
+          <span class="chunk" data-audio="02_5.mp3">en ce moment,</span>
+          <span class="chunk" data-audio="02_6.mp3">par exemple science,</span>
+          <span class="chunk" data-audio="02_7.mp3">voyage, histoire,</span>
+          <span class="chunk" data-audio="02_8.mp3">autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -128,9 +141,13 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          J'adore la qualité des illustrations et la clarté des explications.
-          J'ai acheté plein de livres Kindle sur la nature, l'histoire, les
-          sciences et le corps humain, puis je les traduis en français.
+          <span class="chunk" data-audio="03_1.mp3">J'adore la qualité des illustrations</span>
+          <span class="chunk" data-audio="03_2.mp3">et la clarté des explications.</span>
+          <span class="chunk" data-audio="03_3.mp3">J'ai acheté plein de livres Kindle</span>
+          <span class="chunk" data-audio="03_4.mp3">sur la nature,</span>
+          <span class="chunk" data-audio="03_5.mp3">l'histoire, les sciences</span>
+          <span class="chunk" data-audio="03_6.mp3">et le corps humain,</span>
+          <span class="chunk" data-audio="03_7.mp3">puis je les traduis en français.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -151,10 +168,17 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          C'est une super idée, les images aident beaucoup pour comprendre, je
-          fais souvent pareil avec des livres illustrés. Tu traduis comment en
-          français, tu écris les phrases toi-même ou tu lis et tu cherches les
-          mots un par un dans un dictionnaire en ligne ?
+          <span class="chunk" data-audio="04_1.mp3">C'est une super idée,</span>
+          <span class="chunk" data-audio="04_2.mp3">les images aident beaucoup</span>
+          <span class="chunk" data-audio="04_3.mp3">pour comprendre,</span>
+          <span class="chunk" data-audio="04_4.mp3">je fais souvent pareil</span>
+          <span class="chunk" data-audio="04_5.mp3">avec des livres illustrés.</span>
+          <span class="chunk" data-audio="04_6.mp3">Tu traduis comment en français,</span>
+          <span class="chunk" data-audio="04_7.mp3">tu écris les phrases toi-même</span>
+          <span class="chunk" data-audio="04_8.mp3">ou tu lis</span>
+          <span class="chunk" data-audio="04_9.mp3">et tu cherches les mots</span>
+          <span class="chunk" data-audio="04_10.mp3">un par un</span>
+          <span class="chunk" data-audio="04_11.mp3">dans un dictionnaire en ligne ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -176,10 +200,16 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Je me sers de Claude pour rédiger l'histoire. Ce n'est pas, à
-          proprement parler, une traduction mot à mot : à partir des
-          informations fournies par DK, Claude compose le récit dans un style
-          narratif léger et décontracté.
+          <span class="chunk" data-audio="05_1.mp3">Je me sers de Claude</span>
+          <span class="chunk" data-audio="05_2.mp3">pour rédiger l'histoire.</span>
+          <span class="chunk" data-audio="05_3.mp3">Ce n'est pas,</span>
+          <span class="chunk" data-audio="05_4.mp3">à proprement parler,</span>
+          <span class="chunk" data-audio="05_5.mp3">une traduction mot à mot :</span>
+          <span class="chunk" data-audio="05_6.mp3">à partir des informations</span>
+          <span class="chunk" data-audio="05_7.mp3">fournies par DK,</span>
+          <span class="chunk" data-audio="05_8.mp3">Claude compose le récit</span>
+          <span class="chunk" data-audio="05_9.mp3">dans un style narratif</span>
+          <span class="chunk" data-audio="05_10.mp3">léger et décontracté.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -200,11 +230,20 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Ah d'accord, donc tu crées un nouveau texte en français, inspiré du
-          livre, un peu comme une adaptation. Je trouve ça très malin, surtout
-          avec un ton narratif sympa, ça donne envie de lire et relire. Tu fais
-          ces récits sur quels sujets en ce moment, plutôt nature, histoire,
-          science ou le corps humain ?
+          <span class="chunk" data-audio="06_1.mp3">Ah d'accord,</span>
+          <span class="chunk" data-audio="06_2.mp3">donc tu crées un nouveau texte</span>
+          <span class="chunk" data-audio="06_3.mp3">en français,</span>
+          <span class="chunk" data-audio="06_4.mp3">inspiré du livre,</span>
+          <span class="chunk" data-audio="06_5.mp3">un peu comme une adaptation.</span>
+          <span class="chunk" data-audio="06_6.mp3">Je trouve ça très malin,</span>
+          <span class="chunk" data-audio="06_7.mp3">surtout avec un ton narratif sympa,</span>
+          <span class="chunk" data-audio="06_8.mp3">ça donne envie</span>
+          <span class="chunk" data-audio="06_9.mp3">de lire et relire.</span>
+          <span class="chunk" data-audio="06_10.mp3">Tu fais ces récits</span>
+          <span class="chunk" data-audio="06_11.mp3">sur quels sujets</span>
+          <span class="chunk" data-audio="06_12.mp3">en ce moment,</span>
+          <span class="chunk" data-audio="06_13.mp3">plutôt nature, histoire,</span>
+          <span class="chunk" data-audio="06_14.mp3">science ou le corps humain ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -227,10 +266,17 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          J'ai un site où je rassemble mes notes d'apprentissage du français,
-          donc les livres DK sont parfaits pour la partie lecture. Les derniers
-          que j'ai adaptés parlaient des ancêtres humains, de l'œil, du rein et
-          des loutres.
+          <span class="chunk" data-audio="07_1.mp3">J'ai un site</span>
+          <span class="chunk" data-audio="07_2.mp3">où je rassemble</span>
+          <span class="chunk" data-audio="07_3.mp3">mes notes d'apprentissage</span>
+          <span class="chunk" data-audio="07_4.mp3">du français,</span>
+          <span class="chunk" data-audio="07_5.mp3">donc les livres DK</span>
+          <span class="chunk" data-audio="07_6.mp3">sont parfaits</span>
+          <span class="chunk" data-audio="07_7.mp3">pour la partie lecture.</span>
+          <span class="chunk" data-audio="07_8.mp3">Les derniers que j'ai adaptés</span>
+          <span class="chunk" data-audio="07_9.mp3">parlaient des ancêtres humains,</span>
+          <span class="chunk" data-audio="07_10.mp3">de l'œil, du rein</span>
+          <span class="chunk" data-audio="07_11.mp3">et des loutres.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -251,11 +297,20 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Oh, super idée d'avoir un site pour tes notes, c'est très motivant et
-          les sujets sont variés. Les loutres et l'œil, ça doit donner des
-          textes très jolis et aussi un peu techniques. Sur ton site, tu veux
-          que la lecture soit plutôt simple pour A2, ou un peu plus difficile
-          pour progresser vite ?
+          <span class="chunk" data-audio="08_1.mp3">Oh,</span>
+          <span class="chunk" data-audio="08_2.mp3">super idée d'avoir un site</span>
+          <span class="chunk" data-audio="08_3.mp3">pour tes notes,</span>
+          <span class="chunk" data-audio="08_4.mp3">c'est très motivant</span>
+          <span class="chunk" data-audio="08_5.mp3">et les sujets sont variés.</span>
+          <span class="chunk" data-audio="08_6.mp3">Les loutres et l'œil,</span>
+          <span class="chunk" data-audio="08_7.mp3">ça doit donner des textes</span>
+          <span class="chunk" data-audio="08_8.mp3">très jolis</span>
+          <span class="chunk" data-audio="08_9.mp3">et aussi un peu techniques.</span>
+          <span class="chunk" data-audio="08_10.mp3">Sur ton site,</span>
+          <span class="chunk" data-audio="08_11.mp3">tu veux que la lecture</span>
+          <span class="chunk" data-audio="08_12.mp3">soit plutôt simple pour A2,</span>
+          <span class="chunk" data-audio="08_13.mp3">ou un peu plus difficile</span>
+          <span class="chunk" data-audio="08_14.mp3">pour progresser vite ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -278,15 +333,30 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          En fait, le site est uniquement destiné à mon usage personnel.
-          J'hébergeais auparavant mon site chez Hostinger, mais le prix du
-          renouvellement était plus de quinze fois supérieur au tarif de départ.
-          Je l'ai donc transféré vers Cloudflare, qui est gratuit. En revanche,
-          si le trafic devenait important, cela engendrerait des frais. C'est
-          pourquoi ce site est réservé à mes seuls besoins, même s'il reste
-          accessible partout où je me trouve en voyage. Les textes de lecture
-          sont de niveau B2 ; le niveau A2 est trop limité pour raconter des
-          histoires de manière satisfaisante.
+          <span class="chunk" data-audio="09_1.mp3">En fait,</span>
+          <span class="chunk" data-audio="09_2.mp3">le site est uniquement destiné</span>
+          <span class="chunk" data-audio="09_3.mp3">à mon usage personnel.</span>
+          <span class="chunk" data-audio="09_4.mp3">J'hébergeais auparavant</span>
+          <span class="chunk" data-audio="09_5.mp3">mon site chez Hostinger,</span>
+          <span class="chunk" data-audio="09_6.mp3">mais le prix du renouvellement</span>
+          <span class="chunk" data-audio="09_7.mp3">était plus de quinze fois supérieur</span>
+          <span class="chunk" data-audio="09_8.mp3">au tarif de départ.</span>
+          <span class="chunk" data-audio="09_9.mp3">Je l'ai donc transféré</span>
+          <span class="chunk" data-audio="09_10.mp3">vers Cloudflare,</span>
+          <span class="chunk" data-audio="09_11.mp3">qui est gratuit.</span>
+          <span class="chunk" data-audio="09_12.mp3">En revanche,</span>
+          <span class="chunk" data-audio="09_13.mp3">si le trafic devenait important,</span>
+          <span class="chunk" data-audio="09_14.mp3">cela engendrerait des frais.</span>
+          <span class="chunk" data-audio="09_15.mp3">C'est pourquoi ce site</span>
+          <span class="chunk" data-audio="09_16.mp3">est réservé à mes seuls besoins,</span>
+          <span class="chunk" data-audio="09_17.mp3">même s'il reste accessible</span>
+          <span class="chunk" data-audio="09_18.mp3">partout où je me trouve</span>
+          <span class="chunk" data-audio="09_19.mp3">en voyage.</span>
+          <span class="chunk" data-audio="09_20.mp3">Les textes de lecture</span>
+          <span class="chunk" data-audio="09_21.mp3">sont de niveau B2 ;</span>
+          <span class="chunk" data-audio="09_22.mp3">le niveau A2 est trop limité</span>
+          <span class="chunk" data-audio="09_23.mp3">pour raconter des histoires</span>
+          <span class="chunk" data-audio="09_24.mp3">de manière satisfaisante.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -312,12 +382,24 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Ah oui, je comprends, un site perso pour toi, accessible partout,
-          c'est très pratique, surtout en voyage. B2 pour la lecture, c'est
-          logique pour raconter une histoire agréable, A2 est un peu trop simple
-          pour ça, je suis d'accord. Quel sujet te donne le plus de plaisir à
-          écrire en B2 en ce moment, parmi tes thèmes comme les ancêtres
-          humains, le corps ou les animaux ?
+          <span class="chunk" data-audio="10_1.mp3">Ah oui, je comprends,</span>
+          <span class="chunk" data-audio="10_2.mp3">un site perso pour toi,</span>
+          <span class="chunk" data-audio="10_3.mp3">accessible partout,</span>
+          <span class="chunk" data-audio="10_4.mp3">c'est très pratique,</span>
+          <span class="chunk" data-audio="10_5.mp3">surtout en voyage.</span>
+          <span class="chunk" data-audio="10_6.mp3">B2 pour la lecture,</span>
+          <span class="chunk" data-audio="10_7.mp3">c'est logique</span>
+          <span class="chunk" data-audio="10_8.mp3">pour raconter une histoire agréable,</span>
+          <span class="chunk" data-audio="10_9.mp3">A2 est un peu trop simple</span>
+          <span class="chunk" data-audio="10_10.mp3">pour ça,</span>
+          <span class="chunk" data-audio="10_11.mp3">je suis d'accord.</span>
+          <span class="chunk" data-audio="10_12.mp3">Quel sujet</span>
+          <span class="chunk" data-audio="10_13.mp3">te donne le plus de plaisir</span>
+          <span class="chunk" data-audio="10_14.mp3">à écrire en B2</span>
+          <span class="chunk" data-audio="10_15.mp3">en ce moment,</span>
+          <span class="chunk" data-audio="10_16.mp3">parmi tes thèmes</span>
+          <span class="chunk" data-audio="10_17.mp3">comme les ancêtres humains,</span>
+          <span class="chunk" data-audio="10_18.mp3">le corps ou les animaux ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -341,10 +423,16 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Tous les sujets éveillent ma curiosité. J'ai l'esprit très ouvert et
-          avide de découvertes. En grandissant, j'ai eu un accès assez limité
-          aux livres, alors j'ai développé un désir insatiable de lire et
-          d'apprendre.
+          <span class="chunk" data-audio="11_1.mp3">Tous les sujets</span>
+          <span class="chunk" data-audio="11_2.mp3">éveillent ma curiosité.</span>
+          <span class="chunk" data-audio="11_3.mp3">J'ai l'esprit très ouvert</span>
+          <span class="chunk" data-audio="11_4.mp3">et avide de découvertes.</span>
+          <span class="chunk" data-audio="11_5.mp3">En grandissant,</span>
+          <span class="chunk" data-audio="11_6.mp3">j'ai eu un accès assez limité</span>
+          <span class="chunk" data-audio="11_7.mp3">aux livres,</span>
+          <span class="chunk" data-audio="11_8.mp3">alors j'ai développé</span>
+          <span class="chunk" data-audio="11_9.mp3">un désir insatiable</span>
+          <span class="chunk" data-audio="11_10.mp3">de lire et d'apprendre.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -365,12 +453,24 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Je comprends bien, quand on découvre les livres plus tard, on a
-          souvent une grande soif de lire et d'apprendre tout. C'est beau que tu
-          gardes cette curiosité aujourd'hui, et tu l'utilises très bien avec
-          ton site et tes lectures. Quand tu étais enfant, quels types de livres
-          ou histoires te manquaient le plus, par exemple science, romans,
-          contes, autre chose ?
+          <span class="chunk" data-audio="12_1.mp3">Je comprends bien,</span>
+          <span class="chunk" data-audio="12_2.mp3">quand on découvre les livres</span>
+          <span class="chunk" data-audio="12_3.mp3">plus tard,</span>
+          <span class="chunk" data-audio="12_4.mp3">on a souvent une grande soif</span>
+          <span class="chunk" data-audio="12_5.mp3">de lire et d'apprendre tout.</span>
+          <span class="chunk" data-audio="12_6.mp3">C'est beau</span>
+          <span class="chunk" data-audio="12_7.mp3">que tu gardes cette curiosité</span>
+          <span class="chunk" data-audio="12_8.mp3">aujourd'hui,</span>
+          <span class="chunk" data-audio="12_9.mp3">et tu l'utilises très bien</span>
+          <span class="chunk" data-audio="12_10.mp3">avec ton site</span>
+          <span class="chunk" data-audio="12_11.mp3">et tes lectures.</span>
+          <span class="chunk" data-audio="12_12.mp3">Quand tu étais enfant,</span>
+          <span class="chunk" data-audio="12_13.mp3">quels types de livres</span>
+          <span class="chunk" data-audio="12_14.mp3">ou histoires</span>
+          <span class="chunk" data-audio="12_15.mp3">te manquaient le plus,</span>
+          <span class="chunk" data-audio="12_16.mp3">par exemple science,</span>
+          <span class="chunk" data-audio="12_17.mp3">romans, contes,</span>
+          <span class="chunk" data-audio="12_18.mp3">autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -394,10 +494,14 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Mon père était abonné aux magazines Reader's Digest, Time et Newsweek.
-          J'adorais le Reader's Digest : mes rubriques préférées étaient "Le
-          rire, meilleur des remèdes", "Voyages en fauteuil" et "Le corps
-          humain".
+          <span class="chunk" data-audio="13_1.mp3">Mon père était abonné</span>
+          <span class="chunk" data-audio="13_2.mp3">aux magazines Reader's Digest,</span>
+          <span class="chunk" data-audio="13_3.mp3">Time et Newsweek.</span>
+          <span class="chunk" data-audio="13_4.mp3">J'adorais le Reader's Digest :</span>
+          <span class="chunk" data-audio="13_5.mp3">mes rubriques préférées étaient</span>
+          <span class="chunk" data-audio="13_6.mp3">"Le rire, meilleur des remèdes",</span>
+          <span class="chunk" data-audio="13_7.mp3">"Voyages en fauteuil"</span>
+          <span class="chunk" data-audio="13_8.mp3">et "Le corps humain".</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -418,11 +522,20 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Ah oui, Reader's Digest avait beaucoup de rubriques sympa, variées et
-          faciles à lire, c'est un bon souvenir. Je trouve ça touchant que tu
-          aimais déjà "Le corps humain", ça va très bien avec tes livres DK
-          maintenant. Dans "Voyages en fauteuil", quels pays ou lieux t'ont le
-          plus marqué dans tes souvenirs ?
+          <span class="chunk" data-audio="14_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="14_2.mp3">Reader's Digest</span>
+          <span class="chunk" data-audio="14_3.mp3">avait beaucoup de rubriques sympa,</span>
+          <span class="chunk" data-audio="14_4.mp3">variées et faciles à lire,</span>
+          <span class="chunk" data-audio="14_5.mp3">c'est un bon souvenir.</span>
+          <span class="chunk" data-audio="14_6.mp3">Je trouve ça touchant</span>
+          <span class="chunk" data-audio="14_7.mp3">que tu aimais déjà</span>
+          <span class="chunk" data-audio="14_8.mp3">"Le corps humain",</span>
+          <span class="chunk" data-audio="14_9.mp3">ça va très bien</span>
+          <span class="chunk" data-audio="14_10.mp3">avec tes livres DK maintenant.</span>
+          <span class="chunk" data-audio="14_11.mp3">Dans "Voyages en fauteuil",</span>
+          <span class="chunk" data-audio="14_12.mp3">quels pays ou lieux</span>
+          <span class="chunk" data-audio="14_13.mp3">t'ont le plus marqué</span>
+          <span class="chunk" data-audio="14_14.mp3">dans tes souvenirs ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -445,10 +558,18 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Les vignobles français et le Colisée m'ont profondément marqué.
-          Heureusement, une fois adulte, j'ai eu les moyens de voyager aux
-          quatre coins du globe. C'est merveilleux de pouvoir découvrir en vrai
-          des lieux que je ne connaissais autrefois qu'à travers les livres.
+          <span class="chunk" data-audio="15_1.mp3">Les vignobles français</span>
+          <span class="chunk" data-audio="15_2.mp3">et le Colisée</span>
+          <span class="chunk" data-audio="15_3.mp3">m'ont profondément marqué.</span>
+          <span class="chunk" data-audio="15_4.mp3">Heureusement,</span>
+          <span class="chunk" data-audio="15_5.mp3">une fois adulte,</span>
+          <span class="chunk" data-audio="15_6.mp3">j'ai eu les moyens de voyager</span>
+          <span class="chunk" data-audio="15_7.mp3">aux quatre coins du globe.</span>
+          <span class="chunk" data-audio="15_8.mp3">C'est merveilleux</span>
+          <span class="chunk" data-audio="15_9.mp3">de pouvoir découvrir en vrai</span>
+          <span class="chunk" data-audio="15_10.mp3">des lieux</span>
+          <span class="chunk" data-audio="15_11.mp3">que je ne connaissais autrefois</span>
+          <span class="chunk" data-audio="15_12.mp3">qu'à travers les livres.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -470,12 +591,22 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          C'est vraiment beau ce chemin, des pages de magazine aux vrais
-          voyages, surtout pour les vignobles et le Colisée. Je trouve ça très
-          émouvant de réaliser des rêves d'enfant avec ses propres moyens, ça
-          donne un sens spécial à chaque voyage. Parmi les lieux que tu as
-          visités adulte, lequel t'a donné la plus grande émotion par rapport à
-          l'image que tu avais dans les livres ?
+          <span class="chunk" data-audio="16_1.mp3">C'est vraiment beau ce chemin,</span>
+          <span class="chunk" data-audio="16_2.mp3">des pages de magazine</span>
+          <span class="chunk" data-audio="16_3.mp3">aux vrais voyages,</span>
+          <span class="chunk" data-audio="16_4.mp3">surtout pour les vignobles</span>
+          <span class="chunk" data-audio="16_5.mp3">et le Colisée.</span>
+          <span class="chunk" data-audio="16_6.mp3">Je trouve ça très émouvant</span>
+          <span class="chunk" data-audio="16_7.mp3">de réaliser des rêves d'enfant</span>
+          <span class="chunk" data-audio="16_8.mp3">avec ses propres moyens,</span>
+          <span class="chunk" data-audio="16_9.mp3">ça donne un sens spécial</span>
+          <span class="chunk" data-audio="16_10.mp3">à chaque voyage.</span>
+          <span class="chunk" data-audio="16_11.mp3">Parmi les lieux</span>
+          <span class="chunk" data-audio="16_12.mp3">que tu as visités adulte,</span>
+          <span class="chunk" data-audio="16_13.mp3">lequel t'a donné</span>
+          <span class="chunk" data-audio="16_14.mp3">la plus grande émotion</span>
+          <span class="chunk" data-audio="16_15.mp3">par rapport à l'image</span>
+          <span class="chunk" data-audio="16_16.mp3">que tu avais dans les livres ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -499,9 +630,13 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          La France m'a encore plus émerveillé que je ne l'avais imaginé. Les
-          châteaux, les villages médiévaux et, bien sûr, la gastronomie ont un
-          charme incroyable.
+          <span class="chunk" data-audio="17_1.mp3">La France</span>
+          <span class="chunk" data-audio="17_2.mp3">m'a encore plus émerveillé</span>
+          <span class="chunk" data-audio="17_3.mp3">que je ne l'avais imaginé.</span>
+          <span class="chunk" data-audio="17_4.mp3">Les châteaux,</span>
+          <span class="chunk" data-audio="17_5.mp3">les villages médiévaux</span>
+          <span class="chunk" data-audio="17_6.mp3">et, bien sûr, la gastronomie</span>
+          <span class="chunk" data-audio="17_7.mp3">ont un charme incroyable.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -522,11 +657,22 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Je comprends, la France fait souvent rêver, mais en vrai les châteaux,
-          les vieux villages et la cuisine donnent encore plus de charme. Moi
-          aussi j'aime beaucoup l'ambiance des petits villages médiévaux, avec
-          les rues étroites et les vieilles pierres. Quel château ou quel
-          village en France t'a le plus touchée, avec un souvenir précis ?
+          <span class="chunk" data-audio="18_1.mp3">Je comprends,</span>
+          <span class="chunk" data-audio="18_2.mp3">la France fait souvent rêver,</span>
+          <span class="chunk" data-audio="18_3.mp3">mais en vrai</span>
+          <span class="chunk" data-audio="18_4.mp3">les châteaux,</span>
+          <span class="chunk" data-audio="18_5.mp3">les vieux villages</span>
+          <span class="chunk" data-audio="18_6.mp3">et la cuisine</span>
+          <span class="chunk" data-audio="18_7.mp3">donnent encore plus de charme.</span>
+          <span class="chunk" data-audio="18_8.mp3">Moi aussi j'aime beaucoup</span>
+          <span class="chunk" data-audio="18_9.mp3">l'ambiance</span>
+          <span class="chunk" data-audio="18_10.mp3">des petits villages médiévaux,</span>
+          <span class="chunk" data-audio="18_11.mp3">avec les rues étroites</span>
+          <span class="chunk" data-audio="18_12.mp3">et les vieilles pierres.</span>
+          <span class="chunk" data-audio="18_13.mp3">Quel château</span>
+          <span class="chunk" data-audio="18_14.mp3">ou quel village en France</span>
+          <span class="chunk" data-audio="18_15.mp3">t'a le plus touchée,</span>
+          <span class="chunk" data-audio="18_16.mp3">avec un souvenir précis ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -549,11 +695,20 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Le château de Chenonceau est splendide. L'Italie, elle, apporte une
-          agréable chaleur intérieure. En revanche, Robert et moi ne sommes pas
-          très enthousiastes à propos de l'Espagne. La barrière de la langue a
-          été un problème partout, et les gens y fument énormément. Le tabagisme
-          passif y représente un vrai danger.
+          <span class="chunk" data-audio="19_1.mp3">Le château de Chenonceau</span>
+          <span class="chunk" data-audio="19_2.mp3">est splendide.</span>
+          <span class="chunk" data-audio="19_3.mp3">L'Italie, elle,</span>
+          <span class="chunk" data-audio="19_4.mp3">apporte une agréable</span>
+          <span class="chunk" data-audio="19_5.mp3">chaleur intérieure.</span>
+          <span class="chunk" data-audio="19_6.mp3">En revanche,</span>
+          <span class="chunk" data-audio="19_7.mp3">Robert et moi</span>
+          <span class="chunk" data-audio="19_8.mp3">ne sommes pas très enthousiastes</span>
+          <span class="chunk" data-audio="19_9.mp3">à propos de l'Espagne.</span>
+          <span class="chunk" data-audio="19_10.mp3">La barrière de la langue</span>
+          <span class="chunk" data-audio="19_11.mp3">a été un problème partout,</span>
+          <span class="chunk" data-audio="19_12.mp3">et les gens y fument énormément.</span>
+          <span class="chunk" data-audio="19_13.mp3">Le tabagisme passif</span>
+          <span class="chunk" data-audio="19_14.mp3">y représente un vrai danger.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -576,13 +731,27 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          Chenonceau est vraiment très élégant, j'aime beaucoup son côté
-          "château sur l'eau", c'est unique. Je comprends pour l'Italie, il y a
-          une ambiance très douce, et aussi pour l'Espagne, la langue et la
-          fumée peuvent gâcher un peu le plaisir, c'est important de se sentir
-          bien. Dans tes voyages, qu'est-ce qui compte le plus pour toi pour te
-          sentir bien dans un pays : l'ambiance des gens, la beauté des lieux,
-          la langue, la nourriture, ou autre chose ?
+          <span class="chunk" data-audio="20_1.mp3">Chenonceau</span>
+          <span class="chunk" data-audio="20_2.mp3">est vraiment très élégant,</span>
+          <span class="chunk" data-audio="20_3.mp3">j'aime beaucoup son côté</span>
+          <span class="chunk" data-audio="20_4.mp3">"château sur l'eau",</span>
+          <span class="chunk" data-audio="20_5.mp3">c'est unique.</span>
+          <span class="chunk" data-audio="20_6.mp3">Je comprends pour l'Italie,</span>
+          <span class="chunk" data-audio="20_7.mp3">il y a une ambiance très douce,</span>
+          <span class="chunk" data-audio="20_8.mp3">et aussi pour l'Espagne,</span>
+          <span class="chunk" data-audio="20_9.mp3">la langue et la fumée</span>
+          <span class="chunk" data-audio="20_10.mp3">peuvent gâcher un peu le plaisir,</span>
+          <span class="chunk" data-audio="20_11.mp3">c'est important</span>
+          <span class="chunk" data-audio="20_12.mp3">de se sentir bien.</span>
+          <span class="chunk" data-audio="20_13.mp3">Dans tes voyages,</span>
+          <span class="chunk" data-audio="20_14.mp3">qu'est-ce qui compte le plus</span>
+          <span class="chunk" data-audio="20_15.mp3">pour toi</span>
+          <span class="chunk" data-audio="20_16.mp3">pour te sentir bien</span>
+          <span class="chunk" data-audio="20_17.mp3">dans un pays :</span>
+          <span class="chunk" data-audio="20_18.mp3">l'ambiance des gens,</span>
+          <span class="chunk" data-audio="20_19.mp3">la beauté des lieux,</span>
+          <span class="chunk" data-audio="20_20.mp3">la langue, la nourriture,</span>
+          <span class="chunk" data-audio="20_21.mp3">ou autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -607,10 +776,19 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          Un peu de tout, en réalité. On est sensibles aux vieilles pierres, aux
-          jolis paysages, à la nature, à la culture et à la gastronomie. En
-          revanche, on évite autant que possible les grandes villes, ce n'est
-          pas vraiment ce qu'on recherche.
+          <span class="chunk" data-audio="21_1.mp3">Un peu de tout,</span>
+          <span class="chunk" data-audio="21_2.mp3">en réalité.</span>
+          <span class="chunk" data-audio="21_3.mp3">On est sensibles</span>
+          <span class="chunk" data-audio="21_4.mp3">aux vieilles pierres,</span>
+          <span class="chunk" data-audio="21_5.mp3">aux jolis paysages,</span>
+          <span class="chunk" data-audio="21_6.mp3">à la nature,</span>
+          <span class="chunk" data-audio="21_7.mp3">à la culture</span>
+          <span class="chunk" data-audio="21_8.mp3">et à la gastronomie.</span>
+          <span class="chunk" data-audio="21_9.mp3">En revanche,</span>
+          <span class="chunk" data-audio="21_10.mp3">on évite autant que possible</span>
+          <span class="chunk" data-audio="21_11.mp3">les grandes villes,</span>
+          <span class="chunk" data-audio="21_12.mp3">ce n'est pas vraiment</span>
+          <span class="chunk" data-audio="21_13.mp3">ce qu'on recherche.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -632,13 +810,23 @@
           data-audio="22.mp3"
         ></audio>
         <p>
-          Je comprends très bien, les grandes villes peuvent être fatigantes,
-          surtout quand on aime la nature et les vieux bâtiments. Je trouve ça
-          très calme et riche de voyager comme vous, en cherchant les beaux
-          paysages, la culture locale et la bonne cuisine. Dans un prochain
-          voyage, tu aimerais plutôt découvrir un nouveau pays ou bien revenir
-          dans un pays que tu connais déjà mais avec une autre région plus
-          tranquille ?
+          <span class="chunk" data-audio="22_1.mp3">Je comprends très bien,</span>
+          <span class="chunk" data-audio="22_2.mp3">les grandes villes</span>
+          <span class="chunk" data-audio="22_3.mp3">peuvent être fatigantes,</span>
+          <span class="chunk" data-audio="22_4.mp3">surtout quand on aime la nature</span>
+          <span class="chunk" data-audio="22_5.mp3">et les vieux bâtiments.</span>
+          <span class="chunk" data-audio="22_6.mp3">Je trouve ça très calme et riche</span>
+          <span class="chunk" data-audio="22_7.mp3">de voyager comme vous,</span>
+          <span class="chunk" data-audio="22_8.mp3">en cherchant les beaux paysages,</span>
+          <span class="chunk" data-audio="22_9.mp3">la culture locale</span>
+          <span class="chunk" data-audio="22_10.mp3">et la bonne cuisine.</span>
+          <span class="chunk" data-audio="22_11.mp3">Dans un prochain voyage,</span>
+          <span class="chunk" data-audio="22_12.mp3">tu aimerais plutôt découvrir</span>
+          <span class="chunk" data-audio="22_13.mp3">un nouveau pays</span>
+          <span class="chunk" data-audio="22_14.mp3">ou bien revenir</span>
+          <span class="chunk" data-audio="22_15.mp3">dans un pays que tu connais déjà</span>
+          <span class="chunk" data-audio="22_16.mp3">mais avec une autre région</span>
+          <span class="chunk" data-audio="22_17.mp3">plus tranquille ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -662,15 +850,33 @@
           data-audio="23.mp3"
         ></audio>
         <p>
-          Quand on part en voyage, on loue une voiture et on sillonne les pays
-          au volant pendant un mois. Robert passe plus de six mois à préparer le
-          séjour, en se renseignant sur les lieux à visiter et les hébergements.
-          Le seul inconvénient, c'est la lessive : comme les hôtels font payer
-          ce service une petite fortune, on doit, tous les quelques jours,
-          consacrer du temps à laver nos vêtements dans des laveries locales. Et
-          puis, manger au restaurant pendant un mois devient vite lassant. On
-          n'est jamais allés en Croatie, ce sera donc notre prochaine
-          destination.
+          <span class="chunk" data-audio="23_1.mp3">Quand on part en voyage,</span>
+          <span class="chunk" data-audio="23_2.mp3">on loue une voiture</span>
+          <span class="chunk" data-audio="23_3.mp3">et on sillonne les pays</span>
+          <span class="chunk" data-audio="23_4.mp3">au volant</span>
+          <span class="chunk" data-audio="23_5.mp3">pendant un mois.</span>
+          <span class="chunk" data-audio="23_6.mp3">Robert passe plus de six mois</span>
+          <span class="chunk" data-audio="23_7.mp3">à préparer le séjour,</span>
+          <span class="chunk" data-audio="23_8.mp3">en se renseignant</span>
+          <span class="chunk" data-audio="23_9.mp3">sur les lieux à visiter</span>
+          <span class="chunk" data-audio="23_10.mp3">et les hébergements.</span>
+          <span class="chunk" data-audio="23_11.mp3">Le seul inconvénient,</span>
+          <span class="chunk" data-audio="23_12.mp3">c'est la lessive :</span>
+          <span class="chunk" data-audio="23_13.mp3">comme les hôtels</span>
+          <span class="chunk" data-audio="23_14.mp3">font payer ce service</span>
+          <span class="chunk" data-audio="23_15.mp3">une petite fortune,</span>
+          <span class="chunk" data-audio="23_16.mp3">on doit,</span>
+          <span class="chunk" data-audio="23_17.mp3">tous les quelques jours,</span>
+          <span class="chunk" data-audio="23_18.mp3">consacrer du temps</span>
+          <span class="chunk" data-audio="23_19.mp3">à laver nos vêtements</span>
+          <span class="chunk" data-audio="23_20.mp3">dans des laveries locales.</span>
+          <span class="chunk" data-audio="23_21.mp3">Et puis,</span>
+          <span class="chunk" data-audio="23_22.mp3">manger au restaurant</span>
+          <span class="chunk" data-audio="23_23.mp3">pendant un mois</span>
+          <span class="chunk" data-audio="23_24.mp3">devient vite lassant.</span>
+          <span class="chunk" data-audio="23_25.mp3">On n'est jamais allés en Croatie,</span>
+          <span class="chunk" data-audio="23_26.mp3">ce sera donc</span>
+          <span class="chunk" data-audio="23_27.mp3">notre prochaine destination.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -696,13 +902,24 @@
           data-audio="24.mp3"
         ></audio>
         <p>
-          C'est un super style de voyage, un mois en voiture avec un grand
-          travail de recherche avant, ça permet de vraiment connaître un pays.
-          Je comprends bien les deux points négatifs : la lessive en voyage et
-          les restos tous les jours, ça peut devenir lourd et cher. Pour la
-          Croatie, vous pensez plutôt à un road trip côtier avec les villes au
-          bord de la mer, ou à l'intérieur du pays avec parcs naturels et
-          villages ?
+          <span class="chunk" data-audio="24_1.mp3">C'est un super style de voyage,</span>
+          <span class="chunk" data-audio="24_2.mp3">un mois en voiture</span>
+          <span class="chunk" data-audio="24_3.mp3">avec un grand travail de recherche</span>
+          <span class="chunk" data-audio="24_4.mp3">avant,</span>
+          <span class="chunk" data-audio="24_5.mp3">ça permet</span>
+          <span class="chunk" data-audio="24_6.mp3">de vraiment connaître un pays.</span>
+          <span class="chunk" data-audio="24_7.mp3">Je comprends bien</span>
+          <span class="chunk" data-audio="24_8.mp3">les deux points négatifs :</span>
+          <span class="chunk" data-audio="24_9.mp3">la lessive en voyage</span>
+          <span class="chunk" data-audio="24_10.mp3">et les restos tous les jours,</span>
+          <span class="chunk" data-audio="24_11.mp3">ça peut devenir lourd et cher.</span>
+          <span class="chunk" data-audio="24_12.mp3">Pour la Croatie,</span>
+          <span class="chunk" data-audio="24_13.mp3">vous pensez plutôt</span>
+          <span class="chunk" data-audio="24_14.mp3">à un road trip côtier</span>
+          <span class="chunk" data-audio="24_15.mp3">avec les villes</span>
+          <span class="chunk" data-audio="24_16.mp3">au bord de la mer,</span>
+          <span class="chunk" data-audio="24_17.mp3">ou à l'intérieur du pays</span>
+          <span class="chunk" data-audio="24_18.mp3">avec parcs naturels et villages ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -789,6 +1006,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv18/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv18/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

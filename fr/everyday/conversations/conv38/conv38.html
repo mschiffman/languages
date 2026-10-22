@@ -58,6 +58,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -75,7 +81,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -85,8 +91,10 @@
           data-audio="01.mp3?v=2607230932"
         ></audio>
         <p>
-          Dis, t'as vu le chantier chez les voisins ? Ils ont éventré tout le
-          jardin.
+          <span class="chunk" data-audio="01_1.mp3">Dis, t'as vu le chantier</span>
+          <span class="chunk" data-audio="01_2.mp3">chez les voisins ?</span>
+          <span class="chunk" data-audio="01_3.mp3">Ils ont éventré</span>
+          <span class="chunk" data-audio="01_4.mp3">tout le jardin.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -106,8 +114,10 @@
           data-audio="02.mp3?v=2607230932"
         ></audio>
         <p>
-          Ouais, j'ai vu ça ce matin. Ils font installer une pompe à chaleur
-          géothermique.
+          <span class="chunk" data-audio="02_1.mp3">Ouais, j'ai vu ça</span>
+          <span class="chunk" data-audio="02_2.mp3">ce matin.</span>
+          <span class="chunk" data-audio="02_3.mp3">Ils font installer</span>
+          <span class="chunk" data-audio="02_4.mp3">une pompe à chaleur géothermique.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -127,7 +137,9 @@
           data-audio="03.mp3?v=2607230932"
         ></audio>
         <p>
-          Géothermique ? Genre les geysers, l'Islande, tout ça ?
+          <span class="chunk" data-audio="03_1.mp3">Géothermique ?</span>
+          <span class="chunk" data-audio="03_2.mp3">Genre les geysers,</span>
+          <span class="chunk" data-audio="03_3.mp3">l'Islande, tout ça ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -144,9 +156,13 @@
           data-audio="04.mp3?v=2607230932"
         ></audio>
         <p>
-          Non, non, rien à voir. Ça, c'est la version carte postale. Eux, ils
-          exploitent juste le fait qu'à trois mètres sous terre, la température,
-          elle bouge quasiment pas de l'année.
+          <span class="chunk" data-audio="04_1.mp3">Non, non, rien à voir.</span>
+          <span class="chunk" data-audio="04_2.mp3">Ça, c'est la version carte postale.</span>
+          <span class="chunk" data-audio="04_3.mp3">Eux, ils exploitent juste le fait</span>
+          <span class="chunk" data-audio="04_4.mp3">qu'à trois mètres sous terre,</span>
+          <span class="chunk" data-audio="04_5.mp3">la température,</span>
+          <span class="chunk" data-audio="04_6.mp3">elle bouge quasiment pas</span>
+          <span class="chunk" data-audio="04_7.mp3">de l'année.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -167,7 +183,8 @@
           data-audio="05.mp3?v=2607230932"
         ></audio>
         <p>
-          Ah bon ? Même en plein mois d'août ?
+          <span class="chunk" data-audio="05_1.mp3">Ah bon ?</span>
+          <span class="chunk" data-audio="05_2.mp3">Même en plein mois d'août ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -184,9 +201,16 @@
           data-audio="06.mp3?v=2607230932"
         ></audio>
         <p>
-          Même en août. C'est ça qui est fou, en fait. En haut, on passe de
-          moins deux à trente-cinq degrés, et en bas, ça reste tranquillement
-          autour de douze, treize. Le sol et la roche, ça fait isolant, quoi.
+          <span class="chunk" data-audio="06_1.mp3">Même en août.</span>
+          <span class="chunk" data-audio="06_2.mp3">C'est ça qui est fou, en fait.</span>
+          <span class="chunk" data-audio="06_3.mp3">En haut,</span>
+          <span class="chunk" data-audio="06_4.mp3">on passe de moins deux</span>
+          <span class="chunk" data-audio="06_5.mp3">à trente-cinq degrés,</span>
+          <span class="chunk" data-audio="06_6.mp3">et en bas,</span>
+          <span class="chunk" data-audio="06_7.mp3">ça reste tranquillement</span>
+          <span class="chunk" data-audio="06_8.mp3">autour de douze, treize.</span>
+          <span class="chunk" data-audio="06_9.mp3">Le sol et la roche,</span>
+          <span class="chunk" data-audio="06_10.mp3">ça fait isolant, quoi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -207,7 +231,9 @@
           data-audio="07.mp3?v=2607230932"
         ></audio>
         <p>
-          Donc il fait frais en été et doux en hiver, sans rien faire.
+          <span class="chunk" data-audio="07_1.mp3">Donc il fait frais en été</span>
+          <span class="chunk" data-audio="07_2.mp3">et doux en hiver,</span>
+          <span class="chunk" data-audio="07_3.mp3">sans rien faire.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -224,7 +250,9 @@
           data-audio="08.mp3?v=2607230932"
         ></audio>
         <p>
-          Voilà. C'est la Terre qui bosse à ta place.
+          <span class="chunk" data-audio="08_1.mp3">Voilà.</span>
+          <span class="chunk" data-audio="08_2.mp3">C'est la Terre</span>
+          <span class="chunk" data-audio="08_3.mp3">qui bosse à ta place.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -241,8 +269,10 @@
           data-audio="09.mp3?v=2607230901"
         ></audio>
         <p>
-          Et concrètement, ils font quoi avec ça ? Ils branchent un tuyau et hop
-          ?
+          <span class="chunk" data-audio="09_1.mp3">Et concrètement,</span>
+          <span class="chunk" data-audio="09_2.mp3">ils font quoi avec ça ?</span>
+          <span class="chunk" data-audio="09_3.mp3">Ils branchent un tuyau</span>
+          <span class="chunk" data-audio="09_4.mp3">et hop ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -262,10 +292,17 @@
           data-audio="10.mp3?v=2607230932"
         ></audio>
         <p>
-          En gros, oui. Ils enterrent des boucles, tu vois, des grands
-          serpentins, et ils font circuler un fluide dedans. En hiver, le fluide
-          descend froid, il remonte un peu réchauffé, et la pompe se charge du
-          reste.
+          <span class="chunk" data-audio="10_1.mp3">En gros, oui.</span>
+          <span class="chunk" data-audio="10_2.mp3">Ils enterrent des boucles,</span>
+          <span class="chunk" data-audio="10_3.mp3">tu vois,</span>
+          <span class="chunk" data-audio="10_4.mp3">des grands serpentins,</span>
+          <span class="chunk" data-audio="10_5.mp3">et ils font circuler</span>
+          <span class="chunk" data-audio="10_6.mp3">un fluide dedans.</span>
+          <span class="chunk" data-audio="10_7.mp3">En hiver,</span>
+          <span class="chunk" data-audio="10_8.mp3">le fluide descend froid,</span>
+          <span class="chunk" data-audio="10_9.mp3">il remonte un peu réchauffé,</span>
+          <span class="chunk" data-audio="10_10.mp3">et la pompe</span>
+          <span class="chunk" data-audio="10_11.mp3">se charge du reste.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -286,7 +323,8 @@
           data-audio="11.mp3?v=2607230905"
         ></audio>
         <p>
-          Et l'été, c'est l'inverse, j'imagine.
+          <span class="chunk" data-audio="11_1.mp3">Et l'été,</span>
+          <span class="chunk" data-audio="11_2.mp3">c'est l'inverse, j'imagine.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -303,9 +341,14 @@
           data-audio="12.mp3?v=2607230908"
         ></audio>
         <p>
-          Exactement. L'été, au lieu de capter la chaleur, on la rejette dans le
-          sol. La maison se rafraîchit, et la Terre encaisse. C'est un peu un
-          thermostat naturel, quoi.
+          <span class="chunk" data-audio="12_1.mp3">Exactement.</span>
+          <span class="chunk" data-audio="12_2.mp3">L'été,</span>
+          <span class="chunk" data-audio="12_3.mp3">au lieu de capter la chaleur,</span>
+          <span class="chunk" data-audio="12_4.mp3">on la rejette dans le sol.</span>
+          <span class="chunk" data-audio="12_5.mp3">La maison se rafraîchit,</span>
+          <span class="chunk" data-audio="12_6.mp3">et la Terre encaisse.</span>
+          <span class="chunk" data-audio="12_7.mp3">C'est un peu</span>
+          <span class="chunk" data-audio="12_8.mp3">un thermostat naturel, quoi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -326,8 +369,10 @@
           data-audio="13.mp3?v=2607230932"
         ></audio>
         <p>
-          Attends, mais du coup, ça consomme quand même de l'électricité, non ?
-          C'est pas magique.
+          <span class="chunk" data-audio="13_1.mp3">Attends, mais du coup,</span>
+          <span class="chunk" data-audio="13_2.mp3">ça consomme quand même</span>
+          <span class="chunk" data-audio="13_3.mp3">de l'électricité, non ?</span>
+          <span class="chunk" data-audio="13_4.mp3">C'est pas magique.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -344,9 +389,14 @@
           data-audio="14.mp3?v=2607230911"
         ></audio>
         <p>
-          Si, si, bien sûr. Mais la pompe, elle fabrique pas la chaleur, elle la
-          déplace. Et déplacer, ça coûte beaucoup moins cher que fabriquer.
-          C'est là que t'as le gain.
+          <span class="chunk" data-audio="14_1.mp3">Si, si, bien sûr.</span>
+          <span class="chunk" data-audio="14_2.mp3">Mais la pompe,</span>
+          <span class="chunk" data-audio="14_3.mp3">elle fabrique pas la chaleur,</span>
+          <span class="chunk" data-audio="14_4.mp3">elle la déplace.</span>
+          <span class="chunk" data-audio="14_5.mp3">Et déplacer,</span>
+          <span class="chunk" data-audio="14_6.mp3">ça coûte beaucoup moins cher</span>
+          <span class="chunk" data-audio="14_7.mp3">que fabriquer.</span>
+          <span class="chunk" data-audio="14_8.mp3">C'est là que t'as le gain.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -367,8 +417,11 @@
           data-audio="15.mp3?v=2607230932"
         ></audio>
         <p>
-          Mmh. Et ça fait du bruit ? Parce que leur ancienne clim, franchement,
-          on l'entendait depuis chez nous.
+          <span class="chunk" data-audio="15_1.mp3">Mmh.</span>
+          <span class="chunk" data-audio="15_2.mp3">Et ça fait du bruit ?</span>
+          <span class="chunk" data-audio="15_3.mp3">Parce que leur ancienne clim,</span>
+          <span class="chunk" data-audio="15_4.mp3">franchement,</span>
+          <span class="chunk" data-audio="15_5.mp3">on l'entendait depuis chez nous.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -388,8 +441,13 @@
           data-audio="16.mp3?v=2607230932"
         ></audio>
         <p>
-          Justement, non. Y a pas de gros bloc qui ronronne dehors, tout est
-          enterré. C'est silencieux, c'est même un peu le principal argument.
+          <span class="chunk" data-audio="16_1.mp3">Justement, non.</span>
+          <span class="chunk" data-audio="16_2.mp3">Y a pas de gros bloc</span>
+          <span class="chunk" data-audio="16_3.mp3">qui ronronne dehors,</span>
+          <span class="chunk" data-audio="16_4.mp3">tout est enterré.</span>
+          <span class="chunk" data-audio="16_5.mp3">C'est silencieux,</span>
+          <span class="chunk" data-audio="16_6.mp3">c'est même un peu</span>
+          <span class="chunk" data-audio="16_7.mp3">le principal argument.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -410,7 +468,8 @@
           data-audio="17.mp3?v=2607230932"
         ></audio>
         <p>
-          Et ça tient combien de temps, ce truc-là ?
+          <span class="chunk" data-audio="17_1.mp3">Et ça tient combien de temps,</span>
+          <span class="chunk" data-audio="17_2.mp3">ce truc-là ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -427,8 +486,12 @@
           data-audio="18.mp3?v=2607230932"
         ></audio>
         <p>
-          Les boucles, dans le sol, ça peut durer cinquante ans. La pompe, elle,
-          il faudra la changer avant, mais bon, comme n'importe quel appareil.
+          <span class="chunk" data-audio="18_1.mp3">Les boucles, dans le sol,</span>
+          <span class="chunk" data-audio="18_2.mp3">ça peut durer cinquante ans.</span>
+          <span class="chunk" data-audio="18_3.mp3">La pompe, elle,</span>
+          <span class="chunk" data-audio="18_4.mp3">il faudra la changer avant,</span>
+          <span class="chunk" data-audio="18_5.mp3">mais bon,</span>
+          <span class="chunk" data-audio="18_6.mp3">comme n'importe quel appareil.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -448,8 +511,10 @@
           data-audio="19.mp3?v=2607230932"
         ></audio>
         <p>
-          Et le prix, alors ? Parce que là, ils ont quand même fait venir une
-          pelleteuse.
+          <span class="chunk" data-audio="19_1.mp3">Et le prix, alors ?</span>
+          <span class="chunk" data-audio="19_2.mp3">Parce que là,</span>
+          <span class="chunk" data-audio="19_3.mp3">ils ont quand même fait venir</span>
+          <span class="chunk" data-audio="19_4.mp3">une pelleteuse.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -466,9 +531,16 @@
           data-audio="20.mp3?v=2607230932"
         ></audio>
         <p>
-          Ah, c'est ça le problème. Le trou coûte cher. C'est un gros
-          investissement au départ, et tu le récupères sur des années. Si tu
-          comptes déménager dans trois ans, franchement, ça vaut pas le coup.
+          <span class="chunk" data-audio="20_1.mp3">Ah, c'est ça le problème.</span>
+          <span class="chunk" data-audio="20_2.mp3">Le trou coûte cher.</span>
+          <span class="chunk" data-audio="20_3.mp3">C'est un gros investissement</span>
+          <span class="chunk" data-audio="20_4.mp3">au départ,</span>
+          <span class="chunk" data-audio="20_5.mp3">et tu le récupères</span>
+          <span class="chunk" data-audio="20_6.mp3">sur des années.</span>
+          <span class="chunk" data-audio="20_7.mp3">Si tu comptes déménager</span>
+          <span class="chunk" data-audio="20_8.mp3">dans trois ans,</span>
+          <span class="chunk" data-audio="20_9.mp3">franchement,</span>
+          <span class="chunk" data-audio="20_10.mp3">ça vaut pas le coup.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -489,7 +561,8 @@
           data-audio="21.mp3?v=2607230932"
         ></audio>
         <p>
-          Donc c'est un truc pour ceux qui restent.
+          <span class="chunk" data-audio="21_1.mp3">Donc c'est un truc</span>
+          <span class="chunk" data-audio="21_2.mp3">pour ceux qui restent.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -506,7 +579,8 @@
           data-audio="22.mp3?v=2607230932"
         ></audio>
         <p>
-          Voilà, c'est exactement ça.
+          <span class="chunk" data-audio="22_1.mp3">Voilà,</span>
+          <span class="chunk" data-audio="22_2.mp3">c'est exactement ça.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -523,7 +597,8 @@
           data-audio="23.mp3?v=2607230932"
         ></audio>
         <p>
-          Et c'est récent, comme technologie ?
+          <span class="chunk" data-audio="23_1.mp3">Et c'est récent,</span>
+          <span class="chunk" data-audio="23_2.mp3">comme technologie ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -540,9 +615,15 @@
           data-audio="24.mp3?v=2607230932"
         ></audio>
         <p>
-          La pompe, oui. Mais l'idée d'utiliser la chaleur du sol, alors là, pas
-          du tout. Ça fait dix mille ans que les gens se rassemblent autour des
-          sources chaudes pour se soigner, pour cuisiner...
+          <span class="chunk" data-audio="24_1.mp3">La pompe, oui.</span>
+          <span class="chunk" data-audio="24_2.mp3">Mais l'idée d'utiliser</span>
+          <span class="chunk" data-audio="24_3.mp3">la chaleur du sol,</span>
+          <span class="chunk" data-audio="24_4.mp3">alors là, pas du tout.</span>
+          <span class="chunk" data-audio="24_5.mp3">Ça fait dix mille ans</span>
+          <span class="chunk" data-audio="24_6.mp3">que les gens se rassemblent</span>
+          <span class="chunk" data-audio="24_7.mp3">autour des sources chaudes</span>
+          <span class="chunk" data-audio="24_8.mp3">pour se soigner,</span>
+          <span class="chunk" data-audio="24_9.mp3">pour cuisiner...</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -563,7 +644,8 @@
           data-audio="25.mp3?v=2607230932"
         ></audio>
         <p>
-          Ah oui, les Romains, avec leurs thermes.
+          <span class="chunk" data-audio="25_1.mp3">Ah oui, les Romains,</span>
+          <span class="chunk" data-audio="25_2.mp3">avec leurs thermes.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -580,10 +662,15 @@
           data-audio="26.mp3?v=2607230932"
         ></audio>
         <p>
-          Exactement. Eux, ils étaient malins : ils faisaient carrément couler
-          l'eau géothermique jusque dans leurs bains. Et aujourd'hui, y a des
-          villes entières qui sont chauffées comme ça, avec des réseaux de
-          chaleur.
+          <span class="chunk" data-audio="26_1.mp3">Exactement.</span>
+          <span class="chunk" data-audio="26_2.mp3">Eux, ils étaient malins :</span>
+          <span class="chunk" data-audio="26_3.mp3">ils faisaient carrément couler</span>
+          <span class="chunk" data-audio="26_4.mp3">l'eau géothermique</span>
+          <span class="chunk" data-audio="26_5.mp3">jusque dans leurs bains.</span>
+          <span class="chunk" data-audio="26_6.mp3">Et aujourd'hui,</span>
+          <span class="chunk" data-audio="26_7.mp3">y a des villes entières</span>
+          <span class="chunk" data-audio="26_8.mp3">qui sont chauffées comme ça,</span>
+          <span class="chunk" data-audio="26_9.mp3">avec des réseaux de chaleur.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -604,7 +691,8 @@
           data-audio="27.mp3?v=2607230932"
         ></audio>
         <p>
-          Des villes entières ? Genre où ?
+          <span class="chunk" data-audio="27_1.mp3">Des villes entières ?</span>
+          <span class="chunk" data-audio="27_2.mp3">Genre où ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -621,10 +709,17 @@
           data-audio="28.mp3?v=2607230932"
         ></audio>
         <p>
-          Munich, Reykjavik évidemment, et Paris même, en partie. Y a une nappe
-          d'eau chaude sous la région, assez profonde. Ils pompent, ils
-          chauffent les immeubles, et ils réinjectent l'eau. Ça tourne depuis
-          les années soixante-dix.
+          <span class="chunk" data-audio="28_1.mp3">Munich,</span>
+          <span class="chunk" data-audio="28_2.mp3">Reykjavik évidemment,</span>
+          <span class="chunk" data-audio="28_3.mp3">et Paris même, en partie.</span>
+          <span class="chunk" data-audio="28_4.mp3">Y a une nappe d'eau chaude</span>
+          <span class="chunk" data-audio="28_5.mp3">sous la région,</span>
+          <span class="chunk" data-audio="28_6.mp3">assez profonde.</span>
+          <span class="chunk" data-audio="28_7.mp3">Ils pompent,</span>
+          <span class="chunk" data-audio="28_8.mp3">ils chauffent les immeubles,</span>
+          <span class="chunk" data-audio="28_9.mp3">et ils réinjectent l'eau.</span>
+          <span class="chunk" data-audio="28_10.mp3">Ça tourne</span>
+          <span class="chunk" data-audio="28_11.mp3">depuis les années soixante-dix.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -646,7 +741,8 @@
           data-audio="29.mp3?v=2607230932"
         ></audio>
         <p>
-          Paris ? Sérieux ? Je savais pas du tout.
+          <span class="chunk" data-audio="29_1.mp3">Paris ? Sérieux ?</span>
+          <span class="chunk" data-audio="29_2.mp3">Je savais pas du tout.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -663,8 +759,10 @@
           data-audio="30.mp3?v=2607230932"
         ></audio>
         <p>
-          Personne le sait. C'est enterré, c'est silencieux, ça fait pas parler
-          de soi.
+          <span class="chunk" data-audio="30_1.mp3">Personne le sait.</span>
+          <span class="chunk" data-audio="30_2.mp3">C'est enterré,</span>
+          <span class="chunk" data-audio="30_3.mp3">c'est silencieux,</span>
+          <span class="chunk" data-audio="30_4.mp3">ça fait pas parler de soi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -684,7 +782,9 @@
           data-audio="31.mp3?v=2607230932"
         ></audio>
         <p>
-          Et pour faire de l'électricité, là par contre, il faut des volcans ?
+          <span class="chunk" data-audio="31_1.mp3">Et pour faire de l'électricité,</span>
+          <span class="chunk" data-audio="31_2.mp3">là par contre,</span>
+          <span class="chunk" data-audio="31_3.mp3">il faut des volcans ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -701,9 +801,13 @@
           data-audio="32.mp3?v=2607230932"
         ></audio>
         <p>
-          Pour l'électricité, oui, il te faut du très chaud. Des réservoirs
-          profonds, de la vapeur. C'est pour ça que l'Islande ou le Kenya en
-          font beaucoup, et nous, beaucoup moins.
+          <span class="chunk" data-audio="32_1.mp3">Pour l'électricité, oui,</span>
+          <span class="chunk" data-audio="32_2.mp3">il te faut du très chaud.</span>
+          <span class="chunk" data-audio="32_3.mp3">Des réservoirs profonds,</span>
+          <span class="chunk" data-audio="32_4.mp3">de la vapeur.</span>
+          <span class="chunk" data-audio="32_5.mp3">C'est pour ça que l'Islande</span>
+          <span class="chunk" data-audio="32_6.mp3">ou le Kenya en font beaucoup,</span>
+          <span class="chunk" data-audio="32_7.mp3">et nous, beaucoup moins.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -723,7 +827,9 @@
           data-audio="33.mp3?v=2607230932"
         ></audio>
         <p>
-          Bon. Et nous, dans notre baraque, on pourrait ?
+          <span class="chunk" data-audio="33_1.mp3">Bon.</span>
+          <span class="chunk" data-audio="33_2.mp3">Et nous, dans notre baraque,</span>
+          <span class="chunk" data-audio="33_3.mp3">on pourrait ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -740,8 +846,10 @@
           data-audio="34.mp3?v=2607230932"
         ></audio>
         <p>
-          Techniquement, oui. Il faudrait juste accepter de ne plus avoir de
-          pelouse pendant deux semaines.
+          <span class="chunk" data-audio="34_1.mp3">Techniquement, oui.</span>
+          <span class="chunk" data-audio="34_2.mp3">Il faudrait juste accepter</span>
+          <span class="chunk" data-audio="34_3.mp3">de ne plus avoir de pelouse</span>
+          <span class="chunk" data-audio="34_4.mp3">pendant deux semaines.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -761,7 +869,7 @@
           data-audio="35.mp3?v=2607230932"
         ></audio>
         <p>
-          ...et mes rosiers ?
+          <span class="chunk" data-audio="35_1.mp3">...et mes rosiers ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -778,7 +886,9 @@
           data-audio="36.mp3?v=2607230932"
         ></audio>
         <p>
-          Ah. Là, on va peut-être rester au gaz, finalement.
+          <span class="chunk" data-audio="36_1.mp3">Ah.</span>
+          <span class="chunk" data-audio="36_2.mp3">Là, on va peut-être</span>
+          <span class="chunk" data-audio="36_3.mp3">rester au gaz, finalement.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -860,6 +970,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv38/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv38/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

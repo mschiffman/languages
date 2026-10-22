@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,7 +92,8 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Joyeux anniversaire, mon petit frère !
+          <span class="chunk" data-audio="01_1.mp3">Joyeux anniversaire,</span>
+          <span class="chunk" data-audio="01_2.mp3">mon petit frère !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -103,7 +110,7 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Merci.
+          <span class="chunk" data-audio="02_1.mp3">Merci.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -120,7 +127,8 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          T'as fait quelque chose de spécial aujourd'hui ?
+          <span class="chunk" data-audio="03_1.mp3">T'as fait quelque chose</span>
+          <span class="chunk" data-audio="03_2.mp3">de spécial aujourd'hui ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -137,26 +145,17 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Non, on a juste acheté un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pla də pɔʀk/"
-            data-meaning="pork dish"
-            >plat de porc</span
-          >
-          que maman aime bien. Un de mes amis est né le même jour que moi. Il
-          voulait m'inviter dans un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀɛsto dy kwɛ̃/"
-            data-meaning="local restaurant"
-            >resto du coin</span
-          >, près de chez nous. Juste trois amis proches. Il a eu 69 ans
-          aujourd'hui.
+          <span class="chunk" data-audio="04_1.mp3">Non,</span>
+          <span class="chunk" data-audio="04_2.mp3">on a juste acheté</span>
+          <span class="chunk" data-audio="04_3.mp3">un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pla də pɔʀk/" data-meaning="pork dish" >plat de porc</span ></span>
+          <span class="chunk" data-audio="04_4.mp3">que maman aime bien.</span>
+          <span class="chunk" data-audio="04_5.mp3">Un de mes amis</span>
+          <span class="chunk" data-audio="04_6.mp3">est né le même jour que moi.</span>
+          <span class="chunk" data-audio="04_7.mp3">Il voulait m'inviter</span>
+          <span class="chunk" data-audio="04_8.mp3">dans un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀɛsto dy kwɛ̃/" data-meaning="local restaurant" >resto du coin</span >,</span>
+          <span class="chunk" data-audio="04_9.mp3">près de chez nous.</span>
+          <span class="chunk" data-audio="04_10.mp3">Juste trois amis proches.</span>
+          <span class="chunk" data-audio="04_11.mp3">Il a eu 69 ans aujourd'hui.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -178,17 +177,17 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Oh, il est bien plus vieux que toi. Moi j'ai 64 ans. Et Robert en a
-          80. Le temps passe tellement vite. Je comprends toujours pas comment
-          on en est arrivés là aussi vite. Des fois j'ai l'impression de m'être
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fɛʀ avwaʀ/"
-            data-meaning="to be cheated/tricked"
-            >fait avoir</span
-          >.
+          <span class="chunk" data-audio="05_1.mp3">Oh,</span>
+          <span class="chunk" data-audio="05_2.mp3">il est bien plus vieux que toi.</span>
+          <span class="chunk" data-audio="05_3.mp3">Moi j'ai 64 ans.</span>
+          <span class="chunk" data-audio="05_4.mp3">Et Robert en a 80.</span>
+          <span class="chunk" data-audio="05_5.mp3">Le temps passe</span>
+          <span class="chunk" data-audio="05_6.mp3">tellement vite.</span>
+          <span class="chunk" data-audio="05_7.mp3">Je comprends toujours pas</span>
+          <span class="chunk" data-audio="05_8.mp3">comment on en est arrivés là</span>
+          <span class="chunk" data-audio="05_9.mp3">aussi vite.</span>
+          <span class="chunk" data-audio="05_10.mp3">Des fois j'ai l'impression</span>
+          <span class="chunk" data-audio="05_11.mp3">de m'être <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fɛʀ avwaʀ/" data-meaning="to be cheated/tricked" >fait avoir</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -209,8 +208,11 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Je ressens pareil. Moi j'ai eu 55 ans aujourd'hui. Donc Ko Ko en a 66,
-          et Ma Gyi 65.
+          <span class="chunk" data-audio="06_1.mp3">Je ressens pareil.</span>
+          <span class="chunk" data-audio="06_2.mp3">Moi j'ai eu 55 ans</span>
+          <span class="chunk" data-audio="06_3.mp3">aujourd'hui.</span>
+          <span class="chunk" data-audio="06_4.mp3">Donc Ko Ko en a 66,</span>
+          <span class="chunk" data-audio="06_5.mp3">et Ma Gyi 65.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -230,8 +232,10 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Ouais, les quatre premiers d'entre nous ont chacun un an d'écart. T'es
-          bien plus jeune que nous.
+          <span class="chunk" data-audio="07_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="07_2.mp3">les quatre premiers d'entre nous</span>
+          <span class="chunk" data-audio="07_3.mp3">ont chacun un an d'écart.</span>
+          <span class="chunk" data-audio="07_4.mp3">T'es bien plus jeune que nous.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -251,8 +255,10 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          C'est vrai. Toe Toe est mort à 13 ans. Sinon il aurait 59 ans
-          maintenant.
+          <span class="chunk" data-audio="08_1.mp3">C'est vrai.</span>
+          <span class="chunk" data-audio="08_2.mp3">Toe Toe est mort à 13 ans.</span>
+          <span class="chunk" data-audio="08_3.mp3">Sinon</span>
+          <span class="chunk" data-audio="08_4.mp3">il aurait 59 ans maintenant.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -269,8 +275,10 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          C'est vraiment dommage qu'il soit parti. C'était le plus intelligent
-          d'entre nous.
+          <span class="chunk" data-audio="09_1.mp3">C'est vraiment dommage</span>
+          <span class="chunk" data-audio="09_2.mp3">qu'il soit parti.</span>
+          <span class="chunk" data-audio="09_3.mp3">C'était le plus intelligent</span>
+          <span class="chunk" data-audio="09_4.mp3">d'entre nous.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -287,15 +295,14 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Ah, mon ami parlait de la Malaisie. Il travaillait pour une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tʀɑ̃spɔʀ maʀitim/"
-            data-meaning="shipping/maritime transport"
-            >compagnie de transport maritime</span
-          >. Il est allé dans plein de pays. Il dit que Penang est très beau.
+          <span class="chunk" data-audio="10_1.mp3">Ah,</span>
+          <span class="chunk" data-audio="10_2.mp3">mon ami parlait de la Malaisie.</span>
+          <span class="chunk" data-audio="10_3.mp3">Il travaillait</span>
+          <span class="chunk" data-audio="10_4.mp3">pour une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tʀɑ̃spɔʀ maʀitim/" data-meaning="shipping/maritime transport" >compagnie de transport maritime</span >.</span>
+          <span class="chunk" data-audio="10_5.mp3">Il est allé</span>
+          <span class="chunk" data-audio="10_6.mp3">dans plein de pays.</span>
+          <span class="chunk" data-audio="10_7.mp3">Il dit que Penang</span>
+          <span class="chunk" data-audio="10_8.mp3">est très beau.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -316,16 +323,10 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          C'est ce que j'ai entendu dire aussi. C'est comment la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/meteo/"
-            data-meaning="weather"
-            >météo</span
-          >
-          en ce moment ?
+          <span class="chunk" data-audio="11_1.mp3">C'est ce que j'ai entendu dire</span>
+          <span class="chunk" data-audio="11_2.mp3">aussi.</span>
+          <span class="chunk" data-audio="11_3.mp3">C'est comment la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/meteo/" data-meaning="weather" >météo</span ></span>
+          <span class="chunk" data-audio="11_4.mp3">en ce moment ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -344,16 +345,11 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          On est en pleine
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sɛzɔ̃ de plɥi/"
-            data-meaning="rainy season"
-            >saison des pluies</span
-          >. Quand il pleut, ça rafraîchit. Mais dès que la pluie s'arrête, il
-          fait chaud.
+          <span class="chunk" data-audio="12_1.mp3">On est en pleine <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sɛzɔ̃ de plɥi/" data-meaning="rainy season" >saison des pluies</span >.</span>
+          <span class="chunk" data-audio="12_2.mp3">Quand il pleut,</span>
+          <span class="chunk" data-audio="12_3.mp3">ça rafraîchit.</span>
+          <span class="chunk" data-audio="12_4.mp3">Mais dès que la pluie s'arrête,</span>
+          <span class="chunk" data-audio="12_5.mp3">il fait chaud.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -373,7 +369,8 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Et l'électricité ? C'est stable ?
+          <span class="chunk" data-audio="13_1.mp3">Et l'électricité ?</span>
+          <span class="chunk" data-audio="13_2.mp3">C'est stable ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -390,26 +387,20 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Heureusement, l'électricité est stable. On peut faire tourner la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/klim/"
-            data-meaning="air conditioning (short for climatiseur)"
-            >clim</span
-          >. Beaucoup de pays asiatiques deviennent de plus en plus chauds. Ils
-          ont découvert de nouveaux cas de COVID à Singapour et à Bangkok.
-          Bangkok c'est un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kaʀfuʀ/"
-            data-meaning="hub/crossroads"
-            >carrefour</span
-          >. Tellement de monde. Par contre j'ai rien entendu sur des cas de
-          COVID en Malaisie.
+          <span class="chunk" data-audio="14_1.mp3">Heureusement,</span>
+          <span class="chunk" data-audio="14_2.mp3">l'électricité est stable.</span>
+          <span class="chunk" data-audio="14_3.mp3">On peut faire tourner la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/klim/" data-meaning="air conditioning (short for climatiseur)" >clim</span >.</span>
+          <span class="chunk" data-audio="14_4.mp3">Beaucoup de pays asiatiques</span>
+          <span class="chunk" data-audio="14_5.mp3">deviennent de plus en plus chauds.</span>
+          <span class="chunk" data-audio="14_6.mp3">Ils ont découvert</span>
+          <span class="chunk" data-audio="14_7.mp3">de nouveaux cas de COVID</span>
+          <span class="chunk" data-audio="14_8.mp3">à Singapour et à Bangkok.</span>
+          <span class="chunk" data-audio="14_9.mp3">Bangkok c'est un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kaʀfuʀ/" data-meaning="hub/crossroads" >carrefour</span >.</span>
+          <span class="chunk" data-audio="14_10.mp3">Tellement de monde.</span>
+          <span class="chunk" data-audio="14_11.mp3">Par contre</span>
+          <span class="chunk" data-audio="14_12.mp3">j'ai rien entendu</span>
+          <span class="chunk" data-audio="14_13.mp3">sur des cas de COVID</span>
+          <span class="chunk" data-audio="14_14.mp3">en Malaisie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -431,30 +422,30 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Ici on a pas de cas de COVID. On est juste en pleine sécheresse. On a
-          le droit d'utiliser les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/aʀozœʀ otomatik/"
-            data-meaning="automatic sprinklers"
-            >arroseurs automatiques</span
-          >
-          qu'une fois par semaine. Du coup Robert arrose la pelouse à la main.
-          Et moi je dois arroser les arbres et les buissons à la main aussi. Oh,
-          j'ai oublié de te dire. Le nouveau hondi risque de ne pas marcher.
-          Leur dernier envoi est bloqué par la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dwan/"
-            data-meaning="customs"
-            >douane</span
-          >
-          de Yangon au port. On doit attendre qu'on s'installe en Malaisie pour
-          envoyer des médicaments à Yangon.
+          <span class="chunk" data-audio="15_1.mp3">Ici</span>
+          <span class="chunk" data-audio="15_2.mp3">on a pas de cas de COVID.</span>
+          <span class="chunk" data-audio="15_3.mp3">On est juste</span>
+          <span class="chunk" data-audio="15_4.mp3">en pleine sécheresse.</span>
+          <span class="chunk" data-audio="15_5.mp3">On a le droit d'utiliser</span>
+          <span class="chunk" data-audio="15_6.mp3">les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/aʀozœʀ otomatik/" data-meaning="automatic sprinklers" >arroseurs automatiques</span ></span>
+          <span class="chunk" data-audio="15_7.mp3">qu'une fois par semaine.</span>
+          <span class="chunk" data-audio="15_8.mp3">Du coup</span>
+          <span class="chunk" data-audio="15_9.mp3">Robert arrose la pelouse</span>
+          <span class="chunk" data-audio="15_10.mp3">à la main.</span>
+          <span class="chunk" data-audio="15_11.mp3">Et moi je dois arroser</span>
+          <span class="chunk" data-audio="15_12.mp3">les arbres et les buissons</span>
+          <span class="chunk" data-audio="15_13.mp3">à la main aussi.</span>
+          <span class="chunk" data-audio="15_14.mp3">Oh,</span>
+          <span class="chunk" data-audio="15_15.mp3">j'ai oublié de te dire.</span>
+          <span class="chunk" data-audio="15_16.mp3">Le nouveau hondi</span>
+          <span class="chunk" data-audio="15_17.mp3">risque de ne pas marcher.</span>
+          <span class="chunk" data-audio="15_18.mp3">Leur dernier envoi est bloqué</span>
+          <span class="chunk" data-audio="15_19.mp3">par la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dwan/" data-meaning="customs" >douane</span > de Yangon</span>
+          <span class="chunk" data-audio="15_20.mp3">au port.</span>
+          <span class="chunk" data-audio="15_21.mp3">On doit attendre</span>
+          <span class="chunk" data-audio="15_22.mp3">qu'on s'installe en Malaisie</span>
+          <span class="chunk" data-audio="15_23.mp3">pour envoyer des médicaments</span>
+          <span class="chunk" data-audio="15_24.mp3">à Yangon.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -478,7 +469,9 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Bon, c'est comme ça. Qu'est-ce qu'on peut faire ?
+          <span class="chunk" data-audio="16_1.mp3">Bon,</span>
+          <span class="chunk" data-audio="16_2.mp3">c'est comme ça.</span>
+          <span class="chunk" data-audio="16_3.mp3">Qu'est-ce qu'on peut faire ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -495,7 +488,11 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Exactement. Allez, profite bien du reste de la journée. Bonne nuit !
+          <span class="chunk" data-audio="17_1.mp3">Exactement.</span>
+          <span class="chunk" data-audio="17_2.mp3">Allez,</span>
+          <span class="chunk" data-audio="17_3.mp3">profite bien</span>
+          <span class="chunk" data-audio="17_4.mp3">du reste de la journée.</span>
+          <span class="chunk" data-audio="17_5.mp3">Bonne nuit !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -512,7 +509,8 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Merci. Salut !
+          <span class="chunk" data-audio="18_1.mp3">Merci.</span>
+          <span class="chunk" data-audio="18_2.mp3">Salut !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -592,6 +590,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv17/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv17/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

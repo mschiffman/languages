@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,7 +92,9 @@
           data-audio="01.mp3?v=2607091553"
         ></audio>
         <p>
-          Percida arrive dans vingt minutes pour récupérer les briques.
+          <span class="chunk" data-audio="01_1.mp3">Percida arrive</span>
+          <span class="chunk" data-audio="01_2.mp3">dans vingt minutes</span>
+          <span class="chunk" data-audio="01_3.mp3">pour récupérer les briques.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -103,7 +111,10 @@
           data-audio="02.mp3?v=2607091553"
         ></audio>
         <p>
-          D'accord. Laisse-m'en quelques-unes pour mes projets dans le jardin.
+          <span class="chunk" data-audio="02_1.mp3">D'accord.</span>
+          <span class="chunk" data-audio="02_2.mp3">Laisse-m'en quelques-unes</span>
+          <span class="chunk" data-audio="02_3.mp3">pour mes projets</span>
+          <span class="chunk" data-audio="02_4.mp3">dans le jardin.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -120,7 +131,9 @@
           data-audio="03.mp3?v=2607091553"
         ></audio>
         <p>
-          Elle va prendre ce tas-là. Celles sur la terrasse sont toutes à toi.
+          <span class="chunk" data-audio="03_1.mp3">Elle va prendre ce tas-là.</span>
+          <span class="chunk" data-audio="03_2.mp3">Celles sur la terrasse</span>
+          <span class="chunk" data-audio="03_3.mp3">sont toutes à toi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -140,8 +153,11 @@
           data-audio="04.mp3?v=2607091553"
         ></audio>
         <p>
-          Merci. Ah, la voilà. Robert est aux toilettes. Il arrive dans un
-          instant. Entre, je t'en prie.
+          <span class="chunk" data-audio="04_1.mp3">Merci.</span>
+          <span class="chunk" data-audio="04_2.mp3">Ah, la voilà.</span>
+          <span class="chunk" data-audio="04_3.mp3">Robert est aux toilettes.</span>
+          <span class="chunk" data-audio="04_4.mp3">Il arrive dans un instant.</span>
+          <span class="chunk" data-audio="04_5.mp3">Entre, je t'en prie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -161,7 +177,7 @@
           data-audio="05.mp3?v=2607091553"
         ></audio>
         <p>
-          Merci.
+          <span class="chunk" data-audio="05_1.mp3">Merci.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -178,17 +194,18 @@
           data-audio="06.mp3?v=2607091553"
         ></audio>
         <p>
-          Il va faire 37 degrés aujourd'hui. Alors malgré la pluie d'hier soir,
-          j'ai dû sortir arroser les plantes. Sinon, elles
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tjɛ̃.dʁɔ̃ pa lə ku/"
-            data-meaning="won't hold up / won't survive (informal, dropping 'ne')"
-            >tiendront pas le coup</span
-          >. Je me suis fait piquer par une abeille. J'imagine qu'elles sont
-          énervées à cause de la chaleur.
+          <span class="chunk" data-audio="06_1.mp3">Il va faire 37 degrés</span>
+          <span class="chunk" data-audio="06_2.mp3">aujourd'hui.</span>
+          <span class="chunk" data-audio="06_3.mp3">Alors malgré la pluie</span>
+          <span class="chunk" data-audio="06_4.mp3">d'hier soir,</span>
+          <span class="chunk" data-audio="06_5.mp3">j'ai dû sortir</span>
+          <span class="chunk" data-audio="06_6.mp3">arroser les plantes.</span>
+          <span class="chunk" data-audio="06_7.mp3">Sinon,</span>
+          <span class="chunk" data-audio="06_8.mp3">elles <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tjɛ̃.dʁɔ̃ pa lə ku/" data-meaning="won't hold up / won't survive (informal, dropping 'ne')" >tiendront pas le coup</span >.</span>
+          <span class="chunk" data-audio="06_9.mp3">Je me suis fait piquer</span>
+          <span class="chunk" data-audio="06_10.mp3">par une abeille.</span>
+          <span class="chunk" data-audio="06_11.mp3">J'imagine qu'elles sont énervées</span>
+          <span class="chunk" data-audio="06_12.mp3">à cause de la chaleur.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -209,7 +226,10 @@
           data-audio="07.mp3?v=2607091553"
         ></audio>
         <p>
-          Oh non, ma sœur s'est fait piquer une fois aussi. Ça fait mal ?
+          <span class="chunk" data-audio="07_1.mp3">Oh non,</span>
+          <span class="chunk" data-audio="07_2.mp3">ma sœur s'est fait piquer</span>
+          <span class="chunk" data-audio="07_3.mp3">une fois aussi.</span>
+          <span class="chunk" data-audio="07_4.mp3">Ça fait mal ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -226,8 +246,10 @@
           data-audio="08.mp3?v=2607091553"
         ></audio>
         <p>
-          Pas trop. J'ai tout de suite mis de la lotion à la calamine. Ah, le
-          voilà.
+          <span class="chunk" data-audio="08_1.mp3">Pas trop.</span>
+          <span class="chunk" data-audio="08_2.mp3">J'ai tout de suite mis</span>
+          <span class="chunk" data-audio="08_3.mp3">de la lotion à la calamine.</span>
+          <span class="chunk" data-audio="08_4.mp3">Ah, le voilà.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -246,8 +268,12 @@
           data-audio="09.mp3?v=2607091553"
         ></audio>
         <p>
-          Salut Percida, j'ai quelque chose pour toi. J'ai fait ces petits pains
-          aux pommes de terre ce matin. Goûte-moi ça.
+          <span class="chunk" data-audio="09_1.mp3">Salut Percida,</span>
+          <span class="chunk" data-audio="09_2.mp3">j'ai quelque chose pour toi.</span>
+          <span class="chunk" data-audio="09_3.mp3">J'ai fait ces petits pains</span>
+          <span class="chunk" data-audio="09_4.mp3">aux pommes de terre</span>
+          <span class="chunk" data-audio="09_5.mp3">ce matin.</span>
+          <span class="chunk" data-audio="09_6.mp3">Goûte-moi ça.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -267,7 +293,8 @@
           data-audio="10.mp3?v=2607091553"
         ></audio>
         <p>
-          Mmm... c'est trop bon. Ils sont délicieux.
+          <span class="chunk" data-audio="10_1.mp3">Mmm... c'est trop bon.</span>
+          <span class="chunk" data-audio="10_2.mp3">Ils sont délicieux.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -284,15 +311,8 @@
           data-audio="11.mp3?v=2607091553"
         ></audio>
         <p>
-          C'est un génie, hein ? Un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/œ̃.n‿ɔm ɑ̃.n‿ɔʁ/"
-            data-meaning="a wonderful, golden-hearted man (idiom, lit. 'a man of gold')"
-            >homme en or</span
-          >.
+          <span class="chunk" data-audio="11_1.mp3">C'est un génie, hein ?</span>
+          <span class="chunk" data-audio="11_2.mp3">Un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/œ̃.n‿ɔm ɑ̃.n‿ɔʁ/" data-meaning="a wonderful, golden-hearted man (idiom, lit. 'a man of gold')" >homme en or</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -309,7 +329,8 @@
           data-audio="12.mp3?v=2607091553"
         ></audio>
         <p>
-          Ah oui, c'est sûr.
+          <span class="chunk" data-audio="12_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="12_2.mp3">c'est sûr.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -326,8 +347,11 @@
           data-audio="13.mp3?v=2607091553"
         ></audio>
         <p>
-          Marissa ne veut pas que je l'aide au jardin. Elle dit que j'ai passé
-          ma vie à m'occuper de tout le monde, alors je devrais me reposer.
+          <span class="chunk" data-audio="13_1.mp3">Marissa ne veut pas</span>
+          <span class="chunk" data-audio="13_2.mp3">que je l'aide au jardin.</span>
+          <span class="chunk" data-audio="13_3.mp3">Elle dit que j'ai passé ma vie</span>
+          <span class="chunk" data-audio="13_4.mp3">à m'occuper de tout le monde,</span>
+          <span class="chunk" data-audio="13_5.mp3">alors je devrais me reposer.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -347,8 +371,12 @@
           data-audio="14.mp3?v=2607091553"
         ></audio>
         <p>
-          En même temps, à 80 ans, il en fait encore beaucoup. Moi, j'en ferai
-          pas la moitié arrivée à son âge.
+          <span class="chunk" data-audio="14_1.mp3">En même temps,</span>
+          <span class="chunk" data-audio="14_2.mp3">à 80 ans,</span>
+          <span class="chunk" data-audio="14_3.mp3">il en fait encore beaucoup.</span>
+          <span class="chunk" data-audio="14_4.mp3">Moi,</span>
+          <span class="chunk" data-audio="14_5.mp3">j'en ferai pas la moitié</span>
+          <span class="chunk" data-audio="14_6.mp3">arrivée à son âge.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -368,15 +396,8 @@
           data-audio="15.mp3?v=2607091553"
         ></audio>
         <p>
-          Je sais. Il est
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔs.to/"
-            data-meaning="strong, tough, sturdy (informal)"
-            >costaud</span
-          >.
+          <span class="chunk" data-audio="15_1.mp3">Je sais.</span>
+          <span class="chunk" data-audio="15_2.mp3">Il est <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔs.to/" data-meaning="strong, tough, sturdy (informal)" >costaud</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -393,9 +414,16 @@
           data-audio="16.mp3?v=2607091553"
         ></audio>
         <p>
-          Enfin, il a ralenti avec l'âge, mais il a encore plein d'énergie. Au
-          fait, tu devrais pas trop tarder à charger les briques dans la
-          voiture. Il va faire de plus en plus chaud.
+          <span class="chunk" data-audio="16_1.mp3">Enfin,</span>
+          <span class="chunk" data-audio="16_2.mp3">il a ralenti avec l'âge,</span>
+          <span class="chunk" data-audio="16_3.mp3">mais il a encore</span>
+          <span class="chunk" data-audio="16_4.mp3">plein d'énergie.</span>
+          <span class="chunk" data-audio="16_5.mp3">Au fait,</span>
+          <span class="chunk" data-audio="16_6.mp3">tu devrais pas trop tarder</span>
+          <span class="chunk" data-audio="16_7.mp3">à charger les briques</span>
+          <span class="chunk" data-audio="16_8.mp3">dans la voiture.</span>
+          <span class="chunk" data-audio="16_9.mp3">Il va faire</span>
+          <span class="chunk" data-audio="16_10.mp3">de plus en plus chaud.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -416,7 +444,9 @@
           data-audio="17.mp3?v=2607091553"
         ></audio>
         <p>
-          Ah oui, je ferais mieux de m'y mettre tout de suite.
+          <span class="chunk" data-audio="17_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="17_2.mp3">je ferais mieux</span>
+          <span class="chunk" data-audio="17_3.mp3">de m'y mettre tout de suite.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -433,15 +463,10 @@
           data-audio="18.mp3?v=2607091553"
         ></audio>
         <p>
-          Tiens, prends ces gants. J'ai pas envie que tu
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tɛs.kɛ̃t le mɛ̃/"
-            data-meaning="hurt/wreck your hands (informal)"
-            >t'esquintes les mains</span
-          >.
+          <span class="chunk" data-audio="18_1.mp3">Tiens,</span>
+          <span class="chunk" data-audio="18_2.mp3">prends ces gants.</span>
+          <span class="chunk" data-audio="18_3.mp3">J'ai pas envie</span>
+          <span class="chunk" data-audio="18_4.mp3">que tu <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tɛs.kɛ̃t le mɛ̃/" data-meaning="hurt/wreck your hands (informal)" >t'esquintes les mains</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -458,7 +483,7 @@
           data-audio="19.mp3?v=2607091553"
         ></audio>
         <p>
-          Oh merci.
+          <span class="chunk" data-audio="19_1.mp3">Oh merci.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -475,16 +500,12 @@
           data-audio="20.mp3?v=2607091553"
         ></audio>
         <p>
-          Et sers-toi de ce chariot pour transporter les briques.
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fɛ ɡaf/"
-            data-meaning="watch out, be careful (informal)"
-            >Fais gaffe</span
-          >
-          à pas surcharger ta voiture. Elle peut supporter dans les 450 kilos.
+          <span class="chunk" data-audio="20_1.mp3">Et sers-toi de ce chariot</span>
+          <span class="chunk" data-audio="20_2.mp3">pour transporter les briques.</span>
+          <span class="chunk" data-audio="20_3.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fɛ ɡaf/" data-meaning="watch out, be careful (informal)" >Fais gaffe</span ></span>
+          <span class="chunk" data-audio="20_4.mp3">à pas surcharger ta voiture.</span>
+          <span class="chunk" data-audio="20_5.mp3">Elle peut supporter</span>
+          <span class="chunk" data-audio="20_6.mp3">dans les 450 kilos.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -504,7 +525,8 @@
           data-audio="21.mp3?v=2607091553"
         ></audio>
         <p>
-          Oui, je pense. Je ferai deux allers-retours.
+          <span class="chunk" data-audio="21_1.mp3">Oui, je pense.</span>
+          <span class="chunk" data-audio="21_2.mp3">Je ferai deux allers-retours.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -521,7 +543,8 @@
           data-audio="22.mp3?v=2607091553"
         ></audio>
         <p>
-          Ah, ça te dirait, ce plant de sauge ?
+          <span class="chunk" data-audio="22_1.mp3">Ah, ça te dirait,</span>
+          <span class="chunk" data-audio="22_2.mp3">ce plant de sauge ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -538,7 +561,8 @@
           data-audio="23.mp3?v=2607091553"
         ></audio>
         <p>
-          J'adore la sauge. Merci !
+          <span class="chunk" data-audio="23_1.mp3">J'adore la sauge.</span>
+          <span class="chunk" data-audio="23_2.mp3">Merci !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -623,6 +647,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv29/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv29/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

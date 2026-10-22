@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,8 +92,10 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          On devrait pas laisser le trou de la poignée ouvert comme ça pendant
-          des jours.
+          <span class="chunk" data-audio="01_1.mp3">On devrait pas laisser</span>
+          <span class="chunk" data-audio="01_2.mp3">le trou de la poignée</span>
+          <span class="chunk" data-audio="01_3.mp3">ouvert comme ça</span>
+          <span class="chunk" data-audio="01_4.mp3">pendant des jours.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -104,15 +112,10 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Je vais prendre une poignée de rechange à Home Depot en revenant du
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dɛʁ.ma.to/"
-            data-meaning="informal short for 'dermatologue' (dermatologist)"
-            >dermato</span
-          >.
+          <span class="chunk" data-audio="02_1.mp3">Je vais prendre</span>
+          <span class="chunk" data-audio="02_2.mp3">une poignée de rechange</span>
+          <span class="chunk" data-audio="02_3.mp3">à Home Depot</span>
+          <span class="chunk" data-audio="02_4.mp3">en revenant du <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dɛʁ.ma.to/" data-meaning="informal short for 'dermatologue' (dermatologist)" >dermato</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -132,7 +135,8 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Il est à quelle heure, ton rendez-vous ?
+          <span class="chunk" data-audio="03_1.mp3">Il est à quelle heure,</span>
+          <span class="chunk" data-audio="03_2.mp3">ton rendez-vous ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -149,7 +153,7 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          À 10h10.
+          <span class="chunk" data-audio="04_1.mp3">À 10h10.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -166,7 +170,8 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Mange ton petit-déj avant de partir.
+          <span class="chunk" data-audio="05_1.mp3">Mange ton petit-déj</span>
+          <span class="chunk" data-audio="05_2.mp3">avant de partir.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -183,7 +188,7 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          J'ai déjà mangé.
+          <span class="chunk" data-audio="06_1.mp3">J'ai déjà mangé.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -200,7 +205,7 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Tu pars tout de suite ?
+          <span class="chunk" data-audio="07_1.mp3">Tu pars tout de suite ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -217,8 +222,11 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Non, c'est encore tôt. C'est seulement à 33 minutes d'ici. Je pars à
-          9h30.
+          <span class="chunk" data-audio="08_1.mp3">Non,</span>
+          <span class="chunk" data-audio="08_2.mp3">c'est encore tôt.</span>
+          <span class="chunk" data-audio="08_3.mp3">C'est seulement</span>
+          <span class="chunk" data-audio="08_4.mp3">à 33 minutes d'ici.</span>
+          <span class="chunk" data-audio="08_5.mp3">Je pars à 9h30.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -238,17 +246,11 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          J'étais
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tʁɑ̃.pe də sɥœʁ/"
-            data-meaning="drenched in sweat"
-            >trempée de sueur</span
-          >
-          ce matin dans le jardin. C'est l'humidité, à cause de la pluie et des
-          arroseurs.
+          <span class="chunk" data-audio="09_1.mp3">J'étais <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tʁɑ̃.pe də sɥœʁ/" data-meaning="drenched in sweat" >trempée de sueur</span ></span>
+          <span class="chunk" data-audio="09_2.mp3">ce matin dans le jardin.</span>
+          <span class="chunk" data-audio="09_3.mp3">C'est l'humidité,</span>
+          <span class="chunk" data-audio="09_4.mp3">à cause de la pluie</span>
+          <span class="chunk" data-audio="09_5.mp3">et des arroseurs.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -268,7 +270,9 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Attends, je regarde le taux d'humidité. Oh, il est à 97 %.
+          <span class="chunk" data-audio="10_1.mp3">Attends,</span>
+          <span class="chunk" data-audio="10_2.mp3">je regarde le taux d'humidité.</span>
+          <span class="chunk" data-audio="10_3.mp3">Oh, il est à 97 %.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -285,7 +289,7 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          C'est vraiment élevé.
+          <span class="chunk" data-audio="11_1.mp3">C'est vraiment élevé.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -302,7 +306,8 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Je sais. C'est étouffant dehors.
+          <span class="chunk" data-audio="12_1.mp3">Je sais.</span>
+          <span class="chunk" data-audio="12_2.mp3">C'est étouffant dehors.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -319,19 +324,16 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Il y avait un cardinal rouge sur le plateau d'eau pendant que j'étais
-          dehors. Il a regardé le plateau vide, puis il m'a regardée comme pour
-          dire : "Hé,
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/u.bli pa/"
-            data-meaning="don't forget (informal, dropping 'ne')"
-            >oublie pas</span
-          >
-          de remplir mon plateau d'eau quand t'auras fini d'arroser tes
-          plantes."
+          <span class="chunk" data-audio="13_1.mp3">Il y avait un cardinal rouge</span>
+          <span class="chunk" data-audio="13_2.mp3">sur le plateau d'eau</span>
+          <span class="chunk" data-audio="13_3.mp3">pendant que j'étais dehors.</span>
+          <span class="chunk" data-audio="13_4.mp3">Il a regardé le plateau vide,</span>
+          <span class="chunk" data-audio="13_5.mp3">puis il m'a regardée</span>
+          <span class="chunk" data-audio="13_6.mp3">comme pour dire :</span>
+          <span class="chunk" data-audio="13_7.mp3">"Hé, <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/u.bli pa/" data-meaning="don't forget (informal, dropping 'ne')" >oublie pas</span ></span>
+          <span class="chunk" data-audio="13_8.mp3">de remplir mon plateau d'eau</span>
+          <span class="chunk" data-audio="13_9.mp3">quand t'auras fini</span>
+          <span class="chunk" data-audio="13_10.mp3">d'arroser tes plantes."</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -352,7 +354,9 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Ouais, des fois ils communiquent avec leur langage corporel.
+          <span class="chunk" data-audio="14_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="14_2.mp3">des fois ils communiquent</span>
+          <span class="chunk" data-audio="14_3.mp3">avec leur langage corporel.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -369,7 +373,9 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          J'ai rempli tous les plateaux d'eau et les bains d'oiseaux.
+          <span class="chunk" data-audio="15_1.mp3">J'ai rempli</span>
+          <span class="chunk" data-audio="15_2.mp3">tous les plateaux d'eau</span>
+          <span class="chunk" data-audio="15_3.mp3">et les bains d'oiseaux.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -386,7 +392,8 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Ça les aide à se rafraîchir.
+          <span class="chunk" data-audio="16_1.mp3">Ça les aide</span>
+          <span class="chunk" data-audio="16_2.mp3">à se rafraîchir.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -403,24 +410,16 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Ils sont trop beaux. Mais mes préférés, c'est les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃaʁ.dɔn.ʁɛ/"
-            data-meaning="goldfinches"
-            >chardonnerets</span
-          >. Ils viennent tout le temps sur le tournesol. L'autre jour, je suis
-          allée dans le jardin et j'en ai vu trois ou quatre s'envoler. Ils sont
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fa.ʁuʃ/"
-            data-meaning="skittish, easily startled (of wildlife)"
-            >farouches</span
-          >.
+          <span class="chunk" data-audio="17_1.mp3">Ils sont trop beaux.</span>
+          <span class="chunk" data-audio="17_2.mp3">Mais mes préférés,</span>
+          <span class="chunk" data-audio="17_3.mp3">c'est les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃaʁ.dɔn.ʁɛ/" data-meaning="goldfinches" >chardonnerets</span >.</span>
+          <span class="chunk" data-audio="17_4.mp3">Ils viennent tout le temps</span>
+          <span class="chunk" data-audio="17_5.mp3">sur le tournesol.</span>
+          <span class="chunk" data-audio="17_6.mp3">L'autre jour,</span>
+          <span class="chunk" data-audio="17_7.mp3">je suis allée dans le jardin</span>
+          <span class="chunk" data-audio="17_8.mp3">et j'en ai vu trois ou quatre</span>
+          <span class="chunk" data-audio="17_9.mp3">s'envoler.</span>
+          <span class="chunk" data-audio="17_10.mp3">Ils sont <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fa.ʁuʃ/" data-meaning="skittish, easily startled (of wildlife)" >farouches</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -441,16 +440,13 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Les papillons, eux, ils s'en fichent. L'autre jour, j'étais à trente
-          centimètres d'un papillon sur une fleur. Il a continué à se nourrir.
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɑ̃ fo mɑ̃.ʒe fo mɑ̃.ʒe/"
-            data-meaning="when you gotta eat, you gotta eat! (informal)"
-            >Quand faut manger, faut manger !</span
-          >
+          <span class="chunk" data-audio="18_1.mp3">Les papillons, eux,</span>
+          <span class="chunk" data-audio="18_2.mp3">ils s'en fichent.</span>
+          <span class="chunk" data-audio="18_3.mp3">L'autre jour,</span>
+          <span class="chunk" data-audio="18_4.mp3">j'étais à trente centimètres</span>
+          <span class="chunk" data-audio="18_5.mp3">d'un papillon sur une fleur.</span>
+          <span class="chunk" data-audio="18_6.mp3">Il a continué à se nourrir.</span>
+          <span class="chunk" data-audio="18_7.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɑ̃ fo mɑ̃.ʒe fo mɑ̃.ʒe/" data-meaning="when you gotta eat, you gotta eat! (informal)" >Quand faut manger, faut manger !</span ></span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -471,8 +467,13 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Ils boivent du nectar. Ça se digère vite. Du coup, ils doivent boire
-          toute la journée. Je crois pas qu'ils mangent du pollen.
+          <span class="chunk" data-audio="19_1.mp3">Ils boivent du nectar.</span>
+          <span class="chunk" data-audio="19_2.mp3">Ça se digère vite.</span>
+          <span class="chunk" data-audio="19_3.mp3">Du coup,</span>
+          <span class="chunk" data-audio="19_4.mp3">ils doivent boire</span>
+          <span class="chunk" data-audio="19_5.mp3">toute la journée.</span>
+          <span class="chunk" data-audio="19_6.mp3">Je crois pas</span>
+          <span class="chunk" data-audio="19_7.mp3">qu'ils mangent du pollen.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -492,7 +493,7 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          J'y vais.
+          <span class="chunk" data-audio="20_1.mp3">J'y vais.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -509,7 +510,8 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          Tu peux pas partir sans me faire un bisou.
+          <span class="chunk" data-audio="21_1.mp3">Tu peux pas partir</span>
+          <span class="chunk" data-audio="21_2.mp3">sans me faire un bisou.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -526,7 +528,8 @@
           data-audio="22.mp3"
         ></audio>
         <p>
-          D'accord. Je peux y aller, là ?
+          <span class="chunk" data-audio="22_1.mp3">D'accord.</span>
+          <span class="chunk" data-audio="22_2.mp3">Je peux y aller, là ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -543,7 +546,8 @@
           data-audio="23.mp3"
         ></audio>
         <p>
-          Bien sûr. Fais attention sur la route.
+          <span class="chunk" data-audio="23_1.mp3">Bien sûr.</span>
+          <span class="chunk" data-audio="23_2.mp3">Fais attention sur la route.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -560,7 +564,7 @@
           data-audio="24.mp3"
         ></audio>
         <p>
-          Promis.
+          <span class="chunk" data-audio="24_1.mp3">Promis.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -640,6 +644,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv28/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv28/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

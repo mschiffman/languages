@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,8 +92,11 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          La pluie de cette nuit était top. Ça a bien arrosé le Humic DG que
-          t'as mis sur la pelouse.
+          <span class="chunk" data-audio="01_1.mp3">La pluie de cette nuit</span>
+          <span class="chunk" data-audio="01_2.mp3">était top.</span>
+          <span class="chunk" data-audio="01_3.mp3">Ça a bien arrosé</span>
+          <span class="chunk" data-audio="01_4.mp3">le Humic DG</span>
+          <span class="chunk" data-audio="01_5.mp3">que t'as mis sur la pelouse.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -107,8 +116,10 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          On a eu presque 2,5 cm de pluie. Et il va encore pleuvoir cet
-          après-midi.
+          <span class="chunk" data-audio="02_1.mp3">On a eu presque 2,5 cm</span>
+          <span class="chunk" data-audio="02_2.mp3">de pluie.</span>
+          <span class="chunk" data-audio="02_3.mp3">Et il va encore pleuvoir</span>
+          <span class="chunk" data-audio="02_4.mp3">cet après-midi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -128,17 +139,13 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Assure-toi que nos
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʁe.ky.pe.ʁa.tœʁ do/"
-            data-meaning="rain barrels, water collection tanks"
-            >récupérateurs d'eau</span
-          >
-          sont pleins. Je crois que je vais faire une pause jardinage
-          aujourd'hui, moi. J'en ai besoin.
+          <span class="chunk" data-audio="03_1.mp3">Assure-toi</span>
+          <span class="chunk" data-audio="03_2.mp3">que nos <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʁe.ky.pe.ʁa.tœʁ do/" data-meaning="rain barrels, water collection tanks" >récupérateurs d'eau</span ></span>
+          <span class="chunk" data-audio="03_3.mp3">sont pleins.</span>
+          <span class="chunk" data-audio="03_4.mp3">Je crois que je vais faire</span>
+          <span class="chunk" data-audio="03_5.mp3">une pause jardinage</span>
+          <span class="chunk" data-audio="03_6.mp3">aujourd'hui, moi.</span>
+          <span class="chunk" data-audio="03_7.mp3">J'en ai besoin.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -158,7 +165,8 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Ben, repose-toi alors.
+          <span class="chunk" data-audio="04_1.mp3">Ben,</span>
+          <span class="chunk" data-audio="04_2.mp3">repose-toi alors.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -175,7 +183,7 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Il fait combien aujourd'hui ?
+          <span class="chunk" data-audio="05_1.mp3">Il fait combien aujourd'hui ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -192,15 +200,9 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Google a dit 34 degrés. Weather.com annonce 36. Ils sont
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/a la ʁa.mas/"
-            data-meaning="completely off the mark, totally clueless (informal)"
-            >à la ramasse</span
-          >, là.
+          <span class="chunk" data-audio="06_1.mp3">Google a dit 34 degrés.</span>
+          <span class="chunk" data-audio="06_2.mp3">Weather.com annonce 36.</span>
+          <span class="chunk" data-audio="06_3.mp3">Ils sont <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/a la ʁa.mas/" data-meaning="completely off the mark, totally clueless (informal)" >à la ramasse</span >, là.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -220,8 +222,13 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Les températures dépassent tout le temps leurs prévisions, maintenant.
-          Avant, c'était plutôt précis. Je sais pas ce qui se passe.
+          <span class="chunk" data-audio="07_1.mp3">Les températures dépassent</span>
+          <span class="chunk" data-audio="07_2.mp3">tout le temps leurs prévisions,</span>
+          <span class="chunk" data-audio="07_3.mp3">maintenant.</span>
+          <span class="chunk" data-audio="07_4.mp3">Avant,</span>
+          <span class="chunk" data-audio="07_5.mp3">c'était plutôt précis.</span>
+          <span class="chunk" data-audio="07_6.mp3">Je sais pas</span>
+          <span class="chunk" data-audio="07_7.mp3">ce qui se passe.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -241,15 +248,9 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Aucune idée. Toute la planète
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/syʁ.ʃof/"
-            data-meaning="overheats, is overheating"
-            >surchauffe</span
-          >, c'est tout.
+          <span class="chunk" data-audio="08_1.mp3">Aucune idée.</span>
+          <span class="chunk" data-audio="08_2.mp3">Toute la planète <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/syʁ.ʃof/" data-meaning="overheats, is overheating" >surchauffe</span >,</span>
+          <span class="chunk" data-audio="08_3.mp3">c'est tout.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -266,24 +267,11 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Cette année, pas un seul ouragan. Mais la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ka.ni.kyl/"
-            data-meaning="heat wave"
-            >canicule</span
-          >
-          et la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/se.ʃʁɛs/"
-            data-meaning="drought"
-            >sécheresse</span
-          >, c'est le combo mortel.
+          <span class="chunk" data-audio="09_1.mp3">Cette année,</span>
+          <span class="chunk" data-audio="09_2.mp3">pas un seul ouragan.</span>
+          <span class="chunk" data-audio="09_3.mp3">Mais la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ka.ni.kyl/" data-meaning="heat wave" >canicule</span ></span>
+          <span class="chunk" data-audio="09_4.mp3">et la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/se.ʃʁɛs/" data-meaning="drought" >sécheresse</span >,</span>
+          <span class="chunk" data-audio="09_5.mp3">c'est le combo mortel.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -303,8 +291,11 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Aller s'installer plus au nord, ça change rien non plus. Leurs étés
-          sont aussi chauds, mais leurs hivers, c'est l'enfer.
+          <span class="chunk" data-audio="10_1.mp3">Aller s'installer plus au nord,</span>
+          <span class="chunk" data-audio="10_2.mp3">ça change rien non plus.</span>
+          <span class="chunk" data-audio="10_3.mp3">Leurs étés sont aussi chauds,</span>
+          <span class="chunk" data-audio="10_4.mp3">mais leurs hivers,</span>
+          <span class="chunk" data-audio="10_5.mp3">c'est l'enfer.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -324,16 +315,11 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Ouais, je
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sə ʁɑ̃.sɛ.ɲe/"
-            data-meaning="to look into it, to find out about something"
-            >me suis renseigné</span
-          >
-          sur le Maine. Leurs étés ressemblent à ceux de Raleigh.
+          <span class="chunk" data-audio="11_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="11_2.mp3">je <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sə ʁɑ̃.sɛ.ɲe/" data-meaning="to look into it, to find out about something" >me suis renseigné</span ></span>
+          <span class="chunk" data-audio="11_3.mp3">sur le Maine.</span>
+          <span class="chunk" data-audio="11_4.mp3">Leurs étés ressemblent</span>
+          <span class="chunk" data-audio="11_5.mp3">à ceux de Raleigh.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -350,8 +336,10 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Tu te souviens, y'a quelques années, le Canada a atteint près de 50
-          degrés ?
+          <span class="chunk" data-audio="12_1.mp3">Tu te souviens,</span>
+          <span class="chunk" data-audio="12_2.mp3">y'a quelques années,</span>
+          <span class="chunk" data-audio="12_3.mp3">le Canada a atteint</span>
+          <span class="chunk" data-audio="12_4.mp3">près de 50 degrés ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -370,24 +358,11 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Les canicules, ça fait des
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʁa.vaʒ/"
-            data-meaning="damage, devastation"
-            >ravages</span
-          >
-          au Canada et en Europe parce qu'ils ont pas
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/la klim/"
-            data-meaning="AC, air conditioning (short for climatisation)"
-            >la clim</span
-          >. Ils en ont jamais eu besoin.
+          <span class="chunk" data-audio="13_1.mp3">Les canicules,</span>
+          <span class="chunk" data-audio="13_2.mp3">ça fait des <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʁa.vaʒ/" data-meaning="damage, devastation" >ravages</span ></span>
+          <span class="chunk" data-audio="13_3.mp3">au Canada et en Europe</span>
+          <span class="chunk" data-audio="13_4.mp3">parce qu'ils ont pas <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/la klim/" data-meaning="AC, air conditioning (short for climatisation)" >la clim</span >.</span>
+          <span class="chunk" data-audio="13_5.mp3">Ils en ont jamais eu besoin.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -407,25 +382,12 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Même ici, avec la canicule, ça peut
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fɛʁ so.te/"
-            data-meaning="to knock out, to blow out"
-            >faire sauter</span
-          >
-          le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʁe.zo e.lɛk.tʁik/"
-            data-meaning="power grid"
-            >réseau électrique</span
-          >
-          parce que tout le monde met la clim à fond.
+          <span class="chunk" data-audio="14_1.mp3">Même ici,</span>
+          <span class="chunk" data-audio="14_2.mp3">avec la canicule,</span>
+          <span class="chunk" data-audio="14_3.mp3">ça peut <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fɛʁ so.te/" data-meaning="to knock out, to blow out" >faire sauter</span ></span>
+          <span class="chunk" data-audio="14_4.mp3">le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʁe.zo e.lɛk.tʁik/" data-meaning="power grid" >réseau électrique</span ></span>
+          <span class="chunk" data-audio="14_5.mp3">parce que tout le monde</span>
+          <span class="chunk" data-audio="14_6.mp3">met la clim à fond.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -445,7 +407,9 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Les panneaux solaires, ça pourrait être une bonne solution.
+          <span class="chunk" data-audio="15_1.mp3">Les panneaux solaires,</span>
+          <span class="chunk" data-audio="15_2.mp3">ça pourrait être</span>
+          <span class="chunk" data-audio="15_3.mp3">une bonne solution.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -462,16 +426,12 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Les installer direct quand on construit une maison, c'est bien moins
-          cher que de les ajouter après. Ils devraient
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/lɛ̃.po.ze/"
-            data-meaning="to make it mandatory, to require it"
-            >l'imposer</span
-          >, tiens.
+          <span class="chunk" data-audio="16_1.mp3">Les installer direct</span>
+          <span class="chunk" data-audio="16_2.mp3">quand on construit une maison,</span>
+          <span class="chunk" data-audio="16_3.mp3">c'est bien moins cher</span>
+          <span class="chunk" data-audio="16_4.mp3">que de les ajouter après.</span>
+          <span class="chunk" data-audio="16_5.mp3">Ils devraient <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/lɛ̃.po.ze/" data-meaning="to make it mandatory, to require it" >l'imposer</span >,</span>
+          <span class="chunk" data-audio="16_6.mp3">tiens.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -491,7 +451,10 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Je suis d'accord. Ashley, elle a des panneaux solaires chez elle ?
+          <span class="chunk" data-audio="17_1.mp3">Je suis d'accord.</span>
+          <span class="chunk" data-audio="17_2.mp3">Ashley,</span>
+          <span class="chunk" data-audio="17_3.mp3">elle a des panneaux solaires</span>
+          <span class="chunk" data-audio="17_4.mp3">chez elle ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -508,7 +471,9 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Non, je crois pas. J'en suis pas sûr, d'ailleurs.
+          <span class="chunk" data-audio="18_1.mp3">Non, je crois pas.</span>
+          <span class="chunk" data-audio="18_2.mp3">J'en suis pas sûr,</span>
+          <span class="chunk" data-audio="18_3.mp3">d'ailleurs.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -525,8 +490,10 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Ah, ils auraient dû le faire. Je croyais qu'on en avait parlé avant
-          qu'ils fassent construire.
+          <span class="chunk" data-audio="19_1.mp3">Ah,</span>
+          <span class="chunk" data-audio="19_2.mp3">ils auraient dû le faire.</span>
+          <span class="chunk" data-audio="19_3.mp3">Je croyais qu'on en avait parlé</span>
+          <span class="chunk" data-audio="19_4.mp3">avant qu'ils fassent construire.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -546,17 +513,11 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          Leur
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kʁe.di i.mɔ.bi.lje/"
-            data-meaning="mortgage"
-            >crédit immobilier</span
-          >
-          est déjà énorme, vu que c'est à San Diego. Faut qu'ils priorisent ce
-          qui compte le plus.
+          <span class="chunk" data-audio="20_1.mp3">Leur <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kʁe.di i.mɔ.bi.lje/" data-meaning="mortgage" >crédit immobilier</span ></span>
+          <span class="chunk" data-audio="20_2.mp3">est déjà énorme,</span>
+          <span class="chunk" data-audio="20_3.mp3">vu que c'est à San Diego.</span>
+          <span class="chunk" data-audio="20_4.mp3">Faut qu'ils priorisent</span>
+          <span class="chunk" data-audio="20_5.mp3">ce qui compte le plus.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -576,24 +537,13 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          Ah oui, je me souviens ! Le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʁɔ.mɔ.tœʁ/"
-            data-meaning="property developer, real estate developer"
-            >promoteur</span
-          >
-          avait même pas mis de pelouse ni d'
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/a.ʁo.zaʒ o.tɔ.ma.tik/"
-            data-meaning="sprinkler system, automatic irrigation"
-            >arrosage automatique</span
-          >… pour une maison à un million de dollars !
+          <span class="chunk" data-audio="21_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="21_2.mp3">je me souviens !</span>
+          <span class="chunk" data-audio="21_3.mp3">Le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʁɔ.mɔ.tœʁ/" data-meaning="property developer, real estate developer" >promoteur</span ></span>
+          <span class="chunk" data-audio="21_4.mp3">avait même pas mis de pelouse</span>
+          <span class="chunk" data-audio="21_5.mp3">ni d' <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/a.ʁo.zaʒ o.tɔ.ma.tik/" data-meaning="sprinkler system, automatic irrigation" >arrosage automatique</span >…</span>
+          <span class="chunk" data-audio="21_6.mp3">pour une maison</span>
+          <span class="chunk" data-audio="21_7.mp3">à un million de dollars !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -676,6 +626,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv23/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv23/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

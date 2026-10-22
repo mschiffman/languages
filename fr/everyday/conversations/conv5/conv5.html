@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="english-text" data-aos="fade-up">
@@ -86,10 +92,17 @@
           data-audio="1.mp3"
         ></audio>
         <p>
-          On va avoir des restrictions d'eau à partir de lundi. On pourra
-          arroser la pelouse seulement une fois par semaine. On pourra encore
-          arroser les massifs et les pots à la main. Pour l'instant, il n'y a
-          pas de restriction pour laver la voiture.
+          <span class="chunk" data-audio="1_1.mp3">On va avoir</span>
+          <span class="chunk" data-audio="1_2.mp3">des restrictions d'eau</span>
+          <span class="chunk" data-audio="1_3.mp3">à partir de lundi.</span>
+          <span class="chunk" data-audio="1_4.mp3">On pourra arroser la pelouse</span>
+          <span class="chunk" data-audio="1_5.mp3">seulement une fois par semaine.</span>
+          <span class="chunk" data-audio="1_6.mp3">On pourra encore arroser</span>
+          <span class="chunk" data-audio="1_7.mp3">les massifs et les pots</span>
+          <span class="chunk" data-audio="1_8.mp3">à la main.</span>
+          <span class="chunk" data-audio="1_9.mp3">Pour l'instant,</span>
+          <span class="chunk" data-audio="1_10.mp3">il n'y a pas de restriction</span>
+          <span class="chunk" data-audio="1_11.mp3">pour laver la voiture.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -111,8 +124,11 @@
           data-audio="2.mp3"
         ></audio>
         <p>
-          C'est pas top. Quand il va faire chaud, la pelouse va souffrir. On
-          peut utiliser l'oscillateur pour la pelouse ?
+          <span class="chunk" data-audio="2_1.mp3">C'est pas top.</span>
+          <span class="chunk" data-audio="2_2.mp3">Quand il va faire chaud,</span>
+          <span class="chunk" data-audio="2_3.mp3">la pelouse va souffrir.</span>
+          <span class="chunk" data-audio="2_4.mp3">On peut utiliser l'oscillateur</span>
+          <span class="chunk" data-audio="2_5.mp3">pour la pelouse ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -132,7 +148,9 @@
           data-audio="3.mp3"
         ></audio>
         <p>
-          Non, on peut pas. J'ai déjà vérifié.
+          <span class="chunk" data-audio="3_1.mp3">Non,</span>
+          <span class="chunk" data-audio="3_2.mp3">on peut pas.</span>
+          <span class="chunk" data-audio="3_3.mp3">J'ai déjà vérifié.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -149,7 +167,8 @@
           data-audio="4.mp3"
         ></audio>
         <p>
-          Et si on arrose la pelouse à la main ?
+          <span class="chunk" data-audio="4_1.mp3">Et si on arrose la pelouse</span>
+          <span class="chunk" data-audio="4_2.mp3">à la main ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -166,8 +185,10 @@
           data-audio="5.mp3"
         ></audio>
         <p>
-          Je suis pas sûr. On veut pas avoir une grosse amende si on se fait
-          prendre.
+          <span class="chunk" data-audio="5_1.mp3">Je suis pas sûr.</span>
+          <span class="chunk" data-audio="5_2.mp3">On veut pas avoir</span>
+          <span class="chunk" data-audio="5_3.mp3">une grosse amende</span>
+          <span class="chunk" data-audio="5_4.mp3">si on se fait prendre.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -184,7 +205,8 @@
           data-audio="6.mp3"
         ></audio>
         <p>
-          Il y a une chance de pluie la semaine prochaine ?
+          <span class="chunk" data-audio="6_1.mp3">Il y a une chance de pluie</span>
+          <span class="chunk" data-audio="6_2.mp3">la semaine prochaine ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -201,8 +223,10 @@
           data-audio="7.mp3"
         ></audio>
         <p>
-          Y'a une petite chance dimanche. Peut-être qu'il va pleuvoir, peut-être
-          pas.
+          <span class="chunk" data-audio="7_1.mp3">Y'a une petite chance</span>
+          <span class="chunk" data-audio="7_2.mp3">dimanche.</span>
+          <span class="chunk" data-audio="7_3.mp3">Peut-être qu'il va pleuvoir,</span>
+          <span class="chunk" data-audio="7_4.mp3">peut-être pas.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -219,7 +243,9 @@
           data-audio="8.mp3"
         ></audio>
         <p>
-          Oui, il a pas plu depuis un mois.
+          <span class="chunk" data-audio="8_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="8_2.mp3">il a pas plu</span>
+          <span class="chunk" data-audio="8_3.mp3">depuis un mois.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -298,6 +324,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv5/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv5/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

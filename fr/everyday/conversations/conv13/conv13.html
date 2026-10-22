@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,33 +92,10 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Bonjour, je suis là pour ma
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/døzjɛm/"
-            data-meaning="second"
-            >deuxième</span
-          >
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/doz/"
-            data-meaning="dose"
-            >dose</span
-          >
-          du
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vaksɛ̃/"
-            data-meaning="vaccine"
-            >vaccin</span
-          >
-          Shingrix.
+          <span class="chunk" data-audio="01_1.mp3">Bonjour,</span>
+          <span class="chunk" data-audio="01_2.mp3">je suis là</span>
+          <span class="chunk" data-audio="01_3.mp3">pour ma <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/døzjɛm/" data-meaning="second" >deuxième</span > <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/doz/" data-meaning="dose" >dose</span ></span>
+          <span class="chunk" data-audio="01_4.mp3">du <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vaksɛ̃/" data-meaning="vaccine" >vaccin</span > Shingrix.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -128,16 +111,7 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Vous avez un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀɑ̃devu/"
-            data-meaning="appointment"
-            >rendez-vous</span
-          >
-          ?
+          <span class="chunk" data-audio="02_1.mp3">Vous avez un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀɑ̃devu/" data-meaning="appointment" >rendez-vous</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -153,7 +127,9 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Oui. À 10 heures. Je m'appelle Marissa.
+          <span class="chunk" data-audio="03_1.mp3">Oui.</span>
+          <span class="chunk" data-audio="03_2.mp3">À 10 heures.</span>
+          <span class="chunk" data-audio="03_3.mp3">Je m'appelle Marissa.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -169,25 +145,8 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          C'est quoi votre
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dat/"
-            data-meaning="date"
-            >date</span
-          >
-          de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/nɛsɑ̃s/"
-            data-meaning="birth"
-            >naissance</span
-          >
-          ?
+          <span class="chunk" data-audio="04_1.mp3">C'est quoi</span>
+          <span class="chunk" data-audio="04_2.mp3">votre <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dat/" data-meaning="date" >date</span > de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/nɛsɑ̃s/" data-meaning="birth" >naissance</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -203,16 +162,7 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Le 9
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fevʀije/"
-            data-meaning="February"
-            >février</span
-          >
-          1962.
+          <span class="chunk" data-audio="05_1.mp3">Le 9 <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fevʀije/" data-meaning="February" >février</span > 1962.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -228,51 +178,11 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Voilà ce que vous avez
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀɑ̃pli/"
-            data-meaning="filled out"
-            >rempli</span
-          >
-          en ligne.
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/veʀifje/"
-            data-meaning="verify"
-            >Vérifiez</span
-          >
-          que tout est
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔʀɛkt/"
-            data-meaning="correct"
-            >correct</span
-          >
-          et
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/siɲe/"
-            data-meaning="sign"
-            >signez</span
-          >
-          à ces deux
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃dʀwa/"
-            data-meaning="places"
-            >endroits</span
-          >.
+          <span class="chunk" data-audio="06_1.mp3">Voilà ce que vous avez <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀɑ̃pli/" data-meaning="filled out" >rempli</span ></span>
+          <span class="chunk" data-audio="06_2.mp3">en ligne.</span>
+          <span class="chunk" data-audio="06_3.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/veʀifje/" data-meaning="verify" >Vérifiez</span > que tout est <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔʀɛkt/" data-meaning="correct" >correct</span ></span>
+          <span class="chunk" data-audio="06_4.mp3">et <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/siɲe/" data-meaning="sign" >signez</span ></span>
+          <span class="chunk" data-audio="06_5.mp3">à ces deux <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃dʀwa/" data-meaning="places" >endroits</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -291,7 +201,8 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Voilà, c'est fait.
+          <span class="chunk" data-audio="07_1.mp3">Voilà,</span>
+          <span class="chunk" data-audio="07_2.mp3">c'est fait.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -307,40 +218,11 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Parfait.
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/t(ə)ne/"
-            data-meaning="here (take this)"
-            >Tenez</span
-          >, voici vos
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dɔkymɑ̃/"
-            data-meaning="documents"
-            >documents</span
-          >. Allez
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/atɑ̃dʀ/"
-            data-meaning="wait"
-            >attendre</span
-          >
-          là-bas pour la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/faʀmasjɛn/"
-            data-meaning="pharmacist (female)"
-            >pharmacienne</span
-          >.
+          <span class="chunk" data-audio="08_1.mp3">Parfait.</span>
+          <span class="chunk" data-audio="08_2.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/t(ə)ne/" data-meaning="here (take this)" >Tenez</span >,</span>
+          <span class="chunk" data-audio="08_3.mp3">voici vos <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dɔkymɑ̃/" data-meaning="documents" >documents</span >.</span>
+          <span class="chunk" data-audio="08_4.mp3">Allez <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/atɑ̃dʀ/" data-meaning="wait" >attendre</span > là-bas</span>
+          <span class="chunk" data-audio="08_5.mp3">pour la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/faʀmasjɛn/" data-meaning="pharmacist (female)" >pharmacienne</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -359,7 +241,7 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          D'accord.
+          <span class="chunk" data-audio="09_1.mp3">D'accord.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -375,7 +257,7 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Marissa ?
+          <span class="chunk" data-audio="10_1.mp3">Marissa ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -391,7 +273,7 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Oui.
+          <span class="chunk" data-audio="11_1.mp3">Oui.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -407,14 +289,7 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃tʀe/"
-            data-meaning="enter"
-            >Entrez</span
-          >.
+          <span class="chunk" data-audio="12_1.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃tʀe/" data-meaning="enter" >Entrez</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -430,15 +305,10 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          J'ai besoin de la deuxième dose de Shingrix. Juste pour être
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/syʀ/"
-            data-meaning="sure"
-            >sûre</span
-          >.
+          <span class="chunk" data-audio="13_1.mp3">J'ai besoin</span>
+          <span class="chunk" data-audio="13_2.mp3">de la deuxième dose</span>
+          <span class="chunk" data-audio="13_3.mp3">de Shingrix.</span>
+          <span class="chunk" data-audio="13_4.mp3">Juste pour être <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/syʀ/" data-meaning="sure" >sûre</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -454,25 +324,11 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          C'est
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/esɑ̃sjɛlmɑ̃/"
-            data-meaning="essentially"
-            >essentiellement</span
-          >
-          la même chose, avec un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀapɛl/"
-            data-meaning="booster"
-            >rappel</span
-          >
-          en plus. Bras gauche ou bras droit ?
+          <span class="chunk" data-audio="14_1.mp3">C'est <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/esɑ̃sjɛlmɑ̃/" data-meaning="essentially" >essentiellement</span ></span>
+          <span class="chunk" data-audio="14_2.mp3">la même chose,</span>
+          <span class="chunk" data-audio="14_3.mp3">avec un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀapɛl/" data-meaning="booster" >rappel</span > en plus.</span>
+          <span class="chunk" data-audio="14_4.mp3">Bras gauche</span>
+          <span class="chunk" data-audio="14_5.mp3">ou bras droit ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -491,24 +347,10 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Le gauche, s'il vous plaît. Je
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀɔmɛ/"
-            data-meaning="promise"
-            >promets</span
-          >
-          que je ne vais pas
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/plœʀe/"
-            data-meaning="cry"
-            >pleurer</span
-          >.
+          <span class="chunk" data-audio="15_1.mp3">Le gauche,</span>
+          <span class="chunk" data-audio="15_2.mp3">s'il vous plaît.</span>
+          <span class="chunk" data-audio="15_3.mp3">Je <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀɔmɛ/" data-meaning="promise" >promets</span ></span>
+          <span class="chunk" data-audio="15_4.mp3">que je ne vais pas <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/plœʀe/" data-meaning="cry" >pleurer</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -524,50 +366,12 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          J'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/apʀesi/"
-            data-meaning="appreciate"
-            >apprécie</span
-          >
-          ! Laissez votre bras
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pɑ̃dʀ/"
-            data-meaning="hang"
-            >pendre</span
-          >
-          comme ça. C'est la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pozisjɔ̃/"
-            data-meaning="position"
-            >position</span
-          >
-          où les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/myskl/"
-            data-meaning="muscles"
-            >muscles</span
-          >
-          sont le plus
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀ(ə)lɑʃe/"
-            data-meaning="relaxed"
-            >relâchés</span
-          >.
+          <span class="chunk" data-audio="16_1.mp3">J'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/apʀesi/" data-meaning="appreciate" >apprécie</span > !</span>
+          <span class="chunk" data-audio="16_2.mp3">Laissez votre bras <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pɑ̃dʀ/" data-meaning="hang" >pendre</span ></span>
+          <span class="chunk" data-audio="16_3.mp3">comme ça.</span>
+          <span class="chunk" data-audio="16_4.mp3">C'est la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pozisjɔ̃/" data-meaning="position" >position</span ></span>
+          <span class="chunk" data-audio="16_5.mp3">où les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/myskl/" data-meaning="muscles" >muscles</span ></span>
+          <span class="chunk" data-audio="16_6.mp3">sont le plus <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀ(ə)lɑʃe/" data-meaning="relaxed" >relâchés</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -586,7 +390,8 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Vous voulez dire que j'ai des muscles ?
+          <span class="chunk" data-audio="17_1.mp3">Vous voulez dire</span>
+          <span class="chunk" data-audio="17_2.mp3">que j'ai des muscles ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -602,41 +407,11 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/absɔlymɑ̃/"
-            data-meaning="absolutely"
-            >Absolument</span
-          >. Alors, ça va
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pike/"
-            data-meaning="sting"
-            >piquer</span
-          >
-          un peu. Vous avez des
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀɔʒɛ/"
-            data-meaning="plans"
-            >projets</span
-          >
-          pour les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fɛt/"
-            data-meaning="holidays"
-            >fêtes</span
-          >
-          ?
+          <span class="chunk" data-audio="18_1.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/absɔlymɑ̃/" data-meaning="absolutely" >Absolument</span >.</span>
+          <span class="chunk" data-audio="18_2.mp3">Alors,</span>
+          <span class="chunk" data-audio="18_3.mp3">ça va <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pike/" data-meaning="sting" >piquer</span > un peu.</span>
+          <span class="chunk" data-audio="18_4.mp3">Vous avez des <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀɔʒɛ/" data-meaning="plans" >projets</span ></span>
+          <span class="chunk" data-audio="18_5.mp3">pour les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fɛt/" data-meaning="holidays" >fêtes</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -655,33 +430,12 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Pour moi, c'est les fêtes tous les jours. Je suis à la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀ(ə)tʀɛt/"
-            data-meaning="retirement"
-            >retraite</span
-          >. On est
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀiʃ/"
-            data-meaning="rich"
-            >riches</span
-          >
-          en
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tɑ̃ libʀ/"
-            data-meaning="free time"
-            >temps libre</span
-          >
-          !
+          <span class="chunk" data-audio="19_1.mp3">Pour moi,</span>
+          <span class="chunk" data-audio="19_2.mp3">c'est les fêtes</span>
+          <span class="chunk" data-audio="19_3.mp3">tous les jours.</span>
+          <span class="chunk" data-audio="19_4.mp3">Je suis à la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀ(ə)tʀɛt/" data-meaning="retirement" >retraite</span >.</span>
+          <span class="chunk" data-audio="19_5.mp3">On est <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀiʃ/" data-meaning="rich" >riches</span ></span>
+          <span class="chunk" data-audio="19_6.mp3">en <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tɑ̃ libʀ/" data-meaning="free time" >temps libre</span > !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -700,24 +454,8 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          C'est la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/mɛjœʀ/"
-            data-meaning="best"
-            >meilleure</span
-          >
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sitɥasjɔ̃/"
-            data-meaning="situation"
-            >situation</span
-          >
-          qui soit.
+          <span class="chunk" data-audio="20_1.mp3">C'est la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/mɛjœʀ/" data-meaning="best" >meilleure</span > <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sitɥasjɔ̃/" data-meaning="situation" >situation</span ></span>
+          <span class="chunk" data-audio="20_2.mp3">qui soit.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -733,16 +471,8 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          Est-ce que ça va faire
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/mal/"
-            data-meaning="hurt"
-            >mal</span
-          >
-          après ?
+          <span class="chunk" data-audio="21_1.mp3">Est-ce que ça va faire <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/mal/" data-meaning="hurt" >mal</span ></span>
+          <span class="chunk" data-audio="21_2.mp3">après ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -758,16 +488,9 @@
           data-audio="22.mp3"
         ></audio>
         <p>
-          Comment votre corps avait
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀeaʒi/"
-            data-meaning="reacted"
-            >réagi</span
-          >
-          la première fois ?
+          <span class="chunk" data-audio="22_1.mp3">Comment votre corps</span>
+          <span class="chunk" data-audio="22_2.mp3">avait <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀeaʒi/" data-meaning="reacted" >réagi</span ></span>
+          <span class="chunk" data-audio="22_3.mp3">la première fois ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -783,16 +506,7 @@
           data-audio="23.mp3"
         ></audio>
         <p>
-          Ça
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/f(ə)zɛ/"
-            data-meaning="was hurting (imperfect)"
-            >faisait</span
-          >
-          mal.
+          <span class="chunk" data-audio="23_1.mp3">Ça <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/f(ə)zɛ/" data-meaning="was hurting (imperfect)" >faisait</span > mal.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -808,24 +522,10 @@
           data-audio="24.mp3"
         ></audio>
         <p>
-          Ce sera
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/paʀɛj/"
-            data-meaning="the same"
-            >pareil</span
-          >
-          cette fois-ci. Vous pouvez prendre du Tylenol pour la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dulœʀ/"
-            data-meaning="pain"
-            >douleur</span
-          >.
+          <span class="chunk" data-audio="24_1.mp3">Ce sera <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/paʀɛj/" data-meaning="the same" >pareil</span ></span>
+          <span class="chunk" data-audio="24_2.mp3">cette fois-ci.</span>
+          <span class="chunk" data-audio="24_3.mp3">Vous pouvez prendre du Tylenol</span>
+          <span class="chunk" data-audio="24_4.mp3">pour la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dulœʀ/" data-meaning="pain" >douleur</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -841,33 +541,9 @@
           data-audio="25.mp3"
         ></audio>
         <p>
-          Je vais
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛɡzaʒeʀe/"
-            data-meaning="exaggerate"
-            >exagérer</span
-          >
-          ma douleur pour avoir de la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sɛ̃pati/"
-            data-meaning="sympathy"
-            >sympathie</span
-          >
-          de mon
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/maʀi/"
-            data-meaning="husband"
-            >mari</span
-          >.
+          <span class="chunk" data-audio="25_1.mp3">Je vais <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛɡzaʒeʀe/" data-meaning="exaggerate" >exagérer</span > ma douleur</span>
+          <span class="chunk" data-audio="25_2.mp3">pour avoir de la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sɛ̃pati/" data-meaning="sympathy" >sympathie</span ></span>
+          <span class="chunk" data-audio="25_3.mp3">de mon <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/maʀi/" data-meaning="husband" >mari</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -883,24 +559,8 @@
           data-audio="26.mp3"
         ></audio>
         <p>
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fɛt.dɔ̃k.sa/"
-            data-meaning="go ahead and do that"
-            >Faites donc ça</span
-          >
-          ! Bonne
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʒuʀne/"
-            data-meaning="day"
-            >journée</span
-          >
-          !
+          <span class="chunk" data-audio="26_1.mp3"><span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/fɛt.dɔ̃k.sa/" data-meaning="go ahead and do that" >Faites donc ça</span > !</span>
+          <span class="chunk" data-audio="26_2.mp3">Bonne <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʒuʀne/" data-meaning="day" >journée</span > !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -916,7 +576,7 @@
           data-audio="27.mp3"
         ></audio>
         <p>
-          Vous aussi !
+          <span class="chunk" data-audio="27_1.mp3">Vous aussi !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -995,6 +655,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv13/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv13/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

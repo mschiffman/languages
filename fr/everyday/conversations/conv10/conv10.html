@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,24 +92,10 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Regarde la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/taj/"
-            data-meaning="size"
-            >taille</span
-          >
-          de ce balcon. Faut absolument s'en
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sɛʀviʀ/"
-            data-meaning="to use"
-            >servir</span
-          >.
+          <span class="chunk" data-audio="01_1.mp3">Regarde la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/taj/" data-meaning="size" >taille</span ></span>
+          <span class="chunk" data-audio="01_2.mp3">de ce balcon.</span>
+          <span class="chunk" data-audio="01_3.mp3">Faut absolument</span>
+          <span class="chunk" data-audio="01_4.mp3">s'en <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sɛʀviʀ/" data-meaning="to use" >servir</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -119,32 +111,12 @@
           data-audio="02.mp3?v=260513"
         ></audio>
         <p>
-          N'y pense même pas, les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/plɑ̃t/"
-            data-meaning="plant"
-            >plantes</span
-          >. Souviens-toi, on veut
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vwajaʒe/"
-            data-meaning="to travel"
-            >voyager</span
-          >. On veut plus être
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛsklav/"
-            data-meaning="slave"
-            >esclaves</span
-          >
-          des plantes.
+          <span class="chunk" data-audio="02_1.mp3">N'y pense même pas,</span>
+          <span class="chunk" data-audio="02_2.mp3">les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/plɑ̃t/" data-meaning="plant" >plantes</span >.</span>
+          <span class="chunk" data-audio="02_3.mp3">Souviens-toi,</span>
+          <span class="chunk" data-audio="02_4.mp3">on veut <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vwajaʒe/" data-meaning="to travel" >voyager</span >.</span>
+          <span class="chunk" data-audio="02_5.mp3">On veut plus être <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛsklav/" data-meaning="slave" >esclaves</span ></span>
+          <span class="chunk" data-audio="02_6.mp3">des plantes.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -163,25 +135,10 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Quel
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɡɑʃi/"
-            data-meaning="waste"
-            >gâchis</span
-          >
-          d'espace. On pourrait peut-être prendre le
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/p(ə)ti.deʒ/"
-            data-meaning="breakfast"
-            >petit-déj</span
-          >
-          sur le balcon.
+          <span class="chunk" data-audio="03_1.mp3">Quel <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɡɑʃi/" data-meaning="waste" >gâchis</span > d'espace.</span>
+          <span class="chunk" data-audio="03_2.mp3">On pourrait peut-être</span>
+          <span class="chunk" data-audio="03_3.mp3">prendre le <span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/p(ə)ti.deʒ/" data-meaning="breakfast" >petit-déj</span ></span>
+          <span class="chunk" data-audio="03_4.mp3">sur le balcon.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -199,15 +156,9 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Ouais, on peut faire ça. Ça serait
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sɛ̃pa/"
-            data-meaning="nice"
-            >sympa</span
-          >.
+          <span class="chunk" data-audio="04_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="04_2.mp3">on peut faire ça.</span>
+          <span class="chunk" data-audio="04_3.mp3">Ça serait <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sɛ̃pa/" data-meaning="nice" >sympa</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -223,33 +174,13 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          J'ai trouvé une super
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/mɛ.zɔ̃.də.ʀə.tʀɛt/"
-            data-meaning="retirement home"
-            >maison de retraite</span
-          >
-          pour quand on en sera là. Ça s'appelle Care Resort, à Chiang Mai. Les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/batimɑ̃/"
-            data-meaning="building"
-            >bâtiments</span
-          >
-          et le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/paʀk/"
-            data-meaning="park/grounds"
-            >parc</span
-          >, c'est vraiment beau.
+          <span class="chunk" data-audio="05_1.mp3">J'ai trouvé</span>
+          <span class="chunk" data-audio="05_2.mp3">une super <span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/mɛ.zɔ̃.də.ʀə.tʀɛt/" data-meaning="retirement home" >maison de retraite</span ></span>
+          <span class="chunk" data-audio="05_3.mp3">pour quand on en sera là.</span>
+          <span class="chunk" data-audio="05_4.mp3">Ça s'appelle Care Resort,</span>
+          <span class="chunk" data-audio="05_5.mp3">à Chiang Mai.</span>
+          <span class="chunk" data-audio="05_6.mp3">Les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/batimɑ̃/" data-meaning="building" >bâtiments</span > et le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/paʀk/" data-meaning="park/grounds" >parc</span >,</span>
+          <span class="chunk" data-audio="05_7.mp3">c'est vraiment beau.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -269,15 +200,8 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Mais ils ont que 4,2
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/etwal/"
-            data-meaning="star"
-            >étoiles</span
-          >.
+          <span class="chunk" data-audio="06_1.mp3">Mais ils ont que</span>
+          <span class="chunk" data-audio="06_2.mp3">4,2 <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/etwal/" data-meaning="star" >étoiles</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -293,15 +217,11 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Ouais, c'est vrai. Mais c'est la plus belle que j'ai trouvée
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʒys.ki.si/"
-            data-meaning="so far"
-            >jusqu'ici</span
-          >.
+          <span class="chunk" data-audio="07_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="07_2.mp3">c'est vrai.</span>
+          <span class="chunk" data-audio="07_3.mp3">Mais c'est la plus belle</span>
+          <span class="chunk" data-audio="07_4.mp3">que j'ai trouvée</span>
+          <span class="chunk" data-audio="07_5.mp3"><span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʒys.ki.si/" data-meaning="so far" >jusqu'ici</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -317,16 +237,9 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Et l'autre, celle où on peut avoir notre propre
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/bœ̃ɡalo/"
-            data-meaning="bungalow"
-            >bungalow</span
-          >
-          ?
+          <span class="chunk" data-audio="08_1.mp3">Et l'autre,</span>
+          <span class="chunk" data-audio="08_2.mp3">celle où on peut avoir</span>
+          <span class="chunk" data-audio="08_3.mp3">notre propre <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/bœ̃ɡalo/" data-meaning="bungalow" >bungalow</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -342,7 +255,8 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Ah, celle à Ayutthaya ?
+          <span class="chunk" data-audio="09_1.mp3">Ah,</span>
+          <span class="chunk" data-audio="09_2.mp3">celle à Ayutthaya ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -358,7 +272,8 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Non, Pattaya.
+          <span class="chunk" data-audio="10_1.mp3">Non,</span>
+          <span class="chunk" data-audio="10_2.mp3">Pattaya.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -374,32 +289,13 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Mais les bungalows sont
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɛlkɔ̃k/"
-            data-meaning="ordinary/unremarkable"
-            >quelconques</span
-          >. Vraiment
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/bazik/"
-            data-meaning="basic"
-            >basiques</span
-          >
-          comparés au Care Resort. Je garde le Care Resort
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/də.kote/"
-            data-meaning="set aside"
-            >de côté</span
-          >. On peut encore chercher.
+          <span class="chunk" data-audio="11_1.mp3">Mais les bungalows</span>
+          <span class="chunk" data-audio="11_2.mp3">sont <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɛlkɔ̃k/" data-meaning="ordinary/unremarkable" >quelconques</span >.</span>
+          <span class="chunk" data-audio="11_3.mp3">Vraiment <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/bazik/" data-meaning="basic" >basiques</span ></span>
+          <span class="chunk" data-audio="11_4.mp3">comparés au Care Resort.</span>
+          <span class="chunk" data-audio="11_5.mp3">Je garde le Care Resort</span>
+          <span class="chunk" data-audio="11_6.mp3"><span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/də.kote/" data-meaning="set aside" >de côté</span >.</span>
+          <span class="chunk" data-audio="11_7.mp3">On peut encore chercher.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -418,24 +314,10 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Moi, ce qui m'intéresse c'est les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀezidɑ̃s/"
-            data-meaning="residence"
-            >résidences</span
-          >
-          pour personnes
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/otonɔm/"
-            data-meaning="independent"
-            >autonomes</span
-          >.
+          <span class="chunk" data-audio="12_1.mp3">Moi,</span>
+          <span class="chunk" data-audio="12_2.mp3">ce qui m'intéresse</span>
+          <span class="chunk" data-audio="12_3.mp3">c'est les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀezidɑ̃s/" data-meaning="residence" >résidences</span ></span>
+          <span class="chunk" data-audio="12_4.mp3">pour personnes <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/otonɔm/" data-meaning="independent" >autonomes</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -451,33 +333,12 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Si on est autonomes, je
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀefɛʀ/"
-            data-meaning="to prefer"
-            >préfère</span
-          >
-          rester chez nous. Les maisons de retraite, c'est pour si on devient
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃dikape/"
-            data-meaning="disabled"
-            >handicapés</span
-          >
-          ou si on a de la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/demɑ̃s/"
-            data-meaning="dementia"
-            >démence</span
-          >.
+          <span class="chunk" data-audio="13_1.mp3">Si on est autonomes,</span>
+          <span class="chunk" data-audio="13_2.mp3">je <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀefɛʀ/" data-meaning="to prefer" >préfère</span > rester chez nous.</span>
+          <span class="chunk" data-audio="13_3.mp3">Les maisons de retraite,</span>
+          <span class="chunk" data-audio="13_4.mp3">c'est pour</span>
+          <span class="chunk" data-audio="13_5.mp3">si on devient <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃dikape/" data-meaning="disabled" >handicapés</span ></span>
+          <span class="chunk" data-audio="13_6.mp3">ou si on a de la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/demɑ̃s/" data-meaning="dementia" >démence</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -496,15 +357,7 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          T'as pas
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tɔʀ/"
-            data-meaning="wrong"
-            >tort</span
-          >.
+          <span class="chunk" data-audio="14_1.mp3">T'as pas <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tɔʀ/" data-meaning="wrong" >tort</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -520,25 +373,8 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Qui va nous
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃teʀe/"
-            data-meaning="to bury"
-            >enterrer</span
-          >
-          quand on
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/muʀʀa/ (mourir)"
-            data-meaning="to die"
-            >mourra</span
-          >
-          ?
+          <span class="chunk" data-audio="15_1.mp3">Qui va nous <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃teʀe/" data-meaning="to bury" >enterrer</span ></span>
+          <span class="chunk" data-audio="15_2.mp3">quand on <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/muʀʀa/ (mourir)" data-meaning="to die" >mourra</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -554,24 +390,9 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Ben, le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔ̃ʒwɛ̃/"
-            data-meaning="spouse"
-            >conjoint</span
-          >
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/syʀvivɑ̃/"
-            data-meaning="surviving"
-            >survivant</span
-          >
-          enterrera l'autre.
+          <span class="chunk" data-audio="16_1.mp3">Ben,</span>
+          <span class="chunk" data-audio="16_2.mp3">le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔ̃ʒwɛ̃/" data-meaning="spouse" >conjoint</span > <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/syʀvivɑ̃/" data-meaning="surviving" >survivant</span ></span>
+          <span class="chunk" data-audio="16_3.mp3">enterrera l'autre.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -587,16 +408,9 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Et si on
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/mœʀ/ (mourir)"
-            data-meaning="to die"
-            >meurt</span
-          >
-          tous les deux en même temps ?
+          <span class="chunk" data-audio="17_1.mp3">Et si on <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/mœʀ/ (mourir)" data-meaning="to die" >meurt</span ></span>
+          <span class="chunk" data-audio="17_2.mp3">tous les deux</span>
+          <span class="chunk" data-audio="17_3.mp3">en même temps ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -612,24 +426,11 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Alors faudra prendre des
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dispozisj ɔ̃/"
-            data-meaning="arrangements"
-            >dispositions</span
-          >
-          avec une organisation, avec l'argent qu'on a en
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/bɑ̃k/"
-            data-meaning="bank"
-            >banque</span
-          >.
+          <span class="chunk" data-audio="18_1.mp3">Alors faudra prendre</span>
+          <span class="chunk" data-audio="18_2.mp3">des <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dispozisj ɔ̃/" data-meaning="arrangements" >dispositions</span ></span>
+          <span class="chunk" data-audio="18_3.mp3">avec une organisation,</span>
+          <span class="chunk" data-audio="18_4.mp3">avec l'argent</span>
+          <span class="chunk" data-audio="18_5.mp3">qu'on a en <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/bɑ̃k/" data-meaning="bank" >banque</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -648,15 +449,8 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          OK. Ça
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/maʀʃ/"
-            data-meaning="works"
-            >marche</span
-          >.
+          <span class="chunk" data-audio="19_1.mp3">OK.</span>
+          <span class="chunk" data-audio="19_2.mp3">Ça <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/maʀʃ/" data-meaning="works" >marche</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -735,6 +529,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv10/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv10/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

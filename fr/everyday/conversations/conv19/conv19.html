@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,8 +92,11 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          J'ai un message de Léa, elle sera là dans 20 minutes. Je savais même
-          pas qu'elle venait.
+          <span class="chunk" data-audio="01_1.mp3">J'ai un message de Léa,</span>
+          <span class="chunk" data-audio="01_2.mp3">elle sera là</span>
+          <span class="chunk" data-audio="01_3.mp3">dans 20 minutes.</span>
+          <span class="chunk" data-audio="01_4.mp3">Je savais même pas</span>
+          <span class="chunk" data-audio="01_5.mp3">qu'elle venait.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -107,8 +116,11 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Ah ouais, elle veut que je l'aide avec les nouvelles roses qu'elle a
-          achetées l'autre jour.
+          <span class="chunk" data-audio="02_1.mp3">Ah ouais,</span>
+          <span class="chunk" data-audio="02_2.mp3">elle veut que je l'aide</span>
+          <span class="chunk" data-audio="02_3.mp3">avec les nouvelles roses</span>
+          <span class="chunk" data-audio="02_4.mp3">qu'elle a achetées</span>
+          <span class="chunk" data-audio="02_5.mp3">l'autre jour.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -128,7 +140,7 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          OK.
+          <span class="chunk" data-audio="03_1.mp3">OK.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -145,7 +157,8 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          C'est toi qui t'es proposé.
+          <span class="chunk" data-audio="04_1.mp3">C'est toi</span>
+          <span class="chunk" data-audio="04_2.mp3">qui t'es proposé.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -162,15 +175,11 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Non, j'ai juste dit que je m'y connais pas trop en roses et en
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɔʁ.tɑ̃.zja/"
-            data-meaning="hydrangeas"
-            >hortensias</span
-          >. Mais toi, si.
+          <span class="chunk" data-audio="05_1.mp3">Non,</span>
+          <span class="chunk" data-audio="05_2.mp3">j'ai juste dit</span>
+          <span class="chunk" data-audio="05_3.mp3">que je m'y connais pas trop</span>
+          <span class="chunk" data-audio="05_4.mp3">en roses et en <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɔʁ.tɑ̃.zja/" data-meaning="hydrangeas" >hortensias</span >.</span>
+          <span class="chunk" data-audio="05_5.mp3">Mais toi, si.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -190,7 +199,8 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Ouah, merci hein.
+          <span class="chunk" data-audio="06_1.mp3">Ouah,</span>
+          <span class="chunk" data-audio="06_2.mp3">merci hein.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -207,7 +217,8 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Oh, elle est là.
+          <span class="chunk" data-audio="07_1.mp3">Oh,</span>
+          <span class="chunk" data-audio="07_2.mp3">elle est là.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -224,7 +235,8 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Salut Léa, ça va ?
+          <span class="chunk" data-audio="08_1.mp3">Salut Léa,</span>
+          <span class="chunk" data-audio="08_2.mp3">ça va ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -241,16 +253,14 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Ça va. J'ai fermé ma voiture à clé avec mes clés à l'intérieur. Ah, je
-          suis trop nulle. Je peux même pas ouvrir la voiture pour récupérer le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʁo.zje/"
-            data-meaning="rose bush"
-            >rosier</span
-          >.
+          <span class="chunk" data-audio="09_1.mp3">Ça va.</span>
+          <span class="chunk" data-audio="09_2.mp3">J'ai fermé ma voiture à clé</span>
+          <span class="chunk" data-audio="09_3.mp3">avec mes clés à l'intérieur.</span>
+          <span class="chunk" data-audio="09_4.mp3">Ah,</span>
+          <span class="chunk" data-audio="09_5.mp3">je suis trop nulle.</span>
+          <span class="chunk" data-audio="09_6.mp3">Je peux même pas</span>
+          <span class="chunk" data-audio="09_7.mp3">ouvrir la voiture</span>
+          <span class="chunk" data-audio="09_8.mp3">pour récupérer le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʁo.zje/" data-meaning="rose bush" >rosier</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -270,16 +280,14 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Bah, ça arrive aux meilleurs.
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title=""
-            data-meaning="Don't worry (informal for Ne t'inquiète pas)"
-            >T'inquiète pas</span
-          >. On va trouver un truc. T'as un double chez toi, non ? Ta fille peut
-          peut-être te le déposer ici.
+          <span class="chunk" data-audio="10_1.mp3">Bah,</span>
+          <span class="chunk" data-audio="10_2.mp3">ça arrive aux meilleurs.</span>
+          <span class="chunk" data-audio="10_3.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-meaning="Don't worry (informal for Ne t'inquiète pas)" >T'inquiète pas</span >.</span>
+          <span class="chunk" data-audio="10_4.mp3">On va trouver un truc.</span>
+          <span class="chunk" data-audio="10_5.mp3">T'as un double chez toi,</span>
+          <span class="chunk" data-audio="10_6.mp3">non ?</span>
+          <span class="chunk" data-audio="10_7.mp3">Ta fille peut peut-être</span>
+          <span class="chunk" data-audio="10_8.mp3">te le déposer ici.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -300,7 +308,8 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Ma fille a pas encore le permis.
+          <span class="chunk" data-audio="11_1.mp3">Ma fille</span>
+          <span class="chunk" data-audio="11_2.mp3">a pas encore le permis.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -317,17 +326,10 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Et Jacob est pas là. Pourquoi on appellerait pas ta sœur pour lui
-          demander
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title=""
-            data-meaning="a helping hand"
-            >un coup de main</span
-          >
-          ?
+          <span class="chunk" data-audio="12_1.mp3">Et Jacob est pas là.</span>
+          <span class="chunk" data-audio="12_2.mp3">Pourquoi on appellerait pas</span>
+          <span class="chunk" data-audio="12_3.mp3">ta sœur</span>
+          <span class="chunk" data-audio="12_4.mp3">pour lui demander <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-meaning="a helping hand" >un coup de main</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -347,7 +349,7 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Je lui envoie un texto.
+          <span class="chunk" data-audio="13_1.mp3">Je lui envoie un texto.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -364,7 +366,9 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Elle verra peut-être pas le texto. Appelle-la.
+          <span class="chunk" data-audio="14_1.mp3">Elle verra peut-être pas</span>
+          <span class="chunk" data-audio="14_2.mp3">le texto.</span>
+          <span class="chunk" data-audio="14_3.mp3">Appelle-la.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -381,7 +385,7 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          OK.
+          <span class="chunk" data-audio="15_1.mp3">OK.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -398,15 +402,8 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Allo
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fʁɑ̃.ʒin/"
-            data-meaning="sis (informal for sœur)"
-            >frangine</span
-          >, t'es occupée ?
+          <span class="chunk" data-audio="16_1.mp3">Allo <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fʁɑ̃.ʒin/" data-meaning="sis (informal for sœur)" >frangine</span >,</span>
+          <span class="chunk" data-audio="16_2.mp3">t'es occupée ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -423,8 +420,12 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Bah, je me prépare pour aller déjeuner avec des copines. Pourquoi ?
-          T'as besoin de quoi ?
+          <span class="chunk" data-audio="17_1.mp3">Bah,</span>
+          <span class="chunk" data-audio="17_2.mp3">je me prépare</span>
+          <span class="chunk" data-audio="17_3.mp3">pour aller déjeuner</span>
+          <span class="chunk" data-audio="17_4.mp3">avec des copines.</span>
+          <span class="chunk" data-audio="17_5.mp3">Pourquoi ?</span>
+          <span class="chunk" data-audio="17_6.mp3">T'as besoin de quoi ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -444,8 +445,12 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Je suis chez Robert et Marissa. J'ai fermé ma voiture avec les clés
-          dedans. J'ai un double à la maison.
+          <span class="chunk" data-audio="18_1.mp3">Je suis chez Robert</span>
+          <span class="chunk" data-audio="18_2.mp3">et Marissa.</span>
+          <span class="chunk" data-audio="18_3.mp3">J'ai fermé ma voiture</span>
+          <span class="chunk" data-audio="18_4.mp3">avec les clés dedans.</span>
+          <span class="chunk" data-audio="18_5.mp3">J'ai un double</span>
+          <span class="chunk" data-audio="18_6.mp3">à la maison.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -465,7 +470,10 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          J'ai pas le temps de t'aider, désolée. Je vais appeler mon mari.
+          <span class="chunk" data-audio="19_1.mp3">J'ai pas le temps</span>
+          <span class="chunk" data-audio="19_2.mp3">de t'aider,</span>
+          <span class="chunk" data-audio="19_3.mp3">désolée.</span>
+          <span class="chunk" data-audio="19_4.mp3">Je vais appeler mon mari.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -482,7 +490,7 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          Merci, frangine.
+          <span class="chunk" data-audio="20_1.mp3">Merci, frangine.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -499,7 +507,10 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          Salut Léa, j'ai entendu que t'es coincée dehors avec ta voiture.
+          <span class="chunk" data-audio="21_1.mp3">Salut Léa,</span>
+          <span class="chunk" data-audio="21_2.mp3">j'ai entendu</span>
+          <span class="chunk" data-audio="21_3.mp3">que t'es coincée dehors</span>
+          <span class="chunk" data-audio="21_4.mp3">avec ta voiture.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -516,7 +527,8 @@
           data-audio="22.mp3"
         ></audio>
         <p>
-          Ouais, tu peux m'aider ?
+          <span class="chunk" data-audio="22_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="22_2.mp3">tu peux m'aider ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -533,25 +545,10 @@
           data-audio="23.mp3"
         ></audio>
         <p>
-          Pas de souci. Je vais
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/de.vɛ.ʁu.je/"
-            data-meaning="to unlock"
-            >déverrouiller</span
-          >
-          ta voiture
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title=""
-            data-meaning="remotely"
-            >à distance</span
-          >
-          depuis mon téléphone.
+          <span class="chunk" data-audio="23_1.mp3">Pas de souci.</span>
+          <span class="chunk" data-audio="23_2.mp3">Je vais <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/de.vɛ.ʁu.je/" data-meaning="to unlock" >déverrouiller</span ></span>
+          <span class="chunk" data-audio="23_3.mp3">ta voiture <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-meaning="remotely" >à distance</span ></span>
+          <span class="chunk" data-audio="23_4.mp3">depuis mon téléphone.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -568,7 +565,9 @@
           data-audio="24.mp3"
         ></audio>
         <p>
-          Tu peux faire ça ?! Oh, c'est super ça. Merci beaucoup !
+          <span class="chunk" data-audio="24_1.mp3">Tu peux faire ça ?!</span>
+          <span class="chunk" data-audio="24_2.mp3">Oh, c'est super ça.</span>
+          <span class="chunk" data-audio="24_3.mp3">Merci beaucoup !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -585,7 +584,8 @@
           data-audio="25.mp3"
         ></audio>
         <p>
-          De rien. T'as besoin d'autre chose ?
+          <span class="chunk" data-audio="25_1.mp3">De rien.</span>
+          <span class="chunk" data-audio="25_2.mp3">T'as besoin d'autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -602,16 +602,10 @@
           data-audio="26.mp3"
         ></audio>
         <p>
-          C'est bon. Je peux ouvrir les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pɔʁ.tjɛʁ/"
-            data-meaning="car doors"
-            >portières</span
-          >
-          maintenant. Encore merci !
+          <span class="chunk" data-audio="26_1.mp3">C'est bon.</span>
+          <span class="chunk" data-audio="26_2.mp3">Je peux ouvrir les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pɔʁ.tjɛʁ/" data-meaning="car doors" >portières</span ></span>
+          <span class="chunk" data-audio="26_3.mp3">maintenant.</span>
+          <span class="chunk" data-audio="26_4.mp3">Encore merci !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -691,6 +685,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv19/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv19/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

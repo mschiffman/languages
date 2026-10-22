@@ -106,6 +106,35 @@ For notable vocabulary, wrap in a tooltip span:
 
 ---
 
+## Step 2b — Shadowing chunks and audio
+
+Every line of `convN.html` is split into short clickable phrases ("chunks"); clicking one plays just that phrase. The scripts are in `.claude/skills/new-conversation/` (run them from the repo root; full details in that folder's `SKILL.md`).
+
+**Speakers first.** Ask who speaks each line before generating anything: usually the woman first (Fr-Leïla) and then the man (Fr-Adrien), but some conversations are two women (Fr-Melissa as the second) or three speakers (e.g. conv19, conv29). One conversation at a time.
+
+1. **Write `convN/convN-chunks.txt`**: one chunk per line, a blank line between the conversation's lines, in page order. Chunks are 2–6 words, broken at natural breath points, never inside a fixed expression or a `word-info` tooltip. A chunk in parentheses, e.g. `(Plein de vaisselle à faire)`, is a stage direction: shown on the page, not voiced.
+2. **Add the chunks to the page:**
+   ```
+   python -I .claude/skills/new-conversation/add_chunks.py N
+   ```
+   It checks that each line's chunks join back into the page text, then wraps them in `<span class="chunk" data-audio="NN_k.mp3">` and adds the chunk CSS, the "Click a phrase…" hint and the chunk player.
+3. **Generate the audio with ElevenLabs** (model `eleven_v4`), normalized to the site's level (≈ −9 LUFS, 48 kHz stereo, 320 kbps):
+   ```
+   python -I .claude/skills/new-conversation/make_audio.py N --voices Leila,Adrien
+   ```
+   - `--voices` take turns from line 1; for three speakers give one voice per line.
+   - `--chunks-only` when the full-line `NN.mp3` files already exist.
+   - Files go to `media/lessons/everyday/convN/`: `NN.mp3` for line NN and `NN_1.mp3`, `NN_2.mp3`, … for its chunks.
+   - Existing files are skipped, so it's safe to re-run. If ElevenLabs answers `quota_exceeded`, the API key's own credit limit (ElevenLabs › API keys) needs raising.
+4. **Upload to Cloudflare R2** (bucket `languages`, served at `languages.rmlives.com`), dry run first:
+   ```
+   python -E .claude/skills/new-conversation/upload_audio.py N --lines --dry-run
+   python -E .claude/skills/new-conversation/upload_audio.py N --lines
+   ```
+   Only files that are missing online or have changed are sent. Check the dry run before replacing anything that's already online.
+
+---
+
 ## Step 3 — Create `convN/tree-convN.html`
 
 Copy the most recent conversation's `tree-convN.html` as a template. Update:
@@ -278,6 +307,8 @@ There is only one entry to change — the node always links to the most recent c
 
 - [ ] `convN/convN.html` created with all paragraphs, translations, and audio placeholders
 - [ ] All French characters are correct UTF-8 (no `Ã©` artifacts)
+- [ ] Speakers confirmed with the user; `convN-chunks.txt` written and added to the page (`add_chunks.py`)
+- [ ] Line and chunk audio generated (`make_audio.py`) and uploaded to R2 (`upload_audio.py`)
 - [ ] `convN/tree-convN.html` created with 5–6 themed branches
 - [ ] Sentence bank extracted from the conversation (Step 4)
 - [ ] `convN/listen.html` created with the full sentence bank **chunked** (long/multi-clause sentences split into meaningful pieces) then **shuffled** (random order), correct `audioBase`; audio recorded in that same chunked/shuffled order and numbered sequentially (`01`, `02`, …)

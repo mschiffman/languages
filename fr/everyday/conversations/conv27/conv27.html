@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,16 +92,13 @@
           data-audio="01.mp3?v=260705"
         ></audio>
         <p>
-          Ce matin, j'ai donné 20 gallons d'eau de pluie au chêne, répartis sur
-          quatre endroits différents. Cinq gallons à chaque fois,
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tu otur a laplɔ̃ dy fɶjaʒ/"
-            data-meaning="all around, directly beneath the edge of the foliage"
-            >tout autour, à l'aplomb du feuillage</span
-          >.
+          <span class="chunk" data-audio="01_1.mp3">Ce matin,</span>
+          <span class="chunk" data-audio="01_2.mp3">j'ai donné 20 gallons</span>
+          <span class="chunk" data-audio="01_3.mp3">d'eau de pluie au chêne,</span>
+          <span class="chunk" data-audio="01_4.mp3">répartis</span>
+          <span class="chunk" data-audio="01_5.mp3">sur quatre endroits différents.</span>
+          <span class="chunk" data-audio="01_6.mp3">Cinq gallons à chaque fois,</span>
+          <span class="chunk" data-audio="01_7.mp3"><span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/tu otur a laplɔ̃ dy fɶjaʒ/" data-meaning="all around, directly beneath the edge of the foliage" >tout autour, à l'aplomb du feuillage</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -116,9 +119,15 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Les plantes adorent l'eau de pluie. Y a pas de chlore ni de fluor
-          comme dans l'eau du robinet. Mais bon, un chêne, ça a besoin de bien
-          plus que 20 gallons.
+          <span class="chunk" data-audio="02_1.mp3">Les plantes adorent</span>
+          <span class="chunk" data-audio="02_2.mp3">l'eau de pluie.</span>
+          <span class="chunk" data-audio="02_3.mp3">Y a pas de chlore</span>
+          <span class="chunk" data-audio="02_4.mp3">ni de fluor</span>
+          <span class="chunk" data-audio="02_5.mp3">comme dans l'eau du robinet.</span>
+          <span class="chunk" data-audio="02_6.mp3">Mais bon,</span>
+          <span class="chunk" data-audio="02_7.mp3">un chêne,</span>
+          <span class="chunk" data-audio="02_8.mp3">ça a besoin de bien plus</span>
+          <span class="chunk" data-audio="02_9.mp3">que 20 gallons.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -138,19 +147,20 @@
           data-audio="03.mp3?v=260705"
         ></audio>
         <p>
-          Ouais, je faisais des allers-retours avec un bidon d'un gallon. Je
-          peux faire que 20 voyages max, j'ai pas
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/e.nɛʁ.ʒi də dɛ̃ɡ/"
-            data-meaning="a crazy amount of energy (informal)"
-            >une énergie de dingue</span
-          >
-          non plus. Je peux pas tout donner au chêne, j'ai les autres plantes et
-          la pelouse à gérer aussi. Vingt gallons, c'est clairement pas assez,
-          mais c'est mieux que rien.
+          <span class="chunk" data-audio="03_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="03_2.mp3">je faisais des allers-retours</span>
+          <span class="chunk" data-audio="03_3.mp3">avec un bidon d'un gallon.</span>
+          <span class="chunk" data-audio="03_4.mp3">Je peux faire</span>
+          <span class="chunk" data-audio="03_5.mp3">que 20 voyages max,</span>
+          <span class="chunk" data-audio="03_6.mp3">j'ai pas <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/e.nɛʁ.ʒi də dɛ̃ɡ/" data-meaning="a crazy amount of energy (informal)" >une énergie de dingue</span ></span>
+          <span class="chunk" data-audio="03_7.mp3">non plus.</span>
+          <span class="chunk" data-audio="03_8.mp3">Je peux pas tout donner</span>
+          <span class="chunk" data-audio="03_9.mp3">au chêne,</span>
+          <span class="chunk" data-audio="03_10.mp3">j'ai les autres plantes</span>
+          <span class="chunk" data-audio="03_11.mp3">et la pelouse à gérer aussi.</span>
+          <span class="chunk" data-audio="03_12.mp3">Vingt gallons,</span>
+          <span class="chunk" data-audio="03_13.mp3">c'est clairement pas assez,</span>
+          <span class="chunk" data-audio="03_14.mp3">mais c'est mieux que rien.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -173,9 +183,16 @@
           data-audio="04.mp3?v=260705"
         ></audio>
         <p>
-          Si c'est comme ça, autant faire en sorte que ça compte vraiment. Verse
-          un demi-gallon au premier endroit, passe au suivant, et reviens faire
-          un tour une fois que l'eau a bien pénétré au premier endroit.
+          <span class="chunk" data-audio="04_1.mp3">Si c'est comme ça,</span>
+          <span class="chunk" data-audio="04_2.mp3">autant faire en sorte</span>
+          <span class="chunk" data-audio="04_3.mp3">que ça compte vraiment.</span>
+          <span class="chunk" data-audio="04_4.mp3">Verse un demi-gallon</span>
+          <span class="chunk" data-audio="04_5.mp3">au premier endroit,</span>
+          <span class="chunk" data-audio="04_6.mp3">passe au suivant,</span>
+          <span class="chunk" data-audio="04_7.mp3">et reviens faire un tour</span>
+          <span class="chunk" data-audio="04_8.mp3">une fois que l'eau</span>
+          <span class="chunk" data-audio="04_9.mp3">a bien pénétré</span>
+          <span class="chunk" data-audio="04_10.mp3">au premier endroit.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -196,19 +213,19 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Bonne idée. Au fait, notre mélange de biochar et de compost avec les
-          autres trucs bio,
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fɛ de mɛʁ.vɛj/"
-            data-meaning="to work wonders"
-            >ça fait des merveilles</span
-          >
-          sur la pelouse. Ça reverdit à toute vitesse. Je l'ai mis seulement sur
-          les coins jaunis. Et fait marrant, y a des champignons qui poussent
-          dessus maintenant.
+          <span class="chunk" data-audio="05_1.mp3">Bonne idée.</span>
+          <span class="chunk" data-audio="05_2.mp3">Au fait,</span>
+          <span class="chunk" data-audio="05_3.mp3">notre mélange de biochar</span>
+          <span class="chunk" data-audio="05_4.mp3">et de compost</span>
+          <span class="chunk" data-audio="05_5.mp3">avec les autres trucs bio,</span>
+          <span class="chunk" data-audio="05_6.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fɛ de mɛʁ.vɛj/" data-meaning="to work wonders" >ça fait des merveilles</span ></span>
+          <span class="chunk" data-audio="05_7.mp3">sur la pelouse.</span>
+          <span class="chunk" data-audio="05_8.mp3">Ça reverdit à toute vitesse.</span>
+          <span class="chunk" data-audio="05_9.mp3">Je l'ai mis seulement</span>
+          <span class="chunk" data-audio="05_10.mp3">sur les coins jaunis.</span>
+          <span class="chunk" data-audio="05_11.mp3">Et fait marrant,</span>
+          <span class="chunk" data-audio="05_12.mp3">y a des champignons</span>
+          <span class="chunk" data-audio="05_13.mp3">qui poussent dessus maintenant.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -230,18 +247,21 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Ça, c'est génial ! Vois ça comme une standing ovation de ton sol. Je
-          vais te dire pourquoi ces champignons, c'est une vraie médaille pour
-          ton jardinage. Les champignons décomposent la matière complexe et la
-          transforment en nutriments simples et
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃe.la.te/"
-            data-meaning="chelated (bound to minerals for easy absorption)"
-            >chélatés</span
-          >, que ta pelouse et tes vivaces peuvent carrément boire.
+          <span class="chunk" data-audio="06_1.mp3">Ça, c'est génial !</span>
+          <span class="chunk" data-audio="06_2.mp3">Vois ça comme</span>
+          <span class="chunk" data-audio="06_3.mp3">une standing ovation</span>
+          <span class="chunk" data-audio="06_4.mp3">de ton sol.</span>
+          <span class="chunk" data-audio="06_5.mp3">Je vais te dire pourquoi</span>
+          <span class="chunk" data-audio="06_6.mp3">ces champignons,</span>
+          <span class="chunk" data-audio="06_7.mp3">c'est une vraie médaille</span>
+          <span class="chunk" data-audio="06_8.mp3">pour ton jardinage.</span>
+          <span class="chunk" data-audio="06_9.mp3">Les champignons décomposent</span>
+          <span class="chunk" data-audio="06_10.mp3">la matière complexe</span>
+          <span class="chunk" data-audio="06_11.mp3">et la transforment</span>
+          <span class="chunk" data-audio="06_12.mp3">en nutriments simples</span>
+          <span class="chunk" data-audio="06_13.mp3">et <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃe.la.te/" data-meaning="chelated (bound to minerals for easy absorption)" >chélatés</span >,</span>
+          <span class="chunk" data-audio="06_14.mp3">que ta pelouse et tes vivaces</span>
+          <span class="chunk" data-audio="06_15.mp3">peuvent carrément boire.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -264,20 +284,22 @@
           data-audio="07.mp3?v=260705"
         ></audio>
         <p>
-          Ah bah ça, je savais pas. Enfin bref, les jardiniers vont passer la
-          tondeuse sur les champignons vendredi quand ils viennent. Le temps a
-          été atroce. Plus de 38 degrés. Et on a le droit d'utiliser les
-          arroseurs que le mercredi. Avec Robert, on va arroser la pelouse à la
-          main samedi avec un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃ɡʁɛ likid a baz də pwasɔ̃ e dalɡ/"
-            data-meaning="fish-and-seaweed liquid fertilizer"
-            style="white-space: nowrap"
-            >engrais liquide à base de poisson et d'algues</span
-          >.
+          <span class="chunk" data-audio="07_1.mp3">Ah bah ça,</span>
+          <span class="chunk" data-audio="07_2.mp3">je savais pas.</span>
+          <span class="chunk" data-audio="07_3.mp3">Enfin bref,</span>
+          <span class="chunk" data-audio="07_4.mp3">les jardiniers vont passer</span>
+          <span class="chunk" data-audio="07_5.mp3">la tondeuse sur les champignons</span>
+          <span class="chunk" data-audio="07_6.mp3">vendredi</span>
+          <span class="chunk" data-audio="07_7.mp3">quand ils viennent.</span>
+          <span class="chunk" data-audio="07_8.mp3">Le temps a été atroce.</span>
+          <span class="chunk" data-audio="07_9.mp3">Plus de 38 degrés.</span>
+          <span class="chunk" data-audio="07_10.mp3">Et on a le droit</span>
+          <span class="chunk" data-audio="07_11.mp3">d'utiliser les arroseurs</span>
+          <span class="chunk" data-audio="07_12.mp3">que le mercredi.</span>
+          <span class="chunk" data-audio="07_13.mp3">Avec Robert,</span>
+          <span class="chunk" data-audio="07_14.mp3">on va arroser la pelouse</span>
+          <span class="chunk" data-audio="07_15.mp3">à la main samedi</span>
+          <span class="chunk" data-audio="07_16.mp3">avec un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃ɡʁɛ likid a baz də pwasɔ̃ e dalɡ/" data-meaning="fish-and-seaweed liquid fertilizer" style="white-space: nowrap" >engrais liquide à base de poisson et d'algues</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -300,14 +322,8 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sa.kʁe bu.lo/"
-            data-meaning="quite a job, a heck of a job"
-            >Ça fait un sacré boulot</span
-          >, ça.
+          <span class="chunk" data-audio="08_1.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sa.kʁe bu.lo/" data-meaning="quite a job, a heck of a job" >Ça fait un sacré boulot</span >,</span>
+          <span class="chunk" data-audio="08_2.mp3">ça.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -324,17 +340,17 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Je sais. Mais faut que la pelouse soit nickel quand on mettra la
-          maison en vente.
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/a.tʁɛ ɛks.te.ʁjœʁ/"
-            data-meaning="curb appeal"
-            >L'attrait extérieur</span
-          >, quoi. Heureusement, il paraît qu'il va pleuvoir lundi. On verra
-          bien.
+          <span class="chunk" data-audio="09_1.mp3">Je sais.</span>
+          <span class="chunk" data-audio="09_2.mp3">Mais faut que la pelouse</span>
+          <span class="chunk" data-audio="09_3.mp3">soit nickel</span>
+          <span class="chunk" data-audio="09_4.mp3">quand on mettra la maison</span>
+          <span class="chunk" data-audio="09_5.mp3">en vente.</span>
+          <span class="chunk" data-audio="09_6.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/a.tʁɛ ɛks.te.ʁjœʁ/" data-meaning="curb appeal" >L'attrait extérieur</span >,</span>
+          <span class="chunk" data-audio="09_7.mp3">quoi.</span>
+          <span class="chunk" data-audio="09_8.mp3">Heureusement,</span>
+          <span class="chunk" data-audio="09_9.mp3">il paraît qu'il va pleuvoir</span>
+          <span class="chunk" data-audio="09_10.mp3">lundi.</span>
+          <span class="chunk" data-audio="09_11.mp3">On verra bien.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -355,17 +371,17 @@
           data-audio="10.mp3?v=260705"
         ></audio>
         <p>
-          Espérons que ça se confirme. Une bonne chose, c'est qu'on a vendu la
-          plupart de nos plantes en pot. Ce sont elles qui souffrent le plus par
-          cette chaleur. Sans un deuxième arrosage l'après-midi,
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛl.i.pas.di.ʁɛkt/"
-            data-meaning="they will die on the spot (informal)"
-            >elles y passent direct</span
-          >. Il fait vraiment une chaleur de fou.
+          <span class="chunk" data-audio="10_1.mp3">Espérons que ça se confirme.</span>
+          <span class="chunk" data-audio="10_2.mp3">Une bonne chose,</span>
+          <span class="chunk" data-audio="10_3.mp3">c'est qu'on a vendu</span>
+          <span class="chunk" data-audio="10_4.mp3">la plupart de nos plantes en pot.</span>
+          <span class="chunk" data-audio="10_5.mp3">Ce sont elles qui souffrent le plus</span>
+          <span class="chunk" data-audio="10_6.mp3">par cette chaleur.</span>
+          <span class="chunk" data-audio="10_7.mp3">Sans un deuxième arrosage</span>
+          <span class="chunk" data-audio="10_8.mp3">l'après-midi,</span>
+          <span class="chunk" data-audio="10_9.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛl.i.pas.di.ʁɛkt/" data-meaning="they will die on the spot (informal)" >elles y passent direct</span >.</span>
+          <span class="chunk" data-audio="10_10.mp3">Il fait vraiment</span>
+          <span class="chunk" data-audio="10_11.mp3">une chaleur de fou.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -387,8 +403,11 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          J'imagine bien. Au fait, t'aimes la cuisine mexicaine ? Pour notre
-          déjeuner de dimanche.
+          <span class="chunk" data-audio="11_1.mp3">J'imagine bien.</span>
+          <span class="chunk" data-audio="11_2.mp3">Au fait,</span>
+          <span class="chunk" data-audio="11_3.mp3">t'aimes la cuisine mexicaine ?</span>
+          <span class="chunk" data-audio="11_4.mp3">Pour notre déjeuner</span>
+          <span class="chunk" data-audio="11_5.mp3">de dimanche.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -408,7 +427,9 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Pas trop. Et le Cheesecake Factory, ça te dit ?
+          <span class="chunk" data-audio="12_1.mp3">Pas trop.</span>
+          <span class="chunk" data-audio="12_2.mp3">Et le Cheesecake Factory,</span>
+          <span class="chunk" data-audio="12_3.mp3">ça te dit ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -425,8 +446,11 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          C'est à 40 minutes de route de chez nous. On peut pas s'absenter des
-          heures, on garde le chien.
+          <span class="chunk" data-audio="13_1.mp3">C'est à 40 minutes de route</span>
+          <span class="chunk" data-audio="13_2.mp3">de chez nous.</span>
+          <span class="chunk" data-audio="13_3.mp3">On peut pas s'absenter</span>
+          <span class="chunk" data-audio="13_4.mp3">des heures,</span>
+          <span class="chunk" data-audio="13_5.mp3">on garde le chien.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -446,7 +470,8 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Y a quoi d'autre près de chez toi ?
+          <span class="chunk" data-audio="14_1.mp3">Y a quoi d'autre</span>
+          <span class="chunk" data-audio="14_2.mp3">près de chez toi ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -463,7 +488,8 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          T'as déjà entendu parler du Mason Jar Tavern ?
+          <span class="chunk" data-audio="15_1.mp3">T'as déjà entendu parler</span>
+          <span class="chunk" data-audio="15_2.mp3">du Mason Jar Tavern ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -480,7 +506,8 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Pas vraiment. C'est à Fuquay ?
+          <span class="chunk" data-audio="16_1.mp3">Pas vraiment.</span>
+          <span class="chunk" data-audio="16_2.mp3">C'est à Fuquay ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -497,7 +524,8 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Ouais, va checker le menu en ligne.
+          <span class="chunk" data-audio="17_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="17_2.mp3">va checker le menu en ligne.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -514,8 +542,12 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Bon, le menu a l'air pas mal du tout. On se retrouve à quelle heure ?
-          Midi, ça te va ?
+          <span class="chunk" data-audio="18_1.mp3">Bon,</span>
+          <span class="chunk" data-audio="18_2.mp3">le menu a l'air</span>
+          <span class="chunk" data-audio="18_3.mp3">pas mal du tout.</span>
+          <span class="chunk" data-audio="18_4.mp3">On se retrouve</span>
+          <span class="chunk" data-audio="18_5.mp3">à quelle heure ?</span>
+          <span class="chunk" data-audio="18_6.mp3">Midi, ça te va ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -535,7 +567,8 @@
           data-audio="19.mp3?v=260705"
         ></audio>
         <p>
-          Midi, c'est parfait. À dimanche alors !
+          <span class="chunk" data-audio="19_1.mp3">Midi, c'est parfait.</span>
+          <span class="chunk" data-audio="19_2.mp3">À dimanche alors !</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -615,6 +648,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv27/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv27/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

@@ -58,6 +58,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -75,7 +81,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -85,7 +91,7 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          J'aime pas ta chemise.
+          <span class="chunk" data-audio="01_1.mp3">J'aime pas ta chemise.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -102,7 +108,8 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Pourquoi ? Qu'est-ce qu'elle a ?
+          <span class="chunk" data-audio="02_1.mp3">Pourquoi ?</span>
+          <span class="chunk" data-audio="02_2.mp3">Qu'est-ce qu'elle a ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -131,7 +138,8 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Elle te va pas. Débarrasse-t'en.
+          <span class="chunk" data-audio="03_1.mp3">Elle te va pas.</span>
+          <span class="chunk" data-audio="03_2.mp3">Débarrasse-t'en.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -148,9 +156,15 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          D'accord. C'est justement ce que j'allais te demander. Fais le tri
-          dans mes chemises et sors tout ce que t'aimes pas. On peut les donner.
-          J'en ai tellement.
+          <span class="chunk" data-audio="04_1.mp3">D'accord.</span>
+          <span class="chunk" data-audio="04_2.mp3">C'est justement ce que</span>
+          <span class="chunk" data-audio="04_3.mp3">j'allais te demander.</span>
+          <span class="chunk" data-audio="04_4.mp3">Fais le tri</span>
+          <span class="chunk" data-audio="04_5.mp3">dans mes chemises</span>
+          <span class="chunk" data-audio="04_6.mp3">et sors tout</span>
+          <span class="chunk" data-audio="04_7.mp3">ce que t'aimes pas.</span>
+          <span class="chunk" data-audio="04_8.mp3">On peut les donner.</span>
+          <span class="chunk" data-audio="04_9.mp3">J'en ai tellement.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -171,8 +185,12 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Ok. De toute façon, y en a que tu pourras pas mettre à Penang. Trop
-          chaud.
+          <span class="chunk" data-audio="05_1.mp3">Ok.</span>
+          <span class="chunk" data-audio="05_2.mp3">De toute façon,</span>
+          <span class="chunk" data-audio="05_3.mp3">y en a que</span>
+          <span class="chunk" data-audio="05_4.mp3">tu pourras pas mettre</span>
+          <span class="chunk" data-audio="05_5.mp3">à Penang.</span>
+          <span class="chunk" data-audio="05_6.mp3">Trop chaud.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -192,7 +210,9 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Je vais garder des vêtements chauds pour l'Europe.
+          <span class="chunk" data-audio="06_1.mp3">Je vais garder</span>
+          <span class="chunk" data-audio="06_2.mp3">des vêtements chauds</span>
+          <span class="chunk" data-audio="06_3.mp3">pour l'Europe.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -209,8 +229,12 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Bonne idée. Je pense t'acheter une douzaine de chemises hawaïennes.
-          Elles te tiennent au frais et tu es beau dedans.
+          <span class="chunk" data-audio="07_1.mp3">Bonne idée.</span>
+          <span class="chunk" data-audio="07_2.mp3">Je pense t'acheter</span>
+          <span class="chunk" data-audio="07_3.mp3">une douzaine</span>
+          <span class="chunk" data-audio="07_4.mp3">de chemises hawaïennes.</span>
+          <span class="chunk" data-audio="07_5.mp3">Elles te tiennent au frais</span>
+          <span class="chunk" data-audio="07_6.mp3">et tu es beau dedans.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -230,8 +254,10 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Faut les acheter en Californie. Ils en vendent pas ici. Pas les mêmes
-          goûts.
+          <span class="chunk" data-audio="08_1.mp3">Faut les acheter</span>
+          <span class="chunk" data-audio="08_2.mp3">en Californie.</span>
+          <span class="chunk" data-audio="08_3.mp3">Ils en vendent pas ici.</span>
+          <span class="chunk" data-audio="08_4.mp3">Pas les mêmes goûts.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -251,8 +277,10 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Ouais, je remarque ça. On va en Californie de toute façon avant de
-          quitter le pays.
+          <span class="chunk" data-audio="09_1.mp3">Ouais, je remarque ça.</span>
+          <span class="chunk" data-audio="09_2.mp3">On va en Californie</span>
+          <span class="chunk" data-audio="09_3.mp3">de toute façon</span>
+          <span class="chunk" data-audio="09_4.mp3">avant de quitter le pays.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -272,7 +300,9 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Le jean, ça sera trop chaud à Penang ?
+          <span class="chunk" data-audio="10_1.mp3">Le jean,</span>
+          <span class="chunk" data-audio="10_2.mp3">ça sera trop chaud</span>
+          <span class="chunk" data-audio="10_3.mp3">à Penang ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -289,7 +319,9 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Peut-être, mais ça te protégera des piqûres d'insectes.
+          <span class="chunk" data-audio="11_1.mp3">Peut-être,</span>
+          <span class="chunk" data-audio="11_2.mp3">mais ça te protégera</span>
+          <span class="chunk" data-audio="11_3.mp3">des piqûres d'insectes.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -306,7 +338,10 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          C'est vrai. Hé, regarde. C'est couvert dehors. Les nuages arrivent.
+          <span class="chunk" data-audio="12_1.mp3">C'est vrai.</span>
+          <span class="chunk" data-audio="12_2.mp3">Hé, regarde.</span>
+          <span class="chunk" data-audio="12_3.mp3">C'est couvert dehors.</span>
+          <span class="chunk" data-audio="12_4.mp3">Les nuages arrivent.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -323,7 +358,7 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Il va pleuvoir ?
+          <span class="chunk" data-audio="13_1.mp3">Il va pleuvoir ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -340,8 +375,11 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Non. Mais il y a 90 % de chances de pluie dimanche. Et puis 20 à 30 %
-          les jours suivants.
+          <span class="chunk" data-audio="14_1.mp3">Non.</span>
+          <span class="chunk" data-audio="14_2.mp3">Mais il y a 90 %</span>
+          <span class="chunk" data-audio="14_3.mp3">de chances de pluie dimanche.</span>
+          <span class="chunk" data-audio="14_4.mp3">Et puis 20 à 30 %</span>
+          <span class="chunk" data-audio="14_5.mp3">les jours suivants.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -361,8 +399,13 @@
           data-audio="15.mp3?v=260816"
         ></audio>
         <p>
-          Ce serait super. Le niveau de Falls Lake pourrait remonter. On verra
-          bien. Ah, ils ont pas encore mis mes résultats de radio en ligne.
+          <span class="chunk" data-audio="15_1.mp3">Ce serait super.</span>
+          <span class="chunk" data-audio="15_2.mp3">Le niveau de Falls Lake</span>
+          <span class="chunk" data-audio="15_3.mp3">pourrait remonter.</span>
+          <span class="chunk" data-audio="15_4.mp3">On verra bien.</span>
+          <span class="chunk" data-audio="15_5.mp3">Ah, ils ont pas encore mis</span>
+          <span class="chunk" data-audio="15_6.mp3">mes résultats de radio</span>
+          <span class="chunk" data-audio="15_7.mp3">en ligne.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -382,7 +425,10 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          C'est trop tôt. Peut-être lundi. T'as toujours la tête qui tourne ?
+          <span class="chunk" data-audio="16_1.mp3">C'est trop tôt.</span>
+          <span class="chunk" data-audio="16_2.mp3">Peut-être lundi.</span>
+          <span class="chunk" data-audio="16_3.mp3">T'as toujours</span>
+          <span class="chunk" data-audio="16_4.mp3">la tête qui tourne ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -399,11 +445,20 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Ça va mieux. Mon cou, je veux le faire soigner avant de quitter le
-          pays. Toi, tu peux pas porter de trucs lourds à cause de ton dos. Faut
-          qu'au moins l'un de nous soit en forme pour gérer les valises quand on
-          voyage. Notre médecin nous recommandera peut-être un bon chirurgien
-          orthopédique.
+          <span class="chunk" data-audio="17_1.mp3">Ça va mieux.</span>
+          <span class="chunk" data-audio="17_2.mp3">Mon cou,</span>
+          <span class="chunk" data-audio="17_3.mp3">je veux le faire soigner</span>
+          <span class="chunk" data-audio="17_4.mp3">avant de quitter le pays.</span>
+          <span class="chunk" data-audio="17_5.mp3">Toi, tu peux pas porter</span>
+          <span class="chunk" data-audio="17_6.mp3">de trucs lourds</span>
+          <span class="chunk" data-audio="17_7.mp3">à cause de ton dos.</span>
+          <span class="chunk" data-audio="17_8.mp3">Faut qu'au moins l'un de nous</span>
+          <span class="chunk" data-audio="17_9.mp3">soit en forme</span>
+          <span class="chunk" data-audio="17_10.mp3">pour gérer les valises</span>
+          <span class="chunk" data-audio="17_11.mp3">quand on voyage.</span>
+          <span class="chunk" data-audio="17_12.mp3">Notre médecin</span>
+          <span class="chunk" data-audio="17_13.mp3">nous recommandera peut-être</span>
+          <span class="chunk" data-audio="17_14.mp3">un bon chirurgien orthopédique.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -425,8 +480,10 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          La radio montrera pas les tissus mous. Il faudra peut-être faire une
-          IRM.
+          <span class="chunk" data-audio="18_1.mp3">La radio montrera pas</span>
+          <span class="chunk" data-audio="18_2.mp3">les tissus mous.</span>
+          <span class="chunk" data-audio="18_3.mp3">Il faudra peut-être</span>
+          <span class="chunk" data-audio="18_4.mp3">faire une IRM.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -445,11 +502,18 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          On verra ce qu'il dit. Le manipulateur radio disait que s'il était
-          radiologue, il gagnerait beaucoup plus. Je lui ai dit qu'au train où
-          vont les choses, le radiologue se fera peut-être remplacer par des IA
-          dans quelques années. Mais on aura toujours besoin de manipulateurs
-          radio.
+          <span class="chunk" data-audio="19_1.mp3">On verra ce qu'il dit.</span>
+          <span class="chunk" data-audio="19_2.mp3">Le manipulateur radio disait</span>
+          <span class="chunk" data-audio="19_3.mp3">que s'il était radiologue,</span>
+          <span class="chunk" data-audio="19_4.mp3">il gagnerait beaucoup plus.</span>
+          <span class="chunk" data-audio="19_5.mp3">Je lui ai dit</span>
+          <span class="chunk" data-audio="19_6.mp3">qu'au train où vont les choses,</span>
+          <span class="chunk" data-audio="19_7.mp3">le radiologue</span>
+          <span class="chunk" data-audio="19_8.mp3">se fera peut-être remplacer</span>
+          <span class="chunk" data-audio="19_9.mp3">par des IA</span>
+          <span class="chunk" data-audio="19_10.mp3">dans quelques années.</span>
+          <span class="chunk" data-audio="19_11.mp3">Mais on aura toujours besoin</span>
+          <span class="chunk" data-audio="19_12.mp3">de manipulateurs radio.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -471,7 +535,7 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          Qu'est-ce qu'il a dit ?
+          <span class="chunk" data-audio="20_1.mp3">Qu'est-ce qu'il a dit ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -488,8 +552,12 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          Il a dit : "Mais on aura toujours besoin d'une supervision humaine. Au
-          lieu de dix radiologues, on en aura peut-être besoin d'un seul."
+          <span class="chunk" data-audio="21_1.mp3">Il a dit :</span>
+          <span class="chunk" data-audio="21_2.mp3">"Mais on aura toujours besoin</span>
+          <span class="chunk" data-audio="21_3.mp3">d'une supervision humaine.</span>
+          <span class="chunk" data-audio="21_4.mp3">Au lieu de dix radiologues,</span>
+          <span class="chunk" data-audio="21_5.mp3">on en aura peut-être</span>
+          <span class="chunk" data-audio="21_6.mp3">besoin d'un seul."</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -574,6 +642,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv40/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv40/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

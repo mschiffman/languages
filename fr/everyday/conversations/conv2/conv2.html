@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="english-text" data-aos="fade-up">
@@ -86,8 +92,11 @@
           data-audio="1.mp3"
         ></audio>
         <p>
-          Salut. Ça va aujourd'hui, tu te sens comment ? De quoi tu as envie de
-          parler maintenant ?
+          <span class="chunk" data-audio="1_1.mp3">Salut.</span>
+          <span class="chunk" data-audio="1_2.mp3">Ça va aujourd'hui,</span>
+          <span class="chunk" data-audio="1_3.mp3">tu te sens comment ?</span>
+          <span class="chunk" data-audio="1_4.mp3">De quoi tu as envie de parler</span>
+          <span class="chunk" data-audio="1_5.mp3">maintenant ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -107,7 +116,10 @@
           data-audio="2.mp3"
         ></audio>
         <p>
-          Salut, ça va bien merci. Et toi, comment tu vas ?
+          <span class="chunk" data-audio="2_1.mp3">Salut,</span>
+          <span class="chunk" data-audio="2_2.mp3">ça va bien merci.</span>
+          <span class="chunk" data-audio="2_3.mp3">Et toi,</span>
+          <span class="chunk" data-audio="2_4.mp3">comment tu vas ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -124,8 +136,11 @@
           data-audio="3.mp3"
         ></audio>
         <p>
-          Moi ça va tranquille, merci. Tu veux parler de ta journée ou tu
-          préfères parler d'un hobby que tu aimes ?
+          <span class="chunk" data-audio="3_1.mp3">Moi ça va tranquille,</span>
+          <span class="chunk" data-audio="3_2.mp3">merci.</span>
+          <span class="chunk" data-audio="3_3.mp3">Tu veux parler de ta journée</span>
+          <span class="chunk" data-audio="3_4.mp3">ou tu préfères parler</span>
+          <span class="chunk" data-audio="3_5.mp3">d'un hobby que tu aimes ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -145,7 +160,9 @@
           data-audio="4.mp3"
         ></audio>
         <p>
-          Je voudrais parler de ce que j'aime et de ce que je n'aime pas.
+          <span class="chunk" data-audio="4_1.mp3">Je voudrais parler</span>
+          <span class="chunk" data-audio="4_2.mp3">de ce que j'aime</span>
+          <span class="chunk" data-audio="4_3.mp3">et de ce que je n'aime pas.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -162,9 +179,14 @@
           data-audio="5.mp3"
         ></audio>
         <p>
-          Super, j'aime bien ce sujet. Moi j'adore la musique et je n'aime pas
-          trop les films trop longs. Toi, qu'est-ce que tu aimes beaucoup dans
-          la vie de tous les jours ?
+          <span class="chunk" data-audio="5_1.mp3">Super,</span>
+          <span class="chunk" data-audio="5_2.mp3">j'aime bien ce sujet.</span>
+          <span class="chunk" data-audio="5_3.mp3">Moi j'adore la musique</span>
+          <span class="chunk" data-audio="5_4.mp3">et je n'aime pas trop</span>
+          <span class="chunk" data-audio="5_5.mp3">les films trop longs.</span>
+          <span class="chunk" data-audio="5_6.mp3">Toi,</span>
+          <span class="chunk" data-audio="5_7.mp3">qu'est-ce que tu aimes beaucoup</span>
+          <span class="chunk" data-audio="5_8.mp3">dans la vie de tous les jours ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -185,7 +207,8 @@
           data-audio="6.mp3"
         ></audio>
         <p>
-          J'aime lire et faire du jardinage.
+          <span class="chunk" data-audio="6_1.mp3">J'aime lire</span>
+          <span class="chunk" data-audio="6_2.mp3">et faire du jardinage.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -202,8 +225,12 @@
           data-audio="7.mp3"
         ></audio>
         <p>
-          Ah cool, lire et jardiner, c'est sympa comme combo. Tu lis plutôt des
-          histoires, des livres pour apprendre, ou autre chose ?
+          <span class="chunk" data-audio="7_1.mp3">Ah cool,</span>
+          <span class="chunk" data-audio="7_2.mp3">lire et jardiner,</span>
+          <span class="chunk" data-audio="7_3.mp3">c'est sympa comme combo.</span>
+          <span class="chunk" data-audio="7_4.mp3">Tu lis plutôt des histoires,</span>
+          <span class="chunk" data-audio="7_5.mp3">des livres pour apprendre,</span>
+          <span class="chunk" data-audio="7_6.mp3">ou autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -223,7 +250,9 @@
           data-audio="8.mp3"
         ></audio>
         <p>
-          J'aime les romans drôles. Et j'apprécie le second degré.
+          <span class="chunk" data-audio="8_1.mp3">J'aime les romans drôles.</span>
+          <span class="chunk" data-audio="8_2.mp3">Et j'apprécie</span>
+          <span class="chunk" data-audio="8_3.mp3">le second degré.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -240,9 +269,18 @@
           data-audio="9.mp3"
         ></audio>
         <p>
-          Ah oui, les comédies, c'est top pour se détendre. Moi aussi j'aime
-          bien rire avec un film simple après la journée. Tu préfères les
-          comédies au cinéma, à la télé, ou sur une plateforme comme Netflix ?
+          <span class="chunk" data-audio="9_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="9_2.mp3">les comédies,</span>
+          <span class="chunk" data-audio="9_3.mp3">c'est top pour se détendre.</span>
+          <span class="chunk" data-audio="9_4.mp3">Moi aussi</span>
+          <span class="chunk" data-audio="9_5.mp3">j'aime bien rire</span>
+          <span class="chunk" data-audio="9_6.mp3">avec un film simple</span>
+          <span class="chunk" data-audio="9_7.mp3">après la journée.</span>
+          <span class="chunk" data-audio="9_8.mp3">Tu préfères les comédies</span>
+          <span class="chunk" data-audio="9_9.mp3">au cinéma,</span>
+          <span class="chunk" data-audio="9_10.mp3">à la télé,</span>
+          <span class="chunk" data-audio="9_11.mp3">ou sur une plateforme</span>
+          <span class="chunk" data-audio="9_12.mp3">comme Netflix ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -263,8 +301,13 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Moi, je préfère regarder des films sur Netflix et Amazon Prime à la
-          maison. Et sinon, j'étudie aussi le japonais avec Pimsleur.
+          <span class="chunk" data-audio="10_1.mp3">Moi,</span>
+          <span class="chunk" data-audio="10_2.mp3">je préfère regarder des films</span>
+          <span class="chunk" data-audio="10_3.mp3">sur Netflix et Amazon Prime</span>
+          <span class="chunk" data-audio="10_4.mp3">à la maison.</span>
+          <span class="chunk" data-audio="10_5.mp3">Et sinon,</span>
+          <span class="chunk" data-audio="10_6.mp3">j'étudie aussi le japonais</span>
+          <span class="chunk" data-audio="10_7.mp3">avec Pimsleur.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -321,10 +364,17 @@
           data-audio="11.mp3?v=260421"
         ></audio>
         <p>
-          Ah super, à la maison avec Netflix et Amazon Prime, c'est très
-          confortable. Le japonais avec Pimsleur, c'est intéressant, ça doit
-          être un peu difficile aussi. Qu'est-ce que tu trouves le plus
-          différent entre le français et le japonais ?
+          <span class="chunk" data-audio="11_1.mp3">Ah super,</span>
+          <span class="chunk" data-audio="11_2.mp3">à la maison</span>
+          <span class="chunk" data-audio="11_3.mp3">avec Netflix et Amazon Prime,</span>
+          <span class="chunk" data-audio="11_4.mp3">c'est très confortable.</span>
+          <span class="chunk" data-audio="11_5.mp3">Le japonais avec Pimsleur,</span>
+          <span class="chunk" data-audio="11_6.mp3">c'est intéressant,</span>
+          <span class="chunk" data-audio="11_7.mp3">ça doit être un peu difficile</span>
+          <span class="chunk" data-audio="11_8.mp3">aussi.</span>
+          <span class="chunk" data-audio="11_9.mp3">Qu'est-ce que tu trouves</span>
+          <span class="chunk" data-audio="11_10.mp3">le plus différent</span>
+          <span class="chunk" data-audio="11_11.mp3">entre le français et le japonais ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -346,8 +396,10 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Le japonais est beaucoup plus simple : il n'y a pas de genre féminin
-          ou masculin.
+          <span class="chunk" data-audio="12_1.mp3">Le japonais</span>
+          <span class="chunk" data-audio="12_2.mp3">est beaucoup plus simple :</span>
+          <span class="chunk" data-audio="12_3.mp3">il n'y a pas de genre</span>
+          <span class="chunk" data-audio="12_4.mp3">féminin ou masculin.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -366,10 +418,19 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Oui, c'est vrai, sans féminin et masculin c'est plus simple, ça aide
-          beaucoup. En français, le genre change vraiment tout, même les petits
-          mots. Qu'est-ce que tu aimes bien faire en japonais, par exemple
-          écouter, parler, écrire ou autre chose ?
+          <span class="chunk" data-audio="13_1.mp3">Oui, c'est vrai,</span>
+          <span class="chunk" data-audio="13_2.mp3">sans féminin et masculin</span>
+          <span class="chunk" data-audio="13_3.mp3">c'est plus simple,</span>
+          <span class="chunk" data-audio="13_4.mp3">ça aide beaucoup.</span>
+          <span class="chunk" data-audio="13_5.mp3">En français,</span>
+          <span class="chunk" data-audio="13_6.mp3">le genre change vraiment tout,</span>
+          <span class="chunk" data-audio="13_7.mp3">même les petits mots.</span>
+          <span class="chunk" data-audio="13_8.mp3">Qu'est-ce que tu aimes bien faire</span>
+          <span class="chunk" data-audio="13_9.mp3">en japonais,</span>
+          <span class="chunk" data-audio="13_10.mp3">par exemple écouter,</span>
+          <span class="chunk" data-audio="13_11.mp3">parler,</span>
+          <span class="chunk" data-audio="13_12.mp3">écrire</span>
+          <span class="chunk" data-audio="13_13.mp3">ou autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -391,8 +452,10 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Je commence tout juste à parler. L'écriture et la lecture sont
-          difficiles.
+          <span class="chunk" data-audio="14_1.mp3">Je commence tout juste</span>
+          <span class="chunk" data-audio="14_2.mp3">à parler.</span>
+          <span class="chunk" data-audio="14_3.mp3">L'écriture et la lecture</span>
+          <span class="chunk" data-audio="14_4.mp3">sont difficiles.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -409,11 +472,20 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Je comprends, parler seulement, c'est plus relax, surtout avec une
-          langue comme le japonais. Pour moi aussi, l'écriture avec les kanji a
-          l'air vraiment compliquée. Tu regardes parfois des séries ou des films
-          japonais sur Netflix ou Amazon, ou tu préfères rester avec des
-          contenus en anglais ou en français ?
+          <span class="chunk" data-audio="15_1.mp3">Je comprends,</span>
+          <span class="chunk" data-audio="15_2.mp3">parler seulement,</span>
+          <span class="chunk" data-audio="15_3.mp3">c'est plus relax,</span>
+          <span class="chunk" data-audio="15_4.mp3">surtout avec une langue</span>
+          <span class="chunk" data-audio="15_5.mp3">comme le japonais.</span>
+          <span class="chunk" data-audio="15_6.mp3">Pour moi aussi,</span>
+          <span class="chunk" data-audio="15_7.mp3">l'écriture avec les kanji</span>
+          <span class="chunk" data-audio="15_8.mp3">a l'air vraiment compliquée.</span>
+          <span class="chunk" data-audio="15_9.mp3">Tu regardes parfois</span>
+          <span class="chunk" data-audio="15_10.mp3">des séries ou des films japonais</span>
+          <span class="chunk" data-audio="15_11.mp3">sur Netflix ou Amazon,</span>
+          <span class="chunk" data-audio="15_12.mp3">ou tu préfères rester</span>
+          <span class="chunk" data-audio="15_13.mp3">avec des contenus</span>
+          <span class="chunk" data-audio="15_14.mp3">en anglais ou en français ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -436,8 +508,11 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Oui, j'en regarde, mais quand je regarde des films japonais, j'utilise
-          des sous-titres en anglais.
+          <span class="chunk" data-audio="16_1.mp3">Oui, j'en regarde,</span>
+          <span class="chunk" data-audio="16_2.mp3">mais quand je regarde</span>
+          <span class="chunk" data-audio="16_3.mp3">des films japonais,</span>
+          <span class="chunk" data-audio="16_4.mp3">j'utilise des sous-titres</span>
+          <span class="chunk" data-audio="16_5.mp3">en anglais.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -457,10 +532,19 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Ah oui, les sous-titres en anglais, c'est très pratique pour
-          comprendre les films japonais. C'est bien aussi pour apprendre des
-          nouvelles phrases sans stress. Tu as un film ou une série japonaise
-          que tu aimes bien en ce moment ?
+          <span class="chunk" data-audio="17_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="17_2.mp3">les sous-titres en anglais,</span>
+          <span class="chunk" data-audio="17_3.mp3">c'est très pratique</span>
+          <span class="chunk" data-audio="17_4.mp3">pour comprendre</span>
+          <span class="chunk" data-audio="17_5.mp3">les films japonais.</span>
+          <span class="chunk" data-audio="17_6.mp3">C'est bien aussi</span>
+          <span class="chunk" data-audio="17_7.mp3">pour apprendre</span>
+          <span class="chunk" data-audio="17_8.mp3">des nouvelles phrases</span>
+          <span class="chunk" data-audio="17_9.mp3">sans stress.</span>
+          <span class="chunk" data-audio="17_10.mp3">Tu as un film</span>
+          <span class="chunk" data-audio="17_11.mp3">ou une série japonaise</span>
+          <span class="chunk" data-audio="17_12.mp3">que tu aimes bien</span>
+          <span class="chunk" data-audio="17_13.mp3">en ce moment ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -482,9 +566,14 @@
           data-audio="18.mp3?v=260508"
         ></audio>
         <p>
-          Dernièrement, on a vu le film "Onoda". C’est vraiment passionnant : ce
-          lieutenant a continué à se battre pendant 30 ans après la fin de la
-          Seconde Guerre mondiale.
+          <span class="chunk" data-audio="18_1.mp3">Dernièrement,</span>
+          <span class="chunk" data-audio="18_2.mp3">on a vu le film "Onoda".</span>
+          <span class="chunk" data-audio="18_3.mp3">C’est vraiment passionnant :</span>
+          <span class="chunk" data-audio="18_4.mp3">ce lieutenant</span>
+          <span class="chunk" data-audio="18_5.mp3">a continué à se battre</span>
+          <span class="chunk" data-audio="18_6.mp3">pendant 30 ans</span>
+          <span class="chunk" data-audio="18_7.mp3">après la fin</span>
+          <span class="chunk" data-audio="18_8.mp3">de la Seconde Guerre mondiale.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -505,10 +594,20 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Ah oui, je connais l’histoire d’Onoda, c’est vraiment fou et aussi un
-          peu triste je trouve. C’est intéressant pour réfléchir à la guerre, au
-          devoir, et à la solitude. Dans ce film, qu’est-ce qui t’a le plus
-          marqué, par exemple une scène, une idée, ou un personnage ?
+          <span class="chunk" data-audio="19_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="19_2.mp3">je connais l’histoire d’Onoda,</span>
+          <span class="chunk" data-audio="19_3.mp3">c’est vraiment fou</span>
+          <span class="chunk" data-audio="19_4.mp3">et aussi un peu triste</span>
+          <span class="chunk" data-audio="19_5.mp3">je trouve.</span>
+          <span class="chunk" data-audio="19_6.mp3">C’est intéressant</span>
+          <span class="chunk" data-audio="19_7.mp3">pour réfléchir à la guerre,</span>
+          <span class="chunk" data-audio="19_8.mp3">au devoir,</span>
+          <span class="chunk" data-audio="19_9.mp3">et à la solitude.</span>
+          <span class="chunk" data-audio="19_10.mp3">Dans ce film,</span>
+          <span class="chunk" data-audio="19_11.mp3">qu’est-ce qui t’a le plus marqué,</span>
+          <span class="chunk" data-audio="19_12.mp3">par exemple une scène,</span>
+          <span class="chunk" data-audio="19_13.mp3">une idée,</span>
+          <span class="chunk" data-audio="19_14.mp3">ou un personnage ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -530,10 +629,17 @@
           data-audio="20.mp3?v=260508"
         ></audio>
         <p>
-          C’est surtout l’endoctrinement qui m’a marqué. Même lorsque son père
-          et son frère sont venus le chercher pour le ramener chez lui, il n’en
-          a pas tenu compte. Il devait avoir une personnalité particulièrement
-          rigide et obstinée.
+          <span class="chunk" data-audio="20_1.mp3">C’est surtout l’endoctrinement</span>
+          <span class="chunk" data-audio="20_2.mp3">qui m’a marqué.</span>
+          <span class="chunk" data-audio="20_3.mp3">Même lorsque son père</span>
+          <span class="chunk" data-audio="20_4.mp3">et son frère</span>
+          <span class="chunk" data-audio="20_5.mp3">sont venus le chercher</span>
+          <span class="chunk" data-audio="20_6.mp3">pour le ramener chez lui,</span>
+          <span class="chunk" data-audio="20_7.mp3">il n’en a pas tenu compte.</span>
+          <span class="chunk" data-audio="20_8.mp3">Il devait avoir</span>
+          <span class="chunk" data-audio="20_9.mp3">une personnalité</span>
+          <span class="chunk" data-audio="20_10.mp3">particulièrement rigide</span>
+          <span class="chunk" data-audio="20_11.mp3">et obstinée.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -555,11 +661,22 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          Oui, cette rigidité est frappante, et en même temps on voit bien la
-          force de l’endoctrinement militaire et patriotique. Pour moi, ça pose
-          une grande question morale: jusqu’où le devoir peut aller contre la
-          réalité et contre la vie humaine. Toi, tu ressens plutôt de la
-          compassion pour lui, ou plutôt de la colère contre lui ?
+          <span class="chunk" data-audio="21_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="21_2.mp3">cette rigidité est frappante,</span>
+          <span class="chunk" data-audio="21_3.mp3">et en même temps</span>
+          <span class="chunk" data-audio="21_4.mp3">on voit bien la force</span>
+          <span class="chunk" data-audio="21_5.mp3">de l’endoctrinement</span>
+          <span class="chunk" data-audio="21_6.mp3">militaire et patriotique.</span>
+          <span class="chunk" data-audio="21_7.mp3">Pour moi,</span>
+          <span class="chunk" data-audio="21_8.mp3">ça pose une grande question morale:</span>
+          <span class="chunk" data-audio="21_9.mp3">jusqu’où le devoir peut aller</span>
+          <span class="chunk" data-audio="21_10.mp3">contre la réalité</span>
+          <span class="chunk" data-audio="21_11.mp3">et contre la vie humaine.</span>
+          <span class="chunk" data-audio="21_12.mp3">Toi,</span>
+          <span class="chunk" data-audio="21_13.mp3">tu ressens plutôt</span>
+          <span class="chunk" data-audio="21_14.mp3">de la compassion pour lui,</span>
+          <span class="chunk" data-audio="21_15.mp3">ou plutôt</span>
+          <span class="chunk" data-audio="21_16.mp3">de la colère contre lui ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -644,6 +761,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv2/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv2/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

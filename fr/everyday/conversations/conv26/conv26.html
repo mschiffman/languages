@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,16 +92,8 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Je grossis, mes
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fʁɛ̃ɡ/"
-            data-meaning="clothes (informal)"
-            >fringues</span
-          >
-          me serrent.
+          <span class="chunk" data-audio="01_1.mp3">Je grossis,</span>
+          <span class="chunk" data-audio="01_2.mp3">mes <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fʁɛ̃ɡ/" data-meaning="clothes (informal)" >fringues</span > me serrent.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -112,7 +110,7 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Tu pèses combien ?
+          <span class="chunk" data-audio="02_1.mp3">Tu pèses combien ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -129,7 +127,8 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Là, je fais 53,7 kg.
+          <span class="chunk" data-audio="03_1.mp3">Là,</span>
+          <span class="chunk" data-audio="03_2.mp3">je fais 53,7 kg.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -146,16 +145,9 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Ça reste dans
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fʁuʃɛt di.ɛm.se/"
-            data-meaning="a BMI range (IMC = indice de masse corporelle)"
-            >une fourchette d'IMC</span
-          >
-          saine.
+          <span class="chunk" data-audio="04_1.mp3">Ça reste</span>
+          <span class="chunk" data-audio="04_2.mp3">dans <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fʁuʃɛt di.ɛm.se/" data-meaning="a BMI range (IMC = indice de masse corporelle)" >une fourchette d'IMC</span ></span>
+          <span class="chunk" data-audio="04_3.mp3">saine.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -172,16 +164,14 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Ouais, mais j'étais à 49,9. Faut que je fasse quelque chose, et vite.
-          Sinon, je vais devoir racheter toute ma
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɡaʁd ʁɔb/"
-            data-meaning="wardrobe"
-            >garde-robe</span
-          >.
+          <span class="chunk" data-audio="05_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="05_2.mp3">mais j'étais à 49,9.</span>
+          <span class="chunk" data-audio="05_3.mp3">Faut que je fasse</span>
+          <span class="chunk" data-audio="05_4.mp3">quelque chose,</span>
+          <span class="chunk" data-audio="05_5.mp3">et vite.</span>
+          <span class="chunk" data-audio="05_6.mp3">Sinon,</span>
+          <span class="chunk" data-audio="05_7.mp3">je vais devoir racheter</span>
+          <span class="chunk" data-audio="05_8.mp3">toute ma <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɡaʁd ʁɔb/" data-meaning="wardrobe" >garde-robe</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -201,18 +191,18 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Si tu manges moins, tu vas perdre du muscle et de l'os. Ce qu'il faut,
-          c'est perdre de la graisse. La bonne méthode, c'est d'y aller
-          doucement en préservant le muscle, comme ça ce qui part, c'est surtout
-          la graisse qui remplit
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sɛ̃tyʁ dy pɑ̃ta.lɔ̃/"
-            data-meaning="waistband"
-            >la ceinture du pantalon</span
-          >.
+          <span class="chunk" data-audio="06_1.mp3">Si tu manges moins,</span>
+          <span class="chunk" data-audio="06_2.mp3">tu vas perdre du muscle</span>
+          <span class="chunk" data-audio="06_3.mp3">et de l'os.</span>
+          <span class="chunk" data-audio="06_4.mp3">Ce qu'il faut,</span>
+          <span class="chunk" data-audio="06_5.mp3">c'est perdre de la graisse.</span>
+          <span class="chunk" data-audio="06_6.mp3">La bonne méthode,</span>
+          <span class="chunk" data-audio="06_7.mp3">c'est d'y aller doucement</span>
+          <span class="chunk" data-audio="06_8.mp3">en préservant le muscle,</span>
+          <span class="chunk" data-audio="06_9.mp3">comme ça ce qui part,</span>
+          <span class="chunk" data-audio="06_10.mp3">c'est surtout la graisse</span>
+          <span class="chunk" data-audio="06_11.mp3">qui remplit</span>
+          <span class="chunk" data-audio="06_12.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sɛ̃tyʁ dy pɑ̃ta.lɔ̃/" data-meaning="waistband" >la ceinture du pantalon</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -233,7 +223,7 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Je m'y prends comment ?
+          <span class="chunk" data-audio="07_1.mp3">Je m'y prends comment ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -250,16 +240,10 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Tu perds du poids lentement en mangeant assez de protéines et en
-          faisant
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɛk.sɛʁ.sis də ʁɑ̃fɔʁs.mɑ̃/"
-            data-meaning="strength exercises"
-            >des exercices de renforcement</span
-          >.
+          <span class="chunk" data-audio="08_1.mp3">Tu perds du poids lentement</span>
+          <span class="chunk" data-audio="08_2.mp3">en mangeant assez de protéines</span>
+          <span class="chunk" data-audio="08_3.mp3">et en faisant</span>
+          <span class="chunk" data-audio="08_4.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɛk.sɛʁ.sis də ʁɑ̃fɔʁs.mɑ̃/" data-meaning="strength exercises" >des exercices de renforcement</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -279,24 +263,16 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Avant, je faisais du sport
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/œ̃ ʒuʁ syʁ dø/"
-            data-meaning="every other day"
-            >un jour sur deux</span
-          >. Maintenant, j'ai trop à faire avec le jardin, le ménage et
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʁe.pa.ʁa.tif dy de.me.naʒ.mɑ̃/"
-            data-meaning="the moving preparations"
-            >les préparatifs du déménagement</span
-          >
-          en Malaisie. J'ai juste plus d'énergie.
+          <span class="chunk" data-audio="09_1.mp3">Avant,</span>
+          <span class="chunk" data-audio="09_2.mp3">je faisais du sport</span>
+          <span class="chunk" data-audio="09_3.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/œ̃ ʒuʁ syʁ dø/" data-meaning="every other day" >un jour sur deux</span >.</span>
+          <span class="chunk" data-audio="09_4.mp3">Maintenant,</span>
+          <span class="chunk" data-audio="09_5.mp3">j'ai trop à faire</span>
+          <span class="chunk" data-audio="09_6.mp3">avec le jardin,</span>
+          <span class="chunk" data-audio="09_7.mp3">le ménage</span>
+          <span class="chunk" data-audio="09_8.mp3">et <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʁe.pa.ʁa.tif dy de.me.naʒ.mɑ̃/" data-meaning="the moving preparations" >les préparatifs du déménagement</span ></span>
+          <span class="chunk" data-audio="09_9.mp3">en Malaisie.</span>
+          <span class="chunk" data-audio="09_10.mp3">J'ai juste plus d'énergie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -317,16 +293,15 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          T'es pas obligée de faire toute une séance. Des squats,
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pɔ̃ fɛ.sje/"
-            data-meaning="glute bridges"
-            >des ponts fessiers</span
-          >, une pompe — peu importe la version —, deux-trois séries, deux ou
-          trois matins par semaine.
+          <span class="chunk" data-audio="10_1.mp3">T'es pas obligée</span>
+          <span class="chunk" data-audio="10_2.mp3">de faire toute une séance.</span>
+          <span class="chunk" data-audio="10_3.mp3">Des squats,</span>
+          <span class="chunk" data-audio="10_4.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pɔ̃ fɛ.sje/" data-meaning="glute bridges" >des ponts fessiers</span >,</span>
+          <span class="chunk" data-audio="10_5.mp3">une pompe —</span>
+          <span class="chunk" data-audio="10_6.mp3">peu importe la version —,</span>
+          <span class="chunk" data-audio="10_7.mp3">deux-trois séries,</span>
+          <span class="chunk" data-audio="10_8.mp3">deux ou trois matins</span>
+          <span class="chunk" data-audio="10_9.mp3">par semaine.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -347,17 +322,17 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Super idée. Je peux rajouter les exercices d'abdos de Mary Helen
-          Bowers. C'est doux mais efficace. Et ses exercices pour l'extérieur
-          des cuisses, c'est bien pour
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/a.fi.ne le ɑ̃ʃ/"
-            data-meaning="to slim the hips"
-            >affiner les hanches</span
-          >. Plus facile pour rentrer dans un jean.
+          <span class="chunk" data-audio="11_1.mp3">Super idée.</span>
+          <span class="chunk" data-audio="11_2.mp3">Je peux rajouter</span>
+          <span class="chunk" data-audio="11_3.mp3">les exercices d'abdos</span>
+          <span class="chunk" data-audio="11_4.mp3">de Mary Helen Bowers.</span>
+          <span class="chunk" data-audio="11_5.mp3">C'est doux mais efficace.</span>
+          <span class="chunk" data-audio="11_6.mp3">Et ses exercices</span>
+          <span class="chunk" data-audio="11_7.mp3">pour l'extérieur des cuisses,</span>
+          <span class="chunk" data-audio="11_8.mp3">c'est bien</span>
+          <span class="chunk" data-audio="11_9.mp3">pour <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/a.fi.ne le ɑ̃ʃ/" data-meaning="to slim the hips" >affiner les hanches</span >.</span>
+          <span class="chunk" data-audio="11_10.mp3">Plus facile</span>
+          <span class="chunk" data-audio="11_11.mp3">pour rentrer dans un jean.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -378,16 +353,12 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Rajoute
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɡɛ.naʒ/"
-            data-meaning="planking, core strengthening"
-            >le gainage</span
-          >, ça colle bien. Garde aussi les exos pour les cuisses si ça te
-          plaît, ça va raffermir.
+          <span class="chunk" data-audio="12_1.mp3">Rajoute <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɡɛ.naʒ/" data-meaning="planking, core strengthening" >le gainage</span >,</span>
+          <span class="chunk" data-audio="12_2.mp3">ça colle bien.</span>
+          <span class="chunk" data-audio="12_3.mp3">Garde aussi</span>
+          <span class="chunk" data-audio="12_4.mp3">les exos pour les cuisses</span>
+          <span class="chunk" data-audio="12_5.mp3">si ça te plaît,</span>
+          <span class="chunk" data-audio="12_6.mp3">ça va raffermir.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -407,25 +378,16 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Il y a quelques années, je pouvais manger que
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/flɔ.kɔ̃ da.vwan/"
-            data-meaning="oatmeal"
-            >des flocons d'avoine</span
-          >
-          à cause de mon problème de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ve.zi.kyl bi.ljɛʁ/"
-            data-meaning="gallbladder"
-            >vésicule biliaire</span
-          >. J'ai perdu 3,2 kg en un mois. Le truc dingue, c'est que je perds
-          d'abord la graisse du ventre.
+          <span class="chunk" data-audio="13_1.mp3">Il y a quelques années,</span>
+          <span class="chunk" data-audio="13_2.mp3">je pouvais manger</span>
+          <span class="chunk" data-audio="13_3.mp3">que <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/flɔ.kɔ̃ da.vwan/" data-meaning="oatmeal" >des flocons d'avoine</span ></span>
+          <span class="chunk" data-audio="13_4.mp3">à cause de mon problème</span>
+          <span class="chunk" data-audio="13_5.mp3">de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ve.zi.kyl bi.ljɛʁ/" data-meaning="gallbladder" >vésicule biliaire</span >.</span>
+          <span class="chunk" data-audio="13_6.mp3">J'ai perdu 3,2 kg</span>
+          <span class="chunk" data-audio="13_7.mp3">en un mois.</span>
+          <span class="chunk" data-audio="13_8.mp3">Le truc dingue,</span>
+          <span class="chunk" data-audio="13_9.mp3">c'est que je perds d'abord</span>
+          <span class="chunk" data-audio="13_10.mp3">la graisse du ventre.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -446,17 +408,16 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Ça, c'est une grosse réduction de calories. Il faut viser à peu près
-          0,2 kg par semaine. Ça t'amènera à 49,9 en quatre mois environ. C'est
-          lent, mais c'est la version qui marche vraiment et qui
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tjɛ̃ dɑ̃ lə tɑ̃/"
-            data-meaning="stands the test of time"
-            >tient dans le temps</span
-          >.
+          <span class="chunk" data-audio="14_1.mp3">Ça, c'est une grosse réduction</span>
+          <span class="chunk" data-audio="14_2.mp3">de calories.</span>
+          <span class="chunk" data-audio="14_3.mp3">Il faut viser à peu près</span>
+          <span class="chunk" data-audio="14_4.mp3">0,2 kg par semaine.</span>
+          <span class="chunk" data-audio="14_5.mp3">Ça t'amènera à 49,9</span>
+          <span class="chunk" data-audio="14_6.mp3">en quatre mois environ.</span>
+          <span class="chunk" data-audio="14_7.mp3">C'est lent,</span>
+          <span class="chunk" data-audio="14_8.mp3">mais c'est la version</span>
+          <span class="chunk" data-audio="14_9.mp3">qui marche vraiment</span>
+          <span class="chunk" data-audio="14_10.mp3">et qui <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tjɛ̃ dɑ̃ lə tɑ̃/" data-meaning="stands the test of time" >tient dans le temps</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -477,16 +438,9 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Ok, je vais essayer de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ka.ze/"
-            data-meaning="to fit in, to squeeze in"
-            >caser</span
-          >
-          ça dans mon quotidien.
+          <span class="chunk" data-audio="15_1.mp3">Ok,</span>
+          <span class="chunk" data-audio="15_2.mp3">je vais essayer de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ka.ze/" data-meaning="to fit in, to squeeze in" >caser</span > ça</span>
+          <span class="chunk" data-audio="15_3.mp3">dans mon quotidien.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -566,6 +520,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv26/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv26/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

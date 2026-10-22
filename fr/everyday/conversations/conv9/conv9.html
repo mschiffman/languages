@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="english-text" data-aos="fade-up">
@@ -86,25 +92,12 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Salut Marissa ! As-tu une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ide/"
-            data-meaning="idea"
-            >idée</span
-          >
-          ou un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tɛm/"
-            data-meaning="theme"
-            >thème</span
-          >
-          pour notre jeu de rôle, ou veux-tu que je propose des idées ?
+          <span class="chunk" data-audio="01_1.mp3">Salut Marissa !</span>
+          <span class="chunk" data-audio="01_2.mp3">As-tu une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ide/" data-meaning="idea" >idée</span ></span>
+          <span class="chunk" data-audio="01_3.mp3">ou un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tɛm/" data-meaning="theme" >thème</span ></span>
+          <span class="chunk" data-audio="01_4.mp3">pour notre jeu de rôle,</span>
+          <span class="chunk" data-audio="01_5.mp3">ou veux-tu</span>
+          <span class="chunk" data-audio="01_6.mp3">que je propose des idées ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -123,23 +116,11 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Fais comme si tu étais mon mari, je
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/mɑ̃nɥi/ (s'ennuyer)"
-            data-meaning="to be bored"
-            >m'ennuie</span
-          >
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/a.muʀiʀ/"
-            data-meaning="to death"
-            >à mourir</span
-          >… Trouvons quelque chose à faire.
+          <span class="chunk" data-audio="02_1.mp3">Fais comme si</span>
+          <span class="chunk" data-audio="02_2.mp3">tu étais mon mari,</span>
+          <span class="chunk" data-audio="02_3.mp3">je <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/mɑ̃nɥi/ (s'ennuyer)" data-meaning="to be bored" >m'ennuie</span > <span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/a.muʀiʀ/" data-meaning="to death" >à mourir</span >…</span>
+          <span class="chunk" data-audio="02_4.mp3">Trouvons quelque chose</span>
+          <span class="chunk" data-audio="02_5.mp3">à faire.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -158,16 +139,10 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          D'accord,
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃeʀi/"
-            data-meaning="darling"
-            >chérie</span
-          >, merci de me le dire. Tu veux rester à la maison ou sortir quelque
-          part ?
+          <span class="chunk" data-audio="03_1.mp3">D'accord, <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃeʀi/" data-meaning="darling" >chérie</span >,</span>
+          <span class="chunk" data-audio="03_2.mp3">merci de me le dire.</span>
+          <span class="chunk" data-audio="03_3.mp3">Tu veux rester à la maison</span>
+          <span class="chunk" data-audio="03_4.mp3">ou sortir quelque part ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -186,7 +161,8 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Sortons et faisons un truc.
+          <span class="chunk" data-audio="04_1.mp3">Sortons</span>
+          <span class="chunk" data-audio="04_2.mp3">et faisons un truc.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -202,16 +178,12 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          D'accord, super idée, sortons un peu. Tu préfères aller au
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sinema/"
-            data-meaning="cinema"
-            >cinéma</span
-          >
-          ou boire quelque chose dans un café ?
+          <span class="chunk" data-audio="05_1.mp3">D'accord,</span>
+          <span class="chunk" data-audio="05_2.mp3">super idée,</span>
+          <span class="chunk" data-audio="05_3.mp3">sortons un peu.</span>
+          <span class="chunk" data-audio="05_4.mp3">Tu préfères aller au <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sinema/" data-meaning="cinema" >cinéma</span ></span>
+          <span class="chunk" data-audio="05_5.mp3">ou boire quelque chose</span>
+          <span class="chunk" data-audio="05_6.mp3">dans un café ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -230,16 +202,11 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          J'adore les films en 3D. Est-ce qu'il y a quelque chose de sympa à
-          l'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/afiʃ/"
-            data-meaning="showing/on display"
-            >affiche</span
-          >
-          en ce moment au cinéma ?
+          <span class="chunk" data-audio="06_1.mp3">J'adore les films en 3D.</span>
+          <span class="chunk" data-audio="06_2.mp3">Est-ce qu'il y a</span>
+          <span class="chunk" data-audio="06_3.mp3">quelque chose de sympa</span>
+          <span class="chunk" data-audio="06_4.mp3">à l'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/afiʃ/" data-meaning="showing/on display" >affiche</span ></span>
+          <span class="chunk" data-audio="06_5.mp3">en ce moment au cinéma ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -258,32 +225,15 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Oui, il y a un super film d'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/avɑ̃tyʀ/"
-            data-meaning="adventure"
-            >aventure</span
-          >
-          en 3D, avec plein d'action — il a de bonnes
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kʀitik/"
-            data-meaning="reviews"
-            >critiques</span
-          >. Tu veux voir ce film d'aventure ou tu préfères un film
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀɔmɑ̃tik/"
-            data-meaning="romantic"
-            >romantique</span
-          >
-          en 3D ?
+          <span class="chunk" data-audio="07_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="07_2.mp3">il y a un super film d'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/avɑ̃tyʀ/" data-meaning="adventure" >aventure</span ></span>
+          <span class="chunk" data-audio="07_3.mp3">en 3D,</span>
+          <span class="chunk" data-audio="07_4.mp3">avec plein d'action —</span>
+          <span class="chunk" data-audio="07_5.mp3">il a de bonnes <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kʀitik/" data-meaning="reviews" >critiques</span >.</span>
+          <span class="chunk" data-audio="07_6.mp3">Tu veux voir</span>
+          <span class="chunk" data-audio="07_7.mp3">ce film d'aventure</span>
+          <span class="chunk" data-audio="07_8.mp3">ou tu préfères</span>
+          <span class="chunk" data-audio="07_9.mp3">un film <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀɔmɑ̃tik/" data-meaning="romantic" >romantique</span > en 3D ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -303,24 +253,12 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          L'aventure, sans
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ezitasjɔ̃/"
-            data-meaning="hesitation"
-            >hésitation</span
-          >. C'est bien au cinéma IMAX Marbles ? Et la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/seɑ̃s/"
-            data-meaning="showing/session"
-            >séance</span
-          >
-          est à quelle heure ?
+          <span class="chunk" data-audio="08_1.mp3">L'aventure,</span>
+          <span class="chunk" data-audio="08_2.mp3">sans <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ezitasjɔ̃/" data-meaning="hesitation" >hésitation</span >.</span>
+          <span class="chunk" data-audio="08_3.mp3">C'est bien</span>
+          <span class="chunk" data-audio="08_4.mp3">au cinéma IMAX Marbles ?</span>
+          <span class="chunk" data-audio="08_5.mp3">Et la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/seɑ̃s/" data-meaning="showing/session" >séance</span ></span>
+          <span class="chunk" data-audio="08_6.mp3">est à quelle heure ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -339,16 +277,14 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Oui, il passe au cinéma IMAX Marbles, en 3D, ça va être
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʒenjal/"
-            data-meaning="great/awesome"
-            >génial</span
-          >. Il y a une séance à 18h30 et une autre à 21h, tu préfères quelle
-          heure ?
+          <span class="chunk" data-audio="09_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="09_2.mp3">il passe</span>
+          <span class="chunk" data-audio="09_3.mp3">au cinéma IMAX Marbles,</span>
+          <span class="chunk" data-audio="09_4.mp3">en 3D,</span>
+          <span class="chunk" data-audio="09_5.mp3">ça va être <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʒenjal/" data-meaning="great/awesome" >génial</span >.</span>
+          <span class="chunk" data-audio="09_6.mp3">Il y a une séance à 18h30</span>
+          <span class="chunk" data-audio="09_7.mp3">et une autre à 21h,</span>
+          <span class="chunk" data-audio="09_8.mp3">tu préfères quelle heure ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -368,16 +304,11 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          18h30, ça me va. Au fait, tu n'aurais pas vu mon
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/telefɔn/"
-            data-meaning="phone"
-            >téléphone</span
-          >
-          ?
+          <span class="chunk" data-audio="10_1.mp3">18h30,</span>
+          <span class="chunk" data-audio="10_2.mp3">ça me va.</span>
+          <span class="chunk" data-audio="10_3.mp3">Au fait,</span>
+          <span class="chunk" data-audio="10_4.mp3">tu n'aurais pas vu</span>
+          <span class="chunk" data-audio="10_5.mp3">mon <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/telefɔn/" data-meaning="phone" >téléphone</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -395,32 +326,15 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Oui, 18h30 c'est parfait, nous aurons le temps d'y aller
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tʀɑ̃kilmɑ̃/"
-            data-meaning="calmly/leisurely"
-            >tranquillement</span
-          >. Je crois que ton
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pɔʀtabl/"
-            data-meaning="cell phone"
-            >portable</span
-          >
-          est sur la table du salon, près de la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/lɑ̃p/"
-            data-meaning="lamp"
-            >lampe</span
-          >, tu veux que je te le donne ou tu vas le prendre toi-même ?
+          <span class="chunk" data-audio="11_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="11_2.mp3">18h30 c'est parfait,</span>
+          <span class="chunk" data-audio="11_3.mp3">nous aurons le temps</span>
+          <span class="chunk" data-audio="11_4.mp3">d'y aller <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tʀɑ̃kilmɑ̃/" data-meaning="calmly/leisurely" >tranquillement</span >.</span>
+          <span class="chunk" data-audio="11_5.mp3">Je crois que ton <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pɔʀtabl/" data-meaning="cell phone" >portable</span ></span>
+          <span class="chunk" data-audio="11_6.mp3">est sur la table du salon,</span>
+          <span class="chunk" data-audio="11_7.mp3">près de la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/lɑ̃p/" data-meaning="lamp" >lampe</span >,</span>
+          <span class="chunk" data-audio="11_8.mp3">tu veux que je te le donne</span>
+          <span class="chunk" data-audio="11_9.mp3">ou tu vas le prendre toi-même ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -440,16 +354,9 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Je ne le trouve pas. Tu vois un autre
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃dʀwa/"
-            data-meaning="place"
-            >endroit</span
-          >
-          où il pourrait être ?
+          <span class="chunk" data-audio="12_1.mp3">Je ne le trouve pas.</span>
+          <span class="chunk" data-audio="12_2.mp3">Tu vois un autre <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃dʀwa/" data-meaning="place" >endroit</span ></span>
+          <span class="chunk" data-audio="12_3.mp3">où il pourrait être ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -465,41 +372,13 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Ah
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/mɛ̃s/"
-            data-meaning="darn/shoot"
-            >mince</span
-          >, alors ce n'est pas là. Regarde dans ton
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sak.a.mɛ̃/"
-            data-meaning="handbag"
-            >sac à main</span
-          >
-          dans l'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃tʀe/"
-            data-meaning="entryway"
-            >entrée</span
-          >
-          ou sur la table de la cuisine, tu peux
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/veʀifje/"
-            data-meaning="to check"
-            >vérifier</span
-          >
-          ces deux endroits ?
+          <span class="chunk" data-audio="13_1.mp3">Ah <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/mɛ̃s/" data-meaning="darn/shoot" >mince</span >,</span>
+          <span class="chunk" data-audio="13_2.mp3">alors ce n'est pas là.</span>
+          <span class="chunk" data-audio="13_3.mp3">Regarde dans ton <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sak.a.mɛ̃/" data-meaning="handbag" >sac à main</span ></span>
+          <span class="chunk" data-audio="13_4.mp3">dans l'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃tʀe/" data-meaning="entryway" >entrée</span ></span>
+          <span class="chunk" data-audio="13_5.mp3">ou sur la table de la cuisine,</span>
+          <span class="chunk" data-audio="13_6.mp3">tu peux <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/veʀifje/" data-meaning="to check" >vérifier</span ></span>
+          <span class="chunk" data-audio="13_7.mp3">ces deux endroits ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -518,25 +397,10 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Je ne le trouve pas. Est-ce que je l'ai posé sur le
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔ̃twaʀ/"
-            data-meaning="counter"
-            >comptoir</span
-          >
-          de la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sal.də.bɛ̃/"
-            data-meaning="bathroom"
-            >salle de bain</span
-          >
-          ?
+          <span class="chunk" data-audio="14_1.mp3">Je ne le trouve pas.</span>
+          <span class="chunk" data-audio="14_2.mp3">Est-ce que je l'ai posé</span>
+          <span class="chunk" data-audio="14_3.mp3">sur le <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔ̃twaʀ/" data-meaning="counter" >comptoir</span ></span>
+          <span class="chunk" data-audio="14_4.mp3">de la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sal.də.bɛ̃/" data-meaning="bathroom" >salle de bain</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -552,25 +416,13 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Oui, c'est possible, tu le poses souvent là quand tu te
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/makij/ (se maquiller)"
-            data-meaning="to put on makeup"
-            >maquilles</span
-          >. Tu peux aller voir sur le comptoir de la salle de bain et aussi
-          près du
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/lavabo/"
-            data-meaning="sink"
-            >lavabo</span
-          >
-          ?
+          <span class="chunk" data-audio="15_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="15_2.mp3">c'est possible,</span>
+          <span class="chunk" data-audio="15_3.mp3">tu le poses souvent là</span>
+          <span class="chunk" data-audio="15_4.mp3">quand tu te <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/makij/ (se maquiller)" data-meaning="to put on makeup" >maquilles</span >.</span>
+          <span class="chunk" data-audio="15_5.mp3">Tu peux aller voir</span>
+          <span class="chunk" data-audio="15_6.mp3">sur le comptoir de la salle de bain</span>
+          <span class="chunk" data-audio="15_7.mp3">et aussi près du <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/lavabo/" data-meaning="sink" >lavabo</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -589,7 +441,10 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Non, toujours pas. Tu peux appeler mon téléphone ?
+          <span class="chunk" data-audio="16_1.mp3">Non,</span>
+          <span class="chunk" data-audio="16_2.mp3">toujours pas.</span>
+          <span class="chunk" data-audio="16_3.mp3">Tu peux appeler</span>
+          <span class="chunk" data-audio="16_4.mp3">mon téléphone ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -605,25 +460,12 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Oui, bien sûr, j'appelle ton téléphone tout de suite. Tu entends une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sɔnʀi/"
-            data-meaning="ringtone"
-            >sonnerie</span
-          >
-          quelque part dans la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/mɛzɔ̃/"
-            data-meaning="house"
-            >maison</span
-          >
-          ?
+          <span class="chunk" data-audio="17_1.mp3">Oui, bien sûr,</span>
+          <span class="chunk" data-audio="17_2.mp3">j'appelle ton téléphone</span>
+          <span class="chunk" data-audio="17_3.mp3">tout de suite.</span>
+          <span class="chunk" data-audio="17_4.mp3">Tu entends une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sɔnʀi/" data-meaning="ringtone" >sonnerie</span ></span>
+          <span class="chunk" data-audio="17_5.mp3">quelque part</span>
+          <span class="chunk" data-audio="17_6.mp3">dans la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/mɛzɔ̃/" data-meaning="house" >maison</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -642,24 +484,11 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Ah oui, il est posé sur la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɔmɔd/"
-            data-meaning="dresser"
-            >commode</span
-          >. Je m'en suis
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sɛʀvi/ (se servir de)"
-            data-meaning="to use"
-            >servi</span
-          >
-          hier soir dans le lit.
+          <span class="chunk" data-audio="18_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="18_2.mp3">il est posé sur la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɔmɔd/" data-meaning="dresser" >commode</span >.</span>
+          <span class="chunk" data-audio="18_3.mp3">Je m'en suis <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sɛʀvi/ (se servir de)" data-meaning="to use" >servi</span ></span>
+          <span class="chunk" data-audio="18_4.mp3">hier soir</span>
+          <span class="chunk" data-audio="18_5.mp3">dans le lit.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -675,9 +504,15 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Ah d'accord, super, tu l'as trouvé, il était donc sur la commode près
-          du lit. Tu veux que l'on parte au cinéma maintenant ou tu veux faire
-          quelque chose avant de sortir ?
+          <span class="chunk" data-audio="19_1.mp3">Ah d'accord,</span>
+          <span class="chunk" data-audio="19_2.mp3">super,</span>
+          <span class="chunk" data-audio="19_3.mp3">tu l'as trouvé,</span>
+          <span class="chunk" data-audio="19_4.mp3">il était donc sur la commode</span>
+          <span class="chunk" data-audio="19_5.mp3">près du lit.</span>
+          <span class="chunk" data-audio="19_6.mp3">Tu veux que l'on parte</span>
+          <span class="chunk" data-audio="19_7.mp3">au cinéma maintenant</span>
+          <span class="chunk" data-audio="19_8.mp3">ou tu veux faire quelque chose</span>
+          <span class="chunk" data-audio="19_9.mp3">avant de sortir ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -697,7 +532,9 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          On devrait d'abord manger. Qu'est-ce qu'on se fait ce soir ?
+          <span class="chunk" data-audio="20_1.mp3">On devrait d'abord manger.</span>
+          <span class="chunk" data-audio="20_2.mp3">Qu'est-ce qu'on se fait</span>
+          <span class="chunk" data-audio="20_3.mp3">ce soir ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -713,33 +550,15 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          On peut faire quelque chose de simple, par exemple des
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pɑt/"
-            data-meaning="pasta"
-            >pâtes</span
-          >
-          avec une sauce tomate et du
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fʀɔmaʒ/"
-            data-meaning="cheese"
-            >fromage</span
-          >. Tu préfères manger à la maison ou acheter quelque chose
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃.ʃ(ə)mɛ̃/"
-            data-meaning="on the way"
-            >en chemin</span
-          >
-          pour le cinéma ?
+          <span class="chunk" data-audio="21_1.mp3">On peut faire</span>
+          <span class="chunk" data-audio="21_2.mp3">quelque chose de simple,</span>
+          <span class="chunk" data-audio="21_3.mp3">par exemple des <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pɑt/" data-meaning="pasta" >pâtes</span ></span>
+          <span class="chunk" data-audio="21_4.mp3">avec une sauce tomate</span>
+          <span class="chunk" data-audio="21_5.mp3">et du <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fʀɔmaʒ/" data-meaning="cheese" >fromage</span >.</span>
+          <span class="chunk" data-audio="21_6.mp3">Tu préfères manger à la maison</span>
+          <span class="chunk" data-audio="21_7.mp3">ou acheter quelque chose</span>
+          <span class="chunk" data-audio="21_8.mp3"><span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃.ʃ(ə)mɛ̃/" data-meaning="on the way" >en chemin</span ></span>
+          <span class="chunk" data-audio="21_9.mp3">pour le cinéma ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -759,24 +578,11 @@
           data-audio="22.mp3"
         ></audio>
         <p>
-          On mange à la maison. Ce que tu cuisines est bien
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/mɛjœʀ/"
-            data-meaning="better"
-            >meilleur</span
-          >
-          que ce qu'on trouve au resto, et puis
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sa.ʀ(ə)vjɛ̃.mwɛ̃.ʃɛʀ/"
-            data-meaning="it's cheaper"
-            >ça revient moins cher</span
-          >.
+          <span class="chunk" data-audio="22_1.mp3">On mange à la maison.</span>
+          <span class="chunk" data-audio="22_2.mp3">Ce que tu cuisines</span>
+          <span class="chunk" data-audio="22_3.mp3">est bien <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/mɛjœʀ/" data-meaning="better" >meilleur</span ></span>
+          <span class="chunk" data-audio="22_4.mp3">que ce qu'on trouve au resto,</span>
+          <span class="chunk" data-audio="22_5.mp3">et puis <span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/sa.ʀ(ə)vjɛ̃.mwɛ̃.ʃɛʀ/" data-meaning="it's cheaper" >ça revient moins cher</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -795,25 +601,15 @@
           data-audio="23.mp3"
         ></audio>
         <p>
-          Merci, ça me fait plaisir, tu es
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʒɑ̃tij/"
-            data-meaning="kind/nice"
-            >gentille</span
-          >, et oui, c'est moins cher aussi. Tu veux que je fasse des pâtes à la
-          sauce tomate ou des pâtes avec du
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/bœʀ/"
-            data-meaning="butter"
-            >beurre</span
-          >
-          et du fromage ?
+          <span class="chunk" data-audio="23_1.mp3">Merci,</span>
+          <span class="chunk" data-audio="23_2.mp3">ça me fait plaisir,</span>
+          <span class="chunk" data-audio="23_3.mp3">tu es <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʒɑ̃tij/" data-meaning="kind/nice" >gentille</span >,</span>
+          <span class="chunk" data-audio="23_4.mp3">et oui,</span>
+          <span class="chunk" data-audio="23_5.mp3">c'est moins cher aussi.</span>
+          <span class="chunk" data-audio="23_6.mp3">Tu veux que je fasse</span>
+          <span class="chunk" data-audio="23_7.mp3">des pâtes à la sauce tomate</span>
+          <span class="chunk" data-audio="23_8.mp3">ou des pâtes</span>
+          <span class="chunk" data-audio="23_9.mp3">avec du <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/bœʀ/" data-meaning="butter" >beurre</span > et du fromage ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -833,15 +629,10 @@
           data-audio="24.mp3"
         ></audio>
         <p>
-          Je préfère des pâtes toutes simples, juste avec de l'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/aj/"
-            data-meaning="garlic"
-            >ail</span
-          >
-          et des tomates.
+          <span class="chunk" data-audio="24_1.mp3">Je préfère</span>
+          <span class="chunk" data-audio="24_2.mp3">des pâtes toutes simples,</span>
+          <span class="chunk" data-audio="24_3.mp3">juste avec de l'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/aj/" data-meaning="garlic" >ail</span ></span>
+          <span class="chunk" data-audio="24_4.mp3">et des tomates.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -857,17 +648,13 @@
           data-audio="25.mp3"
         ></audio>
         <p>
-          Parfait, des pâtes avec ail et tomates, simple et bon, j'aime aussi.
-          Tu veux une petite
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/salad/"
-            data-meaning="salad"
-            >salade</span
-          >
-          avec, ou seulement les pâtes ?
+          <span class="chunk" data-audio="25_1.mp3">Parfait,</span>
+          <span class="chunk" data-audio="25_2.mp3">des pâtes avec ail et tomates,</span>
+          <span class="chunk" data-audio="25_3.mp3">simple et bon,</span>
+          <span class="chunk" data-audio="25_4.mp3">j'aime aussi.</span>
+          <span class="chunk" data-audio="25_5.mp3">Tu veux une petite <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/salad/" data-meaning="salad" >salade</span ></span>
+          <span class="chunk" data-audio="25_6.mp3">avec,</span>
+          <span class="chunk" data-audio="25_7.mp3">ou seulement les pâtes ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -886,8 +673,10 @@
           data-audio="26.mp3"
         ></audio>
         <p>
-          Seulement les pâtes, ça ira très bien. Après, on sortira, ce sera
-          sympa.
+          <span class="chunk" data-audio="26_1.mp3">Seulement les pâtes,</span>
+          <span class="chunk" data-audio="26_2.mp3">ça ira très bien.</span>
+          <span class="chunk" data-audio="26_3.mp3">Après, on sortira,</span>
+          <span class="chunk" data-audio="26_4.mp3">ce sera sympa.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -906,9 +695,14 @@
           data-audio="27.mp3"
         ></audio>
         <p>
-          Oui, ce sera une bonne soirée, ça me fait plaisir de sortir avec toi.
-          Tu veux que je commence les pâtes maintenant pendant que tu te
-          prépares un peu pour sortir ?
+          <span class="chunk" data-audio="27_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="27_2.mp3">ce sera une bonne soirée,</span>
+          <span class="chunk" data-audio="27_3.mp3">ça me fait plaisir</span>
+          <span class="chunk" data-audio="27_4.mp3">de sortir avec toi.</span>
+          <span class="chunk" data-audio="27_5.mp3">Tu veux que je commence</span>
+          <span class="chunk" data-audio="27_6.mp3">les pâtes maintenant</span>
+          <span class="chunk" data-audio="27_7.mp3">pendant que tu te prépares</span>
+          <span class="chunk" data-audio="27_8.mp3">un peu pour sortir ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -927,32 +721,11 @@
           data-audio="28.mp3"
         ></audio>
         <p>
-          Oui, on peut
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/si.mɛtʀ/"
-            data-meaning="to get started"
-            >s'y mettre</span
-          >. Je vais
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/emɛ̃se/"
-            data-meaning="to mince"
-            >émincer</span
-          >
-          l'ail et couper les tomates en petits
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/de/"
-            data-meaning="dice/cubes"
-            >dés</span
-          >.
+          <span class="chunk" data-audio="28_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="28_2.mp3">on peut <span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/si.mɛtʀ/" data-meaning="to get started" >s'y mettre</span >.</span>
+          <span class="chunk" data-audio="28_3.mp3">Je vais <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/emɛ̃se/" data-meaning="to mince" >émincer</span > l'ail</span>
+          <span class="chunk" data-audio="28_4.mp3">et couper les tomates</span>
+          <span class="chunk" data-audio="28_5.mp3">en petits <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/de/" data-meaning="dice/cubes" >dés</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -971,25 +744,15 @@
           data-audio="29.mp3"
         ></audio>
         <p>
-          Parfait, merci, pendant que tu coupes l'ail et les tomates, je mets de
-          l'eau à
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃofe/"
-            data-meaning="to heat"
-            >chauffer</span
-          >
-          et je sors les pâtes. Tu veux que je mette un peu de sel et d'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɥil.dɔliv/"
-            data-meaning="olive oil"
-            >huile d'olive</span
-          >
-          dans l'eau ?
+          <span class="chunk" data-audio="29_1.mp3">Parfait, merci,</span>
+          <span class="chunk" data-audio="29_2.mp3">pendant que tu coupes l'ail</span>
+          <span class="chunk" data-audio="29_3.mp3">et les tomates,</span>
+          <span class="chunk" data-audio="29_4.mp3">je mets de l'eau à <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃofe/" data-meaning="to heat" >chauffer</span ></span>
+          <span class="chunk" data-audio="29_5.mp3">et je sors les pâtes.</span>
+          <span class="chunk" data-audio="29_6.mp3">Tu veux que je mette</span>
+          <span class="chunk" data-audio="29_7.mp3">un peu de sel</span>
+          <span class="chunk" data-audio="29_8.mp3">et d'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɥil.dɔliv/" data-meaning="olive oil" >huile d'olive</span ></span>
+          <span class="chunk" data-audio="29_9.mp3">dans l'eau ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1009,34 +772,14 @@
           data-audio="30.mp3"
         ></audio>
         <p>
-          Ça me paraît une super idée. Tu comptes mettre quoi pour aller au
-          cinéma ? Il fait un peu
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fʀɛ/"
-            data-meaning="cool/chilly"
-            >frais</span
-          >
-          en ce moment, tu
-          <span
-            class="word-info text-nowrap"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fəʀɛ.mjø/"
-            data-meaning="you'd better"
-            >ferais mieux</span
-          >
-          de prendre une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vɛst/"
-            data-meaning="jacket"
-            >veste</span
-          >.
+          <span class="chunk" data-audio="30_1.mp3">Ça me paraît</span>
+          <span class="chunk" data-audio="30_2.mp3">une super idée.</span>
+          <span class="chunk" data-audio="30_3.mp3">Tu comptes mettre quoi</span>
+          <span class="chunk" data-audio="30_4.mp3">pour aller au cinéma ?</span>
+          <span class="chunk" data-audio="30_5.mp3">Il fait un peu <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fʀɛ/" data-meaning="cool/chilly" >frais</span ></span>
+          <span class="chunk" data-audio="30_6.mp3">en ce moment,</span>
+          <span class="chunk" data-audio="30_7.mp3">tu <span class="word-info text-nowrap" data-bs-toggle="tooltip" data-bs-placement="top" title="/fəʀɛ.mjø/" data-meaning="you'd better" >ferais mieux</span ></span>
+          <span class="chunk" data-audio="30_8.mp3">de prendre une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vɛst/" data-meaning="jacket" >veste</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1055,34 +798,14 @@
           data-audio="31.mp3"
         ></audio>
         <p>
-          Oui, je vais mettre un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dʒin/"
-            data-meaning="jeans"
-            >jean</span
-          >, un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pyl/"
-            data-meaning="sweater"
-            >pull</span
-          >
-          léger, et je vais prendre ma veste pour avoir chaud. Tu sais déjà
-          quels
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vɛtmɑ̃/"
-            data-meaning="clothes"
-            >vêtements</span
-          >
-          tu vas mettre pour ce soir ?
+          <span class="chunk" data-audio="31_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="31_2.mp3">je vais mettre un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dʒin/" data-meaning="jeans" >jean</span >,</span>
+          <span class="chunk" data-audio="31_3.mp3">un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pyl/" data-meaning="sweater" >pull</span > léger,</span>
+          <span class="chunk" data-audio="31_4.mp3">et je vais prendre ma veste</span>
+          <span class="chunk" data-audio="31_5.mp3">pour avoir chaud.</span>
+          <span class="chunk" data-audio="31_6.mp3">Tu sais déjà</span>
+          <span class="chunk" data-audio="31_7.mp3">quels <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vɛtmɑ̃/" data-meaning="clothes" >vêtements</span ></span>
+          <span class="chunk" data-audio="31_8.mp3">tu vas mettre pour ce soir ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1102,16 +825,9 @@
           data-audio="32.mp3"
         ></audio>
         <p>
-          Est-ce que je mets une veste en jean ou une veste en
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kɥiʀ/"
-            data-meaning="leather"
-            >cuir</span
-          >
-          ?
+          <span class="chunk" data-audio="32_1.mp3">Est-ce que je mets</span>
+          <span class="chunk" data-audio="32_2.mp3">une veste en jean</span>
+          <span class="chunk" data-audio="32_3.mp3">ou une veste en <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kɥiʀ/" data-meaning="leather" >cuir</span > ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1127,17 +843,14 @@
           data-audio="33.mp3"
         ></audio>
         <p>
-          Je pense que la veste en cuir est mieux, il fait frais et c'est plus
-          chaud. Tu veux aussi prendre une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/eʃaʀp/"
-            data-meaning="scarf"
-            >écharpe</span
-          >
-          légère ou ce n'est pas nécessaire pour toi ?
+          <span class="chunk" data-audio="33_1.mp3">Je pense</span>
+          <span class="chunk" data-audio="33_2.mp3">que la veste en cuir est mieux,</span>
+          <span class="chunk" data-audio="33_3.mp3">il fait frais</span>
+          <span class="chunk" data-audio="33_4.mp3">et c'est plus chaud.</span>
+          <span class="chunk" data-audio="33_5.mp3">Tu veux aussi prendre</span>
+          <span class="chunk" data-audio="33_6.mp3">une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/eʃaʀp/" data-meaning="scarf" >écharpe</span > légère</span>
+          <span class="chunk" data-audio="33_7.mp3">ou ce n'est pas nécessaire</span>
+          <span class="chunk" data-audio="33_8.mp3">pour toi ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1156,8 +869,13 @@
           data-audio="34.mp3"
         ></audio>
         <p>
-          Je ne pense pas qu'une écharpe soit nécessaire, il ne fait pas si
-          froid. D'accord, on se change, on mange et ensuite on y va.
+          <span class="chunk" data-audio="34_1.mp3">Je ne pense pas</span>
+          <span class="chunk" data-audio="34_2.mp3">qu'une écharpe soit nécessaire,</span>
+          <span class="chunk" data-audio="34_3.mp3">il ne fait pas si froid.</span>
+          <span class="chunk" data-audio="34_4.mp3">D'accord,</span>
+          <span class="chunk" data-audio="34_5.mp3">on se change,</span>
+          <span class="chunk" data-audio="34_6.mp3">on mange</span>
+          <span class="chunk" data-audio="34_7.mp3">et ensuite on y va.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1176,9 +894,16 @@
           data-audio="35.mp3"
         ></audio>
         <p>
-          D'accord, on fait comme ça : on se change, on mange nos pâtes, et
-          ensuite on part pour le cinéma. Tu veux que l'on parte combien de
-          temps avant la séance, 30 minutes ou 1 heure ?
+          <span class="chunk" data-audio="35_1.mp3">D'accord,</span>
+          <span class="chunk" data-audio="35_2.mp3">on fait comme ça :</span>
+          <span class="chunk" data-audio="35_3.mp3">on se change,</span>
+          <span class="chunk" data-audio="35_4.mp3">on mange nos pâtes,</span>
+          <span class="chunk" data-audio="35_5.mp3">et ensuite</span>
+          <span class="chunk" data-audio="35_6.mp3">on part pour le cinéma.</span>
+          <span class="chunk" data-audio="35_7.mp3">Tu veux que l'on parte</span>
+          <span class="chunk" data-audio="35_8.mp3">combien de temps</span>
+          <span class="chunk" data-audio="35_9.mp3">avant la séance,</span>
+          <span class="chunk" data-audio="35_10.mp3">30 minutes ou 1 heure ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -1261,6 +986,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv9/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv9/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

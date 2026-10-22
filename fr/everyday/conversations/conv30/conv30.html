@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,7 +92,8 @@
           data-audio="01.mp3?v=2607101229"
         ></audio>
         <p>
-          On dit que tout homme a un prix, non ?
+          <span class="chunk" data-audio="01_1.mp3">On dit que tout homme</span>
+          <span class="chunk" data-audio="01_2.mp3">a un prix, non ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -103,7 +110,7 @@
           data-audio="02.mp3?v=2607101229"
         ></audio>
         <p>
-          J'imagine, ouais.
+          <span class="chunk" data-audio="02_1.mp3">J'imagine, ouais.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -120,19 +127,17 @@
           data-audio="03.mp3?v=2607101229"
         ></audio>
         <p>
-          Bon, laisse-moi te raconter une histoire vraie. Un Birman utilisait un
-          service de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɔ̃.di/"
-            data-meaning="informal trust-based money-transfer network (hundi/hundi)"
-            >hundi</span
-          >
-          depuis cinq ans. Pas un seul pépin. Et puis un jour, il envoie une
-          grosse somme. La femme du hundi disparaît. Elle s'est tirée avec le
-          fric.
+          <span class="chunk" data-audio="03_1.mp3">Bon,</span>
+          <span class="chunk" data-audio="03_2.mp3">laisse-moi te raconter</span>
+          <span class="chunk" data-audio="03_3.mp3">une histoire vraie.</span>
+          <span class="chunk" data-audio="03_4.mp3">Un Birman utilisait</span>
+          <span class="chunk" data-audio="03_5.mp3">un service de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɔ̃.di/" data-meaning="informal trust-based money-transfer network (hundi/hundi)" >hundi</span ></span>
+          <span class="chunk" data-audio="03_6.mp3">depuis cinq ans.</span>
+          <span class="chunk" data-audio="03_7.mp3">Pas un seul pépin.</span>
+          <span class="chunk" data-audio="03_8.mp3">Et puis un jour,</span>
+          <span class="chunk" data-audio="03_9.mp3">il envoie une grosse somme.</span>
+          <span class="chunk" data-audio="03_10.mp3">La femme du hundi disparaît.</span>
+          <span class="chunk" data-audio="03_11.mp3">Elle s'est tirée avec le fric.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -154,7 +159,8 @@
           data-audio="04.mp3?v=2607101229"
         ></audio>
         <p>
-          Pourquoi il va pas voir la police ?
+          <span class="chunk" data-audio="04_1.mp3">Pourquoi il va pas voir</span>
+          <span class="chunk" data-audio="04_2.mp3">la police ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -171,8 +177,12 @@
           data-audio="05.mp3?v=2607101229"
         ></audio>
         <p>
-          Il peut pas. Ce service repose sur la confiance. Pas de trace écrite,
-          pas de signature de réception, rien.
+          <span class="chunk" data-audio="05_1.mp3">Il peut pas.</span>
+          <span class="chunk" data-audio="05_2.mp3">Ce service</span>
+          <span class="chunk" data-audio="05_3.mp3">repose sur la confiance.</span>
+          <span class="chunk" data-audio="05_4.mp3">Pas de trace écrite,</span>
+          <span class="chunk" data-audio="05_5.mp3">pas de signature de réception,</span>
+          <span class="chunk" data-audio="05_6.mp3">rien.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -192,7 +202,8 @@
           data-audio="06.mp3?v=2607101229"
         ></audio>
         <p>
-          Alors, qu'est-ce qu'il a fait ?
+          <span class="chunk" data-audio="06_1.mp3">Alors,</span>
+          <span class="chunk" data-audio="06_2.mp3">qu'est-ce qu'il a fait ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -209,19 +220,19 @@
           data-audio="07.mp3?v=2607101229"
         ></audio>
         <p>
-          Ce que font les Birmans dans un pays où la loi peut pas les protéger,
-          c'est qu'ils
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/balɑ̃se lœʁ istwaʁ/"
-            data-meaning="to post/blast their story publicly (informal)"
-            >balancent leur histoire</span
-          >
-          sur Facebook. Avec photos, noms des conjoints, adresses, numéros de
-          téléphone. Comme ça, les escrocs peuvent arnaquer qu'une seule fois,
-          et leur réputation est foutue.
+          <span class="chunk" data-audio="07_1.mp3">Ce que font les Birmans</span>
+          <span class="chunk" data-audio="07_2.mp3">dans un pays</span>
+          <span class="chunk" data-audio="07_3.mp3">où la loi peut pas les protéger,</span>
+          <span class="chunk" data-audio="07_4.mp3">c'est qu'ils <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/balɑ̃se lœʁ istwaʁ/" data-meaning="to post/blast their story publicly (informal)" >balancent leur histoire</span ></span>
+          <span class="chunk" data-audio="07_5.mp3">sur Facebook.</span>
+          <span class="chunk" data-audio="07_6.mp3">Avec photos,</span>
+          <span class="chunk" data-audio="07_7.mp3">noms des conjoints,</span>
+          <span class="chunk" data-audio="07_8.mp3">adresses,</span>
+          <span class="chunk" data-audio="07_9.mp3">numéros de téléphone.</span>
+          <span class="chunk" data-audio="07_10.mp3">Comme ça,</span>
+          <span class="chunk" data-audio="07_11.mp3">les escrocs peuvent arnaquer</span>
+          <span class="chunk" data-audio="07_12.mp3">qu'une seule fois,</span>
+          <span class="chunk" data-audio="07_13.mp3">et leur réputation est foutue.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -243,7 +254,8 @@
           data-audio="08.mp3?v=2607101229"
         ></audio>
         <p>
-          Waouh, c'est brutal.
+          <span class="chunk" data-audio="08_1.mp3">Waouh,</span>
+          <span class="chunk" data-audio="08_2.mp3">c'est brutal.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -260,9 +272,14 @@
           data-audio="09.mp3?v=2607101229"
         ></audio>
         <p>
-          Brutal, mais efficace. Tu te souviens du médecin aux États-Unis qui
-          avait envoyé 100 000 dollars à son intermédiaire hundi habituel ? Le
-          type a disparu. Ça remonte à plus de dix ans.
+          <span class="chunk" data-audio="09_1.mp3">Brutal, mais efficace.</span>
+          <span class="chunk" data-audio="09_2.mp3">Tu te souviens du médecin</span>
+          <span class="chunk" data-audio="09_3.mp3">aux États-Unis</span>
+          <span class="chunk" data-audio="09_4.mp3">qui avait envoyé 100 000 dollars</span>
+          <span class="chunk" data-audio="09_5.mp3">à son intermédiaire hundi habituel ?</span>
+          <span class="chunk" data-audio="09_6.mp3">Le type a disparu.</span>
+          <span class="chunk" data-audio="09_7.mp3">Ça remonte</span>
+          <span class="chunk" data-audio="09_8.mp3">à plus de dix ans.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -283,7 +300,8 @@
           data-audio="10.mp3?v=2607101229"
         ></audio>
         <p>
-          Et il est devenu quoi, le médecin ?
+          <span class="chunk" data-audio="10_1.mp3">Et il est devenu quoi,</span>
+          <span class="chunk" data-audio="10_2.mp3">le médecin ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -300,10 +318,18 @@
           data-audio="11.mp3?v=2607101229"
         ></audio>
         <p>
-          À l'époque, y avait pas Facebook au Myanmar. Du coup, il pouvait rien
-          faire. Il pouvait même pas le poursuivre en justice, alors qu'ils
-          vivaient tous les deux aux États-Unis. Même histoire. Pas de traces,
-          pas de signatures.
+          <span class="chunk" data-audio="11_1.mp3">À l'époque,</span>
+          <span class="chunk" data-audio="11_2.mp3">y avait pas Facebook</span>
+          <span class="chunk" data-audio="11_3.mp3">au Myanmar.</span>
+          <span class="chunk" data-audio="11_4.mp3">Du coup,</span>
+          <span class="chunk" data-audio="11_5.mp3">il pouvait rien faire.</span>
+          <span class="chunk" data-audio="11_6.mp3">Il pouvait même pas</span>
+          <span class="chunk" data-audio="11_7.mp3">le poursuivre en justice,</span>
+          <span class="chunk" data-audio="11_8.mp3">alors qu'ils vivaient tous les deux</span>
+          <span class="chunk" data-audio="11_9.mp3">aux États-Unis.</span>
+          <span class="chunk" data-audio="11_10.mp3">Même histoire.</span>
+          <span class="chunk" data-audio="11_11.mp3">Pas de traces,</span>
+          <span class="chunk" data-audio="11_12.mp3">pas de signatures.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -324,7 +350,9 @@
           data-audio="12.mp3?v=2607101229"
         ></audio>
         <p>
-          C'est moche. C'est une sacrée somme, quand même.
+          <span class="chunk" data-audio="12_1.mp3">C'est moche.</span>
+          <span class="chunk" data-audio="12_2.mp3">C'est une sacrée somme,</span>
+          <span class="chunk" data-audio="12_3.mp3">quand même.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -341,20 +369,24 @@
           data-audio="13.mp3?v=2607101229"
         ></audio>
         <p>
-          Bon, si je te raconte tout ça, c'est parce que ce service de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dɔ.mi.si.lja.sjɔ̃/"
-            data-meaning="mail-forwarding / registered-address service"
-            >domiciliation</span
-          >
-          aux États-Unis dont tu parles, ça me met pas à l'aise. Ils vont ouvrir
-          tout notre courrier. Ils auront nos infos sensibles, genre les numéros
-          de sécurité sociale. Y aura peut-être du courrier de nos banques ou de
-          nos placements. Quand ils verront les montants, leur honnêteté va être
-          mise à rude épreuve.
+          <span class="chunk" data-audio="13_1.mp3">Bon,</span>
+          <span class="chunk" data-audio="13_2.mp3">si je te raconte tout ça,</span>
+          <span class="chunk" data-audio="13_3.mp3">c'est parce que</span>
+          <span class="chunk" data-audio="13_4.mp3">ce service de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dɔ.mi.si.lja.sjɔ̃/" data-meaning="mail-forwarding / registered-address service" >domiciliation</span ></span>
+          <span class="chunk" data-audio="13_5.mp3">aux États-Unis</span>
+          <span class="chunk" data-audio="13_6.mp3">dont tu parles,</span>
+          <span class="chunk" data-audio="13_7.mp3">ça me met pas à l'aise.</span>
+          <span class="chunk" data-audio="13_8.mp3">Ils vont ouvrir</span>
+          <span class="chunk" data-audio="13_9.mp3">tout notre courrier.</span>
+          <span class="chunk" data-audio="13_10.mp3">Ils auront nos infos sensibles,</span>
+          <span class="chunk" data-audio="13_11.mp3">genre les numéros</span>
+          <span class="chunk" data-audio="13_12.mp3">de sécurité sociale.</span>
+          <span class="chunk" data-audio="13_13.mp3">Y aura peut-être du courrier</span>
+          <span class="chunk" data-audio="13_14.mp3">de nos banques</span>
+          <span class="chunk" data-audio="13_15.mp3">ou de nos placements.</span>
+          <span class="chunk" data-audio="13_16.mp3">Quand ils verront les montants,</span>
+          <span class="chunk" data-audio="13_17.mp3">leur honnêteté</span>
+          <span class="chunk" data-audio="13_18.mp3">va être mise à rude épreuve.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -378,8 +410,10 @@
           data-audio="14.mp3?v=2607101229"
         ></audio>
         <p>
-          Moi, je pensais juste au moyen le plus pratique de garder nos permis
-          de conduire américains.
+          <span class="chunk" data-audio="14_1.mp3">Moi, je pensais juste</span>
+          <span class="chunk" data-audio="14_2.mp3">au moyen le plus pratique</span>
+          <span class="chunk" data-audio="14_3.mp3">de garder</span>
+          <span class="chunk" data-audio="14_4.mp3">nos permis de conduire américains.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -399,8 +433,12 @@
           data-audio="15.mp3?v=2607101229"
         ></audio>
         <p>
-          Ben, moi, cet arrangement me rend méfiante. Pourquoi on demanderait
-          pas à Larry et Carol ? Eux, j'ai confiance.
+          <span class="chunk" data-audio="15_1.mp3">Ben, moi,</span>
+          <span class="chunk" data-audio="15_2.mp3">cet arrangement</span>
+          <span class="chunk" data-audio="15_3.mp3">me rend méfiante.</span>
+          <span class="chunk" data-audio="15_4.mp3">Pourquoi on demanderait pas</span>
+          <span class="chunk" data-audio="15_5.mp3">à Larry et Carol ?</span>
+          <span class="chunk" data-audio="15_6.mp3">Eux, j'ai confiance.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -420,8 +458,12 @@
           data-audio="16.mp3?v=2607101229"
         ></audio>
         <p>
-          Oui, mais ils sont souvent en déplacement. Notre courrier va traîner
-          chez eux pendant des jours.
+          <span class="chunk" data-audio="16_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="16_2.mp3">mais ils sont souvent</span>
+          <span class="chunk" data-audio="16_3.mp3">en déplacement.</span>
+          <span class="chunk" data-audio="16_4.mp3">Notre courrier</span>
+          <span class="chunk" data-audio="16_5.mp3">va traîner chez eux</span>
+          <span class="chunk" data-audio="16_6.mp3">pendant des jours.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -441,7 +483,9 @@
           data-audio="17.mp3?v=2607101229"
         ></audio>
         <p>
-          C'est vrai. Je sais pas trop quoi faire.
+          <span class="chunk" data-audio="17_1.mp3">C'est vrai.</span>
+          <span class="chunk" data-audio="17_2.mp3">Je sais pas trop</span>
+          <span class="chunk" data-audio="17_3.mp3">quoi faire.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -458,7 +502,9 @@
           data-audio="18.mp3?v=2607101229"
         ></audio>
         <p>
-          On va y réfléchir. Je comprends ce que tu veux dire.
+          <span class="chunk" data-audio="18_1.mp3">On va y réfléchir.</span>
+          <span class="chunk" data-audio="18_2.mp3">Je comprends</span>
+          <span class="chunk" data-audio="18_3.mp3">ce que tu veux dire.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -475,7 +521,9 @@
           data-audio="19.mp3?v=2607101229"
         ></audio>
         <p>
-          Ouais, faisons ça. La commodité vaut pas le risque.
+          <span class="chunk" data-audio="19_1.mp3">Ouais, faisons ça.</span>
+          <span class="chunk" data-audio="19_2.mp3">La commodité</span>
+          <span class="chunk" data-audio="19_3.mp3">vaut pas le risque.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -560,6 +608,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv30/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv30/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

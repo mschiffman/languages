@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,7 +92,7 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Besoin d'aide ?
+          <span class="chunk" data-audio="01_1.mp3">Besoin d'aide ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -103,26 +109,14 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          J'ai les mains qui se
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kʀɑ̃pɔn/"
-            data-meaning="cramping/clutching"
-            >cramponnent</span
-          >
-          à cause de la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/taj/"
-            data-meaning="trimming/pruning"
-            >taille</span
-          >
-          du bonsaï ce matin. Ça me prend deux fois plus de temps pour couper
-          l'ail.
+          <span class="chunk" data-audio="02_1.mp3">J'ai les mains</span>
+          <span class="chunk" data-audio="02_2.mp3">qui se <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kʀɑ̃pɔn/" data-meaning="cramping/clutching" >cramponnent</span ></span>
+          <span class="chunk" data-audio="02_3.mp3">à cause de la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/taj/" data-meaning="trimming/pruning" >taille</span ></span>
+          <span class="chunk" data-audio="02_4.mp3">du bonsaï</span>
+          <span class="chunk" data-audio="02_5.mp3">ce matin.</span>
+          <span class="chunk" data-audio="02_6.mp3">Ça me prend</span>
+          <span class="chunk" data-audio="02_7.mp3">deux fois plus de temps</span>
+          <span class="chunk" data-audio="02_8.mp3">pour couper l'ail.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -142,8 +136,11 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Laisse-moi faire. T'aurais dû vendre tous tes bonsaïs. Je sais pas
-          pourquoi t'en as gardé un.
+          <span class="chunk" data-audio="03_1.mp3">Laisse-moi faire.</span>
+          <span class="chunk" data-audio="03_2.mp3">T'aurais dû vendre</span>
+          <span class="chunk" data-audio="03_3.mp3">tous tes bonsaïs.</span>
+          <span class="chunk" data-audio="03_4.mp3">Je sais pas</span>
+          <span class="chunk" data-audio="03_5.mp3">pourquoi t'en as gardé un.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -163,7 +160,10 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Bah, j'ai cette idée depuis un moment. Je veux tester ce design.
+          <span class="chunk" data-audio="04_1.mp3">Bah,</span>
+          <span class="chunk" data-audio="04_2.mp3">j'ai cette idée</span>
+          <span class="chunk" data-audio="04_3.mp3">depuis un moment.</span>
+          <span class="chunk" data-audio="04_4.mp3">Je veux tester ce design.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -180,8 +180,12 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Faut que tu connaisses tes limites physiques. Regarde ce qui est
-          arrivé à Ken. Maintenant il est à l'hôpital.
+          <span class="chunk" data-audio="05_1.mp3">Faut que tu connaisses</span>
+          <span class="chunk" data-audio="05_2.mp3">tes limites physiques.</span>
+          <span class="chunk" data-audio="05_3.mp3">Regarde ce qui est arrivé</span>
+          <span class="chunk" data-audio="05_4.mp3">à Ken.</span>
+          <span class="chunk" data-audio="05_5.mp3">Maintenant</span>
+          <span class="chunk" data-audio="05_6.mp3">il est à l'hôpital.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -201,17 +205,13 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          C'est pour ça qu'ils vendent leur maison et
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/demenaʒ/"
-            data-meaning="are moving"
-            >déménagent</span
-          >
-          dans un quartier pour les 55 ans et plus. À un moment, il avait plus
-          de 300 bonsaïs.
+          <span class="chunk" data-audio="06_1.mp3">C'est pour ça</span>
+          <span class="chunk" data-audio="06_2.mp3">qu'ils vendent leur maison</span>
+          <span class="chunk" data-audio="06_3.mp3">et <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/demenaʒ/" data-meaning="are moving" >déménagent</span ></span>
+          <span class="chunk" data-audio="06_4.mp3">dans un quartier</span>
+          <span class="chunk" data-audio="06_5.mp3">pour les 55 ans et plus.</span>
+          <span class="chunk" data-audio="06_6.mp3">À un moment,</span>
+          <span class="chunk" data-audio="06_7.mp3">il avait plus de 300 bonsaïs.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -231,16 +231,9 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          C'est dingue. Il a d'autres
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/lwaziʀ/"
-            data-meaning="hobbies/leisure activities"
-            >loisirs</span
-          >
-          en dehors du bonsaï ?
+          <span class="chunk" data-audio="07_1.mp3">C'est dingue.</span>
+          <span class="chunk" data-audio="07_2.mp3">Il a d'autres <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/lwaziʀ/" data-meaning="hobbies/leisure activities" >loisirs</span ></span>
+          <span class="chunk" data-audio="07_3.mp3">en dehors du bonsaï ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -257,7 +250,8 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Je crois pas. Pas à ma connaissance.
+          <span class="chunk" data-audio="08_1.mp3">Je crois pas.</span>
+          <span class="chunk" data-audio="08_2.mp3">Pas à ma connaissance.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -274,25 +268,19 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Sans loisir, t'attends juste la mort. Certaines personnes n'ont aucun
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pastɑ̃/"
-            data-meaning="pastime/hobby"
-            >passe-temps</span
-          >. Tous les jours se ressemblent après la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀətʀɛt/"
-            data-meaning="retirement"
-            >retraite</span
-          >. Moi, j'ai plein de loisirs. Si je dois laisser tomber un à cause de
-          mes limites physiques, il m'en reste plein. Et je peux toujours en
-          ajouter.
+          <span class="chunk" data-audio="09_1.mp3">Sans loisir,</span>
+          <span class="chunk" data-audio="09_2.mp3">t'attends juste la mort.</span>
+          <span class="chunk" data-audio="09_3.mp3">Certaines personnes</span>
+          <span class="chunk" data-audio="09_4.mp3">n'ont aucun <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pastɑ̃/" data-meaning="pastime/hobby" >passe-temps</span >.</span>
+          <span class="chunk" data-audio="09_5.mp3">Tous les jours se ressemblent</span>
+          <span class="chunk" data-audio="09_6.mp3">après la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀətʀɛt/" data-meaning="retirement" >retraite</span >.</span>
+          <span class="chunk" data-audio="09_7.mp3">Moi,</span>
+          <span class="chunk" data-audio="09_8.mp3">j'ai plein de loisirs.</span>
+          <span class="chunk" data-audio="09_9.mp3">Si je dois laisser tomber un</span>
+          <span class="chunk" data-audio="09_10.mp3">à cause de mes limites physiques,</span>
+          <span class="chunk" data-audio="09_11.mp3">il m'en reste plein.</span>
+          <span class="chunk" data-audio="09_12.mp3">Et je peux toujours</span>
+          <span class="chunk" data-audio="09_13.mp3">en ajouter.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -314,7 +302,9 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Ouais, moi aussi j'en ai quelques-uns.
+          <span class="chunk" data-audio="10_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="10_2.mp3">moi aussi</span>
+          <span class="chunk" data-audio="10_3.mp3">j'en ai quelques-uns.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -331,9 +321,14 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          T'as un nouveau passe-temps maintenant. L'écriture. J'espère que ton
-          roman va devenir un bestseller. On pourrait toujours utiliser un peu
-          plus d'argent. Ça avance comment ?
+          <span class="chunk" data-audio="11_1.mp3">T'as un nouveau passe-temps</span>
+          <span class="chunk" data-audio="11_2.mp3">maintenant.</span>
+          <span class="chunk" data-audio="11_3.mp3">L'écriture.</span>
+          <span class="chunk" data-audio="11_4.mp3">J'espère que ton roman</span>
+          <span class="chunk" data-audio="11_5.mp3">va devenir un bestseller.</span>
+          <span class="chunk" data-audio="11_6.mp3">On pourrait toujours utiliser</span>
+          <span class="chunk" data-audio="11_7.mp3">un peu plus d'argent.</span>
+          <span class="chunk" data-audio="11_8.mp3">Ça avance comment ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -354,15 +349,10 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          J'en suis au chapitre 13. Je relis et j'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/etɔf/"
-            data-meaning="flesh out/expand"
-            >étoffe</span
-          >
-          les chapitres précédents.
+          <span class="chunk" data-audio="12_1.mp3">J'en suis au chapitre 13.</span>
+          <span class="chunk" data-audio="12_2.mp3">Je relis</span>
+          <span class="chunk" data-audio="12_3.mp3">et j'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/etɔf/" data-meaning="flesh out/expand" >étoffe</span ></span>
+          <span class="chunk" data-audio="12_4.mp3">les chapitres précédents.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -382,7 +372,7 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Tu t'amuses bien ?
+          <span class="chunk" data-audio="13_1.mp3">Tu t'amuses bien ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -399,7 +389,9 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Oui. Gemini m'aide pour les recherches historiques.
+          <span class="chunk" data-audio="14_1.mp3">Oui.</span>
+          <span class="chunk" data-audio="14_2.mp3">Gemini m'aide</span>
+          <span class="chunk" data-audio="14_3.mp3">pour les recherches historiques.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -416,17 +408,13 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          C'est super. On n'aura plus de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʒaʀdinaʒ/"
-            data-meaning="gardening"
-            >jardinage</span
-          >
-          en Malaisie. J'aurai plus de temps. Je pourrai écrire un autre livre,
-          en plus d'apprendre le français et le japonais.
+          <span class="chunk" data-audio="15_1.mp3">C'est super.</span>
+          <span class="chunk" data-audio="15_2.mp3">On n'aura plus de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʒaʀdinaʒ/" data-meaning="gardening" >jardinage</span ></span>
+          <span class="chunk" data-audio="15_3.mp3">en Malaisie.</span>
+          <span class="chunk" data-audio="15_4.mp3">J'aurai plus de temps.</span>
+          <span class="chunk" data-audio="15_5.mp3">Je pourrai écrire un autre livre,</span>
+          <span class="chunk" data-audio="15_6.mp3">en plus d'apprendre</span>
+          <span class="chunk" data-audio="15_7.mp3">le français et le japonais.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -510,6 +498,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv15/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv15/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

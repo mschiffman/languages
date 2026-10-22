@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="english-text" data-aos="fade-up">
@@ -86,8 +92,10 @@
           data-audio="1.mp3"
         ></audio>
         <p>
-          Tu penses que la plupart des gens sont malheureux en maison de
-          retraite ?
+          <span class="chunk" data-audio="1_1.mp3">Tu penses</span>
+          <span class="chunk" data-audio="1_2.mp3">que la plupart des gens</span>
+          <span class="chunk" data-audio="1_3.mp3">sont malheureux</span>
+          <span class="chunk" data-audio="1_4.mp3">en maison de retraite ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -104,11 +112,20 @@
           data-audio="2.mp3"
         ></audio>
         <p>
-          C'est une question importante. Je pense que certaines personnes sont
-          malheureuses, surtout quand elles se sentent seules, mais d'autres
-          sont contentes parce qu'elles ont des activités et des amis là-bas.
-          Toi, tu imagines comment la vie dans une maison de retraite, plutôt
-          triste ou plutôt calme et sécurisante ?
+          <span class="chunk" data-audio="2_1.mp3">C'est une question importante.</span>
+          <span class="chunk" data-audio="2_2.mp3">Je pense</span>
+          <span class="chunk" data-audio="2_3.mp3">que certaines personnes</span>
+          <span class="chunk" data-audio="2_4.mp3">sont malheureuses,</span>
+          <span class="chunk" data-audio="2_5.mp3">surtout</span>
+          <span class="chunk" data-audio="2_6.mp3">quand elles se sentent seules,</span>
+          <span class="chunk" data-audio="2_7.mp3">mais d'autres sont contentes</span>
+          <span class="chunk" data-audio="2_8.mp3">parce qu'elles ont des activités</span>
+          <span class="chunk" data-audio="2_9.mp3">et des amis là-bas.</span>
+          <span class="chunk" data-audio="2_10.mp3">Toi,</span>
+          <span class="chunk" data-audio="2_11.mp3">tu imagines comment</span>
+          <span class="chunk" data-audio="2_12.mp3">la vie dans une maison de retraite,</span>
+          <span class="chunk" data-audio="2_13.mp3">plutôt triste</span>
+          <span class="chunk" data-audio="2_14.mp3">ou plutôt calme et sécurisante ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -130,9 +147,15 @@
           data-audio="3.mp3"
         ></audio>
         <p>
-          Avec Robert, on n'envisage pas de vivre en maison de retraite. L'idée
-          nous attriste : les liens que l'on y crée sont forcément fragiles, car
-          beaucoup de résidents sont déjà très proches de la fin de leur vie.
+          <span class="chunk" data-audio="3_1.mp3">Avec Robert,</span>
+          <span class="chunk" data-audio="3_2.mp3">on n'envisage pas</span>
+          <span class="chunk" data-audio="3_3.mp3">de vivre en maison de retraite.</span>
+          <span class="chunk" data-audio="3_4.mp3">L'idée nous attriste :</span>
+          <span class="chunk" data-audio="3_5.mp3">les liens que l'on y crée</span>
+          <span class="chunk" data-audio="3_6.mp3">sont forcément fragiles,</span>
+          <span class="chunk" data-audio="3_7.mp3">car beaucoup de résidents</span>
+          <span class="chunk" data-audio="3_8.mp3">sont déjà très proches</span>
+          <span class="chunk" data-audio="3_9.mp3">de la fin de leur vie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -153,11 +176,20 @@
           data-audio="4.mp3"
         ></audio>
         <p>
-          Je comprends, ton message est très touchant. C'est vrai, voir les amis
-          partir souvent, ça donne une impression de tristesse et de fin, pas de
-          projet. Pour toi et Robert, tu imagines une autre solution pour plus
-          tard, par exemple rester chez vous avec de l'aide, ou vivre près
-          d'amis ou de la famille ?
+          <span class="chunk" data-audio="4_1.mp3">Je comprends,</span>
+          <span class="chunk" data-audio="4_2.mp3">ton message est très touchant.</span>
+          <span class="chunk" data-audio="4_3.mp3">C'est vrai,</span>
+          <span class="chunk" data-audio="4_4.mp3">voir les amis partir souvent,</span>
+          <span class="chunk" data-audio="4_5.mp3">ça donne une impression</span>
+          <span class="chunk" data-audio="4_6.mp3">de tristesse et de fin,</span>
+          <span class="chunk" data-audio="4_7.mp3">pas de projet.</span>
+          <span class="chunk" data-audio="4_8.mp3">Pour toi et Robert,</span>
+          <span class="chunk" data-audio="4_9.mp3">tu imagines une autre solution</span>
+          <span class="chunk" data-audio="4_10.mp3">pour plus tard,</span>
+          <span class="chunk" data-audio="4_11.mp3">par exemple rester chez vous</span>
+          <span class="chunk" data-audio="4_12.mp3">avec de l'aide,</span>
+          <span class="chunk" data-audio="4_13.mp3">ou vivre près d'amis</span>
+          <span class="chunk" data-audio="4_14.mp3">ou de la famille ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -179,7 +211,8 @@
           data-audio="5.mp3"
         ></audio>
         <p>
-          Finir nos jours chez nous est notre objectif.
+          <span class="chunk" data-audio="5_1.mp3">Finir nos jours chez nous</span>
+          <span class="chunk" data-audio="5_2.mp3">est notre objectif.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -196,11 +229,20 @@
           data-audio="6.mp3"
         ></audio>
         <p>
-          Je comprends ton idée, tu veux rester chez toi, dans ton lieu de vie,
-          jusqu'à la fin. Je trouve ça assez beau, parce que "chez soi", c'est
-          un peu notre histoire, nos objets, nos souvenirs. Qu'est-ce qui est le
-          plus important pour toi, pour que ta maison reste un bon endroit pour
-          vieillir ?
+          <span class="chunk" data-audio="6_1.mp3">Je comprends ton idée,</span>
+          <span class="chunk" data-audio="6_2.mp3">tu veux rester chez toi,</span>
+          <span class="chunk" data-audio="6_3.mp3">dans ton lieu de vie,</span>
+          <span class="chunk" data-audio="6_4.mp3">jusqu'à la fin.</span>
+          <span class="chunk" data-audio="6_5.mp3">Je trouve ça assez beau,</span>
+          <span class="chunk" data-audio="6_6.mp3">parce que "chez soi",</span>
+          <span class="chunk" data-audio="6_7.mp3">c'est un peu notre histoire,</span>
+          <span class="chunk" data-audio="6_8.mp3">nos objets,</span>
+          <span class="chunk" data-audio="6_9.mp3">nos souvenirs.</span>
+          <span class="chunk" data-audio="6_10.mp3">Qu'est-ce qui est</span>
+          <span class="chunk" data-audio="6_11.mp3">le plus important pour toi,</span>
+          <span class="chunk" data-audio="6_12.mp3">pour que ta maison</span>
+          <span class="chunk" data-audio="6_13.mp3">reste un bon endroit</span>
+          <span class="chunk" data-audio="6_14.mp3">pour vieillir ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -222,8 +264,11 @@
           data-audio="7.mp3"
         ></audio>
         <p>
-          Peut-être qu'ils concevront, dans quelques années, des robots capables
-          de prendre soin des personnes âgées.
+          <span class="chunk" data-audio="7_1.mp3">Peut-être qu'ils concevront,</span>
+          <span class="chunk" data-audio="7_2.mp3">dans quelques années,</span>
+          <span class="chunk" data-audio="7_3.mp3">des robots capables</span>
+          <span class="chunk" data-audio="7_4.mp3">de prendre soin</span>
+          <span class="chunk" data-audio="7_5.mp3">des personnes âgées.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -243,11 +288,20 @@
           data-audio="8.mp3"
         ></audio>
         <p>
-          Oui, peut-être, la technologie avance très vite. Un robot peut aider
-          pour le ménage, les médicaments, porter des choses, mais il ne peut
-          pas vraiment remplacer la tendresse ou une vraie conversation. Toi, tu
-          aimerais qu'un robot t'aide pour des tâches pratiques, ou tu trouves
-          cette idée un peu froide ou inquiétante ?
+          <span class="chunk" data-audio="8_1.mp3">Oui, peut-être,</span>
+          <span class="chunk" data-audio="8_2.mp3">la technologie avance très vite.</span>
+          <span class="chunk" data-audio="8_3.mp3">Un robot peut aider</span>
+          <span class="chunk" data-audio="8_4.mp3">pour le ménage,</span>
+          <span class="chunk" data-audio="8_5.mp3">les médicaments,</span>
+          <span class="chunk" data-audio="8_6.mp3">porter des choses,</span>
+          <span class="chunk" data-audio="8_7.mp3">mais il ne peut pas vraiment remplacer</span>
+          <span class="chunk" data-audio="8_8.mp3">la tendresse</span>
+          <span class="chunk" data-audio="8_9.mp3">ou une vraie conversation.</span>
+          <span class="chunk" data-audio="8_10.mp3">Toi,</span>
+          <span class="chunk" data-audio="8_11.mp3">tu aimerais qu'un robot t'aide</span>
+          <span class="chunk" data-audio="8_12.mp3">pour des tâches pratiques,</span>
+          <span class="chunk" data-audio="8_13.mp3">ou tu trouves cette idée</span>
+          <span class="chunk" data-audio="8_14.mp3">un peu froide ou inquiétante ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -269,7 +323,9 @@
           data-audio="9.mp3"
         ></audio>
         <p>
-          Ça ne me gênerait pas qu'un robot nous aide ou prenne soin de nous.
+          <span class="chunk" data-audio="9_1.mp3">Ça ne me gênerait pas</span>
+          <span class="chunk" data-audio="9_2.mp3">qu'un robot nous aide</span>
+          <span class="chunk" data-audio="9_3.mp3">ou prenne soin de nous.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -286,12 +342,22 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Je trouve ça assez logique, un robot peut être pratique et fiable,
-          surtout pour les tâches répétitives. Et si le robot est bien
-          programmé, il peut aussi donner une certaine sécurité, par exemple
-          appeler de l'aide en cas de chute. Tu imagines quel type d'aide
-          concrète pour toi et Robert, par exemple la cuisine, le ménage, les
-          soins, ou autre chose ?
+          <span class="chunk" data-audio="10_1.mp3">Je trouve ça assez logique,</span>
+          <span class="chunk" data-audio="10_2.mp3">un robot peut être</span>
+          <span class="chunk" data-audio="10_3.mp3">pratique et fiable,</span>
+          <span class="chunk" data-audio="10_4.mp3">surtout pour les tâches répétitives.</span>
+          <span class="chunk" data-audio="10_5.mp3">Et si le robot</span>
+          <span class="chunk" data-audio="10_6.mp3">est bien programmé,</span>
+          <span class="chunk" data-audio="10_7.mp3">il peut aussi donner</span>
+          <span class="chunk" data-audio="10_8.mp3">une certaine sécurité,</span>
+          <span class="chunk" data-audio="10_9.mp3">par exemple appeler de l'aide</span>
+          <span class="chunk" data-audio="10_10.mp3">en cas de chute.</span>
+          <span class="chunk" data-audio="10_11.mp3">Tu imagines</span>
+          <span class="chunk" data-audio="10_12.mp3">quel type d'aide concrète</span>
+          <span class="chunk" data-audio="10_13.mp3">pour toi et Robert,</span>
+          <span class="chunk" data-audio="10_14.mp3">par exemple la cuisine,</span>
+          <span class="chunk" data-audio="10_15.mp3">le ménage, les soins,</span>
+          <span class="chunk" data-audio="10_16.mp3">ou autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -314,9 +380,17 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Un robot capable de nous assister dans les tâches ménagères serait
-          formidable — et de nous aider à prendre le bain lorsque nous en serons
-          à ce stade. Un robot reviendrait bien moins cher qu'une aide humaine.
+          <span class="chunk" data-audio="11_1.mp3">Un robot capable</span>
+          <span class="chunk" data-audio="11_2.mp3">de nous assister</span>
+          <span class="chunk" data-audio="11_3.mp3">dans les tâches ménagères</span>
+          <span class="chunk" data-audio="11_4.mp3">serait formidable —</span>
+          <span class="chunk" data-audio="11_5.mp3">et de nous aider</span>
+          <span class="chunk" data-audio="11_6.mp3">à prendre le bain</span>
+          <span class="chunk" data-audio="11_7.mp3">lorsque nous en serons</span>
+          <span class="chunk" data-audio="11_8.mp3">à ce stade.</span>
+          <span class="chunk" data-audio="11_9.mp3">Un robot reviendrait</span>
+          <span class="chunk" data-audio="11_10.mp3">bien moins cher</span>
+          <span class="chunk" data-audio="11_11.mp3">qu'une aide humaine.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -337,13 +411,27 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Oui, un robot pour le ménage et le bain, ça serait vraiment une grande
-          aide, surtout quand le corps devient plus fragile. Tu as raison, si la
-          technologie devient moins chère, ce sera sûrement plus accessible
-          qu'une aide humaine plusieurs heures par jour. Pour toi, le plus
-          important dans cette aide future, c'est plutôt la dignité, la
-          sécurité, ou l'indépendance que tu veux garder le plus longtemps
-          possible ?
+          <span class="chunk" data-audio="12_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="12_2.mp3">un robot pour le ménage</span>
+          <span class="chunk" data-audio="12_3.mp3">et le bain,</span>
+          <span class="chunk" data-audio="12_4.mp3">ça serait vraiment</span>
+          <span class="chunk" data-audio="12_5.mp3">une grande aide,</span>
+          <span class="chunk" data-audio="12_6.mp3">surtout quand le corps</span>
+          <span class="chunk" data-audio="12_7.mp3">devient plus fragile.</span>
+          <span class="chunk" data-audio="12_8.mp3">Tu as raison,</span>
+          <span class="chunk" data-audio="12_9.mp3">si la technologie</span>
+          <span class="chunk" data-audio="12_10.mp3">devient moins chère,</span>
+          <span class="chunk" data-audio="12_11.mp3">ce sera sûrement plus accessible</span>
+          <span class="chunk" data-audio="12_12.mp3">qu'une aide humaine</span>
+          <span class="chunk" data-audio="12_13.mp3">plusieurs heures par jour.</span>
+          <span class="chunk" data-audio="12_14.mp3">Pour toi,</span>
+          <span class="chunk" data-audio="12_15.mp3">le plus important</span>
+          <span class="chunk" data-audio="12_16.mp3">dans cette aide future,</span>
+          <span class="chunk" data-audio="12_17.mp3">c'est plutôt la dignité,</span>
+          <span class="chunk" data-audio="12_18.mp3">la sécurité,</span>
+          <span class="chunk" data-audio="12_19.mp3">ou l'indépendance</span>
+          <span class="chunk" data-audio="12_20.mp3">que tu veux garder</span>
+          <span class="chunk" data-audio="12_21.mp3">le plus longtemps possible ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -367,9 +455,14 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Tout à fait. J'espère moi aussi ne pas vivre au-delà de mes capacités
-          mentales et physiques. Je redoute l'idée de devenir un poids pour les
-          autres.
+          <span class="chunk" data-audio="13_1.mp3">Tout à fait.</span>
+          <span class="chunk" data-audio="13_2.mp3">J'espère moi aussi</span>
+          <span class="chunk" data-audio="13_3.mp3">ne pas vivre</span>
+          <span class="chunk" data-audio="13_4.mp3">au-delà de mes capacités</span>
+          <span class="chunk" data-audio="13_5.mp3">mentales et physiques.</span>
+          <span class="chunk" data-audio="13_6.mp3">Je redoute l'idée</span>
+          <span class="chunk" data-audio="13_7.mp3">de devenir un poids</span>
+          <span class="chunk" data-audio="13_8.mp3">pour les autres.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -389,13 +482,26 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Je comprends très bien ce que tu dis, beaucoup de personnes partagent
-          cette peur d'être un fardeau. Pour moi, le vrai fardeau, ce n'est pas
-          une personne fragile, c'est surtout quand la société n'organise pas
-          assez d'aide et de soutien autour d'elle. Qu'est-ce qui t'aiderait un
-          peu à te sentir plus sereine pour l'avenir : parler avec des proches,
-          faire des projets, écrire tes souhaits sur la fin de vie, ou autre
-          chose ?
+          <span class="chunk" data-audio="14_1.mp3">Je comprends très bien</span>
+          <span class="chunk" data-audio="14_2.mp3">ce que tu dis,</span>
+          <span class="chunk" data-audio="14_3.mp3">beaucoup de personnes</span>
+          <span class="chunk" data-audio="14_4.mp3">partagent cette peur</span>
+          <span class="chunk" data-audio="14_5.mp3">d'être un fardeau.</span>
+          <span class="chunk" data-audio="14_6.mp3">Pour moi,</span>
+          <span class="chunk" data-audio="14_7.mp3">le vrai fardeau,</span>
+          <span class="chunk" data-audio="14_8.mp3">ce n'est pas une personne fragile,</span>
+          <span class="chunk" data-audio="14_9.mp3">c'est surtout</span>
+          <span class="chunk" data-audio="14_10.mp3">quand la société</span>
+          <span class="chunk" data-audio="14_11.mp3">n'organise pas assez d'aide</span>
+          <span class="chunk" data-audio="14_12.mp3">et de soutien autour d'elle.</span>
+          <span class="chunk" data-audio="14_13.mp3">Qu'est-ce qui t'aiderait un peu</span>
+          <span class="chunk" data-audio="14_14.mp3">à te sentir plus sereine</span>
+          <span class="chunk" data-audio="14_15.mp3">pour l'avenir :</span>
+          <span class="chunk" data-audio="14_16.mp3">parler avec des proches,</span>
+          <span class="chunk" data-audio="14_17.mp3">faire des projets,</span>
+          <span class="chunk" data-audio="14_18.mp3">écrire tes souhaits</span>
+          <span class="chunk" data-audio="14_19.mp3">sur la fin de vie,</span>
+          <span class="chunk" data-audio="14_20.mp3">ou autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -481,6 +587,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv6/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv6/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

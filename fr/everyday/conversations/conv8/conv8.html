@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,7 +92,7 @@
           data-audio="1.mp3"
         ></audio>
         <p>
-          Qu'est-ce que tu fais ?
+          <span class="chunk" data-audio="1_1.mp3">Qu'est-ce que tu fais ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -102,15 +108,7 @@
           data-audio="2.mp3"
         ></audio>
         <p>
-          Je fais des
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pɑt/"
-            data-meaning="pasta"
-            >pâtes</span
-          >.
+          <span class="chunk" data-audio="2_1.mp3">Je fais des <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pɑt/" data-meaning="pasta" >pâtes</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -126,31 +124,11 @@
           data-audio="3.mp3"
         ></audio>
         <p>
-          Mais il est presque quatre heures. C'est l'heure du
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dine/"
-            data-meaning="dinner"
-            >dîner</span
-          >. Mange juste la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sup/"
-            data-meaning="soup"
-            >soupe</span
-          >. Ne t'<span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɔkype/ (s'occuper de)"
-            data-meaning="to worry about"
-            >occupe</span
-          >
-          pas des pâtes.
+          <span class="chunk" data-audio="3_1.mp3">Mais il est presque</span>
+          <span class="chunk" data-audio="3_2.mp3">quatre heures.</span>
+          <span class="chunk" data-audio="3_3.mp3">C'est l'heure du <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dine/" data-meaning="dinner" >dîner</span >.</span>
+          <span class="chunk" data-audio="3_4.mp3">Mange juste la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sup/" data-meaning="soup" >soupe</span >.</span>
+          <span class="chunk" data-audio="3_5.mp3">Ne t'<span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɔkype/ (s'occuper de)" data-meaning="to worry about" >occupe</span > pas des pâtes.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -169,24 +147,9 @@
           data-audio="4.mp3"
         ></audio>
         <p>
-          Je n'ai pas
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fɛ̃/"
-            data-meaning="hunger"
-            >faim</span
-          >. On n'est pas
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɔbliʒe/"
-            data-meaning="obliged"
-            >obligés</span
-          >
-          de manger à quatre heures.
+          <span class="chunk" data-audio="4_1.mp3">Je n'ai pas <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fɛ̃/" data-meaning="hunger" >faim</span >.</span>
+          <span class="chunk" data-audio="4_2.mp3">On n'est pas <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɔbliʒe/" data-meaning="obliged" >obligés</span ></span>
+          <span class="chunk" data-audio="4_3.mp3">de manger à quatre heures.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -202,7 +165,8 @@
           data-audio="5.mp3"
         ></audio>
         <p>
-          Moi non plus. Ne les fais pas.
+          <span class="chunk" data-audio="5_1.mp3">Moi non plus.</span>
+          <span class="chunk" data-audio="5_2.mp3">Ne les fais pas.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -218,7 +182,7 @@
           data-audio="6.mp3"
         ></audio>
         <p>
-          Mais je vais les faire.
+          <span class="chunk" data-audio="6_1.mp3">Mais je vais les faire.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -234,16 +198,11 @@
           data-audio="7.mp3"
         ></audio>
         <p>
-          Tu vas les mettre dans la soupe ? On mange à quelle heure ? Ça va
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pʀɑ̃dʀ/"
-            data-meaning="to take"
-            >prendre</span
-          >
-          combien de temps ?
+          <span class="chunk" data-audio="7_1.mp3">Tu vas les mettre</span>
+          <span class="chunk" data-audio="7_2.mp3">dans la soupe ?</span>
+          <span class="chunk" data-audio="7_3.mp3">On mange à quelle heure ?</span>
+          <span class="chunk" data-audio="7_4.mp3">Ça va <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pʀɑ̃dʀ/" data-meaning="to take" >prendre</span ></span>
+          <span class="chunk" data-audio="7_5.mp3">combien de temps ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -262,15 +221,11 @@
           data-audio="8.mp3"
         ></audio>
         <p>
-          Ça va prendre dix minutes et après je dois les faire
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/bujiʀ/"
-            data-meaning="to boil"
-            >bouillir</span
-          >. Quoi ? Tu as faim maintenant ?
+          <span class="chunk" data-audio="8_1.mp3">Ça va prendre dix minutes</span>
+          <span class="chunk" data-audio="8_2.mp3">et après</span>
+          <span class="chunk" data-audio="8_3.mp3">je dois les faire <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/bujiʀ/" data-meaning="to boil" >bouillir</span >.</span>
+          <span class="chunk" data-audio="8_4.mp3">Quoi ?</span>
+          <span class="chunk" data-audio="8_5.mp3">Tu as faim maintenant ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -289,16 +244,10 @@
           data-audio="9.mp3"
         ></audio>
         <p>
-          Non. Je veux juste
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/tʀadɥiʀ/"
-            data-meaning="to translate"
-            >traduire</span
-          >
-          notre conversation en français.
+          <span class="chunk" data-audio="9_1.mp3">Non.</span>
+          <span class="chunk" data-audio="9_2.mp3">Je veux juste <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/tʀadɥiʀ/" data-meaning="to translate" >traduire</span ></span>
+          <span class="chunk" data-audio="9_3.mp3">notre conversation</span>
+          <span class="chunk" data-audio="9_4.mp3">en français.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -314,7 +263,7 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Tant mieux pour toi.
+          <span class="chunk" data-audio="10_1.mp3">Tant mieux pour toi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -330,16 +279,8 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          C'est beaucoup de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vɛsɛl/"
-            data-meaning="dishes"
-            >vaisselle</span
-          >
-          après avoir fait des pâtes.
+          <span class="chunk" data-audio="11_1.mp3">C'est beaucoup de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vɛsɛl/" data-meaning="dishes" >vaisselle</span ></span>
+          <span class="chunk" data-audio="11_2.mp3">après avoir fait des pâtes.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -355,15 +296,9 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Je vais faire la vaisselle si t'en as pas
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃vi/"
-            data-meaning="desire/feel like"
-            >envie</span
-          >. Ce n'est pas un problème.
+          <span class="chunk" data-audio="12_1.mp3">Je vais faire la vaisselle</span>
+          <span class="chunk" data-audio="12_2.mp3">si t'en as pas <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃vi/" data-meaning="desire/feel like" >envie</span >.</span>
+          <span class="chunk" data-audio="12_3.mp3">Ce n'est pas un problème.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -379,25 +314,10 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Au fait, on doit avoir plus de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kʀedi/"
-            data-meaning="credits"
-            >crédits</span
-          >
-          avec la
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃɛn/"
-            data-meaning="channel"
-            >chaîne</span
-          >
-          Kanopy ce mois-ci.
+          <span class="chunk" data-audio="13_1.mp3">Au fait,</span>
+          <span class="chunk" data-audio="13_2.mp3">on doit avoir plus de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kʀedi/" data-meaning="credits" >crédits</span ></span>
+          <span class="chunk" data-audio="13_3.mp3">avec la <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃɛn/" data-meaning="channel" >chaîne</span > Kanopy</span>
+          <span class="chunk" data-audio="13_4.mp3">ce mois-ci.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -416,15 +336,10 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Ah oui, j'ai
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ublie/"
-            data-meaning="forgotten"
-            >oublié</span
-          >. On peut regarder quelque chose ce soir.
+          <span class="chunk" data-audio="14_1.mp3">Ah oui,</span>
+          <span class="chunk" data-audio="14_2.mp3">j'ai <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ublie/" data-meaning="forgotten" >oublié</span >.</span>
+          <span class="chunk" data-audio="14_3.mp3">On peut regarder</span>
+          <span class="chunk" data-audio="14_4.mp3">quelque chose ce soir.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -440,15 +355,10 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          D'accord. Leurs films sont bien
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʃwazi/"
-            data-meaning="chosen/selected"
-            >choisis</span
-          >. Il y a des choses intéressantes.
+          <span class="chunk" data-audio="15_1.mp3">D'accord.</span>
+          <span class="chunk" data-audio="15_2.mp3">Leurs films</span>
+          <span class="chunk" data-audio="15_3.mp3">sont bien <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʃwazi/" data-meaning="chosen/selected" >choisis</span >.</span>
+          <span class="chunk" data-audio="15_4.mp3">Il y a des choses intéressantes.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -466,25 +376,12 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Je suis d'accord. C'est
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/difisil/"
-            data-meaning="difficult"
-            >difficile</span
-          >
-          de trouver des bons films maintenant. La
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/plypɑʀ/"
-            data-meaning="most"
-            >plupart</span
-          >
-          sont des films de série B ou C.
+          <span class="chunk" data-audio="16_1.mp3">Je suis d'accord.</span>
+          <span class="chunk" data-audio="16_2.mp3">C'est <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/difisil/" data-meaning="difficult" >difficile</span ></span>
+          <span class="chunk" data-audio="16_3.mp3">de trouver des bons films</span>
+          <span class="chunk" data-audio="16_4.mp3">maintenant.</span>
+          <span class="chunk" data-audio="16_5.mp3">La <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/plypɑʀ/" data-meaning="most" >plupart</span ></span>
+          <span class="chunk" data-audio="16_6.mp3">sont des films de série B ou C.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -502,33 +399,10 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Il y a un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/veikyl/"
-            data-meaning="vehicle"
-            >véhicule</span
-          >
-          devant la maison de Sue et Irb. C'est un
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/kamjɔ̃/"
-            data-meaning="truck"
-            >camion</span
-          >
-          de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/demenaʒmɑ̃/"
-            data-meaning="moving"
-            >déménagement</span
-          >.
+          <span class="chunk" data-audio="17_1.mp3">Il y a un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/veikyl/" data-meaning="vehicle" >véhicule</span ></span>
+          <span class="chunk" data-audio="17_2.mp3">devant la maison</span>
+          <span class="chunk" data-audio="17_3.mp3">de Sue et Irb.</span>
+          <span class="chunk" data-audio="17_4.mp3">C'est un <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/kamjɔ̃/" data-meaning="truck" >camion</span > de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/demenaʒmɑ̃/" data-meaning="moving" >déménagement</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -547,33 +421,10 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          J'ai vu ça hier. Je me
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/d(ə)mɑ̃d/ (se demander)"
-            data-meaning="to wonder"
-            >demande</span
-          >
-          s'ils ont été
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/aksɛpte/"
-            data-meaning="accepted"
-            >acceptés</span
-          >
-          à la maison de
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʀ(ə)tʀɛt/"
-            data-meaning="retirement"
-            >retraite</span
-          >.
+          <span class="chunk" data-audio="18_1.mp3">J'ai vu ça hier.</span>
+          <span class="chunk" data-audio="18_2.mp3">Je me <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/d(ə)mɑ̃d/ (se demander)" data-meaning="to wonder" >demande</span ></span>
+          <span class="chunk" data-audio="18_3.mp3">s'ils ont été <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/aksɛpte/" data-meaning="accepted" >acceptés</span ></span>
+          <span class="chunk" data-audio="18_4.mp3">à la maison de <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʀ(ə)tʀɛt/" data-meaning="retirement" >retraite</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -592,7 +443,9 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Peut-être. Je vais leur demander quand je les vois.
+          <span class="chunk" data-audio="19_1.mp3">Peut-être.</span>
+          <span class="chunk" data-audio="19_2.mp3">Je vais leur demander</span>
+          <span class="chunk" data-audio="19_3.mp3">quand je les vois.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -671,6 +524,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv8/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv8/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

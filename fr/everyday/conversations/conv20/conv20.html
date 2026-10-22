@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,15 +92,7 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          J'ai
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/la dal/"
-            data-meaning="I'm starving (la dalle = informal for extreme hunger)"
-            >la dalle</span
-          >.
+          <span class="chunk" data-audio="01_1.mp3">J'ai <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/la dal/" data-meaning="I'm starving (la dalle = informal for extreme hunger)" >la dalle</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -111,7 +109,7 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          T'as envie de quoi ?
+          <span class="chunk" data-audio="02_1.mp3">T'as envie de quoi ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -128,7 +126,7 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Je veux dîner.
+          <span class="chunk" data-audio="03_1.mp3">Je veux dîner.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -145,7 +143,8 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Mais il est seulement 13h40. Mange des muffins anglais.
+          <span class="chunk" data-audio="04_1.mp3">Mais il est seulement 13h40.</span>
+          <span class="chunk" data-audio="04_2.mp3">Mange des muffins anglais.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -162,16 +161,12 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          OK. C'est ça le problème quand on prend
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pə.ti de.ʒœ.ne/"
-            data-meaning="le petit-déjeuner (breakfast) — informal shortened form"
-            >le petit-déj</span
-          >
-          tôt. J'ai faim avant l'heure du dîner.
+          <span class="chunk" data-audio="05_1.mp3">OK.</span>
+          <span class="chunk" data-audio="05_2.mp3">C'est ça le problème</span>
+          <span class="chunk" data-audio="05_3.mp3">quand on prend <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pə.ti de.ʒœ.ne/" data-meaning="le petit-déjeuner (breakfast) — informal shortened form" >le petit-déj</span ></span>
+          <span class="chunk" data-audio="05_4.mp3">tôt.</span>
+          <span class="chunk" data-audio="05_5.mp3">J'ai faim</span>
+          <span class="chunk" data-audio="05_6.mp3">avant l'heure du dîner.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -191,7 +186,8 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Je te prépare des muffins anglais.
+          <span class="chunk" data-audio="06_1.mp3">Je te prépare</span>
+          <span class="chunk" data-audio="06_2.mp3">des muffins anglais.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -208,7 +204,8 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Tu prends vraiment soin de moi.
+          <span class="chunk" data-audio="07_1.mp3">Tu prends vraiment soin</span>
+          <span class="chunk" data-audio="07_2.mp3">de moi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -225,7 +222,7 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Tu sais pourquoi ?
+          <span class="chunk" data-audio="08_1.mp3">Tu sais pourquoi ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -242,7 +239,9 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Parce que tu te sens coupable d'avoir disparu toute la matinée.
+          <span class="chunk" data-audio="09_1.mp3">Parce que tu te sens coupable</span>
+          <span class="chunk" data-audio="09_2.mp3">d'avoir disparu</span>
+          <span class="chunk" data-audio="09_3.mp3">toute la matinée.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -259,7 +258,8 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Non, parce que je t'aime.
+          <span class="chunk" data-audio="10_1.mp3">Non,</span>
+          <span class="chunk" data-audio="10_2.mp3">parce que je t'aime.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -276,7 +276,10 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Moi aussi je t'aime. Au fait, je veux pas de fromage sur mon muffin.
+          <span class="chunk" data-audio="11_1.mp3">Moi aussi je t'aime.</span>
+          <span class="chunk" data-audio="11_2.mp3">Au fait,</span>
+          <span class="chunk" data-audio="11_3.mp3">je veux pas de fromage</span>
+          <span class="chunk" data-audio="11_4.mp3">sur mon muffin.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -293,7 +296,8 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          C'est pas pour toi. C'est pour moi.
+          <span class="chunk" data-audio="12_1.mp3">C'est pas pour toi.</span>
+          <span class="chunk" data-audio="12_2.mp3">C'est pour moi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -310,16 +314,11 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          OK. T'as senti le poisson et
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/lɑ̃.ɡʁɛ o al.ɡ/"
-            data-meaning="seaweed fertilizer"
-            >l'engrais aux algues</span
-          >
-          quand t'étais dans le jardin ce matin ?
+          <span class="chunk" data-audio="13_1.mp3">OK.</span>
+          <span class="chunk" data-audio="13_2.mp3">T'as senti le poisson</span>
+          <span class="chunk" data-audio="13_3.mp3">et <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/lɑ̃.ɡʁɛ o al.ɡ/" data-meaning="seaweed fertilizer" >l'engrais aux algues</span ></span>
+          <span class="chunk" data-audio="13_4.mp3">quand t'étais dans le jardin</span>
+          <span class="chunk" data-audio="13_5.mp3">ce matin ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -339,23 +338,11 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Non, j'ai pas remarqué. J'étais pas attentif. J'avais
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title=""
-            data-meaning="my head was in the numbers (i.e. focused on the money)"
-            >la tête dans les chiffres</span
-          >,
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/fʁik/"
-            data-meaning="money (slang)"
-            >le fric</span
-          >.
+          <span class="chunk" data-audio="14_1.mp3">Non,</span>
+          <span class="chunk" data-audio="14_2.mp3">j'ai pas remarqué.</span>
+          <span class="chunk" data-audio="14_3.mp3">J'étais pas attentif.</span>
+          <span class="chunk" data-audio="14_4.mp3">J'avais <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-meaning="my head was in the numbers (i.e. focused on the money)" >la tête dans les chiffres</span >,</span>
+          <span class="chunk" data-audio="14_5.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/fʁik/" data-meaning="money (slang)" >le fric</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -375,16 +362,9 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Tes
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/bu.tyʁ/"
-            data-meaning="cuttings (plant propagation)"
-            >boutures</span
-          >
-          sont magnifiques. T'es devenu un vrai pro.
+          <span class="chunk" data-audio="15_1.mp3">Tes <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/bu.tyʁ/" data-meaning="cuttings (plant propagation)" >boutures</span ></span>
+          <span class="chunk" data-audio="15_2.mp3">sont magnifiques.</span>
+          <span class="chunk" data-audio="15_3.mp3">T'es devenu un vrai pro.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -401,15 +381,10 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          C'est pas
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/dɛ̃ɡ/"
-            data-meaning="crazy, amazing (informal)"
-            >dingue</span
-          >, ça ? Tu prends une bouture et ça devient une nouvelle plante.
+          <span class="chunk" data-audio="16_1.mp3">C'est pas <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/dɛ̃ɡ/" data-meaning="crazy, amazing (informal)" >dingue</span >, ça ?</span>
+          <span class="chunk" data-audio="16_2.mp3">Tu prends une bouture</span>
+          <span class="chunk" data-audio="16_3.mp3">et ça devient</span>
+          <span class="chunk" data-audio="16_4.mp3">une nouvelle plante.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -426,16 +401,10 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          C'est vrai. T'as vendu
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/soʒ/"
-            data-meaning="sage (herb/plant)"
-            >la sauge</span
-          >
-          "Mystic Spires" combien ?
+          <span class="chunk" data-audio="17_1.mp3">C'est vrai.</span>
+          <span class="chunk" data-audio="17_2.mp3">T'as vendu <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/soʒ/" data-meaning="sage (herb/plant)" >la sauge</span ></span>
+          <span class="chunk" data-audio="17_3.mp3">"Mystic Spires"</span>
+          <span class="chunk" data-audio="17_4.mp3">combien ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -452,15 +421,10 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          3 dollars. Tout est à 3 dollars
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pjɛs/"
-            data-meaning="each / apiece"
-            >pièce</span
-          >. Tes muffins sont prêts, sur la table.
+          <span class="chunk" data-audio="18_1.mp3">3 dollars.</span>
+          <span class="chunk" data-audio="18_2.mp3">Tout est à 3 dollars <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pjɛs/" data-meaning="each / apiece" >pièce</span >.</span>
+          <span class="chunk" data-audio="18_3.mp3">Tes muffins sont prêts,</span>
+          <span class="chunk" data-audio="18_4.mp3">sur la table.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -480,16 +444,10 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Merci. Je crois que je vais
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pi.ke œ̃ ʁu.pi.jɔ̃/"
-            data-meaning="to take a nap (informal)"
-            >piquer un roupillon</span
-          >
-          après les muffins.
+          <span class="chunk" data-audio="19_1.mp3">Merci.</span>
+          <span class="chunk" data-audio="19_2.mp3">Je crois que je vais</span>
+          <span class="chunk" data-audio="19_3.mp3"><span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pi.ke œ̃ ʁu.pi.jɔ̃/" data-meaning="to take a nap (informal)" >piquer un roupillon</span ></span>
+          <span class="chunk" data-audio="19_4.mp3">après les muffins.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -506,7 +464,7 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          Vas-y.
+          <span class="chunk" data-audio="20_1.mp3">Vas-y.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -523,16 +481,12 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          C'est quand même du temps de perdu, dormir. On passe un tiers de notre
-          vie à
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ʁu.pi.je/"
-            data-meaning="to snooze, to doze (informal)"
-            >roupiller</span
-          >.
+          <span class="chunk" data-audio="21_1.mp3">C'est quand même</span>
+          <span class="chunk" data-audio="21_2.mp3">du temps de perdu,</span>
+          <span class="chunk" data-audio="21_3.mp3">dormir.</span>
+          <span class="chunk" data-audio="21_4.mp3">On passe un tiers</span>
+          <span class="chunk" data-audio="21_5.mp3">de notre vie</span>
+          <span class="chunk" data-audio="21_6.mp3">à <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ʁu.pi.je/" data-meaning="to snooze, to doze (informal)" >roupiller</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -552,15 +506,8 @@
           data-audio="22.mp3"
         ></audio>
         <p>
-          Bah, faut bien
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title=""
-            data-meaning="to recharge one's batteries (idiomatic)"
-            >recharger les batteries</span
-          >.
+          <span class="chunk" data-audio="22_1.mp3">Bah,</span>
+          <span class="chunk" data-audio="22_2.mp3">faut bien <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-meaning="to recharge one's batteries (idiomatic)" >recharger les batteries</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -577,7 +524,7 @@
           data-audio="23.mp3"
         ></audio>
         <p>
-          C'est vrai, ça.
+          <span class="chunk" data-audio="23_1.mp3">C'est vrai, ça.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -657,6 +604,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv20/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv20/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

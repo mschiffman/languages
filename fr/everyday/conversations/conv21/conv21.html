@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,15 +92,10 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Il y a une
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/a.lɛʁt də ʃa.lœʁ ɛks.tʁɛm/"
-            data-meaning="extreme heat warning"
-            >alerte de chaleur extrême</span
-          >. Aujourd'hui et les deux prochains jours vont être terribles.
+          <span class="chunk" data-audio="01_1.mp3">Il y a une <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/a.lɛʁt də ʃa.lœʁ ɛks.tʁɛm/" data-meaning="extreme heat warning" >alerte de chaleur extrême</span >.</span>
+          <span class="chunk" data-audio="01_2.mp3">Aujourd'hui</span>
+          <span class="chunk" data-audio="01_3.mp3">et les deux prochains jours</span>
+          <span class="chunk" data-audio="01_4.mp3">vont être terribles.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -111,16 +112,17 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Ouais, certains sites prévoient 38 degrés. Mais weather.com dit seulement 37. On verra bien. C'est la pire
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/sɛʃ.ʁɛs/"
-            data-meaning="drought"
-            >sécheresse</span
-          >
-          à Raleigh depuis 140 ans. On a 25 cm de pluie de retard pour l'instant.
+          <span class="chunk" data-audio="02_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="02_2.mp3">certains sites prévoient</span>
+          <span class="chunk" data-audio="02_3.mp3">38 degrés.</span>
+          <span class="chunk" data-audio="02_4.mp3">Mais weather.com</span>
+          <span class="chunk" data-audio="02_5.mp3">dit seulement 37.</span>
+          <span class="chunk" data-audio="02_6.mp3">On verra bien.</span>
+          <span class="chunk" data-audio="02_7.mp3">C'est la pire <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/sɛʃ.ʁɛs/" data-meaning="drought" >sécheresse</span ></span>
+          <span class="chunk" data-audio="02_8.mp3">à Raleigh</span>
+          <span class="chunk" data-audio="02_9.mp3">depuis 140 ans.</span>
+          <span class="chunk" data-audio="02_10.mp3">On a 25 cm de pluie</span>
+          <span class="chunk" data-audio="02_11.mp3">de retard pour l'instant.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -137,16 +139,9 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Je suis content qu'on
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/de.me.naʒ/"
-            data-meaning="moving (to a new home)"
-            >déménage</span
-          >
-          l'année prochaine.
+          <span class="chunk" data-audio="03_1.mp3">Je suis content</span>
+          <span class="chunk" data-audio="03_2.mp3">qu'on <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/de.me.naʒ/" data-meaning="moving (to a new home)" >déménage</span ></span>
+          <span class="chunk" data-audio="03_3.mp3">l'année prochaine.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -163,16 +158,10 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Ouais, pour aller vers une autre
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/me.te.o/"
-            data-meaning="weather / climate"
-            >météo</span
-          >
-          brutale. Et toute l'année en plus.
+          <span class="chunk" data-audio="04_1.mp3">Ouais,</span>
+          <span class="chunk" data-audio="04_2.mp3">pour aller vers</span>
+          <span class="chunk" data-audio="04_3.mp3">une autre <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/me.te.o/" data-meaning="weather / climate" >météo</span > brutale.</span>
+          <span class="chunk" data-audio="04_4.mp3">Et toute l'année en plus.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -189,16 +178,12 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Bon, regarde le bon côté des choses. On ne fera plus de jardinage. On aura bien plus de temps pour nos
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/lwa.ziʁ/"
-            data-meaning="hobbies, leisure activities"
-            >loisirs</span
-          >
-          et pour voyager.
+          <span class="chunk" data-audio="05_1.mp3">Bon,</span>
+          <span class="chunk" data-audio="05_2.mp3">regarde le bon côté des choses.</span>
+          <span class="chunk" data-audio="05_3.mp3">On ne fera plus de jardinage.</span>
+          <span class="chunk" data-audio="05_4.mp3">On aura bien plus de temps</span>
+          <span class="chunk" data-audio="05_5.mp3">pour nos <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/lwa.ziʁ/" data-meaning="hobbies, leisure activities" >loisirs</span ></span>
+          <span class="chunk" data-audio="05_6.mp3">et pour voyager.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -215,7 +200,7 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          C'est vrai.
+          <span class="chunk" data-audio="06_1.mp3">C'est vrai.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -232,7 +217,11 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          On devrait peut-être ne pas vendre de plantes pendant les deux prochains jours. Je ne veux pas que tu sortes par cette chaleur extrême.
+          <span class="chunk" data-audio="07_1.mp3">On devrait peut-être</span>
+          <span class="chunk" data-audio="07_2.mp3">ne pas vendre de plantes</span>
+          <span class="chunk" data-audio="07_3.mp3">pendant les deux prochains jours.</span>
+          <span class="chunk" data-audio="07_4.mp3">Je ne veux pas que tu sortes</span>
+          <span class="chunk" data-audio="07_5.mp3">par cette chaleur extrême.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -249,7 +238,9 @@
           data-audio="08.mp3"
         ></audio>
         <p>
-          Ou alors on dira aux gens de venir entre 7h et midi.
+          <span class="chunk" data-audio="08_1.mp3">Ou alors</span>
+          <span class="chunk" data-audio="08_2.mp3">on dira aux gens de venir</span>
+          <span class="chunk" data-audio="08_3.mp3">entre 7h et midi.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -266,16 +257,10 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Ça marcherait aussi. Les plantes n'auront pas leur
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɑ̃.gʁɛ pwa.sɔ̃ e alg/"
-            data-meaning="fish and seaweed fertilizer"
-            >engrais poisson et algues</span
-          >
-          pendant deux jours.
+          <span class="chunk" data-audio="09_1.mp3">Ça marcherait aussi.</span>
+          <span class="chunk" data-audio="09_2.mp3">Les plantes n'auront pas</span>
+          <span class="chunk" data-audio="09_3.mp3">leur <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɑ̃.gʁɛ pwa.sɔ̃ e alg/" data-meaning="fish and seaweed fertilizer" >engrais poisson et algues</span ></span>
+          <span class="chunk" data-audio="09_4.mp3">pendant deux jours.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -292,24 +277,11 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Peu importe. Les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/a.ʁo.zœʁ/"
-            data-meaning="sprinklers"
-            >arroseurs</span
-          >
-          de ce côté de la maison ne marchent pas. Je dois utiliser
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/ɔ.si.la.tœʁ/"
-            data-meaning="oscillating sprinkler"
-            >l'oscillateur</span
-          >.
+          <span class="chunk" data-audio="10_1.mp3">Peu importe.</span>
+          <span class="chunk" data-audio="10_2.mp3">Les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/a.ʁo.zœʁ/" data-meaning="sprinklers" >arroseurs</span ></span>
+          <span class="chunk" data-audio="10_3.mp3">de ce côté de la maison</span>
+          <span class="chunk" data-audio="10_4.mp3">ne marchent pas.</span>
+          <span class="chunk" data-audio="10_5.mp3">Je dois utiliser <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/ɔ.si.la.tœʁ/" data-meaning="oscillating sprinkler" >l'oscillateur</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -326,7 +298,9 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Le jardinier pourrait peut-être réparer ça.
+          <span class="chunk" data-audio="11_1.mp3">Le jardinier</span>
+          <span class="chunk" data-audio="11_2.mp3">pourrait peut-être</span>
+          <span class="chunk" data-audio="11_3.mp3">réparer ça.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -343,7 +317,9 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Oui, je lui ai déjà envoyé un message.
+          <span class="chunk" data-audio="12_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="12_2.mp3">je lui ai déjà envoyé</span>
+          <span class="chunk" data-audio="12_3.mp3">un message.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -360,15 +336,9 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Fais tourner l'oscillateur longtemps pour bien
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title=""
-            data-meaning="to water deeply (soak thoroughly)"
-            >arroser en profondeur</span
-          >.
+          <span class="chunk" data-audio="13_1.mp3">Fais tourner l'oscillateur</span>
+          <span class="chunk" data-audio="13_2.mp3">longtemps</span>
+          <span class="chunk" data-audio="13_3.mp3">pour bien <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-meaning="to water deeply (soak thoroughly)" >arroser en profondeur</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -385,7 +355,9 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Je vais le laisser 30 minutes dans chaque zone.
+          <span class="chunk" data-audio="14_1.mp3">Je vais le laisser</span>
+          <span class="chunk" data-audio="14_2.mp3">30 minutes</span>
+          <span class="chunk" data-audio="14_3.mp3">dans chaque zone.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -402,7 +374,9 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          N'oublie pas que t'as l'oscillateur qui tourne.
+          <span class="chunk" data-audio="15_1.mp3">N'oublie pas</span>
+          <span class="chunk" data-audio="15_2.mp3">que t'as l'oscillateur</span>
+          <span class="chunk" data-audio="15_3.mp3">qui tourne.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -419,7 +393,9 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          Je sais. Je l'ai déjà déplacé une fois.
+          <span class="chunk" data-audio="16_1.mp3">Je sais.</span>
+          <span class="chunk" data-audio="16_2.mp3">Je l'ai déjà déplacé</span>
+          <span class="chunk" data-audio="16_3.mp3">une fois.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -436,7 +412,7 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          On va toujours à H-Mart ?
+          <span class="chunk" data-audio="17_1.mp3">On va toujours à H-Mart ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -453,15 +429,8 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Oui, après
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/pə.ti deʒ/"
-            data-meaning="breakfast (informal short form of petit-déjeuner)"
-            >le petit-déj</span
-          >.
+          <span class="chunk" data-audio="18_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="18_2.mp3">après <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/pə.ti deʒ/" data-meaning="breakfast (informal short form of petit-déjeuner)" >le petit-déj</span >.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -478,16 +447,12 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Super. Ces deux prochains jours, on reste à l'intérieur. J'espère que les
-          <span
-            class="word-info"
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="/vɛʁ də fa.ʁin/"
-            data-meaning="mealworms"
-            >vers de farine</span
-          >
-          vont arriver vivants. La chaleur est intense.
+          <span class="chunk" data-audio="19_1.mp3">Super.</span>
+          <span class="chunk" data-audio="19_2.mp3">Ces deux prochains jours,</span>
+          <span class="chunk" data-audio="19_3.mp3">on reste à l'intérieur.</span>
+          <span class="chunk" data-audio="19_4.mp3">J'espère que les <span class="word-info" data-bs-toggle="tooltip" data-bs-placement="top" title="/vɛʁ də fa.ʁin/" data-meaning="mealworms" >vers de farine</span ></span>
+          <span class="chunk" data-audio="19_5.mp3">vont arriver vivants.</span>
+          <span class="chunk" data-audio="19_6.mp3">La chaleur est intense.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -504,7 +469,7 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          On verra bien.
+          <span class="chunk" data-audio="20_1.mp3">On verra bien.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -584,6 +549,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv21/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv21/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

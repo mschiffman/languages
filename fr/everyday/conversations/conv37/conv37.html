@@ -58,6 +58,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -75,7 +81,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -85,7 +91,7 @@
           data-audio="01.mp3"
         ></audio>
         <p>
-          Ça marche pas.
+          <span class="chunk" data-audio="01_1.mp3">Ça marche pas.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -102,7 +108,7 @@
           data-audio="02.mp3"
         ></audio>
         <p>
-          Qu'est-ce qui marche pas ?
+          <span class="chunk" data-audio="02_1.mp3">Qu'est-ce qui marche pas ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -119,8 +125,12 @@
           data-audio="03.mp3"
         ></audio>
         <p>
-          Ce grill à pancakes. Le voyant s'allume pas. Je crois qu'il y a un
-          faux contact. Faut nettoyer les broches de temps en temps.
+          <span class="chunk" data-audio="03_1.mp3">Ce grill à pancakes.</span>
+          <span class="chunk" data-audio="03_2.mp3">Le voyant s'allume pas.</span>
+          <span class="chunk" data-audio="03_3.mp3">Je crois qu'il y a</span>
+          <span class="chunk" data-audio="03_4.mp3">un faux contact.</span>
+          <span class="chunk" data-audio="03_5.mp3">Faut nettoyer les broches</span>
+          <span class="chunk" data-audio="03_6.mp3">de temps en temps.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -140,8 +150,10 @@
           data-audio="04.mp3"
         ></audio>
         <p>
-          Je le fais. À chaque fois qu'on s'en sert. Mais je nettoie pas la
-          prise.
+          <span class="chunk" data-audio="04_1.mp3">Je le fais.</span>
+          <span class="chunk" data-audio="04_2.mp3">À chaque fois</span>
+          <span class="chunk" data-audio="04_3.mp3">qu'on s'en sert.</span>
+          <span class="chunk" data-audio="04_4.mp3">Mais je nettoie pas la prise.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -158,8 +170,10 @@
           data-audio="05.mp3"
         ></audio>
         <p>
-          Ben, la prise, c'est difficile à nettoyer. Normalement, t'as pas
-          besoin de le faire.
+          <span class="chunk" data-audio="05_1.mp3">Ben, la prise,</span>
+          <span class="chunk" data-audio="05_2.mp3">c'est difficile à nettoyer.</span>
+          <span class="chunk" data-audio="05_3.mp3">Normalement,</span>
+          <span class="chunk" data-audio="05_4.mp3">t'as pas besoin de le faire.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -178,7 +192,10 @@
           data-audio="06.mp3"
         ></audio>
         <p>
-          Réessaie. Ah, voilà, ça y est, le voyant est allumé maintenant.
+          <span class="chunk" data-audio="06_1.mp3">Réessaie.</span>
+          <span class="chunk" data-audio="06_2.mp3">Ah, voilà, ça y est,</span>
+          <span class="chunk" data-audio="06_3.mp3">le voyant est allumé</span>
+          <span class="chunk" data-audio="06_4.mp3">maintenant.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -195,9 +212,16 @@
           data-audio="07.mp3"
         ></audio>
         <p>
-          Mais ça cuit pas. Ça fait plus de 20 ans que j'ai ce grill. De toute
-          façon, on pourrait pas l'emmener en Malaisie. Donc s'il me lâche,
-          c'est pas une grosse perte. Je prendrai la poêle, c'est tout.
+          <span class="chunk" data-audio="07_1.mp3">Mais ça cuit pas.</span>
+          <span class="chunk" data-audio="07_2.mp3">Ça fait plus de 20 ans</span>
+          <span class="chunk" data-audio="07_3.mp3">que j'ai ce grill.</span>
+          <span class="chunk" data-audio="07_4.mp3">De toute façon,</span>
+          <span class="chunk" data-audio="07_5.mp3">on pourrait pas l'emmener</span>
+          <span class="chunk" data-audio="07_6.mp3">en Malaisie.</span>
+          <span class="chunk" data-audio="07_7.mp3">Donc s'il me lâche,</span>
+          <span class="chunk" data-audio="07_8.mp3">c'est pas une grosse perte.</span>
+          <span class="chunk" data-audio="07_9.mp3">Je prendrai la poêle,</span>
+          <span class="chunk" data-audio="07_10.mp3">c'est tout.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -264,8 +288,9 @@
           data-audio="08.mp3?v=2607221344"
         ></audio>
         <p>
-          Mais notre mariage aussi, ça fait plus de 20 ans. On devrait le jeter
-          ?
+          <span class="chunk" data-audio="08_1.mp3">Mais notre mariage aussi,</span>
+          <span class="chunk" data-audio="08_2.mp3">ça fait plus de 20 ans.</span>
+          <span class="chunk" data-audio="08_3.mp3">On devrait le jeter ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -285,7 +310,8 @@
           data-audio="09.mp3"
         ></audio>
         <p>
-          Non, ça, c'est pour la vie.
+          <span class="chunk" data-audio="09_1.mp3">Non,</span>
+          <span class="chunk" data-audio="09_2.mp3">ça, c'est pour la vie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -302,8 +328,9 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          J'ai nettoyé le grill, les broches comprises. Tu veux que je le jette
-          ?
+          <span class="chunk" data-audio="10_1.mp3">J'ai nettoyé le grill,</span>
+          <span class="chunk" data-audio="10_2.mp3">les broches comprises.</span>
+          <span class="chunk" data-audio="10_3.mp3">Tu veux que je le jette ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -323,7 +350,10 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          Non, laisse-le sécher. Je veux voir si j'arrive à le réparer.
+          <span class="chunk" data-audio="11_1.mp3">Non,</span>
+          <span class="chunk" data-audio="11_2.mp3">laisse-le sécher.</span>
+          <span class="chunk" data-audio="11_3.mp3">Je veux voir</span>
+          <span class="chunk" data-audio="11_4.mp3">si j'arrive à le réparer.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -340,7 +370,9 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          D'accord. Je le remonte à l'étage en attendant ?
+          <span class="chunk" data-audio="12_1.mp3">D'accord.</span>
+          <span class="chunk" data-audio="12_2.mp3">Je le remonte à l'étage</span>
+          <span class="chunk" data-audio="12_3.mp3">en attendant ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -357,8 +389,13 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Non, je vais le mettre dans la buanderie, pour qu'il soit pas dans le
-          passage. Je vais bosser sur mon roman avec Claude, là.
+          <span class="chunk" data-audio="13_1.mp3">Non,</span>
+          <span class="chunk" data-audio="13_2.mp3">je vais le mettre</span>
+          <span class="chunk" data-audio="13_3.mp3">dans la buanderie,</span>
+          <span class="chunk" data-audio="13_4.mp3">pour qu'il soit pas</span>
+          <span class="chunk" data-audio="13_5.mp3">dans le passage.</span>
+          <span class="chunk" data-audio="13_6.mp3">Je vais bosser sur mon roman</span>
+          <span class="chunk" data-audio="13_7.mp3">avec Claude, là.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -378,10 +415,15 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Ça marche. Moi, je vais m'occuper des audios pour mon site.
-          ElevenLabs, ça sonne tellement vrai que je peux utiliser leurs audios
-          pour le shadowing. Sinon, c'est dur de trouver de l'audio propre en
-          ligne.
+          <span class="chunk" data-audio="14_1.mp3">Ça marche.</span>
+          <span class="chunk" data-audio="14_2.mp3">Moi, je vais m'occuper</span>
+          <span class="chunk" data-audio="14_3.mp3">des audios pour mon site.</span>
+          <span class="chunk" data-audio="14_4.mp3">ElevenLabs,</span>
+          <span class="chunk" data-audio="14_5.mp3">ça sonne tellement vrai</span>
+          <span class="chunk" data-audio="14_6.mp3">que je peux utiliser leurs audios</span>
+          <span class="chunk" data-audio="14_7.mp3">pour le shadowing.</span>
+          <span class="chunk" data-audio="14_8.mp3">Sinon, c'est dur de trouver</span>
+          <span class="chunk" data-audio="14_9.mp3">de l'audio propre en ligne.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -402,10 +444,16 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          Ah, j'ai épuisé mon quota sur Claude. Faut que j'attende 5 heures que
-          ça se remette à zéro. J'ai besoin d'une pause de toute façon. J'ai
-          passé toute la matinée à relire et à retoucher mon roman. C'est
-          fastidieux.
+          <span class="chunk" data-audio="15_1.mp3">Ah, j'ai épuisé mon quota</span>
+          <span class="chunk" data-audio="15_2.mp3">sur Claude.</span>
+          <span class="chunk" data-audio="15_3.mp3">Faut que j'attende 5 heures</span>
+          <span class="chunk" data-audio="15_4.mp3">que ça se remette à zéro.</span>
+          <span class="chunk" data-audio="15_5.mp3">J'ai besoin d'une pause</span>
+          <span class="chunk" data-audio="15_6.mp3">de toute façon.</span>
+          <span class="chunk" data-audio="15_7.mp3">J'ai passé toute la matinée</span>
+          <span class="chunk" data-audio="15_8.mp3">à relire</span>
+          <span class="chunk" data-audio="15_9.mp3">et à retoucher mon roman.</span>
+          <span class="chunk" data-audio="15_10.mp3">C'est fastidieux.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -426,8 +474,10 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          On est pas pressés. Prends ton temps. Fais en sorte que ce soit
-          parfait.
+          <span class="chunk" data-audio="16_1.mp3">On est pas pressés.</span>
+          <span class="chunk" data-audio="16_2.mp3">Prends ton temps.</span>
+          <span class="chunk" data-audio="16_3.mp3">Fais en sorte</span>
+          <span class="chunk" data-audio="16_4.mp3">que ce soit parfait.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -444,7 +494,7 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Je vais le faire.
+          <span class="chunk" data-audio="17_1.mp3">Je vais le faire.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -461,7 +511,8 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Tu veux utiliser mon Claude ? Il m'en reste 96 %.
+          <span class="chunk" data-audio="18_1.mp3">Tu veux utiliser mon Claude ?</span>
+          <span class="chunk" data-audio="18_2.mp3">Il m'en reste 96 %.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -478,7 +529,9 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Non, c'est bon. Mon cerveau a besoin de souffler.
+          <span class="chunk" data-audio="19_1.mp3">Non, c'est bon.</span>
+          <span class="chunk" data-audio="19_2.mp3">Mon cerveau</span>
+          <span class="chunk" data-audio="19_3.mp3">a besoin de souffler.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -495,7 +548,9 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          Va te reposer. Tu veux que je t'apporte quelque chose ?
+          <span class="chunk" data-audio="20_1.mp3">Va te reposer.</span>
+          <span class="chunk" data-audio="20_2.mp3">Tu veux que je t'apporte</span>
+          <span class="chunk" data-audio="20_3.mp3">quelque chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -512,7 +567,8 @@
           data-audio="21.mp3"
         ></audio>
         <p>
-          Non, ça va, merci. Je vais juste boire mon thé.
+          <span class="chunk" data-audio="21_1.mp3">Non, ça va, merci.</span>
+          <span class="chunk" data-audio="21_2.mp3">Je vais juste boire mon thé.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -594,6 +650,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv37/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv37/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>

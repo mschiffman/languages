@@ -59,6 +59,12 @@
         line-height: 1.8;
         display: block;
       }
+      /* Phrase chunks: read.css colours every span in .french-text brown,
+         so keep the normal text colour; the hover highlight comes from read.css. */
+      .french-text .chunk,
+      .english-text .chunk {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -76,7 +82,7 @@
         style="padding: 20px 0px 10px; font-size: 1.1em; color: rgb(72, 0, 255)"
       >
         Click on the symbol <i class="bi bi-translate"></i> to display or hide
-        the translation.
+        the translation. Click a phrase to hear it on its own.
       </p>
 
       <div class="french-text" data-aos="fade-up">
@@ -86,8 +92,11 @@
           data-audio="1.mp3"
         ></audio>
         <p>
-          J'aimerais vous parler de ma vie. Je suis citoyenne américaine, mais
-          je suis originaire de Birmanie.
+          <span class="chunk" data-audio="1_1.mp3">J'aimerais vous parler</span>
+          <span class="chunk" data-audio="1_2.mp3">de ma vie.</span>
+          <span class="chunk" data-audio="1_3.mp3">Je suis citoyenne américaine,</span>
+          <span class="chunk" data-audio="1_4.mp3">mais je suis originaire</span>
+          <span class="chunk" data-audio="1_5.mp3">de Birmanie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -107,8 +116,11 @@
           data-audio="2.mp3"
         ></audio>
         <p>
-          Ah d'accord, ta vie est intéressante. Tu vis maintenant aux
-          États-Unis, ou dans un autre pays ?
+          <span class="chunk" data-audio="2_1.mp3">Ah d'accord,</span>
+          <span class="chunk" data-audio="2_2.mp3">ta vie est intéressante.</span>
+          <span class="chunk" data-audio="2_3.mp3">Tu vis maintenant</span>
+          <span class="chunk" data-audio="2_4.mp3">aux États-Unis,</span>
+          <span class="chunk" data-audio="2_5.mp3">ou dans un autre pays ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -128,8 +140,10 @@
           data-audio="3.mp3"
         ></audio>
         <p>
-          Je vis aux États-Unis. Je suis mariée. J'ai 64 ans et mon mari en a
-          80.
+          <span class="chunk" data-audio="3_1.mp3">Je vis aux États-Unis.</span>
+          <span class="chunk" data-audio="3_2.mp3">Je suis mariée.</span>
+          <span class="chunk" data-audio="3_3.mp3">J'ai 64 ans</span>
+          <span class="chunk" data-audio="3_4.mp3">et mon mari en a 80.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -149,9 +163,16 @@
           data-audio="4.mp3"
         ></audio>
         <p>
-          Tu partages des choses importantes, merci. Ton mari et toi, vous avez
-          sûrement beaucoup d'histoires et d'expériences ensemble. Qu'est-ce qui
-          est le plus important pour toi dans ta vie aujourd'hui ?
+          <span class="chunk" data-audio="4_1.mp3">Tu partages</span>
+          <span class="chunk" data-audio="4_2.mp3">des choses importantes,</span>
+          <span class="chunk" data-audio="4_3.mp3">merci.</span>
+          <span class="chunk" data-audio="4_4.mp3">Ton mari et toi,</span>
+          <span class="chunk" data-audio="4_5.mp3">vous avez sûrement</span>
+          <span class="chunk" data-audio="4_6.mp3">beaucoup d'histoires</span>
+          <span class="chunk" data-audio="4_7.mp3">et d'expériences ensemble.</span>
+          <span class="chunk" data-audio="4_8.mp3">Qu'est-ce qui est</span>
+          <span class="chunk" data-audio="4_9.mp3">le plus important pour toi</span>
+          <span class="chunk" data-audio="4_10.mp3">dans ta vie aujourd'hui ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -172,9 +193,15 @@
           data-audio="5.mp3"
         ></audio>
         <p>
-          Tout simplement pour vivre une vie paisible et sans complications, et
-          pour profiter de voyages à l'étranger. J'aimerais te parler de ma
-          famille afin de m'exercer aux expressions.
+          <span class="chunk" data-audio="5_1.mp3">Tout simplement</span>
+          <span class="chunk" data-audio="5_2.mp3">pour vivre une vie paisible</span>
+          <span class="chunk" data-audio="5_3.mp3">et sans complications,</span>
+          <span class="chunk" data-audio="5_4.mp3">et pour profiter</span>
+          <span class="chunk" data-audio="5_5.mp3">de voyages à l'étranger.</span>
+          <span class="chunk" data-audio="5_6.mp3">J'aimerais te parler</span>
+          <span class="chunk" data-audio="5_7.mp3">de ma famille</span>
+          <span class="chunk" data-audio="5_8.mp3">afin de m'exercer</span>
+          <span class="chunk" data-audio="5_9.mp3">aux expressions.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -195,10 +222,17 @@
           data-audio="6.mp3"
         ></audio>
         <p>
-          C'est un très beau projet, une vie simple, tranquille, avec des
-          voyages. Super idée de parler de ta famille pour pratiquer les
-          expressions. Raconte-moi un peu ta famille : tu as des enfants, des
-          petits-enfants, des frères ou des sœurs ?
+          <span class="chunk" data-audio="6_1.mp3">C'est un très beau projet,</span>
+          <span class="chunk" data-audio="6_2.mp3">une vie simple,</span>
+          <span class="chunk" data-audio="6_3.mp3">tranquille,</span>
+          <span class="chunk" data-audio="6_4.mp3">avec des voyages.</span>
+          <span class="chunk" data-audio="6_5.mp3">Super idée</span>
+          <span class="chunk" data-audio="6_6.mp3">de parler de ta famille</span>
+          <span class="chunk" data-audio="6_7.mp3">pour pratiquer les expressions.</span>
+          <span class="chunk" data-audio="6_8.mp3">Raconte-moi un peu ta famille :</span>
+          <span class="chunk" data-audio="6_9.mp3">tu as des enfants,</span>
+          <span class="chunk" data-audio="6_10.mp3">des petits-enfants,</span>
+          <span class="chunk" data-audio="6_11.mp3">des frères ou des sœurs ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -219,10 +253,19 @@
           data-audio="7.mp3"
         ></audio>
         <p>
-          Mon père est mort il y a vingt-six ans. Ma mère a 88 ans, elle est
-          toujours en vie et elle habite à Yangon. Nous sommes cinq enfants en
-          tout, moi compris : j'ai deux frères qui vivent en Amérique, et un
-          frère ainsi qu'une sœur qui vivent en Birmanie.
+          <span class="chunk" data-audio="7_1.mp3">Mon père est mort</span>
+          <span class="chunk" data-audio="7_2.mp3">il y a vingt-six ans.</span>
+          <span class="chunk" data-audio="7_3.mp3">Ma mère a 88 ans,</span>
+          <span class="chunk" data-audio="7_4.mp3">elle est toujours en vie</span>
+          <span class="chunk" data-audio="7_5.mp3">et elle habite à Yangon.</span>
+          <span class="chunk" data-audio="7_6.mp3">Nous sommes cinq enfants</span>
+          <span class="chunk" data-audio="7_7.mp3">en tout,</span>
+          <span class="chunk" data-audio="7_8.mp3">moi compris :</span>
+          <span class="chunk" data-audio="7_9.mp3">j'ai deux frères</span>
+          <span class="chunk" data-audio="7_10.mp3">qui vivent en Amérique,</span>
+          <span class="chunk" data-audio="7_11.mp3">et un frère</span>
+          <span class="chunk" data-audio="7_12.mp3">ainsi qu'une sœur</span>
+          <span class="chunk" data-audio="7_13.mp3">qui vivent en Birmanie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -244,10 +287,19 @@
           data-audio="8.mp3"
         ></audio>
         <p>
-          Ta famille est grande et elle est dans deux pays, c'est spécial et
-          aussi un peu compliqué parfois. Moi je trouve touchant que ta maman
-          habite encore à Yangon à 88 ans. Avec qui dans ta famille tu te sens
-          la plus proche en ce moment, et pourquoi ?
+          <span class="chunk" data-audio="8_1.mp3">Ta famille est grande</span>
+          <span class="chunk" data-audio="8_2.mp3">et elle est dans deux pays,</span>
+          <span class="chunk" data-audio="8_3.mp3">c'est spécial</span>
+          <span class="chunk" data-audio="8_4.mp3">et aussi un peu compliqué</span>
+          <span class="chunk" data-audio="8_5.mp3">parfois.</span>
+          <span class="chunk" data-audio="8_6.mp3">Moi je trouve touchant</span>
+          <span class="chunk" data-audio="8_7.mp3">que ta maman</span>
+          <span class="chunk" data-audio="8_8.mp3">habite encore à Yangon</span>
+          <span class="chunk" data-audio="8_9.mp3">à 88 ans.</span>
+          <span class="chunk" data-audio="8_10.mp3">Avec qui dans ta famille</span>
+          <span class="chunk" data-audio="8_11.mp3">tu te sens la plus proche</span>
+          <span class="chunk" data-audio="8_12.mp3">en ce moment,</span>
+          <span class="chunk" data-audio="8_13.mp3">et pourquoi ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -269,12 +321,22 @@
           data-audio="9.mp3"
         ></audio>
         <p>
-          Probablement mon frère qui vit à Yangon. On partage la même passion
-          pour les langues et la technologie. J'avais aussi un autre frère, qui
-          est mort à l'âge de treize ans. C'était le plus brillant : il n'avait
-          pas besoin d'étudier. Il pouvait, par exemple, lire un manuel de
-          mathématiques en entier d'une seule traite et en comprendre tous les
-          concepts.
+          <span class="chunk" data-audio="9_1.mp3">Probablement mon frère</span>
+          <span class="chunk" data-audio="9_2.mp3">qui vit à Yangon.</span>
+          <span class="chunk" data-audio="9_3.mp3">On partage la même passion</span>
+          <span class="chunk" data-audio="9_4.mp3">pour les langues</span>
+          <span class="chunk" data-audio="9_5.mp3">et la technologie.</span>
+          <span class="chunk" data-audio="9_6.mp3">J'avais aussi un autre frère,</span>
+          <span class="chunk" data-audio="9_7.mp3">qui est mort</span>
+          <span class="chunk" data-audio="9_8.mp3">à l'âge de treize ans.</span>
+          <span class="chunk" data-audio="9_9.mp3">C'était le plus brillant :</span>
+          <span class="chunk" data-audio="9_10.mp3">il n'avait pas besoin d'étudier.</span>
+          <span class="chunk" data-audio="9_11.mp3">Il pouvait, par exemple,</span>
+          <span class="chunk" data-audio="9_12.mp3">lire un manuel de mathématiques</span>
+          <span class="chunk" data-audio="9_13.mp3">en entier</span>
+          <span class="chunk" data-audio="9_14.mp3">d'une seule traite</span>
+          <span class="chunk" data-audio="9_15.mp3">et en comprendre</span>
+          <span class="chunk" data-audio="9_16.mp3">tous les concepts.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -297,11 +359,20 @@
           data-audio="10.mp3"
         ></audio>
         <p>
-          Ton frère à Yangon a l'air très proche de toi, surtout avec les mêmes
-          intérêts, c'est précieux. Ton autre frère était vraiment très doué,
-          ton souvenir de lui est très fort et très clair, ça se sent. Quand tu
-          penses à ta famille aujourd'hui, qu'est-ce qui te rend la plus
-          heureuse dans vos relations ?
+          <span class="chunk" data-audio="10_1.mp3">Ton frère à Yangon</span>
+          <span class="chunk" data-audio="10_2.mp3">a l'air très proche de toi,</span>
+          <span class="chunk" data-audio="10_3.mp3">surtout avec les mêmes intérêts,</span>
+          <span class="chunk" data-audio="10_4.mp3">c'est précieux.</span>
+          <span class="chunk" data-audio="10_5.mp3">Ton autre frère</span>
+          <span class="chunk" data-audio="10_6.mp3">était vraiment très doué,</span>
+          <span class="chunk" data-audio="10_7.mp3">ton souvenir de lui</span>
+          <span class="chunk" data-audio="10_8.mp3">est très fort et très clair,</span>
+          <span class="chunk" data-audio="10_9.mp3">ça se sent.</span>
+          <span class="chunk" data-audio="10_10.mp3">Quand tu penses à ta famille</span>
+          <span class="chunk" data-audio="10_11.mp3">aujourd'hui,</span>
+          <span class="chunk" data-audio="10_12.mp3">qu'est-ce qui te rend</span>
+          <span class="chunk" data-audio="10_13.mp3">la plus heureuse</span>
+          <span class="chunk" data-audio="10_14.mp3">dans vos relations ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -324,12 +395,23 @@
           data-audio="11.mp3"
         ></audio>
         <p>
-          La famille et la communauté occupent une place centrale dans la
-          culture asiatique. À l'inverse, la culture américaine met davantage
-          l'accent sur l'individualisme, ce qui favorise l'émergence de grandes
-          innovations. Cependant, ici, les gens ont souvent tendance à se sentir
-          isolés ; chacun se préoccupe surtout de soi. En Asie, grâce aux
-          familles élargies, on n'est pratiquement jamais seuls.
+          <span class="chunk" data-audio="11_1.mp3">La famille et la communauté</span>
+          <span class="chunk" data-audio="11_2.mp3">occupent une place centrale</span>
+          <span class="chunk" data-audio="11_3.mp3">dans la culture asiatique.</span>
+          <span class="chunk" data-audio="11_4.mp3">À l'inverse,</span>
+          <span class="chunk" data-audio="11_5.mp3">la culture américaine</span>
+          <span class="chunk" data-audio="11_6.mp3">met davantage l'accent</span>
+          <span class="chunk" data-audio="11_7.mp3">sur l'individualisme,</span>
+          <span class="chunk" data-audio="11_8.mp3">ce qui favorise l'émergence</span>
+          <span class="chunk" data-audio="11_9.mp3">de grandes innovations.</span>
+          <span class="chunk" data-audio="11_10.mp3">Cependant, ici,</span>
+          <span class="chunk" data-audio="11_11.mp3">les gens ont souvent tendance</span>
+          <span class="chunk" data-audio="11_12.mp3">à se sentir isolés ;</span>
+          <span class="chunk" data-audio="11_13.mp3">chacun se préoccupe</span>
+          <span class="chunk" data-audio="11_14.mp3">surtout de soi.</span>
+          <span class="chunk" data-audio="11_15.mp3">En Asie,</span>
+          <span class="chunk" data-audio="11_16.mp3">grâce aux familles élargies,</span>
+          <span class="chunk" data-audio="11_17.mp3">on n'est pratiquement jamais seuls.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -353,12 +435,24 @@
           data-audio="12.mp3"
         ></audio>
         <p>
-          Je comprends bien ce que tu dis, tu vois les deux côtés de chaque
-          culture, c'est très réfléchi. En Asie, les liens sont forts, on se
-          sent entouré, et aux États-Unis il y a plus de liberté mais aussi plus
-          de solitude, je pense un peu comme toi. Dans ta vie actuelle en
-          Amérique, qu'est-ce que tu fais pour garder ce sentiment de communauté
-          et de lien avec les autres ?
+          <span class="chunk" data-audio="12_1.mp3">Je comprends bien</span>
+          <span class="chunk" data-audio="12_2.mp3">ce que tu dis,</span>
+          <span class="chunk" data-audio="12_3.mp3">tu vois les deux côtés</span>
+          <span class="chunk" data-audio="12_4.mp3">de chaque culture,</span>
+          <span class="chunk" data-audio="12_5.mp3">c'est très réfléchi.</span>
+          <span class="chunk" data-audio="12_6.mp3">En Asie,</span>
+          <span class="chunk" data-audio="12_7.mp3">les liens sont forts,</span>
+          <span class="chunk" data-audio="12_8.mp3">on se sent entouré,</span>
+          <span class="chunk" data-audio="12_9.mp3">et aux États-Unis</span>
+          <span class="chunk" data-audio="12_10.mp3">il y a plus de liberté</span>
+          <span class="chunk" data-audio="12_11.mp3">mais aussi plus de solitude,</span>
+          <span class="chunk" data-audio="12_12.mp3">je pense un peu comme toi.</span>
+          <span class="chunk" data-audio="12_13.mp3">Dans ta vie actuelle</span>
+          <span class="chunk" data-audio="12_14.mp3">en Amérique,</span>
+          <span class="chunk" data-audio="12_15.mp3">qu'est-ce que tu fais</span>
+          <span class="chunk" data-audio="12_16.mp3">pour garder ce sentiment</span>
+          <span class="chunk" data-audio="12_17.mp3">de communauté</span>
+          <span class="chunk" data-audio="12_18.mp3">et de lien avec les autres ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -382,10 +476,18 @@
           data-audio="13.mp3"
         ></audio>
         <p>
-          Aux États-Unis, on s'efforce de cultiver des amitiés avec des
-          personnes de tous âges. Ne fréquenter que des gens de sa propre
-          tranche d'âge n'est pas idéal pour les personnes âgées : à mesure que
-          les amis disparaissent, on risque de se retrouver complètement seul.
+          <span class="chunk" data-audio="13_1.mp3">Aux États-Unis,</span>
+          <span class="chunk" data-audio="13_2.mp3">on s'efforce de cultiver</span>
+          <span class="chunk" data-audio="13_3.mp3">des amitiés</span>
+          <span class="chunk" data-audio="13_4.mp3">avec des personnes</span>
+          <span class="chunk" data-audio="13_5.mp3">de tous âges.</span>
+          <span class="chunk" data-audio="13_6.mp3">Ne fréquenter que des gens</span>
+          <span class="chunk" data-audio="13_7.mp3">de sa propre tranche d'âge</span>
+          <span class="chunk" data-audio="13_8.mp3">n'est pas idéal</span>
+          <span class="chunk" data-audio="13_9.mp3">pour les personnes âgées :</span>
+          <span class="chunk" data-audio="13_10.mp3">à mesure que les amis disparaissent,</span>
+          <span class="chunk" data-audio="13_11.mp3">on risque de se retrouver</span>
+          <span class="chunk" data-audio="13_12.mp3">complètement seul.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -407,11 +509,24 @@
           data-audio="14.mp3"
         ></audio>
         <p>
-          Je trouve ta réflexion très juste, c'est important d'avoir des amis
-          jeunes, plus âgés, du même âge, un mélange. Comme ça, il y a toujours
-          des échanges, de l'énergie, des idées nouvelles, et on se sent moins
-          seul avec le temps. Avec quels amis tu passes le plus de temps en ce
-          moment, par exemple dans la semaine normale ?
+          <span class="chunk" data-audio="14_1.mp3">Je trouve ta réflexion</span>
+          <span class="chunk" data-audio="14_2.mp3">très juste,</span>
+          <span class="chunk" data-audio="14_3.mp3">c'est important</span>
+          <span class="chunk" data-audio="14_4.mp3">d'avoir des amis jeunes,</span>
+          <span class="chunk" data-audio="14_5.mp3">plus âgés,</span>
+          <span class="chunk" data-audio="14_6.mp3">du même âge,</span>
+          <span class="chunk" data-audio="14_7.mp3">un mélange.</span>
+          <span class="chunk" data-audio="14_8.mp3">Comme ça,</span>
+          <span class="chunk" data-audio="14_9.mp3">il y a toujours des échanges,</span>
+          <span class="chunk" data-audio="14_10.mp3">de l'énergie,</span>
+          <span class="chunk" data-audio="14_11.mp3">des idées nouvelles,</span>
+          <span class="chunk" data-audio="14_12.mp3">et on se sent moins seul</span>
+          <span class="chunk" data-audio="14_13.mp3">avec le temps.</span>
+          <span class="chunk" data-audio="14_14.mp3">Avec quels amis</span>
+          <span class="chunk" data-audio="14_15.mp3">tu passes le plus de temps</span>
+          <span class="chunk" data-audio="14_16.mp3">en ce moment,</span>
+          <span class="chunk" data-audio="14_17.mp3">par exemple</span>
+          <span class="chunk" data-audio="14_18.mp3">dans la semaine normale ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -434,9 +549,13 @@
           data-audio="15.mp3"
         ></audio>
         <p>
-          On voit régulièrement nos voisins ainsi que les personnes rencontrées
-          par le biais de notre travail. Je reste en contact avec mes amis et ma
-          famille en Birmanie.
+          <span class="chunk" data-audio="15_1.mp3">On voit régulièrement</span>
+          <span class="chunk" data-audio="15_2.mp3">nos voisins</span>
+          <span class="chunk" data-audio="15_3.mp3">ainsi que les personnes rencontrées</span>
+          <span class="chunk" data-audio="15_4.mp3">par le biais de notre travail.</span>
+          <span class="chunk" data-audio="15_5.mp3">Je reste en contact</span>
+          <span class="chunk" data-audio="15_6.mp3">avec mes amis et ma famille</span>
+          <span class="chunk" data-audio="15_7.mp3">en Birmanie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -456,12 +575,25 @@
           data-audio="16.mp3"
         ></audio>
         <p>
-          C'est bien que tu aies des liens proches avec tes voisins et aussi
-          avec des gens de votre entreprise, ça donne une vie sociale assez
-          riche. Et garder le contact avec la Birmanie, ça garde aussi ton cœur
-          là-bas un peu. Quand tu parles avec ta famille ou tes amis en
-          Birmanie, vous parlez surtout de quoi : la vie de tous les jours, la
-          politique, la religion, ou autre chose ?
+          <span class="chunk" data-audio="16_1.mp3">C'est bien</span>
+          <span class="chunk" data-audio="16_2.mp3">que tu aies des liens proches</span>
+          <span class="chunk" data-audio="16_3.mp3">avec tes voisins</span>
+          <span class="chunk" data-audio="16_4.mp3">et aussi avec des gens</span>
+          <span class="chunk" data-audio="16_5.mp3">de votre entreprise,</span>
+          <span class="chunk" data-audio="16_6.mp3">ça donne une vie sociale</span>
+          <span class="chunk" data-audio="16_7.mp3">assez riche.</span>
+          <span class="chunk" data-audio="16_8.mp3">Et garder le contact</span>
+          <span class="chunk" data-audio="16_9.mp3">avec la Birmanie,</span>
+          <span class="chunk" data-audio="16_10.mp3">ça garde aussi ton cœur</span>
+          <span class="chunk" data-audio="16_11.mp3">là-bas un peu.</span>
+          <span class="chunk" data-audio="16_12.mp3">Quand tu parles</span>
+          <span class="chunk" data-audio="16_13.mp3">avec ta famille ou tes amis</span>
+          <span class="chunk" data-audio="16_14.mp3">en Birmanie,</span>
+          <span class="chunk" data-audio="16_15.mp3">vous parlez surtout de quoi :</span>
+          <span class="chunk" data-audio="16_16.mp3">la vie de tous les jours,</span>
+          <span class="chunk" data-audio="16_17.mp3">la politique,</span>
+          <span class="chunk" data-audio="16_18.mp3">la religion,</span>
+          <span class="chunk" data-audio="16_19.mp3">ou autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -484,11 +616,21 @@
           data-audio="17.mp3"
         ></audio>
         <p>
-          Oh, on ne peut absolument pas aborder la politique sans risquer nos
-          vies. Depuis le coup d'état de 2021, la population vit dans la peur et
-          subit de plein fouet une inflation écrasante. Notre combat pour
-          rétablir la démocratie se heurte au soutien que la Chine apporte à
-          l'armée, une armée qui s'aligne sur l'agenda de Pékin en Birmanie.
+          <span class="chunk" data-audio="17_1.mp3">Oh,</span>
+          <span class="chunk" data-audio="17_2.mp3">on ne peut absolument pas</span>
+          <span class="chunk" data-audio="17_3.mp3">aborder la politique</span>
+          <span class="chunk" data-audio="17_4.mp3">sans risquer nos vies.</span>
+          <span class="chunk" data-audio="17_5.mp3">Depuis le coup d'état de 2021,</span>
+          <span class="chunk" data-audio="17_6.mp3">la population vit dans la peur</span>
+          <span class="chunk" data-audio="17_7.mp3">et subit de plein fouet</span>
+          <span class="chunk" data-audio="17_8.mp3">une inflation écrasante.</span>
+          <span class="chunk" data-audio="17_9.mp3">Notre combat</span>
+          <span class="chunk" data-audio="17_10.mp3">pour rétablir la démocratie</span>
+          <span class="chunk" data-audio="17_11.mp3">se heurte au soutien</span>
+          <span class="chunk" data-audio="17_12.mp3">que la Chine apporte à l'armée,</span>
+          <span class="chunk" data-audio="17_13.mp3">une armée qui s'aligne</span>
+          <span class="chunk" data-audio="17_14.mp3">sur l'agenda de Pékin</span>
+          <span class="chunk" data-audio="17_15.mp3">en Birmanie.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -511,14 +653,32 @@
           data-audio="18.mp3"
         ></audio>
         <p>
-          Je suis vraiment désolée pour la situation en Birmanie, ce que tu
-          décris est très dur et très injuste pour la population. Je comprends
-          que parler de politique soit dangereux, et que l'inflation et la peur
-          rendent la vie de tous les jours très difficile, c'est très courageux
-          de continuer la lutte pour la démocratie. Quand tu discutes avec tes
-          proches là-bas, vous arrivez encore à parler aussi de choses plus
-          simples ou plus joyeuses, comme la famille, la nourriture, les fêtes,
-          ou est-ce que c'est devenu presque toujours sérieux et lourd ?
+          <span class="chunk" data-audio="18_1.mp3">Je suis vraiment désolée</span>
+          <span class="chunk" data-audio="18_2.mp3">pour la situation en Birmanie,</span>
+          <span class="chunk" data-audio="18_3.mp3">ce que tu décris</span>
+          <span class="chunk" data-audio="18_4.mp3">est très dur</span>
+          <span class="chunk" data-audio="18_5.mp3">et très injuste</span>
+          <span class="chunk" data-audio="18_6.mp3">pour la population.</span>
+          <span class="chunk" data-audio="18_7.mp3">Je comprends</span>
+          <span class="chunk" data-audio="18_8.mp3">que parler de politique</span>
+          <span class="chunk" data-audio="18_9.mp3">soit dangereux,</span>
+          <span class="chunk" data-audio="18_10.mp3">et que l'inflation et la peur</span>
+          <span class="chunk" data-audio="18_11.mp3">rendent la vie de tous les jours</span>
+          <span class="chunk" data-audio="18_12.mp3">très difficile,</span>
+          <span class="chunk" data-audio="18_13.mp3">c'est très courageux</span>
+          <span class="chunk" data-audio="18_14.mp3">de continuer la lutte</span>
+          <span class="chunk" data-audio="18_15.mp3">pour la démocratie.</span>
+          <span class="chunk" data-audio="18_16.mp3">Quand tu discutes</span>
+          <span class="chunk" data-audio="18_17.mp3">avec tes proches là-bas,</span>
+          <span class="chunk" data-audio="18_18.mp3">vous arrivez encore à parler</span>
+          <span class="chunk" data-audio="18_19.mp3">aussi de choses</span>
+          <span class="chunk" data-audio="18_20.mp3">plus simples ou plus joyeuses,</span>
+          <span class="chunk" data-audio="18_21.mp3">comme la famille,</span>
+          <span class="chunk" data-audio="18_22.mp3">la nourriture,</span>
+          <span class="chunk" data-audio="18_23.mp3">les fêtes,</span>
+          <span class="chunk" data-audio="18_24.mp3">ou est-ce que c'est devenu</span>
+          <span class="chunk" data-audio="18_25.mp3">presque toujours</span>
+          <span class="chunk" data-audio="18_26.mp3">sérieux et lourd ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -543,8 +703,12 @@
           data-audio="19.mp3"
         ></audio>
         <p>
-          Oui, on parle aussi de ce qui nous passionne, et on essaie de se
-          soutenir mutuellement autant qu'on peut.
+          <span class="chunk" data-audio="19_1.mp3">Oui,</span>
+          <span class="chunk" data-audio="19_2.mp3">on parle aussi</span>
+          <span class="chunk" data-audio="19_3.mp3">de ce qui nous passionne,</span>
+          <span class="chunk" data-audio="19_4.mp3">et on essaie</span>
+          <span class="chunk" data-audio="19_5.mp3">de se soutenir mutuellement</span>
+          <span class="chunk" data-audio="19_6.mp3">autant qu'on peut.</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -564,11 +728,23 @@
           data-audio="20.mp3"
         ></audio>
         <p>
-          C'est beau que vous gardiez vos centres d'intérêt communs et
-          l'entraide, même dans une situation si difficile. Ça montre une grande
-          force intérieure dans ta famille et ton cercle d'amis. Quels centres
-          d'intérêt vous aimez partager le plus ensemble, par exemple les
-          langues, la technologie, les livres, ou autre chose ?
+          <span class="chunk" data-audio="20_1.mp3">C'est beau</span>
+          <span class="chunk" data-audio="20_2.mp3">que vous gardiez</span>
+          <span class="chunk" data-audio="20_3.mp3">vos centres d'intérêt communs</span>
+          <span class="chunk" data-audio="20_4.mp3">et l'entraide,</span>
+          <span class="chunk" data-audio="20_5.mp3">même dans une situation</span>
+          <span class="chunk" data-audio="20_6.mp3">si difficile.</span>
+          <span class="chunk" data-audio="20_7.mp3">Ça montre</span>
+          <span class="chunk" data-audio="20_8.mp3">une grande force intérieure</span>
+          <span class="chunk" data-audio="20_9.mp3">dans ta famille</span>
+          <span class="chunk" data-audio="20_10.mp3">et ton cercle d'amis.</span>
+          <span class="chunk" data-audio="20_11.mp3">Quels centres d'intérêt</span>
+          <span class="chunk" data-audio="20_12.mp3">vous aimez partager le plus</span>
+          <span class="chunk" data-audio="20_13.mp3">ensemble,</span>
+          <span class="chunk" data-audio="20_14.mp3">par exemple les langues,</span>
+          <span class="chunk" data-audio="20_15.mp3">la technologie,</span>
+          <span class="chunk" data-audio="20_16.mp3">les livres,</span>
+          <span class="chunk" data-audio="20_17.mp3">ou autre chose ?</span>
           <i class="bi bi-translate"></i>
         </p>
       </div>
@@ -653,6 +829,27 @@
       const AUD_DIR = "https://languages.rmlives.com/lessons/everyday/conv4/";
       document.querySelectorAll("audio[data-audio]").forEach(function (a) {
         a.src = AUD_DIR + a.dataset.audio;
+      });
+
+      // Each phrase (.chunk) has its own recording, data-audio="N_k.mp3"
+      // (k = 1, 2, ... for the phrases of N.mp3).
+      // Clicking a phrase plays just that phrase. The player is added to the
+      // page so the "pause the others" handler above covers it too.
+      // Opened from this computer (as a file or on a local dev server), phrases
+      // play the copies in media/, so new recordings work before uploading.
+      const isLocal =
+        location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(location.hostname);
+      const CHUNK_DIR = isLocal
+        ? "../../../../media/lessons/everyday/conv4/"
+        : AUD_DIR;
+      const chunkPlayer = document.createElement("audio");
+      document.body.appendChild(chunkPlayer);
+      document.querySelectorAll(".chunk[data-audio]").forEach(function (span) {
+        span.addEventListener("click", function () {
+          chunkPlayer.src = CHUNK_DIR + span.dataset.audio;
+          chunkPlayer.play();
+        });
       });
     </script>
   </body>
