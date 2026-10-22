@@ -1,5 +1,6 @@
 """
-Convert conversation pages (conv##/*.html: the page and its mind map) into
+Convert conversation pages (conv##/conv##.html and its mind map,
+conv##/tree-conv##.html; not the exercise pages) into
 self-contained single-file HTML pages, written to
 fr/everyday/conversations/single/ with the same sub-folder layout, so the
 mind map link keeps working.
@@ -11,10 +12,8 @@ On top of that, for conversation pages:
     media/ fallback for chunks doesn't exist next to a single-file copy.
     With --offline, each convN.html instead carries its own line and chunk
     audio (full quality, from media/lessons/everyday/convN/), and CDN
-    libraries/fonts are inlined as with --remote. Exercise pages' audio stays
-    online.
-  - the sidebar navs (nav-conv.js, and nav-utensils.js on the exercise pages)
-    and the Site Map button are removed.
+    libraries/fonts are inlined as with --remote.
+  - the sidebar nav (nav-conv.js) and the Site Map button are removed.
 
 Usage:
     python make_single.py conv41            # one conversation
@@ -123,7 +122,9 @@ def main():
         if not folder.is_dir():
             sf.warn(f"no such folder: {folder.name}")
             continue
-        for page in sorted(folder.glob("*.html")):
+        # Only the conversation page and its mind map, not the exercise pages
+        pages = [folder / f"{folder.name}.html", folder / f"tree-{folder.name}.html"]
+        for page in (p for p in pages if p.is_file()):
             out = convert(page, args.remote, args.offline)
             print(f"  {out.relative_to(OUT_DIR).as_posix():32} {out.stat().st_size / 1024:7.0f} KB")
     print("\nDone.")

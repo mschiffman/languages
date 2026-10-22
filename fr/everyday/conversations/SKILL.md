@@ -303,6 +303,25 @@ There is only one entry to change — the node always links to the most recent c
 
 ---
 
+## Step 11 — Offline single-file copies
+
+Make self-contained copies of the conversation page and its mind map for offline use (not the exercise pages). Run this after the audio is generated (Step 2b), since the audio is embedded:
+
+```
+cd fr/everyday/conversations
+python -I make_single.py --offline convN
+```
+
+- **Output:** `single/convN/convN.html` and `single/convN/tree-convN.html`. The mind map link between them keeps working.
+- **What `--offline` does:** it inlines the local CSS/JS/images and the CDN libraries and fonts (Bootstrap, icons, Google Fonts, d3). It also embeds every line and chunk mp3 of `convN.html` at full quality, from `media/lessons/everyday/convN/`, so the page plays with no connection.
+- **What's removed:** the sidebar nav and the Site Map button.
+- **Size:** pages with embedded audio are 10–55 MB.
+- **Not in git:** `single/` is in `.gitignore`, because Cloudflare Pages rejects files over 25 MB. The copies stay local, synced by OneDrive.
+- **Other uses:** `--all` rebuilds every conversation. Without `--offline`, audio streams from languages.rmlives.com and the copies stay small.
+- **Depends on** `fr/enunciation/make_single.py`, which does the inlining, so keep that file where it is.
+
+---
+
 ## Checklist
 
 - [ ] `convN/convN.html` created with all paragraphs, translations, and audio placeholders
@@ -319,3 +338,4 @@ There is only one entry to change — the node always links to the most recent c
 - [ ] `nav-conv.js` updated with the new entry
 - [ ] `nav-conv.js?v=` bumped in **all** conversation HTML files (Step 9 PowerShell)
 - [ ] `sitemap.html` updated
+- [ ] Offline copies built: `python -I make_single.py --offline convN` (Step 11)
