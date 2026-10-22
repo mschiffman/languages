@@ -20,6 +20,11 @@ from concurrent.futures import ThreadPoolExecutor
 
 import truststore
 truststore.inject_into_ssl()  # use the Windows certificate store
+import urllib3
+# truststore verifies certificates through Windows, which urllib3 can't see, so
+# it warns "Unverified HTTPS request" on every call. Bad certificates are still
+# refused (tested against self-signed/expired/wrong-host badssl.com).
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 import boto3
 
 BUCKET = "languages"
