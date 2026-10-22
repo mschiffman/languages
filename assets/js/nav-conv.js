@@ -288,6 +288,12 @@
       year: "2026",
       month: "October",
     },
+    {
+      href: "../conv42/conv42.html",
+      label: "Conv 42 - La buanderie et le voyage à Penang",
+      year: "2026",
+      month: "October",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
