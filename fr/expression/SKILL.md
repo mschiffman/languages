@@ -136,7 +136,7 @@ theme.
 
 Unlike `assets/js/nav-conv.js` (used by the conversations section, which
 keeps a per-page array and requires a `?v=` bump on every HTML file whenever
-it changes — see `fr/everyday/conversations/SKILL.md`), `nav-expression.js`
+it changes — see `.claude/skills/new-conversation/SKILL.md`), `nav-expression.js`
 and `expression.js` are page-agnostic: they contain no per-page list and are
 not referenced with a `?v=` query string anywhere in `fr/expression/`. Adding
 a new expression page requires **no changes** to either script and **no**
