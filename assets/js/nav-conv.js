@@ -294,6 +294,12 @@
       year: "2026",
       month: "October",
     },
+    {
+      href: "../conv43/conv43.html",
+      label: "Conv 43 - Le garde-manger et les cartons",
+      year: "2026",
+      month: "October",
+    },
   ];
 
   var cur = window.location.pathname.split("/").pop() || "";
