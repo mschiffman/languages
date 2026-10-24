@@ -11,6 +11,7 @@
       lessons: [
         { title: "Jack and the Beanstalk", href: "Jack_beanstalk.html" },
         { title: "The Three Little Pigs", href: "three_pigs.html" },
+        { title: "Aladdin and the Magic Lamp", href: "Aladdin_lamp.html" },
       ],
     },
   ];

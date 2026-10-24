@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Aladdin and the Magic Lamp</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">Aladdin</span> and the
+            <span class="mouse">Magic&nbsp;Lamp</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/Aladdin/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 72.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/Aladdin/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/Aladdin/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..72 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Aladdin and the Magic Lamp", 1]],
+            [
+              ["Long ago, in a faraway city,", 2],
+              ["there lived a boy named Aladdin.", 3],
+            ],
+            [
+              ["He was poor,", 4],
+              ["but he was clever and lively.", 5],
+            ],
+            [
+              ["He lived with his mother", 6],
+              ["in a small house.", 7],
+            ],
+            [
+              ["One day,", 8],
+              ["a strange man came to see him.", 9],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["The man said,", 10],
+              ['"I am your uncle."', 11],
+            ],
+            [
+              ["But he was not really", 12],
+              ["Aladdin's uncle.", 13],
+            ],
+            [["He was a magician.", 14]],
+            [
+              ["He wanted Aladdin to help him", 15],
+              ["find something hidden underground.", 16],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["The magician took Aladdin", 17],
+              ["far from the city.", 18],
+            ],
+            [
+              ["There, he made a fire", 19],
+              ["and said strange words.", 20],
+            ],
+            [["Suddenly, the ground opened.", 21]],
+            [["A stone door appeared.", 22]],
+            [
+              ['"Go down,"', 23],
+              ["said the magician.", 24],
+            ],
+            [['"Bring me the old lamp."', 25]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["Aladdin went down", 26],
+              ["into the dark place.", 27],
+            ],
+            [["He saw shining jewels.", 28]],
+            [["He saw gold and silver.", 29]],
+            [
+              ["At last,", 30],
+              ["he found an old lamp.", 31],
+            ],
+            [
+              ["He put it in his pocket", 32],
+              ["and went back to the door.", 33],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ['"Give me the lamp first!"', 34],
+              ["shouted the magician.", 35],
+            ],
+            [["Aladdin was afraid.", 36]],
+            [
+              ["He said,", 37],
+              ['"Please help me get out first."', 38],
+            ],
+            [["The magician grew angry.", 39]],
+            [
+              ["He shut the stone door", 40],
+              ["and left Aladdin inside.", 41],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["Aladdin was alone in the dark.", 42]],
+            [
+              ["He cried", 43],
+              ["and rubbed his hands together.", 44],
+            ],
+            [
+              ["On his finger", 45],
+              ["was a magic ring.", 46],
+            ],
+            [
+              ["When he rubbed it,", 47],
+              ["a genie appeared!", 48],
+            ],
+            [
+              ['"I will help you,"', 49],
+              ["said the genie.", 50],
+            ],
+            [
+              ["In a moment,", 51],
+              ["Aladdin was safely home again.", 52],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ["At home,", 53],
+              ["Aladdin rubbed the old lamp.", 54],
+            ],
+            [
+              ["Another genie appeared,", 55],
+              ["even more powerful than the first.", 56],
+            ],
+            [
+              ['"I am the genie of the lamp,"', 57],
+              ["he said.", 58],
+            ],
+            [
+              ["From that day on,", 59],
+              ["Aladdin and his mother had food,", 60],
+              ["clothes, and a better life.", 61],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [
+              ["Later,", 62],
+              ["Aladdin used the magic lamp", 63],
+              ["wisely and bravely.", 64],
+            ],
+            [["He built a wonderful life.", 65]],
+            [
+              ["At last,", 66],
+              ["the wicked magician was defeated.", 67],
+            ],
+            [
+              ["Aladdin lived in happiness", 68],
+              ["with his family.", 69],
+            ],
+            [
+              ["Moral:", 70],
+              ["Wisdom and courage", 71],
+              ["are more valuable than riches.", 72],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-stories.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
