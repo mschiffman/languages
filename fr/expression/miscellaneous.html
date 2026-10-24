@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les Expressions — Miscellaneous</title>
+
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -20,223 +21,167 @@
       gtag("config", "G-CHXHM9CZKM");
     </script>
 
-    <!-- Bootstrap 5 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../assets/css/expression.css" />
-
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
   </head>
-  <body>
-    <!-- NAVBAR -->
-    <div id="navbar"></div>
-    <script type="module" src="../../assets/js/nav-expression.js"></script>
-
-    <!-- Main Page Content -->
-    <main class="page-wrap">
-      <div class="container-xl">
-        <div class="row gx-5 gy-4">
-          <!-- MAIN -->
-          <div class="col-12 col-xl-8">
-            <section
-              class="p-4 p-lg-5 bg-white rounded-4 border"
-              id="article-shell"
-              data-aos="fade-up"
-            >
-              <h1 class="post-title mb-2">Miscellaneous Expressions in French</h1>
-              <p class="lead-intro">
-                Click the buttons below for a grab-bag of useful phrases: asserting
-                you're right, agreeing enthusiastically, and describing rain that
-                keeps starting and stopping:
-              </p>
-
-              <!-- Being right -->
-              <button
-                class="btn btn-outline-primary toggle-btn"
-                data-bs-toggle="collapse"
-                data-bs-target="#being-right"
-              >
-                😎 Being right
-              </button>
-              <div id="being-right" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <div class="expression-card p-4 mt-4" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="01">
-                      "J'ai toujours raison. Tu devrais le savoir, depuis le
-                      temps."
-                    </div>
-                    <p class="expression-note mb-0">
-                      "I'm always right. You should know that by now."
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <br /><br />
-
-              <!-- You bet / Agreement -->
-              <button
-                class="btn btn-outline-success toggle-btn"
-                data-bs-toggle="collapse"
-                data-bs-target="#you-bet"
-              >
-                👍 You bet
-              </button>
-              <div id="you-bet" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <div class="expression-card p-4 mt-4" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="02">"Et comment !"</div>
-                    <p class="expression-note mb-0">"You bet!" (default)</p>
-                  </div>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="03">
-                      "Un peu, mon neveu !"
-                    </div>
-                    <p class="expression-note mb-0">
-                      "You bet!" — playful, singsong, great for banter.
-                    </p>
-                  </div>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="04">"Tu l'as dit !"</div>
-                    <p class="expression-note mb-0">"You said it!"</p>
-                  </div>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="05">
-                      "Ça, tu peux le dire !"
-                    </div>
-                    <p class="expression-note mb-0">
-                      "You can say that again."
-                    </p>
-                  </div>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="06">"Tu parles !"</div>
-                    <p class="expression-note mb-0 text-warning">
-                      ⚠️ Watch out: this can mean "you bet," but it also flips
-                      sarcastic ("yeah, right!") depending on tone — a little
-                      slippery.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <br /><br />
-
-              <!-- Off-and-on rain -->
-              <button
-                class="btn btn-outline-info toggle-btn"
-                data-bs-toggle="collapse"
-                data-bs-target="#rain"
-              >
-                🌦️ Off-and-on rain
-              </button>
-              <div id="rain" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <div class="expression-card p-4 mt-4" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="07">
-                      "Il pleut par intermittence."
-                    </div>
-                    <p class="expression-note mb-0">
-                      "It's raining off and on / intermittently."
-                    </p>
-                  </div>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="08">"Il pleut par moments."</div>
-                    <p class="expression-note mb-0">
-                      "It's raining on and off."
-                    </p>
-                  </div>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="09">
-                      "Il pleut de temps en temps."
-                    </div>
-                    <p class="expression-note mb-0">
-                      "It rains from time to time."
-                    </p>
-                  </div>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="10">
-                      "Il pleut, puis ça s'arrête, puis ça reprend."
-                    </div>
-                    <p class="expression-note mb-0">
-                      "It rains, then stops, then starts again."
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <!-- RAIL SPACER (only for xl+, to preserve layout when fixed) -->
-          <div class="d-none d-xl-block col-xl-4 rail-spacer"></div>
-
-          <!-- RIGHT RAIL (Fixed on xl+) -->
-          <aside class="col-12 col-xl-4">
-            <div class="rail-fixed" id="right-rail">
-              <div class="rail-panel">
-                <h2 class="rail-title h5 mb-3">Featured Expressions</h2>
-                <div class="vstack gap-3 featured-list">
-                  <div
-                    class="feature-item"
-                    data-aos="fade-up"
-                    data-aos-delay="50"
-                  >
-                    <div class="title">"Et comment !"</div>
-                    <small class="text-muted">You bet!</small>
-                  </div>
-                  <div
-                    class="feature-item"
-                    data-aos="fade-up"
-                    data-aos-delay="150"
-                  >
-                    <div class="title">"J'ai toujours raison."</div>
-                    <small class="text-muted">I'm always right.</small>
-                  </div>
-                  <div
-                    class="feature-item"
-                    data-aos="fade-up"
-                    data-aos-delay="250"
-                  >
-                    <div class="title">"Il pleut par intermittence."</div>
-                    <small class="text-muted">It's raining off and on.</small>
-                  </div>
-                </div>
-
-                <div class="recent-title">Recent Posts</div>
-                <ul class="list-hang recent-list mb-3">
-                  <li><a href="idioms.html">Idioms in French</a></li>
-                  <li><a href="fillers.html">Interjections and Fillers in French</a></li>
-                  <li><a href="opinion.html">Opinion in French</a></li>
-                  <li><a href="agree.html">Agree in French</a></li>
-                </ul>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </main>
-
-    <button
-      type="button"
-      class="scroll-top"
-      id="scrollTopBtn"
-      aria-label="Scroll to top"
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
     >
-      &#8593;
-    </button>
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script type="module" src="../../assets/js/expression.js"></script>
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">MISCELLANEOUS</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Miscellaneous
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Expressions diverses
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">11</span> expressions · Miscellaneous · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 11.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/miscellaneous/";
+      const AUD_EXT = "mp3?v=2610231955";
+
+      const categories = [
+        {
+          en: "Being right",
+          fr: "Avoir raison",
+          desc: "Rubbing it in, gently or not.",
+          cards: [
+            ["J'ai toujours raison.", "I'm always right.", "Usually teasing. Full banter: j'ai toujours raison, tu devrais le savoir depuis le temps.",
+              "Tu vois, il a plu. J'ai toujours raison, tu devrais le savoir depuis le temps.", "See, it rained. I'm always right, you should know that by now."],
+            ["Je te l'avais dit !", "I told you so!", "The classic. Formal: je vous l'avais dit. Ruder: qu'est-ce que je t'avais dit ?",
+              "Je te l'avais dit, ce restaurant est toujours complet le samedi.", "I told you so, that restaurant's always full on Saturdays."],
+            ["Tu vois, j'avais raison !", "See, I was right!", "Points at the proof. Shorter: tu vois ? Grudging reply: bon, t'avais raison (OK, you were right).",
+              "Tu vois, j'avais raison ! Il fallait prendre le parapluie.", "See, I was right! We should have taken the umbrella."],
+          ],
+        },
+        {
+          en: "You bet!",
+          fr: "Et comment !",
+          desc: "Emphatic yeses and ‘you said it’.",
+          cards: [
+            ["Et comment !", "You bet! / And how!", "An enthusiastic yes to a question. Slightly old-fashioned and fun.",
+              "— Tu viens à la fête ? — Et comment !", "— Are you coming to the party? — You bet!"],
+            ["Un peu, mon neveu !", "You bet your life!", "Playful, singsong rhyme, great for banter. Nobody needs to be your nephew.",
+              "— T'as faim ? — Un peu, mon neveu !", "— Hungry? — You bet your life!"],
+            ["Tu l'as dit !", "You said it!", "Strong agreement with what was just said. Also tu l'as dit, bouffi ! (jokey, a bit dated).",
+              "— Ce prof est trop strict. — Tu l'as dit !", "— That teacher's way too strict. — You said it!"],
+            ["Ça, tu peux le dire !", "You can say that again!", "Ça in front adds emphasis. Formal: ça, vous pouvez le dire !",
+              "— Il fait froid aujourd'hui. — Ça, tu peux le dire !", "— It's cold today. — You can say that again!"],
+          ],
+        },
+        {
+          en: "Off-and-on rain",
+          fr: "Une pluie intermittente",
+          desc: "Describing weather that can't make up its mind.",
+          cards: [
+            ["Il pleut par intermittence.", "It's raining off and on.", "The weather-forecast phrase. Also des averses (showers) and des éclaircies (sunny spells).",
+              "Demain, il pleuvra par intermittence sur la Bretagne.", "Tomorrow there'll be intermittent rain over Brittany."],
+            ["Il pleut par moments.", "It's raining on and off.", "More conversational than par intermittence.",
+              "Il pleut par moments, mais on peut quand même se promener.", "It's raining on and off, but we can still go for a walk."],
+            ["Il pleut de temps en temps.", "It rains from time to time.", "About a period or a place rather than right now: here it rains now and then.",
+              "En été, il pleut de temps en temps, mais il fait surtout beau.", "In summer it rains from time to time, but it's mostly fine."],
+            ["Ça s'arrête, puis ça reprend.", "It stops, then it starts again.", "Ça for the rain, in everyday speech. Also il pleut, il ne pleut plus… (rain, no rain…)",
+              "Il pleut, ça s'arrête, puis ça reprend. Quel temps pourri !", "It rains, it stops, then it starts again. What rotten weather!"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
   </body>
 </html>

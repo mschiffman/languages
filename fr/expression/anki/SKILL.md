@@ -1,7 +1,7 @@
 # Building an Anki Deck from an Expression Page
 
 This document describes how to turn an expression flashcard page
-(`fr/expression/n-<topic>.html`) and its audio into an Anki deck
+(`fr/expression/<topic>.html`) and its audio into an Anki deck
 (`French__Expressions__<Name>.apkg`) in the same format as the existing
 Refusal deck. First done for Agree on 2026-10-12.
 
@@ -11,9 +11,8 @@ Refusal deck. First done for Agree on 2026-10-12.
 
 | File | Path |
 |---|---|
-| Build script | `fr/expression/anki/build_anki.py` (reads `n-<topic>.html`) |
-| Build script, renamed pages | `fr/expression/anki/build_anki_new.py` (reads `<topic>.html`) |
-| Expression page (card text) | `fr/expression/n-<topic>.html` |
+| Build script | `fr/expression/anki/build_anki.py` (reads `<topic>.html`) |
+| Expression page (card text) | `fr/expression/<topic>.html` |
 | Audio, one per card in reading order | `media/lessons/expressions/<topic>/01.mp3` … `NN.mp3` |
 | Reference deck (format template) | `fr/expression/anki/French__Expressions__Refusal.apkg` (next to the scripts) |
 | Output | `Desktop/French__Expressions__<Name>.apkg` |
@@ -21,7 +20,7 @@ Refusal deck. First done for Agree on 2026-10-12.
 
 The page lives in `fr/expression/`, **not** in `media/lessons/expressions/`
 (only the audio is there). A request that names
-`media/lessons/expressions/n-<topic>.html` means the `fr/expression/` page.
+`media/lessons/expressions/<topic>.html` means the `fr/expression/` page.
 
 Topics with both a page and audio (as of 2026-10-12): `agree`, `annoyance`,
 `congrats`, `excitement`, `exclamation`, `iMean`, `opinion`, `refusal`,
@@ -35,16 +34,12 @@ Topics with both a page and audio (as of 2026-10-12): `agree`, `annoyance`,
 python fr/expression/anki/build_anki.py agree
 ```
 
-This reads `n-agree.html` and `media/lessons/expressions/agree/`, clones the
+This reads `agree.html` and `media/lessons/expressions/agree/`, clones the
 Refusal deck and writes `Desktop/French__Expressions__Agree.apkg`. Several
 topics at once: `build_anki.py annoyance opinion`.
 
-The flashcard pages are being renamed from `n-<topic>.html` to
-`<topic>.html` (replacing the old-format pages of that name). Once a topic is
-renamed, use `build_anki_new.py` instead. It is the same script, with the
-same options, except for the file it reads. On a page that hasn't been
-converted yet it stops with "is it still the old-format page?" and writes
-nothing. When every page is renamed, `build_anki.py` can be deleted.
+The flashcard pages were called `n-<topic>.html` until 2026-10-24, when they
+replaced the old-format pages and took their names.
 
 Options:
 
@@ -165,7 +160,7 @@ deflated):
   them in Anki, or delete the deck there first.
 - **Decks and pages drift apart.** The Refusal deck's "En aucun cas" example
   (`— Je peux lire ton journal ? — En aucun cas !`) isn't the one on
-  `n-refusal.html`, so that deck was edited after it was built. Rebuilding
+  `refusal.html`, so that deck was edited after it was built. Rebuilding
   from the page discards hand edits like that. Otherwise the script
   reproduces the Refusal deck exactly.
 - **Card design changes belong in the reference deck.** If you change the
@@ -190,7 +185,7 @@ deflated):
 
 ## Checklist
 
-- [ ] Page found (`n-<topic>.html` → `build_anki.py`, renamed `<topic>.html` → `build_anki_new.py`) and audio folder found; card count = mp3 count
+- [ ] Page found (`<topic>.html`) and audio folder found; card count = mp3 count
 - [ ] Deck name and badge chosen (defaults shown in the script's output)
 - [ ] `build_anki.py <topic>` printed `ok`
 - [ ] Didn't overwrite an existing Desktop `.apkg` without asking

@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Les Expressions — Saluer &amp; prendre congé</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Greetings</title>
+
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -20,375 +21,194 @@
       gtag("config", "G-CHXHM9CZKM");
     </script>
 
-    <!-- Bootstrap 5 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../assets/css/expression.css" />
-
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
-    <style>
-      .head {
-        text-decoration: underline;
-        font-size: 1.3rem;
-        color: green;
-        font-weight: 600;
-      }
-    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
   </head>
-  <body>
-    <!-- NAVBAR -->
-    <div id="navbar"></div>
-    <script type="module" src="../../assets/js/nav-expression.js"></script>
-
-    <!-- Main Page Content -->
-    <main class="page-wrap">
-      <div class="container-xl">
-        <div class="row gx-5 gy-4">
-          <!-- MAIN -->
-          <div class="col-12 col-xl-8">
-            <section
-              class="p-4 p-lg-5 bg-white rounded-4 border"
-              id="article-shell-greetings"
-              data-aos="fade-up"
-            >
-              <h1 class="post-title mb-2">
-                Greetings &amp; leave-taking — hello, how are you, and the many ways to say goodbye
-              </h1>
-              <p class="lead-intro">
-                Textbooks give you <em>bonjour</em> and <em>au revoir</em> and
-                stop there. Real French has a hello and a goodbye for every
-                register — and a whole set of phrases for announcing that you're
-                off. Grouped by moment:
-              </p>
-
-              <!-- Saying hello -->
-              <button
-                class="btn btn-outline-success toggle-btn"
-                data-bs-toggle="collapse"
-                data-target="#greet-hello"
-              >
-                👋 Saying hello
-              </button>
-              <div id="greet-hello" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <!-- Bonjour / Bonsoir -->
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="01">Bonjour / Bonsoir</span
-                    ><span> &nbsp;(standard, all-purpose)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="02">"Bonjour !"</div>
-                    <p class="expression-note mb-0">
-                      “Hello / Good morning” — through the daytime.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="03">"Bonsoir !"</div>
-                    <p class="expression-note mb-0">
-                      “Good evening” — from late afternoon on.
-                    </p>
-                    <br />
-                    <p class="expression-note mb-0">
-                      💡 You greet each person with <em>bonjour</em> only once a
-                      day; run into them again and it's a joking
-                      <em>rebonjour !</em> or just <em>re !</em>
-                    </p>
-                  </div>
-                  <br />
-                  <!-- Salut / Coucou -->
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="04">Salut / Coucou</span
-                    ><span> &nbsp;(casual, with people you know)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="05">
-                      "Salut !"
-                      <span class="phonetic"> /saly/</span>
-                    </div>
-                    <p class="expression-note mb-0">
-                      “Hi!” — informal, and it doubles as “bye.”
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="06">"Coucou !"</div>
-                    <p class="expression-note mb-0">
-                      “Hiya!” — affectionate, for friends and family.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <br /><br />
-
-              <!-- How are you -->
-              <button
-                class="btn btn-outline-primary toggle-btn"
-                data-bs-toggle="collapse"
-                data-target="#greet-howareyou"
-              >
-                🙂 How are you? — and how to answer
-              </button>
-              <div id="greet-howareyou" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <!-- Ça va -->
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="07">Ça va ?</span
-                    ><span> &nbsp;(the default check-in — question <em>and</em> answer)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="08">"(Comment) ça va ?"</div>
-                    <p class="expression-note mb-0">
-                      “How's it going?” — reply with the same words:
-                      <em>Ça va, merci. Et toi ?</em>
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="09">
-                      "Comment vas-tu ? / Comment allez-vous ?"
-                    </div>
-                    <p class="expression-note mb-0">
-                      “How are you?” — fuller, more formal (<em>tu</em> /
-                      <em>vous</em>).
-                    </p>
-                  </div>
-                  <br />
-                  <!-- Casual variants -->
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="10">Ça roule ? / Quoi de neuf ?</span
-                    ><span> &nbsp;(very casual)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="11">"Ça roule ?"</div>
-                    <p class="expression-note mb-0">“All good?”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="12">"Quoi de neuf ?"</div>
-                    <p class="expression-note mb-0">“What's new?”</p>
-                  </div>
-                  <br />
-                  <!-- Responses -->
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="13">Typical replies</span
-                    ><span> &nbsp;(from great to so-so)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="14">"Ça roule, et toi ?"</div>
-                    <p class="expression-note mb-0">“All good, you?”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="15">"Tranquille."</div>
-                    <p class="expression-note mb-0">“Chilled / all quiet.”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="16">"Bof, ça va."</div>
-                    <p class="expression-note mb-0">“Meh, okay.”</p>
-                  </div>
-                </div>
-              </div>
-
-              <br /><br />
-
-              <!-- Saying goodbye -->
-              <button
-                class="btn btn-outline-info toggle-btn"
-                data-bs-toggle="collapse"
-                data-target="#greet-bye"
-              >
-                🚪 Saying goodbye
-              </button>
-              <div id="greet-bye" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <!-- Au revoir / Salut -->
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="17">Au revoir / Salut / Ciao</span
-                    ><span> &nbsp;(the parting words)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="18">"Au revoir !"</div>
-                    <p class="expression-note mb-0">
-                      “Goodbye” — all-purpose and polite.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="19">"Salut !"</div>
-                    <p class="expression-note mb-0">
-                      “Bye!” — informal (yes, the same word as “hi”).
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="20">"Ciao ! / Tchao !"</div>
-                    <p class="expression-note mb-0">“Bye!” — casual, borrowed.</p>
-                  </div>
-                  <br />
-                  <!-- À + when -->
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="21">À bientôt / À plus / À demain…</span
-                    ><span> &nbsp;(“see you…”)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="22">"À bientôt !"</div>
-                    <p class="expression-note mb-0">“See you soon!”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="23">
-                      "À plus !"
-                      <span class="phonetic"> /a plys/</span>
-                    </div>
-                    <p class="expression-note mb-0">
-                      “See you later!” — the final <em>s</em> is usually
-                      pronounced when it stands alone as a goodbye.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="24">"À toute !"</div>
-                    <p class="expression-note mb-0">
-                      “See you in a bit!” (short for <em>à tout à l'heure</em>).
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="25">
-                      "À demain ! / À lundi ! / À la prochaine !"
-                    </div>
-                    <p class="expression-note mb-0">
-                      “See you tomorrow / Monday / next time!”
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <br /><br />
-
-              <!-- I'm off -->
-              <button
-                class="btn btn-outline-warning toggle-btn"
-                data-bs-toggle="collapse"
-                data-target="#greet-off"
-              >
-                🏃 “I'm off” — announcing you're leaving
-              </button>
-              <div id="greet-off" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <!-- Je te laisse / Je file -->
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="26">Je te laisse / Je file</span
-                    ><span> &nbsp;(the wind-up before goodbye)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="27">"Bon, je vais y aller."</div>
-                    <p class="expression-note mb-0">
-                      “Right, I'm going to head off.”
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="28">"Je te laisse."</div>
-                    <p class="expression-note mb-0">
-                      “I'll let you go / leave you to it.”
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="29">"Je file. / Je me sauve."</div>
-                    <p class="expression-note mb-0">“I've got to dash / run.”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="30">"Faut que j'y aille."</div>
-                    <p class="expression-note mb-0">“I've got to go.”</p>
-                  </div>
-                  <br />
-                  <!-- Staying in touch -->
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="31">On se capte / On s'appelle</span
-                    ><span> &nbsp;(staying in touch)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="32">"On se capte."</div>
-                    <p class="expression-note mb-0">
-                      “We'll catch up / be in touch.” — very casual.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="33">"On s'appelle."</div>
-                    <p class="expression-note mb-0">“We'll call each other.”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="34">"Tiens-moi au courant."</div>
-                    <p class="expression-note mb-0">“Keep me posted.”</p>
-                  </div>
-                </div>
-              </div>
-
-              <br /><br />
-
-              <!-- Takeaway -->
-              <p class="border border-secondary rounded p-3">
-                <span class="head" data-clip="35">À retenir</span><br /><br />
-                <strong>Salut</strong> works for both hello and goodbye;
-                <strong>bonjour</strong> is once per person per day (then
-                <em>re</em>). <strong>Ça va ?</strong> is your all-purpose
-                check-in and its own answer, and the goodbyes stack neatly by
-                distance in time: <strong>à toute → à plus → à demain → à
-                bientôt → à la prochaine</strong>.
-              </p>
-            </section>
-          </div>
-
-          <!-- RAIL SPACER (only for xl+, to preserve layout when fixed) -->
-          <div class="d-none d-xl-block col-xl-4 rail-spacer"></div>
-
-          <!-- RIGHT RAIL (Fixed on xl+) -->
-          <aside class="col-12 col-xl-4">
-            <div class="rail-fixed" id="right-rail">
-              <div class="rail-panel">
-                <h2 class="rail-title h5 mb-3">Featured Expressions</h2>
-                <div class="vstack gap-3 featured-list">
-                  <div
-                    class="feature-item"
-                    data-aos="fade-up"
-                    data-aos-delay="50"
-                  >
-                    <div class="title">"Ça roule ?"</div>
-                    <small class="text-muted">All good?</small>
-                  </div>
-                  <div
-                    class="feature-item"
-                    data-aos="fade-up"
-                    data-aos-delay="150"
-                  >
-                    <div class="title">"À toute !"</div>
-                    <small class="text-muted">See you in a bit!</small>
-                  </div>
-                  <div
-                    class="feature-item"
-                    data-aos="fade-up"
-                    data-aos-delay="250"
-                  >
-                    <div class="title">"Je te laisse."</div>
-                    <small class="text-muted">I'll let you go.</small>
-                  </div>
-                </div>
-
-                <div class="recent-title">Recent Posts</div>
-                <ul class="list-hang recent-list mb-3">
-                  <li><a href="wishes.html">Wishes in French</a></li>
-                  <li><a href="suggestion.html">Suggestions in French</a></li>
-                  <li><a href="excitement.html">Excitement in French</a></li>
-                  <li><a href="disbelief.html">Disbelief in French</a></li>
-                  <li><a href="thank.html">Thanking in French</a></li>
-                </ul>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </main>
-
-    <button
-      type="button"
-      class="scroll-top"
-      id="scrollTopBtn"
-      aria-label="Scroll to top"
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
     >
-      &#8593;
-    </button>
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script type="module" src="../../assets/js/expression.js"></script>
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">GREETINGS</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Greetings
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Saluer et prendre congé
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">21</span> expressions · Greetings · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 21.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/greetings/";
+      const AUD_EXT = "mp3?v=2610231947";
+
+      const categories = [
+        {
+          en: "Saying hello",
+          fr: "Saluer",
+          desc: "From the formal bonjour to the affectionate coucou.",
+          cards: [
+            ["Bonjour !", "Hello! / Good morning!", "Through the day, to everyone: shopkeepers, bus drivers, neighbours. Skipping it sounds rude. You greet a person once a day; meeting again, it's a joking rebonjour !",
+              "Bonjour madame, une baguette, s'il vous plaît.", "Good morning, a baguette, please."],
+            ["Bonsoir !", "Good evening!", "From late afternoon on, as a greeting. Also a goodbye in the evening: bonsoir et merci !",
+              "Bonsoir, on a une table pour deux au nom de Martin.", "Good evening, we've got a table for two under Martin."],
+            ["Salut !", "Hi!", "Informal: friends, family, colleagues you call tu. Doubles as ‘bye’.",
+              "Salut Léa ! Ça fait longtemps !", "Hi Léa! It's been ages!"],
+            ["Coucou !", "Hiya!", "Affectionate, for friends, family and children; common at the start of texts.",
+              "Coucou ma puce, t'as passé une bonne journée ?", "Hiya sweetheart, did you have a good day?"],
+          ],
+        },
+        {
+          en: "How are you?",
+          fr: "Prendre des nouvelles",
+          desc: "Asking how someone is, and the usual answers.",
+          cards: [
+            ["Ça va ?", "How's it going?", "The everyday question; the answer uses the same words: ça va, et toi ? Fuller: comment ça va ?",
+              "— Salut, ça va ? — Ça va, et toi ?", "— Hi, how's it going? — Fine, and you?"],
+            ["Comment allez-vous ?", "How are you?", "Formal, with vous. Informal but careful: comment vas-tu ? The reply: je vais bien, merci. Et vous ?",
+              "Bonjour docteur, comment allez-vous ?", "Good morning, doctor, how are you?"],
+            ["Ça roule ?", "All good?", "Casual. The answer echoes it: ça roule ! (all good!)",
+              "— Ça roule ? — Ça roule, et toi ?", "— All good? — All good, you?"],
+            ["Quoi de neuf ?", "What's new?", "Invites news. Common reply: pas grand-chose (not much).",
+              "— Quoi de neuf ? — Pas grand-chose, et toi ?", "— What's new? — Not much, and you?"],
+            ["Tranquille.", "Chilled. / All quiet.", "A relaxed, casual answer: nothing much happening, all fine.",
+              "— Ça va, ce week-end ? — Tranquille, je me repose.", "— How's the weekend going? — Chilled, I'm resting."],
+            ["Bof, ça va.", "Meh, I'm OK.", "Bof is a verbal shrug: not great, not terrible. Often an invitation to ask more: — Bof, ça va. — Qu'est-ce qui se passe ?",
+              "— Ça va ? — Bof, ça va. Un peu fatigué.", "— How are you? — Meh, OK. A bit tired."],
+          ],
+        },
+        {
+          en: "Saying goodbye",
+          fr: "Dire au revoir",
+          desc: "The many ways to say ‘bye’ and ‘see you’.",
+          cards: [
+            ["Au revoir !", "Goodbye!", "All-purpose and polite: shops, offices, strangers. With friends: salut ! or ciao ! (also spelt tchao).",
+              "Merci, au revoir, bonne journée !", "Thanks, goodbye, have a nice day!"],
+            ["À bientôt !", "See you soon!", "Friendly and vague about when. Also in emails to people you'll see again.",
+              "C'était super de te voir, à bientôt !", "It was great to see you, see you soon!"],
+            ["À plus !", "See you later!", "Casual; the final s is usually pronounced. In texts: À+ or A+.",
+              "Je file, à plus !", "I'm off, see you later!"],
+            ["À tout à l'heure !", "See you in a bit!", "When you'll meet again the same day. Casual short form: à toute !",
+              "Je vais faire les courses, à tout à l'heure !", "I'm going shopping, see you in a bit!"],
+            ["À demain !", "See you tomorrow!", "À + the time: à lundi !, à ce soir !, à la semaine prochaine ! Open-ended: à la prochaine ! (until next time!)",
+              "Bonne soirée, à demain !", "Have a good evening, see you tomorrow!"],
+          ],
+        },
+        {
+          en: "Heading off",
+          fr: "Annoncer son départ",
+          desc: "Announcing you're leaving, and promising to stay in touch.",
+          cards: [
+            ["Bon, je vais y aller.", "Right, I'm going to head off.", "The gentle signal that you're leaving. Bon warns that something's coming.",
+              "Bon, je vais y aller, il commence à être tard.", "Right, I'm going to head off, it's getting late."],
+            ["Faut que j'y aille.", "I've got to go.", "Spoken form of il faut que j'y aille. More urgent than je vais y aller.",
+              "Désolée, faut que j'y aille, mon bus arrive.", "Sorry, I've got to go, my bus is coming."],
+            ["Je te laisse.", "I'll let you go.", "Ends a call or a chat politely: I'll leave you to it. Formal: je vous laisse.",
+              "Bon, je te laisse, tu as du travail. Bisous !", "Right, I'll let you go, you've got work. Love!"],
+            ["Je file !", "I've got to dash!", "Filer: to rush off. Same idea: je me sauve !",
+              "Je file, j'ai rendez-vous chez le dentiste.", "I've got to dash, I've got a dentist's appointment."],
+            ["On s'appelle !", "Let's talk soon!", "Literally ‘we'll call each other’. Casual, sometimes just politeness. Young slang: on se capte.",
+              "Super soirée ! On s'appelle cette semaine ?", "Great evening! Shall we talk this week?"],
+            ["Tiens-moi au courant.", "Keep me posted.", "Asks for news later. Formal: tenez-moi au courant.",
+              "Bonne chance pour l'entretien, tiens-moi au courant !", "Good luck with the interview, keep me posted!"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
   </body>
 </html>

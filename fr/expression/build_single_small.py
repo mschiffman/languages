@@ -2,9 +2,9 @@
 """
 SMALL version of build_single.py, for sharing: same pages, audio shrunk to 96 kbps mono.
 
-Build self-contained offline copies of the expression flashcard pages (fr/expression/n-*.html).
+Build self-contained offline copies of the expression flashcard pages (fr/expression/<topic>.html).
 
-Each n-<topic>.html is a thin page: header + a `categories` data block, with the cards
+Each <topic>.html is a thin page: header + a `categories` data block, with the cards
 rendered by assets/js/expression-flash.js. This script collapses one into ONE .html that
 opens offline (tablet / SD card / email attachment):
 
@@ -25,8 +25,8 @@ opens offline (tablet / SD card / email attachment):
   - the favicon is embedded; Google Analytics is dropped
 
 Usage (from anywhere):
-    python fr/expression/build_single_small.py                  build every n-*.html in fr/expression/
-    python fr/expression/build_single_small.py n-refusal        build just these
+    python fr/expression/build_single_small.py                  build every flashcard page in fr/expression/
+    python fr/expression/build_single_small.py refusal          build just these
     python fr/expression/build_single_small.py --out some/dir   write somewhere else
     python fr/expression/build_single_small.py --kbps 0         embed the original audio untouched
 
@@ -295,8 +295,8 @@ def build(page: Path, out_dir: Path, kbps: int | None = None) -> Path:
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    ap = argparse.ArgumentParser(description="Build offline single-file pages from fr/expression/n-*.html")
-    ap.add_argument("names", nargs="*", help="page names, e.g. n-refusal (default: all n-*.html)")
+    ap = argparse.ArgumentParser(description="Build offline single-file pages from fr/expression/<topic>.html")
+    ap.add_argument("names", nargs="*", help="page names, e.g. refusal (default: every flashcard page)")
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT, help=f"output folder (default {DEFAULT_OUT})")
     ap.add_argument("--kbps", type=int, default=96,
                     help="re-encode audio to this many kbps mono MP3 (default 96, needs ffmpeg; 0 = as-is)")
@@ -313,7 +313,8 @@ def main() -> int:
                 return 1
             pages.append(p)
     else:
-        pages = sorted(HERE.glob("n-*.html"))
+        # flashcard pages are the ones with a `categories` data block (not archive.html, me-*.html, ...)
+        pages = sorted(p for p in HERE.glob("*.html") if "const categories" in p.read_text(encoding="utf-8"))
 
     failed = 0
     for page in pages:

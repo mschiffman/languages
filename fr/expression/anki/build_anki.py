@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Build Anki decks (.apkg) from the expression flashcard pages (fr/expression/n-*.html).
+Build Anki decks (.apkg) from the expression flashcard pages (fr/expression/<topic>.html).
 
 The decks copy the format of a reference deck exported from Anki
 (default: French__Expressions__Refusal.apkg in this script's folder). The reference collection is
@@ -73,11 +73,11 @@ FLIP_FIXED = """flip.onclick = function (e) {
 # ---------------------------------------------------------------- lesson page
 
 def read_page(topic):
-    """Return (rows, badge) from n-<topic>.html; rows are the card arrays in reading order."""
-    html = (PAGES / f"n-{topic}.html").read_text(encoding="utf-8")
+    """Return (rows, badge) from <topic>.html; rows are the card arrays in reading order."""
+    html = (PAGES / f"{topic}.html").read_text(encoding="utf-8")
     m = re.search(r"const categories = (\[.*?\n\s*\]);", html, re.S)
     if not m:
-        sys.exit(f"n-{topic}.html: no `const categories = [...]` block; the page layout changed")
+        sys.exit(f"{topic}.html: no `const categories = [...]` block; the page layout changed")
     js = re.sub(r"(?m)^(\s*)(en|fr|desc|cards):", r'\1"\2":', m.group(1))  # quote the keys
     js = re.sub(r",(\s*[\]}])", r"\1", js)  # drop trailing commas
     rows = [card for cat in json.loads(js) for card in cat["cards"]]
@@ -227,7 +227,7 @@ def build(topic, ref_path, out_path, name, category, tag):
     audio = sorted(p.name for p in audio_dir.glob("*.mp3"))
     expected = [f"{i:02d}.mp3" for i in range(1, len(rows) + 1)]
     if audio != expected:
-        sys.exit(f"{topic}: {len(rows)} cards in n-{topic}.html but audio folder has {audio}")
+        sys.exit(f"{topic}: {len(rows)} cards in {topic}.html but audio folder has {audio}")
 
     zin = zipfile.ZipFile(ref_path)
     if zin.read("meta") != b"\x08\x03":
@@ -325,7 +325,7 @@ def check(apkg, audio_dir=None):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("topics", nargs="*", help="topic folder names, e.g. agree iMean (n-<topic>.html)")
+    ap.add_argument("topics", nargs="*", help="topic folder names, e.g. agree iMean (<topic>.html)")
     ap.add_argument("--ref", type=Path, default=DEFAULT_REF, help="reference .apkg (default: %(default)s)")
     ap.add_argument("--out", type=Path, default=DESKTOP, help="output folder (default: %(default)s)")
     ap.add_argument("--name", help="deck name, also used in the file name (default: topic, first letter capitalised)")

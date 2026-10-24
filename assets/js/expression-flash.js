@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------
-   Generic expression-flashcard engine (fr/expression/n-*.html).
+   Generic expression-flashcard engine (fr/expression/<topic>.html).
    Expects the page to define, before loading this script:
      AUD_DIR, AUD_EXT, categories
    Each card is [French, English, note, exFR, exEN, exFR, exEN, ...]:

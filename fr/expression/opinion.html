@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Les Expressions — Donner son avis</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Opinion</title>
+
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -20,357 +21,212 @@
       gtag("config", "G-CHXHM9CZKM");
     </script>
 
-    <!-- Bootstrap 5 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../../assets/css/expression.css" />
-
     <!-- Favicons -->
     <link href="/img/favicon.png" rel="icon" />
-    <style>
-      .head {
-        text-decoration: underline;
-        font-size: 1.3rem;
-        color: green;
-        font-weight: 600;
-      }
-    </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
   </head>
-  <body>
-    <!-- NAVBAR -->
-    <div id="navbar"></div>
-    <script type="module" src="../../assets/js/nav-expression.js"></script>
-
-    <!-- Main Page Content -->
-    <main class="page-wrap">
-      <div class="container-xl">
-        <div class="row gx-5 gy-4">
-          <!-- MAIN -->
-          <div class="col-12 col-xl-8">
-            <section
-              class="p-4 p-lg-5 bg-white rounded-4 border"
-              id="article-shell-opinion"
-              data-aos="fade-up"
-            >
-              <h1 class="post-title mb-2">
-                Giving your opinion — « à mon avis », « je trouve que », « selon moi »…
-              </h1>
-              <p class="lead-intro">
-                This is the frame for putting <em>your own</em> view on the table
-                — the neutral opener before the opinion itself. (Reacting to
-                someone else's view lives on the <em>Agree</em> /
-                <em>Disagree</em> pages.) Grouped from everyday to formal, plus
-                how to hedge and how to ask:
-              </p>
-
-              <!-- Everyday frames -->
-              <button
-                class="btn btn-outline-success toggle-btn"
-                data-bs-toggle="collapse"
-                data-target="#op-everyday"
-              >
-                💭 Stating your view
-              </button>
-              <div id="op-everyday" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="01">À mon avis / Je trouve que / Je pense que</span
-                    ><span> &nbsp;(the everyday openers)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="02">"À mon avis, c'est trop tôt."</div>
-                    <p class="expression-note mb-0">
-                      “In my opinion, it's too early.” — the safe spoken default.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="03">"Je trouve que c'est trop cher."</div>
-                    <p class="expression-note mb-0">
-                      “I think it's too expensive.” — a subjective impression or
-                      taste.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="04">"Je pense que tu as raison."</div>
-                    <p class="expression-note mb-0">
-                      “I think you're right.” — a reasoned, considered thought.
-                    </p>
-                    <br />
-                    <p class="expression-note mb-0">
-                      💡 <em>Je trouve que</em> = how it strikes you (taste);
-                      <em>je pense que</em> = a conclusion you've reasoned to.
-                    </p>
-                  </div>
-                  <br />
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="05">Personnellement / Pour moi</span
-                    ><span> &nbsp;(foregrounding that it's <em>you</em>)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="06">
-                      "Personnellement, je préfère rester."
-                    </div>
-                    <p class="expression-note mb-0">“Personally, I'd rather stay.”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="07">"Pour moi, c'est une erreur."</div>
-                    <p class="expression-note mb-0">“As I see it, it's a mistake.”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="08">"Moi, je dirais que ça va."</div>
-                    <p class="expression-note mb-0">“Me, I'd say it's fine.”</p>
-                  </div>
-                </div>
-              </div>
-
-              <br /><br />
-
-              <!-- More formal -->
-              <button
-                class="btn btn-outline-primary toggle-btn"
-                data-bs-toggle="collapse"
-                data-target="#op-formal"
-              >
-                🎚️ A touch more formal / written
-              </button>
-              <div id="op-formal" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="09">Selon moi / D'après moi / À mon sens</span
-                    ><span> &nbsp;(essays, discussions, careful speech)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="10">"Selon moi, …"</div>
-                    <p class="expression-note mb-0">
-                      “In my view, …” — common in writing.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="11">"D'après moi, …"</div>
-                    <p class="expression-note mb-0">“From my point of view, …”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="12">"À mon sens, …"</div>
-                    <p class="expression-note mb-0">
-                      “To my mind, …” — elegant, slightly literary.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="13">"Il me semble que …"</div>
-                    <p class="expression-note mb-0">
-                      “It seems to me that …” — softer, already hedged.
-                    </p>
-                    <br />
-                    <p class="expression-note mb-0">
-                      💡 <em>Selon moi</em> and <em>à mon sens</em> lean
-                      written/formal; <em>à mon avis</em> stays your spoken
-                      go-to.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <br /><br />
-
-              <!-- Hedging -->
-              <button
-                class="btn btn-outline-info toggle-btn"
-                data-bs-toggle="collapse"
-                data-target="#op-hedge"
-              >
-                🤔 Softening / hedging your opinion
-              </button>
-              <div id="op-hedge" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="14">J'ai l'impression que / Je dirais que</span
-                    ><span> &nbsp;(tentative)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="15">
-                      "J'ai l'impression que ça va pas marcher."
-                    </div>
-                    <p class="expression-note mb-0">
-                      “I get the feeling it won't work.”
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="16">"J'ai le sentiment qu'il ment."</div>
-                    <p class="expression-note mb-0">
-                      “I have a feeling he's lying.” — a touch more emotional.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="17">"Je dirais que c'est mitigé."</div>
-                    <p class="expression-note mb-0">“I'd say it's mixed.”</p>
-                  </div>
-                  <br />
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="18">Si tu veux mon avis / Franchement</span
-                    ><span> &nbsp;(candid)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="19">"Si tu veux mon avis, …"</div>
-                    <p class="expression-note mb-0">“If you want my opinion, …”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="20">"Franchement, c'était nul."</div>
-                    <p class="expression-note mb-0">“Honestly, it was rubbish.”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="21">"Pour être honnête, …"</div>
-                    <p class="expression-note mb-0">“To be honest, …”</p>
-                  </div>
-                </div>
-              </div>
-
-              <br /><br />
-
-              <!-- Conviction -->
-              <button
-                class="btn btn-outline-warning toggle-btn"
-                data-bs-toggle="collapse"
-                data-target="#op-strong"
-              >
-                💪 Stronger conviction
-              </button>
-              <div id="op-strong" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="22">Je suis convaincu(e) que…</span
-                    ><span> &nbsp;(no doubt in your mind)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="23">
-                      "Je suis convaincu(e) que c'est la bonne décision."
-                    </div>
-                    <p class="expression-note mb-0">
-                      “I'm convinced it's the right call.”
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="24">"Je suis persuadé(e) que …"</div>
-                    <p class="expression-note mb-0">“I'm certain that …”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="25">"Pour moi, ça fait aucun doute."</div>
-                    <p class="expression-note mb-0">“For me, there's no doubt.”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="26">"J'en suis sûr(e)."</div>
-                    <p class="expression-note mb-0">“I'm sure of it.”</p>
-                  </div>
-                </div>
-              </div>
-
-              <br /><br />
-
-              <!-- Asking -->
-              <button
-                class="btn btn-outline-danger toggle-btn"
-                data-bs-toggle="collapse"
-                data-target="#op-ask"
-              >
-                ❓ Asking someone's opinion
-              </button>
-              <div id="op-ask" class="collapse">
-                <div class="p-3 border rounded" data-aos="fade-up">
-                  <p class="border border-secondary rounded p-2">
-                    <span class="head" data-clip="27">Tu en penses quoi ?</span
-                    ><span> &nbsp;(turning it over to them)</span>
-                  </p>
-                  <div class="expression-card p-4 mt-3" data-aos="fade-up">
-                    <div class="expression-quote" data-clip="28">"Tu en penses quoi ?"</div>
-                    <p class="expression-note mb-0">
-                      “What do you think (of it)?” — casual word order.
-                    </p>
-                    <br />
-                    <div class="expression-quote" data-clip="29">"Qu'est-ce que tu en penses ?"</div>
-                    <p class="expression-note mb-0">“What do you think about it?”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="30">"Ça te paraît comment ?"</div>
-                    <p class="expression-note mb-0">“How does it seem to you?”</p>
-                    <br />
-                    <div class="expression-quote" data-clip="31">"Et toi, t'en dis quoi ?"</div>
-                    <p class="expression-note mb-0">“And you, what do you say?”</p>
-                  </div>
-                </div>
-              </div>
-
-              <br /><br />
-
-              <!-- Takeaway -->
-              <p class="border border-secondary rounded p-3">
-                <span class="head" data-clip="32">À retenir</span><br /><br />
-                <strong>À mon avis</strong> is your spoken default;
-                <strong>selon moi</strong> / <strong>à mon sens</strong> lean
-                formal or written. Keep <strong>je trouve que</strong> (taste)
-                apart from <strong>je pense que</strong> (reasoned). Hedge with
-                <strong>j'ai l'impression que</strong>, and hand the floor over
-                with <strong>tu en penses quoi ?</strong>
-              </p>
-            </section>
-          </div>
-
-          <!-- RAIL SPACER (only for xl+, to preserve layout when fixed) -->
-          <div class="d-none d-xl-block col-xl-4 rail-spacer"></div>
-
-          <!-- RIGHT RAIL (Fixed on xl+) -->
-          <aside class="col-12 col-xl-4">
-            <div class="rail-fixed" id="right-rail">
-              <div class="rail-panel">
-                <h2 class="rail-title h5 mb-3">Featured Expressions</h2>
-                <div class="vstack gap-3 featured-list">
-                  <div
-                    class="feature-item"
-                    data-aos="fade-up"
-                    data-aos-delay="50"
-                  >
-                    <div class="title">"À mon avis…"</div>
-                    <small class="text-muted">In my opinion…</small>
-                  </div>
-                  <div
-                    class="feature-item"
-                    data-aos="fade-up"
-                    data-aos-delay="150"
-                  >
-                    <div class="title">"Je trouve que…"</div>
-                    <small class="text-muted">I think…</small>
-                  </div>
-                  <div
-                    class="feature-item"
-                    data-aos="fade-up"
-                    data-aos-delay="250"
-                  >
-                    <div class="title">"Tu en penses quoi ?"</div>
-                    <small class="text-muted">What do you think?</small>
-                  </div>
-                </div>
-
-                <div class="recent-title">Recent Posts</div>
-                <ul class="list-hang recent-list mb-3">
-                  <li><a href="wishes.html">Wishes in French</a></li>
-                  <li><a href="greetings.html">Greetings in French</a></li>
-                  <li><a href="apology.html">Apologizing in French</a></li>
-                  <li><a href="suggestion.html">Suggestions in French</a></li>
-                  <li><a href="disbelief.html">Disbelief in French</a></li>
-                </ul>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </main>
-
-    <button
-      type="button"
-      class="scroll-top"
-      id="scrollTopBtn"
-      aria-label="Scroll to top"
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
     >
-      &#8593;
-    </button>
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script type="module" src="../../assets/js/expression.js"></script>
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">OPINION</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Opinions
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Donner son avis
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">24</span> expressions · Opinion · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 24.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, exFR, exEN, exFR, exEN, ...]
+     note is "" when the phrase needs no explanation; those cards get
+     two examples instead.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/opinion/";
+      const AUD_EXT = "mp3?v=261011";
+
+      const categories = [
+        {
+          en: "Everyday openers",
+          fr: "À mon avis",
+          desc: "The neutral frame for putting your own view on the table.",
+          cards: [
+            ["À mon avis, …", "In my opinion, …", "The safe spoken default. Never à mon opinion or dans mon opinion.",
+              "À mon avis, c'est trop tôt pour en parler.", "In my opinion, it's too early to talk about it."],
+            ["Je trouve que…", "I think… / I find…", "How something strikes you: taste, or an impression from experience. Also je trouve ça + adjective: je trouve ça nul.",
+              "Je trouve que ce film est un peu long.", "I think this film is a bit long."],
+            ["Je pense que…", "I think that…", "A view you've reasoned your way to. In the negative it takes the subjunctive: je ne pense pas qu'il soit là.",
+              "Je pense qu'on devrait réserver à l'avance.", "I think we should book ahead."],
+            ["Je crois que…", "I believe… / I think…", "A shade less certain than je pense que; also for facts you're not sure of.",
+              "Je crois que le musée ferme à six heures.", "I think the museum closes at six."],
+            ["Pour moi, …", "For me, … / As I see it, …", "",
+              "Pour moi, c'est une erreur.", "As I see it, it's a mistake.",
+              "Pour moi, le meilleur resto du quartier, c'est celui-là.", "For me, the best restaurant in the area is that one."],
+            ["Personnellement, …", "Personally, …", "Stresses that this is your view, which others may not share. Often with moi: moi, personnellement…",
+              "Personnellement, je préfère rester à la maison ce soir.", "Personally, I'd rather stay home tonight."],
+          ],
+        },
+        {
+          en: "More formal",
+          fr: "Selon moi",
+          desc: "For essays, debates, meetings and careful speech.",
+          cards: [
+            ["Selon moi, …", "In my view, …", "A notch above à mon avis; common in writing. With someone else it means ‘according to’: selon Marie.",
+              "Selon moi, cette réforme ne règle pas le vrai problème.", "In my view, this reform doesn't fix the real problem."],
+            ["D'après moi, …", "From my point of view, …", "A little more spoken than selon moi. D'après also cites sources: d'après la météo, il va pleuvoir.",
+              "D'après moi, il ne viendra pas.", "If you ask me, he won't come."],
+            ["À mon sens, …", "To my mind, …", "Elegant and slightly literary; at home in writing and careful speech.",
+              "À mon sens, c'est la meilleure solution.", "To my mind, it's the best solution."],
+            ["De mon point de vue, …", "From where I stand, …", "Frames your view as one perspective among several. Useful when you know others see it differently.",
+              "De mon point de vue, le projet est trop risqué.", "From where I stand, the project is too risky."],
+            ["J'estime que…", "I consider that… / I feel that…", "Formal and measured: you've weighed things up. Common in meetings and letters.",
+              "J'estime que nous avons fait le maximum.", "I feel we've done everything we could."],
+          ],
+        },
+        {
+          en: "Hedging",
+          fr: "J'ai l'impression",
+          desc: "Softening your view when you're not sure, or don't want to sound too blunt.",
+          cards: [
+            ["Il me semble que…", "It seems to me that…", "Already hedged. Takes the indicative, unlike il semble que, which takes the subjunctive.",
+              "Il me semble que c'était mardi, pas mercredi.", "I think it was Tuesday, not Wednesday."],
+            ["J'ai l'impression que…", "I get the feeling that…", "Based on a hunch rather than evidence. J'ai le sentiment que is a touch more emotional.",
+              "J'ai l'impression que ça ne va pas marcher.", "I get the feeling it's not going to work."],
+            ["Je dirais que…", "I'd say…", "The conditional softens the claim. Also good for estimates: je dirais une vingtaine.",
+              "Je dirais que c'est plutôt réussi.", "I'd say it turned out fairly well."],
+            ["Je ne suis pas sûr(e), mais…", "I'm not sure, but…", "Admits doubt up front before giving your view anyway. Spoken: chais pas, mais…",
+              "Je ne suis pas sûre, mais je crois qu'il a déménagé.", "I'm not sure, but I think he's moved."],
+          ],
+        },
+        {
+          en: "Candid & convinced",
+          fr: "Franchement",
+          desc: "Saying what you really think, and standing by it.",
+          cards: [
+            ["Si tu veux mon avis, …", "If you want my opinion, …", "Often the lead-in to something the listener won't like. Formal: si vous voulez mon avis.",
+              "Si tu veux mon avis, tu devrais refuser.", "If you ask me, you should turn it down."],
+            ["Franchement, …", "Honestly, … / Frankly, …", "",
+              "Franchement, c'était nul.", "Honestly, it was rubbish.",
+              "Franchement, je ne m'attendais pas à ce que ce soit aussi bien.", "Honestly, I didn't expect it to be that good."],
+            ["Je suis convaincu(e) que…", "I'm convinced that…", "No doubt in your mind. Je suis persuadé(e) que works the same way.",
+              "Je suis convaincue que c'est la bonne décision.", "I'm convinced it's the right decision."],
+            ["Ça ne fait aucun doute.", "There's no doubt about it.", "Spoken without the ne: ça fait aucun doute. Often after pour moi.",
+              "— Tu crois qu'elle va réussir ? — Pour moi, ça ne fait aucun doute.", "— Do you think she'll pass? — I have no doubt about it."],
+          ],
+        },
+        {
+          en: "Asking for an opinion",
+          fr: "Et toi ?",
+          desc: "Handing the floor to the other person.",
+          cards: [
+            ["Qu'est-ce que tu en penses ?", "What do you think (of it)?", "The standard question; en means ‘of it’. Formal: qu'en pensez-vous ?",
+              "J'ai fini mon CV. Qu'est-ce que tu en penses ?", "I've finished my CV. What do you think?"],
+            ["Tu en penses quoi ?", "What do you think?", "Casual word order, with the question word at the end. Spoken: t'en penses quoi ?",
+              "— T'en penses quoi, de cette veste ? — Elle te va super bien.", "— What do you think of this jacket? — It really suits you."],
+            ["Ça te paraît comment ?", "How does it look to you?", "Asks for a first impression rather than a considered verdict.",
+              "J'ai changé le début. Ça te paraît comment ?", "I've changed the opening. How does it look to you?"],
+            ["Quel est ton avis ?", "What's your opinion?", "Direct and a little more formal. Vous form: quel est votre avis ? Often followed by sur: sur la question.",
+              "Quel est votre avis sur la question ?", "What's your view on the matter?"],
+            ["Et toi ?", "And you? / What about you?", "",
+              "Moi, je trouve ça trop cher. Et toi ?", "I think it's too expensive. What about you?",
+              "— Je vote pour le premier. Et vous ? — Pareil.", "— I'm voting for the first one. What about you? — Same."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
   </body>
 </html>

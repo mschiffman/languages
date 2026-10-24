@@ -1,49 +1,48 @@
 /* ---------------------------------------------------------------
    Hamburger sidebar for the expression flashcard pages
-   (fr/expression/n-*.html). Inserts the menu markup into <body> and
+   (fr/expression/<topic>.html). Inserts the menu markup into <body> and
    lists every expression category. Styled by pimsleur.css.
-   Add new categories by extending CATEGORIES below; mark the ones that
-   have a flashcard page (n-<href>) with flash: true so the menu keeps
-   readers on the flashcards.
+   Add new categories by extending CATEGORIES below.
 --------------------------------------------------------------- */
 (function () {
   const CATEGORIES = [
-    { label: "🥰 Admiration", href: "admiration.html", flash: true },
-    { label: "👍 Agree", href: "agree.html", flash: true },
-    { label: "👎 Disagree", href: "disagree.html", flash: true },
-    { label: "😤 Annoyance", href: "annoyance.html", flash: true },
-    { label: "🙏 Apology", href: "apology.html", flash: true },
-    { label: "🆘 Asking & Offering Help", href: "help.html", flash: true },
-    { label: "❓ Clarify", href: "clarify.html", flash: true },
-    { label: "🏆 Compliment", href: "compliment.html", flash: true },
-    { label: "🎉 Congratulating", href: "congrats.html", flash: true },
-    { label: "🔗 Connectors", href: "connectors.html", flash: true },
-    { label: "🧐 Critique", href: "critique.html", flash: true },
-    { label: "🧭 Directions & Transportation", href: "directions.html", flash: true },
-    { label: "😲 Disbelief", href: "disbelief.html", flash: true },
-    { label: "😌 Doucement", href: "doucement.html", flash: true },
-    { label: "🎉 Excitement", href: "excitement.html", flash: true },
-    { label: "❗ Exclamation", href: "exclamation.html", flash: true },
-    { label: "😴 Fatigue & Being Fed Up", href: "fatigue.html", flash: true },
-    { label: "💐 Gratitude", href: "thank.html", flash: true },
-    { label: "👋 Greetings & Goodbyes", href: "greetings.html", flash: true },
-    { label: "🗣️ Idioms", href: "idioms.html", flash: true },
-    { label: "💭 I Mean", href: "iMean.html", flash: true },
-    { label: "🎈 Interjections and Fillers", href: "fillers.html", flash: true },
-    { label: "🎲 Miscellaneous", href: "miscellaneous.html", flash: true },
-    { label: "🗳️ Opinion", href: "opinion.html", flash: true },
-    { label: "☕ Offers", href: "offers.html", flash: true },
-    { label: "🙋 Permission", href: "permission.html", flash: true },
-    { label: "😐 Quality Critique", href: "quality.html", flash: true },
-    { label: "🤗 Reassurance", href: "reassurance.html", flash: true },
-    { label: "🙅 Refusal", href: "refusal.html", flash: true },
-    { label: "😔 Regret", href: "regret.html", flash: true },
-    { label: "🍽️ Restaurant", href: "restaurant.html", flash: true },
-    { label: "🌱 Suggestion", href: "suggestion.html", flash: true },
-    { label: "💡 Understanding", href: "understand.html", flash: true },
-    { label: "✨ Et voilà", href: "voila.html", flash: true },
-    { label: "🎁 Wishes", href: "wishes.html", flash: true },
-    { label: "🤔 What's Wrong / Checking In", href: "whatswrong.html", flash: true },
+    { label: "📚 All Expressions", href: "archive.html" },
+    { label: "🥰 Admiration", href: "admiration.html" },
+    { label: "👍 Agree", href: "agree.html" },
+    { label: "👎 Disagree", href: "disagree.html" },
+    { label: "😤 Annoyance", href: "annoyance.html" },
+    { label: "🙏 Apology", href: "apology.html" },
+    { label: "🆘 Asking & Offering Help", href: "help.html" },
+    { label: "❓ Clarify", href: "clarify.html" },
+    { label: "🏆 Compliment", href: "compliment.html" },
+    { label: "🎉 Congratulating", href: "congrats.html" },
+    { label: "🔗 Connectors", href: "connectors.html" },
+    { label: "🧐 Critique", href: "critique.html" },
+    { label: "🧭 Directions & Transportation", href: "directions.html" },
+    { label: "😲 Disbelief", href: "disbelief.html" },
+    { label: "😌 Doucement", href: "doucement.html" },
+    { label: "🎉 Excitement", href: "excitement.html" },
+    { label: "❗ Exclamation", href: "exclamation.html" },
+    { label: "😴 Fatigue & Being Fed Up", href: "fatigue.html" },
+    { label: "💐 Gratitude", href: "thank.html" },
+    { label: "👋 Greetings & Goodbyes", href: "greetings.html" },
+    { label: "🗣️ Idioms", href: "idioms.html" },
+    { label: "💭 I Mean", href: "iMean.html" },
+    { label: "🎈 Interjections and Fillers", href: "fillers.html" },
+    { label: "🎲 Miscellaneous", href: "miscellaneous.html" },
+    { label: "🗳️ Opinion", href: "opinion.html" },
+    { label: "☕ Offers", href: "offers.html" },
+    { label: "🙋 Permission", href: "permission.html" },
+    { label: "😐 Quality Critique", href: "quality.html" },
+    { label: "🤗 Reassurance", href: "reassurance.html" },
+    { label: "🙅 Refusal", href: "refusal.html" },
+    { label: "😔 Regret", href: "regret.html" },
+    { label: "🍽️ Restaurant", href: "restaurant.html" },
+    { label: "🌱 Suggestion", href: "suggestion.html" },
+    { label: "💡 Understanding", href: "understand.html" },
+    { label: "✨ Et voilà", href: "voila.html" },
+    { label: "🎁 Wishes", href: "wishes.html" },
+    { label: "🤔 What's Wrong / Checking In", href: "whatswrong.html" },
   ];
 
   // ── Insert hamburger, overlay and sidebar ──
@@ -83,7 +82,7 @@
     if (e.key === "Escape") setOpen(false);
   });
 
-  // ── Category list; n-refusal.html highlights the "refusal.html" entry ──
+  // ── Category list; the current page's entry is highlighted ──
   const currentFile = location.pathname.split("/").pop();
   const list = document.createElement("div");
   list.className = "lessons-list open";
@@ -92,8 +91,8 @@
     const a = document.createElement("a");
     a.className = "lesson-link";
     a.textContent = cat.label;
-    a.href = cat.flash ? "n-" + cat.href : cat.href;
-    if (currentFile === cat.href || currentFile === "n-" + cat.href) {
+    a.href = cat.href;
+    if (currentFile === cat.href) {
       a.classList.add("active");
     }
     list.appendChild(a);
