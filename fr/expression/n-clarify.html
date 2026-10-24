@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Clarifying</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">CLARIFYING</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Clarifying
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Faire répéter, demander une précision
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">23</span> expressions · Clarifying · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 23.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/clarify/";
+      const AUD_EXT = "mp3?v=261023";
+
+      const categories = [
+        {
+          en: "You didn't catch it",
+          fr: "Faire répéter",
+          desc: "Asking someone to say it again, more slowly or louder.",
+          cards: [
+            ["Comment ?", "Sorry? / What was that?", "Neutral and polite. The safest of all is pardon ? With strangers avoid quoi ? and hein ?, which sound abrupt.",
+              "— Le train part de quel quai ? — Comment ? — Le train, il part de quel quai ?", "— Which platform does the train leave from? — Sorry? — The train, which platform does it leave from?"],
+            ["Hein ?", "Huh? / What?", "Very casual: family and close friends only. Also tacked onto a sentence to ask for agreement: c'est bon, hein ?",
+              "— Tu peux me passer le sel ? — Hein ? — Le sel !", "— Can you pass me the salt? — Huh? — The salt!"],
+            ["Tu peux répéter ?", "Can you say that again?", "Add s'il te plaît to soften it. Formal: vous pouvez répéter, s'il vous plaît ? Very polite: pourriez-vous répéter ?",
+              "Désolée, tu peux répéter ? Il y avait trop de bruit.", "Sorry, can you say that again? It was too noisy."],
+            ["Tu peux parler moins vite ?", "Can you speak more slowly?", "The learner's lifeline. Shorter: plus lentement, s'il vous plaît. Formal: vous pouvez parler moins vite ?",
+              "Je suis désolé, je parle encore mal français. Vous pouvez parler moins vite ?", "I'm sorry, my French isn't good yet. Could you speak more slowly?"],
+            ["Tu peux parler plus fort ?", "Can you speak up?", "Plus fort: louder. On the phone: je t'entends mal (I can barely hear you) or ça coupe (you're breaking up).",
+              "Tu peux parler plus fort ? Je t'entends très mal.", "Can you speak up? I can barely hear you."],
+          ],
+        },
+        {
+          en: "You didn't understand",
+          fr: "Dire qu'on n'a pas compris",
+          desc: "Owning up to being lost, from a word to the whole thing.",
+          cards: [
+            ["J'ai pas bien compris.", "I didn't quite understand.", "Spoken form of je n'ai pas bien compris. Without bien it's flatter: j'ai pas compris.",
+              "J'ai pas bien compris la dernière question. Tu peux la reformuler ?", "I didn't quite understand the last question. Can you rephrase it?"],
+            ["Je comprends pas.", "I don't understand.", "Spoken form of je ne comprends pas. Also about a situation: je comprends pas pourquoi il est parti (I don't get why he left).",
+              "Je comprends pas, c'est écrit en tout petit.", "I don't understand, it's written really small."],
+            ["J'ai pas tout saisi.", "I didn't catch all of it.", "Saisir: to grasp. Politer than j'ai rien compris: you got some of it.",
+              "Pardon, j'ai pas tout saisi. Le rendez-vous, c'est à quelle heure ?", "Sorry, I didn't catch all of it. What time is the appointment?"],
+            ["Je suis un peu perdu(e).", "I'm a bit lost.", "For explanations as well as streets. Stronger: je suis complètement perdu(e).",
+              "Attends, je suis un peu perdue : c'est ta sœur ou ta cousine ?", "Wait, I'm a bit lost: is that your sister or your cousin?"],
+          ],
+        },
+        {
+          en: "What do you mean?",
+          fr: "Demander une précision",
+          desc: "Asking for more detail or a clearer meaning.",
+          cards: [
+            ["Qu'est-ce que tu veux dire par là ?", "What do you mean by that?", "Asks for the meaning behind a remark; in a certain tone it's a challenge. Casual: tu veux dire quoi ? Shortest: c'est-à-dire ?",
+              "— Il est spécial, ton frère. — Qu'est-ce que tu veux dire par là ?", "— Your brother's a bit odd. — What do you mean by that?"],
+            ["Dans quel sens ?", "In what sense? / How so?", "Asks for the angle: in what way something is true. Neutral, good for discussions.",
+              "— Ce film est dangereux. — Dans quel sens ?", "— This film is dangerous. — In what sense?"],
+            ["Tu peux préciser ?", "Can you be more specific?", "Préciser: to give details. Formal: pouvez-vous préciser ? Useful at work and on the phone.",
+              "— Il y a un problème avec votre dossier. — Vous pouvez préciser ?", "— There's a problem with your file. — Can you be more specific?"],
+            ["Comme quoi ?", "Like what?", "Asks for a concrete example. Also par exemple ? (for instance?)",
+              "— Il y a plein de choses à faire à Lyon. — Comme quoi ?", "— There's loads to do in Lyon. — Like what?"],
+          ],
+        },
+        {
+          en: "Words & spelling",
+          fr: "Les mots",
+          desc: "Asking how to say, spell or pronounce something.",
+          cards: [
+            ["Comment on dit… en français ?", "How do you say… in French?", "Put the word where the dots are: comment on dit ‘tablet’ en français ? More formal: comment dit-on… ?",
+              "Comment on dit ‘charger’ en français ? Le truc pour le téléphone.", "How do you say ‘charger’ in French? The thing for the phone."],
+            ["Ça veut dire quoi ?", "What does that mean?", "Casual; add the word at the end: ça veut dire quoi, ‘bouchon’ ? Neutral: qu'est-ce que ça veut dire ?",
+              "Ça veut dire quoi, ‘avoir la flemme’ ?", "What does ‘avoir la flemme’ mean?"],
+            ["Ça s'écrit comment ?", "How do you spell it?", "For names and addresses especially. The reply often spells it out letter by letter: ça s'écrit avec deux L.",
+              "— Je m'appelle Ghislaine. — Ça s'écrit comment ?", "— My name's Ghislaine. — How do you spell that?"],
+            ["Ça se prononce comment ?", "How do you pronounce it?", "Se prononcer: to be pronounced. Handy with names, wines and towns.",
+              "Ce vin, ça se prononce comment ? Gewurztraminer ?", "How do you pronounce this wine? Gewurztraminer?"],
+            ["C'est quoi, le mot pour… ?", "What's the word for…?", "When the word escapes you and you describe it instead. Also j'ai le mot sur le bout de la langue (it's on the tip of my tongue).",
+              "C'est quoi, le mot pour le truc qui ouvre les bouteilles ?", "What's the word for the thing that opens bottles?"],
+          ],
+        },
+        {
+          en: "Checking you understood",
+          fr: "Vérifier",
+          desc: "Repeating it back to make sure you've got it right.",
+          cards: [
+            ["Si j'ai bien compris, …", "If I've understood correctly, …", "Sums up what you heard so they can confirm. Formal: si je comprends bien, …",
+              "Si j'ai bien compris, on se retrouve devant la gare à huit heures ?", "If I've got it right, we meet outside the station at eight?"],
+            ["Donc, en gros, …", "So basically, …", "Casual summary: you boil it down. En gros means roughly, broadly.",
+              "Donc, en gros, il faut tout recommencer ?", "So basically, we have to start all over again?"],
+            ["C'est bien ça ?", "Is that right?", "Tacked onto the end of your summary. Bien adds ‘correctly’. Shorter: c'est ça ?",
+              "Vous arrivez mardi et vous repartez jeudi, c'est bien ça ?", "You arrive on Tuesday and leave on Thursday, is that right?"],
+            ["Tu veux dire que… ?", "You mean that…?", "Checks the implication of what they said. Often with surprise: tu veux dire qu'il a démissionné ?",
+              "Tu veux dire qu'on ne part plus en vacances ?", "You mean we're not going on holiday any more?"],
+            ["Attends, tu dis que… ?", "Wait, you're saying that…?", "Stops the conversation to check something surprising. Casual.",
+              "Attends, tu dis que tu as vendu la voiture ?", "Wait, you're saying you sold the car?"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

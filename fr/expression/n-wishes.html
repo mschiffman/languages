@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Wishes</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">WISHES</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Wishes
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Souhaits et formules
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">30</span> expressions · Wishes · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 30.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/wishes/";
+      const AUD_EXT = "mp3?v=261023";
+
+      const categories = [
+        {
+          en: "Everyday send-offs",
+          fr: "Au quotidien",
+          desc: "What you say as people leave: shops, work, friends.",
+          cards: [
+            ["Bonne journée !", "Have a good day!", "The standard goodbye in shops and offices before late afternoon. The reply: merci, vous aussi !",
+              "Merci, au revoir, bonne journée !", "Thank you, goodbye, have a good day!"],
+            ["Bonne soirée !", "Have a good evening!", "From late afternoon on. Bonsoir is the greeting; bonne soirée the goodbye.",
+              "Bonne soirée, et à demain !", "Have a good evening, see you tomorrow!"],
+            ["Bonne nuit !", "Good night!", "Only when someone's off to bed. Leaving a party at night, it's bonne soirée.",
+              "Bonne nuit, fais de beaux rêves !", "Good night, sweet dreams!"],
+            ["Bonne fin de journée !", "Enjoy the rest of your day!", "From mid-afternoon, when most of the day is gone. Also bonne fin de soirée.",
+              "Merci pour votre appel, bonne fin de journée !", "Thanks for your call, enjoy the rest of your day!"],
+            ["Bon week-end !", "Have a good weekend!", "Bon, because week-end is masculine; bonne journée, because journée is feminine.",
+              "Bon week-end ! Tu fais quelque chose de spécial ?", "Have a good weekend! Are you doing anything special?"],
+            ["Bonne semaine !", "Have a good week!", "On Sunday evening or Monday morning, or as a sign-off in emails.",
+              "On se voit vendredi. Bonne semaine !", "See you on Friday. Have a good week!"],
+          ],
+        },
+        {
+          en: "At the table",
+          fr: "À table",
+          desc: "Before eating and when raising a glass.",
+          cards: [
+            ["Bon appétit !", "Enjoy your meal!", "Said before eating, and by waiters as they serve. The reply: merci, vous aussi !",
+              "Voilà vos plats, bon appétit !", "Here are your dishes, enjoy your meal!"],
+            ["Régale-toi !", "Enjoy! / Tuck in!", "Se régaler: to feast, to love one's food. Friendlier than bon appétit. Formal or plural: régalez-vous !",
+              "C'est ton plat préféré, régale-toi !", "It's your favourite dish, tuck in!"],
+            ["Santé !", "Cheers!", "Neutral, for any occasion. Fuller: à votre santé !",
+              "Allez, santé ! À notre réussite !", "Come on, cheers! To our success!"],
+            ["À la tienne !", "Cheers! / Your health!", "Literally ‘to yours’ (your health). Formal or plural: à la vôtre !",
+              "— Santé ! — À la tienne !", "— Cheers! — Cheers!"],
+            ["Tchin-tchin !", "Cheers!", "Very casual, imitating the clink of glasses. Custom: look people in the eye as you clink.",
+              "Tchin-tchin ! Aux vacances !", "Cheers! To the holidays!"],
+          ],
+        },
+        {
+          en: "Before a challenge",
+          fr: "Encourager",
+          desc: "Good luck, hang in there, break a leg.",
+          cards: [
+            ["Bon courage !", "Hang in there! / Good luck with it!", "For effort you control: a long day, a move, revision. Very common, even for small chores.",
+              "Encore trois heures de route ? Bon courage !", "Three more hours of driving? Hang in there!"],
+            ["Bonne chance !", "Good luck!", "For luck you don't control: a draw, a result, an audition. Learners mix it up with bon courage.",
+              "Le tirage est demain ? Bonne chance !", "The draw's tomorrow? Good luck!"],
+            ["Merde !", "Break a leg!", "Said to actors and performers before they go on; bonne chance would bring bad luck. You don't reply merci.",
+              "C'est ta première ce soir ? Merde !", "It's your opening night tonight? Break a leg!"],
+            ["Je croise les doigts pour toi.", "I'll keep my fingers crossed for you.", "Croiser les doigts: to cross your fingers. Also je pense à toi (I'm thinking of you).",
+              "Ton entretien, c'est demain ? Je croise les doigts pour toi.", "Your interview's tomorrow? I'll keep my fingers crossed for you."],
+          ],
+        },
+        {
+          en: "Travelling & moving on",
+          fr: "Le voyage et le départ",
+          desc: "Send-offs for trips, holidays and new chapters.",
+          cards: [
+            ["Bon voyage !", "Have a good trip!", "For any trip. For a short one: bonne promenade, bonne balade.",
+              "Tu pars au Japon demain ? Bon voyage !", "You're off to Japan tomorrow? Have a good trip!"],
+            ["Bonne route !", "Drive safely! / Safe journey!", "When they're driving. Also sois prudent(e) (be careful).",
+              "Bonne route, et envoie-moi un message quand tu arrives !", "Drive safely, and text me when you get there!"],
+            ["Bon retour !", "Safe trip home!", "For the journey back. Also bon retour parmi nous ! (welcome back!)",
+              "Merci d'être venus. Bon retour !", "Thanks for coming. Safe trip home!"],
+            ["Bonnes vacances !", "Have a good holiday!", "Plural: vacances is always plural in this sense.",
+              "C'est ton dernier jour ? Bonnes vacances !", "It's your last day? Have a good holiday!"],
+            ["Bonne continuation !", "All the best!", "When someone leaves a job, finishes a course or starts a new chapter.",
+              "Merci pour ces trois années. Bonne continuation !", "Thanks for these three years. All the best!"],
+          ],
+        },
+        {
+          en: "Health",
+          fr: "La santé",
+          desc: "After a sneeze, and when someone's ill.",
+          cards: [
+            ["À tes souhaits !", "Bless you!", "After a sneeze. Formal or plural: à vos souhaits ! The reply: merci.",
+              "Atchoum ! — À tes souhaits !", "Atchoo! — Bless you!"],
+            ["À tes amours !", "And to your loves!", "Playful reply to a second sneeze. The traditional answer: et que les tiennes durent toujours.",
+              "Atchoum ! — À tes souhaits ! — Atchoum ! — À tes amours !", "Atchoo! — Bless you! — Atchoo! — And to your loves!"],
+            ["Bon rétablissement !", "Get well soon!", "Formal-ish, for an illness or after an operation. Also remets-toi vite !",
+              "J'ai appris pour ton opération. Bon rétablissement !", "I heard about your operation. Get well soon!"],
+            ["Prends soin de toi.", "Take care of yourself.", "Warm, as a goodbye or at the end of a message. Formal: prenez soin de vous.",
+              "Bisous, et prends soin de toi.", "Love, and take care of yourself."],
+            ["Soigne-toi bien.", "Look after yourself.", "When someone's ill: get treatment, rest. Formal: soignez-vous bien.",
+              "T'as la grippe ? Soigne-toi bien !", "You've got the flu? Look after yourself!"],
+          ],
+        },
+        {
+          en: "Celebrations",
+          fr: "Les fêtes",
+          desc: "Birthdays, Christmas and the new year.",
+          cards: [
+            ["Joyeux anniversaire !", "Happy birthday!", "Also heard casually: bon anniversaire !",
+              "Joyeux anniversaire, ma chérie !", "Happy birthday, darling!"],
+            ["Bonne année !", "Happy New Year!", "Said through all of January; bonne année, bonne santé is the traditional pair.",
+              "Bonne année, bonne santé !", "Happy New Year, and good health!"],
+            ["Joyeux Noël !", "Merry Christmas!", "Also bonnes fêtes ! from mid-December.",
+              "Joyeux Noël à toute la famille !", "Merry Christmas to the whole family!"],
+            ["Joyeuses fêtes !", "Happy holidays!", "Covers Christmas and New Year together. Also bonnes fêtes de fin d'année.",
+              "Merci pour tout, et joyeuses fêtes !", "Thanks for everything, and happy holidays!"],
+            ["Meilleurs vœux !", "Best wishes!", "In cards and in January for the new year. Fuller: tous mes meilleurs vœux pour cette nouvelle année.",
+              "Meilleurs vœux pour 2027 !", "Best wishes for 2027!"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

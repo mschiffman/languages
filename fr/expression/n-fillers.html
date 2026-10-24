@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Interjections & Fillers</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">FILLERS</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Interjections & Fillers
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Les petits mots de l'oral
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">18</span> expressions · Fillers · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 18.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/fillers/";
+      const AUD_EXT = "mp3?v=2610231933";
+
+      const categories = [
+        {
+          en: "Getting attention",
+          fr: "Interpeller",
+          desc: "Little words that make people look, listen or wait.",
+          cards: [
+            ["Dis donc !", "Hey! / Wow!", "Gets attention or shows mild surprise. Formal or plural: dites donc ! Also a reproach: dis donc, tu pourrais dire merci !",
+              "Dis donc, ils ont mis le paquet pour la déco !", "Wow, they've really gone all out on the decorations!"],
+            ["Tiens !", "Well, look! / Here!", "Surprise (tiens, il pleut), or handing something over (tiens, c'est pour toi). Formal: tenez.",
+              "Tiens, regarde qui voilà !", "Well, look who's here!"],
+            ["Attends !", "Hang on! / Wait!", "Stops someone, or signals a realisation or correction. Formal: attendez !",
+              "Attends, il en reste encore dans le frigo.", "Hang on, there's still some left in the fridge."],
+            ["Écoute…", "Look… / Listen…", "Opens something serious or a firm point. Formal: écoutez…",
+              "Écoute, je n'ai pas le temps de discuter.", "Look, I don't have time to argue."],
+            ["Regarde !", "Look!", "Points something out. Also, like écoute, before a firm point: regarde, c'est simple.",
+              "Regarde, il y a un écureuil sur la branche !", "Look, there's a squirrel on the branch!"],
+          ],
+        },
+        {
+          en: "Reacting",
+          fr: "Réagir",
+          desc: "Surprise, scolding, shrugging, insisting.",
+          cards: [
+            ["Bah alors ?", "Hey, what's going on? / Come on!", "When something seems wrong or needs a little scolding. Very casual.",
+              "Bah alors, qu'est-ce que tu fais encore en pyjama ?", "Come on, what are you doing still in your pyjamas?"],
+            ["Eh ben alors ?", "Hey, what's wrong?", "Softer and more caring than bah alors. Often to a child who's upset.",
+              "Eh ben alors, qu'est-ce qu'il y a, mon cœur ?", "Hey, what's the matter, sweetheart?"],
+            ["Et alors ?", "So what?", "Challenges or dismisses what was just said. Also as a genuine ‘and then?’ in a story.",
+              "— Il n'aime pas ton idée. — Et alors ?", "— He doesn't like your idea. — So what?"],
+            ["Quand même !", "Honestly! / Come on!", "Indignation or insistence: c'est cher, quand même ! At the end of a sentence it also means ‘still, all the same’.",
+              "Tu aurais pu prévenir, quand même !", "Honestly, you could have warned me!"],
+            ["Bon…", "Right… / OK then…", "Announces a decision, a change of topic or the end of a chat. Bon ben… : well then…",
+              "Bon, on y va ?", "Right, shall we go?"],
+            ["Ouais.", "Yeah.", "Informal oui. Sceptical, drawn out: ouais, ouais… (yeah, right…)",
+              "— Tu viens ce soir ? — Ouais, je pense.", "— Are you coming tonight? — Yeah, I think so."],
+          ],
+        },
+        {
+          en: "Keeping the conversation going",
+          fr: "Relancer la conversation",
+          desc: "Changing topic, adding a thought, checking in.",
+          cards: [
+            ["Tu sais…", "You know…", "Softens what follows and draws the listener in. Formal: vous savez…",
+              "Tu sais, il ne me demande jamais rien.", "You know, he never asks me for anything."],
+            ["Au fait, …", "By the way, …", "Brings up something new. The t is pronounced: o fèt. Also à propos, … (by the way).",
+              "Au fait, Jacques m'a appelée hier.", "By the way, Jacques called me yesterday."],
+            ["En parlant de ça, …", "Speaking of which, …", "Links to what was just said. Also à propos de ça.",
+              "En parlant de ça, tu as vu le nouveau film d'Ozon ?", "Speaking of which, have you seen the new Ozon film?"],
+            ["…, non ?", "…, right? / …, isn't it?", "Tacked on to ask for agreement: c'est joli, non ? Also …, hein ? (more casual) or …, c'est ça ?",
+              "Il fait beau aujourd'hui, non ?", "It's lovely today, isn't it?"],
+            ["En vrai, …", "Honestly, … / Actually, …", "Young and casual: to be honest, really. Also as a question: en vrai ? (seriously?)",
+              "En vrai, t'as raison, on devrait partir plus tôt.", "Honestly, you're right, we should leave earlier."],
+            ["En tout cas, …", "Anyway, … / In any case, …", "Wraps up or moves on, whatever else is true.",
+              "En tout cas, tu gardes ça pour toi.", "In any case, you keep this to yourself."],
+            ["Effectivement.", "Indeed. / That's right.", "Confirms what someone said. Also en effet (more formal).",
+              "— Le magasin ferme à midi le samedi ? — Effectivement.", "— Does the shop close at noon on Saturdays? — That's right."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

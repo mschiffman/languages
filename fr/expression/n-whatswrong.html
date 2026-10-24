@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — What's Wrong?</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">CHECKING IN</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          What's Wrong?
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Qu'est-ce que t'as ?
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">29</span> expressions · Checking In · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 29.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/whatswrong/";
+      const AUD_EXT = "mp3?v=261023";
+
+      const categories = [
+        {
+          en: "What's wrong?",
+          fr: "Demander ce qui ne va pas",
+          desc: "Asking someone directly what the matter is.",
+          cards: [
+            ["Qu'est-ce que t'as ?", "What's wrong? / What's up with you?", "Spoken form of qu'est-ce que tu as ? Caring or irritated, depending on tone. Formal: qu'est-ce que vous avez ?",
+              "Qu'est-ce que t'as ? T'as pas dit un mot de la soirée.", "What's wrong? You haven't said a word all evening."],
+            ["Qu'est-ce qu'il y a ?", "What is it? / What's the matter?", "Neutral, when someone looks upset or calls you over. Casual: qu'est-ce qu'y a ?",
+              "Qu'est-ce qu'il y a ? Tu as l'air inquiète.", "What's the matter? You look worried."],
+            ["Qu'est-ce qui va pas ?", "What's wrong?", "Spoken form of qu'est-ce qui ne va pas ? Gentle and caring.",
+              "Viens t'asseoir. Qu'est-ce qui va pas ?", "Come and sit down. What's wrong?"],
+            ["Qu'est-ce qui se passe ?", "What's going on?", "About a situation as much as a person: noise, a crowd, a strange mood.",
+              "Pourquoi tout le monde crie ? Qu'est-ce qui se passe ?", "Why is everyone shouting? What's going on?"],
+            ["Ça va pas ?", "Is something wrong?", "Soft and falling, it's tender. Sharp and rising, it means ‘are you mad?’: ça va pas, non ?!",
+              "Tu pleures ? Ça va pas ?", "Are you crying? Is something wrong?"],
+            ["Un souci ?", "Something up?", "Very casual. Fuller: il y a un souci ? or il y a un problème ?",
+              "Tu fais une drôle de tête. Un souci ?", "You've got a funny look on your face. Something up?"],
+          ],
+        },
+        {
+          en: "You seem off",
+          fr: "Remarquer que ça ne va pas",
+          desc: "Noticing out loud that someone isn't themselves.",
+          cards: [
+            ["T'as pas l'air bien.", "You don't look well.", "Physical or emotional. Spoken form of tu n'as pas l'air bien.",
+              "T'as pas l'air bien. Tu veux rentrer ?", "You don't look well. Do you want to go home?"],
+            ["Ça n'a pas l'air d'aller.", "You don't seem OK.", "Gentle: you're describing, not accusing. Spoken: ça a pas l'air d'aller.",
+              "Ça n'a pas l'air d'aller depuis quelques jours. Tu veux en parler ?", "You haven't seemed OK for a few days. Do you want to talk about it?"],
+            ["T'as une drôle de tête.", "You look a bit off.", "Literally ‘you've got a funny face’: something's not right. Also t'as une sale tête (you look awful).",
+              "T'as une drôle de tête ce matin. T'as mal dormi ?", "You look a bit off this morning. Did you sleep badly?"],
+            ["T'es tout pâle.", "You're all pale.", "Pâle: pale. For a woman: t'es toute pâle. Also t'es blanc comme un linge (white as a sheet).",
+              "T'es tout pâle, assieds-toi.", "You're all pale, sit down."],
+            ["Tu fais la tête ?", "Are you sulking?", "Faire la tête: to sulk. Ruder: tu fais la gueule ?",
+              "Tu fais la tête parce que je suis rentré tard ?", "Are you sulking because I got home late?"],
+            ["Qu'est-ce qui te tracasse ?", "What's bothering you?", "Tracasser: to worry, to nag at. Warm and attentive. Formal: qu'est-ce qui vous tracasse ?",
+              "Tu es ailleurs. Qu'est-ce qui te tracasse ?", "You're miles away. What's bothering you?"],
+            ["Quelque chose te préoccupe ?", "Is something on your mind?", "Soft and a little formal. Préoccuper: to worry, to preoccupy.",
+              "Tu as l'air pensif. Quelque chose te préoccupe ?", "You look thoughtful. Is something on your mind?"],
+          ],
+        },
+        {
+          en: "Are you OK?",
+          fr: "Prendre des nouvelles",
+          desc: "A gentle check-in, especially after bad news.",
+          cards: [
+            ["Ça va, toi ?", "You doing all right?", "The toi makes it personal: how are you, really? Often after news about someone else.",
+              "J'ai appris pour ton père. Ça va, toi ?", "I heard about your dad. How are you doing?"],
+            ["Tu es sûr(e) que ça va ?", "Are you sure you're OK?", "When the answer ça va didn't convince you. Spoken: t'es sûr que ça va ?",
+              "— Ça va, ça va. — Tu es sûre que ça va ? Tu as l'air épuisée.", "— I'm fine, I'm fine. — Are you sure you're OK? You look exhausted."],
+            ["Tu tiens le coup ?", "Are you holding up?", "Tenir le coup: to hold up, to cope. For a hard period: exams, grief, a long shift.",
+              "Ça fait trois nuits que tu dors à l'hôpital. Tu tiens le coup ?", "You've slept at the hospital three nights running. Are you holding up?"],
+            ["Tu te sens bien ?", "Do you feel OK?", "About health, physical or mental. Formal: vous vous sentez bien ?",
+              "Tu te sens bien ? Tu es tout rouge.", "Do you feel OK? You're all red."],
+            ["Tout se passe bien ?", "Is everything going OK?", "Checks on a situation: a new job, a stay, a meal. Waiters ask it too.",
+              "Tu as commencé lundi ? Tout se passe bien ?", "You started on Monday? Is everything going OK?"],
+          ],
+        },
+        {
+          en: "What's up with them?",
+          fr: "Parler d'un tiers",
+          desc: "Asking about someone else who seems off.",
+          cards: [
+            ["Qu'est-ce qu'il a ?", "What's up with him?", "About a third person. For a woman: qu'est-ce qu'elle a ? Casual word order: il a quoi ?",
+              "Qu'est-ce qu'il a, Paul ? Il est parti sans dire au revoir.", "What's up with Paul? He left without saying goodbye."],
+            ["Qu'est-ce qui lui prend ?", "What's got into him?", "Prendre here means to come over someone: a sudden odd behaviour. Works for him or her.",
+              "Elle s'est mise à crier toute seule. Qu'est-ce qui lui prend ?", "She suddenly started shouting. What's got into her?"],
+            ["Qu'est-ce qui leur arrive ?", "What's happening with them?", "Arriver à quelqu'un: to happen to someone. Leur for several people.",
+              "Ils ne se parlent plus. Qu'est-ce qui leur arrive ?", "They're not speaking any more. What's happening with them?"],
+            ["Il a un problème, lui ?", "What's his problem?", "Irritated: the lui at the end points at him. Same for her: elle a un problème, elle ?",
+              "Il m'a doublé dans la file. Il a un problème, lui ?", "He pushed in front of me in the queue. What's his problem?"],
+          ],
+        },
+        {
+          en: "What happened?",
+          fr: "Demander la cause",
+          desc: "Getting the story behind the mood.",
+          cards: [
+            ["Qu'est-ce qui s'est passé ?", "What happened?", "The neutral question about an event. Casual word order: il s'est passé quoi ?",
+              "Ta voiture est toute rayée ! Qu'est-ce qui s'est passé ?", "Your car's all scratched! What happened?"],
+            ["Qu'est-ce qui t'est arrivé ?", "What happened to you?", "About something that happened to the person: an injury, a mishap. Formal: qu'est-ce qui vous est arrivé ?",
+              "Tu as un bleu sur le bras. Qu'est-ce qui t'est arrivé ?", "You've got a bruise on your arm. What happened to you?"],
+            ["Il t'est arrivé quelque chose ?", "Did something happen to you?", "Gentler than qu'est-ce qui t'est arrivé ? It leaves room for a no.",
+              "Tu es rentré tard et tout trempé. Il t'est arrivé quelque chose ?", "You came home late and soaked. Did something happen?"],
+            ["Raconte-moi.", "Tell me about it.", "Invites the whole story. Casual: raconte ! Formal: racontez-moi.",
+              "Assieds-toi et raconte-moi tout.", "Sit down and tell me everything."],
+          ],
+        },
+        {
+          en: "When it turns sharp",
+          fr: "Quand le ton monte",
+          desc: "The same words, said in anger.",
+          cards: [
+            ["Ça va pas, non ?!", "Are you out of your mind?!", "The caring ça va pas ? turned into an accusation by a sharp, rising tone.",
+              "Tu as pris ma voiture sans demander ? Ça va pas, non ?!", "You took my car without asking? Are you out of your mind?!"],
+            ["Ça va pas la tête ?", "Are you crazy?", "Literally ‘is your head not OK?’. Casual and indignant.",
+              "Rouler à cette vitesse sous la pluie ? Ça va pas la tête ?", "Driving that fast in the rain? Are you crazy?"],
+            ["Qu'est-ce qui te prend ?", "What's got into you?!", "When someone suddenly acts out. Formal: qu'est-ce qui vous prend ?",
+              "Pourquoi tu cries comme ça ? Qu'est-ce qui te prend ?", "Why are you shouting like that? What's got into you?"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

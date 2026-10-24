@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Doucement</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">DOUCEMENT</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Doucement
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Ralentir, se poser, se calmer
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">15</span> expressions · Doucement · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 15.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/doucement/";
+      const AUD_EXT = "mp3?v=261023";
+
+      const categories = [
+        {
+          en: "Easing off",
+          fr: "Ralentir",
+          desc: "About pace: go gently, don't rush, don't overdo it.",
+          cards: [
+            ["Vas-y doucement.", "Take it easy. / Go gently.", "Slow down, be careful: with a task, a person, or food and drink. Formal or plural: allez-y doucement.",
+              "Vas-y doucement avec le vin, tu conduis.", "Go easy on the wine, you're driving."],
+            ["Vas-y mollo.", "Easy does it.", "Very casual version of vas-y doucement. Mollo comes from mou (soft).",
+              "Vas-y mollo sur le sel, c'est déjà assez salé.", "Easy on the salt, it's salty enough already."],
+            ["Doucement, doucement…", "Easy, easy now…", "Soothing, said slowly to a nervous person, a child or an animal. Also a warning: doucement ! (careful!)",
+              "Doucement, doucement… voilà, il ne va pas te mordre.", "Easy, easy now… there you go, he won't bite you."],
+            ["Je vais y aller doucement.", "I'll take it slowly.", "About yourself: after an illness, a long break, or before a big meal. Also je vais faire doucement.",
+              "Je reprends le sport, mais je vais y aller doucement.", "I'm getting back into sport, but I'll take it slowly."],
+            ["Pas si vite !", "Not so fast!", "Stops someone rushing ahead, in action or in reasoning.",
+              "Pas si vite ! On n'a pas encore signé le contrat.", "Not so fast! We haven't signed the contract yet."],
+            ["Prends ton temps.", "Take your time.", "Reassures someone that there's no hurry. Formal: prenez votre temps. Also rien ne presse (there's no rush).",
+              "Prends ton temps, on n'est pas pressés.", "Take your time, we're not in a hurry."],
+          ],
+        },
+        {
+          en: "Staying put",
+          fr: "Se poser",
+          desc: "About state: rest, keep still, have a quiet time.",
+          cards: [
+            ["Reste tranquille.", "Keep still. / Behave.", "To a child: stop fidgeting, settle down. To an adult: don't worry about it, stay out of it.",
+              "Reste tranquille deux minutes, je finis de t'habiller.", "Keep still for two minutes, I'm nearly done dressing you."],
+            ["Repose-toi bien.", "Get some good rest.", "A kind goodbye to someone tired or ill. Formal: reposez-vous bien.",
+              "Rentre chez toi et repose-toi bien. On se voit lundi.", "Go home and get some good rest. See you on Monday."],
+            ["Je vais rester tranquille.", "I'm going to have a quiet one.", "No plans, no going out. Also je vais me poser (I'm going to chill).",
+              "Ce week-end, je vais rester tranquille à la maison.", "This weekend I'm going to have a quiet one at home."],
+            ["Je me pose cinq minutes.", "I'm sitting down for five minutes.", "Se poser: to sit down and relax, to land. Casual and very common.",
+              "Je me pose cinq minutes et après je fais la vaisselle.", "I'll sit down for five minutes and then do the washing-up."],
+          ],
+        },
+        {
+          en: "Calming down",
+          fr: "Se calmer",
+          desc: "About feelings: getting someone, or yourself, to cool down.",
+          cards: [
+            ["Calme-toi.", "Calm down.", "Can backfire, just like in English. Formal or plural: calmez-vous. Softer and good for a group: du calme.",
+              "Calme-toi, on va trouver une solution.", "Calm down, we'll find a solution."],
+            ["Calmos !", "Chill!", "Slangy and playful, from calme. Rhyming joke version: relax, Max !",
+              "Calmos, les gars, c'est qu'un match de foot !", "Chill, guys, it's only a football match!"],
+            ["On se calme !", "Let's all calm down!", "On used for tu or vous: a firm, slightly ironic call to order, from parents, teachers or referees.",
+              "Ho, ho, on se calme ! Pas besoin de crier.", "Whoa, whoa, let's all calm down! No need to shout."],
+            ["Ne t'énerve pas.", "Don't get worked up.", "S'énerver: to get annoyed or worked up. Spoken: t'énerve pas !",
+              "Ne t'énerve pas, il a dit ça pour rire.", "Don't get worked up, he was only joking."],
+            ["Il faut que je me calme.", "I need to calm down.", "About yourself, often before you say something you'll regret. Spoken: faut que je me calme.",
+              "Attends, il faut que je me calme avant de lui répondre.", "Hang on, I need to calm down before I answer him."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — At the Restaurant</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">RESTAURANT</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          At the Restaurant
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Au restaurant
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">42</span> expressions · Restaurant · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 42.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/restaurant/";
+      const AUD_EXT = "mp3?v=261023";
+
+      const categories = [
+        {
+          en: "Booking & arriving",
+          fr: "Réserver",
+          desc: "On the phone, online, or at the door.",
+          cards: [
+            ["Je voudrais réserver une table pour deux.", "I'd like to book a table for two.", "Add when: pour ce soir, vingt heures. Bonjour first, always.",
+              "Bonjour, je voudrais réserver une table pour deux, ce soir à dix-neuf heures.", "Hello, I'd like to book a table for two tonight at seven."],
+            ["Au nom de Martin.", "Under the name Martin.", "The answer to c'est à quel nom ? (what name is it under?)",
+              "— C'est à quel nom ? — Au nom de Martin, M-A-R-T-I-N.", "— What name is it under? — Martin, M-A-R-T-I-N."],
+            ["Vous avez de la place demain midi ?", "Do you have a table tomorrow lunchtime?", "Midi: lunchtime; le soir: dinner. Avoir de la place: to have room.",
+              "Bonjour, vous avez de la place demain midi pour quatre personnes ?", "Hello, do you have a table for four tomorrow lunchtime?"],
+            ["Nous avons une réservation.", "We have a booking.", "Add the name: au nom de Robert. Casual: on a réservé au nom de Robert.",
+              "Bonsoir, nous avons une réservation au nom de Robert.", "Good evening, we have a booking under Robert."],
+            ["On n'a pas réservé.", "We haven't booked.", "Then: vous avez une table pour deux ? or c'est possible quand même ?",
+              "Bonsoir, on n'a pas réservé. Vous auriez une table pour trois ?", "Good evening, we haven't booked. Would you have a table for three?"],
+            ["Il y a combien d'attente ?", "How long's the wait?", "Also on attend combien de temps ? The reply: une vingtaine de minutes.",
+              "Il y a combien d'attente ? On peut attendre au bar ?", "How long's the wait? Can we wait at the bar?"],
+          ],
+        },
+        {
+          en: "Where to sit",
+          fr: "Choisir sa table",
+          desc: "Asking for the table you want, politely.",
+          cards: [
+            ["Près de la fenêtre, s'il vous plaît.", "By the window, please.", "Add si possible to soften any request about seating.",
+              "Une table près de la fenêtre, s'il vous plaît, si c'est possible.", "A table by the window, please, if possible."],
+            ["En terrasse, si possible.", "On the terrace, if possible.", "La terrasse: the outdoor seating. Inside: en salle, à l'intérieur.",
+              "Il fait beau, on peut manger en terrasse, si possible ?", "It's lovely out, could we eat on the terrace, if possible?"],
+            ["Plutôt au calme.", "Somewhere quiet, if you can.", "Plutôt softens it: rather. Also loin de la cuisine, pas trop près des toilettes.",
+              "Plutôt au calme, s'il vous plaît, on a besoin de discuter.", "Somewhere quiet, please, we need to talk."],
+            ["Une banquette, si vous en avez une.", "A booth, if you have one.", "Une banquette: a bench seat along the wall. En: one of them.",
+              "On est cinq. Une banquette, si vous en avez une ?", "There are five of us. A booth, if you have one?"],
+          ],
+        },
+        {
+          en: "The menu",
+          fr: "La carte",
+          desc: "Asking what things are and what's good.",
+          cards: [
+            ["Qu'est-ce que vous nous conseillez ?", "What do you recommend?", "Conseiller: to advise. Formal: que nous conseillez-vous ? For yourself: qu'est-ce que vous me conseillez ?",
+              "On hésite. Qu'est-ce que vous nous conseillez ?", "We can't decide. What do you recommend?"],
+            ["Quelle est la spécialité de la maison ?", "What's the house speciality?", "La maison: the restaurant itself. Also qu'est-ce que c'est, le plat du jour ?",
+              "C'est notre première fois ici. Quelle est la spécialité de la maison ?", "It's our first time here. What's the house speciality?"],
+            ["C'est quoi, exactement ?", "What is it, exactly?", "Pointing at a menu item. Name it at the front: la blanquette, c'est quoi exactement ?",
+              "L'andouillette, c'est quoi, exactement ?", "Andouillette, what is it exactly?"],
+            ["C'est servi avec quoi ?", "What does it come with?", "Asks about the side dish: l'accompagnement. Answer: avec des frites ou une salade.",
+              "Le magret, c'est servi avec quoi ?", "What does the duck breast come with?"],
+            ["C'est épicé ?", "Is it spicy?", "Épicé: spicy hot; relevé: well-seasoned. Not too: pas trop épicé, s'il vous plaît.",
+              "Le curry, c'est épicé ? Je ne supporte pas trop le piment.", "Is the curry spicy? I can't take much chilli."],
+          ],
+        },
+        {
+          en: "Ordering",
+          fr: "Commander",
+          desc: "Courses, the set menu and how you want your steak.",
+          cards: [
+            ["On est prêts à commander.", "We're ready to order.", "Formal: nous sommes prêts à commander. The waiter asks: vous avez choisi ?",
+              "— Vous avez choisi ? — Oui, on est prêts à commander.", "— Have you decided? — Yes, we're ready to order."],
+            ["Je vais prendre le menu du jour.", "I'll have the set menu.", "Le menu: a fixed-price set meal. The list of dishes is la carte.",
+              "Je vais prendre le menu du jour, avec le dessert.", "I'll have the set menu, with dessert."],
+            ["Pour moi, ce sera le poulet.", "I'll have the chicken.", "The polite way to give your order. Also je vais prendre…, je voudrais…",
+              "Pour moi, ce sera le poulet, et pour madame, le saumon.", "I'll have the chicken, and the salmon for the lady."],
+            ["En entrée, la soupe du jour.", "To start, the soup of the day.", "L'entrée is the starter in France, not the main course. Then comme plat principal, then en dessert.",
+              "En entrée, la soupe du jour, et comme plat principal, le steak.", "To start, the soup of the day, and for the main, the steak."],
+            ["Saignant, s'il vous plaît.", "Rare, please.", "Steak cooking: bleu (very rare), saignant (rare), à point (medium), bien cuit (well done).",
+              "— Et la cuisson ? — Saignant, s'il vous plaît.", "— How would you like it cooked? — Rare, please."],
+            ["Je ne prends pas d'entrée.", "I'll skip the starter.", "Also je passe directement au plat (I'll go straight to the main).",
+              "Je ne prends pas d'entrée, mais je veux bien un dessert.", "I'll skip the starter, but I'd like a dessert."],
+          ],
+        },
+        {
+          en: "Drinks",
+          fr: "Les boissons",
+          desc: "Water, wine and something hot.",
+          cards: [
+            ["Une carafe d'eau, s'il vous plaît.", "A jug of tap water, please.", "Tap water is free in French restaurants. Bottled: de l'eau plate (still) or gazeuse (sparkling).",
+              "Une carafe d'eau, s'il vous plaît, et deux verres de vin rouge.", "A jug of water, please, and two glasses of red wine."],
+            ["La carte des vins, s'il vous plaît.", "The wine list, please.", "La carte des vins: the wine list. Advice: quel vin vous nous conseillez avec ça ?",
+              "On pourrait avoir la carte des vins, s'il vous plaît ?", "Could we have the wine list, please?"],
+            ["Un verre de rouge.", "A glass of red.", "Du rouge, du blanc, du rosé. Bigger: une bouteille, un pichet (a jug of house wine).",
+              "Pour moi, un verre de rouge, et pour lui, un demi.", "A glass of red for me, and a small beer for him."],
+            ["Vous avez des infusions ?", "Do you have herbal teas?", "Une infusion or une tisane: herbal tea. After the meal, many order un café (an espresso).",
+              "Vous avez des infusions ? Verveine, camomille ?", "Do you have herbal teas? Verbena, camomile?"],
+          ],
+        },
+        {
+          en: "Special requests",
+          fr: "Allergies et demandes",
+          desc: "Allergies, diets and little extras.",
+          cards: [
+            ["Je suis allergique aux noix.", "I'm allergic to nuts.", "Allergique à: au gluten, au lactose, aux fruits de mer. Then: est-ce que ce plat en contient ?",
+              "Je suis allergique aux noix. Est-ce que ce dessert en contient ?", "I'm allergic to nuts. Does this dessert have any in it?"],
+            ["Je suis végétarien(ne).", "I'm vegetarian.", "Also végan(e). Check: est-ce qu'il y a de la viande dans ce plat ? Sauces often contain meat stock.",
+              "Je suis végétarienne. Qu'est-ce que vous avez sans viande ?", "I'm vegetarian. What do you have without meat?"],
+            ["La sauce à part, s'il vous plaît.", "The sauce on the side, please.", "À part: separately. Also sans oignons, sans sel (without onions, without salt).",
+              "Une salade César, avec la sauce à part, s'il vous plaît.", "A Caesar salad, with the dressing on the side, please."],
+            ["Encore un peu de pain, s'il vous plaît.", "A bit more bread, please.", "Bread is free and refilled on request.",
+              "Excusez-moi, encore un peu de pain, s'il vous plaît.", "Excuse me, a bit more bread, please."],
+            ["On n'est pas pressés.", "We're not in a hurry.", "Tells the waiter to take it slowly. The opposite: on est un peu pressés (we're in a bit of a hurry).",
+              "On n'est pas pressés, on prendra le dessert plus tard.", "We're not in a hurry, we'll have dessert later."],
+          ],
+        },
+        {
+          en: "Problems",
+          fr: "Un problème",
+          desc: "Wrong dish, missing dish, a long wait.",
+          cards: [
+            ["Je crois qu'il y a une erreur.", "I think there's a mistake.", "Polite and neutral, for the order or the bill: une erreur dans l'addition.",
+              "Excusez-moi, je crois qu'il y a une erreur dans l'addition.", "Excuse me, I think there's a mistake on the bill."],
+            ["Ce n'est pas ce que j'ai commandé.", "This isn't what I ordered.", "Spoken: c'est pas ce que j'ai commandé. Then: j'avais demandé le poisson.",
+              "Pardon, ce n'est pas ce que j'ai commandé. J'avais pris le poisson.", "Sorry, this isn't what I ordered. I had the fish."],
+            ["Il manque un plat.", "A dish is missing.", "Manquer: to be missing. Also il manque une fourchette (we're a fork short).",
+              "Excusez-moi, il manque un plat, le risotto.", "Excuse me, there's a dish missing, the risotto."],
+            ["Ça fait longtemps qu'on attend.", "We've been waiting a long time.", "Firm but polite. More formal: nous attendons depuis longtemps.",
+              "Excusez-moi, ça fait longtemps qu'on attend nos plats.", "Excuse me, we've been waiting a long time for our food."],
+            ["Vous pourriez le réchauffer ?", "Could you warm it up?", "For a dish that's arrived cold: c'est un peu froid. Also c'est trop salé (it's too salty).",
+              "C'est un peu froid. Vous pourriez le réchauffer, s'il vous plaît ?", "It's a bit cold. Could you warm it up, please?"],
+          ],
+        },
+        {
+          en: "Paying & leaving",
+          fr: "L'addition",
+          desc: "The bill, the card machine and a kind word on the way out.",
+          cards: [
+            ["L'addition, s'il vous plaît.", "The bill, please.", "Waiters won't bring it until you ask. A gesture across the room works too: miming writing.",
+              "Excusez-moi ! L'addition, s'il vous plaît.", "Excuse me! The bill, please."],
+            ["On peut payer séparément ?", "Can we pay separately?", "Each pays for their own. Also chacun paie sa part, or on partage en deux.",
+              "On peut payer séparément ? Moi, j'ai pris le menu à vingt euros.", "Can we pay separately? I had the twenty-euro menu."],
+            ["Je peux payer par carte ?", "Can I pay by card?", "Also vous prenez la carte ? Small cafés sometimes have a minimum: à partir de dix euros.",
+              "Je peux payer par carte ? Je n'ai pas de liquide.", "Can I pay by card? I haven't got any cash."],
+            ["C'était excellent, merci.", "That was excellent, thank you.", "When the waiter asks ça a été ? (was everything all right?). Also c'était délicieux.",
+              "— Ça a été ? — C'était excellent, merci beaucoup.", "— Was everything all right? — It was excellent, thank you very much."],
+            ["Mes compliments au chef !", "My compliments to the chef!", "Warm and a little formal. Also on reviendra avec plaisir (we'll gladly come back).",
+              "Ce dessert était incroyable. Mes compliments au chef !", "That dessert was incredible. My compliments to the chef!"],
+            ["Je peux emporter le reste ?", "Can I take the rest away?", "Increasingly common in France. Ask for une boîte (a box): un doggy bag is heard too.",
+              "C'était trop copieux. Je peux emporter le reste ?", "It was too much. Can I take the rest with me?"],
+            ["Merci pour l'accueil.", "Thanks for having us.", "L'accueil: the welcome. A kind goodbye with merci, bonne soirée !",
+              "Merci pour l'accueil, et bonne soirée !", "Thanks for having us, and have a good evening!"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

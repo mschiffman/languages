@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Quality Critique</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">QUALITY</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Quality Critique
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Bof, sans plus
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">21</span> expressions · Quality Critique · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 21.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/quality/";
+      const AUD_EXT = "mp3?v=261023";
+
+      const categories = [
+        {
+          en: "Meh",
+          fr: "Bof",
+          desc: "One-word shrugs of indifference.",
+          cards: [
+            ["Bof.", "Meh.", "The quintessential French shrug: not bad, not good, not interested. Often with a pout. Sceptical cousin: mouais…",
+              "— Il était bien, le film ? — Bof.", "— Was the film good? — Meh."],
+            ["Bof bof.", "Not great.", "Doubled for extra underwhelm: closer to a no than bof alone.",
+              "— Et ce nouveau resto ? — Bof bof, c'était un peu fade.", "— And that new restaurant? — Not great, it was a bit bland."],
+            ["Moyen.", "So-so.", "The blunt verdict: average. Also c'était moyen (it was so-so).",
+              "— Comment était l'hôtel ? — Moyen. La chambre était petite.", "— How was the hotel? — So-so. The room was small."],
+            ["Pff…", "Pfft…", "A dismissive puff of air: disappointment, boredom or scorn, all in one sound.",
+              "— Tu as aimé l'expo ? — Pff… je me suis ennuyé.", "— Did you like the exhibition? — Pfft… I was bored."],
+          ],
+        },
+        {
+          en: "Not great",
+          fr: "Pas terrible",
+          desc: "Understated letdowns, mostly with a negative.",
+          cards: [
+            ["C'est pas fameux.", "It's nothing special.", "Fameux here means good, not famous. Common for food and quality. Same register as c'est pas terrible.",
+              "Le vin n'est pas fameux, mais le fromage est excellent.", "The wine's nothing special, but the cheese is excellent."],
+            ["C'est pas top.", "It's not great.", "Casual, from top (excellent). Understated: it really isn't good.",
+              "Le wifi n'est pas top ici, ça coupe tout le temps.", "The wifi's not great here, it keeps cutting out."],
+            ["C'est pas génial.", "It's not brilliant.", "Mild, polite disappointment.",
+              "Son nouvel album n'est pas génial, je préfère l'ancien.", "His new album isn't brilliant, I prefer the old one."],
+            ["C'est pas folichon.", "It's nothing to write home about.", "Old-fashioned but still very much used: dull, uninspiring.",
+              "La soirée n'était pas folichonne, tout le monde regardait son téléphone.", "The party wasn't up to much, everyone was looking at their phone."],
+            ["C'est pas extraordinaire.", "It's nothing out of the ordinary.", "Polished and a little formal: fine, but don't expect much.",
+              "Le spectacle n'est pas extraordinaire, mais les enfants vont aimer.", "The show's nothing out of the ordinary, but the kids will like it."],
+            ["Ça casse pas des briques.", "It's nothing to write home about.", "Literally ‘it doesn't break bricks’: unimpressive. Casual.",
+              "Le scénario, ça casse pas des briques, mais les acteurs sont bons.", "The plot's nothing special, but the actors are good."],
+          ],
+        },
+        {
+          en: "Could be better",
+          fr: "Peut mieux faire",
+          desc: "Polite, pointed feedback: room for improvement.",
+          cards: [
+            ["Ça laisse à désirer.", "It leaves something to be desired.", "Polite but pointed: a real complaint in neutral clothing.",
+              "Le service laisse un peu à désirer dans ce restaurant.", "The service in this restaurant leaves something to be desired."],
+            ["Ça pourrait être mieux.", "It could be better.", "Honest and straightforward. Also ça pourrait être pire (it could be worse), the optimist's line.",
+              "— Ça va, ton nouveau boulot ? — Ça pourrait être mieux.", "— How's the new job going? — Could be better."],
+            ["Il y a mieux.", "There's better out there.", "Dry, slightly dismissive: you've seen better. Spoken: y a mieux.",
+              "Pour ce prix-là, il y a mieux, crois-moi.", "For that price, you can do better, trust me."],
+            ["C'est perfectible.", "There's room for improvement.", "Formal, used in feedback at work: tactful criticism.",
+              "Votre présentation est claire, mais la conclusion est perfectible.", "Your presentation is clear, but the conclusion could be improved."],
+            ["Peut mieux faire.", "Could do better.", "The classic school-report comment, used jokingly about anything.",
+              "Ton gâteau est un peu sec. Peut mieux faire !", "Your cake's a bit dry. Could do better!"],
+          ],
+        },
+        {
+          en: "Just OK",
+          fr: "Correct, sans plus",
+          desc: "Faint praise: acceptable and no more.",
+          cards: [
+            ["C'est correct.", "It's OK. / It's decent.", "Not praise, just the bare minimum of approval. In Québec, c'est correct means ‘it's fine, no problem’.",
+              "L'hôtel était correct, propre et pas trop cher.", "The hotel was OK, clean and not too expensive."],
+            ["Sans plus.", "Nothing more.", "Tacked onto a mild verdict: c'était bien, sans plus (it was fine, nothing special).",
+              "Le concert était sympa, sans plus.", "The concert was nice, nothing more."],
+            ["Ça peut aller.", "It'll do.", "Acceptable, if unenthusiastic. Also about how you are: — Ça va ? — Ça peut aller.",
+              "— La chambre te plaît ? — Ça peut aller, c'est juste pour une nuit.", "— Do you like the room? — It'll do, it's only for one night."],
+            ["C'est passable.", "It's passable.", "A reluctant pass, like a mark just above average.",
+              "Son anglais est passable, il se débrouille.", "His English is passable, he gets by."],
+            ["Ça se mange.", "It's edible.", "Said of food: the lowest form of culinary praise. Also ça se laisse manger (it goes down all right).",
+              "— C'est bon, la cantine ? — Ça se mange.", "— Is the canteen food good? — It's edible."],
+            ["On fait avec.", "We make do.", "Resigned acceptance of something imperfect. Faire avec: to put up with it.",
+              "L'appartement est petit, mais on fait avec.", "The flat's small, but we make do."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

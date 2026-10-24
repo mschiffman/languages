@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Offers</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">OFFERS</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Offers
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Proposer, accepter, refuser
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">40</span> expressions · Offers · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 40.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/offer/";
+      const AUD_EXT = "mp3?v=2610231829";
+
+      const categories = [
+        {
+          en: "Making an offer",
+          fr: "Proposer",
+          desc: "What a host or a friend will say, from the first drink to a third helping or a plan for the weekend.",
+          cards: [
+            ["Je te sers quelque chose ?", "Can I get you something?", "Servir: to serve, or to pour a drink. The host's standard first offer. Formal: je vous sers quelque chose ? A waiter asks: qu'est-ce que je vous sers ?",
+              "Entre, assieds-toi ! Je te sers quelque chose à boire ?", "Come in, sit down! Can I get you something to drink?"],
+            ["Sers-toi !", "Help yourself!", "Formal or plural: servez-vous ! For seconds: ressers-toi ! (have some more!)",
+              "Il y a du café dans la cuisine, sers-toi !", "There's coffee in the kitchen, help yourself!"],
+            ["Tu en reprendras bien un peu ?", "You'll have a little more, won't you?", "The future plus bien gently assumes the answer is yes: the classic host's push at the cheese or the dessert. Formal: vous en reprendrez bien un peu ?",
+              "Il est bon, ce fromage, hein ? Tu en reprendras bien un morceau ?", "This cheese is good, isn't it? You'll have another piece, won't you?"],
+            ["Fais comme chez toi.", "Make yourself at home.", "Formal: faites comme chez vous. With irony, to a guest who's already a little too at home: te gêne surtout pas ! (don't mind me!), or fais comme chez toi, surtout !",
+              "Pose ton sac où tu veux et fais comme chez toi.", "Put your bag down anywhere and make yourself at home."],
+            ["Ça te dit ?", "How about it? / Fancy it?", "Dire à quelqu'un here means to appeal to someone. Put the plan first or after: un ciné, ça te dit ? or ça te dit d'aller au ciné ? Formal or plural: ça vous dit ? Same idea: ça te tente ?",
+              "On se fait un resto ce soir, ça te dit ?", "Fancy going out for a meal tonight?"],
+          ],
+        },
+        {
+          en: "Accepting with pleasure",
+          fr: "Accepter avec plaisir",
+          desc: "Saying yes to a drink, a second helping, a spare ticket or a present.",
+          cards: [
+            ["Oui, merci.", "Yes, please.", "Accept with oui: in France a bare merci to an offer is usually heard as ‘no thanks’. Oui, s'il vous plaît is fine too, especially in shops. Warmer: oui, je veux bien, or volontiers !",
+              "— Je te ressers du vin ? — Oui, merci, il est délicieux.", "— More wine? — Yes, please, it's delicious."],
+            ["C'est pas de refus !", "Don't mind if I do!", "Literally ‘it's not a refusal’: a cheerful yes, often to a drink or a second helping. Careful speech: ce n'est pas de refus. Same idea: je dis pas non (I wouldn't say no).",
+              "— Une petite coupe de champagne ? — Ah, c'est pas de refus !", "— A little glass of champagne? — Ooh, don't mind if I do!"],
+            ["Ça se refuse pas !", "How could I refuse?", "Literally ‘that isn't turned down’: for an offer too good to say no to. Careful speech: ça ne se refuse pas !",
+              "— Une semaine dans notre maison en Bretagne, ça vous dit ? — Ça se refuse pas !", "— How about a week at our house in Brittany? — How could we refuse?"],
+            ["Je suis preneur !", "I'll take it!", "Un preneur is a taker: for anything up for grabs, like a spare ticket, leftovers or a good tip. A woman says je suis preneuse.",
+              "— Il me reste deux places pour le concert de samedi. — Je suis preneuse !", "— I've got two tickets left for Saturday's concert. — I'll take them!"],
+            ["Il fallait pas !", "You shouldn't have!", "The polite protest as you're handed a present, said as you take it. Even shorter: fallait pas ! Careful speech: il ne fallait pas ! Same idea: t'aurais pas dû.",
+              "— Tiens, c'est pour toi. — Oh, il fallait pas ! C'est trop gentil.", "— Here, this is for you. — Oh, you shouldn't have! That's so kind."],
+          ],
+        },
+        {
+          en: "The polite back-and-forth",
+          fr: "Hésiter, insister, céder",
+          desc: "The little ritual around an offer: check it's no trouble, get pressed, give in.",
+          cards: [
+            ["Ça te dérange pas ?", "You don't mind?", "Checks the offer is sincere before you accept. Careful speech: ça ne te dérange pas ? Formal: ça ne vous dérange pas ? Accepting on that condition: si ça te dérange pas…",
+              "— Je te dépose à la gare, c'est sur ma route. — Ça te dérange pas ?", "— I'll drop you at the station, it's on my way. — You don't mind?"],
+            ["Je veux pas abuser.", "I don't want to impose.", "Abuser here means to take advantage of someone's kindness, not to abuse. Often said just before giving in. Softer: je voudrais pas abuser. Careful speech: je ne veux pas abuser.",
+              "— Reste dormir ici, il est tard ! — Je veux pas abuser…", "— Stay the night, it's late! — I don't want to impose…"],
+            ["J'insiste !", "I insist!", "The host's answer to a polite no. Mais si in front contradicts the no: ‘oh yes, you can’.",
+              "— Non, vraiment, je peux pas accepter. — Mais si, j'insiste !", "— No, really, I can't accept. — Oh yes, you can, I insist!"],
+            ["Si tu insistes…", "If you insist…", "Gives in gracefully, often with a smile: you wanted to say yes all along. Formal: si vous insistez.",
+              "— Prends la dernière part, j'ai plus faim. — Bon, si tu insistes…", "— Have the last slice, I'm full. — Well, if you insist…"],
+            ["Allez, juste un petit peu.", "Go on then, just a little.", "Allez here means ‘go on then’: you give in to a second offer. For a drink: allez, un petit verre. Alors at the end makes it sound even more like giving in.",
+              "— T'es sûre ? Il en reste plein. — Allez, juste un petit peu, alors.", "— Are you sure? There's loads left. — Go on then, just a little."],
+          ],
+        },
+        {
+          en: "Agreeing to a proposal",
+          fr: "Accepter une proposition",
+          desc: "Saying yes to a time, a place, a price or a plan.",
+          cards: [
+            ["Moi, ça me va.", "Works for me. / Fine by me.", "Moi in front gives your answer when a group is deciding; on its own, ça me va. Stronger: ça me va très bien. Not to be confused with ça te va bien (it suits you), said of clothes.",
+              "— On se retrouve à sept heures devant le cinéma ? — Moi, ça me va.", "— Shall we meet at seven outside the cinema? — Works for me."],
+            ["Ça me convient.", "That suits me.", "More formal than ça me va: appointments, emails, work. The question: est-ce que ça vous convient ? In writing: cela me convient parfaitement.",
+              "— Je peux vous proposer jeudi à dix heures. — C'est parfait, ça me convient.", "— I can offer you Thursday at ten. — Perfect, that suits me."],
+            ["Ça m'arrange.", "That works out well for me.", "More than OK: it actually makes things easier for you. Negative: ça m'arrange pas (that's awkward for me). For the other person: quand ça t'arrange (whenever suits you).",
+              "— Je peux passer prendre les clés demain matin. — Ça m'arrange bien, je travaille l'après-midi.", "— I can come by for the keys tomorrow morning. — That works out well, I'm working in the afternoon."],
+            ["Marché conclu !", "It's a deal!", "Seals an agreement, from a swap between friends to a price. To shake or high-five on it: tope là !",
+              "— Je te laisse le vélo pour cinquante euros. — Marché conclu !", "— You can have the bike for fifty euros. — It's a deal!"],
+          ],
+        },
+        {
+          en: "Leaving the choice to them",
+          fr: "Laisser le choix",
+          desc: "When you're offered a choice and you're happy either way.",
+          cards: [
+            ["Ça m'est égal.", "I don't mind.", "Neutral, but watch the tone: said flatly it sounds as if you don't care. Friendlier with a reason, or les deux me vont. Stronger: ça m'est complètement égal (I couldn't care less).",
+              "— Tu préfères du thé ou du café ? — Ça m'est égal, ce qui t'arrange.", "— Would you rather have tea or coffee? — I don't mind, whatever's easiest for you."],
+            ["Les deux me vont.", "Either is fine with me.", "Built like ça me va: aller à quelqu'un, to suit someone. Choosing among several: n'importe lequel (any of them), n'importe laquelle for a feminine noun.",
+              "— Je réserve pour samedi ou pour dimanche ? — Les deux me vont.", "— Shall I book for Saturday or Sunday? — Either is fine with me."],
+            ["C'est toi qui vois.", "It's up to you. / Your call.", "Hands the decision back. Formal: c'est vous qui voyez. Gentler: comme tu préfères. In a certain tone: ‘your call, but don't say I didn't warn you’.",
+              "— On prend ma voiture ou la tienne ? — C'est toi qui vois.", "— Shall we take my car or yours? — It's up to you."],
+            ["Je suis pas difficile.", "I'm not fussy.", "Puts a host at ease when they ask what you'd like to eat. Careful speech: je ne suis pas difficile. About a fussy eater: il est difficile.",
+              "— Qu'est-ce que tu aimes manger ? — Oh, je suis pas difficile, je mange de tout.", "— What do you like to eat? — Oh, I'm not fussy, I eat anything."],
+          ],
+        },
+        {
+          en: "Politely declining",
+          fr: "Décliner poliment",
+          desc: "Turning down more food, a top-up or a favour without offending anyone.",
+          cards: [
+            ["Non merci, ça ira.", "No thanks, I'll be fine.", "Ça ira is the future of ça va: ‘it'll be fine’, so there's no need. Also merci, ça ira. While someone is serving you: ça ira comme ça, merci (that's plenty, thanks).",
+              "— Tu veux que je vienne avec toi chez le médecin ? — Non merci, ça ira.", "— Do you want me to come to the doctor's with you? — No thanks, I'll be fine."],
+            ["C'est bon, merci.", "I'm good, thanks.", "C'est bon here means ‘I've got what I need’. The same words also mean ‘it's tasty’ or ‘it's done’; context sorts it out. C'est bon pour moi can mean ‘I'm good’ or ‘works for me’.",
+              "— Encore un peu de café ? — C'est bon, merci, j'en ai encore.", "— A bit more coffee? — I'm good, thanks, I've still got some."],
+            ["Je suis calé.", "I'm stuffed.", "Casual: you can't eat another bite. A woman says je suis calée. Politer at someone's table: j'ai très bien mangé, merci. Avoid je suis plein or pleine: plein can mean ‘drunk’, and pleine is used of pregnant animals (une chatte pleine). Calé also means knowledgeable: il est calé en histoire.",
+              "— Un peu de dessert ? — Oh non, merci, je suis calée !", "— Some dessert? — Oh no, thanks, I'm stuffed!"],
+            ["Je vais m'arrêter là.", "I'll stop there.", "Turns down another glass or helping: you've had enough, not that you didn't like it. A reason makes it smoother.",
+              "— Je te ressers un verre ? — Non merci, je vais m'arrêter là, je travaille demain.", "— Another glass? — No thanks, I'll stop there, I'm working tomorrow."],
+            ["Te dérange pas.", "Don't go to any trouble.", "Declines an offer that would put someone out. Careful speech: ne te dérange pas. Formal, and very common: ne vous dérangez pas (pour moi). Same idea: te donne pas cette peine.",
+              "— Attends, je vais te faire un café. — Te dérange pas, je reste que cinq minutes.", "— Hang on, I'll make you a coffee. — Don't go to any trouble, I'm only staying five minutes."],
+            ["Je peux pas accepter.", "I can't accept.", "For a gift, money or a favour that feels too generous, often with c'est trop (it's too much). Careful speech: je ne peux pas accepter. Expect the reply: mais si, j'insiste !",
+              "— Prends ma voiture pour le week-end. — C'est très gentil, mais je peux pas accepter.", "— Take my car for the weekend. — That's very kind, but I can't accept."],
+          ],
+        },
+        {
+          en: "Saying no to a plan",
+          fr: "Refuser une proposition",
+          desc: "Turning down an invitation or a plan, and leaving the door open if you want to.",
+          cards: [
+            ["Je vais pas pouvoir.", "I won't be able to make it.", "The standard soft no to an invitation. No excuse needed, though one helps. Careful speech: je ne vais pas pouvoir. Formal: je ne vais malheureusement pas pouvoir.",
+              "— Tu viens à mon anniversaire samedi ? — Ah, je vais pas pouvoir, je suis chez mes parents ce week-end.", "— Are you coming to my birthday party on Saturday? — Oh, I won't be able to make it, I'm at my parents' this weekend."],
+            ["Je suis pris.", "I've got something on.", "Pris: taken, already booked. Add the day: je suis pris samedi. A woman says je suis prise. Same idea: j'ai déjà quelque chose de prévu (I've already got plans).",
+              "— Un ciné jeudi soir ? — Jeudi, je suis prise, mais vendredi, je suis libre.", "— Cinema on Thursday evening? — I've got something on Thursday, but I'm free on Friday."],
+            ["Ce sera pour une autre fois.", "Another time, then.", "Declines but leaves the door open, so it doesn't sound like a brush-off. In speech often ça sera pour une autre fois. Shorter: une autre fois !",
+              "— On va boire un verre, tu viens ? — Pas ce soir, je suis crevé. Ce sera pour une autre fois !", "— We're going for a drink, are you coming? — Not tonight, I'm shattered. Another time!"],
+            ["Bof, ça me dit pas trop.", "I'm not that keen.", "The honest no: it's the plan itself that doesn't appeal. Bof is a verbal shrug. Careful speech: ça ne me dit pas trop. Stronger: ça me dit rien (I don't fancy it at all), which can also mean ‘that doesn't ring a bell’.",
+              "— On va voir le nouveau film d'horreur ? — Bof, ça me dit pas trop. Une comédie, plutôt ?", "— Shall we go and see the new horror film? — Meh, I'm not that keen. How about a comedy instead?"],
+            ["Sans moi !", "Count me out!", "Blunt but friendly among friends; too abrupt for a host's invitation. The opposite: je suis partant (I'm in), partante for a woman.",
+              "— On fait le tour du lac à vélo demain à six heures du matin ? — Six heures du mat' ? Sans moi !", "— Cycling round the lake tomorrow at six in the morning? — Six in the morning? Count me out!"],
+          ],
+        },
+        {
+          en: "Treating someone",
+          fr: "Inviter et payer",
+          desc: "Offering to pay, and what to say when someone treats you.",
+          cards: [
+            ["Je t'offre un verre ?", "Can I buy you a drink?", "Offrir: to treat someone to something, or to give it as a present: il m'a offert des fleurs. Formal: je vous offre un verre ?",
+              "Viens, je t'offre un café, tu as l'air d'en avoir besoin.", "Come on, I'll buy you a coffee, you look like you need one."],
+            ["C'est pour moi.", "It's on me.", "Said as you reach for the bill. Also c'est moi qui paie (I'm paying). From the restaurant: c'est offert par la maison (it's on the house).",
+              "Range ta carte, c'est pour moi.", "Put your card away, it's on me."],
+            ["Je t'invite.", "My treat.", "Inviter also means to pay for someone: je t'invite au resto means you're paying. Formal: je vous invite.",
+              "Pour ton anniversaire, je t'invite au restaurant.", "For your birthday, I'm taking you out for a meal."],
+            ["C'est ma tournée !", "This round's on me!", "Une tournée is a round of drinks. Ordering another one: on remet ça ? (same again?)",
+              "Allez, c'est ma tournée ! Qu'est-ce que vous prenez ?", "Right, this round's on me! What are you having?"],
+            ["On partage ?", "Shall we split it?", "Proposes going halves on the bill. Before ordering, the same words suggest sharing a dish. Also on fait moitié-moitié; in a group, chacun paie sa part (everyone pays their share).",
+              "— Laisse, je paie. — Non, non, on partage !", "— Leave it, I'll pay. — No, no, let's split it!"],
+            ["La prochaine fois, c'est moi.", "Next time's on me.", "Accepts a treat gracefully, with a promise to return the favour. Shorter: la prochaine, c'est pour moi.",
+              "— Demande pas l'addition, c'est réglé. — Merci ! La prochaine fois, c'est moi.", "— Don't ask for the bill, it's taken care of. — Thanks! Next time's on me."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

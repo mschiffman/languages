@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Directions & Transport</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">DIRECTIONS</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Directions & Transport
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Trouver son chemin
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">34</span> expressions · Directions · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 34.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/directions/";
+      const AUD_EXT = "mp3?v=261023";
+
+      const categories = [
+        {
+          en: "Bus, train & plane",
+          fr: "Les transports",
+          desc: "Times, platforms, connections and mishaps.",
+          cards: [
+            ["Le bus pour la gare part d'où ?", "Where does the bus to the station leave from?", "Swap in any place: le bus pour le centre-ville, pour l'aéroport. Formal: d'où part le bus pour… ?",
+              "Excusez-moi, le bus pour l'aéroport part d'où ?", "Excuse me, where does the airport bus leave from?"],
+            ["À quelle heure part le train ?", "What time does the train leave?", "Also à quelle heure il arrive ? (what time does it get in?). On a board: départs, arrivées.",
+              "À quelle heure part le prochain train pour Lyon ?", "What time does the next train to Lyon leave?"],
+            ["C'est direct ?", "Is it direct?", "If not, there's une correspondance (a connection, a change). Changer à Dijon: change at Dijon.",
+              "C'est direct ou il y a une correspondance ?", "Is it direct or is there a change?"],
+            ["C'est quel quai ?", "Which platform is it?", "Le quai: the platform; la voie: the track, which the board often shows instead.",
+              "Le TGV pour Marseille, c'est quel quai ?", "The TGV to Marseille, which platform is it?"],
+            ["J'ai raté mon train.", "I missed my train.", "Rater or manquer: to miss. Next step: le prochain part à quelle heure ?",
+              "J'ai raté mon train, je vais arriver avec une heure de retard.", "I missed my train, I'll be an hour late."],
+            ["Le vol est retardé.", "The flight's delayed.", "Retardé: delayed; annulé: cancelled. Also il a du retard (it's running late).",
+              "Notre vol est retardé de deux heures.", "Our flight's delayed by two hours."],
+          ],
+        },
+        {
+          en: "Taxis",
+          fr: "Le taxi",
+          desc: "Calling one, giving the address, paying.",
+          cards: [
+            ["Vous pouvez m'appeler un taxi ?", "Could you call me a taxi?", "At a hotel or restaurant. Very formal: pourriez-vous m'appeler un taxi ?",
+              "Bonsoir, vous pouvez m'appeler un taxi, s'il vous plaît ?", "Good evening, could you call me a taxi, please?"],
+            ["À la gare, s'il vous plaît.", "To the station, please.", "The quickest way to give a destination. Fuller: je voudrais aller à…",
+              "Bonjour ! À la gare de Lyon, s'il vous plaît.", "Hello! To the Gare de Lyon, please."],
+            ["Ça coûte combien pour aller à l'aéroport ?", "How much is it to the airport?", "Ask before you get in. Shorter: c'est combien jusqu'à… ?",
+              "Ça coûte combien pour aller à l'aéroport à cette heure-ci ?", "How much is it to the airport at this time of day?"],
+            ["Vous pouvez me déposer ici ?", "Can you drop me here?", "Déposer: to drop someone off. Also arrêtez-vous ici (stop here).",
+              "Vous pouvez me déposer ici ? Je finis à pied.", "Can you drop me here? I'll walk the rest."],
+            ["Gardez la monnaie.", "Keep the change.", "Polite and common. Also c'est bon, gardez tout.",
+              "Voilà vingt euros. Gardez la monnaie.", "Here's twenty euros. Keep the change."],
+          ],
+        },
+        {
+          en: "Asking the way",
+          fr: "Demander son chemin",
+          desc: "Stopping a passer-by and getting your bearings.",
+          cards: [
+            ["Pour aller à la gare, s'il vous plaît ?", "Which way is the station, please?", "The everyday way to ask. Fuller: comment on va à la gare ? Always start with excusez-moi.",
+              "Excusez-moi, pour aller à la cathédrale, s'il vous plaît ?", "Excuse me, which way is the cathedral, please?"],
+            ["Je suis perdu(e).", "I'm lost.", "A good opener when you need help. Softer: je crois que je me suis perdu(e).",
+              "Excusez-moi, je suis perdue. On est où, sur le plan ?", "Excuse me, I'm lost. Where are we on the map?"],
+            ["C'est loin d'ici ?", "Is it far from here?", "The answer often comes in time: c'est à dix minutes à pied.",
+              "Le musée, c'est loin d'ici ?", "Is the museum far from here?"],
+            ["On peut y aller à pied ?", "Can you walk there?", "Y = there. À pied: on foot. Otherwise: il faut prendre le bus.",
+              "On peut y aller à pied ou il faut prendre le métro ?", "Can we walk there or do we need the metro?"],
+            ["Où est le métro le plus proche ?", "Where's the nearest metro?", "Le plus proche: the nearest. Also la station la plus proche, la pharmacie la plus proche.",
+              "Pardon, où est la station de métro la plus proche ?", "Sorry, where's the nearest metro station?"],
+            ["Vous pouvez me montrer sur le plan ?", "Can you show me on the map?", "Le plan: a town map; la carte: a road map or a map of a country.",
+              "Je ne trouve pas la rue. Vous pouvez me montrer sur le plan ?", "I can't find the street. Can you show me on the map?"],
+          ],
+        },
+        {
+          en: "Giving directions",
+          fr: "Indiquer le chemin",
+          desc: "Straight on, left, right, and you can't miss it.",
+          cards: [
+            ["Continuez tout droit.", "Keep going straight on.", "Tout droit: straight ahead. Don't confuse with à droite (on the right).",
+              "Continuez tout droit jusqu'au feu.", "Keep going straight on until the traffic lights."],
+            ["Tournez à gauche.", "Turn left.", "À gauche / à droite: left / right. Also prenez la première à droite (take the first right).",
+              "Au rond-point, tournez à gauche.", "At the roundabout, turn left."],
+            ["Traversez la rue.", "Cross the street.", "Also traversez la place, le pont. Informal: tu traverses.",
+              "Traversez la rue, la poste est en face.", "Cross the street, the post office is opposite."],
+            ["C'est juste au coin.", "It's just round the corner.", "Au coin de la rue: on the corner of the street. Also c'est tout près (it's very close).",
+              "La boulangerie ? C'est juste au coin.", "The bakery? It's just round the corner."],
+            ["C'est à côté de la banque.", "It's next to the bank.", "À côté de: next to. Also en face de (opposite), derrière (behind), entre (between).",
+              "La pharmacie est à côté de la banque, en face de l'église.", "The chemist's is next to the bank, opposite the church."],
+            ["Vous ne pouvez pas le manquer.", "You can't miss it.", "Reassures the person asking. Spoken: vous pouvez pas le rater.",
+              "C'est un grand bâtiment rouge, vous ne pouvez pas le manquer.", "It's a big red building, you can't miss it."],
+          ],
+        },
+        {
+          en: "Inside a building",
+          fr: "Dans un bâtiment",
+          desc: "Floors, stairs, lifts and doors.",
+          cards: [
+            ["C'est au bout du couloir.", "It's at the end of the corridor.", "Au bout de: at the end of. Also au fond (at the back).",
+              "Les toilettes ? C'est au bout du couloir, à gauche.", "The toilets? At the end of the corridor, on the left."],
+            ["C'est en haut.", "It's upstairs.", "En haut / en bas: upstairs / downstairs, or at the top / bottom.",
+              "Les chambres sont en haut, la cuisine en bas.", "The bedrooms are upstairs, the kitchen downstairs."],
+            ["Prenez l'ascenseur.", "Take the lift.", "Also prenez les escaliers (the stairs) or l'escalator (escalator).",
+              "Prenez l'ascenseur jusqu'au cinquième.", "Take the lift up to the fifth floor."],
+            ["C'est au rez-de-chaussée.", "It's on the ground floor.", "Floor numbers are British-style: le premier étage is one floor up, the US second floor.",
+              "L'accueil est au rez-de-chaussée, les bureaux au premier étage.", "Reception is on the ground floor, the offices on the first floor."],
+            ["C'est la deuxième porte à droite.", "It's the second door on the right.", "Ordinal + porte: la première, la troisième porte à gauche.",
+              "Le bureau du directeur, c'est la deuxième porte à droite.", "The director's office is the second door on the right."],
+            ["La sortie est par là.", "The exit's that way.", "Par là: that way, pointing. Par ici: this way.",
+              "Pour sortir ? La sortie est par là, suivez les panneaux.", "To get out? The exit's that way, follow the signs."],
+          ],
+        },
+        {
+          en: "In a shop",
+          fr: "Dans un magasin",
+          desc: "Aisles, shelves and departments.",
+          cards: [
+            ["Où sont les produits laitiers ?", "Where are the dairy products?", "Le rayon: a department or a shelf: le rayon frais, le rayon surgelés, le rayon boulangerie.",
+              "Excusez-moi, où sont les produits laitiers ?", "Excuse me, where's the dairy?"],
+            ["C'est dans l'allée deux.", "It's in aisle two.", "L'allée: an aisle. Also c'est au bout de l'allée (at the end of the aisle).",
+              "Les pâtes ? C'est dans l'allée deux, à gauche.", "Pasta? It's in aisle two, on the left."],
+            ["C'est en haut du rayon.", "It's on the top shelf.", "En haut / en bas du rayon: top / bottom shelf. Precise: au deuxième rayon en partant du bas.",
+              "Le sucre est en haut du rayon, à côté de la farine.", "The sugar's on the top shelf, next to the flour."],
+            ["Vous les trouverez au rayon surgelés.", "You'll find them in the frozen aisle.", "Les surgelés: frozen food. The staff's standard answer.",
+              "Les petits pois ? Vous les trouverez au rayon surgelés.", "Peas? You'll find them in the frozen aisle."],
+            ["C'est à côté des caisses.", "It's next to the checkouts.", "La caisse: the till, the checkout. Also la caisse automatique (self-checkout).",
+              "Les piles sont à côté des caisses.", "The batteries are next to the checkouts."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

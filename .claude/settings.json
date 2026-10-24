@@ -53,7 +53,9 @@
       "Bash(PYTHONIOENCODING=utf-8 python verify.py)",
       "Bash(python3 build-audio.py 02)",
       "Bash(py build-audio.py 02)",
-      "Bash(py verify.py)"
+      "Bash(py verify.py)",
+      "Bash(grep -h -o -E '[A-Za-z]:[^\" ]{0,120}\\\\.txt' d12e9d9d-89a0-431a-bd3c-ebe57b29a98b.jsonl 9da02d27-f872-4c91-84fc-661731d2dd34.jsonl 1d9fa2a3-ed1f-43f6-834f-f74be7ee0bac.jsonl)",
+      "Bash(awk -F: '{print $3}')"
     ]
   },
   "effortLevel": "high"
