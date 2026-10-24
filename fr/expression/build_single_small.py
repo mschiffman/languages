@@ -64,6 +64,9 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 MIME = {".mp3": "audio/mpeg", ".m4a": "audio/mp4", ".wav": "audio/wav", ".ogg": "audio/ogg",
         ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
 
+# The note popups are small on a tablet: 2pt bigger offline (pimsleur.css has 0.72rem, ~8.6pt)
+OFFLINE_CSS = ".note-wrapper::after { font-size: 0.89rem; }"
+
 
 class BuildError(Exception):
     pass
@@ -243,6 +246,7 @@ def build(page: Path, out_dir: Path, kbps: int | None = None) -> Path:
     html = re.sub(r'<link\b[^>]*href="(?!https?:)([^"]+\.css)"[^>]*rel="stylesheet"[^>]*>', stylesheet, html)
     if fonts_css:
         html = html.replace("</head>", f"<style>\n/* embedded fonts */\n{fonts_css}\n</style>\n</head>", 1)
+    html = html.replace("</head>", f"<style>\n{OFFLINE_CSS}\n</style>\n</head>", 1)
 
     # ---- Tailwind CDN -> the CSS it would generate (or, failing that, an inline copy) ----
     tw = re.search(r'<script\b[^>]*src="https://cdn\.tailwindcss\.com[^"]*"[^>]*>\s*</script>', html)
