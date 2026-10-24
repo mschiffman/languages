@@ -20,6 +20,7 @@
     { label: "🧐 Critique", href: "critique.html" },
     { label: "🧭 Directions & Transportation", href: "directions.html" },
     { label: "😲 Disbelief", href: "disbelief.html" },
+    { label: "🤷 Dismissal", href: "dismissal.html" },
     { label: "😌 Doucement", href: "doucement.html" },
     { label: "🎉 Excitement", href: "excitement.html" },
     { label: "❗ Exclamation", href: "exclamation.html" },

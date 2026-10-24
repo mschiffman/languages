@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Dismissal</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">DISMISSAL</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Dismissal
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          S'en ficher, balayer, passer à autre chose
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">40</span> expressions · Dismissal · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 40.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/dismissal/";
+      const AUD_EXT = "mp3?v=261024";
+
+      const categories = [
+        {
+          en: "Not caring",
+          fr: "Ça m'est égal",
+          desc: "From a polite ‘no preference’ to a blunt ‘I don't care’.",
+          cards: [
+            ["Ça m'est égal.", "I don't mind. / It's all the same to me.", "The polite one, safe with anyone: it means ‘no preference’, not ‘I don't care about you’. When someone offers you a choice, say this, never je m'en fiche. Stronger: ça m'est complètement égal.",
+              "— Tu préfères le thé ou le café ? — Ça m'est égal, fais comme tu veux.", "— Do you prefer tea or coffee? — I don't mind, whatever you like."],
+            ["Peu importe.", "It doesn't matter. / Whatever.", "Also builds sentences: peu importe le prix (whatever the price), peu importe ce qu'ils disent (no matter what they say). Formal: peu m'importe.",
+              "On part à huit heures ou à neuf heures, peu importe.", "We'll leave at eight or nine, it doesn't matter.",
+              "Peu importe ce que tu as fait aujourd'hui.", "It doesn't matter what you did today."],
+            ["Je m'en fiche !", "I don't care!", "The everyday ‘I don't care’: fine with friends and family, too blunt for work or strangers. Speech often doubles the pronoun: je m'en fiche de leur avis (written: je me fiche de leur avis). Humorous: je m'en fiche comme de l'an quarante.",
+              "Ils vont trouver la couleur trop vive ? Je m'en fiche, c'est ma maison.", "They'll think the colour's too bright? I don't care, it's my house."],
+            ["Je m'en moque.", "I don't care.", "A shade more polished than je m'en fiche. With a person as object, se moquer de means ‘make fun of’: tu te moques de moi ? (are you kidding me?).",
+              "Ce qu'ils pensent de moi, je m'en moque complètement.", "What they think of me, I couldn't care less."],
+            ["Ça me fait ni chaud ni froid.", "It makes no difference to me.", "Literally ‘makes me neither hot nor cold’. Pure indifference, less hostile than je m'en fiche. Written: ça ne me fait ni chaud ni froid.",
+              "Qu'il soit promu ou pas, ça me fait ni chaud ni froid.", "Whether he gets promoted or not, it makes no difference to me either way."],
+            ["J'en ai rien à faire.", "I couldn't care less.", "Stronger than je m'en fiche, but not rude. One word away from the vulgar j'en ai rien à foutre (last section). Written: je n'en ai rien à faire.",
+              "Ses histoires de bureau, j'en ai rien à faire.", "His office drama, I couldn't care less."],
+          ],
+        },
+        {
+          en: "So what?",
+          fr: "Et alors ?",
+          desc: "Brushing off an objection, or shrinking a fuss.",
+          cards: [
+            ["Et alors ?", "So what?", "Short and sharp after a criticism, it's defiant. With a curious tone in the middle of a story, it means ‘and then what happened?’ Same words; the tone does the work.",
+              "— Tu as encore de la peinture sur les mains. — Et alors ?", "— You've still got paint on your hands. — So what?",
+              "— Vous êtes encore debout à deux heures du matin ? — Et alors ? On n'a pas le droit ?", "— You're still up at two in the morning? — So what? Aren't we allowed?"],
+            ["Et après ?", "So what? / And your point is?", "Challenges the other person to say why it matters; a little more combative than et alors ? A shorter shrug: et puis ?",
+              "— Elle a dix ans de plus que lui. — Et après ?", "— She's ten years older than him. — So what?"],
+            ["La belle affaire !", "Big deal!", "Ironic: literally ‘the fine business!’ Brushes off something meant to impress or worry you. A touch literary.",
+              "— Il a une voiture de sport. — La belle affaire !", "— He's got a sports car. — Big deal!"],
+            ["Ça change quoi ?", "What difference does it make?", "Spoken word order, question word at the end. Neutral: qu'est-ce que ça change ?",
+              "Qu'on le fasse aujourd'hui ou demain, ça change quoi ?", "Whether we do it today or tomorrow, what difference does it make?"],
+            ["On s'en fiche.", "Who cares?", "On makes it collective (none of us cares), so it often sounds cheerful rather than rude. In films you'll mostly hear on s'en fout (last section).",
+              "Il pleut ? On s'en fiche, on y va quand même.", "It's raining? Who cares, we're going anyway."],
+            ["C'est pas la mort.", "It's not the end of the world.", "Shrinks a problem rather than a person: comforting about your own setback, dismissive about someone else's. Written: ce n'est pas la mort.",
+              "On a raté le bus ? C'est pas la mort, on prendra le suivant.", "We missed the bus? It's not the end of the world, we'll get the next one."],
+            ["Pas de quoi en faire un plat.", "No need to make a big deal out of it.", "Full form: il n'y a pas de quoi en faire un plat. To make a huge fuss: en faire tout un plat, or en faire tout un fromage.",
+              "Il a oublié de te rappeler ? Il y a pas de quoi en faire un plat.", "He forgot to call you back? No need to make a big deal out of it."],
+          ],
+        },
+        {
+          en: "Their problem",
+          fr: "Tant pis pour eux",
+          desc: "Pushing a problem back onto someone else.",
+          cards: [
+            ["Tant pis pour eux !", "Too bad for them!", "Change the pronoun as needed: tant pis pour toi, lui, elle, vous. Bare tant pis is something else: ‘oh well’, about your own bad luck (see Regret).",
+              "Les voisins vont pas aimer ? Ben, tant pis pour eux !", "The neighbours won't like it? Well, too bad for them!",
+              "Il a pas voulu venir ? Tant pis pour lui.", "He didn't want to come? Too bad for him."],
+            ["C'est leur problème.", "That's their problem.", "Flip it to step out yourself: c'est pas mon problème (not my problem). To someone's face: c'est ton problème.",
+              "S'ils arrivent en retard, c'est leur problème.", "If they show up late, that's their problem."],
+            ["Ils n'ont qu'à faire avec !", "They'll just have to deal with it!", "N'avoir qu'à + infinitive (‘all they have to do is…’) carries the dismissal and works with any verb: tu n'as qu'à demander (just ask, then). Spoken: ils ont qu'à faire avec.",
+              "Ils trouvent la salle trop petite ? Ils n'ont qu'à faire avec !", "They think the room's too small? They'll just have to deal with it!"],
+            ["Ils feront avec.", "They'll manage. / They'll live with it.", "Calmer than ils n'ont qu'à faire avec: a prediction rather than an order.",
+              "Il y aura pas de dessert ce soir. Ils feront avec.", "There won't be any dessert tonight. They'll live with it."],
+            ["Qu'ils se débrouillent !", "Let them sort it out themselves!", "Que + subjunctive: an indirect order about someone else. To the person: débrouille-toi ! (sort it out yourself).",
+              "Ils ont voulu partir sans carte ? Qu'ils se débrouillent !", "They wanted to go without a map? Let them figure it out!"],
+            ["S'ils sont pas contents, c'est pareil.", "If they don't like it, tough.", "Literally ‘if they're not happy, it's the same’: nothing will change. Most often said to someone's face: si t'es pas content, c'est pareil.",
+              "Je change pas le menu. S'ils sont pas contents, c'est pareil.", "I'm not changing the menu. If they don't like it, tough."],
+            ["Grand bien leur fasse.", "Good for them. (ironic)", "An old formula (‘may it do them much good’) said with a raised eyebrow: dismissal in polished clothes. To the person: grand bien vous fasse.",
+              "Ils veulent tout repeindre en violet ? Grand bien leur fasse.", "They want to repaint everything purple? Good for them."],
+          ],
+        },
+        {
+          en: "Not my business",
+          fr: "Ça ne me regarde pas",
+          desc: "Staying out of something, or telling someone else to.",
+          cards: [
+            ["Ça ne me regarde pas.", "It's none of my business.", "The polite way to step back. Spoken: ça me regarde pas.",
+              "Ce qu'il fait de son argent, ça ne me regarde pas.", "What he does with his money is none of my business."],
+            ["C'est pas mes affaires.", "That's not my business.", "Flat and final: it closes the topic. Written: ce ne sont pas mes affaires.",
+              "Leur divorce ? C'est pas mes affaires.", "Their divorce? Not my business."],
+            ["C'est pas mes oignons.", "Not my business.", "Literally ‘not my onions’. Lighter and more playful than c'est pas mes affaires.",
+              "Qui sort avec qui au bureau ? C'est pas mes oignons.", "Who's dating who at the office? Not my business."],
+            ["Je m'en lave les mains.", "I wash my hands of it.", "Same image as in English: it drops responsibility, not just interest.",
+              "Vous avez ignoré mes conseils. Maintenant, je m'en lave les mains.", "You ignored my advice. Now I wash my hands of it."],
+            ["Ça te regarde pas.", "None of your business.", "Turned outward: it dismisses someone else's question. Ça ne vous regarde pas is still cold. Softer: je préfère ne pas en parler (I'd rather not talk about it).",
+              "— Tu gagnes combien ? — Ça te regarde pas.", "— How much do you earn? — None of your business."],
+            ["Qu'est-ce que ça peut te faire ?", "What's it to you?", "Fires the question back: why do you care? Common in arguments. Formal: qu'est-ce que ça peut vous faire ?",
+              "— Tu étais où hier soir ? — Qu'est-ce que ça peut te faire ?", "— Where were you last night? — What's it to you?"],
+            ["Occupe-toi de tes oignons !", "Mind your own business!", "Pairs with c'est pas mes oignons. Sharper: mêle-toi de tes affaires ! Formal: occupez-vous de vos oignons.",
+              "Arrête de commenter ma cuisine et occupe-toi de tes oignons !", "Stop commenting on my cooking and mind your own business!"],
+          ],
+        },
+        {
+          en: "Drop it",
+          fr: "Laisse tomber",
+          desc: "Ending a topic, or getting someone off your back.",
+          cards: [
+            ["Laisse tomber.", "Forget it. / Drop it.", "About your own question it's harmless: non, laisse tomber, c'est pas important. Said to someone mid-explanation, it shuts them down. Careful: laisser tomber quelqu'un means to let someone down.",
+              "— Tu veux que je t'explique ? — Non, laisse tomber.", "— Do you want me to explain? — No, forget it."],
+            ["Passons.", "Let's move on.", "Waves a subject away without a fight. Teachers and meeting chairs use it too.",
+              "Bon, il a encore oublié. Passons.", "Well, he forgot again. Let's move on."],
+            ["Cause toujours.", "Talk all you want (I'm not listening).", "Causer: to chat. Full ironic version: cause toujours, tu m'intéresses (‘keep talking, you fascinate me’).",
+              "Tu dis que tu vas ranger ta chambre demain ? Cause toujours.", "You say you'll tidy your room tomorrow? Yeah, keep talking."],
+            ["Lâche-moi les baskets !", "Get off my back!", "Les baskets (trainers) makes it playful. Plain lâche-moi ! is harsher (see Annoyance).",
+              "Lâche-moi les baskets, je le ferai quand j'aurai le temps.", "Get off my back, I'll do it when I have time."],
+            ["Fiche-moi la paix !", "Leave me alone!", "Neutral: laisse-moi tranquille. Coarse: fous-moi la paix !",
+              "Fiche-moi la paix, j'ai du travail.", "Leave me alone, I've got work to do."],
+            ["Va voir ailleurs si j'y suis !", "Get lost!", "Literally ‘go and see somewhere else if I'm there’. Jokey enough to say to children.",
+              "Ça fait une heure que tu m'embêtes. Va voir ailleurs si j'y suis !", "You've been bugging me for an hour. Get lost!"],
+          ],
+        },
+        {
+          en: "Strong & vulgar",
+          fr: "Très familier",
+          desc: "All over films and between close friends. Recognise them first; say them with care.",
+          cards: [
+            ["Je m'en fous.", "I don't give a damn.", "The one you'll hear most in films. Stronger than je m'en fiche: fine between close friends, never with strangers or at work. Same register: je m'en tape, je m'en balance.",
+              "Mes parents, je m'en fous de ce qu'ils pensent.", "My parents? I don't give a damn what they think.",
+              "Elle part à l'autre bout du monde, et tu t'en fous ?", "She's going to the other side of the world, and you don't care?"],
+            ["On s'en fout.", "Who gives a damn?", "Like on s'en fiche, but blunter. Add de + thing: on s'en fout de la fin (who cares about the ending). In texts: osef (On S'En Fout).",
+              "— Il a dit quoi ? — On s'en fout.", "— What did he say? — Who cares.",
+              "On s'en fout des croulants, vive les jeunes !", "To hell with the old fogeys, long live the young!"],
+            ["Rien à cirer.", "Couldn't care less.", "Literally ‘nothing to polish’. Full form: j'en ai rien à cirer. Rude, but a euphemism rather than a swear word.",
+              "Son avis ? Rien à cirer.", "His opinion? Couldn't care less."],
+            ["J'en ai rien à foutre.", "I don't give a fuck.", "Vulgar. One word from the safe j'en ai rien à faire. Also aimed at people: j'en ai rien à foutre de toi.",
+              "Tes problèmes perso, j'en ai rien à foutre.", "Your personal problems? I don't give a fuck."],
+            ["Je m'en bats les couilles.", "I don't give a shit.", "Very vulgar (les couilles: balls), and everywhere in films and among young people. Short forms: rien à battre, and the slang balek. Same family: je m'en branle.",
+              "Tu peux le dire à tout le monde, je m'en bats les couilles.", "Tell everyone if you like, I don't give a shit."],
+            ["Démerde-toi !", "Sort it out yourself!", "Vulgar (from merde). Same meaning without the swearing: débrouille-toi !",
+              "Tu as voulu le faire tout seul ? Démerde-toi.", "You wanted to do it on your own? Sort it out yourself."],
+            ["Ça m'en touche une sans faire bouger l'autre.", "I couldn't care less.", "‘It touches one without moving the other’: une and l'autre are testicles, left unsaid. Famously attributed to Jacques Chirac, which made it oddly quotable. Recognise, don't use.",
+              "Leurs menaces ? Ça m'en touche une sans faire bouger l'autre.", "Their threats? I couldn't care less."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>
