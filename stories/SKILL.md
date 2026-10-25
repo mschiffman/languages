@@ -120,6 +120,30 @@ spelling — "a lad in" for Aladdin, "Tinkerbell", "spider web", "Glo" — not b
 takes. Re-do (`--redo N`) any clip that is garbled or says the wrong words,
 then listen to anything doubtful.
 
+"small" often mishears very short clips (1–2 s) the same way take after take
+— "Love, Tencel" for "laughed Hansel", "Hansel Grind" for "Hansel grinned"
+(butterfly, 2026-10-25). If a re-take comes back with the same `??`,
+transcribe it with the "medium" model before spending more credits:
+
+```
+python -E -c "import whisper; m = whisper.load_model('medium'); print(m.transcribe('media/eng/yt/<slug>/70.mp3', language='en')['text'])"
+```
+
+Some near-homophones neither model can settle ("in comfortable" /
+"uncomfortable") — listen to those.
+
+**Don't open a new page before its audio is uploaded.** A request for a
+missing clip makes Cloudflare cache the 404 for 4 hours (`max-age=14400`), and
+the clip stays broken after the upload (butterfly `01.mp3`, 2026-10-25). After
+uploading, check every clip:
+
+```
+for i in $(seq 1 N); do n=$(printf %02d $i); c=$(curl -s -o /dev/null -w "%{http_code}" -I https://languages.rmlives.com/eng/yt/<slug>/$n.mp3); [ "$c" != 200 ] && echo "$n $c"; done
+```
+
+A cached 404 clears by itself after the 4 hours, or purge the URL in the
+Cloudflare dashboard (Caching → Purge Cache → Custom URL).
+
 **Replacing clips that are already online**: the pages load
 `AUD_DIR + NN.mp3` with no version tag, so Cloudflare may keep serving the
 old file for a while. Upload, then curl a few URLs and compare their MD5 with
@@ -159,7 +183,7 @@ didn't work on the Android tablet. Audio is taken from `media/eng/yt/<slug>/`
 
 - [ ] `stories/<page>.html` with `</head>`, title, brand, `IMG_DIR`, `AUD_DIR`, `pages`
 - [ ] 8 pictures in `img/ytstory/<slug>/`
-- [ ] Audio made, checked with `check_audio.py`, uploaded; a few URLs curl'd and MD5-matched
+- [ ] Audio made, checked with `check_audio.py`, uploaded; every URL returns 200, a few MD5-matched
 - [ ] Menu entry in `assets/js/nav-*.js`
 - [ ] `eng/single/<page>.html` built
 - [ ] Commit the page, pictures, menu script (media/ and eng/single/ are git-ignored)
