@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>How Do Bees Make Honey?</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.5 20.2 7.25v9.5L12 21.5 3.8 16.75v-9.5Z" fill="#F2B632" />
+            <path d="M12 8.2c1.9 2.6 3 4.3 3 5.6a3 3 0 0 1-6 0c0-1.3 1.1-3 3-5.6Z" fill="#B8650A" />
+          </svg>
+          <span>How do <span style="color: #E0A21B">bees</span> make <span style="color: #B8650A">honey</span>?</span>
+        </div>
+        <div class="counter" id="counter">1 / 7</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s1.6_beesHoney/1.jpg … 7.jpg   (one per book page)
+     audio  : 01.mp3 … 59.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s1.6_beesHoney/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s1.6_beesHoney/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..59 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Buzz! Buzz! Buzz!", 1]],
+            [["Look at the little bees!", 2]],
+            [
+              ["They are flying", 3],
+              ["from flower to flower.", 4],
+            ],
+            [["But what are they doing?", 5]],
+            [["How do bees make honey?", 6]],
+            [["Let's find out!", 7]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["Flowers make a sweet liquid", 8],
+              ["called nectar.", 9],
+            ],
+            [["Bees love nectar!", 10]],
+            [
+              ["A bee lands on a flower", 11],
+              ["and drinks the nectar", 12],
+              ["with its long tongue.", 13],
+            ],
+            [
+              ["Then it flies", 14],
+              ["to another flower.", 15],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["Where does the nectar go?", 16]],
+            [
+              ["The bee carries it", 17],
+              ["in a special part of its body", 18],
+              ["called a honey stomach.", 19],
+            ],
+            [
+              ["This is different from the stomach", 20],
+              ["it uses to digest its own food.", 21],
+            ],
+            [
+              ["The bee carries the nectar", 22],
+              ["back to its hive.", 23],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["The bee returns home.", 24]],
+            [
+              ["Inside the hive,", 25],
+              ["many other bees are working.", 26],
+            ],
+            [
+              ["The bee passes the nectar", 27],
+              ["to another bee.", 28],
+            ],
+            [
+              ["The bees add special substances", 29],
+              ["called enzymes", 30],
+              ["that help change the nectar.", 31],
+            ],
+            [
+              ["They work together", 32],
+              ["to make honey!", 33],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["Nectar has a lot of water in it.", 34]],
+            [
+              ["Bees put the nectar", 35],
+              ["into little honeycomb cells.", 36],
+            ],
+            [
+              ["They fan their wings", 37],
+              ["to move air through the hive.", 38],
+            ],
+            [["Slowly, water evaporates.", 39]],
+            [
+              ["The nectar becomes", 40],
+              ["thick, sweet honey!", 41],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["The honey is ready!", 42]],
+            [
+              ["The bees cover the full honeycomb cells", 43],
+              ["with a thin layer of wax.", 44],
+            ],
+            [["This keeps the honey safe.", 45]],
+            [
+              ["Bees store honey to eat", 46],
+              ["when flowers are hard to find.", 47],
+            ],
+            [
+              ["Their hard work", 48],
+              ["helps the whole colony.", 49],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["How do bees make honey?", 50]],
+            [
+              ["First, they collect nectar", 51],
+              ["from flowers.", 52],
+            ],
+            [
+              ["Then they bring it home", 53],
+              ["and change it.", 54],
+            ],
+            [
+              ["They remove water", 55],
+              ["until it becomes thick honey.", 56],
+            ],
+            [
+              ["Finally, they store it", 57],
+              ["in the honeycomb.", 58],
+            ],
+            [["What amazing little workers!", 59]],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
