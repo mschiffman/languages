@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Hansel and Gretel and the Butterfly Forest</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">Hansel&nbsp;and&nbsp;Gretel</span> and the
+            <span class="mouse">Butterfly&nbsp;Forest</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/butterfly/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 173.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/butterfly/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/butterfly/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=261025";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..173 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Hansel and Gretel and the Butterfly Forest", 1]],
+            [
+              ["One bright morning,", 2],
+              ["Hansel and Gretel went for a walk", 3],
+              ["with their father", 4],
+              ["near the forest.", 5],
+            ],
+            [
+              ['"Stay on the path,"', 6],
+              ["Father said.", 7],
+              ['"The forest is big."', 8],
+            ],
+            [
+              ['"We will!"', 9],
+              ["said Gretel.", 10],
+            ],
+            [
+              ["Hansel smiled.", 11],
+              ['"We just want to look"', 12],
+              ['"at flowers and birds."', 13],
+            ],
+            [
+              ["Soon,", 14],
+              ["they saw colorful butterflies", 15],
+              ["dancing in the sunlight.", 16],
+            ],
+            [
+              ['"Oh, look!"', 17],
+              ["said Gretel.", 18],
+              ['"They are so beautiful!"', 19],
+            ],
+            [
+              ["The children followed the butterflies", 20],
+              ["deeper into the forest.", 21],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["The butterflies led Hansel and Gretel", 22],
+              ["to a secret meadow.", 23],
+            ],
+            [["It was full of wildflowers.", 24]],
+            [
+              ["Blue butterflies,", 25],
+              ["yellow butterflies,", 26],
+              ["and orange butterflies", 27],
+              ["fluttered everywhere.", 28],
+            ],
+            [
+              ["In the middle of the meadow", 29],
+              ["stood a large white butterfly", 30],
+              ["with shining wings.", 31],
+            ],
+            [
+              ['"Welcome, children,"', 32],
+              ["said the butterfly softly.", 33],
+            ],
+            [
+              ["Hansel's eyes grew wide.", 34],
+              ['"A talking butterfly!"', 35],
+            ],
+            [
+              ['"Yes,"', 36],
+              ["said Gretel, smiling.", 37],
+              ['"And she is beautiful."', 38],
+            ],
+            [
+              ['"My name is Lily,"', 39],
+              ["said the butterfly.", 40],
+              ['"Would you like"', 41],
+              ['"to learn our secret?"', 42],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["Lily flew to a green leaf.", 43]],
+            [
+              ["On it were", 44],
+              ["many tiny round eggs.", 45],
+            ],
+            [
+              ['"These are butterfly eggs,"', 46],
+              ["she said.", 47],
+            ],
+            [
+              ['"So small!"', 48],
+              ["whispered Gretel.", 49],
+            ],
+            [
+              ['"Yes,"', 50],
+              ["said Lily.", 51],
+              ['"A mother butterfly"', 52],
+              ['"lays eggs on leaves."', 53],
+            ],
+            [
+              ['"Then what happens?"', 54],
+              ["asked Hansel.", 55],
+            ],
+            [
+              ['"Wait and see,"', 56],
+              ["said Lily.", 57],
+            ],
+            [
+              ["The children leaned closer", 58],
+              ["and looked carefully.", 59],
+            ],
+            [
+              ['"A butterfly begins very small,"', 60],
+              ["said Gretel.", 61],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["Then Lily showed them", 62],
+              ["little caterpillars", 63],
+              ["on another plant.", 64],
+            ],
+            [
+              ['"They came from the eggs,"', 65],
+              ["she explained.", 66],
+            ],
+            [
+              ["The caterpillars munched and munched", 67],
+              ["on the leaves.", 68],
+            ],
+            [
+              ['"They are always eating!"', 69],
+              ["laughed Hansel.", 70],
+            ],
+            [
+              ['"Yes,"', 71],
+              ["said Lily.", 72],
+              ['"Caterpillars need food to grow."', 73],
+            ],
+            [
+              ["Gretel pointed", 74],
+              ["at one fat green caterpillar.", 75],
+            ],
+            [['"It is getting bigger!"', 76]],
+            [
+              ['"That\'s right,"', 77],
+              ["said Lily.", 78],
+              ['"First comes the egg."', 79],
+              ['"Then comes the caterpillar."', 80],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ["Next,", 81],
+              ["Lily led them to a branch.", 82],
+            ],
+            [
+              ["A small green chrysalis", 83],
+              ["hung there very still.", 84],
+            ],
+            [
+              ['"What is that?"', 85],
+              ["asked Hansel.", 86],
+            ],
+            [
+              ['"That is the next stage,"', 87],
+              ["said Lily.", 88],
+              ['"The caterpillar makes a chrysalis."', 89],
+            ],
+            [
+              ['"It looks like it is sleeping,"', 90],
+              ["said Gretel.", 91],
+            ],
+            [
+              ['"In a way, yes,"', 92],
+              ["Lily replied.", 93],
+              ['"Inside the chrysalis,"', 94],
+              ['"the caterpillar changes."', 95],
+            ],
+            [
+              ['"Into a butterfly?"', 96],
+              ["Hansel asked.", 97],
+            ],
+            [
+              ["Lily nodded.", 98],
+              ['"Yes. But it takes time."', 99],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["The children sat very quietly.", 100]],
+            [
+              ["After a while,", 101],
+              ["the chrysalis began to move.", 102],
+            ],
+            [
+              ['"It\'s opening!"', 103],
+              ["Gretel whispered.", 104],
+            ],
+            [
+              ["Very slowly,", 105],
+              ["a new butterfly came out.", 106],
+            ],
+            [
+              ["Its wings were soft and wet", 107],
+              ["at first.", 108],
+            ],
+            [["Hansel held his breath.", 109]],
+            [
+              ['"It is beautiful,"', 110],
+              ["he said.", 111],
+            ],
+            [
+              ["The butterfly rested", 112],
+              ["in the warm sunlight.", 113],
+            ],
+            [
+              ['"Soon its wings will be strong,"', 114],
+              ["said Lily.", 115],
+            ],
+            [
+              ["Gretel smiled.", 116],
+              ['"So the life cycle is"', 117],
+              ['"egg, caterpillar,"', 118],
+              ['"chrysalis, butterfly!"', 119],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ["Suddenly,", 120],
+              ["Hansel looked around.", 121],
+            ],
+            [
+              ['"Oh no,"', 122],
+              ["he said.", 123],
+              ['"Where is the path?"', 124],
+            ],
+            [
+              ["The children had walked so far", 125],
+              ["into the meadow", 126],
+              ["that they could not see", 127],
+              ["the forest trail.", 128],
+            ],
+            [["Gretel held his hand.", 129]],
+            [['"I think we are lost."', 130]],
+            [
+              ['"Do not be afraid,"', 131],
+              ["said Lily.", 132],
+            ],
+            [["She called to the other butterflies.", 133]],
+            [
+              ["At once,", 134],
+              ["dozens of butterflies", 135],
+              ["rose into the air", 136],
+              ["like a bright, fluttering cloud.", 137],
+            ],
+            [
+              ['"Follow us,"', 138],
+              ["said Lily.", 139],
+            ],
+            [
+              ["The butterflies flew through the trees,", 140],
+              ["showing the way.", 141],
+            ],
+            [
+              ["Soon,", 142],
+              ["Hansel and Gretel saw the path again.", 143],
+            ],
+            [
+              ['"There it is!"', 144],
+              ["cried Hansel.", 145],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [
+              ["At the edge of the forest,", 146],
+              ["Father was waiting.", 147],
+            ],
+            [
+              ['"Hansel! Gretel!"', 148],
+              ['"There you are!"', 149],
+              ["he said.", 150],
+            ],
+            [
+              ['"We\'re sorry,"', 151],
+              ["said Gretel.", 152],
+              ['"But we learned something wonderful."', 153],
+            ],
+            [
+              ["Hansel grinned.", 154],
+              ['"We learned the butterfly life cycle!"', 155],
+            ],
+            [
+              ["Father laughed kindly.", 156],
+              ['"Then tell me."', 157],
+            ],
+            [["Gretel counted on her fingers.", 158]],
+            [
+              ['"Egg, caterpillar,"', 159],
+              ['"chrysalis, butterfly."', 160],
+            ],
+            [
+              ['"And the butterflies helped us"', 161],
+              ['"find the path,"', 162],
+              ["added Hansel.", 163],
+            ],
+            [
+              ["Lily circled once", 164],
+              ["above their heads.", 165],
+            ],
+            [
+              ['"Remember,"', 166],
+              ["she said,", 167],
+              ['"small things can grow"', 168],
+              ['"into something wonderful."', 169],
+            ],
+            [["The children waved goodbye.", 170]],
+            [
+              ["As they walked home,", 171],
+              ["a little butterfly followed them", 172],
+              ["through the golden evening light.", 173],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-stories.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

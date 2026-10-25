@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Tinker Bell and the Lost Fairy Light</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">Tinker&nbsp;Bell</span> and the
+            <span class="mouse">Lost Fairy&nbsp;Light</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/Tinkerbell/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 100.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/Tinkerbell/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/Tinkerbell/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..100 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Tinker Bell and the Lost Fairy Light", 1]],
+            [
+              ["In a magical forest,", 2],
+              ["a tiny fairy named Tinker Bell", 3],
+              ["lived among the flowers.", 4],
+            ],
+            [
+              ["She had beautiful wings", 5],
+              ["and a little green dress.", 6],
+            ],
+            [
+              ["Every morning,", 7],
+              ["she flew over the forest,", 8],
+              ["leaving sparkling fairy dust behind her.", 9],
+            ],
+            [
+              ['"Good morning, flowers!"', 10],
+              ["she called.", 11],
+            ],
+            [["The flowers danced in the breeze.", 12]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["One morning,", 13],
+              ["Tinker Bell noticed something strange.", 14],
+            ],
+            [["The flowers were not opening.", 15]],
+            [["The butterflies were hiding.", 16]],
+            [
+              ["And the magical fairy lantern", 17],
+              ["in the middle of the forest", 18],
+              ["was dark!", 19],
+            ],
+            [
+              ['"Oh, no!"', 20],
+              ["cried Tinker Bell.", 21],
+              ['"Where is the fairy light?"', 22],
+            ],
+            [
+              ["Without the fairy light,", 23],
+              ["the forest would lose its magic.", 24],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["Tinker Bell looked under the leaves", 25],
+              ["and behind the mushrooms.", 26],
+            ],
+            [
+              ["Suddenly,", 27],
+              ["she heard a tiny voice.", 28],
+            ],
+            [['"Help! Please help!"', 29]],
+            [
+              ["She followed the sound", 30],
+              ["to a large tree.", 31],
+            ],
+            [
+              ["There, she found a little firefly", 32],
+              ["trapped inside a spiderweb.", 33],
+            ],
+            [
+              ['"Don\'t worry,"', 34],
+              ["said Tinker Bell.", 35],
+              ['"I\'ll help you!"', 36],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["Tinker Bell carefully freed the firefly.", 37]],
+            [
+              ['"Thank you!"', 38],
+              ["he said.", 39],
+              ['"My name is Glow."', 40],
+            ],
+            [
+              ['"I\'m Tinker Bell.', 41],
+              ['Have you seen our missing fairy light?"', 42],
+            ],
+            [["Glow nodded.", 43]],
+            [
+              ['"Yes! I saw a bright golden light', 44],
+              ['near the waterfall last night."', 45],
+            ],
+            [
+              ['"The waterfall!"', 46],
+              ["exclaimed Tinker Bell.", 47],
+              ['"Let\'s go!"', 48],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ["Tinker Bell and Glow", 49],
+              ["flew toward the waterfall.", 50],
+            ],
+            [
+              ["Behind the falling water,", 51],
+              ["they discovered a dark cave.", 52],
+            ],
+            [
+              ["Inside, a tiny dragon was sleeping", 53],
+              ["beside a glowing golden crystal.", 54],
+            ],
+            [
+              ['"That is our fairy light!"', 55],
+              ["whispered Tinker Bell.", 56],
+            ],
+            [["But the dragon opened his eyes.", 57]],
+            [
+              ['"Please don\'t take it,"', 58],
+              ["he said sadly.", 59],
+              ['"I\'m afraid of the dark."', 60],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["Tinker Bell thought for a moment.", 61]],
+            [
+              ['"The fairy light belongs to the forest,"', 62],
+              ["she explained gently.", 63],
+              ['"The flowers and animals need it."', 64],
+            ],
+            [
+              ['"But I need light too,"', 65],
+              ["said the little dragon.", 66],
+            ],
+            [["Then Tinker Bell smiled.", 67]],
+            [['"I have an idea!"', 68]],
+            [
+              ["She collected some sparkling fairy dust", 69],
+              ["and placed it inside an empty seashell.", 70],
+            ],
+            [["The shell began to glow.", 71]],
+            [
+              ['"For you!"', 72],
+              ["she said.", 73],
+            ],
+            [["The dragon's eyes grew wide.", 74]],
+            [
+              ['"My own little night-light!', 75],
+              ['Thank you!"', 76],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ["Tinker Bell and Glow carried", 77],
+              ["the golden crystal back to the forest.", 78],
+            ],
+            [["They placed it inside the fairy lantern.", 79]],
+            [
+              ["Suddenly,", 80],
+              ["golden light filled the trees!", 81],
+            ],
+            [["The flowers opened.", 82]],
+            [["The butterflies came out.", 83]],
+            [["And the birds began to sing.", 84]],
+            [
+              ['"We did it!"', 85],
+              ["cheered Glow.", 86],
+            ],
+            [["Tinker Bell laughed happily.", 87]],
+            [['"Everyone deserves a little light!"', 88]],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [
+              ["That evening,", 89],
+              ["Tinker Bell visited the little dragon.", 90],
+            ],
+            [
+              ["He was sleeping peacefully", 91],
+              ["beside his glowing seashell.", 92],
+            ],
+            [["Glow landed on her shoulder.", 93]],
+            [
+              ['"You helped everyone today,"', 94],
+              ["he whispered.", 95],
+            ],
+            [["Tinker Bell smiled.", 96]],
+            [
+              ['"Sometimes, the best magic', 97],
+              ['is simply being kind."', 98],
+            ],
+            [
+              ["And together,", 99],
+              ["they flew home beneath the stars.", 100],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-stories.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

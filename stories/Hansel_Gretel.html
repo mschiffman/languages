@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Hansel and Gretel and the Gingerbread House</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">Hansel&nbsp;and&nbsp;Gretel</span> and the
+            <span class="mouse">Gingerbread&nbsp;House</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/Hansel_Gretel/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 181.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/Hansel_Gretel/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/Hansel_Gretel/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..181 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Hansel and Gretel and the Gingerbread House", 1]],
+            [
+              ["Once upon a time,", 2],
+              ["a brother and sister", 3],
+              ["named Hansel and Gretel", 4],
+              ["lived in a little house", 5],
+              ["near a forest.", 6],
+            ],
+            [["They lived with their father and stepmother.", 7]],
+            [["Their family was very poor.", 8]],
+            [
+              ["Sometimes, they did not have", 9],
+              ["enough food to eat.", 10],
+            ],
+            [
+              ["One evening,", 11],
+              ["their stepmother said,", 12],
+              ['"We have almost no food left."', 13],
+              ['"What shall we do?"', 14],
+            ],
+            [
+              ["Hansel heard her talking", 15],
+              ["about leaving the children", 16],
+              ["deep in the forest.", 17],
+            ],
+            [
+              ['"Don\'t worry, Gretel,"', 18],
+              ["he whispered.", 19],
+              ['"I\'ll find a way home."', 20],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["That night,", 21],
+              ["Hansel went outside", 22],
+              ["and collected some little white pebbles.", 23],
+            ],
+            [
+              ["The next morning,", 24],
+              ["their parents took them", 25],
+              ["into the forest", 26],
+              ["to gather wood.", 27],
+            ],
+            [
+              ["As they walked,", 28],
+              ["Hansel secretly dropped the pebbles", 29],
+              ["along the path.", 30],
+            ],
+            [
+              ["Later,", 31],
+              ["the children were left alone.", 32],
+            ],
+            [
+              ['"I\'m scared,"', 33],
+              ["said Gretel.", 34],
+            ],
+            [
+              ['"Don\'t be afraid,"', 35],
+              ["said Hansel.", 36],
+              ['"Look!"', 37],
+              ['"The pebbles will show us the way."', 38],
+            ],
+            [
+              ["Under the moonlight,", 39],
+              ["the little stones shone brightly.", 40],
+            ],
+            [
+              ["Hansel and Gretel followed them", 41],
+              ["all the way home.", 42],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["A few days later,", 43],
+              ["their stepmother took them", 44],
+              ["into the forest again.", 45],
+            ],
+            [
+              ["This time,", 46],
+              ["Hansel had no pebbles.", 47],
+            ],
+            [
+              ["He saved a little piece of bread", 48],
+              ["and dropped crumbs along the path.", 49],
+            ],
+            [
+              ['"We can follow the crumbs home,"', 50],
+              ["he told Gretel.", 51],
+            ],
+            [
+              ["But hungry birds flew down", 52],
+              ["and ate every crumb!", 53],
+            ],
+            [
+              ["When the children tried to go home,", 54],
+              ["they could not find the path.", 55],
+            ],
+            [
+              ['"Oh, Hansel!"', 56],
+              ['"We\'re lost!"', 57],
+              ["cried Gretel.", 58],
+            ],
+            [["Hansel held her hand.", 59]],
+            [
+              ['"Stay close to me."', 60],
+              ['"We\'ll find a way."', 61],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["The children walked through the forest", 62],
+              ["for a long time.", 63],
+            ],
+            [["Suddenly, Gretel stopped.", 64]],
+            [
+              ['"Look, Hansel!"', 65],
+              ['"What\'s that?"', 66],
+            ],
+            [
+              ["In front of them stood", 67],
+              ["a little house", 68],
+              ["made entirely of sweets!", 69],
+            ],
+            [["The walls were made of gingerbread.", 70]],
+            [["The roof was covered with chocolate.", 71]],
+            [
+              ["The windows were made", 72],
+              ["of colorful sugar candy.", 73],
+            ],
+            [
+              ['"I\'m so hungry!"', 74],
+              ["said Hansel.", 75],
+            ],
+            [
+              ["He broke off", 76],
+              ["a piece of gingerbread.", 77],
+            ],
+            [
+              ["Gretel tasted some candy", 78],
+              ["from the window.", 79],
+            ],
+            [['"Mmm! Delicious!"', 80]],
+            [
+              ["Just then,", 81],
+              ["the door slowly opened.", 82],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["An old woman stepped outside.", 83]],
+            [
+              ['"Hello, little children,"', 84],
+              ["she said sweetly.", 85],
+              ['"Are you hungry?"', 86],
+            ],
+            [
+              ['"Yes, we are,"', 87],
+              ["answered Gretel.", 88],
+            ],
+            [
+              ['"Come inside."', 89],
+              ['"I have plenty of food."', 90],
+            ],
+            [
+              ["Inside, the children found", 91],
+              ["cakes, warm bread,", 92],
+              ["and sweet milk.", 93],
+            ],
+            [
+              ["They ate happily", 94],
+              ["and soon fell asleep", 95],
+              ["in comfortable beds.", 96],
+            ],
+            [
+              ["But the old woman", 97],
+              ["was not kind at all.", 98],
+            ],
+            [["She was a wicked witch!", 99]],
+            [
+              ["The next morning,", 100],
+              ["she locked Hansel in a cage.", 101],
+            ],
+            [
+              ['"You must work for me!"', 102],
+              ["she ordered Gretel.", 103],
+            ],
+            [
+              ["Gretel was frightened,", 104],
+              ["but she stayed calm.", 105],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["Every day,", 106],
+              ["the witch gave Hansel food", 107],
+              ["to make him grow bigger.", 108],
+            ],
+            [["She wanted to eat him!", 109]],
+            [
+              ['"Show me your finger!"', 110],
+              ["she ordered.", 111],
+            ],
+            [
+              ["But Hansel cleverly held out", 112],
+              ["a tiny chicken bone instead.", 113],
+            ],
+            [["The witch had poor eyesight.", 114]],
+            [
+              ['"Still too thin!"', 115],
+              ["she grumbled.", 116],
+            ],
+            [
+              ["One morning,", 117],
+              ["the witch told Gretel", 118],
+              ["to heat the big oven.", 119],
+            ],
+            [
+              ['"Is it hot enough?"', 120],
+              ["the witch asked.", 121],
+            ],
+            [["Gretel pretended not to understand.", 122]],
+            [
+              ['"I\'m not sure."', 123],
+              ['"Can you show me"', 124],
+              ['"how to look inside?"', 125],
+            ],
+            [
+              ["The witch leaned", 126],
+              ["toward the open oven.", 127],
+            ],
+            [
+              ["Quick as lightning,", 128],
+              ["Gretel pushed her inside", 129],
+              ["and slammed the door!", 130],
+            ],
+            [
+              ["The wicked witch", 131],
+              ["could never hurt them again.", 132],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ['"Gretel! You saved me!"', 133],
+              ["cried Hansel", 134],
+              ["when his sister opened the cage.", 135],
+            ],
+            [["The children hugged each other.", 136]],
+            [
+              ['"We must go home!"', 137],
+              ["said Gretel.", 138],
+            ],
+            [
+              ["Before leaving,", 139],
+              ["they discovered a chest", 140],
+              ["filled with gold coins", 141],
+              ["and beautiful jewels.", 142],
+            ],
+            [
+              ['"Look at all this treasure!"', 143],
+              ["exclaimed Hansel.", 144],
+            ],
+            [
+              ["They filled their pockets", 145],
+              ["and hurried out", 146],
+              ["of the gingerbread house.", 147],
+            ],
+            [
+              ["After walking through the forest,", 148],
+              ["they came to a wide river.", 149],
+            ],
+            [
+              ["A friendly white duck", 150],
+              ["helped them cross.", 151],
+            ],
+            [
+              ["Soon,", 152],
+              ["they recognized the trees", 153],
+              ["near their home.", 154],
+            ],
+            [
+              ['"We\'re almost there!"', 155],
+              ["shouted Gretel.", 156],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [
+              ["Hansel and Gretel ran", 157],
+              ["toward their little house.", 158],
+            ],
+            [
+              ['"Father! Father!"', 159],
+              ['"We\'re home!"', 160],
+            ],
+            [
+              ["Their father rushed outside", 161],
+              ["and hugged them tightly.", 162],
+            ],
+            [
+              ['"My dear children!"', 163],
+              ['"I thought I would never see you again!"', 164],
+            ],
+            [
+              ["He told them", 165],
+              ["their stepmother was gone,", 166],
+              ["and he had been terribly lonely", 167],
+              ["without them.", 168],
+            ],
+            [
+              ["Hansel and Gretel", 169],
+              ["showed him the treasure.", 170],
+            ],
+            [
+              ['"Look, Father!"', 171],
+              ['"We have enough for everyone!"', 172],
+            ],
+            [
+              ["Their father smiled", 173],
+              ["through his tears.", 174],
+            ],
+            [
+              ["From that day on,", 175],
+              ["they had plenty to eat", 176],
+              ["and a warm, happy home.", 177],
+            ],
+            [
+              ["And Hansel and Gretel never forgot", 178],
+              ["how courage, clever thinking,", 179],
+              ["and helping each other", 180],
+              ["had brought them safely home.", 181],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-stories.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

@@ -25,6 +25,7 @@ old Bootstrap pages of the same name (which used `expression.js` /
 | Make audio / upload audio | `fr/expression/make_audio.py` / `fr/expression/upload_audio.py` |
 | Offline copies (not in git) | `fr/expression/single/<topic>.html`, built by `build_single.py` |
 | Anki decks | `fr/expression/anki/` (see its own `SKILL.md`) |
+| Master list of every expression | `fr/expression/expressions.md`, built by `build_list.py` |
 
 `<folder>` is normally the topic name. The one exception: `offers.html` uses
 the folder `offer`. The page's `AUD_DIR` is what counts.
@@ -238,6 +239,23 @@ Rebuild the offline copy whenever the page or its audio changes.
 
 ---
 
+## Step 6 — Master list
+
+```
+python -I fr/expression/build_list.py
+```
+
+This rewrites `fr/expression/expressions.md`, the master list of every
+expression on every page: pages in menu order (the `CATEGORIES` list in
+`nav-expression-flash.js`), each with its menu label, French subtitle and
+sections, and French — English for every card. Notes and examples are left out.
+
+The file is generated, so don't edit it by hand. Rerun the script whenever
+cards are added, removed or reworded on any page, or a page is added to the
+menu. The file is in git: commit it with the page change.
+
+---
+
 ## Checklist
 
 - [ ] `<topic>.html` created: title, badges, h1, French subtitle, footer, `AUD_DIR`
@@ -248,4 +266,5 @@ Rebuild the offline copy whenever the page or its audio changes.
 - [ ] Archive sidebar link and grid card (same anchor id, distinct color)
 - [ ] Site map node and link
 - [ ] Offline copy built
+- [ ] Master list rebuilt (`build_list.py`)
 - [ ] Committed and pushed (when the user asks)

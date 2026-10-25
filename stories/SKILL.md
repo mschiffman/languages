@@ -25,6 +25,7 @@ text, split into short phrases ("chunks"). Tapping a chunk plays that chunk;
 | Audio, one clip per chunk | `media/eng/yt/<slug>/01.mp3` … `NN.mp3` (not in git) |
 | Audio online (Cloudflare R2, bucket `languages`) | `https://languages.rmlives.com/eng/yt/<slug>/NN.mp3` |
 | Make + upload audio | `stories/story_audio.py` |
+| Check audio with Whisper | `stories/check_audio.py` |
 | Offline copies (not in git) | `eng/single/<page>.html`, built by `eng/build_single.py` |
 
 `<slug>` is the media folder name (`lion`, `beanstalk`, `Aladdin` …), which is
@@ -55,8 +56,11 @@ page without `<title>`, `<head>` and `<body>` (this happened with Aladdin).
 
 ### Chunking the text
 
-The source is usually a `.md` with `Page 1` … `Page 8` headings, one sentence
-per line.
+The source is usually a `.md` with `Page 1` … `Page 8` (or `Scene 1 — …`)
+headings, one sentence per line. Each heading becomes one book page; the
+reader has no place for a page/scene title, so the headings aren't shown or
+read. A long scene is fine — the text panel scrolls (Tinker Bell's scene 6 has
+10 sentences).
 
 - Chunk 1 is the title, alone, on page 1.
 - Split sentences at natural pauses into chunks of about 2–6 words:
@@ -104,10 +108,17 @@ python -E stories/story_audio.py <page> --upload   # make missing clips, then up
   site-packages. Keys come from the User env vars `ELEVENLABS_API_KEY`,
   `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_ACCOUNT_ID`.
 
-**Check the takes** before uploading: transcribe them with local Whisper
-(`whisper` "small" model, GPU) and compare with the chunk text. Whisper spells
-names oddly ("a lad in" for Aladdin) — that's not a bad take. Re-do any clip
-that is garbled or reads the wrong words, then listen to anything doubtful.
+**Check the takes** before uploading:
+
+```
+python -E stories/check_audio.py <page>          # or <page> 12 30 for single clips
+```
+
+It transcribes every clip with local Whisper ("small" model, GPU) and prints
+`??` where the words differ from the chunk text. Most of those are only
+spelling — "a lad in" for Aladdin, "Tinkerbell", "spider web", "Glo" — not bad
+takes. Re-do (`--redo N`) any clip that is garbled or says the wrong words,
+then listen to anything doubtful.
 
 **Replacing clips that are already online**: the pages load
 `AUD_DIR + NN.mp3` with no version tag, so Cloudflare may keep serving the
@@ -148,7 +159,7 @@ didn't work on the Android tablet. Audio is taken from `media/eng/yt/<slug>/`
 
 - [ ] `stories/<page>.html` with `</head>`, title, brand, `IMG_DIR`, `AUD_DIR`, `pages`
 - [ ] 8 pictures in `img/ytstory/<slug>/`
-- [ ] Audio made, checked with Whisper, uploaded; a few URLs curl'd and MD5-matched
+- [ ] Audio made, checked with `check_audio.py`, uploaded; a few URLs curl'd and MD5-matched
 - [ ] Menu entry in `assets/js/nav-*.js`
 - [ ] `eng/single/<page>.html` built
 - [ ] Commit the page, pictures, menu script (media/ and eng/single/ are git-ignored)

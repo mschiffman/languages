@@ -12,6 +12,18 @@
         { title: "Jack and the Beanstalk", href: "Jack_beanstalk.html" },
         { title: "The Three Little Pigs", href: "three_pigs.html" },
         { title: "Aladdin and the Magic Lamp", href: "Aladdin_lamp.html" },
+        {
+          title: "Tinker Bell and the Lost Fairy Light",
+          href: "Tinkerbell_light.html",
+        },
+        {
+          title: "Hansel and Gretel and the Gingerbread House",
+          href: "Hansel_Gretel.html",
+        },
+        {
+          title: "Hansel and Gretel and the Butterfly Forest",
+          href: "butterfly.html",
+        },
       ],
     },
   ];
