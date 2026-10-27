@@ -38,6 +38,12 @@
         { title: "We're Going to the Zoo!", href: "2.11_zoo.html" },
       ],
     },
+    {
+      name: "Vocabulary",
+      lessons: [
+        { title: "At School", href: "voc_atSchool.html" },
+      ],
+    },
   ];
 
   const header = document.querySelector(".stage > header");

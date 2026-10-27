@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>At School</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>At School</span>
+        </div>
+        <div class="counter" id="counter">1 / 22</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Media:
+           images : /img/ytstory/voc-atSchool/1.jpg … 22.jpg   (one per book page)
+           audio  : 01.mp3 … 45.mp3 in AUD_DIR (one per phrase, in reading order)
+         To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/voc-atSchool/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/voc-atSchool/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=261027";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..45 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [[["At School", 1]], [["book", 2]], [["a book", 3]]],
+        },
+        {
+          img: 2,
+          sentences: [[["notebook", 4]], [["a notebook", 5]]],
+        },
+        {
+          img: 3,
+          sentences: [[["paper", 6]], [["a piece of paper", 7]]],
+        },
+        {
+          img: 4,
+          sentences: [[["pen", 8]], [["a pen", 9]]],
+        },
+        {
+          img: 5,
+          sentences: [[["pencil", 10]], [["a pencil", 11]]],
+        },
+        {
+          img: 6,
+          sentences: [[["crayon", 12]], [["a crayon", 13]]],
+        },
+        {
+          img: 7,
+          sentences: [[["colored pencil", 14]], [["a colored pencil", 15]]],
+        },
+        {
+          img: 8,
+          sentences: [[["pencil sharpener", 16]], [["a pencil sharpener", 17]]],
+        },
+        {
+          img: 9,
+          sentences: [[["highlighter", 18]], [["a highlighter", 19]]],
+        },
+        {
+          img: 10,
+          sentences: [[["dictionary", 20]], [["a dictionary", 21]]],
+        },
+        {
+          img: 11,
+          sentences: [[["ruler", 22]], [["a ruler", 23]]],
+        },
+        {
+          img: 12,
+          sentences: [[["eraser", 24]], [["an eraser", 25]]],
+        },
+        {
+          img: 13,
+          sentences: [[["scissors", 26]], [["a pair of scissors", 27]]],
+        },
+        {
+          img: 14,
+          sentences: [[["stapler", 28]], [["a stapler", 29]]],
+        },
+        {
+          img: 15,
+          sentences: [[["paper clip", 30]], [["a paper clip", 31]]],
+        },
+        {
+          img: 16,
+          sentences: [[["backpack", 32]], [["a backpack", 33]]],
+        },
+        {
+          img: 17,
+          sentences: [[["desk", 34]], [["a desk", 35]]],
+        },
+        {
+          img: 18,
+          sentences: [[["chair", 36]], [["a chair", 37]]],
+        },
+        {
+          img: 19,
+          sentences: [[["school", 38]], [["a school", 39]]],
+        },
+        {
+          img: 20,
+          sentences: [[["classroom", 40]], [["a classroom", 41]]],
+        },
+        {
+          img: 21,
+          sentences: [[["teacher", 42]], [["a teacher", 43]]],
+        },
+        {
+          img: 22,
+          sentences: [[["student", 44]], [["a student", 45]]],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
