@@ -1,0 +1,1207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Lessons</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Hamburger button -->
+    <button id="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Sidebar overlay -->
+    <div id="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title">Français</div>
+        <div class="sidebar-subtitle">Course Navigator</div>
+      </div>
+      <div class="sidebar-scroll" id="sidebar-scroll"></div>
+    </nav>
+
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">LESSON 06</span>
+          <span class="badge">BEGINNER</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          French
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Français
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Vocabulary Flashcards
+        </p>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Card: savez-vous -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/1.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/save vu/</p>
+            <p class="phrase text-xl mb-1">Savez-vous ?</p>
+            <p class="english">Do you know?</p>
+          </div>
+          <div class="note-wrapper" data-note="Inversion of vous savez — swapping verb and subject (joined by a hyphen) is the formal way to ask a question.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: où est-ce que vous voudriez manger -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/2.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/u ɛs kə vu vudʁije mɑ̃ʒe/</p>
+            <p class="phrase text-xl mb-1">Où est-ce que vous voudriez manger ?</p>
+            <p class="english">Where would you like to eat?</p>
+          </div>
+          <div class="note-wrapper" data-note="Où + est-ce que turns the statement into a where-question; voudriez is the polite conditional of vouloir for vous.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: chez moi -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/3.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʃe mwa/</p>
+            <p class="phrase text-xl mb-1">Chez moi.</p>
+            <p class="english">At my place.</p>
+          </div>
+          <div class="note-wrapper" data-note="Chez means 'at the home of' — it's followed by a stressed pronoun (moi, toi, vous) or a person's name.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: chez vous -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/4.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʃe vu/</p>
+            <p class="phrase text-xl mb-1">Chez vous.</p>
+            <p class="english">At your place.</p>
+          </div>
+          <div class="note-wrapper" data-note="Chez + vous — at your home, formal or plural.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: chez toi, évidemment -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/5.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʃe twa evidamɑ̃/</p>
+            <p class="phrase text-xl mb-1">Chez toi, évidemment !</p>
+            <p class="english">At your place, obviously!</p>
+          </div>
+          <div class="note-wrapper" data-note="Toi switches to the informal 'you'; in évidemment (obviously) the -emment ending is pronounced /amɑ̃/.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: chez toi, bien sûr -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/6.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʃe twa bjɛ̃ syʁ/</p>
+            <p class="phrase text-xl mb-1">Chez toi, bien sûr.</p>
+            <p class="english">At your place, of course.</p>
+          </div>
+          <div class="note-wrapper" data-note="Bien sûr is a friendlier 'of course' than évidemment — simple agreement rather than 'that goes without saying'.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: pas chez vous -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/7.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/pa ʃe vu/</p>
+            <p class="phrase text-xl mb-1">Pas chez vous.</p>
+            <p class="english">Not at your place.</p>
+          </div>
+          <div class="note-wrapper" data-note="Pas alone negates a phrase with no verb — ne is only needed when there's a conjugated verb to wrap.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: moi aussi -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/8.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/mwa osi/</p>
+            <p class="phrase text-xl mb-1">Moi aussi.</p>
+            <p class="english">Me too.</p>
+          </div>
+          <div class="note-wrapper" data-note="Stressed pronoun moi + aussi — the standard 'me too' for agreeing with a positive statement.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: je voudrais manger aussi -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/9.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʒə vudʁɛ mɑ̃ʒe osi/</p>
+            <p class="phrase text-xl mb-1">Je voudrais manger aussi.</p>
+            <p class="english">I'd like to eat too.</p>
+          </div>
+          <div class="note-wrapper" data-note="Aussi at the end of the sentence means 'too / as well'; voudrais + infinitive softens the wish.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: je voudrais aussi boire quelque chose -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/10.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʒə vudʁɛ osi bwaʁ kɛlkə ʃoz/</p>
+            <p class="phrase text-xl mb-1">Je voudrais aussi boire quelque chose.</p>
+            <p class="english">I'd also like to drink something.</p>
+          </div>
+          <div class="note-wrapper" data-note="Aussi right after the verb means 'also'; quelque chose (something) never changes form.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: quand est-ce que vous voudriez manger -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/11.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/kɑ̃t ɛs kə vu vudʁije mɑ̃ʒe/</p>
+            <p class="phrase text-xl mb-1">Quand est-ce que vous voudriez manger ?</p>
+            <p class="english">When would you like to eat?</p>
+          </div>
+          <div class="note-wrapper" data-note="Quand + est-ce que — the d of quand links to est-ce with a /t/ sound (liaison).">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: tu veux manger quand -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/12.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ty vø mɑ̃ʒe kɑ̃/</p>
+            <p class="phrase text-xl mb-1">Tu veux manger quand ?</p>
+            <p class="english">When do you want to eat?</p>
+          </div>
+          <div class="note-wrapper" data-note="Casual spoken style: informal tu, present veux instead of voudrais, and the question word quand left at the end.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: pas maintenant -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/13.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/pa mɛ̃tnɑ̃/</p>
+            <p class="phrase text-xl mb-1">Pas maintenant.</p>
+            <p class="english">Not now.</p>
+          </div>
+          <div class="note-wrapper" data-note="Pas negates maintenant (now) directly; in speech maintenant usually drops its middle e: /mɛ̃tnɑ̃/.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: plus tard -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/14.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ply taʁ/</p>
+            <p class="phrase text-xl mb-1">Plus tard.</p>
+            <p class="english">Later.</p>
+          </div>
+          <div class="note-wrapper" data-note="Literally 'more late' — plus is pronounced /ply/ here, with a silent s.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: ça presse pas -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/15.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/sa pʁɛs pa/</p>
+            <p class="phrase text-xl mb-1">Ça presse pas.</p>
+            <p class="english">There's no rush.</p>
+          </div>
+          <div class="note-wrapper" data-note="Spoken form of ça ne presse pas — dropping ne is very common in casual French; presser = to be urgent.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: je ne veux pas -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/16.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ʒə nə vø pa/</p>
+            <p class="phrase text-xl mb-1">Je ne veux pas.</p>
+            <p class="english">I don't want to.</p>
+          </div>
+          <div class="note-wrapper" data-note="Ne...pas around veux — a flat refusal; what you don't want to do is understood from context.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: moi, je veux -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/17.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/mwa ʒə vø/</p>
+            <p class="phrase text-xl mb-1">Moi, je veux.</p>
+            <p class="english">I do (want to).</p>
+          </div>
+          <div class="note-wrapper" data-note="Moi up front stresses the contrast — 'me, I want to' — answering someone who just said they don't.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: est-ce que vous voudriez boire quelque chose chez moi -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/19.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ɛs kə vu vudʁije bwaʁ kɛlkə ʃoz ʃe mwa/</p>
+            <p class="phrase text-xl mb-1">Est-ce que vous voudriez boire quelque chose chez moi ?</p>
+            <p class="english">Would you like to drink something at my place?</p>
+          </div>
+          <div class="note-wrapper" data-note="Est-ce que turns a statement into a yes/no question; voudriez keeps the invitation polite.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: oui, je veux bien -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/18.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/wi ʒə vø bjɛ̃/</p>
+            <p class="phrase text-xl mb-1">Oui, je veux bien.</p>
+            <p class="english">Yes, I'd like that.</p>
+          </div>
+          <div class="note-wrapper" data-note="Je veux bien is a warm, polite 'yes, gladly' — much softer than the literal 'I want well' suggests.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: à côté, au café -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/20.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/a kote o kafe/</p>
+            <p class="phrase text-xl mb-1">À côté, au café.</p>
+            <p class="english">Next door, at the café.</p>
+          </div>
+          <div class="note-wrapper" data-note="À côté = next door / nearby; au is the contraction of à + le.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: est-ce que vous voulez boire quelque chose à côté -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/21.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/ɛs kə vu vule bwaʁ kɛlkə ʃoz a kote/</p>
+            <p class="phrase text-xl mb-1">Est-ce que vous voulez boire quelque chose à côté ?</p>
+            <p class="english">Do you want to drink something next door?</p>
+          </div>
+          <div class="note-wrapper" data-note="Voulez (present) is more direct than voudriez (conditional) — both work for an offer.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: c'est juste à côté -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/22.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/sɛ ʒyst a kote/</p>
+            <p class="phrase text-xl mb-1">C'est juste à côté.</p>
+            <p class="english">It's right next door.</p>
+          </div>
+          <div class="note-wrapper" data-note="Juste here means 'just / right' — it stresses how close the place is.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: avec plaisir -->
+        <div class="card p-5 flex items-center gap-4 shadow-md">
+          <button
+            class="sound-btn"
+            data-audio="https://languages.rmlives.com/lessons/pimsleur/1.6/23.m4a"
+            title="Play audio"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path
+                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"
+              />
+            </svg>
+          </button>
+          <div class="flex-1 min-w-0">
+            <p class="phonetic text-sm mb-0.5">/avɛk plɛziʁ/</p>
+            <p class="phrase text-xl mb-1">Avec plaisir.</p>
+            <p class="english">With pleasure.</p>
+          </div>
+          <div class="note-wrapper" data-note="A warm way to accept an invitation — avec plaisir = gladly.">
+            <button class="note-btn" title="Notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                ></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          23 phrases · Lesson 06 · Bonne chance !
+        </p>
+      </div>
+    </div>
+    <script src="../../assets/js/pimsleur.js"></script>
+  </body>
+</html>
