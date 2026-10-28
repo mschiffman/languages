@@ -508,15 +508,32 @@
             level: 2,
             url: "stories/s1.1_sky.html",
           },
+
+          // Eng children
+          {
+            id: "Vocab",
+            group: 3,
+            level: 1,
+          },
+
+          // Vocab children
+          {
+            id: "At School",
+            group: 3,
+            level: 2,
+            url: "stories/voc_atSchool.html",
+          },
         ],
         links: [
           { source: "Eng", target: "Enunciation" },
           { source: "Eng", target: "stories" },
+          { source: "Eng", target: "Vocab" },
           { source: "stories", target: "Aesop" },
           { source: "stories", target: "Misc" },
           { source: "stories", target: "Level 1 reading" },
           { source: "stories", target: "Level 2 reading" },
           { source: "stories", target: "Science" },
+          { source: "Vocab", target: "At School" },
           { source: "Enunciation", target: "Vowels" },
           { source: "Enunciation", target: "Diphthongs" },
           { source: "Enunciation", target: "Consonants" },
