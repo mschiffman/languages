@@ -179,6 +179,25 @@ didn't work on the Android tablet. Audio is taken from `media/eng/yt/<slug>/`
 
 ---
 
+## Step 6 — Copy to Google Drive
+
+Copy the new page and its offline copy to the Google Drive folder
+`G:\My Drive\_LANGUAGES`:
+
+| File | Copy to |
+|---|---|
+| `stories/<page>.html` | `G:\My Drive\_LANGUAGES\stories\` |
+| `eng/single/<page>.html` | `G:\My Drive\_LANGUAGES\eng\single\` |
+
+```
+cp stories/<page>.html "/g/My Drive/_LANGUAGES/stories/"
+cp eng/single/<page>.html "/g/My Drive/_LANGUAGES/eng/single/"
+```
+
+Copy them again whenever a page or its offline copy is rebuilt.
+
+---
+
 ## Checklist
 
 - [ ] `stories/<page>.html` with `</head>`, title, brand, `IMG_DIR`, `AUD_DIR`, `pages`
@@ -186,4 +205,50 @@ didn't work on the Android tablet. Audio is taken from `media/eng/yt/<slug>/`
 - [ ] Audio made, checked with `check_audio.py`, uploaded; every URL returns 200, a few MD5-matched
 - [ ] Menu entry in `assets/js/nav-*.js`
 - [ ] `eng/single/<page>.html` built
+- [ ] Page copied to `G:\My Drive\_LANGUAGES\stories\`, offline copy to `G:\My Drive\_LANGUAGES\eng\single\`
 - [ ] Commit the page, pictures, menu script (media/ and eng/single/ are git-ignored)
+
+---
+
+## Vocabulary quiz pages
+
+A quiz page (`voc_<set>_quiz.html`, e.g. `voc_atSchool_quiz.html`) shows each
+picture and the learner types the answer ("a book"). It uses the reader's
+pictures and audio — no new media — with its own engine and styles:
+
+| File | Path |
+|---|---|
+| Quiz engine | `assets/js/ytquiz.js` |
+| Quiz styles (on top of `ytstory.css`) | `assets/css/ytquiz.css` |
+
+To make one, copy `voc_atSchool_quiz.html` and change the title, brand,
+`IMG_DIR` / `AUD_DIR`, and `pages`: one `{ img, sentences: [[[answer, audio#]]] }`
+per picture. The engine takes the **last** chunk of each page as the answer, so
+the reader's full `pages` array also works (but then every clip is embedded
+offline). Optional `ALSO` lists other forms marked correct; `HINTS` gives a note shown with the correct answer
+for near misses ("a book" for the dictionary, "a rubber" for eraser).
+
+Rules (graded on recall; the learner is rewarded for correct answers):
+
+- The only clue is the 🔊 audio cue, which says the answer. There is no
+  show-answer button.
+- One answer per picture. A wrong answer is final: the correct answer is shown
+  and played, with a short note (`HINTS`, or "Check the spelling.",
+  "Don't forget a pair of.", "Say the whole name.").
+- Exception: the word is right but a/an is missing or wrong ("eraser",
+  "a eraser") -> "Almost! Add a or an." and **one** more try. A correct second
+  try counts. `SECOND_TRY` in `ytquiz.js` lists the mistake types that get it.
+- Tapping 🔊 first costs no points: an answer typed after listening scores
+  like any other. (`LISTEN_COUNTS_AS_HELP = true` in `ytquiz.js` would make it
+  right but pointless, with a 🔊 badge on the end screen.)
+- Case, spaces, hyphens and end punctuation are ignored.
+
+The end screen shows the score (correct / total, percentage, grade from
+`GRADES`), feedback grouped by mistake type, every wrong answer next to the
+correct one, the right answers, and a **Practice these** round with the
+wrong words.
+`?order=book` keeps the book order (default: shuffled).
+
+Add it to the menu next to its reader, build the offline copy as usual
+(`python -I eng/build_single.py voc_atSchool_quiz`; `build_single.py` knows a
+quiz page only uses the answer clips), and copy both to Google Drive (Step 6).

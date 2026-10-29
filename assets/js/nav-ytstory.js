@@ -42,6 +42,9 @@
       name: "Vocabulary",
       lessons: [
         { title: "At School", href: "voc_atSchool.html" },
+        { title: "At School: Quiz", href: "voc_atSchool_quiz.html" },
+        { title: "Animals", href: "voc_animals_1.html" },
+        { title: "Animals: Quiz", href: "voc_animals_1_quiz.html" },
       ],
     },
   ];

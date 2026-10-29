@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Animals</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>Animals</span>
+        </div>
+        <a class="quiz-link" href="voc_animals_1_quiz.html">Quiz</a>
+        <div class="counter" id="counter">1 / 15</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Media:
+           images : /img/ytstory/voc-animals/1.jpg … 15.jpg   (one per book page)
+           audio  : 01.mp3 … 31.mp3 in AUD_DIR (one per phrase, in reading order)
+         To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/voc-animals/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/voc-animals/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=2610290758";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..31 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [[["Animals", 1]], [["dog", 2]], [["a dog", 3]]],
+        },
+        {
+          img: 2,
+          sentences: [[["cat", 4]], [["a cat", 5]]],
+        },
+        {
+          img: 3,
+          sentences: [[["cow", 6]], [["a cow", 7]]],
+        },
+        {
+          img: 4,
+          sentences: [[["pig", 8]], [["a pig", 9]]],
+        },
+        {
+          img: 5,
+          sentences: [[["horse", 10]], [["a horse", 11]]],
+        },
+        {
+          img: 6,
+          sentences: [[["sheep", 12]], [["a sheep", 13]]],
+        },
+        {
+          img: 7,
+          sentences: [[["goat", 14]], [["a goat", 15]]],
+        },
+        {
+          img: 8,
+          sentences: [[["chicken", 16]], [["a chicken", 17]]],
+        },
+        {
+          img: 9,
+          sentences: [[["duck", 18]], [["a duck", 19]]],
+        },
+        {
+          img: 10,
+          sentences: [[["rabbit", 20]], [["a rabbit", 21]]],
+        },
+        {
+          img: 11,
+          sentences: [[["lion", 22]], [["a lion", 23]]],
+        },
+        {
+          img: 12,
+          sentences: [[["tiger", 24]], [["a tiger", 25]]],
+        },
+        {
+          img: 13,
+          sentences: [[["elephant", 26]], [["an elephant", 27]]],
+        },
+        {
+          img: 14,
+          sentences: [[["monkey", 28]], [["a monkey", 29]]],
+        },
+        {
+          img: 15,
+          sentences: [[["giraffe", 30]], [["a giraffe", 31]]],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

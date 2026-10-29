@@ -89,6 +89,28 @@ header {
   padding: 0.25rem 0.8rem;
   white-space: nowrap;
 }
+/* vocabulary readers: link to the set's quiz, next to the counter */
+.quiz-link {
+  margin-left: auto;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--forest);
+  background: var(--gold);
+  border: 2px solid var(--gold-deep);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+.quiz-link:hover {
+  background: #fff;
+}
+.quiz-link:focus-visible {
+  outline: 3px solid var(--forest-soft);
+  outline-offset: 2px;
+}
 
 /* ---- lessons menu ---- */
 .nav-menu {

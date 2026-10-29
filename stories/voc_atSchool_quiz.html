@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, interactive-widget=resizes-content"
+    />
+    <title>At School Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>At School</span>
+          <span class="tag" id="modeTag">Quiz</span>
+        </div>
+        <div class="counter" id="counter">1 / 22</div>
+      </header>
+
+      <div class="progress" id="progress" aria-hidden="true"></div>
+
+      <main class="quiz-body" id="quiz">
+        <div class="art"><img id="pic" alt="Picture to name" /></div>
+        <form class="answer" id="answerForm" autocomplete="off">
+          <label for="answer" class="sr-only">Type what you see</label>
+          <input
+            id="answer"
+            type="text"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            enterkeyhint="go"
+            placeholder="Type it here"
+          />
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+        </form>
+      </main>
+
+      <section class="results" id="results" aria-live="polite" hidden></section>
+
+      <footer>
+        <button class="nav" id="again" aria-label="Start again with all words">&#8635;</button>
+        <button class="nav" id="listen" aria-label="Listen to the answer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+            <path
+              d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button class="play-page" id="check">
+          <span id="checkLabel">Check</span>
+        </button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Picture -> type the answer. Same media as voc_atSchool.html:
+           images : /img/ytstory/voc-atSchool/1.jpg … 22.jpg
+           audio  : the "a book" … "a student" clips (03, 05 … 45)
+         Each page lists only its answer chunk; the quiz uses the LAST
+         chunk of a page, so the reader's full pages array also works.
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/voc-atSchool/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/voc-atSchool/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=2610270810";
+
+      const pages = [
+        { img: 1, sentences: [[["a book", 3]]] },
+        { img: 2, sentences: [[["a notebook", 5]]] },
+        { img: 3, sentences: [[["a piece of paper", 7]]] },
+        { img: 4, sentences: [[["a pen", 9]]] },
+        { img: 5, sentences: [[["a pencil", 11]]] },
+        { img: 6, sentences: [[["a crayon", 13]]] },
+        { img: 7, sentences: [[["a colored pencil", 15]]] },
+        { img: 8, sentences: [[["a pencil sharpener", 17]]] },
+        { img: 9, sentences: [[["a highlighter", 19]]] },
+        { img: 10, sentences: [[["a dictionary", 21]]] },
+        { img: 11, sentences: [[["a ruler", 23]]] },
+        { img: 12, sentences: [[["an eraser", 25]]] },
+        { img: 13, sentences: [[["a pair of scissors", 27]]] },
+        { img: 14, sentences: [[["a stapler", 29]]] },
+        { img: 15, sentences: [[["a paper clip", 31]]] },
+        { img: 16, sentences: [[["a backpack", 33]]] },
+        { img: 17, sentences: [[["a desk", 35]]] },
+        { img: 18, sentences: [[["a chair", 37]]] },
+        { img: 19, sentences: [[["a school", 39]]] },
+        { img: 20, sentences: [[["a classroom", 41]]] },
+        { img: 21, sentences: [[["a teacher", 43]]] },
+        { img: 22, sentences: [[["a student", 45]]] },
+      ];
+
+      /* Other forms marked correct (feedback shows the lesson's form). */
+      const ALSO = {
+        "a piece of paper": ["a sheet of paper"],
+        "a colored pencil": ["a coloured pencil"],
+      };
+
+      /* Near misses: the answer is still wrong, and this note is shown
+         with the correct answer. */
+      const HINTS = {
+        "a dictionary": { "a book": "It's a kind of book." },
+        "a notebook": {
+          "an exercise book": "That's another word for it.",
+          "a copybook": "That's another word for it.",
+        },
+        "an eraser": { "a rubber": "That's the British word." },
+        "a highlighter": { "a marker": "It's a kind of marker." },
+        "a backpack": {
+          "a bag": "It's a kind of bag.",
+          "a school bag": "That's another word for it.",
+          "a rucksack": "That's another word for it.",
+        },
+        "a desk": { "a table": "At school, it's a desk." },
+        "a classroom": { "a room": "It's a kind of room." },
+        "a student": { "a pupil": "That's another word for it.", "a boy": "At school, he is a student." },
+        "a teacher": { "a woman": "At school, she is a teacher." },
+        "a school": { "a building": "It's a kind of building." },
+      };
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/ytquiz.js"></script>
+  </body>
+</html>

@@ -108,7 +108,9 @@ def expected_media(html: str, img_ext: str, aud_ext: str):
             )
         })
         gaps = sorted(set(range(1, max(auds, default=0) + 1)) - set(auds))
-        if gaps:  # numbers "run 1..N in order"; a gap usually means the parse missed a phrase
+        # numbers "run 1..N in order"; a gap usually means the parse missed a phrase.
+        # Quiz pages (ytquiz.js) list only the answer clips, so gaps are expected there.
+        if gaps and "ytquiz.js" not in html:
             print(f"  warning: no phrase uses audio number(s) {gaps}")
         return ([f"{n}.{img_ext}" for n in imgs], [f"{n:02d}.{aud_ext}" for n in auds])
     if "const LETTERS" in html:  # alphabet: 1 image per letter, name+word audio each

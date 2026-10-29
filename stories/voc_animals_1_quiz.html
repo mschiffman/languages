@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, interactive-widget=resizes-content"
+    />
+    <title>Animals Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>Animals</span>
+          <span class="tag" id="modeTag">Quiz</span>
+        </div>
+        <div class="counter" id="counter">1 / 15</div>
+      </header>
+
+      <div class="progress" id="progress" aria-hidden="true"></div>
+
+      <main class="quiz-body" id="quiz">
+        <div class="art"><img id="pic" alt="Picture to name" /></div>
+        <form class="answer" id="answerForm" autocomplete="off">
+          <label for="answer" class="sr-only">Type what you see</label>
+          <input
+            id="answer"
+            type="text"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            enterkeyhint="go"
+            placeholder="Type it here"
+          />
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+        </form>
+      </main>
+
+      <section class="results" id="results" aria-live="polite" hidden></section>
+
+      <footer>
+        <button class="nav" id="again" aria-label="Start again with all words">&#8635;</button>
+        <button class="nav" id="listen" aria-label="Listen to the answer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+            <path
+              d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button class="play-page" id="check">
+          <span id="checkLabel">Check</span>
+        </button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Picture -> type the answer. Same media as voc_animals_1.html:
+           images : /img/ytstory/voc-animals/1.jpg … 15.jpg
+           audio  : the "a dog" … "a giraffe" clips (03, 05 … 31)
+         Each page lists only its answer chunk; the quiz uses the LAST
+         chunk of a page, so the reader's full pages array also works.
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/voc-animals/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/voc-animals/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=2610290810";
+
+      const pages = [
+        { img: 1, sentences: [[["a dog", 3]]] },
+        { img: 2, sentences: [[["a cat", 5]]] },
+        { img: 3, sentences: [[["a cow", 7]]] },
+        { img: 4, sentences: [[["a pig", 9]]] },
+        { img: 5, sentences: [[["a horse", 11]]] },
+        { img: 6, sentences: [[["a sheep", 13]]] },
+        { img: 7, sentences: [[["a goat", 15]]] },
+        { img: 8, sentences: [[["a chicken", 17]]] },
+        { img: 9, sentences: [[["a duck", 19]]] },
+        { img: 10, sentences: [[["a rabbit", 21]]] },
+        { img: 11, sentences: [[["a lion", 23]]] },
+        { img: 12, sentences: [[["a tiger", 25]]] },
+        { img: 13, sentences: [[["an elephant", 27]]] },
+        { img: 14, sentences: [[["a monkey", 29]]] },
+        { img: 15, sentences: [[["a giraffe", 31]]] },
+      ];
+
+      /* Near misses: the answer is still wrong, and this note is shown
+         with the correct answer. */
+      const HINTS = {
+        "a dog": { "a puppy": "A puppy is a baby dog." },
+        "a cat": { "a kitten": "A kitten is a baby cat." },
+        "a cow": { "a calf": "A calf is a baby cow.", "a bull": "A bull is a male cow." },
+        "a pig": { "a piglet": "A piglet is a baby pig." },
+        "a horse": { "a pony": "A pony is a small horse." },
+        "a sheep": { "a lamb": "A lamb is a baby sheep." },
+        "a goat": { "a sheep": "A goat has horns and a beard." },
+        "a chicken": { "a hen": "That's another word for it.", "a bird": "It's a kind of bird." },
+        "a duck": { "a duckling": "A duckling is a baby duck.", "a bird": "It's a kind of bird." },
+        "a rabbit": { "a bunny": "That's another word for it." },
+        "a lion": { "a cat": "It's a big cat." },
+        "a tiger": { "a cat": "It's a big cat." },
+        "a monkey": { "an ape": "An ape has no tail." },
+      };
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/ytquiz.js"></script>
+  </body>
+</html>
