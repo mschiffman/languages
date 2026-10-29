@@ -45,6 +45,8 @@
         { title: "At School: Quiz", href: "voc_atSchool_quiz.html" },
         { title: "Animals", href: "voc_animals_1.html" },
         { title: "Animals: Quiz", href: "voc_animals_1_quiz.html" },
+        { title: "More Animals", href: "voc_animals_2.html" },
+        { title: "More Animals: Quiz", href: "voc_animals_2_quiz.html" },
       ],
     },
   ];

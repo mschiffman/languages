@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, interactive-widget=resizes-content"
+    />
+    <title>More Animals Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>More Animals</span>
+          <span class="tag" id="modeTag">Quiz</span>
+        </div>
+        <div class="counter" id="counter">1 / 15</div>
+      </header>
+
+      <div class="progress" id="progress" aria-hidden="true"></div>
+
+      <main class="quiz-body" id="quiz">
+        <div class="art"><img id="pic" alt="Picture to name" /></div>
+        <form class="answer" id="answerForm" autocomplete="off">
+          <label for="answer" class="sr-only">Type what you see</label>
+          <input
+            id="answer"
+            type="text"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            enterkeyhint="go"
+            placeholder="Type it here"
+          />
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+        </form>
+      </main>
+
+      <section class="results" id="results" aria-live="polite" hidden></section>
+
+      <footer>
+        <button class="nav" id="again" aria-label="Start again with all words">&#8635;</button>
+        <button class="nav" id="listen" aria-label="Listen to the answer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+            <path
+              d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button class="play-page" id="check">
+          <span id="checkLabel">Check</span>
+        </button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Picture -> type the answer. Same media as voc_animals_2.html:
+           images : /img/ytstory/voc-animals/16.jpg … 30.jpg
+           audio  : the "a zebra" … "a whale" clips (03, 05 … 31)
+         Each page lists only its answer chunk; the quiz uses the LAST
+         chunk of a page, so the reader's full pages array also works.
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/voc-animals/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/voc-animals-2/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=261029";
+
+      const pages = [
+        { img: 16, sentences: [[["a zebra", 3]]] },
+        { img: 17, sentences: [[["a bear", 5]]] },
+        { img: 18, sentences: [[["a deer", 7]]] },
+        { img: 19, sentences: [[["a fox", 9]]] },
+        { img: 20, sentences: [[["a bird", 11]]] },
+        { img: 21, sentences: [[["a butterfly", 13]]] },
+        { img: 22, sentences: [[["a bee", 15]]] },
+        { img: 23, sentences: [[["an ant", 17]]] },
+        { img: 24, sentences: [[["a snake", 19]]] },
+        { img: 25, sentences: [[["a frog", 21]]] },
+        { img: 26, sentences: [[["a turtle", 23]]] },
+        { img: 27, sentences: [[["a crocodile", 25]]] },
+        { img: 28, sentences: [[["a fish", 27]]] },
+        { img: 29, sentences: [[["a dolphin", 29]]] },
+        { img: 30, sentences: [[["a whale", 31]]] },
+      ];
+
+      /* Near misses: the answer is still wrong, and this note is shown
+         with the correct answer. */
+      const HINTS = {
+        "a zebra": { "a horse": "A zebra has black and white stripes." },
+        "a deer": { "a fawn": "A fawn is a baby deer." },
+        "a bird": {
+          "a parrot": "It's a kind of bird.",
+          "a budgie": "It's a kind of bird.",
+          "a parakeet": "It's a kind of bird.",
+        },
+        "a butterfly": { "an insect": "It's a kind of insect.", "a moth": "A moth looks like a butterfly." },
+        "a bee": {
+          "an insect": "It's a kind of insect.",
+          "a bumblebee": "It's a kind of bee.",
+          "a honeybee": "It's a kind of bee.",
+          "a wasp": "A bee makes honey.",
+        },
+        "an ant": { "an insect": "It's a kind of insect." },
+        "a frog": { "a toad": "A toad looks like a frog." },
+        "a turtle": { "a tortoise": "A tortoise is a turtle that lives on land." },
+        "a crocodile": { "an alligator": "An alligator looks like a crocodile." },
+        "a fish": { "a goldfish": "It's a kind of fish." },
+        "a dolphin": { "a fish": "A dolphin is not a fish.", "a whale": "A dolphin is smaller than a whale." },
+        "a whale": { "a fish": "A whale is not a fish.", "a dolphin": "A whale is bigger than a dolphin." },
+      };
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/ytquiz.js"></script>
+  </body>
+</html>
