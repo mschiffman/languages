@@ -17,6 +17,7 @@
         { title: "How Do Bees Make Honey?", href: "s1.6_beesHoney.html" },
         { title: "A Visit to the Ant City", href: "s1.7_leafcutterAnt.html" },
         { title: "The Birds That Built an Apartment Building!", href: "s1.8_weaver.html" },
+        { title: "The Beavers: Nature's Engineers", href: "s1.9_beavers.html" },
       ],
     },
     {

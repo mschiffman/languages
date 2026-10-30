@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Beavers: Nature's Engineers</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <ellipse cx="18" cy="17" rx="4.5" ry="2.6" transform="rotate(-30 18 17)" fill="#5A4A3A" />
+            <path d="M15.8 16.2l4.2-2.4M16.6 17.8l4.2-2.4" stroke="#3A2E24" stroke-width="0.8" stroke-linecap="round" />
+            <circle cx="6" cy="6.5" r="1.8" fill="#7A4E28" />
+            <circle cx="16" cy="6.5" r="1.8" fill="#7A4E28" />
+            <ellipse cx="11" cy="12" rx="7" ry="6.5" fill="#9A6A3A" />
+            <circle cx="8.2" cy="10.5" r="1.1" fill="#2A1A10" />
+            <circle cx="13.8" cy="10.5" r="1.1" fill="#2A1A10" />
+            <ellipse cx="11" cy="13.6" rx="1.5" ry="1" fill="#3A2416" />
+            <rect x="9.7" y="15" width="1.2" height="2.2" rx="0.3" fill="#F0A040" />
+            <rect x="11.1" y="15" width="1.2" height="2.2" rx="0.3" fill="#F0A040" />
+          </svg>
+          <span>The Beavers: <span style="color: #8A5A2B">Nature's</span>&nbsp;<span style="color: #3f7f9a">Engineers</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s1.9_beavers/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 75.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s1.9_beavers/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s1.9_beavers/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..75 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [
+              ["Deep in a beautiful forest,", 1],
+              ["a family of beavers lives", 2],
+              ["beside a little stream.", 3],
+            ],
+            [
+              ["Beavers have strong teeth,", 4],
+              ["brown fur,", 5],
+              ["and wide, flat tails.", 6],
+            ],
+            [["They are excellent swimmers!", 7]],
+            [
+              ["But beavers can do something", 8],
+              ["even more amazing.", 9],
+            ],
+            [
+              ["They can build dams", 10],
+              ["and change the flow of water!", 11],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["Look at that busy beaver!", 12]],
+            [
+              ["It is chewing a tree", 13],
+              ["with its strong front teeth.", 14],
+            ],
+            [["Crunch! Crunch! Crunch!", 15]],
+            [
+              ["Beavers use their teeth", 16],
+              ["to cut down small trees and branches.", 17],
+            ],
+            [["They carry the wood to the water.", 18]],
+            [["What hardworking animals!", 19]],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["The beavers are building something", 20],
+              ["across the stream.", 21],
+            ],
+            [
+              ["They put branches and sticks", 22],
+              ["into the water.", 23],
+            ],
+            [
+              ["Then they add mud, stones,", 24],
+              ["and more wood.", 25],
+            ],
+            [
+              ["Little by little,", 26],
+              ["a strong dam begins to form.", 27],
+            ],
+            [["The dam slows the flowing water.", 28]],
+            [["What clever builders!", 29]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["Look! Something amazing is happening!", 30]],
+            [
+              ["The water behind the dam", 31],
+              ["is getting deeper.", 32],
+            ],
+            [
+              ["Slowly,", 33],
+              ["a pond begins to form.", 34],
+            ],
+            [
+              ["The beavers can swim safely", 35],
+              ["around their new home.", 36],
+            ],
+            [
+              ["Deep water helps protect them", 37],
+              ["from animals that might hurt them.", 38],
+            ],
+            [["The beavers have changed their little stream!", 39]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ["Now the beavers need", 40],
+              ["a safe place to live.", 41],
+            ],
+            [["They build a home called a lodge.", 42]],
+            [
+              ["The lodge is made of sticks,", 43],
+              ["branches, and mud.", 44],
+            ],
+            [["But where is the door?", 45]],
+            [["Surprise! The entrance is underwater!", 46]],
+            [
+              ["Inside, the beavers have", 47],
+              ["a warm, dry room", 48],
+              ["above the water.", 49],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["Inside the lodge,", 50],
+              ["the baby beavers are resting.", 51],
+            ],
+            [["Baby beavers are called kits.", 52]],
+            [["Their parents keep them safe and warm.", 53]],
+            [
+              ["When the kits grow bigger,", 54],
+              ["they learn to swim", 55],
+              ["and help their family.", 56],
+            ],
+            [
+              ["The beavers also collect branches", 57],
+              ["and other plants to eat.", 58],
+            ],
+            [["Their home is a busy, happy place!", 59]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["The beavers have made a beautiful pond.", 60]],
+            [
+              ["But look!", 61],
+              ["They are not the only animals enjoying it.", 62],
+            ],
+            [["Fish swim in the water.", 63]],
+            [["Frogs rest near the pond.", 64]],
+            [["Ducks and other birds visit too.", 65]],
+            [
+              ["The beavers have created a home", 66],
+              ["for many living things!", 67],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [["Now we know why beavers are special!", 68]],
+            [["They cut wood with their strong teeth.", 69]],
+            [["They build dams that slow the water.", 70]],
+            [
+              ["They make safe homes", 71],
+              ["with underwater entrances.", 72],
+            ],
+            [["And their ponds help many other animals.", 73]],
+            [
+              ["These remarkable builders", 74],
+              ["are called nature's engineers!", 75],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
