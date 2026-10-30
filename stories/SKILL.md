@@ -192,13 +192,16 @@ Copy the new page and its offline copy to the Google Drive folder
 |---|---|
 | `stories/<page>.html` | `G:\My Drive\_LANGUAGES\stories\` |
 | `eng/single/<page>.html` | `G:\My Drive\_LANGUAGES\eng\single\` |
+| The menu script from Step 4 (`assets/js/nav-*.js`) | `G:\My Drive\_LANGUAGES\assets\js\` |
 
 ```
 cp stories/<page>.html "/g/My Drive/_LANGUAGES/stories/"
 cp eng/single/<page>.html "/g/My Drive/_LANGUAGES/eng/single/"
+cp assets/js/nav-science.js "/g/My Drive/_LANGUAGES/assets/js/"   # the menu you edited
 ```
 
-Copy them again whenever a page or its offline copy is rebuilt.
+Copy them again whenever a page, its offline copy or its menu changes —
+including when a picture is replaced (rebuild the offline copy first).
 
 ---
 
@@ -209,7 +212,7 @@ Copy them again whenever a page or its offline copy is rebuilt.
 - [ ] Audio made, checked with `check_audio.py`, uploaded; every URL returns 200, a few MD5-matched
 - [ ] Menu entry in `assets/js/nav-*.js`
 - [ ] `eng/single/<page>.html` built
-- [ ] Page copied to `G:\My Drive\_LANGUAGES\stories\`, offline copy to `G:\My Drive\_LANGUAGES\eng\single\`
+- [ ] Page copied to `G:\My Drive\_LANGUAGES\stories\`, offline copy to `G:\My Drive\_LANGUAGES\eng\single\`, menu script to `G:\My Drive\_LANGUAGES\assets\js\`
 - [ ] Commit the page, pictures, menu script (media/ and eng/single/ are git-ignored)
 
 ---
