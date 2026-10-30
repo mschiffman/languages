@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>A Visit to the Ant City</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path d="M8 16C11 12 14 9 18 7" stroke="#3f7a35" stroke-width="1.4" stroke-linecap="round" />
+            <circle cx="6.2" cy="19" r="1.9" fill="#8B3A1A" />
+            <circle cx="9.2" cy="18.2" r="1.4" fill="#8B3A1A" />
+          </svg>
+          <span>A Visit to the <span style="color: #8B3A1A">Ant</span>&nbsp;<span style="color: #3f9a3a">City</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s1.7_leafcutterAnt/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 80.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s1.7_leafcutterAnt/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s1.7_leafcutterAnt/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..80 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [
+              ["Deep in a tropical rainforest,", 1],
+              ["hundreds of tiny ants are marching.", 2],
+            ],
+            [
+              ["Look!", 3],
+              ["They are carrying big green leaves!", 4],
+            ],
+            [
+              ["Some leaves are much bigger", 5],
+              ["than the ants themselves.", 6],
+            ],
+            [["Where are they going?", 7]],
+            [
+              ["They are going home", 8],
+              ["to their underground city!", 9],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["Leafcutter ants have strong jaws.", 10]],
+            [
+              ["They use their jaws", 11],
+              ["to cut leaves into small pieces.", 12],
+            ],
+            [
+              ["Then they lift the pieces", 13],
+              ["and carry them home.", 14],
+            ],
+            [
+              ["Some ants carry leaves", 15],
+              ["many times their own weight!", 16],
+            ],
+            [["What strong little workers!", 17]],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["Let's follow the ants underground!", 18]],
+            [["Wow! What a big city!", 19]],
+            [["There are tunnels going everywhere.", 20]],
+            [
+              ["The tunnels connect many rooms", 21],
+              ["called chambers.", 22],
+            ],
+            [["Some chambers are for food.", 23]],
+            [["Others are for babies.", 24]],
+            [["What an amazing underground home!", 25]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["Do leafcutter ants eat the leaves?", 26]],
+            [["No, they don't!", 27]],
+            [
+              ["They carry the leaves", 28],
+              ["to special chambers.", 29],
+            ],
+            [
+              ["There, small worker ants", 30],
+              ["chew the leaves into tiny pieces.", 31],
+            ],
+            [
+              ["They use these pieces", 32],
+              ["to grow a special fungus.", 33],
+            ],
+            [["The fungus becomes their food!", 34]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["The ants are very careful farmers.", 35]],
+            [
+              ["They clean their fungus gardens", 36],
+              ["every day.", 37],
+            ],
+            [
+              ["They remove harmful bits", 38],
+              ["and unwanted mold.", 39],
+            ],
+            [
+              ["Some ants have helpful bacteria", 40],
+              ["on their bodies.", 41],
+            ],
+            [
+              ["These bacteria make substances", 42],
+              ["that protect the fungus", 43],
+              ["from certain diseases.", 44],
+            ],
+            [
+              ["The ants work hard", 45],
+              ["to keep their food healthy!", 46],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["In Ant City,", 47],
+              ["everyone has work to do!", 48],
+            ],
+            [
+              ["Large workers", 49],
+              ["help protect the colony.", 50],
+            ],
+            [
+              ["Medium-sized workers", 51],
+              ["cut and carry leaves.", 52],
+            ],
+            [
+              ["Tiny workers care for the fungus gardens", 53],
+              ["and young ants.", 54],
+            ],
+            [
+              ["The ants work together,", 55],
+              ["day and night.", 56],
+            ],
+            [["What a busy city!", 57]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ["Deep underground", 58],
+              ["lives the queen ant.", 59],
+            ],
+            [
+              ["She is much bigger", 60],
+              ["than the workers.", 61],
+            ],
+            [
+              ["Her most important job", 62],
+              ["is to lay eggs.", 63],
+            ],
+            [
+              ["Tiny worker ants", 64],
+              ["take care of the eggs and baby ants.", 65],
+            ],
+            [
+              ["The queen can live", 66],
+              ["for many years.", 67],
+            ],
+            [["She is the mother of the colony!", 68]],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [
+              ["Now we know", 69],
+              ["the secret of Ant City!", 70],
+            ],
+            [
+              ["The ants cut leaves", 71],
+              ["and carry them underground.", 72],
+            ],
+            [
+              ["They grow fungus", 73],
+              ["to make food.", 74],
+            ],
+            [
+              ["They build tunnels,", 75],
+              ["care for their babies,", 76],
+              ["and protect their queen.", 77],
+            ],
+            [["Every ant has an important job.", 78]],
+            [
+              ["Together, these tiny creatures", 79],
+              ["build an amazing underground world!", 80],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
