@@ -19,6 +19,7 @@
         { title: "The Birds That Built an Apartment Building!", href: "s1.8_weaver.html" },
         { title: "The Beavers: Nature's Engineers", href: "s1.9_beavers.html" },
         { title: "The Playful Otters of the River", href: "s2.0_otters.html" },
+        { title: "A Visit to Prairie Dog Town", href: "s2.1_prairieDog.html" },
       ],
     },
     {

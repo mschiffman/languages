@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>A Visit to Prairie Dog Town</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <circle cx="9.5" cy="4" r="1" fill="#7A4E28" />
+            <circle cx="14.5" cy="4" r="1" fill="#7A4E28" />
+            <ellipse cx="12" cy="13" rx="3.8" ry="5.8" fill="#B8844E" />
+            <ellipse cx="12" cy="14" rx="2.1" ry="3.8" fill="#E6C69C" />
+            <circle cx="12" cy="6.4" r="3.2" fill="#B8844E" />
+            <circle cx="10.8" cy="5.9" r="0.6" fill="#2A1A10" />
+            <circle cx="13.2" cy="5.9" r="0.6" fill="#2A1A10" />
+            <ellipse cx="12" cy="7.6" rx="0.8" ry="0.55" fill="#2A1A10" />
+            <ellipse cx="10.6" cy="10.6" rx="0.9" ry="0.6" fill="#7A4E28" />
+            <ellipse cx="13.4" cy="10.6" rx="0.9" ry="0.6" fill="#7A4E28" />
+            <path d="M1.5 22c2-4.5 6-5.8 10.5-5.8s8.5 1.3 10.5 5.8Z" fill="#8A5A32" />
+            <path d="M3 17.5l-0.6-3M4.6 17l0.6-2.8M20.4 17l-0.6-2.8M22 17.5l0.6-3" stroke="#6f9a3a" stroke-width="1" stroke-linecap="round" />
+          </svg>
+          <span>A Visit to <span style="color: #8A5A2B">Prairie&nbsp;Dog</span>&nbsp;<span style="color: #6f9a3a">Town</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s2.1_prairieDog/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 81.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s2.1_prairieDog/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s2.1_prairieDog/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..81 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [
+              ["One sunny day,", 1],
+              ["we looked across the wide prairie.", 2],
+            ],
+            [["The grass moved in the wind.", 3]],
+            [["Then—pop! pop! pop!", 4]],
+            [
+              ["Little brown animals peeked out", 5],
+              ["from holes in the ground.", 6],
+            ],
+            [["They were prairie dogs!", 7]],
+            [
+              ['"Welcome to Prairie Dog Town!"', 8],
+              ["it seemed to say.", 9],
+            ],
+            [["What a surprising place!", 10]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["The prairie dogs were very busy.", 11]],
+            [
+              ["Some were digging", 12],
+              ["with their strong claws.", 13],
+            ],
+            [
+              ["Some were pushing dirt", 14],
+              ["out of their burrows.", 15],
+            ],
+            [
+              ["Some were running", 16],
+              ["from one hole to another.", 17],
+            ],
+            [
+              ["Under the ground,", 18],
+              ["they were making tunnels and rooms.", 19],
+            ],
+            [["This was not just a few holes.", 20]],
+            [["It was a whole little town!", 21]],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["If we could look underground,", 22],
+              ["what would we see?", 23],
+            ],
+            [
+              ["We would see tunnels", 24],
+              ["going in many directions.", 25],
+            ],
+            [["We would see little chambers for sleeping.", 26]],
+            [["We would see safe places for babies.", 27]],
+            [["We would see escape tunnels too.", 28]],
+            [
+              ["Prairie Dog Town was like", 29],
+              ["a small underground city.", 30],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["One prairie dog stood very still.", 31]],
+            [
+              ["It rose up on its hind legs", 32],
+              ["and looked all around.", 33],
+            ],
+            [["Why was it standing so tall?", 34]],
+            [["It was watching for danger.", 35]],
+            [["Maybe a hawk was flying above.", 36]],
+            [["Maybe a coyote was nearby.", 37]],
+            [
+              ["The little guard", 38],
+              ["was keeping the town safe.", 39],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [
+              ["Suddenly,", 40],
+              ["the guard gave a sharp call.", 41],
+            ],
+            [["Chirp! Bark! Chirp!", 42]],
+            [
+              ["At once,", 43],
+              ["the other prairie dogs listened.", 44],
+            ],
+            [["Some ran to their burrows.", 45]],
+            [["Some disappeared underground.", 46]],
+            [
+              ["Prairie dogs use sounds", 47],
+              ["to warn each other.", 48],
+            ],
+            [
+              ["They are little animals", 49],
+              ["with a big message:", 50],
+              ['"Be careful!"', 51],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["Prairie dogs do not live alone.", 52]],
+            [["They live in family groups.", 53]],
+            [["A family group is called a coterie.", 54]],
+            [["The adults care for the babies.", 55]],
+            [
+              ["The young prairie dogs", 56],
+              ["stay in the burrow at first.", 57],
+            ],
+            [
+              ["Later,", 58],
+              ["they come outside", 59],
+              ["to look around and learn.", 60],
+            ],
+            [["Prairie Dog Town is full of busy families.", 61]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["Prairie dogs are part of a bigger world.", 62]],
+            [["They eat grasses, roots, and seeds.", 63]],
+            [["Their burrows can help other animals too.", 64]],
+            [
+              ["Sometimes other animals", 65],
+              ["use old burrows for shelter.", 66],
+            ],
+            [
+              ["Prairie Dog Town is not just important", 67],
+              ["to prairie dogs.", 68],
+            ],
+            [
+              ["It helps many creatures", 69],
+              ["on the grassland.", 70],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [
+              ["Now we know the secret", 71],
+              ["of Prairie Dog Town!", 72],
+            ],
+            [
+              ["Prairie dogs dig tunnels", 73],
+              ["and chambers underground.", 74],
+            ],
+            [["They live in families.", 75]],
+            [["They watch for danger.", 76]],
+            [["They call to one another.", 77]],
+            [
+              ["They work together", 78],
+              ["to build a safe little town", 79],
+              ["beneath the prairie.", 80],
+            ],
+            [["What an amazing underground community!", 81]],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
