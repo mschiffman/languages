@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Birds That Built an Apartment Building!</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M3 12C3 7 7.5 4 12 4s9 3 9 8c0 4-4 6-9 6s-9-2-9-6Z" fill="#D9B45A" />
+            <path d="M5 10l3 1M9 7l2 2M15 7l-2 2M19 10l-3 1M6 15l3-1M18 15l-3-1" stroke="#9A7330" stroke-width="1.1" stroke-linecap="round" />
+            <circle cx="9" cy="14.5" r="1.6" fill="#5A3A1E" />
+            <circle cx="15" cy="14.5" r="1.6" fill="#5A3A1E" />
+            <circle cx="12" cy="21" r="2.2" fill="#8A6A4A" />
+            <path d="M14 20.6l2.2-.6-2 1.4Z" fill="#E0A030" />
+          </svg>
+          <span>The Birds That Built an <span style="color: #9A6A2A">Apartment</span>&nbsp;<span style="color: #3f8a9a">Building!</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s1.8_weaver/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 66.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s1.8_weaver/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s1.8_weaver/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..66 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Look at that enormous nest!", 1]],
+            [
+              ["It looks like a giant pile", 2],
+              ["of dry grass.", 3],
+            ],
+            [["But it is not just one bird's home.", 4]],
+            [["Many little birds live inside!", 5]],
+            [["They are called sociable weavers.", 6]],
+            [["Welcome to the birds' apartment building!", 7]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["The little birds are very busy.", 8]],
+            [
+              ["They collect long pieces", 9],
+              ["of dry grass.", 10],
+            ],
+            [["They carry the grass in their beaks.", 11]],
+            [
+              ["Then they fly back", 12],
+              ["to the big tree.", 13],
+            ],
+            [["They push the grass into their nest.", 14]],
+            [
+              ["Little by little,", 15],
+              ["their home grows bigger!", 16],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["Let's look inside the nest!", 17]],
+            [["Wow! There are rooms everywhere!", 18]],
+            [
+              ["Each family has", 19],
+              ["its own little chamber.", 20],
+            ],
+            [["Some rooms have eggs.", 21]],
+            [["Others have baby birds.", 22]],
+            [
+              ["Many families live together", 23],
+              ["under one big roof!", 24],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["Cheep! Cheep! Cheep!", 25]],
+            [["The baby birds are hungry!", 26]],
+            [["They open their little mouths.", 27]],
+            [["Their parents bring them insects to eat.", 28]],
+            [["The babies eat and grow.", 29]],
+            [
+              ["Soon,", 30],
+              ["they will be ready to fly!", 31],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["The birds keep working on their home.", 32]],
+            [["Some bring more grass.", 33]],
+            [["Others fix old parts of the nest.", 34]],
+            [
+              ["The nest needs care", 35],
+              ["to stay strong.", 36],
+            ],
+            [["These little birds work together.", 37]],
+            [["What wonderful builders!", 38]],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["The sun is very hot", 39],
+              ["in the daytime.", 40],
+            ],
+            [
+              ["But inside the nest,", 41],
+              ["it can be cooler.", 42],
+            ],
+            [
+              ["At night,", 43],
+              ["the air outside gets cold.", 44],
+            ],
+            [
+              ["The thick grass helps", 45],
+              ["keep the birds warm.", 46],
+            ],
+            [["Their giant nest is a clever home!", 47]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["Look at all the families!", 48]],
+            [["Some birds are building.", 49]],
+            [["Some are feeding their babies.", 50]],
+            [
+              ["Others are resting", 51],
+              ["inside their rooms.", 52],
+            ],
+            [
+              ["Many birds share", 53],
+              ["the same enormous nest.", 54],
+            ],
+            [
+              ["It is like a little village", 55],
+              ["in a tree!", 56],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [["Now we know their secret!", 57]],
+            [
+              ["Sociable weavers build", 58],
+              ["one enormous nest.", 59],
+            ],
+            [
+              ["They use grass", 60],
+              ["to make many little chambers.", 61],
+            ],
+            [
+              ["They raise their babies", 62],
+              ["and rest inside.", 63],
+            ],
+            [
+              ["Their home protects them", 64],
+              ["from hot days and cold nights.", 65],
+            ],
+            [["These tiny birds are amazing builders!", 66]],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

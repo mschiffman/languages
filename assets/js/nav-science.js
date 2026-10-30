@@ -16,6 +16,7 @@
         { title: "Why Do We Have Day and Night?", href: "s1.5_dayNight.html" },
         { title: "How Do Bees Make Honey?", href: "s1.6_beesHoney.html" },
         { title: "A Visit to the Ant City", href: "s1.7_leafcutterAnt.html" },
+        { title: "The Birds That Built an Apartment Building!", href: "s1.8_weaver.html" },
       ],
     },
     {

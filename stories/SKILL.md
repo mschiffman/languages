@@ -62,7 +62,8 @@ reader has no place for a page/scene title, so the headings aren't shown or
 read. A long scene is fine — the text panel scrolls (Tinker Bell's scene 6 has
 10 sentences).
 
-- Chunk 1 is the title, alone, on page 1.
+- Chunk 1 is the title, alone, on page 1 (fairy tales and fables). Science
+  readers have no title chunk; chunk 1 is the first sentence.
 - Split sentences at natural pauses into chunks of about 2–6 words:
   before "and"/"but", after a fronted phrase ("One day," / "At last,"), between
   a quote and its speech tag (`'"Go down,"'` / `"said the magician."`).
@@ -76,6 +77,9 @@ read. A long scene is fine — the text panel scrolls (Tinker Bell's scene 6 has
 
 For a long text it's easiest to write the chunks as a Python list and print
 the `pages` JS with the numbers filled in.
+
+Don't save the chunks in a separate `.txt` file: the `pages` array is the
+only copy.
 
 ---
 
