@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>À l'école</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>À l'école</span>
+        </div>
+        <div class="counter" id="counter">1 / 22</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Page précédente">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Écouter cette page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Page suivante">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Media:
+           images : /img/ytstory/voc-atSchool/1.jpg … 22.jpg   (one per book page)
+           audio  : 01.mp3 … 45.mp3 in AUD_DIR (one per French phrase, in reading order)
+         To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/voc-atSchool/";
+      const AUD_DIR = "https://languages.rmlives.com/fr/voc/atSchool/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=26103010713";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..45 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [[["À l'école", 1]], [["livre", 2]], [["un livre", 3]]],
+        },
+        {
+          img: 2,
+          sentences: [[["cahier", 4]], [["un cahier", 5]]],
+        },
+        {
+          img: 3,
+          sentences: [[["papier", 6]], [["une feuille de papier", 7]]],
+        },
+        {
+          img: 4,
+          sentences: [[["stylo", 8]], [["un stylo", 9]]],
+        },
+        {
+          img: 5,
+          sentences: [[["crayon", 10]], [["un crayon", 11]]],
+        },
+        {
+          img: 6,
+          sentences: [[["crayon de cire", 12]], [["un crayon de cire", 13]]],
+        },
+        {
+          img: 7,
+          sentences: [[["crayon de couleur", 14]], [["un crayon de couleur", 15]]],
+        },
+        {
+          img: 8,
+          sentences: [[["taille-crayon", 16]], [["un taille-crayon", 17]]],
+        },
+        {
+          img: 9,
+          sentences: [[["surligneur", 18]], [["un surligneur", 19]]],
+        },
+        {
+          img: 10,
+          sentences: [[["dictionnaire", 20]], [["un dictionnaire", 21]]],
+        },
+        {
+          img: 11,
+          sentences: [[["règle", 22]], [["une règle", 23]]],
+        },
+        {
+          img: 12,
+          sentences: [[["gomme", 24]], [["une gomme", 25]]],
+        },
+        {
+          img: 13,
+          sentences: [[["ciseaux", 26]], [["une paire de ciseaux", 27]]],
+        },
+        {
+          img: 14,
+          sentences: [[["agrafeuse", 28]], [["une agrafeuse", 29]]],
+        },
+        {
+          img: 15,
+          sentences: [[["trombone", 30]], [["un trombone", 31]]],
+        },
+        {
+          img: 16,
+          sentences: [[["sac à dos", 32]], [["un sac à dos", 33]]],
+        },
+        {
+          img: 17,
+          sentences: [[["bureau", 34]], [["un bureau", 35]]],
+        },
+        {
+          img: 18,
+          sentences: [[["chaise", 36]], [["une chaise", 37]]],
+        },
+        {
+          img: 19,
+          sentences: [[["école", 38]], [["une école", 39]]],
+        },
+        {
+          img: 20,
+          sentences: [[["salle de classe", 40]], [["une salle de classe", 41]]],
+        },
+        {
+          img: 21,
+          sentences: [[["professeure", 42]], [["une professeure", 43]]],
+        },
+        {
+          img: 22,
+          sentences: [[["élève", 44]], [["un élève", 45]]],
+        },
+      ];
+    </script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

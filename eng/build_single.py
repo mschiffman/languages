@@ -19,6 +19,7 @@ Usage (from anywhere):
     python eng/build_single.py 2.7_clean 2.8_do     build just these
     python eng/build_single.py --out some/dir       write somewhere else
     python eng/build_single.py --kbps 0             embed the original audio untouched
+    python eng/build_single.py fr/voc/animals.html --out fr/voc/single   a page outside stories/
 
 Output goes to eng/single/<name>.html (same file names as stories/). The lessons
 menu (assets/js/nav-*.js) is always left out: it didn't work on the Android
@@ -26,8 +27,10 @@ tablet, and leaving it out means new lessons never need adding to a menu.
 
 Media lookup
   images : the page's IMG_DIR, relative to the site root (e.g. img/ytstory/2.7_clean/)
-  audio  : eng/yt/<story>/NN.mp3, then media/eng/yt/<story>/NN.mp3 (the backup
-           copy), otherwise downloaded from the page's AUD_DIR and cached in eng/yt/
+  audio  : eng/yt/<story>/NN.mp3, then media/<AUD_DIR path>/NN.mp3 (the backup
+           copy, e.g. media/eng/yt/<story>/), otherwise downloaded from the page's
+           AUD_DIR and cached in eng/yt/. <story> is the AUD_DIR folder for eng/yt/
+           pages and the whole AUD_DIR path otherwise (fr/voc/animals).
 """
 import argparse
 import base64
@@ -36,6 +39,7 @@ import re
 import shutil
 import subprocess
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -120,9 +124,17 @@ def expected_media(html: str, img_ext: str, aud_ext: str):
     raise BuildError("no `const pages` or `const LETTERS` data found - not a story page?")
 
 
+def audio_key(aud_dir: str) -> str:
+    """Folder name for the audio caches: <slug> for eng/yt/<slug>/, else the whole URL path
+    (fr/voc/animals), so a French and an English set with the same last part don't mix."""
+    path = urllib.parse.urlparse(aud_dir).path.strip("/")
+    return path[len("eng/yt/"):] if path.startswith("eng/yt/") else path
+
+
 def find_audio(url_name: str, slug: str, aud_dir: str) -> Path:
     name = url_name.split("?")[0]  # AUD_EXT may carry a cache-buster, e.g. "mp3?v=123"
-    for folder in (AUDIO_CACHE / slug, AUDIO_BACKUP / slug):
+    backup = ROOT / "media" / urllib.parse.urlparse(aud_dir).path.strip("/")  # media/eng/yt/<slug>, media/fr/voc/<slug>
+    for folder in (AUDIO_CACHE / slug, backup):
         if (folder / name).is_file():
             return folder / name
     if aud_dir.startswith("http"):
@@ -149,7 +161,7 @@ def collect_embed(html: str, kbps: int) -> dict:
     img_ext = js_const(html, "IMG_EXT", "jpg")
     aud_ext = js_const(html, "AUD_EXT", "mp3")
     imgs, auds = expected_media(html, img_ext, aud_ext)
-    slug = aud_dir.rstrip("/").rsplit("/", 1)[-1]
+    slug = audio_key(aud_dir)
 
     embed = {}
     missing = []
@@ -183,6 +195,7 @@ def build(page: Path, out_dir: Path, kbps: int = 96) -> Path:
     title = re.search(r"<title>(.*?)</title>", html, re.S)
     head = re.search(r"<head>(.*?)</head>", html, re.S)
     body = re.search(r"<body>(.*?)</body>", html, re.S)
+    lang = re.search(r'<html lang="([^"]+)"', html)
     if not (title and head and body):
         raise BuildError("expected <title>, <head> and <body>")
 
@@ -220,7 +233,7 @@ def build(page: Path, out_dir: Path, kbps: int = 96) -> Path:
     body_html = body_html[:first] + embed_js + "\n    " + body_html[first:]
 
     out = (
-        '<!doctype html>\n<html lang="en">\n  <head>\n'
+        f'<!doctype html>\n<html lang="{lang.group(1) if lang else "en"}">\n  <head>\n'
         '    <meta charset="UTF-8" />\n'
         '    <meta\n      name="viewport"\n'
         '      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"\n'
