@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Playful Otters of the River</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <circle cx="5.6" cy="6.4" r="1.7" fill="#6A4224" />
+            <circle cx="18.4" cy="6.4" r="1.7" fill="#6A4224" />
+            <ellipse cx="12" cy="11.2" rx="7.2" ry="6.2" fill="#8A5A32" />
+            <ellipse cx="12" cy="13.8" rx="3.8" ry="2.5" fill="#D8B48A" />
+            <circle cx="9" cy="9.8" r="1" fill="#2A1A10" />
+            <circle cx="15" cy="9.8" r="1" fill="#2A1A10" />
+            <ellipse cx="12" cy="12.6" rx="1.4" ry="0.9" fill="#2A1A10" />
+            <path d="M9.4 13.6L5.6 12.8M9.4 14.6L5.8 15.2M14.6 13.6L18.4 12.8M14.6 14.6L18.2 15.2" stroke="#3A2E24" stroke-width="0.5" stroke-linecap="round" />
+            <path d="M2 20.4c2-1.6 4-1.6 6 0s4 1.6 6 0 4-1.6 6 0" stroke="#3f7f9a" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <span>The Playful <span style="color: #8A5A2B">Otters</span> of the&nbsp;<span style="color: #3f7f9a">River</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s2.0_otter/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 74.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s2.0_otter/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s2.0_otter/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..74 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Splash! Splash!", 1]],
+            [["Look at those playful animals!", 2]],
+            [
+              ["They have long bodies,", 3],
+              ["short legs,", 4],
+              ["and thick brown fur.", 5],
+            ],
+            [["They are river otters!", 6]],
+            [
+              ["Otters love swimming,", 7],
+              ["diving, and playing in the water.", 8],
+            ],
+            [["Let's discover their wonderful world!", 9]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["Watch that otter swim!", 10]],
+            [["It moves quickly through the water.", 11]],
+            [["Its webbed feet help it paddle.", 12]],
+            [["Its strong tail helps it swim and turn.", 13]],
+            [
+              ["It can even close", 14],
+              ["its ears and nose underwater!", 15],
+            ],
+            [["What an amazing swimmer!", 16]],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["The otter is getting hungry.", 17]],
+            [["What does it like to eat?", 18]],
+            [["Fish are one of its favorite foods!", 19]],
+            [["It can also eat frogs and crayfish.", 20]],
+            [
+              ["Its sensitive whiskers", 21],
+              ["help it find food underwater.", 22],
+            ],
+            [["Look! It has caught a fish!", 23]],
+            [["Dinner is ready!", 24]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["Otters love to play!", 25]],
+            [
+              ["They chase one another", 26],
+              ["through the water.", 27],
+            ],
+            [["They roll, splash, and wrestle.", 28]],
+            [
+              ["Sometimes,", 29],
+              ["they slide down muddy riverbanks.", 30],
+            ],
+            [["Whoosh! Splash!", 31]],
+            [
+              ["Down they go,", 32],
+              ["straight into the river!", 33],
+            ],
+            [["What a wonderful playground!", 34]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["Where do river otters sleep?", 35]],
+            [
+              ["They often rest in hidden places", 36],
+              ["near the water.", 37],
+            ],
+            [
+              ["Some use hollow logs", 38],
+              ["or holes in riverbanks.", 39],
+            ],
+            [
+              ["Others use old homes", 40],
+              ["left by beavers!", 41],
+            ],
+            [["These safe places are called dens.", 42]],
+            [
+              ["Inside a den,", 43],
+              ["an otter can rest", 44],
+              ["and care for its babies.", 45],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["Baby otters are called pups.", 46]],
+            [
+              ["When they are born,", 47],
+              ["their eyes are closed.", 48],
+            ],
+            [["Their mother keeps them warm and safe.", 49]],
+            [
+              ["As they grow,", 50],
+              ["the pups begin exploring.", 51],
+            ],
+            [
+              ["Soon, it is time", 52],
+              ["to learn how to swim!", 53],
+            ],
+            [
+              ["Their mother helps them", 54],
+              ["become good swimmers.", 55],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [["The young otters are growing bigger.", 56]],
+            [
+              ["They chase each other", 57],
+              ["and dive underwater.", 58],
+            ],
+            [
+              ["They practice swimming", 59],
+              ["and catching food.", 60],
+            ],
+            [["Playing helps them learn useful skills.", 61]],
+            [
+              ["One day,", 62],
+              ["they will find food on their own.", 63],
+            ],
+            [
+              ["But for now,", 64],
+              ["there is still time for another splash!", 65],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [["Now we know why river otters are special!", 66]],
+            [["They are excellent swimmers.", 67]],
+            [["They use their whiskers to find food.", 68]],
+            [
+              ["They live near rivers,", 69],
+              ["lakes, and wetlands.", 70],
+            ],
+            [
+              ["They care for their young", 71],
+              ["and often play together.", 72],
+            ],
+            [
+              ["These clever, playful animals", 73],
+              ["are full of surprises!", 74],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
