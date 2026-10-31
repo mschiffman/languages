@@ -19,7 +19,7 @@ Usage (from anywhere):
     python eng/build_single.py 2.7_clean 2.8_do     build just these
     python eng/build_single.py --out some/dir       write somewhere else
     python eng/build_single.py --kbps 0             embed the original audio untouched
-    python eng/build_single.py fr/voc/animals.html --out fr/voc/single   a page outside stories/
+    python eng/build_single.py fr/grammar/noun/animals.html --out fr/grammar/noun/single   a page outside stories/
 
 Output goes to eng/single/<name>.html (same file names as stories/). The lessons
 menu (assets/js/nav-*.js) is always left out: it didn't work on the Android

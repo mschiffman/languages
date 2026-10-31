@@ -54,7 +54,7 @@ document.getElementById("sidebar-nav").innerHTML = `
         <div class="collapse" id="earthMenu">
           <a class="dropdown-item" href="landforms.html">Landforms</a>
           <a class="dropdown-item" href="#">Weather</a>
-          <a class="dropdown-item" href="#">Animals</a>
+          <a class="dropdown-item" href="animals.html">Animals</a>
           <a class="dropdown-item" href="#">Plants</a>
           <a class="dropdown-item" href="#">Environment</a>
         </div>
@@ -107,7 +107,8 @@ document.getElementById("sidebar-nav").innerHTML = `
           <a class="dropdown-item" href="#">Food & Drink</a>
           <a class="dropdown-item" href="#">Transportation</a>
           <a class="dropdown-item" href="#">Home & Family</a>
-          <a class="dropdown-item" href="#">Work & School</a>
+          <a class="dropdown-item" href="atSchool.html">At School</a>
+          <a class="dropdown-item" href="#">Work</a>
         </div>
 
         <div class="nav-category mt-3">French Resources</div>

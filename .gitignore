@@ -27,7 +27,7 @@ media/
 eng/single/
 eng/yt/
 eng/.build_cache/
-fr/voc/single/
+fr/grammar/noun/single/
 
 # Downloads cached by jap/Pimsleur/build_single.py (Tailwind, fonts)
 jap/Pimsleur/.build_cache/
