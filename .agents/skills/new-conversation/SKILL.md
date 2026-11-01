@@ -60,7 +60,7 @@ It reads the chunk text from the page, generates every missing `NN.mp3` (chunks 
 What it does, in case it needs changing:
 
 - **TTS:** model `eleven_v4`; voice IDs are in the script's `VOICES` table (Fr-Leïla `TqSzeWTTYMk8ynnHrHq5`, Fr-Adrien `OrVRsyqKB4siJQenyBu5`, Fr-Melissa `KzPZhE4ZluG6tjLsI1qh`, …). The key is the User-scope env var `ELEVENLABS_API_KEY` (VS Code may not inherit it; the script falls back to the registry). The key can't read models or credit balance, and it has its own credit limit (60,000 as of 2026-10-22), separate from the account's balance; when it runs out, requests fail with 401 `quota_exceeded` and the user has to raise the key's limit in ElevenLabs › API keys. Re-running the script resumes where it stopped. Each chunk is its own clip; never split a line's audio by pauses.
-- **Raw downloads** are kept in `%TEMP%/elevenlabs-raw/conv##` for reprocessing.
+- **Raw downloads** are kept in `media/elevenlabs-raw/conv##` for reprocessing (not %TEMP%, which cleanups empty).
 - **Normalize:** ElevenLabs output drops off in volume, and Leïla comes out much quieter than Adrien. Every clip is matched to the existing files: 48 kHz stereo, 320 kbps, about −9 LUFS, peaks ≤ −1 dB. Chain: `dynaudnorm` (evens out volume within the clip), measured gain to −9 LUFS, `alimiter`, re-measured until within ±0.3 LU. `loudnorm` is not used: on short clips it misses the target by 5–9 dB.
 
 Spending credits: one request per line and per chunk, roughly twice the conversation's character count. Tell the user how many clips will be generated before a large run.

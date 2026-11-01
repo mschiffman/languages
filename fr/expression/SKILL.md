@@ -105,7 +105,8 @@ python -E fr/expression/make_audio.py <topic>
   Existing files are never touched.
 - Each clip is checked with local Whisper ("small"). If the transcript
   doesn't match, it makes up to 4 more takes and keeps the closest. Raw takes
-  are kept in `%TEMP%/elevenlabs-raw/<folder>/NN_tK.mp3`.
+  are kept in `media/elevenlabs-raw/<folder>/NN_tK.mp3` (not %TEMP%, which
+  cleanups empty).
 - Lines marked `<<< check` didn't match. Whisper is unreliable on clips under
   1 s: it hears *dodo* as *doudou* and joins words (`DORBIEN`). Look at what
   it heard, and if in doubt ask the user to listen.
@@ -133,7 +134,7 @@ the very end):
 
 1. Insert the cards in the page.
 2. Rename the later clips upward, from the last one down
-   (`30.mp3` → `31.mp3`, …). Do the same in `%TEMP%/elevenlabs-raw/<folder>/`
+   (`30.mp3` → `31.mp3`, …). Do the same in `media/elevenlabs-raw/<folder>/`
    (`NN.mp3` and `NN_tK.mp3`), otherwise `make_audio.py` reuses the old takes.
 3. Run `make_audio.py` to make the new clips.
 4. Upload.

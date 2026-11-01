@@ -6,15 +6,15 @@ For each card whose NN.mp3 is missing in media/lessons/expressions/<AUD_DIR fold
   take 0, checked with local Whisper; if the transcript doesn't match, up to 4 more takes,
   keeping the closest. The chosen take is trimmed after the last spoken word (drops breaths
   after a pause), leveled to -16 LUFS, mono 44.1 kHz 192 kbps, like the other clips.
-Raw takes are kept in %TEMP%/elevenlabs-raw/<folder>/NN_tK.mp3. Existing files are never touched.
-Writes a report of cards whose best take still didn't match to %TEMP%/elevenlabs-raw/flagged.txt.
+Raw takes are kept in media/elevenlabs-raw/<folder>/NN_tK.mp3. Existing files are never touched.
+Writes a report of cards whose best take still didn't match to media/elevenlabs-raw/flagged.txt.
 """
-import difflib, json, os, re, shutil, subprocess, sys, tempfile, urllib.error, urllib.request, winreg
+import difflib, json, os, re, shutil, subprocess, sys, urllib.error, urllib.request, winreg
 import torch, whisper
 
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = "C:/Users/mschi/OneDrive/Desktop/LANGUAGES"
-RAWROOT = os.path.join(tempfile.gettempdir(), "elevenlabs-raw")
+RAWROOT = f"{ROOT}/media/elevenlabs-raw"
 VOICE, MODEL, TARGET = "OrVRsyqKB4siJQenyBu5", "eleven_v3", -16.0
 model = whisper.load_model("small", device="cuda" if torch.cuda.is_available() else "cpu")
 FP16 = torch.cuda.is_available()

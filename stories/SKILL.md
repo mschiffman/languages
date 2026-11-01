@@ -104,8 +104,8 @@ python -E stories/story_audio.py <page> --upload   # make missing clips, then up
 - Output matches the older story clips: 48 kHz stereo 320 kbps, leveled to
   -12 LUFS (the old clips are -11 to -14).
 - Existing files are skipped. `--redo 12 30` makes new takes of single clips.
-  Raw downloads are kept in `%TEMP%\elevenlabs-raw\<slug>\`, so
-  `--renormalize` re-levels without spending credits.
+  Raw downloads are kept in `media\elevenlabs-raw\<slug>\` (not %TEMP%,
+  which cleanups empty), so `--renormalize` re-levels without spending credits.
 - `--upload` sends only new/changed files (MD5 vs. R2 ETag) to
   `eng/yt/<slug>/`. `--dry-run` with it only reports.
 - Run with `python -E`, not `-I`: boto3/truststore are in the user

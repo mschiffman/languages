@@ -10,7 +10,7 @@ usage (from the LANGUAGES root):
 Reads stories/<page>.html: every chunk ["text", N] in `pages` becomes NN.mp3,
 the folder name is the last part of the page's AUD_DIR (…/eng/yt/<slug>/).
 Files go to media/eng/yt/<slug>/ (existing ones are skipped); the raw
-ElevenLabs downloads are kept in %TEMP%/elevenlabs-raw/<slug> so --renormalize
+ElevenLabs downloads are kept in media/elevenlabs-raw/<slug> so --renormalize
 redoes the leveling without spending credits. --upload sends new/changed files
 to the R2 bucket "languages" under eng/yt/<slug>/ (compared by MD5).
 
@@ -21,7 +21,7 @@ Needs ELEVENLABS_API_KEY, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_ACCOUNT_ID
 (User env vars), ffmpeg, and for --upload boto3 + truststore. Run with -E, not
 -I: -I hides the user site-packages where boto3 is installed.
 """
-import argparse, hashlib, json, os, re, subprocess, sys, tempfile, urllib.request, winreg
+import argparse, hashlib, json, os, re, subprocess, sys, urllib.request, winreg
 from concurrent.futures import ThreadPoolExecutor
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -59,7 +59,7 @@ if nums != list(range(1, len(nums) + 1)):
     sys.exit(f"chunk numbers aren't 1..{len(nums)} in order: {nums}")
 
 media = f"media/eng/yt/{slug}"
-raw = os.path.join(tempfile.gettempdir(), "elevenlabs-raw", slug)
+raw = f"media/elevenlabs-raw/{slug}"
 os.makedirs(media, exist_ok=True)
 os.makedirs(raw, exist_ok=True)
 

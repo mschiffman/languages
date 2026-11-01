@@ -12,10 +12,10 @@ odd lines Leila, even lines Adrien); --line sets the voice of a single line,
 e.g. for a third speaker. Files that already exist in
 media/lessons/everyday/conv##/ are skipped.
 
-Raw ElevenLabs downloads are kept in --raw (default: %TEMP%/elevenlabs-raw/conv##)
+Raw ElevenLabs downloads are kept in --raw (default: media/elevenlabs-raw/conv##)
 so --renormalize can redo the processing without spending credits.
 """
-import argparse, html, json, os, re, subprocess, sys, tempfile, urllib.request, winreg
+import argparse, html, json, os, re, subprocess, sys, urllib.request, winreg
 
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -53,7 +53,7 @@ def voice_for(line):
 
 page = f"fr/everyday/conversations/conv{a.conv}/conv{a.conv}.html"
 media = f"media/lessons/everyday/conv{a.conv}"
-raw = a.raw or os.path.join(tempfile.gettempdir(), "elevenlabs-raw", f"conv{a.conv}")
+raw = a.raw or f"media/elevenlabs-raw/conv{a.conv}"
 os.makedirs(media, exist_ok=True)
 os.makedirs(raw, exist_ok=True)
 
