@@ -110,10 +110,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/fossil/audio.mp3"
-        ></audio>
+        <audio id="audioElement" data-audio="audio"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -413,7 +410,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/charognard.mp3"
+                data-audio="charognard"
               >
                 charognard
               </td>
@@ -423,7 +420,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/mineralisation.mp3"
+                data-audio="mineralisation"
               >
                 minéralisation
               </td>
@@ -433,7 +430,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/petrification.mp3"
+                data-audio="petrification"
               >
                 pétrification
               </td>
@@ -443,7 +440,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/silice.mp3"
+                data-audio="silice"
               >
                 silice
               </td>
@@ -453,7 +450,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/moulage.mp3"
+                data-audio="moulage"
               >
                 moulage
               </td>
@@ -463,7 +460,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/ammonite.mp3"
+                data-audio="ammonite"
               >
                 ammonite
               </td>
@@ -473,7 +470,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/moule.mp3"
+                data-audio="moule"
               >
                 moule
               </td>
@@ -483,7 +480,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/trilobites.mp3"
+                data-audio="trilobites"
               >
                 trilobites
               </td>
@@ -493,7 +490,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/carapace.mp3"
+                data-audio="carapace"
               >
                 carapace
               </td>
@@ -503,7 +500,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/sediment.mp3"
+                data-audio="sediment"
               >
                 sédiment
               </td>
@@ -513,7 +510,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/archosaure.mp3"
+                data-audio="archosaure"
               >
                 archosaure
               </td>
@@ -523,7 +520,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/ambre.mp3"
+                data-audio="ambre"
               >
                 ambre
               </td>
@@ -533,7 +530,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/resine.mp3"
+                data-audio="resine"
               >
                 résine
               </td>
@@ -543,7 +540,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/erosion.mp3"
+                data-audio="erosion"
               >
                 érosion
               </td>
@@ -553,7 +550,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/paleontologue.mp3"
+                data-audio="paleontologue"
               >
                 paléontologue
               </td>
@@ -563,7 +560,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/fossil/temoin.mp3"
+                data-audio="temoin"
               >
                 témoin
               </td>
@@ -607,6 +604,24 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/fossil/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
+
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -622,7 +637,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });

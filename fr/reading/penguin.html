@@ -113,10 +113,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/penguin/audio.mp3"
-        ></audio>
+        <audio id="audioElement" data-audio="audio"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -375,7 +372,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/banquise.mp3"
+                data-audio="banquise"
               >
                 banquise
               </td>
@@ -385,7 +382,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/effervescence.mp3"
+                data-audio="effervescence"
               >
                 effervescence
               </td>
@@ -395,7 +392,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/parader.mp3"
+                data-audio="parader"
               >
                 parader
               </td>
@@ -405,7 +402,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/pondre.mp3"
+                data-audio="pondre"
               >
                 pondre
               </td>
@@ -415,7 +412,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/oeuf.mp3"
+                data-audio="oeuf"
               >
                 œuf
               </td>
@@ -425,7 +422,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/poche-incubatrice.mp3"
+                data-audio="poche-incubatrice"
               >
                 poche incubatrice
               </td>
@@ -435,7 +432,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/graisse.mp3"
+                data-audio="graisse"
               >
                 graisse
               </td>
@@ -445,7 +442,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/regurgiter.mp3"
+                data-audio="regurgiter"
               >
                 régurgiter
               </td>
@@ -455,7 +452,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/poussin.mp3"
+                data-audio="poussin"
               >
                 poussin
               </td>
@@ -465,7 +462,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/eclore.mp3"
+                data-audio="eclore"
               >
                 éclore
               </td>
@@ -475,7 +472,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/creche.mp3"
+                data-audio="creche"
               >
                 crèche
               </td>
@@ -485,7 +482,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/se-fissurer.mp3"
+                data-audio="se-fissurer"
               >
                 se fissurer
               </td>
@@ -495,7 +492,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/penguin/jeune.mp3"
+                data-audio="jeune"
               >
                 jeûne
               </td>
@@ -539,6 +536,24 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/penguin/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
+
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -554,7 +569,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });

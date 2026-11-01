@@ -113,10 +113,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/pitcher/pitcher.mp3"
-        ></audio>
+        <audio id="audioElement" data-audio="pitcher"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -367,7 +364,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/piege.mp3"
+                data-audio="piege"
               >
                 piège
               </td>
@@ -377,7 +374,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/noyer.mp3"
+                data-audio="noyer"
               >
                 noyer
               </td>
@@ -387,7 +384,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/digerer.mp3"
+                data-audio="digerer"
               >
                 digérer
               </td>
@@ -397,7 +394,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/carnivore.mp3"
+                data-audio="carnivore"
               >
                 carnivore
               </td>
@@ -407,7 +404,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/urne.mp3"
+                data-audio="urne"
               >
                 urne
               </td>
@@ -417,7 +414,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/peristome.mp3"
+                data-audio="peristome"
               >
                 péristome
               </td>
@@ -427,7 +424,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/gouttelette.mp3"
+                data-audio="gouttelette"
               >
                 gouttelette
               </td>
@@ -437,7 +434,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/sucre.mp3"
+                data-audio="sucre"
               >
                 sucré(e)
               </td>
@@ -447,7 +444,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/fourmi.mp3"
+                data-audio="fourmi"
               >
                 fourmi
               </td>
@@ -457,7 +454,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/mille-pattes.mp3"
+                data-audio="mille-pattes"
               >
                 mille-pattes
               </td>
@@ -467,7 +464,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/lisse.mp3"
+                data-audio="lisse"
               >
                 lisse
               </td>
@@ -477,7 +474,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/glissant.mp3"
+                data-audio="glissant"
               >
                 glissant(e)
               </td>
@@ -487,7 +484,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/enzymes-digestives.mp3"
+                data-audio="enzymes-digestives"
               >
                 enzymes digestives
               </td>
@@ -497,7 +494,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/nutriment.mp3"
+                data-audio="nutriment"
               >
                 nutriment
               </td>
@@ -507,7 +504,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/sol pauvre.mp3"
+                data-audio="sol pauvre"
               >
                 sol pauvre
               </td>
@@ -517,7 +514,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/survivre.mp3"
+                data-audio="survivre"
               >
                 survivre
               </td>
@@ -527,7 +524,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/mortel.mp3"
+                data-audio="mortel"
               >
                 mortel(le)
               </td>
@@ -537,7 +534,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/pitcher/absorber.mp3"
+                data-audio="absorber"
               >
                 absorber
               </td>
@@ -581,6 +578,24 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/pitcher/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
+
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -596,7 +611,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });

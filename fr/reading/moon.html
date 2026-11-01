@@ -113,10 +113,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/moon/audio.mp3"
-        ></audio>
+        <audio id="audioElement" data-audio="audio"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -437,7 +434,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/percuter.mp3"
+                data-audio="percuter"
               >
                 percuter
               </td>
@@ -447,7 +444,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/debris.mp3"
+                data-audio="debris"
               >
                 débris
               </td>
@@ -457,7 +454,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/en-fusion.mp3"
+                data-audio="en-fusion"
               >
                 en fusion
               </td>
@@ -467,7 +464,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/gravitationnel.mp3"
+                data-audio="gravitationnel"
               >
                 gravitationnel
               </td>
@@ -477,7 +474,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/maree.mp3"
+                data-audio="maree"
               >
                 marée
               </td>
@@ -487,7 +484,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/verrouiller.mp3"
+                data-audio="verrouiller"
               >
                 verrouiller
               </td>
@@ -497,7 +494,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/basculer.mp3"
+                data-audio="basculer"
               >
                 basculer
               </td>
@@ -507,7 +504,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/cratere.mp3"
+                data-audio="cratere"
               >
                 cratère
               </td>
@@ -517,7 +514,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/asteroide.mp3"
+                data-audio="asteroide"
               >
                 astéroïde
               </td>
@@ -527,7 +524,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/meteorite.mp3"
+                data-audio="meteorite"
               >
                 météorite
               </td>
@@ -537,7 +534,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/basalte.mp3"
+                data-audio="basalte"
               >
                 basalte
               </td>
@@ -547,7 +544,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/regolithe.mp3"
+                data-audio="regolithe"
               >
                 régolithe
               </td>
@@ -557,7 +554,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/s-eloigner.mp3"
+                data-audio="s-eloigner"
               >
                 s'éloigner
               </td>
@@ -567,7 +564,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/croissant.mp3"
+                data-audio="croissant"
               >
                 croissant
               </td>
@@ -577,7 +574,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/moon/millenaire.mp3"
+                data-audio="millenaire"
               >
                 millénaire
               </td>
@@ -621,6 +618,24 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/moon/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
+
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -636,7 +651,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });

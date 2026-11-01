@@ -113,10 +113,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/eye/audio.mp3"
-        ></audio>
+        <audio id="audioElement" data-audio="audio"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -398,7 +395,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/lumiere.mp3"
+                data-audio="lumiere"
               >
                 lumière
               </td>
@@ -408,7 +405,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/cornee.mp3"
+                data-audio="cornee"
               >
                 cornée
               </td>
@@ -418,7 +415,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/pupille.mp3"
+                data-audio="pupille"
               >
                 pupille
               </td>
@@ -428,7 +425,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/iris.mp3"
+                data-audio="iris"
               >
                 iris
               </td>
@@ -438,7 +435,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/se-contracter.mp3"
+                data-audio="se-contracter"
               >
                 se contracter
               </td>
@@ -448,7 +445,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/se-dilater.mp3"
+                data-audio="se-dilater"
               >
                 se dilater
               </td>
@@ -458,7 +455,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/cristallin.mp3"
+                data-audio="cristallin"
               >
                 cristallin
               </td>
@@ -468,7 +465,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/mise-au-point.mp3"
+                data-audio="mise-au-point"
               >
                 mise au point
               </td>
@@ -478,7 +475,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/muscles-ciliaires.mp3"
+                data-audio="muscles-ciliaires"
               >
                 muscles ciliaires
               </td>
@@ -488,7 +485,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/humeur-vitr%C3%A9e.mp3"
+                data-audio="humeur-vitr%C3%A9e"
               >
                 humeur vitrée
               </td>
@@ -498,7 +495,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/retine.mp3"
+                data-audio="retine"
               >
                 rétine
               </td>
@@ -508,7 +505,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/batonnet.mp3"
+                data-audio="batonnet"
               >
                 bâtonnet
               </td>
@@ -518,7 +515,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/obscurite.mp3"
+                data-audio="obscurite"
               >
                 obscurité
               </td>
@@ -528,7 +525,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/cone.mp3"
+                data-audio="cone"
               >
                 cône
               </td>
@@ -538,7 +535,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/fovea.mp3"
+                data-audio="fovea"
               >
                 fovéa
               </td>
@@ -548,7 +545,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/nerf-optique.mp3"
+                data-audio="nerf-optique"
               >
                 nerf optique
               </td>
@@ -558,7 +555,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/cerveau.mp3"
+                data-audio="cerveau"
               >
                 cerveau
               </td>
@@ -568,7 +565,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/globe-oculaire.mp3"
+                data-audio="globe-oculaire"
               >
                 globe oculaire
               </td>
@@ -578,7 +575,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/eye/clin-d%C5%93il.mp3"
+                data-audio="clin-d%C5%93il"
               >
                 en un clin d'œil
               </td>
@@ -622,6 +619,24 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/eye/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
+
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -637,7 +652,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });

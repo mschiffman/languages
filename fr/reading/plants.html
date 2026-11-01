@@ -113,7 +113,7 @@
             class="form-range"
           />
         </div>
-        <audio id="audioElement"></audio>
+        <audio id="audioElement" data-audio="audio"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -612,13 +612,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
       /* ---------------------------------------------------------------
-   Audio: AUD_DIR + audio.mp3 (the whole text) and one clip per glossary
-   word, named by its data-audio (data-audio="chenille" -> chenille.mp3).
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
 --------------------------------------------------------------- */
       const AUD_DIR = "https://languages.rmlives.com/lessons/read/plants/";
       const AUD_EXT = "mp3";
+      const AUD_VER = "2611011200";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
 
-      document.getElementById("audioElement").src = AUD_DIR + "audio." + AUD_EXT;
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
 
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
@@ -635,7 +644,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(AUD_DIR + audioSrc + "." + AUD_EXT);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });

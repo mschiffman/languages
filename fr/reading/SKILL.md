@@ -10,11 +10,12 @@ Key sections to update:
 
 | Section | What to change |
 |---|---|
-| `<audio src="...">` | Point to `https://languages.rmlives.com/lessons/read/<topic>/audio.mp3` |
+| `AUD_DIR` (script at the end of the page) | `https://languages.rmlives.com/lessons/read/<topic>/` |
+| `<audio id="audioElement" data-audio="audio">` | Name of the whole-text recording in `AUD_DIR` (usually `audio`) |
 | `<h1>` / `<h5>` | Article title and subtitle |
 | `.french-text` | French body paragraphs with `.word-info` tooltip spans |
 | `.english-text` | English translation paragraphs |
-| `.glossary-section` | Glossary table rows with `data-audio` pointing to word MP3s |
+| `.glossary-section` | Glossary table rows; `data-audio` = the word's clip name in `AUD_DIR` |
 | `.supplemental-section` | Links to NotebookLM video/audio pages |
 | `img src` | `/img/<topic>.png` |
 | `.french-text .<topic>-image` | Rename the float-left image CSS class to match topic |
@@ -35,13 +36,31 @@ Key sections to update:
 ```html
 <tr>
   <td class="glossary-word"
-      data-audio="https://languages.rmlives.com/lessons/read/<topic>/<word>.mp3">
+      data-audio="<word>">
     french word
   </td>
   <td style="width: 40px"></td>
   <td>english meaning</td>
 </tr>
 ```
+
+**Audio URLs:** every clip is `AUD_DIR + data-audio + "." + AUD_EXT`, set in
+the script at the end of the page:
+
+```js
+const AUD_DIR = "https://languages.rmlives.com/lessons/read/<topic>/";
+const AUD_EXT = "mp3";
+const AUD_VER = "";
+```
+
+- A name with its own extension is used as is (`data-audio="goutte.m4a"`).
+- A player file outside the topic folder keeps a full `src` and no
+  `data-audio` (amber: `lessons/read/amber.m4a`).
+- **Replacing clips that are already online:** upload first, then set
+  `AUD_VER` to the time (`YYMMDDHHmm`) — it adds `?v=…` to every clip on the
+  page, so browsers and Cloudflare (which cache for 4 hours) fetch the new
+  files. Setting it before the upload makes Cloudflare cache the old file
+  under the new URL.
 
 ---
 
@@ -140,7 +159,7 @@ Get-ChildItem $folder -Filter "*.html" | ForEach-Object {
 - [ ] French text proofread for correct accented characters
 - [ ] English translation added
 - [ ] Tooltip spans added for 10–15 key vocabulary words
-- [ ] Glossary table populated with MP3 `data-audio` URLs
+- [ ] Glossary table populated with `data-audio` clip names, `AUD_DIR` set
 - [ ] `fr/reading/video-<topic>.html` created from template
 - [ ] Supplemental section links added (video, NotebookLM audio)
 - [ ] `/img/<topic>.png` image uploaded

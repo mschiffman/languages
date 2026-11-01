@@ -113,10 +113,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/otter/audio.mp3"
-        ></audio>
+        <audio id="audioElement" data-audio="audio"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -458,7 +455,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/palourde.mp3"
+                data-audio="palourde"
               >
                 palourde
               </td>
@@ -468,7 +465,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/aisselle.mp3"
+                data-audio="aisselle"
               >
                 aisselle
               </td>
@@ -478,7 +475,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/fute.mp3"
+                data-audio="fute"
               >
                 futée
               </td>
@@ -488,7 +485,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/mammifere.mp3"
+                data-audio="mammifere"
               >
                 mammifère
               </td>
@@ -498,7 +495,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/outil.mp3"
+                data-audio="outil"
               >
                 outil
               </td>
@@ -508,7 +505,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/coquille.mp3"
+                data-audio="coquille"
               >
                 coquille
               </td>
@@ -518,7 +515,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/savoir-faire.mp3"
+                data-audio="savoir-faire"
               >
                 savoir-faire
               </td>
@@ -528,7 +525,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/captivite.mp3"
+                data-audio="captivite"
               >
                 captivité
               </td>
@@ -538,7 +535,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/kinesitherapie.mp3"
+                data-audio="kinesitherapie"
               >
                 kinésithérapie
               </td>
@@ -548,7 +545,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/algue.mp3"
+                data-audio="algue"
               >
                 algue
               </td>
@@ -558,7 +555,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/radeau.mp3"
+                data-audio="radeau"
               >
                 radeau
               </td>
@@ -568,7 +565,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/pelage.mp3"
+                data-audio="pelage"
               >
                 pelage
               </td>
@@ -578,7 +575,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/fourrure.mp3"
+                data-audio="fourrure"
               >
                 fourrure
               </td>
@@ -588,7 +585,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/bouee.mp3"
+                data-audio="bouee"
               >
                 bouée
               </td>
@@ -598,7 +595,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/ecosysteme.mp3"
+                data-audio="ecosysteme"
               >
                 écosystème
               </td>
@@ -608,7 +605,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/oursin.mp3"
+                data-audio="oursin"
               >
                 oursin
               </td>
@@ -618,7 +615,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/espece-cle-de-voute.mp3"
+                data-audio="espece-cle-de-voute"
               >
                 espèce clé de voûte
               </td>
@@ -628,7 +625,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/froler.mp3"
+                data-audio="froler"
               >
                 frôler
               </td>
@@ -638,7 +635,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/extinction.mp3"
+                data-audio="extinction"
               >
                 extinction
               </td>
@@ -648,7 +645,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/otter/coquillage.mp3"
+                data-audio="coquillage"
               >
                 coquillage
               </td>
@@ -687,6 +684,24 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/otter/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
+
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -702,7 +717,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });

@@ -113,10 +113,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/meteorite/audio.mp3"
-        ></audio>
+        <audio id="audioElement" data-audio="audio"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -414,7 +411,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/asteroide.mp3"
+                data-audio="asteroide"
               >
                 astéroïde
               </td>
@@ -424,7 +421,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/atmosphere.mp3"
+                data-audio="atmosphere"
               >
                 atmosphère
               </td>
@@ -434,7 +431,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/trainee.mp3"
+                data-audio="trainee"
               >
                 traînée
               </td>
@@ -444,7 +441,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/se-vaporiser.mp3"
+                data-audio="se-vaporiser"
               >
                 se vaporiser
               </td>
@@ -454,7 +451,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/plancher-oceanique.mp3"
+                data-audio="plancher-oceanique"
               >
                 plancher océanique
               </td>
@@ -464,7 +461,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/onde-de-choc.mp3"
+                data-audio="onde-de-choc"
               >
                 onde de choc
               </td>
@@ -474,7 +471,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/cratere.mp3"
+                data-audio="cratere"
               >
                 cratère
               </td>
@@ -484,7 +481,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/iridium.mp3?v=260603"
+                data-audio="iridium"
               >
                 iridium
               </td>
@@ -494,7 +491,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/acide-sulfurique.mp3"
+                data-audio="acide-sulfurique"
               >
                 acide sulfurique
               </td>
@@ -504,7 +501,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/hiver-impact.mp3"
+                data-audio="hiver-impact"
               >
                 hiver d'impact
               </td>
@@ -514,7 +511,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/herbivore.mp3"
+                data-audio="herbivore"
               >
                 herbivore
               </td>
@@ -524,7 +521,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/s-eteindre.mp3"
+                data-audio="s-eteindre"
               >
                 s'éteindre
               </td>
@@ -534,7 +531,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/mammifere.mp3"
+                data-audio="mammifere"
               >
                 mammifère
               </td>
@@ -544,7 +541,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/cenote.mp3"
+                data-audio="cenote"
               >
                 cenote
               </td>
@@ -554,7 +551,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/meteorite/renaissance.mp3"
+                data-audio="renaissance"
               >
                 renaissance
               </td>
@@ -598,6 +595,24 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/meteorite/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
+
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -613,7 +628,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });

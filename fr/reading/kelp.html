@@ -100,10 +100,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/kelp/kelp.mp3"
-        ></audio>
+        <audio id="audioElement" data-audio="kelp"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -536,7 +533,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/varech.mp3"
+                data-audio="varech"
               >
                 varech
               </td>
@@ -546,7 +543,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/algue.mp3"
+                data-audio="algue"
               >
                 algue
               </td>
@@ -556,7 +553,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/geant.mp3"
+                data-audio="geant"
               >
                 géante
               </td>
@@ -566,7 +563,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/dentifrice.mp3"
+                data-audio="dentifrice"
               >
                 dentifrice
               </td>
@@ -576,7 +573,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/shampoing.mp3"
+                data-audio="shampoing"
               >
                 shampoing
               </td>
@@ -586,7 +583,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/pieuvre.mp3"
+                data-audio="pieuvre"
               >
                 pieuvre
               </td>
@@ -596,7 +593,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/loutre.mp3"
+                data-audio="loutre"
               >
                 loutre de mer
               </td>
@@ -606,7 +603,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/espece.mp3"
+                data-audio="espece"
               >
                 espèce
               </td>
@@ -616,7 +613,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/minuscule.mp3"
+                data-audio="minuscule"
               >
                 minuscule
               </td>
@@ -626,7 +623,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/filament.mp3"
+                data-audio="filament"
               >
                 filament
               </td>
@@ -636,7 +633,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/nourriture.mp3"
+                data-audio="nourriture"
               >
                 nourriture
               </td>
@@ -646,7 +643,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/flotteur.mp3"
+                data-audio="flotteur"
               >
                 flotteur
               </td>
@@ -656,7 +653,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/fronde.mp3"
+                data-audio="fronde"
               >
                 fronde
               </td>
@@ -666,7 +663,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/surface.mp3"
+                data-audio="surface"
               >
                 surface
               </td>
@@ -676,7 +673,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/absorber.mp3"
+                data-audio="absorber"
               >
                 absorber
               </td>
@@ -686,7 +683,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/dioxyde.mp3"
+                data-audio="dioxyde"
               >
                 dioxyde de carbone
               </td>
@@ -696,7 +693,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/oxygene.mp3"
+                data-audio="oxygene"
               >
                 oxygène
               </td>
@@ -706,7 +703,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/abri.mp3"
+                data-audio="abri"
               >
                 abri
               </td>
@@ -716,7 +713,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kelp/surnommer.mp3"
+                data-audio="surnommer"
               >
                 surnommer
               </td>
@@ -755,6 +752,24 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/kelp/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
+
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -773,7 +788,7 @@
               }
 
               // Create new audio object and play
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });

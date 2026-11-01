@@ -113,10 +113,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/kidney/audio.mp3"
-        ></audio>
+        <audio id="audioElement" data-audio="audio"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -364,7 +361,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/station-depuration.mp3"
+                data-audio="station-depuration"
               >
                 station d'épuration
               </td>
@@ -374,7 +371,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/artere-renale.mp3"
+                data-audio="artere-renale"
               >
                 artère rénale
               </td>
@@ -384,7 +381,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/toxine.mp3"
+                data-audio="toxine"
               >
                 toxine
               </td>
@@ -394,7 +391,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/uree.mp3"
+                data-audio="uree"
               >
                 urée
               </td>
@@ -404,7 +401,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/nephron.mp3"
+                data-audio="nephron"
               >
                 néphron
               </td>
@@ -414,7 +411,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/glomerule.mp3"
+                data-audio="glomerule"
               >
                 glomérule
               </td>
@@ -424,7 +421,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/reabsorber.mp3"
+                data-audio="reabsorber"
               >
                 réabsorber
               </td>
@@ -434,7 +431,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/urine.mp3"
+                data-audio="urine"
               >
                 urine
               </td>
@@ -444,7 +441,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/bassinet.mp3"
+                data-audio="bassinet"
               >
                 bassinet
               </td>
@@ -454,7 +451,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/uretere.mp3"
+                data-audio="uretere"
               >
                 uretère
               </td>
@@ -464,7 +461,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/vessie.mp3"
+                data-audio="vessie"
               >
                 vessie
               </td>
@@ -474,7 +471,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/erythropoietine.mp3"
+                data-audio="erythropoietine"
               >
                 érythropoïétine
               </td>
@@ -484,7 +481,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/renine.mp3"
+                data-audio="renine"
               >
                 rénine
               </td>
@@ -494,7 +491,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/kidney/dialyse.mp3"
+                data-audio="dialyse"
               >
                 dialyse
               </td>
@@ -538,6 +535,24 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + the name in each data-audio, with AUD_EXT added when
+   the name has no extension (data-audio="racine" -> racine.mp3). The
+   player plays the data-audio of #audioElement. After replacing clips
+   on R2, set AUD_VER (e.g. "2611011430") so browsers and Cloudflare
+   fetch the new files instead of their cached copies.
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/kidney/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const audUrl = (name) =>
+        AUD_DIR +
+        (name.includes(".") ? name : name + "." + AUD_EXT) +
+        (AUD_VER ? "?v=" + AUD_VER : "");
+
+      const player = document.getElementById("audioElement");
+      if (player.dataset.audio) player.src = audUrl(player.dataset.audio);
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -553,7 +568,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(audUrl(audioSrc));
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });
