@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Bundle of Sticks</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span
+            ><span class="lion">The&nbsp;Bundle</span> of
+            <span class="mouse">Sticks</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/bundle_sticks/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 34.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/bundle_sticks/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/bundle_sticks/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..34 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["The Bundle of Sticks", 1]],
+            [["A father had three sons.", 2]],
+            [["They argued every day.", 3]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["The father wanted to help them.", 4]],
+            [["He tied some sticks together.", 5]],
+            [
+              ['"Come here, boys,"', 6],
+              ["he said.", 7],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["He gave the sticks", 8],
+              ["to his oldest son.", 9],
+            ],
+            [
+              ['"Try to break them,"', 10],
+              ["he said.", 11],
+            ],
+            [
+              ["The boy tried,", 12],
+              ["but he could not.", 13],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [["The other boys tried, too.", 14]],
+            [["They pulled and bent the sticks.", 15]],
+            [["But the sticks did not break.", 16]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["Then the father untied the sticks.", 17]],
+            [["He gave each boy one stick.", 18]],
+            [
+              ['"Now try again,"', 19],
+              ["he said.", 20],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [
+              ["Snap!", 21],
+              ["Each boy broke his stick.", 22],
+            ],
+            [
+              ['"That was easy!"', 23],
+              ["they said.", 24],
+            ],
+            [["Their father smiled.", 25]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ['"These sticks are like you,"', 26],
+              ["he said.", 27],
+            ],
+            [['"Together, you are strong.', 28]],
+            [['Help each other every day."', 29]],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [["The boys stopped arguing.", 30]],
+            [
+              ["They worked together", 31],
+              ["and helped each other.", 32],
+            ],
+            [
+              ["Moral:", 33],
+              ["We are stronger together.", 34],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-aesop.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
