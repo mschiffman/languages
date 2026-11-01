@@ -8,123 +8,123 @@
 
 | Français | IPA | English |
 |----------|-----|---------|
-| <span onclick="playAudio('la famille')">la famille</span> | /la famij/ | family |
-| <span onclick="playAudio('le père')">le père</span> | /lə pɛʁ/ | father |
-| <span onclick="playAudio('papa')">papa</span> | /papa/ | dad |
-| <span onclick="playAudio('la mère')">la mère</span> | /la mɛʁ/ | mother |
-| <span onclick="playAudio('maman')">maman</span> | /mamɑ̃/ | mom |
-| <span onclick="playAudio('le fils')">le fils</span> | /lə fis/ | son |
-| <span onclick="playAudio('la fille')">la fille</span> | /la fij/ | daughter |
-| <span onclick="playAudio('le frère')">le frère</span> | /lə fʁɛʁ/ | brother |
-| <span onclick="playAudio('la sœur')">la sœur</span> | /la sœʁ/ | sister |
-| <span onclick="playAudio('les parents')">les parents</span> | /le paʁɑ̃/ | parents |
-| <span onclick="playAudio('les enfants')">les enfants</span> | /lez‿ɑ̃fɑ̃/ | children |
+| <span onclick="playAudio('1')">la famille</span> | /la famij/ | family |
+| <span onclick="playAudio('2')">le père</span> | /lə pɛʁ/ | father |
+| <span onclick="playAudio('3')">papa</span> | /papa/ | dad |
+| <span onclick="playAudio('4')">la mère</span> | /la mɛʁ/ | mother |
+| <span onclick="playAudio('5')">maman</span> | /mamɑ̃/ | mom |
+| <span onclick="playAudio('6')">le fils</span> | /lə fis/ | son |
+| <span onclick="playAudio('7')">la fille</span> | /la fij/ | daughter |
+| <span onclick="playAudio('8')">le frère</span> | /lə fʁɛʁ/ | brother |
+| <span onclick="playAudio('9')">la sœur</span> | /la sœʁ/ | sister |
+| <span onclick="playAudio('10')">les parents</span> | /le paʁɑ̃/ | parents |
+| <span onclick="playAudio('11')">les enfants</span> | /lez‿ɑ̃fɑ̃/ | children |
 
 ### Extended Family
 
 | Français | IPA | English |
 |----------|-----|---------|
-| <span onclick="playAudio('le grand-père')">le grand-père</span> | /lə gʁɑ̃pɛʁ/ | grandfather |
-| <span onclick="playAudio('papi')">papi</span> | /papi/ | grandpa |
-| <span onclick="playAudio('la grand-mère')">la grand-mère</span> | /la gʁɑ̃mɛʁ/ | grandmother |
-| <span onclick="playAudio('mamie')">mamie</span> | /mami/ | grandma |
-| <span onclick="playAudio('les grands-parents')">les grands-parents</span> | /le gʁɑ̃paʁɑ̃/ | grandparents |
-| <span onclick="playAudio('le petit-fils')">le petit-fils</span> | /lə pəti fis/ | grandson |
-| <span onclick="playAudio('la petite-fille')">la petite-fille</span> | /la pətit fij/ | granddaughter |
-| <span onclick="playAudio('les petits-enfants')">les petits-enfants</span> | /le pətiz‿ɑ̃fɑ̃/ | grandchildren |
+| <span onclick="playAudio('12')">le grand-père</span> | /lə gʁɑ̃pɛʁ/ | grandfather |
+| <span onclick="playAudio('13')">papi</span> | /papi/ | grandpa |
+| <span onclick="playAudio('14')">la grand-mère</span> | /la gʁɑ̃mɛʁ/ | grandmother |
+| <span onclick="playAudio('15')">mamie</span> | /mami/ | grandma |
+| <span onclick="playAudio('16')">les grands-parents</span> | /le gʁɑ̃paʁɑ̃/ | grandparents |
+| <span onclick="playAudio('17')">le petit-fils</span> | /lə pəti fis/ | grandson |
+| <span onclick="playAudio('18')">la petite-fille</span> | /la pətit fij/ | granddaughter |
+| <span onclick="playAudio('19')">les petits-enfants</span> | /le pətiz‿ɑ̃fɑ̃/ | grandchildren |
 
 ### Uncles, Aunts, and Cousins
 
 | Français | IPA | English |
 |----------|-----|---------|
-| <span onclick="playAudio('l'oncle')">l'oncle</span> | /lɔ̃kl/ | uncle |
-| <span onclick="playAudio('la tante')">la tante</span> | /la tɑ̃t/ | aunt |
-| <span onclick="playAudio('le neveu')">le neveu</span> | /lə nəvø/ | nephew |
-| <span onclick="playAudio('la nièce')">la nièce</span> | /la njɛs/ | niece |
-| <span onclick="playAudio('le cousin')">le cousin</span> | /lə kuzɛ̃/ | cousin (male) |
-| <span onclick="playAudio('la cousine')">la cousine</span> | /la kuzin/ | cousin (female) |
+| <span onclick="playAudio('20')">l'oncle</span> | /lɔ̃kl/ | uncle |
+| <span onclick="playAudio('21')">la tante</span> | /la tɑ̃t/ | aunt |
+| <span onclick="playAudio('22')">le neveu</span> | /lə nəvø/ | nephew |
+| <span onclick="playAudio('23')">la nièce</span> | /la njɛs/ | niece |
+| <span onclick="playAudio('24')">le cousin</span> | /lə kuzɛ̃/ | cousin (male) |
+| <span onclick="playAudio('25')">la cousine</span> | /la kuzin/ | cousin (female) |
 
 ### In-Laws
 
 | Français | IPA | English |
 |----------|-----|---------|
-| <span onclick="playAudio('le beau-père')">le beau-père</span> | /lə bo pɛʁ/ | father-in-law / stepfather |
-| <span onclick="playAudio('la belle-mère')">la belle-mère</span> | /la bɛl mɛʁ/ | mother-in-law / stepmother |
-| <span onclick="playAudio('le beau-frère')">le beau-frère</span> | /lə bo fʁɛʁ/ | brother-in-law |
-| <span onclick="playAudio('la belle-sœur')">la belle-sœur</span> | /la bɛl sœʁ/ | sister-in-law |
-| <span onclick="playAudio('le gendre')">le gendre</span> | /lə ʒɑ̃dʁ/ | son-in-law |
-| <span onclick="playAudio('la bru')">la bru</span> | /la bʁy/ | daughter-in-law |
+| <span onclick="playAudio('26')">le beau-père</span> | /lə bo pɛʁ/ | father-in-law / stepfather |
+| <span onclick="playAudio('27')">la belle-mère</span> | /la bɛl mɛʁ/ | mother-in-law / stepmother |
+| <span onclick="playAudio('28')">le beau-frère</span> | /lə bo fʁɛʁ/ | brother-in-law |
+| <span onclick="playAudio('29')">la belle-sœur</span> | /la bɛl sœʁ/ | sister-in-law |
+| <span onclick="playAudio('30')">le gendre</span> | /lə ʒɑ̃dʁ/ | son-in-law |
+| <span onclick="playAudio('31')">la bru</span> | /la bʁy/ | daughter-in-law |
 
 ### Marital Status & Relationships
 
 | Français | IPA | English |
 |----------|-----|---------|
-| <span onclick="playAudio('le mari')">le mari</span> | /lə maʁi/ | husband |
-| <span onclick="playAudio('la femme')">la femme</span> | /la fam/ | wife |
-| <span onclick="playAudio('l'époux')">l'époux</span> | /lepу/ | spouse (male) |
-| <span onclick="playAudio('l'épouse')">l'épouse</span> | /lepuz/ | spouse (female) |
-| <span onclick="playAudio('le compagnon')">le compagnon</span> | /lə kɔ̃paɲɔ̃/ | partner (male) |
-| <span onclick="playAudio('la compagne')">la compagne</span> | /la kɔ̃paɲ/ | partner (female) |
-| <span onclick="playAudio('le fiancé')">le fiancé</span> | /lə fjɑ̃se/ | fiancé |
-| <span onclick="playAudio('la fiancée')">la fiancée</span> | /la fjɑ̃se/ | fiancée |
-| <span onclick="playAudio('célibataire')">célibataire</span> | /selibatɛʁ/ | single |
-| <span onclick="playAudio('marié(e)')">marié(e)</span> | /maʁje/ | married |
-| <span onclick="playAudio('divorcé(e)')">divorcé(e)</span> | /divɔʁse/ | divorced |
-| <span onclick="playAudio('veuf/veuve')">veuf/veuve</span> | /vœf/vœv/ | widower/widow |
+| <span onclick="playAudio('32')">le mari</span> | /lə maʁi/ | husband |
+| <span onclick="playAudio('33')">la femme</span> | /la fam/ | wife |
+| <span onclick="playAudio('34')">l'époux</span> | /lepу/ | spouse (male) |
+| <span onclick="playAudio('35')">l'épouse</span> | /lepuz/ | spouse (female) |
+| <span onclick="playAudio('36')">le compagnon</span> | /lə kɔ̃paɲɔ̃/ | partner (male) |
+| <span onclick="playAudio('37')">la compagne</span> | /la kɔ̃paɲ/ | partner (female) |
+| <span onclick="playAudio('38')">le fiancé</span> | /lə fjɑ̃se/ | fiancé |
+| <span onclick="playAudio('39')">la fiancée</span> | /la fjɑ̃se/ | fiancée |
+| <span onclick="playAudio('40')">célibataire</span> | /selibatɛʁ/ | single |
+| <span onclick="playAudio('41')">marié(e)</span> | /maʁje/ | married |
+| <span onclick="playAudio('42')">divorcé(e)</span> | /divɔʁse/ | divorced |
+| <span onclick="playAudio('43')">veuf/veuve</span> | /vœf/vœv/ | widower/widow |
 
 ### Step-Family & Half-Siblings
 
 | Français | IPA | English |
 |----------|-----|---------|
-| <span onclick="playAudio('le demi-frère')">le demi-frère</span> | /lə dəmi fʁɛʁ/ | half-brother |
-| <span onclick="playAudio('la demi-sœur')">la demi-sœur</span> | /la dəmi sœʁ/ | half-sister |
-| <span onclick="playAudio('le beau-fils')">le beau-fils</span> | /lə bo fis/ | stepson |
-| <span onclick="playAudio('la belle-fille')">la belle-fille</span> | /la bɛl fij/ | stepdaughter |
+| <span onclick="playAudio('44')">le demi-frère</span> | /lə dəmi fʁɛʁ/ | half-brother |
+| <span onclick="playAudio('45')">la demi-sœur</span> | /la dəmi sœʁ/ | half-sister |
+| <span onclick="playAudio('46')">le beau-fils</span> | /lə bo fis/ | stepson |
+| <span onclick="playAudio('47')">la belle-fille</span> | /la bɛl fij/ | stepdaughter |
 
 ### Descriptive Terms
 
 | Français | IPA | English |
 |----------|-----|---------|
-| <span onclick="playAudio('l'aîné(e)')">l'aîné(e)</span> | /lene/ | eldest |
-| <span onclick="playAudio('le cadet/la cadette')">le cadet/la cadette</span> | /lə kadɛ/la kadɛt/ | youngest |
-| <span onclick="playAudio('le benjamin')">le benjamin</span> | /lə bɛ̃ʒamɛ̃/ | youngest child |
-| <span onclick="playAudio('jumeau/jumelle')">jumeau/jumelle</span> | /ʒymo/ʒymɛl/ | twin |
-| <span onclick="playAudio('un enfant unique')">un enfant unique</span> | /œ̃n‿ɑ̃fɑ̃ ynik/ | only child |
+| <span onclick="playAudio('48')">l'aîné(e)</span> | /lene/ | eldest |
+| <span onclick="playAudio('49')">le cadet/la cadette</span> | /lə kadɛ/la kadɛt/ | youngest |
+| <span onclick="playAudio('50')">le benjamin</span> | /lə bɛ̃ʒamɛ̃/ | youngest child |
+| <span onclick="playAudio('51')">jumeau/jumelle</span> | /ʒymo/ʒymɛl/ | twin |
+| <span onclick="playAudio('52')">un enfant unique</span> | /œ̃n‿ɑ̃fɑ̃ ynik/ | only child |
 
 ## 💬 Useful Expressions
 
 ### Talking About Family
-- <span onclick="playAudio('J'ai une grande famille.')">J'ai une grande famille.</span> – I have a big family.
-- <span onclick="playAudio('Ma famille est petite.')">Ma famille est petite.</span> – My family is small.
-- <span onclick="playAudio('Je suis enfant unique.')">Je suis enfant unique.</span> – I'm an only child.
-- <span onclick="playAudio('J'ai deux frères et une sœur.')">J'ai deux frères et une sœur.</span> – I have two brothers and one sister.
-- <span onclick="playAudio('Je suis l'aîné.')">Je suis l'aîné.</span> – I'm the oldest.
-- <span onclick="playAudio('Ma sœur est plus jeune que moi.')">Ma sœur est plus jeune que moi.</span> – My sister is younger than me.
+- <span onclick="playAudio('53')">J'ai une grande famille.</span> – I have a big family.
+- <span onclick="playAudio('54')">Ma famille est petite.</span> – My family is small.
+- <span onclick="playAudio('55')">Je suis enfant unique.</span> – I'm an only child.
+- <span onclick="playAudio('56')">J'ai deux frères et une sœur.</span> – I have two brothers and one sister.
+- <span onclick="playAudio('57')">Je suis l'aîné.</span> – I'm the oldest.
+- <span onclick="playAudio('58')">Ma sœur est plus jeune que moi.</span> – My sister is younger than me.
 
 ### Describing Family Members
-- <span onclick="playAudio('Mon père travaille comme médecin.')">Mon père travaille comme médecin.</span> – My father works as a doctor.
-- <span onclick="playAudio('Ma mère est professeur.')">Ma mère est professeur.</span> – My mother is a teacher.
-- <span onclick="playAudio('Mes parents habitent à Paris.')">Mes parents habitent à Paris.</span> – My parents live in Paris.
-- <span onclick="playAudio('Mon frère a 25 ans.')">Mon frère a 25 ans.</span> – My brother is 25 years old.
-- <span onclick="playAudio('Ma grand-mère a 80 ans.')">Ma grand-mère a 80 ans.</span> – My grandmother is 80 years old.
+- <span onclick="playAudio('59')">Mon père travaille comme médecin.</span> – My father works as a doctor.
+- <span onclick="playAudio('60')">Ma mère est professeur.</span> – My mother is a teacher.
+- <span onclick="playAudio('61')">Mes parents habitent à Paris.</span> – My parents live in Paris.
+- <span onclick="playAudio('62')">Mon frère a 25 ans.</span> – My brother is 25 years old.
+- <span onclick="playAudio('63')">Ma grand-mère a 80 ans.</span> – My grandmother is 80 years old.
 
 ### Relationships
-- <span onclick="playAudio('Je suis marié(e).')">Je suis marié(e).</span> – I'm married.
-- <span onclick="playAudio('Je suis célibataire.')">Je suis célibataire.</span> – I'm single.
-- <span onclick="playAudio('Mon mari s'appelle Pierre.')">Mon mari s'appelle Pierre.</span> – My husband's name is Pierre.
-- <span onclick="playAudio('Ma femme est française.')">Ma femme est française.</span> – My wife is French.
-- <span onclick="playAudio('Nous avons trois enfants.')">Nous avons trois enfants.</span> – We have three children.
+- <span onclick="playAudio('64')">Je suis marié(e).</span> – I'm married.
+- <span onclick="playAudio('65')">Je suis célibataire.</span> – I'm single.
+- <span onclick="playAudio('66')">Mon mari s'appelle Pierre.</span> – My husband's name is Pierre.
+- <span onclick="playAudio('67')">Ma femme est française.</span> – My wife is French.
+- <span onclick="playAudio('68')">Nous avons trois enfants.</span> – We have three children.
 
 ### Events & Gatherings
-- <span onclick="playAudio('On se retrouve en famille ce weekend.')">On se retrouve en famille ce weekend.</span> – We're getting together as a family this weekend.
-- <span onclick="playAudio('Il y a une réunion de famille dimanche.')">Il y a une réunion de famille dimanche.</span> – There's a family reunion on Sunday.
-- <span onclick="playAudio('Mes cousins viennent pour Noël.')">Mes cousins viennent pour Noël.</span> – My cousins are coming for Christmas.
+- <span onclick="playAudio('69')">On se retrouve en famille ce weekend.</span> – We're getting together as a family this weekend.
+- <span onclick="playAudio('70')">Il y a une réunion de famille dimanche.</span> – There's a family reunion on Sunday.
+- <span onclick="playAudio('71')">Mes cousins viennent pour Noël.</span> – My cousins are coming for Christmas.
 
 ### Asking About Family
-- <span onclick="playAudio('Tu as des frères et sœurs ?')">Tu as des frères et sœurs ?</span> – Do you have brothers and sisters?
-- <span onclick="playAudio('Vous avez des enfants ?')">Vous avez des enfants ?</span> – Do you have children?
-- <span onclick="playAudio('Tes parents habitent où ?')">Tes parents habitent où ?</span> – Where do your parents live?
-- <span onclick="playAudio('Tu es marié(e) ?')">Tu es marié(e) ?</span> – Are you married?
+- <span onclick="playAudio('72')">Tu as des frères et sœurs ?</span> – Do you have brothers and sisters?
+- <span onclick="playAudio('73')">Vous avez des enfants ?</span> – Do you have children?
+- <span onclick="playAudio('74')">Tes parents habitent où ?</span> – Where do your parents live?
+- <span onclick="playAudio('75')">Tu es marié(e) ?</span> – Are you married?
 
 ## ✏️ Fill-in-the-Blanks
 
@@ -200,64 +200,64 @@
 ## 🗣️ Dialogues
 
 ### Dialogue 1: Meeting Someone New
-> **A:** <span onclick="playAudio('Tu as des frères et sœurs ?')">Tu as des frères et sœurs ?</span><br>
-> **B:** <span onclick="playAudio('Oui, j'ai un frère et deux sœurs.')">Oui, j'ai un frère et deux sœurs.</span><br>
-> **A:** <span onclick="playAudio('Tu es l'aîné ?')">Tu es l'aîné ?</span><br>
-> **B:** <span onclick="playAudio('Non, je suis le cadet. Mon frère a 28 ans.')">Non, je suis le cadet. Mon frère a 28 ans.</span>
+> **A:** <span onclick="playAudio('76')">Tu as des frères et sœurs ?</span><br>
+> **B:** <span onclick="playAudio('77')">Oui, j'ai un frère et deux sœurs.</span><br>
+> **A:** <span onclick="playAudio('78')">Tu es l'aîné ?</span><br>
+> **B:** <span onclick="playAudio('79')">Non, je suis le cadet. Mon frère a 28 ans.</span>
 
 ### Dialogue 2: Describing Parents
-> **A:** <span onclick="playAudio('Tes parents habitent où ?')">Tes parents habitent où ?</span><br>
-> **B:** <span onclick="playAudio('Ils habitent à Lyon, dans le centre-ville.')">Ils habitent à Lyon, dans le centre-ville.</span><br>
-> **A:** <span onclick="playAudio('Qu'est-ce qu'ils font comme métier ?')">Qu'est-ce qu'ils font comme métier ?</span><br>
-> **B:** <span onclick="playAudio('Mon père est ingénieur et ma mère est infirmière.')">Mon père est ingénieur et ma mère est infirmière.</span>
+> **A:** <span onclick="playAudio('80')">Tes parents habitent où ?</span><br>
+> **B:** <span onclick="playAudio('81')">Ils habitent à Lyon, dans le centre-ville.</span><br>
+> **A:** <span onclick="playAudio('82')">Qu'est-ce qu'ils font comme métier ?</span><br>
+> **B:** <span onclick="playAudio('83')">Mon père est ingénieur et ma mère est infirmière.</span>
 
 ### Dialogue 3: Family Reunion
-> **A:** <span onclick="playAudio('Tu fais quoi ce weekend ?')">Tu fais quoi ce weekend ?</span><br>
-> **B:** <span onclick="playAudio('Il y a une réunion de famille chez mes grands-parents.')">Il y a une réunion de famille chez mes grands-parents.</span><br>
-> **A:** <span onclick="playAudio('Ah super ! Qui va venir ?')">Ah super ! Qui va venir ?</span><br>
-> **B:** <span onclick="playAudio('Tous mes oncles, mes tantes, et mes cousins. On va être une trentaine !')">Tous mes oncles, mes tantes, et mes cousins. On va être une trentaine !</span>
+> **A:** <span onclick="playAudio('84')">Tu fais quoi ce weekend ?</span><br>
+> **B:** <span onclick="playAudio('85')">Il y a une réunion de famille chez mes grands-parents.</span><br>
+> **A:** <span onclick="playAudio('86')">Ah super ! Qui va venir ?</span><br>
+> **B:** <span onclick="playAudio('87')">Tous mes oncles, mes tantes, et mes cousins. On va être une trentaine !</span>
 
 ### Dialogue 4: Talking About Children
-> **A:** <span onclick="playAudio('Vous avez des enfants ?')">Vous avez des enfants ?</span><br>
-> **B:** <span onclick="playAudio('Oui, nous avons deux fils.')">Oui, nous avons deux fils.</span><br>
-> **A:** <span onclick="playAudio('Quel âge ont-ils ?')">Quel âge ont-ils ?</span><br>
-> **B:** <span onclick="playAudio('L'aîné a 12 ans et le petit a 8 ans.')">L'aîné a 12 ans et le petit a 8 ans.</span>
+> **A:** <span onclick="playAudio('88')">Vous avez des enfants ?</span><br>
+> **B:** <span onclick="playAudio('89')">Oui, nous avons deux fils.</span><br>
+> **A:** <span onclick="playAudio('90')">Quel âge ont-ils ?</span><br>
+> **B:** <span onclick="playAudio('91')">L'aîné a 12 ans et le petit a 8 ans.</span>
 
 ### Dialogue 5: Extended Family
-> **A:** <span onclick="playAudio('Tu vois souvent tes cousins ?')">Tu vois souvent tes cousins ?</span><br>
-> **B:** <span onclick="playAudio('Oui, assez souvent. On se voit pour les anniversaires.')">Oui, assez souvent. On se voit pour les anniversaires.</span><br>
-> **A:** <span onclick="playAudio('Tu as combien de cousins ?')">Tu as combien de cousins ?</span><br>
-> **B:** <span onclick="playAudio('J'ai sept cousins du côté de ma mère et quatre du côté de mon père.')">J'ai sept cousins du côté de ma mère et quatre du côté de mon père.</span>
+> **A:** <span onclick="playAudio('92')">Tu vois souvent tes cousins ?</span><br>
+> **B:** <span onclick="playAudio('93')">Oui, assez souvent. On se voit pour les anniversaires.</span><br>
+> **A:** <span onclick="playAudio('94')">Tu as combien de cousins ?</span><br>
+> **B:** <span onclick="playAudio('95')">J'ai sept cousins du côté de ma mère et quatre du côté de mon père.</span>
 
 ### Dialogue 6: Marital Status
-> **A:** <span onclick="playAudio('Ton frère est marié ?')">Ton frère est marié ?</span><br>
-> **B:** <span onclick="playAudio('Oui, il s'est marié l'année dernière.')">Oui, il s'est marié l'année dernière.</span><br>
-> **A:** <span onclick="playAudio('Et sa femme, elle est comment ?')">Et sa femme, elle est comment ?</span><br>
-> **B:** <span onclick="playAudio('Elle est très sympa. Elle s'appelle Claire et elle est médecin.')">Elle est très sympa. Elle s'appelle Claire et elle est médecin.</span>
+> **A:** <span onclick="playAudio('96')">Ton frère est marié ?</span><br>
+> **B:** <span onclick="playAudio('97')">Oui, il s'est marié l'année dernière.</span><br>
+> **A:** <span onclick="playAudio('98')">Et sa femme, elle est comment ?</span><br>
+> **B:** <span onclick="playAudio('99')">Elle est très sympa. Elle s'appelle Claire et elle est médecin.</span>
 
 ### Dialogue 7: Grandparents
-> **A:** <span onclick="playAudio('Tes grands-parents sont encore en vie ?')">Tes grands-parents sont encore en vie ?</span><br>
-> **B:** <span onclick="playAudio('Oui, heureusement ! Mamie a 82 ans et papi a 85 ans.')">Oui, heureusement ! Mamie a 82 ans et papi a 85 ans.</span><br>
-> **A:** <span onclick="playAudio('Ils habitent près de chez toi ?')">Ils habitent près de chez toi ?</span><br>
-> **B:** <span onclick="playAudio('Non, ils habitent à Bordeaux. Je les vois pendant les vacances.')">Non, ils habitent à Bordeaux. Je les vois pendant les vacances.</span>
+> **A:** <span onclick="playAudio('100')">Tes grands-parents sont encore en vie ?</span><br>
+> **B:** <span onclick="playAudio('101')">Oui, heureusement ! Mamie a 82 ans et papi a 85 ans.</span><br>
+> **A:** <span onclick="playAudio('102')">Ils habitent près de chez toi ?</span><br>
+> **B:** <span onclick="playAudio('103')">Non, ils habitent à Bordeaux. Je les vois pendant les vacances.</span>
 
 ### Dialogue 8: Blended Family
-> **A:** <span onclick="playAudio('C'est compliqué, ta famille ?')">C'est compliqué, ta famille ?</span><br>
-> **B:** <span onclick="playAudio('Un peu. Mes parents sont divorcés.')">Un peu. Mes parents sont divorcés.</span><br>
-> **A:** <span onclick="playAudio('Et tu as des demi-frères ou demi-sœurs ?')">Et tu as des demi-frères ou demi-sœurs ?</span><br>
-> **B:** <span onclick="playAudio('Oui, j'ai deux demi-sœurs du côté de mon père.')">Oui, j'ai deux demi-sœurs du côté de mon père.</span>
+> **A:** <span onclick="playAudio('104')">C'est compliqué, ta famille ?</span><br>
+> **B:** <span onclick="playAudio('105')">Un peu. Mes parents sont divorcés.</span><br>
+> **A:** <span onclick="playAudio('106')">Et tu as des demi-frères ou demi-sœurs ?</span><br>
+> **B:** <span onclick="playAudio('107')">Oui, j'ai deux demi-sœurs du côté de mon père.</span>
 
 ### Dialogue 9: Becoming a Grandparent
-> **A:** <span onclick="playAudio('Tu as l'air content aujourd'hui !')">Tu as l'air content aujourd'hui !</span><br>
-> **B:** <span onclick="playAudio('Oui ! Ma fille vient d'avoir un bébé.')">Oui ! Ma fille vient d'avoir un bébé.</span><br>
-> **A:** <span onclick="playAudio('Félicitations ! Tu es grand-père maintenant !')">Félicitations ! Tu es grand-père maintenant !</span><br>
-> **B:** <span onclick="playAudio('Oui, et c'est une petite-fille. Elle s'appelle Emma.')">Oui, et c'est une petite-fille. Elle s'appelle Emma.</span>
+> **A:** <span onclick="playAudio('108')">Tu as l'air content aujourd'hui !</span><br>
+> **B:** <span onclick="playAudio('109')">Oui ! Ma fille vient d'avoir un bébé.</span><br>
+> **A:** <span onclick="playAudio('110')">Félicitations ! Tu es grand-père maintenant !</span><br>
+> **B:** <span onclick="playAudio('111')">Oui, et c'est une petite-fille. Elle s'appelle Emma.</span>
 
 ### Dialogue 10: Only Child
-> **A:** <span onclick="playAudio('Tu as de la chance d'avoir des frères et sœurs.')">Tu as de la chance d'avoir des frères et sœurs.</span><br>
-> **B:** <span onclick="playAudio('Pourquoi tu dis ça ?')">Pourquoi tu dis ça ?</span><br>
-> **A:** <span onclick="playAudio('Je suis enfant unique. Parfois c'est un peu solitaire.')">Je suis enfant unique. Parfois c'est un peu solitaire.</span><br>
-> **B:** <span onclick="playAudio('Oui, mais tu as toute l'attention de tes parents !')">Oui, mais tu as toute l'attention de tes parents !</span>
+> **A:** <span onclick="playAudio('112')">Tu as de la chance d'avoir des frères et sœurs.</span><br>
+> **B:** <span onclick="playAudio('113')">Pourquoi tu dis ça ?</span><br>
+> **A:** <span onclick="playAudio('114')">Je suis enfant unique. Parfois c'est un peu solitaire.</span><br>
+> **B:** <span onclick="playAudio('115')">Oui, mais tu as toute l'attention de tes parents !</span>
 
 ## 🧩 Cloze Dialogues
 
@@ -450,35 +450,35 @@ Describe a family gathering using at least 5 different family relationship words
 
 ### Common Expressions
 
-- <span onclick="playAudio('C'est de famille.')">C'est de famille.</span> – It runs in the family.
-- <span onclick="playAudio('On est en famille.')">On est en famille.</span> – We're with family / among family.
-- <span onclick="playAudio('Ça reste en famille.')">Ça reste en famille.</span> – It stays in the family.
-- <span onclick="playAudio('Il fait partie de la famille.')">Il fait partie de la famille.</span> – He's part of the family.
-- <span onclick="playAudio('C'est une ambiance familiale.')">C'est une ambiance familiale.</span> – It's a family atmosphere.
+- <span onclick="playAudio('116')">C'est de famille.</span> – It runs in the family.
+- <span onclick="playAudio('117')">On est en famille.</span> – We're with family / among family.
+- <span onclick="playAudio('118')">Ça reste en famille.</span> – It stays in the family.
+- <span onclick="playAudio('119')">Il fait partie de la famille.</span> – He's part of the family.
+- <span onclick="playAudio('120')">C'est une ambiance familiale.</span> – It's a family atmosphere.
 
 ## ⭐ Ultra-Useful Phrases
 
 ### Essential Family Phrases
 
-1. <span onclick="playAudio('Je te présente ma famille.')">Je te présente ma famille.</span> – Let me introduce my family.
+1. <span onclick="playAudio('121')">Je te présente ma famille.</span> – Let me introduce my family.
 
-2. <span onclick="playAudio('Voici mon mari / ma femme.')">Voici mon mari / ma femme.</span> – This is my husband / wife.
+2. <span onclick="playAudio('122')">Voici mon mari / ma femme.</span> – This is my husband / wife.
 
-3. <span onclick="playAudio('Mes parents vont bien, merci.')">Mes parents vont bien, merci.</span> – My parents are doing well, thank you.
+3. <span onclick="playAudio('123')">Mes parents vont bien, merci.</span> – My parents are doing well, thank you.
 
-4. <span onclick="playAudio('Je ressemble à mon père.')">Je ressemble à mon père.</span> – I look like my father.
+4. <span onclick="playAudio('124')">Je ressemble à mon père.</span> – I look like my father.
 
-5. <span onclick="playAudio('On se voit en famille ce weekend.')">On se voit en famille ce weekend.</span> – We're getting together with family this weekend.
+5. <span onclick="playAudio('125')">On se voit en famille ce weekend.</span> – We're getting together with family this weekend.
 
-6. <span onclick="playAudio('Ma sœur attend un bébé.')">Ma sœur attend un bébé.</span> – My sister is expecting a baby.
+6. <span onclick="playAudio('126')">Ma sœur attend un bébé.</span> – My sister is expecting a baby.
 
-7. <span onclick="playAudio('Je suis très proche de mes grands-parents.')">Je suis très proche de mes grands-parents.</span> – I'm very close to my grandparents.
+7. <span onclick="playAudio('127')">Je suis très proche de mes grands-parents.</span> – I'm very close to my grandparents.
 
-8. <span onclick="playAudio('Mes enfants sont ma priorité.')">Mes enfants sont ma priorité.</span> – My children are my priority.
+8. <span onclick="playAudio('128')">Mes enfants sont ma priorité.</span> – My children are my priority.
 
-9. <span onclick="playAudio('La famille, c'est important pour moi.')">La famille, c'est important pour moi.</span> – Family is important to me.
+9. <span onclick="playAudio('129')">La famille, c'est important pour moi.</span> – Family is important to me.
 
-10. <span onclick="playAudio('On est une famille nombreuse.')">On est une famille nombreuse.</span> – We're a large family.
+10. <span onclick="playAudio('130')">On est une famille nombreuse.</span> – We're a large family.
 
 ---
 
