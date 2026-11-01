@@ -113,10 +113,7 @@
             class="form-range"
           />
         </div>
-        <audio
-          id="audioElement"
-          src="https://languages.rmlives.com/lessons/read/plants/audio.mp3"
-        ></audio>
+        <audio id="audioElement"></audio>
       </div>
       <!-- End Audio Player -->
       <div class="top-header">
@@ -430,7 +427,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/chenille.mp3"
+                data-audio="chenille"
               >
                 chenille
               </td>
@@ -440,7 +437,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/cellule.mp3"
+                data-audio="cellule"
               >
                 cellule
               </td>
@@ -450,7 +447,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/calcium.mp3"
+                data-audio="calcium"
               >
                 calcium
               </td>
@@ -460,7 +457,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/signalisation.mp3"
+                data-audio="signalisation"
               >
                 signalisation
               </td>
@@ -470,7 +467,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/molecule-volatile.mp3"
+                data-audio="molecule-volatile"
               >
                 molécule volatile
               </td>
@@ -480,7 +477,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/systeme-de-defense.mp3"
+                data-audio="systeme-de-defense"
               >
                 système de défense
               </td>
@@ -490,7 +487,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/ecouter-aux-portes.mp3"
+                data-audio="ecouter-aux-portes"
               >
                 écouter aux portes
               </td>
@@ -500,7 +497,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/racine.mp3"
+                data-audio="racine"
               >
                 racine
               </td>
@@ -510,7 +507,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/champignon.mp3"
+                data-audio="champignon"
               >
                 champignon
               </td>
@@ -520,7 +517,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/mycorhize.mp3"
+                data-audio="mycorhize"
               >
                 mycorhize
               </td>
@@ -530,7 +527,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/symbiose.mp3"
+                data-audio="symbiose"
               >
                 symbiose
               </td>
@@ -540,7 +537,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/reseau-mycorhizien.mp3"
+                data-audio="reseau-mycorhizien"
               >
                 réseau mycorhizien
               </td>
@@ -550,7 +547,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/carbone.mp3"
+                data-audio="carbone"
               >
                 carbone
               </td>
@@ -560,7 +557,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/percevoir.mp3"
+                data-audio="percevoir"
               >
                 percevoir
               </td>
@@ -570,7 +567,7 @@
             <tr>
               <td
                 class="glossary-word"
-                data-audio="https://languages.rmlives.com/lessons/read/plants/se-taire.mp3"
+                data-audio="se-taire"
               >
                 se taire
               </td>
@@ -614,6 +611,15 @@
     <script type="module" src="../../assets/js/read.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+      /* ---------------------------------------------------------------
+   Audio: AUD_DIR + audio.mp3 (the whole text) and one clip per glossary
+   word, named by its data-audio (data-audio="chenille" -> chenille.mp3).
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/plants/";
+      const AUD_EXT = "mp3";
+
+      document.getElementById("audioElement").src = AUD_DIR + "audio." + AUD_EXT;
+
       document.addEventListener("DOMContentLoaded", function () {
         let currentAudio = null;
 
@@ -629,7 +635,7 @@
                 currentAudio.currentTime = 0;
               }
 
-              currentAudio = new Audio(audioSrc);
+              currentAudio = new Audio(AUD_DIR + audioSrc + "." + AUD_EXT);
               currentAudio.play().catch((error) => {
                 console.error("Audio playback failed:", error);
               });
