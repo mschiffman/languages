@@ -6,6 +6,13 @@
    and optionally:
      ALSO  = { "<answer>": ["<other form marked correct>", ...] }
      HINTS = { "<answer>": { "<near miss>": "<note shown with the answer>" } }
+     ASK   = ["<question>", audio#]  played when each picture opens, or
+             { <key>: ["<question>", audio#], ... } with  ask: "<key>"  on
+             each page (e.g. "What color is it?" / "What is it?").
+             A <button id="ask"> in the page shows the question and replays it.
+
+   Answers with no article ("red", "water"): "a red" -> "Almost! No a or an."
+   and one more try; "It's red." / "It is red." counts as "red".
 
    The answer for each picture is the LAST chunk of its page, so a reader's
    pages array can be pasted in unchanged (the quiz pages only list the answers,
@@ -27,7 +34,7 @@
 (function () {
   /* Mistake types that get one more try. Add "spelling" (small slip) or
      "measure" ("scissors" for "a pair of scissors") to allow a retry for those too. */
-  const SECOND_TRY = ["noArticle", "wrongArticle"];
+  const SECOND_TRY = ["noArticle", "wrongArticle", "extraArticle"];
 
   /* true  = an answer typed after tapping 🔊 is right but doesn't score.
      false = listening first is allowed and still scores (dictation mode). */
@@ -50,13 +57,15 @@
   const esc = (s) =>
     String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const imgUrl = (item) => media(`${IMG_DIR}${item.img}.${IMG_EXT}`);
-  const audUrl = (item) => media(`${AUD_DIR}${pad(item.audio)}.${AUD_EXT}`);
+  const audUrl = (num) => media(`${AUD_DIR}${pad(num)}.${AUD_EXT}`);
   const byBook = (ids) => ids.slice().sort((a, b) => a - b);
 
+  const asks = typeof ASK !== "undefined" ? ASK : null;
   const ITEMS = pages.map((p, i) => {
     const chunks = p.sentences.flat();
     const [text, num] = chunks[chunks.length - 1];
-    return { id: i, img: p.img, answer: text, audio: num };
+    const q = !asks ? null : Array.isArray(asks) ? asks : asks[p.ask] || null;
+    return { id: i, img: p.img, answer: text, audio: num, ask: q };
   });
   const also = typeof ALSO !== "undefined" ? ALSO : {};
   const hints = typeof HINTS !== "undefined" ? HINTS : {};
@@ -76,6 +85,8 @@
   const checkBtn = $("check");
   const checkLabel = $("checkLabel");
   const listenBtn = $("listen");
+  const askBtn = $("ask"); // optional: shows the question, tap to hear it again
+  const askText = $("askText");
 
   /* ---- answer checking ---- */
   const norm = (s) =>
@@ -113,7 +124,9 @@
        retry = message when the mistake gets a second try
        note  = shown with the correct answer when the answer is final */
   function judge(raw, item) {
-    const typed = norm(raw);
+    let typed = norm(raw);
+    /* "It's red." for "red" (only when the answer itself has no "It's") */
+    if (!/^it('s| is)\b/.test(norm(item.answer))) typed = typed.replace(/^it('s| is|s) /, "");
     const u = split(typed);
     const forms = [item.answer, ...(also[item.answer] || [])].map(norm);
     const main = split(forms[0]);
@@ -126,9 +139,12 @@
     }
     const miss = (type, note, retry) => ({ ok: false, type, note, retry });
 
-    /* right word, a / an missing or wrong */
+    /* right word, a / an missing or wrong (or there when it shouldn't be) */
     for (const f of forms) {
       if (squash(u.noun) === squash(split(f).noun)) {
+        if (!split(f).art) {
+          return miss("extraArticle", `No <b>a</b> or <b>an</b>: just <b>${esc(item.answer)}</b>.`, "Almost! No <b>a</b> or <b>an</b> here.");
+        }
         return u.art
           ? miss("wrongArticle", "Use <b>an</b> before a vowel sound, <b>a</b> before other sounds.", "Almost! <b>a</b> or <b>an</b>?")
           : miss("noArticle", "Don't forget <b>a</b> or <b>an</b>.", "Almost! Add <b>a</b> or <b>an</b>.");
@@ -159,10 +175,12 @@
 
   /* ---- audio (one reusable element) ---- */
   const player = new Audio();
-  function play(item, btn) {
+  let playId = 0; // a newer play() makes the older one's rejection harmless
+  function playNum(num, btn) {
     player.pause();
     document.querySelectorAll(".playing").forEach((el) => el.classList.remove("playing"));
-    player.src = audUrl(item);
+    player.src = audUrl(num);
+    const id = ++playId;
     if (btn) {
       btn.classList.add("playing");
       player.onended = () => btn.classList.remove("playing");
@@ -170,7 +188,28 @@
       player.onended = null;
     }
     const p = player.play();
-    if (p && p.catch) p.catch(() => btn && btn.classList.remove("playing"));
+    if (p && p.catch) p.catch(() => id === playId && btn && btn.classList.remove("playing"));
+    return p;
+  }
+  const play = (item, btn) => playNum(item.audio, btn);
+
+  /* the question ("What color is it?"), played when each picture opens */
+  let asked = false;
+  function ask() {
+    if (!cur || !cur.item || !cur.item.ask) return;
+    const p = playNum(cur.item.ask[1], askBtn);
+    asked = true;
+    if (p && p.catch) p.catch(() => (asked = false));
+  }
+  /* Browsers block sound before the first tap: ask on the first one. */
+  function unlock(e) {
+    if (asked || !cur || cur.done || cur.results) return;
+    if (e.target.closest && e.target.closest("button")) return; // a 🔊 or Check tap plays its own sound
+    ask();
+  }
+  if (ITEMS.some((it) => it.ask)) {
+    document.addEventListener("pointerdown", unlock, true);
+    document.addEventListener("keydown", unlock, true);
   }
 
   /* ---- round state ---- */
@@ -242,10 +281,15 @@
     checkLabel.textContent = "Check";
     listenBtn.classList.remove("playing");
     player.pause();
+    if (askBtn) {
+      askBtn.hidden = !item.ask;
+      if (item.ask) (askText || askBtn).textContent = item.ask[0];
+    }
     paintProgress();
     const next = ITEMS[round[pos + 1]];
     if (next) new Image().src = imgUrl(next);
     focusInput();
+    if (item.ask) ask();
   }
 
   function finish(ok, note) {
@@ -310,6 +354,7 @@
   /* ---- results: grade, feedback, wrong vs correct, right answers ---- */
   const TIPS = [
     ["noArticle", "Add <b>a</b> or <b>an</b> before the word."],
+    ["extraArticle", "No <b>a</b> or <b>an</b> before these words."],
     ["wrongArticle", "Use <b>an</b> before a vowel sound (<b>an eraser</b>), <b>a</b> before other sounds (<b>a book</b>)."],
     ["measure", "Some words need <b>a pair of</b> or <b>a piece of</b>."],
     ["partial", "Say the whole name of the thing."],
@@ -443,8 +488,13 @@
   });
   againBtn.addEventListener("click", () => startRound(ITEMS.map((it) => it.id), false));
   listenBtn.addEventListener("click", listen);
+  if (askBtn)
+    askBtn.addEventListener("click", () => {
+      ask();
+      focusInput();
+    });
   /* keep the keyboard up on phones: the footer buttons don't steal focus */
-  [checkBtn, listenBtn].forEach((b) => b.addEventListener("mousedown", (e) => e.preventDefault()));
+  [checkBtn, listenBtn, askBtn].filter(Boolean).forEach((b) => b.addEventListener("mousedown", (e) => e.preventDefault()));
 
   /* ---- fit the stage above the on-screen keyboard ---- */
   const vv = window.visualViewport;

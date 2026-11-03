@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, interactive-widget=resizes-content"
+    />
+    <title>Rainbow Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M2 18a10 10 0 0 1 20 0" stroke="#E04848" stroke-width="2" />
+            <path d="M4 18a8 8 0 0 1 16 0" stroke="#F0A030" stroke-width="2" />
+            <path d="M6 18a6 6 0 0 1 12 0" stroke="#F2D040" stroke-width="2" />
+            <path d="M8 18a4 4 0 0 1 8 0" stroke="#4DB05A" stroke-width="2" />
+            <path d="M10 18a2 2 0 0 1 4 0" stroke="#3D8BE0" stroke-width="2" />
+            <ellipse cx="4" cy="19" rx="3.4" ry="2.2" fill="#FFFFFF" stroke="#B9C7D6" stroke-width="0.7" />
+            <ellipse cx="20" cy="19" rx="3.4" ry="2.2" fill="#FFFFFF" stroke="#B9C7D6" stroke-width="0.7" />
+          </svg>
+          <span><span style="color: #D63A3A">R</span><span style="color: #E8772E">a</span><span style="color: #D9A400">i</span><span style="color: #3E9B48">n</span><span style="color: #2F7FD1">b</span><span style="color: #7A4FC4">o</span><span style="color: #D63A3A">w</span></span>
+          <span class="tag" id="modeTag">Quiz</span>
+        </div>
+        <div class="counter" id="counter">1 / 9</div>
+      </header>
+
+      <div class="progress" id="progress" aria-hidden="true"></div>
+
+      <main class="quiz-body" id="quiz">
+        <div class="art"><img id="pic" alt="Picture to name" /></div>
+        <form class="answer" id="answerForm" autocomplete="off">
+          <button type="button" class="ask" id="ask" aria-label="Listen to the question">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+            </svg>
+            <span id="askText">What color is it?</span>
+          </button>
+          <label for="answer" class="sr-only">Type what you see</label>
+          <input
+            id="answer"
+            type="text"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            enterkeyhint="go"
+            placeholder="Type it here"
+          />
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+        </form>
+      </main>
+
+      <section class="results" id="results" aria-live="polite" hidden></section>
+
+      <footer>
+        <button class="nav" id="again" aria-label="Start again with all pictures">&#8635;</button>
+        <button class="nav" id="listen" aria-label="Listen to the answer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+            <path
+              d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button class="play-page" id="check">
+          <span id="checkLabel">Check</span>
+        </button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Picture -> type the answer. Pictures 9 … 17 of the rainbow story:
+           images : /img/ytstory/s2.2_rainbow/9.jpg … 17.jpg
+           audio  : 01.mp3 … 09.mp3 = the answers (the 🔊 cue),
+                    10.mp3 = "What color is it?", 11.mp3 = "What is it?"
+                    (played when each picture opens; tap the question to
+                    hear it again)
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s2.2_rainbow/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/rainbow-quiz/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=2611031200";
+
+      const pages = [
+        { img: 9, ask: "color", sentences: [[["red", 1]]] },
+        { img: 10, ask: "color", sentences: [[["orange", 2]]] },
+        { img: 11, ask: "color", sentences: [[["violet", 3]]] },
+        { img: 12, ask: "color", sentences: [[["yellow", 4]]] },
+        { img: 13, ask: "color", sentences: [[["green", 5]]] },
+        { img: 14, ask: "color", sentences: [[["blue", 6]]] },
+        { img: 15, ask: "thing", sentences: [[["water", 7]]] },
+        { img: 16, ask: "thing", sentences: [[["sun", 8]]] },
+        { img: 17, ask: "thing", sentences: [[["rain", 9]]] },
+      ];
+
+      /* the questions, by each page's  ask  key */
+      const ASK = {
+        color: ["What color is it?", 10],
+        thing: ["What is it?", 11],
+      };
+
+      /* Other forms marked correct ("It's red." is already accepted;
+         feedback shows the lesson's form). */
+      const ALSO = {
+        water: ["the water", "a glass of water"],
+        sun: ["the sun"],
+        rain: ["the rain"],
+      };
+
+      /* Near misses: the answer is still wrong, and this note is shown
+         with the correct answer. */
+      const HINTS = {
+        violet: { purple: "In a rainbow, we call it violet.", indigo: "This is the last color: violet." },
+        blue: { indigo: "In this lesson, it's blue." },
+        water: { "a glass": "Look inside the glass." },
+        rain: { "a cloud": "Look under the cloud.", rainbow: "No rainbow here. Look under the cloud." },
+        sun: { "a star": "It's our star: the sun." },
+      };
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytquiz.js"></script>
+  </body>
+</html>

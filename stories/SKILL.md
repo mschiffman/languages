@@ -299,3 +299,23 @@ Audio: its own folder, R2 `eng/yt/time-quiz/` (V4, British Modern RP-Woman).
 "It is", hyphens and full stops are ignored; one more try for a missing "It's",
 a missing apostrophe, figures ("It's 1:27") or the same answer twice. `ALSO`
 holds accepted variants ("twenty-seven minutes past one", "quarter past ten").
+
+### Spoken question (optional)
+
+`s2.2_rainbow_quiz.html` (2026-11-03, pictures 9–17 of the rainbow story) adds a
+spoken question to the one-answer engine. After `pages`, with the next audio
+numbers:
+
+```js
+const ASK = { color: ["What color is it?", 10], thing: ["What is it?", 11] };
+```
+
+and `ask: "color"` / `ask: "thing"` on each page (or `const ASK = ["…", N]`
+for one question on every picture). `ytquiz.js` plays it when each picture
+opens (on the first tap if the browser blocked sound) and shows it in a
+`<button id="ask">` above the box, which replays it. The footer 🔊 still says
+the answer.
+
+Answers with no article ("red", "water") are fine: "a red" gets
+"Almost! No a or an here." and one more try (`extraArticle`), and
+"It's red." / "It is red." counts as "red". Audio: R2 `eng/yt/rainbow-quiz/`.

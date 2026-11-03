@@ -88,6 +88,38 @@
   gap: 0.4rem;
   margin: 0;
 }
+/* the spoken question ("What color is it?"), tap to hear it again */
+.ask {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.05rem, 4.4vw, 1.25rem);
+  line-height: 1.2;
+  color: var(--forest);
+  background: var(--paper-edge);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: 0.25em 0.8em 0.25em 0.6em;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+.ask[hidden] {
+  display: none;
+}
+.ask svg {
+  width: 1.1em;
+  height: 1.1em;
+  flex: 0 0 auto;
+}
+.ask.playing {
+  background: var(--gold);
+  border-color: var(--gold-deep);
+}
 #answer {
   width: 100%;
   font-family: "Andika", "Segoe UI", system-ui, sans-serif;
