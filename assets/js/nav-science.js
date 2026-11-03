@@ -20,6 +20,7 @@
         { title: "The Beavers: Nature's Engineers", href: "s1.9_beavers.html" },
         { title: "The Playful Otters of the River", href: "s2.0_otters.html" },
         { title: "A Visit to Prairie Dog Town", href: "s2.1_prairieDog.html" },
+        { title: "How Does a Rainbow Appear in the Sky?", href: "s2.2_rainbow.html" },
       ],
     },
     {

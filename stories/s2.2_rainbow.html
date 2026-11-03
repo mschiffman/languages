@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>How Does a Rainbow Appear in the Sky?</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M2 18a10 10 0 0 1 20 0" stroke="#E04848" stroke-width="2" />
+            <path d="M4 18a8 8 0 0 1 16 0" stroke="#F0A030" stroke-width="2" />
+            <path d="M6 18a6 6 0 0 1 12 0" stroke="#F2D040" stroke-width="2" />
+            <path d="M8 18a4 4 0 0 1 8 0" stroke="#4DB05A" stroke-width="2" />
+            <path d="M10 18a2 2 0 0 1 4 0" stroke="#3D8BE0" stroke-width="2" />
+            <ellipse cx="4" cy="19" rx="3.4" ry="2.2" fill="#FFFFFF" stroke="#B9C7D6" stroke-width="0.7" />
+            <ellipse cx="20" cy="19" rx="3.4" ry="2.2" fill="#FFFFFF" stroke="#B9C7D6" stroke-width="0.7" />
+          </svg>
+          <span>How Does a <span style="color: #D63A3A">R</span><span style="color: #E8772E">a</span><span style="color: #D9A400">i</span><span style="color: #3E9B48">n</span><span style="color: #2F7FD1">b</span><span style="color: #7A4FC4">o</span><span style="color: #D63A3A">w</span> Appear in the&nbsp;Sky?</span>
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s2.2_rainbow/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 85.mp3 next to this file (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s2.2_rainbow/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s2.2_rainbow/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..85 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["The rain has stopped.", 1]],
+            [["The dark clouds are moving away.", 2]],
+            [
+              ["Suddenly,", 3],
+              ["a beautiful rainbow appears in the sky!", 4],
+            ],
+            [
+              ["Red, orange, yellow,", 5],
+              ["green, blue, and violet!", 6],
+            ],
+            [["What a wonderful sight!", 7]],
+            [["But where do all these colors come from?", 8]],
+            [["Let's find out!", 9]],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [["A rainbow needs two important things.", 10]],
+            [
+              ["It needs sunlight", 11],
+              ["and tiny drops of water.", 12],
+            ],
+            [
+              ["After a rainstorm,", 13],
+              ["many raindrops may still be falling", 14],
+              ["through the air.", 15],
+            ],
+            [
+              ["When sunlight shines on these drops,", 16],
+              ["something amazing can happen.", 17],
+            ],
+            [
+              ["The sunlight can separate", 18],
+              ["into beautiful colors!", 19],
+            ],
+            [["But how?", 20]],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [["Sunlight looks white to our eyes.", 21]],
+            [["But it contains many different colors!", 22]],
+            [
+              ["Red, orange, yellow,", 23],
+              ["green, blue, and violet", 24],
+              ["are all part of sunlight.", 25],
+            ],
+            [
+              ["Usually,", 26],
+              ["these colors travel together.", 27],
+            ],
+            [["That is why we see white light.", 28]],
+            [["A raindrop can help separate them!", 29]],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["Imagine a tiny raindrop", 30],
+              ["floating in the air.", 31],
+            ],
+            [["A ray of sunlight enters the drop.", 32]],
+            [
+              ["As the light moves", 33],
+              ["from air into water,", 34],
+              ["it bends.", 35],
+            ],
+            [["Scientists call this bending refraction.", 36]],
+            [
+              ["Different colors bend", 37],
+              ["by different amounts.", 38],
+            ],
+            [["The colors begin to separate!", 39]],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["What happens next?", 40]],
+            [
+              ["Some of the light reflects", 41],
+              ["off the back of the raindrop.", 42],
+            ],
+            [
+              ["It travels back", 43],
+              ["toward the front of the drop.", 44],
+            ],
+            [
+              ["Then it leaves the water", 45],
+              ["and enters the air again.", 46],
+            ],
+            [
+              ["As it leaves,", 47],
+              ["the light bends once more.", 48],
+            ],
+            [
+              ["Now the different colors", 49],
+              ["spread farther apart!", 50],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["One raindrop is very small.", 51]],
+            [
+              ["But there can be millions of raindrops", 52],
+              ["in the sky!", 53],
+            ],
+            [
+              ["Each drop sends colored light", 54],
+              ["in different directions.", 55],
+            ],
+            [
+              ["Only some of that light", 56],
+              ["reaches our eyes.", 57],
+            ],
+            [
+              ["Together,", 58],
+              ["the light from many drops", 59],
+              ["creates a beautiful rainbow.", 60],
+            ],
+            [["What an amazing trick of nature!", 61]],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ["Have you noticed", 62],
+              ["that rainbows look like big arches?", 63],
+            ],
+            [["There is a reason!", 64]],
+            [
+              ["The colored light reaches our eyes", 65],
+              ["from raindrops", 66],
+              ["at particular angles.", 67],
+            ],
+            [
+              ["These raindrops form a circle", 68],
+              ["around a point in the sky", 69],
+              ["opposite the Sun.", 70],
+            ],
+            [
+              ["From the ground,", 71],
+              ["we usually see only part of that circle.", 72],
+            ],
+            [["That is why a rainbow looks like an arch!", 73]],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [["Would you like to see a rainbow?", 74]],
+            [
+              ["Look for sunshine", 75],
+              ["while rain is falling in the distance.", 76],
+            ],
+            [["Stand with the Sun behind you.", 77]],
+            [
+              ["Look toward the raindrops", 78],
+              ["in front of you.", 79],
+            ],
+            [["You might see a beautiful rainbow!", 80]],
+            [
+              ["Remember:", 81],
+              ["sunlight bends, reflects,", 82],
+              ["and separates into colors", 83],
+              ["inside raindrops.", 84],
+            ],
+            [["Now you know how a rainbow appears!", 85]],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
