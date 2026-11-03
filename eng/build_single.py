@@ -6,7 +6,8 @@ Each stories/<name>.html is a thin page: markup + story data, with the shared
 CSS/JS (assets/css/yt*.css, assets/js/*.js) loaded from the site. This script
 collapses one into ONE .html that opens offline (tablet / SD card):
 
-  - inlines the shared stylesheet(s), scripts and offline fonts (eng/offline_fonts.css)
+  - inlines the shared stylesheet(s), scripts and offline fonts (eng/offline_fonts.css,
+    plus eng/offline_fonts_my.css for a page with Burmese translation lines)
   - embeds every image and audio file the story uses as base64 (EMBED map):
       images -> as-is (they are resized and converted to JPG beforehand)
       audio  -> 96 kbps mono MP3 (ffmpeg)            the originals are up to 320 kbps stereo
@@ -48,6 +49,7 @@ ENG = ROOT / "eng"
 STORIES = ROOT / "stories"
 DEFAULT_OUT = ENG / "single"
 FONTS_CSS = ENG / "offline_fonts.css"
+FONTS_CSS_MY = ENG / "offline_fonts_my.css"  # Burmese, only for pages with Myanmar text
 AUDIO_CACHE = ENG / "yt"
 AUDIO_BACKUP = ROOT / "media" / "eng" / "yt"  # the user's own backup copy
 CACHE = ENG / ".build_cache"  # shrunk audio
@@ -205,6 +207,8 @@ def build(page: Path, out_dir: Path, kbps: int = 96) -> Path:
     css_urls = re.findall(r'<link[^>]*rel="stylesheet"[^>]*href="(/[^"]+)"', head.group(1))
     css_urls += re.findall(r'<link[^>]*href="(/[^"]+\.css)"[^>]*rel="stylesheet"', head.group(1))
     css = FONTS_CSS.read_text(encoding="utf-8")
+    if re.search(r"[က-႟]", html):
+        css += "\n" + FONTS_CSS_MY.read_text(encoding="utf-8")
     for url in css_urls:
         css += "\n" + site_file(url).read_text(encoding="utf-8")
 

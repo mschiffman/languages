@@ -407,6 +407,20 @@ header {
   transform: translateY(-1px);
 }
 
+/* ---- optional translation lines (TRANSLATION + page.tr, see ytstory.js) ---- */
+.tr {
+  display: none;
+  margin: -0.35rem 0 0.15rem;
+  padding-left: 0.45em;
+  font-family: "Noto Sans Myanmar", "Myanmar Text", sans-serif;
+  font-size: calc(var(--reading) * 0.6);
+  line-height: 1.8;
+  color: #5d7a63;
+}
+.show-tr .tr {
+  display: block;
+}
+
 /* ---- bottom controls ---- */
 footer {
   flex: 0 0 auto;
@@ -490,6 +504,37 @@ footer {
   box-shadow: 0 5px 0 #cbb488;
 }
 
+.tr-toggle {
+  flex: 0 0 auto;
+  height: 56px;
+  padding: 0 0.85rem;
+  border: 3px solid var(--forest);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--forest);
+  font-family: "Noto Sans Myanmar", "Myanmar Text", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    background 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.tr-toggle:hover {
+  background: #fff;
+}
+.tr-toggle:active {
+  transform: scale(0.95);
+}
+.tr-toggle[aria-pressed="true"] {
+  background: var(--leaf);
+}
+.tr-toggle:focus-visible {
+  outline: 3px solid var(--forest-soft);
+  outline-offset: 3px;
+}
+
 @media (max-width: 400px) {
   .nav {
     width: 50px;
@@ -499,6 +544,16 @@ footer {
   .play-page {
     height: 50px;
     font-size: 1.05rem;
+  }
+  .tr-toggle {
+    height: 50px;
+    padding: 0 0.6rem;
+    font-size: 0.85rem;
+  }
+  .has-tr footer {
+    gap: 0.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
   }
   .nav-toggle {
     width: 36px;
@@ -514,7 +569,8 @@ footer {
   }
   .chunk,
   .nav,
-  .play-page {
+  .play-page,
+  .tr-toggle {
     transition: none;
   }
 }

@@ -37,7 +37,7 @@ pages.forEach((page, i) => {
 
   const read = document.createElement("div");
   read.className = "read";
-  page.sentences.forEach((sentence) => {
+  page.sentences.forEach((sentence, si) => {
     const p = document.createElement("p");
     p.className = "sentence";
     sentence.forEach(([text, num]) => {
@@ -58,10 +58,51 @@ pages.forEach((page, i) => {
       p.appendChild(span);
     });
     read.appendChild(p);
+    // optional translation line under the sentence (page.tr[i], see TRANSLATION)
+    const tr = page.tr && page.tr[si];
+    if (tr) {
+      const t = document.createElement("p");
+      t.className = "tr";
+      if (typeof TRANSLATION !== "undefined") t.lang = TRANSLATION.lang;
+      t.textContent = tr;
+      read.appendChild(t);
+    }
   });
   el.appendChild(read);
   track.appendChild(el);
 });
+
+/* ---- translation toggle ----
+   A page that defines TRANSLATION = { lang: "my", label: "မြန်မာ" } and gives
+   its pages a tr: [...] list (one line per sentence) gets a footer button that
+   shows/hides the lines. Off by default; the choice is remembered per language. */
+if (typeof TRANSLATION !== "undefined" && pages.some((p) => p.tr)) {
+  const stage = document.querySelector(".stage");
+  stage.classList.add("has-tr");
+  const key = `ytstory-tr-${TRANSLATION.lang}`;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "tr-toggle";
+  btn.lang = TRANSLATION.lang;
+  btn.textContent = TRANSLATION.label;
+  btn.setAttribute("aria-label", `Show translation (${TRANSLATION.label})`);
+  const setTr = (on) => {
+    stage.classList.toggle("show-tr", on);
+    btn.setAttribute("aria-pressed", String(on));
+    try {
+      localStorage.setItem(key, on ? "1" : "0");
+    } catch (e) {}
+  };
+  let saved = false;
+  try {
+    saved = localStorage.getItem(key) === "1";
+  } catch (e) {}
+  setTr(saved);
+  btn.addEventListener("click", () =>
+    setTr(!stage.classList.contains("show-tr")),
+  );
+  playBtn.after(btn);
+}
 
 /* ---- audio engine (single reusable element) ---- */
 const player = new Audio();

@@ -81,6 +81,30 @@ the `pages` JS with the numbers filled in.
 Don't save the chunks in a separate `.txt` file: the `pages` array is the
 only copy.
 
+### Translations (optional)
+
+A story can carry a translation, e.g. Burmese in `s2.2_rainbow.html`
+(2026-11-03). The source `.md` then has the translation after the English, one
+line per English sentence. In the page:
+
+- `const TRANSLATION = { lang: "my", label: "မြန်မာ" };` before `pages`
+  (`label` is the button text).
+- Each page gets `tr: [...]` before `sentences`: one string per sentence, in
+  the same order — the line count must equal the sentence count.
+- Add the font to the Google Fonts link (`&family=Noto+Sans+Myanmar:wght@400`
+  for Burmese).
+
+`ytstory.js` then adds a toggle button in the footer, between **Play page** and
+→. It starts off (the page looks as before); when on, each sentence gets its
+translation underneath in a smaller grey line (`.tr` in `ytstory.css`). The
+lines aren't tappable and have no audio. The choice is kept in
+`localStorage` (`ytstory-tr-<lang>`), so it stays on across stories.
+
+Offline: `build_single.py` inlines `eng/offline_fonts_my.css` (Noto Sans
+Myanmar, base64) into any page containing Burmese characters. Another script
+would need its own `offline_fonts_<lang>.css` and a matching check there, and
+the `.tr` / `.tr-toggle` font stacks in `ytstory.css`.
+
 ---
 
 ## Step 2 — Pictures
@@ -193,6 +217,7 @@ Copy the new page and its offline copy to the Google Drive folder
 | `stories/<page>.html` | `G:\My Drive\_LANGUAGES\stories\` |
 | `eng/single/<page>.html` | `G:\My Drive\_LANGUAGES\eng\single\` |
 | The menu script from Step 4 (`assets/js/nav-*.js`) | `G:\My Drive\_LANGUAGES\assets\js\` |
+| `assets/js/ytstory.js` / `assets/css/ytstory.css`, if changed | `G:\My Drive\_LANGUAGES\assets\js\` / `…\assets\css\` |
 
 ```
 cp stories/<page>.html "/g/My Drive/_LANGUAGES/stories/"
