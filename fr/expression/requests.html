@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Requests</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">REQUESTS</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Requests
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Les demandes
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">36</span> expressions · Requests · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 36.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/requests/";
+      const AUD_EXT = "mp3?v=261103";
+
+      const categories = [
+        {
+          en: "The politeness ladder",
+          fr: "Du plus direct au plus poli",
+          desc: "The same request, from blunt to courteous, and the words that soften it.",
+          cards: [
+            ["Ferme la porte.", "Close the door.", "A bare command: fine with family, curt with anyone else. Adding s'il te plaît helps, but the tone still matters.",
+              "Ferme la porte, il y a un courant d'air.", "Close the door, there's a draught."],
+            ["Tu peux fermer la porte ?", "Can you close the door?", "The everyday request between friends and family. Rising intonation does the asking.",
+              "Tu peux fermer la porte en sortant ?", "Can you close the door on your way out?"],
+            ["Tu pourrais fermer la porte ?", "Could you close the door?", "The conditional softens it. Said sharply, it's a reproach: tu pourrais dire bonjour !",
+              "Tu pourrais fermer la porte ? J'ai un appel.", "Could you close the door? I'm on a call."],
+            ["Vous pourriez fermer la porte, s'il vous plaît ?", "Could you close the door, please?", "The standard with strangers. Fuller: est-ce que vous pourriez… ? Written or formal: pourriez-vous… ?",
+              "Excusez-moi, vous pourriez fermer la porte, s'il vous plaît ?", "Excuse me, could you close the door, please?"],
+            ["Auriez-vous l'amabilité de fermer la porte ?", "Would you be so kind as to close the door?", "Formal, almost ceremonial. Among friends it sounds ironic. Also auriez-vous la gentillesse de… ?",
+              "Monsieur, auriez-vous l'amabilité de fermer la porte ?", "Sir, would you be so kind as to close the door?"],
+            ["Excusez-moi de vous déranger, mais…", "Sorry to bother you, but…", "A good opener with strangers or a busy colleague. Informal: excuse-moi de te déranger.",
+              "Excusez-moi de vous déranger, mais vous savez où est la gare ?", "Sorry to bother you, but do you know where the station is?"],
+            ["Si ça ne vous dérange pas…", "If it's no trouble…", "At the start or the end of a request. Informal, spoken: si ça te dérange pas.",
+              "J'aimerais partir à seize heures, si ça ne vous dérange pas.", "I'd like to leave at four, if it's no trouble."],
+            ["Si possible…", "If possible…", "Short and polite. At the end of a request, it leaves room for a no.",
+              "Tu peux me rappeler ce soir, si possible ?", "Can you call me back tonight, if possible?"],
+            ["Quand vous aurez un moment…", "When you have a moment…", "Future after quand, not the present. Informal: quand t'auras un moment.",
+              "Quand vous aurez un moment, vous pourrez relire mon rapport ?", "When you have a moment, could you look over my report?"],
+          ],
+        },
+        {
+          en: "Asking someone to do something",
+          fr: "Demander à quelqu'un",
+          desc: "Would you mind, will you, do me a favour.",
+          cards: [
+            ["Ça vous dérangerait de… ?", "Would you mind…?", "+ infinitive. Informal: ça te dérangerait de… ? Answer non, pas du tout to mean ‘no problem’; oui means you do mind.",
+              "Ça vous dérangerait de baisser un peu la musique ?", "Would you mind turning the music down a bit?"],
+            ["Ça t'embête de… ?", "Would you mind…?", "Casual. Same: ça t'ennuie de… ? Formal: ça vous ennuierait de… ?",
+              "Ça t'embête de passer me prendre ?", "Would you mind picking me up?"],
+            ["Tu veux bien… ?", "Would you…? / Will you…?", "Vouloir bien: to be willing. Warm and polite at once. Formal or plural: vous voulez bien… ?",
+              "Tu veux bien m'attendre deux minutes ?", "Will you wait for me two minutes?"],
+            ["Tu me passes le sel ?", "Pass me the salt?", "The plain present works as a casual request. Same pattern: tu me prêtes ton chargeur ?",
+              "Tu me passes le pain, s'il te plaît ?", "Can you pass me the bread, please?"],
+            ["Tu peux me rendre un petit service ?", "Can you do me a small favour?", "Rendre service: to do a favour. Formal: je peux vous demander un service ?",
+              "Tu peux me rendre un petit service ? Arrose mes plantes ce week-end.", "Can you do me a small favour? Water my plants this weekend."],
+            ["Tu m'expliques ?", "Will you explain?", "Casual: tell me what's going on. Often a little impatient.",
+              "Tu rentres à minuit sans prévenir. Tu m'expliques ?", "You come home at midnight without telling me. Care to explain?"],
+            ["Tu peux me la rendre ?", "Can you give it back to me?", "Rendre: to give back. La stands for a feminine thing: ma clé, ma voiture. Masculine: tu peux me le rendre ?",
+              "C'est ma clé, ça. Tu peux me la rendre ?", "That's my key. Can you give it back?"],
+            ["Vous avez de quoi noter ?", "Have you got something to write with?", "Before giving a number or an address. Avoir de quoi + infinitive: to have what you need to.",
+              "Je vous donne mon numéro. Vous avez de quoi noter ?", "I'll give you my number. Have you got something to write with?"],
+          ],
+        },
+        {
+          en: "Asking for something",
+          fr: "Demander quelque chose",
+          desc: "In shops, at the counter, from a friend.",
+          cards: [
+            ["Je voudrais…", "I'd like…", "The conditional of vouloir. Je veux sounds demanding, like a child: say je voudrais.",
+              "Je voudrais un renseignement, s'il vous plaît.", "I'd like some information, please."],
+            ["J'aimerais…", "I'd like… / I'd love…", "A touch more of a wish than je voudrais. J'aimerais bien: I'd really like.",
+              "J'aimerais parler au responsable.", "I'd like to speak to the manager."],
+            ["Je pourrais avoir… ?", "Could I have…?", "Neutral and polite. Formal: pourrais-je avoir… ?",
+              "Je pourrais avoir un verre d'eau ?", "Could I have a glass of water?"],
+            ["Vous auriez… ?", "Would you have…? / Do you have…?", "The conditional makes it lighter than vous avez… ? Shops, counters, strangers.",
+              "Vous auriez de la monnaie sur vingt euros ?", "Would you have change for twenty euros?"],
+            ["T'aurais pas un stylo ?", "Got a pen?", "Casual. The negative makes it easy to say no. Written: tu n'aurais pas… ?",
+              "T'aurais pas un stylo ? J'ai oublié le mien.", "Got a pen? I've forgotten mine."],
+            ["Donne-moi ça.", "Give me that.", "Blunt: a parent, an argument, or a friend grabbing something. Softer: tu me donnes ça ?",
+              "Donne-moi ça, tu vas le casser !", "Give me that, you're going to break it!"],
+          ],
+        },
+        {
+          en: "Insisting & pleading",
+          fr: "Insister",
+          desc: "When it's urgent, or when you really need it.",
+          cards: [
+            ["J'ai besoin que tu…", "I need you to…", "+ subjunctive: j'ai besoin que tu viennes. Direct, but not rude.",
+              "J'ai besoin que tu sois là demain.", "I need you to be there tomorrow."],
+            ["Il faut absolument que…", "It's essential that… / I really have to…", "+ subjunctive. Urgent: il faut absolument que je te parle.",
+              "Il faut absolument que tu voies ce film.", "You absolutely have to see this film."],
+            ["Tu peux te dépêcher ?", "Can you hurry up?", "The command: dépêche-toi ! Formal or plural: dépêchez-vous !",
+              "Tu peux te dépêcher ? On va rater le train.", "Can you hurry up? We're going to miss the train."],
+            ["Dès que possible.", "As soon as possible.", "Also au plus vite. In emails: dans les meilleurs délais.",
+              "Rappelle-moi dès que possible, c'est urgent.", "Call me back as soon as possible, it's urgent."],
+            ["Je t'en supplie.", "I'm begging you.", "Much stronger than s'il te plaît. Formal or plural: je vous en supplie.",
+              "Ne pars pas, je t'en supplie.", "Don't go, I'm begging you."],
+            ["Laisse-nous, s'il te plaît.", "Leave us, please.", "Asking for privacy. The command form, softened by s'il te plaît. Formal or plural: laissez-nous.",
+              "Laisse-nous, s'il te plaît, on doit parler.", "Leave us, please, we need to talk."],
+            ["J'exige des excuses.", "I demand an apology.", "Exiger: to demand. Not demander, which only means to ask: je demande des excuses is a request.",
+              "Vous m'avez insulté. J'exige des excuses.", "You insulted me. I demand an apology."],
+          ],
+        },
+        {
+          en: "Written & formal requests",
+          fr: "À l'écrit",
+          desc: "Emails, letters, official forms.",
+          cards: [
+            ["Je vous serais reconnaissant(e) de…", "I'd be grateful if you would…", "Usually followed by bien vouloir: de bien vouloir me répondre. Written, or very formal speech.",
+              "Je vous serais reconnaissant de bien vouloir me rappeler.", "I'd be grateful if you would call me back."],
+            ["Merci de bien vouloir…", "Kindly… / Please…", "Polite but firm: emails, signs, instructions.",
+              "Merci de bien vouloir confirmer votre présence.", "Please confirm your attendance."],
+            ["Veuillez…", "Please…", "The command form of vouloir. Mainly written; aloud it sounds stiff or official.",
+              "Veuillez trouver ci-joint mon CV.", "Please find my CV attached."],
+            ["Je me permets de vous relancer.", "I'm following up on my message.", "Relancer: to chase up. Je me permets de (I take the liberty of) softens it.",
+              "Je me permets de vous relancer au sujet de ma demande du 3 mars.", "I'm following up on my request of 3 March."],
+            ["Seriez-vous d'accord pour… ?", "Would you agree to…?", "Formal: meetings, emails, negotiation.",
+              "Seriez-vous d'accord pour décaler la réunion à jeudi ?", "Would you agree to moving the meeting to Thursday?"],
+            ["Je vous saurais gré de…", "I would be grateful if you would…", "Very formal and a little old-fashioned: letters, legal writing. Savoir gré: to be grateful.",
+              "Je vous saurais gré de me faire parvenir ces documents.", "I would be grateful if you would send me these documents."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>

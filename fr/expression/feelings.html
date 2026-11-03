@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Feelings &amp; Thoughts</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">FEELINGS</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Feelings
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Sentiments et pensées
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">54</span> expressions · Feelings · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 54.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/feelings/";
+      const AUD_EXT = "mp3?v=261103";
+
+      const categories = [
+        {
+          en: "Saying how you feel",
+          fr: "Comment je me sens",
+          desc: "The everyday building blocks: se sentir, être, avoir.",
+          cards: [
+            ["Je me sens bien.", "I feel good. / I feel well.", "Se sentir + adjective: je me sens mal, fatigué(e), mieux. Keep the me: je sens bon means ‘I smell good’.",
+              "Je me sens beaucoup mieux depuis que je dors plus.", "I feel much better since I've been sleeping more."],
+            ["Je me sens seul(e).", "I feel lonely.", "Seul: alone or lonely, depending on context. Je suis seul(e) can just mean you're on your own.",
+              "Depuis qu'il est parti, je me sens un peu seule.", "Since he left, I've been feeling a bit lonely."],
+            ["Je suis content(e).", "I'm happy. / I'm pleased.", "The everyday word. Heureux (heureuse) is deeper: happy with life. Content que + subjunctive: je suis content que tu sois venu.",
+              "Je suis contente que tu sois venu !", "I'm so glad you came!"],
+            ["Je suis soulagé(e).", "I'm relieved.", "Soulager: to relieve. Also quel soulagement ! (what a relief!)",
+              "Les résultats sont bons. Je suis tellement soulagé.", "The results are fine. I'm so relieved."],
+            ["Je suis déçu(e).", "I'm disappointed.", "Déçu de + noun, or que + subjunctive. Not ‘deceived’: that's trompé.",
+              "Je suis un peu déçue qu'il ne soit pas venu.", "I'm a bit disappointed he didn't come."],
+            ["Je suis fier(ère) de toi.", "I'm proud of you.", "Fier /fjɛʁ/: the r is pronounced. For a woman: fière, which sounds the same.",
+              "Tu as eu ton bac ! Je suis fier de toi.", "You passed your exams! I'm proud of you."],
+            ["Je suis gêné(e).", "I'm embarrassed. / I feel awkward.", "Social awkwardness. Of a situation: c'est gênant ! Stronger, and about something you did wrong: j'ai honte.",
+              "J'avais oublié son prénom, j'étais trop gêné.", "I'd forgotten her name, I was so embarrassed."],
+            ["J'ai honte.", "I'm ashamed.", "Avoir honte de + noun or infinitive. To someone else: t'as pas honte ? (aren't you ashamed?)",
+              "J'ai honte de lui avoir menti.", "I'm ashamed I lied to him."],
+            ["J'ai envie de pleurer.", "I feel like crying.", "Avoir envie de: to feel like, to want. Also j'ai envie de rire, de partir, d'une glace.",
+              "Ce film est trop triste, j'ai envie de pleurer.", "This film is so sad, I feel like crying."],
+            ["Je suis sur un petit nuage.", "I'm on cloud nine.", "Floating with happiness, often in love. Same idea: je suis aux anges.",
+              "Depuis qu'elle a dit oui, il est sur un petit nuage.", "Since she said yes, he's been on cloud nine."],
+            ["J'ai le cœur léger.", "I feel light-hearted.", "Free of worry, often after a weight has lifted. The opposite: avoir le cœur gros.",
+              "J'ai tout avoué, et maintenant j'ai le cœur léger.", "I confessed everything, and now my heart feels light."],
+            ["J'ai eu un coup de cœur.", "I fell in love with it.", "Instant love for a thing or a place: un coup de cœur pour cette maison. For a person: le coup de foudre.",
+              "On a visité dix appartements, mais j'ai eu un coup de cœur pour le dernier.", "We saw ten flats, but I fell in love with the last one."],
+          ],
+        },
+        {
+          en: "Feeling down",
+          fr: "La tristesse",
+          desc: "From a bit low to heartbroken.",
+          cards: [
+            ["Ça me rend triste.", "It makes me sad.", "Rendre + adjective: to make (someone) something. Also ça me rend fou (it drives me crazy).",
+              "Ça me rend triste de les voir se disputer.", "It makes me sad to see them argue."],
+            ["Je ne suis pas dans mon assiette.", "I'm not feeling myself.", "Off-colour, physically or emotionally. Spoken: je suis pas dans mon assiette.",
+              "Excuse-moi, je ne suis pas dans mon assiette aujourd'hui.", "Sorry, I'm not feeling myself today."],
+            ["J'ai le moral à zéro.", "I'm feeling really low.", "Le moral: spirits, morale. Also j'ai pas le moral. The opposite: j'ai le moral !",
+              "Il pleut depuis une semaine, j'ai le moral à zéro.", "It's been raining for a week, I'm feeling really low."],
+            ["J'ai le cœur gros.", "I'm heavy-hearted.", "Sadness at a loss or a parting. Not avoir un grand cœur (to be generous).",
+              "J'ai le cœur gros de quitter cette ville.", "I'm heavy-hearted about leaving this town."],
+            ["Je suis au bout du rouleau.", "I'm at the end of my rope.", "Worn out, nothing left to give. Le rouleau: the roll (of thread, of paper).",
+              "Entre le boulot et les enfants, je suis au bout du rouleau.", "Between work and the kids, I'm at the end of my rope."],
+            ["Ça me fait un mal de chien.", "It hurts like hell.", "Physical or emotional pain. Literally ‘it does me a dog's pain’. Avoir un mal de chien à: to have a hell of a time doing something.",
+              "Je fais comme si de rien n'était, mais ça me fait un mal de chien.", "I act like it's nothing, but it hurts like hell."],
+            ["Ça m'a brisé le cœur.", "It broke my heart.", "Also j'ai le cœur brisé (I'm heartbroken).",
+              "Quand elle est partie, ça m'a brisé le cœur.", "When she left, it broke my heart."],
+            ["Je ne ressens plus rien.", "I don't feel anything anymore.", "Numbness after a shock or a long sadness. Ressentir: to feel an emotion. Spoken: je ressens plus rien.",
+              "C'est comme si je ne ressentais plus rien.", "It's as if I didn't feel anything anymore."],
+          ],
+        },
+        {
+          en: "Fear & worry",
+          fr: "La peur et l'inquiétude",
+          desc: "From a bad feeling to worried sick.",
+          cards: [
+            ["J'ai peur.", "I'm scared.", "Avoir peur de + noun or infinitive. Avoir peur que + subjunctive, often with an extra ne in writing: j'ai peur qu'il (ne) pleuve.",
+              "J'ai peur de le perdre.", "I'm afraid of losing him."],
+            ["J'ai la trouille.", "I'm scared stiff.", "Casual. Same register: j'ai les jetons, j'ai la frousse.",
+              "Je dois parler devant cent personnes, j'ai la trouille !", "I've got to speak in front of a hundred people, I'm terrified!"],
+            ["J'ai eu une peur bleue.", "I was scared to death.", "A sudden, intense fright. Also a lasting fear: elle a une peur bleue des araignées.",
+              "Le chien a surgi de nulle part, j'ai eu une peur bleue.", "The dog came out of nowhere, I nearly died of fright."],
+            ["Ça fait flipper.", "It's creepy. / It's scary.", "Casual. Flipper: to freak out, or to be stressed: je flippe pour l'exam.",
+              "Cette maison vide la nuit, ça fait flipper.", "That empty house at night, it's creepy."],
+            ["Je le sens pas.", "I've got a bad feeling about this.", "A gut feeling. Le or la stands for what you don't trust: je la sens pas, cette histoire. The opposite: je le sens bien.",
+              "On prend ce raccourci ? Je le sens pas.", "Shall we take this shortcut? I've got a bad feeling about it."],
+            ["Je m'inquiète.", "I'm worried.", "S'inquiéter pour quelqu'un: to worry about someone. Of a thing: ça m'inquiète (it worries me).",
+              "Il n'a pas appelé depuis hier, je m'inquiète.", "He hasn't called since yesterday, I'm worried."],
+            ["Je me fais du souci.", "I'm worried.", "Le souci: worry. Softer and more lasting than je m'inquiète. Pour quelqu'un or pour quelque chose.",
+              "Je me fais du souci pour ma mère, elle est souvent seule.", "I worry about my mother, she's alone a lot."],
+            ["Je me suis fait un sang d'encre.", "I was worried sick.", "Literally ‘my blood turned to ink’. Usually in the past, once the fright is over.",
+              "Tu rentres à deux heures du matin ? Je me suis fait un sang d'encre !", "You're getting home at two in the morning? I was worried sick!"],
+            ["Elle est dans tous ses états.", "She's in a real state.", "Agitated with worry, anger or excitement. Yourself: je suis dans tous mes états.",
+              "Elle a perdu son passeport, elle est dans tous ses états.", "She's lost her passport, she's in a real state."],
+            ["J'ai la chair de poule.", "I've got goosebumps.", "From cold, fear or emotion. Ça me donne la chair de poule: it gives me goosebumps.",
+              "Quand elle chante, j'ai la chair de poule.", "When she sings, I get goosebumps."],
+          ],
+        },
+        {
+          en: "Love & missing someone",
+          fr: "L'amour",
+          desc: "Love, longing and crushes.",
+          cards: [
+            ["Je t'aime.", "I love you.", "Careful: je t'aime bien and je t'aime beaucoup mean ‘I like you’, weaker than je t'aime alone. Formal or plural: je vous aime.",
+              "Je t'aime, tu le sais.", "I love you, you know that."],
+            ["Tu me manques.", "I miss you.", "Reversed: literally ‘you are missing to me’. The person missed is the subject: elle me manque (I miss her), je te manque ? (do you miss me?)",
+              "Ça fait trois semaines. Tu me manques.", "It's been three weeks. I miss you."],
+            ["Je peux pas me passer de toi.", "I can't live without you.", "Se passer de: to do without. Written: je ne peux pas me passer de toi. Also of things: je peux pas me passer de café.",
+              "Reste. Je peux pas me passer de toi.", "Stay. I can't live without you."],
+            ["C'était le coup de foudre.", "It was love at first sight.", "Le coup de foudre: a lightning strike. For a thing or a place: un coup de cœur.",
+              "On s'est vus, et ça a tout de suite été le coup de foudre.", "We saw each other, and it was love at first sight."],
+            ["J'ai le béguin pour lui.", "I have a crush on him.", "Light-hearted and a little old-fashioned. More current: je craque pour lui, il me plaît.",
+              "Je crois que j'ai le béguin pour mon voisin.", "I think I've got a crush on my neighbour."],
+            ["Je suis fou (folle) de toi.", "I'm crazy about you.", "For a woman: folle. Also of things: il est fou de foot.",
+              "Je suis fou de toi depuis le premier jour.", "I've been crazy about you since day one."],
+          ],
+        },
+        {
+          en: "Anger",
+          fr: "La colère",
+          desc: "From irritated to losing it.",
+          cards: [
+            ["Je suis en colère.", "I'm angry.", "Neutral. Contre quelqu'un: with someone. Se mettre en colère: to get angry.",
+              "Je suis en colère contre toi, tu le sais ?", "I'm angry with you, you know that?"],
+            ["Je suis furax.", "I'm livid.", "Casual for furieux; the same for men and women.",
+              "Il a encore pris ma voiture sans demander. Je suis furax !", "He took my car without asking again. I'm livid!"],
+            ["La moutarde me monte au nez.", "I'm starting to see red.", "Anger rising like the sting of strong mustard. A warning: you're about to lose your temper.",
+              "Arrête de me couper la parole, la moutarde me monte au nez.", "Stop interrupting me, I'm starting to see red."],
+            ["Il était vert de rage.", "He was livid.", "So angry you change colour. Also rouge de colère.",
+              "Quand il a vu la rayure sur sa voiture, il était vert de rage.", "When he saw the scratch on his car, he was livid."],
+            ["J'ai pété un câble.", "I lost it.", "Casual: péter (to blow), un câble (a cable). Same: j'ai pété les plombs (I blew a fuse).",
+              "Après trois heures d'attente, j'ai pété un câble.", "After three hours of waiting, I lost it."],
+            ["Ça me casse les pieds.", "It's a real pain.", "Casual. Of a person: tu me casses les pieds (you're getting on my nerves). Also c'est casse-pieds.",
+              "Ces formulaires, ça me casse les pieds.", "These forms are a real pain."],
+            ["Tu m'emmerdes.", "You're pissing me off.", "Vulgar (from merde). Formal or plural: vous m'emmerdez. Of a situation: ça m'emmerde (it bugs me).",
+              "Laisse-moi tranquille, tu m'emmerdes !", "Leave me alone, you're pissing me off!"],
+            ["J'ai ri jaune.", "I gave a forced laugh.", "Laughing to hide that you're hurt or annoyed. Literally ‘to laugh yellow’.",
+              "Il s'est moqué de ma coupe devant tout le monde. J'ai ri jaune.", "He made fun of my haircut in front of everyone. I laughed, but it stung."],
+          ],
+        },
+        {
+          en: "In my head",
+          fr: "Dans ma tête",
+          desc: "Wondering, doubting, and what you can't stop thinking about.",
+          cards: [
+            ["Je me demande si…", "I wonder if…", "Se demander: literally ‘to ask oneself’. Also with qui, pourquoi, comment: je me demande pourquoi. Si + il becomes s'il.",
+              "Je me demande s'il va venir.", "I wonder if he's going to come."],
+            ["Je suppose que…", "I suppose…", "A guess you're fairly sure of. Takes the indicative. On its own: je suppose (I suppose so).",
+              "Je suppose que tu es fatigué après ce voyage.", "I suppose you're tired after that trip."],
+            ["Je doute que…", "I doubt that…", "Takes the subjunctive: je doute qu'il vienne. But je me doute que (I suspect that) takes the indicative.",
+              "Je doute qu'il soit d'accord.", "I doubt he'll agree."],
+            ["J'ai un doute.", "I'm not sure. / I have my doubts.", "A small hesitation about a fact or a person. J'ai des doutes is stronger: you're sceptical.",
+              "C'est bien à droite ? J'ai un doute.", "It's on the right, isn't it? I'm not sure."],
+            ["Ça me trotte dans la tête.", "It's been on my mind.", "Trotter: to trot. A thought, or a tune, that keeps going round.",
+              "Ce qu'il m'a dit hier, ça me trotte dans la tête.", "What he said to me yesterday keeps going round in my head."],
+            ["J'y pense tout le temps.", "I think about it all the time.", "Penser à: to think about; y replaces à + a thing. For a person: je pense à elle tout le temps.",
+              "Ce voyage, j'y pense tout le temps.", "That trip, I think about it all the time."],
+            ["Je me suis creusé la tête.", "I racked my brains.", "Literally ‘I dug in my head’. Also se creuser la cervelle.",
+              "Je me suis creusé la tête, mais impossible de me souvenir de son nom.", "I racked my brains, but I just couldn't remember his name."],
+            ["Je suis complètement perdu(e).", "I'm completely lost.", "Confused, or lost on the way. Casual: je suis paumé(e).",
+              "Tu peux répéter ? Je suis complètement perdu.", "Can you say that again? I'm completely lost."],
+            ["À quoi tu penses ?", "What are you thinking about?", "Penser à: to think about. Penser de asks for an opinion: qu'est-ce que tu penses de ce livre ?",
+              "Tu ne dis rien. À quoi tu penses ?", "You're not saying anything. What are you thinking about?"],
+            ["J'y réfléchirais à deux fois.", "I'd think twice about it.", "A warning. To someone directly: réfléchis-y à deux fois.",
+              "Prêter de l'argent à ton cousin ? J'y réfléchirais à deux fois.", "Lend money to your cousin? I'd think twice about it."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>
