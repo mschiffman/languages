@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, interactive-widget=resizes-content"
+    />
+    <title>What Time Is It? Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz-time.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>What Time Is It?</span>
+          <span class="tag" id="modeTag">Quiz</span>
+        </div>
+        <div class="counter" id="counter">1 / 10</div>
+      </header>
+
+      <div class="progress" id="progress" aria-hidden="true"></div>
+
+      <main class="quiz-body" id="quiz">
+        <div class="art"><img id="pic" alt="A clock" /></div>
+        <form class="answer" id="answerForm" autocomplete="off">
+          <div class="answers" id="answers"></div>
+        </form>
+      </main>
+
+      <section class="results" id="results" aria-live="polite" hidden></section>
+
+      <footer>
+        <button class="nav" id="again" aria-label="Start again with all clocks">&#8635;</button>
+        <button class="nav" id="listen" aria-label="Listen to the question">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+            <path
+              d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button class="play-page" id="check">
+          <span id="checkLabel">Check</span>
+        </button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Clock -> type the time two ways. Pictures 9 … 18 of time.html:
+           images : /img/ytstory/time/9.jpg … 18.jpg
+           audio  : 01.mp3 … 20.mp3 = the answers, 21.mp3 = "What time is it?"
+                    (played when each clock opens)
+         Each page lists its two answers; each gets an input box with a
+         🔊 button that says it.
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/time/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/time-quiz/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=2611021600";
+
+      const pages = [
+        { img: 9, sentences: [[["It's one twenty-seven.", 1]], [["It's twenty-seven past one.", 2]]] },
+        { img: 10, sentences: [[["It's four thirty.", 3]], [["It's half past four.", 4]]] },
+        { img: 11, sentences: [[["It's three thirty-three.", 5]], [["It's twenty-seven to four.", 6]]] },
+        { img: 12, sentences: [[["It's two forty-five.", 7]], [["It's a quarter to three.", 8]]] },
+        { img: 13, sentences: [[["It's seven oh two.", 9]], [["It's two past seven.", 10]]] },
+        { img: 14, sentences: [[["It's six eighteen.", 11]], [["It's eighteen past six.", 12]]] },
+        { img: 15, sentences: [[["It's eight thirteen.", 13]], [["It's thirteen past eight.", 14]]] },
+        { img: 16, sentences: [[["It's ten oh six.", 15]], [["It's six past ten.", 16]]] },
+        { img: 17, sentences: [[["It's ten fifteen.", 17]], [["It's a quarter past ten.", 18]]] },
+        { img: 18, sentences: [[["It's twelve oh seven.", 19]], [["It's seven past twelve.", 20]]] },
+      ];
+
+      /* the question, played when each clock opens and by the footer 🔊 */
+      const ASK = ["What time is it?", 21];
+
+      /* Other forms marked correct ("It is", hyphens, case and full stops
+         are already ignored). */
+      const ALSO = {
+        "It's twenty-seven past one.": ["It's twenty-seven minutes past one."],
+        "It's half past four.": ["It's half four."],
+        "It's twenty-seven to four.": ["It's twenty-seven minutes to four."],
+        "It's a quarter to three.": ["It's quarter to three."],
+        "It's seven oh two.": ["It's seven o two."],
+        "It's two past seven.": ["It's two minutes past seven."],
+        "It's eighteen past six.": ["It's eighteen minutes past six."],
+        "It's thirteen past eight.": ["It's thirteen minutes past eight."],
+        "It's ten oh six.": ["It's ten o six."],
+        "It's six past ten.": ["It's six minutes past ten."],
+        "It's a quarter past ten.": ["It's quarter past ten."],
+        "It's twelve oh seven.": ["It's twelve o seven."],
+        "It's seven past twelve.": ["It's seven minutes past twelve."],
+      };
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/ytquiz-time.js"></script>
+  </body>
+</html>

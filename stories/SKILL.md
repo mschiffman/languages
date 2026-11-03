@@ -259,3 +259,18 @@ wrong words.
 Add it to the menu next to its reader, build the offline copy as usual
 (`python -I eng/build_single.py voc_atSchool_quiz`; `build_single.py` knows a
 quiz page only uses the answer clips), and copy both to Google Drive (Step 6).
+
+### Time quiz (two answers per picture)
+
+`time_quiz.html` (2026-11-02) uses clocks 9–18 from `img/ytstory/time/` and its
+own engine, `assets/js/ytquiz-time.js` + `assets/css/ytquiz-time.css` (on top of
+`ytquiz.css`). Each page lists two answer chunks ("It's one twenty-seven." /
+"It's twenty-seven past one."); each gets a box with a 🔊 on its left that says
+it, and the boxes take the answers in either order. `ASK = ["What time is it?", 21]`
+is played when each clock opens (and by the footer 🔊). It comes after `pages`
+with the last number, so `story_audio.py` makes it like any other chunk.
+
+Audio: its own folder, R2 `eng/yt/time-quiz/` (V4, British Modern RP-Woman).
+"It is", hyphens and full stops are ignored; one more try for a missing "It's",
+a missing apostrophe, figures ("It's 1:27") or the same answer twice. `ALSO`
+holds accepted variants ("twenty-seven minutes past one", "quarter past ten").

@@ -48,6 +48,7 @@
         { title: "More Animals", href: "voc_animals_2.html" },
         { title: "More Animals: Quiz", href: "voc_animals_2_quiz.html" },
         { title: "What Time Is It?", href: "time.html" },
+        { title: "What Time Is It? Quiz", href: "time_quiz.html" },
       ],
     },
   ];
