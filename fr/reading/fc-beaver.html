@@ -93,199 +93,262 @@
     ></script>
 
     <script>
+      /* Audio (V4, Fr-Adrien): say = [French text, clip#] played when the
+         card turns to its back (sayFront = the same for the front, unused
+         here). Clip N is AUD_DIR + NN.mp3; made by fr/reading/fc_audio.py. */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/read/fc-beaver/";
+      const AUD_EXT = "mp3";
+      const AUD_VER = "";
+      const player = new Audio();
+      function playClip(clip) {
+        player.pause();
+        if (!clip) return;
+        const nn = String(clip[1]).padStart(2, "0");
+        player.src = `${AUD_DIR}${nn}.${AUD_EXT}${AUD_VER ? "?v=" + AUD_VER : ""}`;
+        player.play().catch(() => {});
+      }
+
       // 1. Your Data (This acts as your "Database")
       const baseDeck = [
         {
           front: '<img src="/img/fish.svg">',
           back: 'poisson <sup>m</sup><span style=""color: rgb(72, 72, 72);"">&nbsp;/pwasɔ̃/</span><a></a>',
+          say: ["poisson", 1],
         },
         {
           front: '<img src="/img/frog.svg">',
           back: 'grenouille&nbsp;<sup>f</sup>&nbsp; <span style=""color: rgb(72, 72, 72);"">/ɡʀənuj/</span><a></a>',
+          say: ["grenouille", 2],
         },
         {
           front: '<img src="/img/bird.svg">',
           back: 'oiseau&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/wazo/</span>',
+          say: ["oiseau", 3],
         },
         {
           front: '<img src="/img/insect.svg">',
           back: 'insecte&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/ɛ̃sɛkt/</span><a></a>',
+          say: ["insecte", 4],
         },
         {
           front: '<img src="/img/beaver2.svg">',
           back: 'castor&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/kastɔʀ/</span>',
+          say: ["castor", 5],
         },
         {
           front: "the animals",
           back: 'les animaux&nbsp;<sup>m</sup> <span style=""color: rgb(72, 72, 72);"">&nbsp;/le.animo/<br></span><span style=""color: rgb(44, 51, 54);""> (singular = animal </span><span style=""color: rgb(72, 72, 72);"">/animal/)</span><a></a>',
+          say: ["les animaux, un animal", 6],
         },
         {
           front: "builder",
           back: 'bâtisseur&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/bɑtisœʀ/</span>',
+          say: ["bâtisseur", 7],
         },
         {
           front: "dam",
           back: 'barrage&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/baʀaʒ/</span>',
+          say: ["barrage", 8],
         },
         {
           front: "genius",
           back: 'génie&nbsp;<sup>m</sup> <span style=""color: rgb(72, 72, 72);"">&nbsp;/ʒeni/</span>',
+          say: ["génie", 9],
         },
         {
           front: "hard worker",
           back: 'bosseur&nbsp;<sup>mf</sup> &nbsp;/bɔsœʀ/<span style=""color: rgb(0, 115, 230);""><a></a></span>',
+          say: ["bosseur", 10],
         },
         {
           front: "devoted",
           back: 'dévoué&nbsp;<sup>m</sup> /&nbsp;<span style=""color: rgb(44, 51, 54);"">dévouée&nbsp;<sup>f</sup> &nbsp;</span><span style=""color: rgb(72, 72, 72);"">/devwe/</span><a></a>',
+          say: ["dévoué", 11],
         },
         {
           front: "super-powerful",
           back: 'surpuissant&nbsp;<sup>m</sup> / surpuissante&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/syrpɥisɑ̃, ɑ̃t/</span>',
+          say: ["surpuissant, surpuissante", 12],
         },
         {
           front: "to cut",
           back: 'couper <span style=""color: rgb(72, 72, 72);"">/kupe/</span>',
+          say: ["couper", 13],
         },
         {
           front: "to build",
           back: 'construire <span style=""color: rgb(72, 72, 72);"">/kɔ̃stʀɥiʀ/</span><a></a>',
+          say: ["construire", 14],
         },
         {
           front: "ingenious / clever",
           back: 'ingénieux&nbsp;<sup>m</sup> /<span style=""color: rgb(44, 51, 54);"">ingénieuse&nbsp;<sup>f</sup> &nbsp;</span><span style=""color: rgb(72, 72, 72);"">/ε̃ʒenjø, øz/</span><a></a>',
+          say: ["ingénieux, ingénieuse", 15],
         },
         {
           front: "architect",
           back: 'architecte <span style=""color: rgb(72, 72, 72);"">/aʀʃitɛkt/</span>',
+          say: ["architecte", 16],
         },
         {
           front: "mission",
           back: 'mission <span style=""color: rgb(72, 72, 72);"">/misjɔ̃/</span>',
+          say: ["mission", 17],
         },
         {
           front: "secret",
           back: 'secret&nbsp;<sup>m</sup> / secrète&nbsp;<sup>f</sup>&nbsp;&nbsp;<span style=""color: rgb(72, 72, 72);"">/səkrε, εt/</span>',
+          say: ["secret, secrète", 18],
         },
         {
           front: "result",
           back: 'résultat&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/ʀezylta/</span>',
+          say: ["résultat", 19],
         },
         {
           front: "pond",
           back: 'étang&nbsp;<sup>m</sup> &nbsp; <span style=""color: rgb(72, 72, 72);"">/etɑ̃/</span><a></a>',
+          say: ["étang", 20],
         },
         {
           front: "peaceful",
           back: 'paisible&nbsp;<sup>mf</sup> &nbsp;/pezibl/<span style=""color: rgb(0, 115, 230);""><a></a></span>',
+          say: ["paisible", 21],
         },
         {
           front: "soft / gentle",
           back: 'doux&nbsp; &nbsp;<span style=""color: rgb(72, 72, 72);"">/du/</span><a></a>',
+          say: ["doux", 22],
         },
         {
           front: "to become",
           back: 'devenir<span style=""color: rgb(72, 72, 72);""> /dəv(ə)niʀ/</span>',
+          say: ["devenir", 23],
         },
         {
           front: "refuge",
           back: 'refuge&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/ʀ(ə)fyʒ/</span>',
+          say: ["refuge", 24],
         },
         {
           front: "heaven",
           back: 'paradis&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/paʀadi/</span>',
+          say: ["paradis", 25],
         },
         {
           front: "biodiversity",
           back: "biodiversité&nbsp;<sup>f</sup> &nbsp;/bjodivɛʀsite/",
+          say: ["biodiversité", 26],
         },
         {
           front: "to work",
           back: 'bosser <span style=""color: rgb(72, 72, 72);"">/bɔse/</span>',
+          say: ["bosser", 27],
         },
         {
           front: "marvel / wonder",
           back: 'prodige&nbsp;<sup>m</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/pʀɔdiʒ/</span>',
+          say: ["prodige", 28],
         },
         {
           front: "hairy / furry",
           back: 'poilu&nbsp;<sup>m</sup> / poilue&nbsp;<sup>f</sup> <span style=""color: rgb(72, 72, 72);"">/pwaly/</span>',
+          say: ["poilu", 29],
         },
         {
           front: "to purify",
           back: 'purifier <span style=""color: rgb(72, 72, 72);"">/pyʀifje/</span>',
+          say: ["purifier", 30],
         },
         {
           front: "to reduce/cut/lower",
           back: 'réduire<span style=""color: rgb(72, 72, 72);""> /ʀedɥiʀ/</span>',
+          say: ["réduire", 31],
         },
         {
           front: "risk",
           back: 'risque <span style=""font-size: 16.6667px;""></span><sup>m</sup>&nbsp;&nbsp;<span style=""color: rgb(72, 72, 72);"">/ʀisk/</span>',
+          say: ["risque", 32],
         },
         {
           front: "flood",
           back: 'inondation <span style=""color: rgb(72, 72, 72);"">/inɔ̃dasjɔ̃/</span><a></a>',
+          say: ["inondation", 33],
         },
         {
           front: "to help",
           back: 'aider <span style=""color: rgb(72, 72, 72);"">/ede/</span>',
+          say: ["aider", 34],
         },
         {
           front: "to breathe",
           back: 'respirer <span style=""color: rgb(72, 72, 72);"">/ʀɛspiʀe/</span>',
+          say: ["respirer", 35],
         },
         {
           front: "patience",
           back: 'patience&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/pasjɑ̃s/</span>',
+          say: ["patience", 36],
         },
         {
           front: "tenderness",
           back: 'tendresse&nbsp;<sup>f</sup> &nbsp;/tɑ̃dʀɛs/<span style=""color: rgb(0, 115, 230);""><a></a></span>',
+          say: ["tendresse", 37],
         },
         {
           front: "to give",
           back: 'donner <span style=""color: rgb(72, 72, 72);"">/dɔne/</span><a></a>',
+          say: ["donner", 38],
         },
         {
           front: "to applaud/clap",
           back: 'applaudir <span style=""color: rgb(72, 72, 72);"">/aplodiʀ/</span>',
+          say: ["applaudir", 39],
         },
         {
           front: "work / a work of art",
           back: 'œuvre&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/œvʀ/</span>',
+          say: ["œuvre", 40],
         },
         {
           front: "around",
           back: 'autour <span style=""color: rgb(72, 72, 72);"">/otuʀ/</span>',
+          say: ["autour", 41],
         },
         {
           front: "behind",
           back: 'derrière <span style=""color: rgb(72, 72, 72);"">/dɛʀjɛʀ/</span><a></a>',
+          say: ["derrière", 42],
         },
         {
           front: "silent / quiet",
           back: 'silencieux&nbsp;<sup>m</sup> /&nbsp;<span style=""color: rgb(44, 51, 54);"">silencieuse&nbsp;<sup>f</sup>&nbsp;&nbsp;</span><span style=""color: rgb(72, 72, 72);"">/silɑ̃sjø, øz/</span>',
+          say: ["silencieux, silencieuse", 43],
         },
         {
           front: "precious",
           back: 'précieux&nbsp;<sup>m</sup> / précieuse&nbsp;<sup>f</sup>&nbsp; &nbsp;<span style=""color: rgb(72, 72, 72);"">/presjø, øz/</span>',
+          say: ["précieux, précieuse", 44],
         },
         {
           front: "to remind / to call back",
           back: 'rappeler <span style=""color: rgb(72, 72, 72);"">/ʀap(ə)le/</span>',
+          say: ["rappeler", 45],
         },
         {
           front: "chore / duty",
           back: 'corvée&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/kɔrve/</span>',
+          say: ["corvée", 46],
         },
         {
           front: "long",
           back: 'long&nbsp;<sup>m</sup> / longue <sup>f</sup>&nbsp;&nbsp;<span style=""color: rgb(72, 72, 72);"">/lɔ̃, lɔ̃g/</span>',
+          say: ["long, longue", 47],
         },
         {
           front: "form / shape",
           back: 'forme&nbsp;<sup>f</sup> &nbsp;<span style=""color: rgb(72, 72, 72);"">/fɔrm/</span>',
+          say: ["forme", 48],
         },
         {
           front:
@@ -341,27 +404,31 @@
           front:
             "Avec leurs dents surpuissantes, les castors _____ des arbres.",
           back: "coupent",
+          say: ["Avec leurs dents surpuissantes, les castors coupent des arbres.", 49],
         },
         {
           front:
             "Le résultat des barrages est des étangs _____, qui deviennent de véritables refuges.",
           back: "paisibles",
+          say: ["Le résultat des barrages est des étangs paisibles, qui deviennent de véritables refuges.", 50],
         },
         {
           front: "Pendant qu'ils bossent, ces prodiges poilus _____ l’eau.",
           back: "purifient",
+          say: ["Pendant qu'ils bossent, ces prodiges poilus purifient l'eau.", 51],
         },
         {
           front:
             "Les castors réduisent les risques d'_____ et aident la nature à mieux respirer.",
           back: "inondation",
+          say: ["Les castors réduisent les risques d'inondation et aident la nature à mieux respirer.", 52],
         },
         {
           front:
             "Même quand le castor s’en va, son _____ continue d’aider la vie autour de lui.",
           back: "œuvre",
-        },
-      ];
+          say: ["Même quand le castor s'en va, son œuvre continue d'aider la vie autour de lui.", 53],
+        },      ];
 
       let deck = baseDeck.map((card, index) => ({ ...card, id: index }));
       let currentIndex = 0;
@@ -375,6 +442,7 @@
       function loadCard() {
         // Reset flip if it's currently flipped
         cardElement.classList.remove("is-flipped");
+        playClip(null);
 
         // Wait slightly for flip reset, then change text
         setTimeout(() => {
@@ -419,8 +487,12 @@
       }
 
       // 3. Flip Interaction
+      // Turning a card to its back plays its French (say); cards without
+      // say (the question / translation cards) stay silent.
       cardElement.addEventListener("click", function () {
-        this.classList.toggle("is-flipped");
+        const flipped = this.classList.toggle("is-flipped");
+        const card = deck[currentIndex];
+        playClip(flipped ? card.say : card.sayFront);
       });
 
       // 4. Navigation

@@ -62,6 +62,31 @@ const AUD_VER = "";
   files. Setting it before the upload makes Cloudflare cache the old file
   under the new URL.
 
+### Flash-card audio (fc-<topic>.html)
+
+`fc-beaver.html` (2026-11-04) plays a clip when a card turns to its back.
+Each card in `baseDeck` has `say: ["French text", N]`; clip N is
+`AUD_DIR + NN.mp3` (`lessons/read/fc-<topic>/`, set with `AUD_EXT` /
+`AUD_VER` above the deck). An optional `sayFront` plays when the card turns
+back to the front. Cards without `say` stay silent (the user doesn't want
+audio on the question / translation cards).
+
+- Word cards: the French word; both forms when the masculine and feminine
+  sound different ("précieux, précieuse"), one when they sound the same
+  ("dévoué", "poilu").
+- Fill-in-the-blank cards: the whole sentence with the word filled in.
+
+```
+python -E fr/reading/fc_audio.py fc-beaver              # make missing clips (V4, Fr-Adrien, -12 LUFS)
+python -E fr/reading/fc_audio.py fc-beaver --check      # Whisper medium, 1 s padding
+python -E fr/reading/fc_audio.py fc-beaver --redo 29    # new take
+python -E fr/reading/fc_audio.py fc-beaver --upload     # new/changed clips to R2
+```
+
+Whisper flags many homophones (couper/coupé, étang/étant, doux/d'où) —
+ignore those. It also can't hear isolated "poilu" or the first word of
+"surpuissant, surpuissante" / "long, longue" on any take; listen to those.
+
 ---
 
 ### 2. Update nav-read.js
