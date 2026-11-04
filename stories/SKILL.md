@@ -336,4 +336,6 @@ picture 20, "What is it called?" → refraction). Answers must come before the
 questions in audio order, so adding answers later means moving the question
 clips up (rename the files in `media/eng/yt/<slug>/` and
 `media/elevenlabs-raw/<slug>/` before running `story_audio.py`) and bumping
-the `?v=` tag after the upload.
+the `?v=` tag after the upload. The shuffle keeps pages with the same picture
+together, in book order (`order()` in `ytquiz.js`), so the three picture-21
+questions come one after another.

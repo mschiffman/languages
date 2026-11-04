@@ -29,7 +29,8 @@
    The end screen shows the score and grade, feedback by mistake type, every
    wrong answer next to the correct one, and the right answers.
 
-   URL option:  ?order=book  keeps the book order (default: shuffled)
+   URL option:  ?order=book  keeps the book order (default: shuffled; pages
+   that repeat a picture, one question per numbered label, stay together)
 --------------------------------------------------------------- */
 (function () {
   /* Mistake types that get one more try. Add "spelling" (small slip) or
@@ -220,14 +221,22 @@
   let cur = null; // { item, wrong, types, retried, listened, done }
   const PRAISE = ["Great!", "Yes!", "Well done!", "Correct!", "Super!"];
 
+  /* Shuffled, but questions on the same picture (one per numbered label)
+     stay together, in book order. */
   function order(ids) {
-    const out = [...ids];
-    if (new URLSearchParams(location.search).get("order") === "book") return byBook(out);
+    if (new URLSearchParams(location.search).get("order") === "book") return byBook(ids);
+    const groups = new Map(); // img -> ids
+    for (const id of byBook(ids)) {
+      const k = ITEMS[id].img;
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(id);
+    }
+    const out = [...groups.values()];
     for (let i = out.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [out[i], out[j]] = [out[j], out[i]];
     }
-    return out;
+    return out.flat();
   }
 
   function startRound(ids, isPractice) {
