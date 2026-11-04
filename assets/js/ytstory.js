@@ -40,6 +40,14 @@ pages.forEach((page, i) => {
   page.sentences.forEach((sentence, si) => {
     const p = document.createElement("p");
     p.className = "sentence";
+    // optional 1., 2. … before each sentence (page.numbered), matching labels in the picture
+    if (page.numbered) {
+      const n = document.createElement("span");
+      n.className = "num";
+      n.textContent = `${si + 1}.`;
+      n.setAttribute("aria-hidden", "true");
+      p.appendChild(n);
+    }
     sentence.forEach(([text, num]) => {
       const span = document.createElement("span");
       span.className = "chunk";
@@ -62,7 +70,7 @@ pages.forEach((page, i) => {
     const tr = page.tr && page.tr[si];
     if (tr) {
       const t = document.createElement("p");
-      t.className = "tr";
+      t.className = page.numbered ? "tr numbered-tr" : "tr";
       if (typeof TRANSLATION !== "undefined") t.lang = TRANSLATION.lang;
       t.textContent = tr;
       read.appendChild(t);

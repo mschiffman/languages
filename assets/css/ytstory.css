@@ -374,6 +374,19 @@ header {
   flex-wrap: wrap;
   gap: 0.35em 0.3em;
 }
+/* optional picture-label number before a sentence (page.numbered, see ytstory.js) */
+.sentence .num {
+  min-width: 1.3em;
+  padding: 0.06em 0;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  color: var(--forest-soft);
+  user-select: none;
+}
+.tr.numbered-tr {
+  /* line up under the word, past the number (1.3em + 0.3em gap, in reading size) */
+  padding-left: calc(var(--reading) * 1.6 + 0.45em);
+}
 .chunk {
   display: inline-block;
   padding: 0.06em 0.34em;

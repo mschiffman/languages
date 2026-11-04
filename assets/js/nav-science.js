@@ -21,6 +21,7 @@
         { title: "The Playful Otters of the River", href: "s2.0_otters.html" },
         { title: "A Visit to Prairie Dog Town", href: "s2.1_prairieDog.html" },
         { title: "How Does a Rainbow Appear in the Sky?", href: "s2.2_rainbow.html" },
+        { title: "Rainbow: Words", href: "s2.2_rainbow_voc.html" },
         { title: "Rainbow: Quiz", href: "s2.2_rainbow_quiz.html" },
       ],
     },

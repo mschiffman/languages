@@ -105,6 +105,15 @@ Myanmar, base64) into any page containing Burmese characters. Another script
 would need its own `offline_fonts_<lang>.css` and a matching check there, and
 the `.tr` / `.tr-toggle` font stacks in `ytstory.css`.
 
+### Numbered words (optional)
+
+For a picture with numbered labels (several words on one picture), add
+`numbered: true` to the page: `ytstory.js` shows `1.`, `2.` … before each
+sentence (not tappable, not spoken), and the translation lines are indented
+to line up under the word. First used in `s2.2_rainbow_voc.html`
+(2026-11-04): pictures 17–20 of the rainbow story, 13 words, Burmese lines,
+audio on R2 `eng/yt/rainbow-voc/`.
+
 ---
 
 ## Step 2 — Pictures
