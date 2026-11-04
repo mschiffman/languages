@@ -10,7 +10,7 @@ usage (from the LANGUAGES root):
 Each card in the page's baseDeck has  say: ["French text", N]  (played when the
 card turns to its back) and optionally  sayFront: ["…", N]  (played when it
 turns back to the front). Clip N is NN.mp3 in the page's AUD_DIR; the numbers
-must run 1..N in file order. The folder is the part of AUD_DIR after
+must be 1..N with no gaps, in any order (new clips take the next numbers). The folder is the part of AUD_DIR after
 languages.rmlives.com/ (lessons/read/fc-beaver/).
 
 Files go to media/<that folder>/ (existing ones are skipped); the raw ElevenLabs
@@ -58,8 +58,11 @@ prefix = aud_dir.split("languages.rmlives.com/", 1)[1].rstrip("/") + "/"  # less
 clips = [(int(n), t.replace('\\"', '"')) for t, n in
          re.findall(r'\bsay(?:Front)?: \[\s*"((?:[^"\\]|\\.)*)"\s*,\s*(\d+)\s*\]', src)]
 nums = [n for n, _ in clips]
-if nums != list(range(1, len(nums) + 1)):
-    sys.exit(f"clip numbers aren't 1..{len(nums)} in order: {nums}")
+# 1..N with no gaps or repeats; not necessarily in card order (clips added
+# later get the next numbers, so the ones already online keep theirs)
+if sorted(nums) != list(range(1, len(nums) + 1)):
+    sys.exit(f"clip numbers aren't 1..{len(nums)}: {sorted(nums)}")
+clips.sort()
 
 media = "media/" + prefix.rstrip("/")
 raw = f"media/elevenlabs-raw/{a.page}"

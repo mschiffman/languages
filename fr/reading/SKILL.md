@@ -68,13 +68,19 @@ const AUD_VER = "";
 Each card in `baseDeck` has `say: ["French text", N]`; clip N is
 `AUD_DIR + NN.mp3` (`lessons/read/fc-<topic>/`, set with `AUD_EXT` /
 `AUD_VER` above the deck). An optional `sayFront` plays when the card turns
-back to the front. Cards without `say` stay silent (the user doesn't want
-audio on the question / translation cards).
+back to the front. Cards without `say` stay silent.
 
 - Word cards: the French word; both forms when the masculine and feminine
   sound different ("précieux, précieuse"), one when they sound the same
   ("dévoué", "poilu").
 - Fill-in-the-blank cards: the whole sentence with the word filled in.
+- Question cards (English + French translation): `sayFront` = the French
+  question, `say` = the French answer. Added after the rest (clips 54–73,
+  so the clips already online kept their numbers; `fc_audio.py` only needs
+  1..N without gaps, in any order). A blank in a question ("des … sûrs") is
+  read straight through, so clip 60 got 1 s of silence spliced in after
+  "des" (in the raw take too, so `--renormalize` keeps it; `--redo 60`
+  would lose it).
 
 ```
 python -E fr/reading/fc_audio.py fc-beaver              # make missing clips (V4, Fr-Adrien, -12 LUFS)

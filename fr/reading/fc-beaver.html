@@ -94,8 +94,8 @@
 
     <script>
       /* Audio (V4, Fr-Adrien): say = [French text, clip#] played when the
-         card turns to its back (sayFront = the same for the front, unused
-         here). Clip N is AUD_DIR + NN.mp3; made by fr/reading/fc_audio.py. */
+         card turns to its back; sayFront = the same for the front (question
+         cards, 54-73). Clip N is AUD_DIR + NN.mp3; made by fr/reading/fc_audio.py. */
       const AUD_DIR = "https://languages.rmlives.com/lessons/read/fc-beaver/";
       const AUD_EXT = "mp3";
       const AUD_VER = "";
@@ -354,51 +354,71 @@
           front:
             '"So, what secret super tools do beavers use to take down trees like pros?<br><span style=""color: rgb(0, 0, 190);"">(Alors, quels super outils secrets les castors utilisent-ils pour faire tomber des arbres comme des pros ?)</span>',
           back: 'their teeth<br><span style=""color: rgb(0, 0, 190);"">(leurs dents)</span>',
+          sayFront: ["Alors, quels super outils secrets les castors utilisent-ils pour faire tomber des arbres comme des pros ?", 54],
+          say: ["Leurs dents.", 55],
         },
         {
           front:
             '"The text compares beavers to what kind of pros on a secret mission?<br><span style=""color: rgb(0, 0, 190);"">(Le texte compare les castors à quels pros en mission secrète ?)</span>',
           back: 'architect<br><span style=""color: rgb(0, 0, 190);"">(architecte)</span>',
+          sayFront: ["Le texte compare les castors à quels pros en mission secrète ?", 56],
+          say: ["Architecte.", 57],
         },
         {
           front:
             '"What magical result happens when beavers build their dams?<br><span style=""color: rgb(0, 0, 190);"">(Quel est le résultat magique quand les castors construisent leurs barrages ?)</span>',
           back: 'They make gentle, peaceful ponds.<br><span style=""color: rgb(0, 0, 190);"">(Ils fabriquent des étangs tout doux, tout paisibles.)</span>',
+          sayFront: ["Quel est le résultat magique quand les castors construisent leurs barrages ?", 58],
+          say: ["Ils fabriquent des étangs tout doux, tout paisibles.", 59],
         },
         {
           front:
             '"The ponds created by beavers become safe ______ for lots of little creatures.<br><span style=""color: rgb(0, 0, 190);"">(Les étangs créés par les castors deviennent des ______ sûrs pour plein de petites créatures.)</span>',
           back: 'havens<br><span style=""color: rgb(0, 0, 190);"">(refuges)</span>',
+          sayFront: ["Les étangs créés par les castors deviennent des … sûrs pour plein de petites créatures.", 60],
+          say: ["Refuges.", 61],
         },
         {
           front:
             '"Can you name two types of animals that benefit from the ponds beavers create?<br><span style=""color: rgb(0, 0, 190);"">(Peux-tu nommer deux types d’animaux qui profitent des étangs construits par les castors ?)</span>',
           back: 'fish, frogs, birds, insects<br><span style=""color: rgb(0, 0, 190);"">(poissons , grenouilles , oiseaux, insectes)&nbsp;</span>',
+          sayFront: ["Peux-tu nommer deux types d'animaux qui profitent des étangs construits par les castors ?", 62],
+          say: ["Poissons, grenouilles, oiseaux, insectes.", 63],
         },
         {
           front:
             '"What effect do beavers’ activities have on water quality?<br><span style=""color: rgb(0, 0, 190);"">(Quel effet les activités des castors ont-elles sur la qualité de l’eau ?)</span>',
           back: 'They make it cleaner—like magic!<br><span style=""color: rgb(0, 0, 190);"">(Ils la rendent plus propre, comme par magie !)</span>',
+          sayFront: ["Quel effet les activités des castors ont-elles sur la qualité de l'eau ?", 64],
+          say: ["Ils la rendent plus propre, comme par magie !", 65],
         },
         {
           front:
             '"How do beaver dams impact the risk of natural disasters?<br><span style=""color: rgb(0, 0, 190);"">(Quel est l’effet des barrages de castors sur les catastrophes naturelles ?)</span>',
           back: 'They reduce flood risks — real little flood-fighting heroes!<br><span style=""color: rgb(0, 0, 190);"">(Ils réduisent les risques d’inondation — de vrais petits héros anti-crues !)</span>',
+          sayFront: ["Quel est l'effet des barrages de castors sur les catastrophes naturelles ?", 66],
+          say: ["Ils réduisent les risques d'inondation : de vrais petits héros anti-crues !", 67],
         },
         {
           front:
             '"What happens to a beaver’s work after the beaver leaves the area?<br><span style=""color: rgb(0, 0, 190);"">(Que devient le travail d’un castor après son départ ?)</span>',
           back: 'It keeps helping nature all around — like a little gift left behind.<br><span style=""color: rgb(0, 0, 190);"">(Il continue de faire du bien à la nature tout autour — comme un petit cadeau laissé derrière lui.)</span>',
+          sayFront: ["Que devient le travail d'un castor après son départ ?", 68],
+          say: ["Il continue de faire du bien à la nature tout autour, comme un petit cadeau laissé derrière lui.", 69],
         },
         {
           front:
             '"What is the final message the text suggests beavers remind us of?<br><span style=""color: rgb(0, 0, 190);"">(Quel est le message final que le texte nous dit que les castors nous rappellent ?)</span>',
           back: 'That working with nature isn’t a chore… it’s a love story.<br><span style=""color: rgb(0, 0, 190);"">(Que travailler avec la nature, ce n’est pas une corvée… c’est une histoire d’amour.)&nbsp;</span><span style=""color: rgb(0, 0, 190);"">❤️</span>',
+          sayFront: ["Quel est le message final que le texte nous dit que les castors nous rappellent ?", 70],
+          say: ["Que travailler avec la nature, ce n'est pas une corvée… c'est une histoire d'amour.", 71],
         },
         {
           front:
             '"The text describes a beaver\'s legacy as a silent but _____ gift.<br><span style=""color: rgb(0, 0, 190);"">(Le texte décrit l’héritage du castor comme un cadeau silencieux mais _____ .)</span>',
           back: 'precious<br><span style=""color: rgb(0, 0, 190);"">(précieux)</span>',
+          sayFront: ["Le texte décrit l'héritage du castor comme un cadeau silencieux mais … .", 72],
+          say: ["Précieux.", 73],
         },
         {
           front:
@@ -487,8 +507,8 @@
       }
 
       // 3. Flip Interaction
-      // Turning a card to its back plays its French (say); cards without
-      // say (the question / translation cards) stay silent.
+      // Each click plays the side that is now showing: the French on the
+      // back (say), or the French question on the front (sayFront, if any).
       cardElement.addEventListener("click", function () {
         const flipped = this.classList.toggle("is-flipped");
         const card = deck[currentIndex];
