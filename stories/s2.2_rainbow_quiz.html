@@ -52,7 +52,7 @@
           <span><span style="color: #D63A3A">R</span><span style="color: #E8772E">a</span><span style="color: #D9A400">i</span><span style="color: #3E9B48">n</span><span style="color: #2F7FD1">b</span><span style="color: #7A4FC4">o</span><span style="color: #D63A3A">w</span></span>
           <span class="tag" id="modeTag">Quiz</span>
         </div>
-        <div class="counter" id="counter">1 / 9</div>
+        <div class="counter" id="counter">1 / 13</div>
       </header>
 
       <div class="progress" id="progress" aria-hidden="true"></div>
@@ -105,17 +105,18 @@
 
     <script>
       /* ---------------------------------------------------------------
-         Picture -> type the answer. Pictures 9 … 17 of the rainbow story:
-           images : /img/ytstory/s2.2_rainbow/9.jpg … 17.jpg
-           audio  : 01.mp3 … 09.mp3 = the answers (the 🔊 cue),
-                    10.mp3 = "What color is it?", 11.mp3 = "What is it?"
+         Picture -> type the answer. Pictures 9 … 17, 20 and 21 of the
+         rainbow story (21 is asked three times, once per numbered label):
+           images : /img/ytstory/s2.2_rainbow/9.jpg … 21.jpg
+           audio  : 01.mp3 … 13.mp3 = the answers (the 🔊 cue),
+                    14.mp3 … 19.mp3 = the questions in ASK
                     (played when each picture opens; tap the question to
                     hear it again)
       --------------------------------------------------------------- */
       const IMG_DIR = "/img/ytstory/s2.2_rainbow/";
       const AUD_DIR = "https://languages.rmlives.com/eng/yt/rainbow-quiz/";
       const IMG_EXT = "jpg";
-      const AUD_EXT = "mp3?v=2611031200";
+      const AUD_EXT = "mp3?v=2611040851";
 
       const pages = [
         { img: 9, ask: "color", sentences: [[["red", 1]]] },
@@ -127,12 +128,20 @@
         { img: 15, ask: "thing", sentences: [[["water", 7]]] },
         { img: 16, ask: "thing", sentences: [[["sun", 8]]] },
         { img: 17, ask: "thing", sentences: [[["rain", 9]]] },
+        { img: 20, ask: "called", sentences: [[["refraction", 10]]] },
+        { img: 21, ask: "n1", sentences: [[["sunlight", 11]]] },
+        { img: 21, ask: "n2", sentences: [[["cloud", 12]]] },
+        { img: 21, ask: "n3", sentences: [[["rainbow", 13]]] },
       ];
 
       /* the questions, by each page's  ask  key */
       const ASK = {
-        color: ["What color is it?", 10],
-        thing: ["What is it?", 11],
+        color: ["What color is it?", 14],
+        thing: ["What is it?", 15],
+        called: ["What is it called?", 16],
+        n1: ["What is number one?", 17],
+        n2: ["What is number two?", 18],
+        n3: ["What is number three?", 19],
       };
 
       /* Other forms marked correct ("It's red." is already accepted;
@@ -141,6 +150,9 @@
         water: ["the water", "a glass of water"],
         sun: ["the sun"],
         rain: ["the rain"],
+        sunlight: ["the sunlight"],
+        cloud: ["a cloud", "the cloud"],
+        rainbow: ["a rainbow", "the rainbow"],
       };
 
       /* Near misses: the answer is still wrong, and this note is shown
@@ -151,6 +163,17 @@
         water: { "a glass": "Look inside the glass." },
         rain: { "a cloud": "Look under the cloud.", rainbow: "No rainbow here. Look under the cloud." },
         sun: { "a star": "It's our star: the sun." },
+        refraction: {
+          "a pencil": "Look at the pencil in the water: the light bends. We call it refraction.",
+          reflection: "Light bouncing back is reflection. Light bending is refraction.",
+        },
+        sunlight: {
+          sun: "Number 1 is the light from the sun: sunlight.",
+          sunshine: "Close! In this lesson, it's sunlight.",
+          light: "Light from the sun: sunlight.",
+        },
+        cloud: { rain: "Number 2 is above the rain: a cloud." },
+        rainbow: { rain: "Number 3 has all the colors: a rainbow." },
       };
     </script>
     <script src="/assets/js/nav-science.js"></script>

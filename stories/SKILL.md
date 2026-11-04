@@ -328,3 +328,12 @@ the answer.
 Answers with no article ("red", "water") are fine: "a red" gets
 "Almost! No a or an here." and one more try (`extraArticle`), and
 "It's red." / "It is red." counts as "red". Audio: R2 `eng/yt/rainbow-quiz/`.
+
+A picture with several numbered labels can be asked once per label: repeat
+the picture as separate pages, each with its own question (picture 21 of the
+rainbow: `ask: "n1"` … `"n3"` = "What is number one?" …, added 2026-11-04 with
+picture 20, "What is it called?" → refraction). Answers must come before the
+questions in audio order, so adding answers later means moving the question
+clips up (rename the files in `media/eng/yt/<slug>/` and
+`media/elevenlabs-raw/<slug>/` before running `story_audio.py`) and bumping
+the `?v=` tag after the upload.
