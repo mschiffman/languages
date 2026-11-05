@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Plant That Eats Insects!</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M3 21c1-5 4-8 9-9" stroke="#3f7a35" stroke-width="1.4" stroke-linecap="round" />
+            <path d="M2.5 16.5c2.5-2.5 5-3 6.5-2.5-1.5 2.5-4 3.3-6.5 2.5Z" fill="#8FC07E" />
+            <path d="M8.6 9.2c-0.4 5.2 0.6 10.4 4.4 12.3 3.8-1.9 4.8-7.1 4.4-12.3Z" fill="#D8573F" />
+            <path d="M10.2 11c0 3.6 0.8 7 2.8 8.4" stroke="#F2B66B" stroke-width="0.9" stroke-linecap="round" />
+            <ellipse cx="13" cy="9.2" rx="4.6" ry="1.4" fill="#F0A830" stroke="#B8622A" stroke-width="0.6" />
+            <path d="M9.2 7.6c1.2-3.6 8.2-4.6 10.6-1.6-3.4-0.4-7 0.2-10.6 1.6Z" fill="#C8443A" />
+          </svg>
+          <span>The <span style="color: #3f9a3a">Plant</span> That Eats <span style="color: #C8443A">Insects</span>!</span>
+        </div>
+        <div class="counter" id="counter">1 / 17</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s2.3_pitcher/1.jpg … 8.jpg   (story, one per book page)
+              9.jpg … 17.jpg                            (new words, one per word)
+     audio  : 01.mp3 … 87.mp3 in AUD_DIR (one per phrase, in reading order;
+              79 … 87 are the new words)
+   The word pages carry heading: "New Words" (shown, not spoken).
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s2.3_pitcher/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s2.3_pitcher/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..87 in order. */
+      const pages = [
+        {
+          img: 1,
+          tr: [
+            "ဒီအပင်ကို ကြည့်ပါ!",
+            "၎င်းသည် စိမ်းလန်းပြီး လှပပါသည်။",
+            "သို့သော် ၎င်းသည် အလွန် ထူးဆန်းသော အပင်လည်း ဖြစ်ပါသည်။",
+            "၎င်း၏ အရွက်များသည် ခွက်နက်ကြီးများ ပုံစံ ဖြစ်နေပါသည်။",
+            "ဤခွက်များကို pitcher (ခရား) ဟု ခေါ်ပါသည်။",
+            "ဤအံ့သြဖွယ်ကောင်းသော အပင်ကို pitcher plant (ခရားပုံအပင်) ဟု ခေါ်ပါသည်။",
+            "ဒါပေမဲ့ ဘာကြောင့် ၎င်းမှာ ခရားတွေ ရှိနေတာလဲ။",
+            "ကျွန်တော်တို့ ရှာဖွေကြည့်ရအောင်!",
+          ],
+          sentences: [
+            [["Look at this plant!", 1]],
+            [["It is green and beautiful.", 2]],
+            [["But it is also very strange.", 3]],
+            [
+              ["Its leaves are shaped", 4],
+              ["like deep cups.", 5],
+            ],
+            [["These cups are called pitchers.", 6]],
+            [
+              ["This amazing plant", 7],
+              ["is called a pitcher plant.", 8],
+            ],
+            [["But why does it have pitchers?", 9]],
+            [["Let's find out!", 10]],
+          ],
+        },
+        {
+          img: 2,
+          tr: [
+            "အပင်အများစုသည် ၎င်းတို့ လိုအပ်သည်များကို နေရောင်ခြည်၊ လေ၊ ရေ နှင့် မြေဆီလွှာမှ ရယူကြပါသည်။",
+            "သို့သော် ခရားပုံအပင်များသည် မြေဆီလွှာ ညံ့ဖျင်းသော နေရာများတွင် ပေါက်လေ့ရှိပါသည်။",
+            "ထိုမြေဆီလွှာသည် ၎င်းတို့ကို အာဟာရဓာတ် လုံလောက်စွာ မပေးနိုင်ပါ။",
+            "ထို့ကြောင့် ခရားပုံအပင်တွင် အစာရရှိရန် အခြားနည်းလမ်းတစ်ခု ရှိပါသည်။",
+            "၎င်းသည် အင်းဆက်ပိုးမွှားများကို ဖမ်းပါသည်!",
+            "သိပ်ကို အံ့သြစရာကောင်းတဲ့ အပင်ပါလား!",
+          ],
+          sentences: [
+            [
+              ["Most plants get what they need", 11],
+              ["from sunlight, air, water, and soil.", 12],
+            ],
+            [
+              ["But pitcher plants often grow", 13],
+              ["in poor soil.", 14],
+            ],
+            [
+              ["The soil does not give them", 15],
+              ["enough nutrients.", 16],
+            ],
+            [
+              ["So the pitcher plant", 17],
+              ["has another way to get food.", 18],
+            ],
+            [["It catches insects!", 19]],
+            [["What a surprising plant!", 20]],
+          ],
+        },
+        {
+          img: 3,
+          tr: [
+            "ခရားပုံအပင်က အင်းဆက်ပိုးမွှားတွေကို ဘယ်လို ဖမ်းတာလဲ။",
+            "ပထမဦးစွာ ၎င်းသည် သူတို့ကို ဆွဲဆောင်ပါသည်။",
+            "အပင်တွင် တောက်ပသော အရောင်များ ရှိနိုင်ပါသည်။",
+            "၎င်းမှ ချိုမြိန်သော အနံ့ ထွက်နိုင်ပါသည်။",
+            "အချို့သော ခရားပုံအပင်များသည် ချိုမြိန်သော ပန်းဝတ်ရည်ကိုပင် ထုတ်လုပ်ကြပါသည်။",
+            "အင်းဆက်ပိုးကောင်တစ်ကောင်သည် တဖြည်းဖြည်း နီးကပ်လာပါသည်။",
+            "ထောင်ချောက် အသင့်ဖြစ်နေပါပြီ!",
+          ],
+          sentences: [
+            [
+              ["How does the pitcher plant", 21],
+              ["catch insects?", 22],
+            ],
+            [["First, it attracts them.", 23]],
+            [["The plant may have bright colors.", 24]],
+            [["It may smell sweet.", 25]],
+            [
+              ["Some pitcher plants", 26],
+              ["even make sweet nectar.", 27],
+            ],
+            [["An insect comes closer and closer.", 28]],
+            [["The trap is ready!", 29]],
+          ],
+        },
+        {
+          img: 4,
+          tr: [
+            "အင်းဆက်ပိုးကောင်သည် ခရား၏ အနားစွန်ပေါ်သို့ ဆင်းနားလိုက်ပါသည်။",
+            "သို့သော် အနားစွန်သည် ချောပြီး ချော်လွယ်ပါသည်။",
+            "ဟာ... ဒုက္ခပဲ!",
+            "အင်းဆက်ပိုးကောင်သည် ခြေချော်သွားပါသည်။",
+            "၎င်းသည် ခရားထဲသို့ ပြုတ်ကျသွားပါသည်။",
+            "အတွင်းဘက်ရှိ နံရံများသည် ချောမွေ့ပြီး တက်ရန် ခက်ခဲပါသည်။",
+            "အင်းဆက်ပိုးကောင်သည် အပြင်သို့ ပြန်မထွက်နိုင်တော့ပါ။",
+          ],
+          sentences: [
+            [
+              ["The insect lands", 30],
+              ["on the edge of the pitcher.", 31],
+            ],
+            [["But the edge is slippery.", 32]],
+            [["Oh no!", 33]],
+            [["The insect loses its footing.", 34]],
+            [["Down it falls into the pitcher.", 35]],
+            [
+              ["Inside,", 36],
+              ["the walls are smooth", 37],
+              ["and hard to climb.", 38],
+            ],
+            [["The insect cannot get out.", 39]],
+          ],
+        },
+        {
+          img: 5,
+          tr: [
+            "ခရား၏ အောက်ခြေတွင် အရည်များ ရှိပါသည်။",
+            "အင်းဆက်ပိုးကောင်သည် ဤအရည်ထဲသို့ ကျသွားပါသည်။",
+            "အချို့သော ခရားပုံအပင်များတွင် အောက်ဘက်သို့ ညွှန်နေသော အမွေးသေးသေးလေးများ ရှိပါသည်။",
+            "ဤအမွေးများက တက်ရန် ပို၍ပင် ခက်ခဲစေပါသည်။",
+            "အင်းဆက်ပိုးကောင်သည် အောက်သို့ တဖြည်းဖြည်း ချော်ကျသွားပါသည်။",
+            "ခရားပုံအပင်၏ ထောင်ချောက်သည် အလွန် ပါးနပ်ပါသည်။",
+          ],
+          sentences: [
+            [
+              ["At the bottom of the pitcher,", 40],
+              ["there is liquid.", 41],
+            ],
+            [["The insect falls into this liquid.", 42]],
+            [
+              ["Some pitcher plants", 43],
+              ["have tiny hairs pointing downward.", 44],
+            ],
+            [
+              ["These hairs make climbing", 45],
+              ["even harder.", 46],
+            ],
+            [["The insect slips lower and lower.", 47]],
+            [
+              ["The pitcher plant's trap", 48],
+              ["is very clever.", 49],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          tr: [
+            "ယခု အပင်သည် အင်းဆက်ပိုးကောင်ကို စတင် အစာချေပါပြီ။",
+            "၎င်းသည် အင်းဆက်ပိုးကောင်ကို ချေဖျက်ရန် အထူးအရည်များကို အသုံးပြုပါသည်။",
+            "တဖြည်းဖြည်းနှင့် အင်းဆက်ပိုးကောင်သည် အာဟာရဓာတ်များ ဖြစ်လာပါသည်။",
+            "အပင်သည် ဤအာဟာရဓာတ်များကို စုပ်ယူပါသည်။",
+            "ဤအရာက အပင်ကို သန်သန်မာမာ ကြီးထွားစေပါသည်။",
+            "ဒါကြောင့် ဟုတ်ပါတယ် - ၎င်းသည် အင်းဆက်ပိုးမွှားများကို စားသော အပင်တစ်ပင် အမှန်ပင် ဖြစ်ပါသည်!",
+          ],
+          sentences: [
+            [
+              ["Now the plant begins", 50],
+              ["to digest the insect.", 51],
+            ],
+            [
+              ["It uses special juices", 52],
+              ["to break the insect down.", 53],
+            ],
+            [
+              ["Little by little,", 54],
+              ["the insect becomes nutrients.", 55],
+            ],
+            [["The plant absorbs these nutrients.", 56]],
+            [["This helps it grow strong.", 57]],
+            [
+              ["So yes—it really is a plant", 58],
+              ["that eats insects!", 59],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          tr: [
+            "ခရားပုံအပင်သည် ထောင်ချောက်တစ်ခု သက်သက်သာ မဟုတ်ပါ။",
+            "တစ်ခါတစ်ရံ ၎င်းသည် သေးငယ်သော နေအိမ်လေးတစ်ခုလည်း ဖြစ်နိုင်ပါသည်။",
+            "အလွန်သေးငယ်သော သတ္တဝါအချို့သည် ခရားအတွင်း သို့မဟုတ် အနီးတွင် နေထိုင်နိုင်ကြပါသည်။",
+            "သဘာဝတရားသည် အံ့သြစရာများဖြင့် ပြည့်နှက်နေပါသည်!",
+            "ခရားပုံအပင်သည် လှလည်းလှပြီး ထူးလည်း ထူးဆန်းပါသည်။",
+            "၎င်းသည် ကမ္ဘာပေါ်တွင် စိတ်ဝင်စားစရာ အကောင်းဆုံး အပင်များထဲမှ တစ်ပင် ဖြစ်ပါသည်။",
+          ],
+          sentences: [
+            [["A pitcher plant is not only a trap.", 60]],
+            [
+              ["Sometimes it can also be", 61],
+              ["a tiny home.", 62],
+            ],
+            [
+              ["Some very small animals", 63],
+              ["can live inside or near the pitcher.", 64],
+            ],
+            [["Nature is full of surprises!", 65]],
+            [
+              ["The pitcher plant is both", 66],
+              ["beautiful and unusual.", 67],
+            ],
+            [
+              ["It is one of the most fascinating plants", 68],
+              ["in the world.", 69],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          tr: [
+            "ယခု ကျွန်တော်တို့ ခရားပုံအပင်၏ လျှို့ဝှက်ချက်ကို သိသွားပါပြီ။",
+            "၎င်းသည် မြေဆီလွှာ ညံ့ဖျင်းသော နေရာတွင် ပေါက်ပါသည်။",
+            "၎င်းသည် အရောင်နှင့် ချိုမြိန်မှုဖြင့် အင်းဆက်ပိုးမွှားများကို ဆွဲဆောင်ပါသည်။",
+            "၎င်း၏ ချော်လွယ်သော ခရားက သူတို့ကို ထောင်ချောက်မိစေပါသည်။",
+            "ထို့နောက် ၎င်းသည် သူတို့ကို အစာချေပြီး အာဟာရဓာတ်များကို ရယူပါသည်။",
+            "ဘယ်လောက် အံ့သြဖွယ်ကောင်းတဲ့ အပင်လဲ!",
+          ],
+          sentences: [
+            [
+              ["Now we know the secret", 70],
+              ["of the pitcher plant.", 71],
+            ],
+            [["It grows in poor soil.", 72]],
+            [
+              ["It attracts insects", 73],
+              ["with color and sweetness.", 74],
+            ],
+            [["Its slippery pitcher traps them.", 75]],
+            [
+              ["Then it digests them", 76],
+              ["and takes in nutrients.", 77],
+            ],
+            [["What an amazing plant!", 78]],
+          ],
+        },
+        {
+          img: 9,
+          tr: ["ခရား"],
+          heading: "New Words",
+          sentences: [[["pitcher", 79]]],
+        },
+        {
+          img: 10,
+          tr: ["အပင်"],
+          heading: "New Words",
+          sentences: [[["plant", 80]]],
+        },
+        {
+          img: 11,
+          tr: ["အာဟာရဓာတ်များ"],
+          heading: "New Words",
+          sentences: [[["nutrients", 81]]],
+        },
+        {
+          img: 12,
+          tr: ["ပန်းဝတ်ရည်"],
+          heading: "New Words",
+          sentences: [[["nectar", 82]]],
+        },
+        {
+          img: 13,
+          tr: ["ချော်လွဲသော"],
+          heading: "New Words",
+          sentences: [[["slippery", 83]]],
+        },
+        {
+          img: 14,
+          tr: ["ထောင်ချောက်"],
+          heading: "New Words",
+          sentences: [[["trap", 84]]],
+        },
+        {
+          img: 15,
+          tr: ["အစာခြေသည်"],
+          heading: "New Words",
+          sentences: [[["digest", 85]]],
+        },
+        {
+          img: 16,
+          tr: ["စုပ်ယူသည်"],
+          heading: "New Words",
+          sentences: [[["absorb", 86]]],
+        },
+        {
+          img: 17,
+          tr: ["ထူးဆန်းသော"],
+          heading: "New Words",
+          sentences: [[["unusual", 87]]],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

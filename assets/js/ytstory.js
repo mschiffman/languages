@@ -37,6 +37,13 @@ pages.forEach((page, i) => {
 
   const read = document.createElement("div");
   read.className = "read";
+  // optional label above the text (page.heading, e.g. "New Words"), not tappable or spoken
+  if (page.heading) {
+    const h = document.createElement("p");
+    h.className = "page-heading";
+    h.textContent = page.heading;
+    read.appendChild(h);
+  }
   page.sentences.forEach((sentence, si) => {
     const p = document.createElement("p");
     p.className = "sentence";

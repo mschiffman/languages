@@ -50,7 +50,7 @@
           </svg>
           <span>How Does a <span style="color: #D63A3A">R</span><span style="color: #E8772E">a</span><span style="color: #D9A400">i</span><span style="color: #3E9B48">n</span><span style="color: #2F7FD1">b</span><span style="color: #7A4FC4">o</span><span style="color: #D63A3A">w</span> Appear in the&nbsp;Sky?</span>
         </div>
-        <div class="counter" id="counter">1 / 8</div>
+        <div class="counter" id="counter">1 / 12</div>
       </header>
 
       <div class="viewport">
@@ -74,9 +74,11 @@
     <script>
       /* ---------------------------------------------------------------
    Media:
-     images : /img/ytstory/s2.2_rainbow/1.jpg … 8.jpg   (one per book page)
-     audio  : 01.mp3 … 85.mp3 next to this file (one per phrase, in reading order)
-   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+     images : /img/ytstory/s2.2_rainbow/1.jpg … 8.jpg   (story, one per book page)
+              17.jpg … 20.jpg                          (new words; 18-20 numbered)
+     audio  : 01.mp3 … 98.mp3 in AUD_DIR (one per phrase, in reading order;
+              86 … 98 are the new words)
+   The word pages carry heading: "New Words" (shown, not spoken).
 --------------------------------------------------------------- */
       const IMG_DIR = "/img/ytstory/s2.2_rainbow/";
       const AUD_DIR = "https://languages.rmlives.com/eng/yt/s2.2_rainbow/";
@@ -86,7 +88,7 @@
       /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
       const TRANSLATION = { lang: "my", label: "မြန်မာ" };
 
-      /* pages -> sentences -> chunks. Audio numbers run 1..85 in order. */
+      /* pages -> sentences -> chunks. Audio numbers run 1..98 in order. */
       const pages = [
         {
           img: 1,
@@ -332,6 +334,45 @@
             ],
             [["Now you know how a rainbow appears!", 85]],
           ],
+        },
+        {
+          img: 17,
+          heading: "New Words",
+          tr: ["မိုး"],
+          sentences: [[["rain", 86]]],
+        },
+        {
+          img: 18,
+          heading: "New Words",
+          numbered: true,
+          tr: ["နေ", "နေရောင်ခြည်", "တိမ်", "သက်တံ့", "ရေ"],
+          sentences: [
+            [["sun", 87]],
+            [["sunlight", 88]],
+            [["cloud", 89]],
+            [["rainbow", 90]],
+            [["water", 91]],
+          ],
+        },
+        {
+          img: 19,
+          heading: "New Words",
+          numbered: true,
+          tr: ["အနီရောင်", "လိမ္မော်ရောင်", "အဝါရောင်", "အစိမ်းရောင်", "အပြာရောင်", "ခရမ်းရောင်"],
+          sentences: [
+            [["red", 92]],
+            [["orange", 93]],
+            [["yellow", 94]],
+            [["green", 95]],
+            [["blue", 96]],
+            [["violet", 97]],
+          ],
+        },
+        {
+          img: 20,
+          heading: "New Words",
+          tr: ["အလင်းယိုင်ခြင်း"],
+          sentences: [[["refraction", 98]]],
         },
       ];
     </script>

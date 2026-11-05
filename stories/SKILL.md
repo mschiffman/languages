@@ -110,9 +110,27 @@ the `.tr` / `.tr-toggle` font stacks in `ytstory.css`.
 For a picture with numbered labels (several words on one picture), add
 `numbered: true` to the page: `ytstory.js` shows `1.`, `2.` … before each
 sentence (not tappable, not spoken), and the translation lines are indented
-to line up under the word. First used in `s2.2_rainbow_voc.html`
-(2026-11-04): pictures 17–20 of the rainbow story, 13 words, Burmese lines,
-audio on R2 `eng/yt/rainbow-voc/`.
+to line up under the word. First used for pictures 18–20 of the rainbow
+story (2026-11-04), now the "New Words" pages at the end of
+`s2.2_rainbow.html` (see below).
+
+### New words at the end (optional)
+
+When the source `.md` ends with a `New Words` list and there is one picture
+per word, the words go on the same page after the story: one book page per
+word, `heading: "New Words"`, one chunk each, audio numbers continuing after
+the story. `ytstory.js` shows `heading` as a small label above the text (not
+tappable, not spoken; `.page-heading` in `ytstory.css`). First used in
+`s2.3_pitcher.html` (2026-11-05): 8 story pictures, then pictures 9–17 for
+9 words, clips 79–87. A word page can hold several words with
+`numbered: true` (rainbow pictures 18–20).
+
+`s2.2_rainbow.html` had its words on a separate page,
+`s2.2_rainbow_voc.html`; on 2026-11-05 they were moved to the end of the
+story as pages 9–12 (pictures 17–20, clips 86–98) and the separate page was
+removed. Its clips were copied from `rainbow-voc/01–13` to
+`s2.2_rainbow/86–98` (media and elevenlabs-raw folders), so no new takes
+were needed. The old `eng/yt/rainbow-voc/` folder on R2 is no longer used.
 
 ---
 
@@ -168,6 +186,15 @@ python -E -c "import whisper; m = whisper.load_model('medium'); print(m.transcri
 
 Some near-homophones neither model can settle ("in comfortable" /
 "uncomfortable") — listen to those.
+
+Both models also turn a rarer word into a commoner one that sounds close:
+"pitcher" came back as "picture" in 19 of the pitcher-plant clips (2026-11-05),
+including the word alone on its word page, take after take. Comparing
+Whisper's score for both spellings, minus the same comparison on silence (to
+take out its language prior), showed the audio favored "pitcher" in every
+sentence clip. The lone word scored the same as a take of "pitch-er", which
+can't contain a /k/, so the takes were fine. Don't spend credits re-taking a
+clip like that; listen to it instead.
 
 **Don't open a new page before its audio is uploaded.** A request for a
 missing clip makes Cloudflare cache the 404 for 4 hours (`max-age=14400`), and

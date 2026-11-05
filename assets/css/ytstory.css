@@ -366,6 +366,17 @@ header {
   gap: 0.55rem;
   padding: 1.5rem 0.2rem 0.4rem;
 }
+/* optional label above the text (page.heading, see ytstory.js) */
+.page-heading {
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--forest-soft);
+  user-select: none;
+}
 .sentence {
   margin: 0;
   font-size: var(--reading);
