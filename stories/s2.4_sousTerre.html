@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Le monde secret sous nos pieds</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="6.2" r="5" fill="#6FAE4E" />
+            <path d="M11 9.5h2v3h-2z" fill="#7A4E2A" />
+            <rect x="2" y="13" width="20" height="3.4" fill="#5A3A22" />
+            <rect x="2" y="16.4" width="20" height="2.8" fill="#B5653A" />
+            <rect x="2" y="19.2" width="20" height="2.8" fill="#8A8F96" />
+            <rect x="2" y="11.8" width="20" height="1.6" rx="0.8" fill="#6FAE4E" />
+            <path d="M12 13v5M12 14.6l-3.2 2.2M12 14.6l3.2 2.2" stroke="#D9BE94" stroke-width="0.8" stroke-linecap="round" />
+          </svg>
+          <span>Le <span style="color: #3f9a3a">monde</span> secret sous nos&nbsp;<span style="color: #9A5B2E">pieds</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 17</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Page précédente">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Écouter cette page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Page suivante">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s2.4_underground/1.jpg … 8.jpg   (story, shared with the English page)
+              9.jpg … 17.jpg                                (vocabulary, one per word)
+     audio  : 01.mp3 … 126.mp3 in AUD_DIR (one per phrase, in reading order;
+              117 … 126 are the vocabulary words)
+   The word pages carry heading: "Vocabulaire" (shown, not spoken).
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s2.4_underground/";
+      const AUD_DIR = "https://languages.rmlives.com/fr/yt/s2.4_sousTerre/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..126 in order. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [
+            [["Regarde ce bel arbre !", 1]],
+            [["Ses feuilles dansent dans le vent.", 2]],
+            [["Les oiseaux chantent dans ses branches.", 3]],
+            [
+              ["Mais qu'est-ce qui se cache", 4],
+              ["sous la terre ?", 5],
+            ],
+            [
+              ["Il y a tout un monde", 6],
+              ["qu'on ne voit pas !", 7],
+            ],
+            [
+              ["Allez,", 8],
+              ["on descend sous terre", 9],
+              ["pour l'explorer !", 10],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          sentences: [
+            [
+              ["Un arbre a plein de racines", 11],
+              ["sous la terre.", 12],
+            ],
+            [
+              ["Certaines racines", 13],
+              ["sont grosses et solides.", 14],
+            ],
+            [
+              ["Elles aident l'arbre", 15],
+              ["à bien tenir debout.", 16],
+            ],
+            [
+              ["D'autres racines", 17],
+              ["sont fines et toutes petites.", 18],
+            ],
+            [
+              ["Ces petites racines puisent", 19],
+              ["l'eau et les nutriments", 20],
+              ["dans le sol.", 21],
+            ],
+            [
+              ["La plupart des racines", 22],
+              ["poussent près de la surface,", 23],
+              ["mais certaines descendent", 24],
+              ["beaucoup plus profond.", 25],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          sentences: [
+            [
+              ["Le sol est couvert", 26],
+              ["de feuilles mortes", 27],
+              ["et de petites brindilles.", 28],
+            ],
+            [
+              ["On appelle ça", 29],
+              ["la couche organique.", 30],
+            ],
+            [
+              ["Les vers de terre,", 31],
+              ["les champignons", 32],
+              ["et plein de petites bêtes", 33],
+              ["aident à décomposer", 34],
+              ["les plantes mortes.", 35],
+            ],
+            [
+              ["Petit à petit,", 36],
+              ["les plantes mortes finissent", 37],
+              ["par faire partie du sol.", 38],
+            ],
+            [
+              ["Dans la nature,", 39],
+              ["rien ne se perd !", 40],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          sentences: [
+            [
+              ["Juste en dessous", 41],
+              ["de la couche organique,", 42],
+              ["il y a la terre végétale.", 43],
+            ],
+            [
+              ["Elle est souvent foncée,", 44],
+              ["parce qu'elle contient", 45],
+              ["des plantes décomposées", 46],
+              ["et d'autres matières organiques.", 47],
+            ],
+            [
+              ["Plein de petites racines", 48],
+              ["poussent ici.", 49],
+            ],
+            [
+              ["Les vers de terre creusent", 50],
+              ["des galeries dans la terre.", 51],
+            ],
+            [
+              ["Leurs galeries aident", 52],
+              ["l'air et l'eau", 53],
+              ["à circuler sous terre.", 54],
+            ],
+            [
+              ["La terre végétale,", 55],
+              ["c'est un endroit très animé !", 56],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          sentences: [
+            [["On descend encore un peu !", 57]],
+            [["Voici le sous-sol.", 58]],
+            [
+              ["Il est souvent plus clair,", 59],
+              ["jaune ou brun-rouge.", 60],
+            ],
+            [
+              ["Il contient des minéraux", 61],
+              ["et parfois beaucoup d'argile.", 62],
+            ],
+            [
+              ["En général,", 63],
+              ["il y a moins de racines", 64],
+              ["et de petites bêtes ici.", 65],
+            ],
+            [
+              ["L'eau passe lentement", 66],
+              ["dans les petits espaces du sol.", 67],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          sentences: [
+            [["On descend encore plus bas !", 68]],
+            [
+              ["Maintenant,", 69],
+              ["on arrive à la roche mère.", 70],
+            ],
+            [
+              ["Ici,", 71],
+              ["on trouve des roches cassées,", 72],
+              ["des cailloux", 73],
+              ["et des minéraux altérés.", 74],
+            ],
+            [
+              ["La pluie,", 75],
+              ["les changements de température", 76],
+              ["et les êtres vivants", 77],
+              ["cassent les roches", 78],
+              ["petit à petit.", 79],
+            ],
+            [["C'est ce qu'on appelle l'altération.", 80]],
+            [
+              ["Avec beaucoup, beaucoup de temps,", 81],
+              ["ces débris peuvent aider", 82],
+              ["à former un nouveau sol.", 83],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          sentences: [
+            [
+              ["Enfin,", 84],
+              ["on arrive au socle rocheux !", 85],
+            ],
+            [
+              ["Le socle rocheux,", 86],
+              ["c'est de la roche dure,", 87],
+              ["sous le sol et les débris.", 88],
+            ],
+            [
+              ["Il peut être en granite,", 89],
+              ["en grès, en calcaire", 90],
+              ["ou en d'autres roches.", 91],
+            ],
+            [
+              ["Certains socles rocheux", 92],
+              ["ont des fissures", 93],
+              ["où l'eau peut passer.", 94],
+            ],
+            [
+              ["Il peut se trouver", 95],
+              ["tout près de la surface", 96],
+              ["ou très loin en dessous.", 97],
+            ],
+            [
+              ["Voilà,", 98],
+              ["on est arrivés tout en bas", 99],
+              ["de notre voyage dans le sol !", 100],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          sentences: [
+            [["Quel voyage incroyable !", 101]],
+            [
+              ["Au-dessus du sol,", 102],
+              ["on voit des arbres,", 103],
+              ["des fleurs et de l'herbe.", 104],
+            ],
+            [
+              ["Sous le sol,", 105],
+              ["on trouve des racines,", 106],
+              ["des vers de terre,", 107],
+              ["des champignons,", 108],
+              ["de la terre et des roches.", 109],
+            ],
+            [
+              ["Chaque couche", 110],
+              ["a sa propre histoire.", 111],
+            ],
+            [
+              ["La prochaine fois", 112],
+              ["que tu te promènes dans un jardin,", 113],
+              ["n'oublie pas :", 114],
+            ],
+            [
+              ["Un monde merveilleux", 115],
+              ["se cache juste sous tes pieds !", 116],
+            ],
+          ],
+        },
+        {
+          img: 9,
+          heading: "Vocabulaire",
+          sentences: [[["l'arbre (m)", 117]]],
+        },
+        {
+          img: 10,
+          heading: "Vocabulaire",
+          sentences: [[["la feuille", 118]]],
+        },
+        {
+          img: 11,
+          heading: "Vocabulaire",
+          sentences: [[["les racines (f.)", 119]]],
+        },
+        {
+          img: 12,
+          heading: "Vocabulaire",
+          sentences: [[["le sol", 120]], [["la terre", 121]]],
+        },
+        {
+          img: 13,
+          heading: "Vocabulaire",
+          sentences: [[["le ver de terre", 122]]],
+        },
+        {
+          img: 14,
+          heading: "Vocabulaire",
+          sentences: [[["la roche", 123]]],
+        },
+        {
+          img: 15,
+          heading: "Vocabulaire",
+          sentences: [[["la pierre", 124]]],
+        },
+        {
+          img: 16,
+          heading: "Vocabulaire",
+          sentences: [[["la température", 125]]],
+        },
+        {
+          img: 17,
+          heading: "Vocabulaire",
+          sentences: [[["les pieds (m)", 126]]],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

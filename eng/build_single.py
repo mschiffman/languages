@@ -11,6 +11,7 @@ collapses one into ONE .html that opens offline (tablet / SD card):
   - embeds every image and audio file the story uses as base64 (EMBED map):
       images -> as-is (they are resized and converted to JPG beforehand)
       audio  -> 96 kbps mono MP3 (ffmpeg)            the originals are up to 320 kbps stereo
+                French pages (<html lang="fr">) keep the original audio, whatever --kbps says.
     Shrunk audio is cached in eng/.build_cache/ and redone when the original changes.
     It is skipped for a file it wouldn't make smaller.
   - drops Google Analytics and the Google Fonts links
@@ -205,7 +206,8 @@ def build(page: Path, out_dir: Path, kbps: int = 96) -> Path:
     if not (title and head and body):
         raise BuildError("expected <title>, <head> and <body>")
 
-    embed = collect_embed(html, kbps)
+    # French pages keep the original sound quality offline
+    embed = collect_embed(html, 0 if re.search(r'<html lang="fr"', html) else kbps)
 
     # ---- <style>: offline fonts + every local stylesheet the page links ----
     css_urls = re.findall(r'<link[^>]*rel="stylesheet"[^>]*href="(/[^"]+)"', head.group(1))

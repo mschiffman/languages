@@ -125,6 +125,31 @@ tappable, not spoken; `.page-heading` in `ytstory.css`). First used in
 9 words, clips 79–87. A word page can hold several words with
 `numbered: true` (rainbow pictures 18–20).
 
+### A French version of a story
+
+`s2.4_sousTerre.html` (2026-11-06) is the French text of
+`s2.4_underground.html` in the same reader. It lives in `stories/`, next to the
+English page, and differs in:
+
+- `<html lang="fr">`: `story_audio.py` takes the voice from it (**Fr-Melissa**,
+  `KzPZhE4ZluG6tjLsI1qh`, V4) and `check_audio.py` the Whisper language.
+- `AUD_DIR` is `https://languages.rmlives.com/fr/yt/<slug>/`; both scripts use
+  that path for `media/fr/yt/<slug>/` and the R2 key.
+- `IMG_DIR` points at the English page's folder (the pictures have no text).
+- `heading: "Vocabulaire"`. A gender note in brackets, `"l'arbre (m)"`, is shown
+  but not spoken. Two words on one line in the source ("le sol / la terre") become
+  two tappable lines on one word page.
+- Straight apostrophes; a no-break space (a literal U+00A0 in the page) before
+  `!`, `?`, `:` and `(m)` so they don't wrap alone onto the next line.
+
+`check_audio.py` flags many French homophones that aren't errors: ses/ces,
+vers/verres, poussent/pousse, aident/aide, mère/mer, grès/gré, arrivés/arrivé.
+For anything else short, pad the clip with 1 s of silence on each side and
+transcribe it with "medium" before re-taking it ("Elles aident l'arbre" came
+back as "LZ l'arbre" from "small" but correct from "medium").
+
+### Words on a separate page (older)
+
 `s2.2_rainbow.html` had its words on a separate page,
 `s2.2_rainbow_voc.html`; on 2026-11-05 they were moved to the end of the
 story as pages 9–12 (pictures 17–20, clips 86–98) and the separate page was
@@ -154,8 +179,9 @@ python -E stories/story_audio.py <page> --upload   # make missing clips, then up
 ```
 
 - Voice **British Modern RP-Woman** (`MOAe6Ugu3k7GT4qGvdi6`), model **V4**
-  (`eleven_v4`). Each chunk is its own request; quotation marks are stripped
-  from the text sent to the voice.
+  (`eleven_v4`); a `lang="fr"` page uses Fr-Melissa instead (see "A French
+  version of a story"). Each chunk is its own request; quotation marks and
+  bracketed notes are stripped from the text sent to the voice.
 - Output matches the older story clips: 48 kHz stereo 320 kbps, leveled to
   -12 LUFS (the old clips are -11 to -14).
 - Existing files are skipped. `--redo 12 30` makes new takes of single clips.
@@ -241,7 +267,8 @@ python -I eng/build_single.py <page>
 
 Writes `eng/single/<page>.html` (≈3 MB): CSS, JS and offline fonts inlined,
 pictures and audio embedded as base64 (audio re-encoded to 96 kbps mono, cached
-in `eng/.build_cache/`). The menu and Google Analytics are left out — the menu
+in `eng/.build_cache/`; French pages keep the original audio, so they are
+larger). The menu and Google Analytics are left out — the menu
 didn't work on the Android tablet. Audio is taken from `media/eng/yt/<slug>/`
 (or downloaded from `AUD_DIR`). With no page name it rebuilds every story.
 

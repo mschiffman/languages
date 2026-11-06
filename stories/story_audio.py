@@ -8,25 +8,27 @@ usage (from the LANGUAGES root):
     python -E stories/story_audio.py Aladdin_lamp --upload      then send it to R2
 
 Reads stories/<page>.html: every chunk ["text", N] in `pages` becomes NN.mp3,
-the folder name is the last part of the page's AUD_DIR (…/eng/yt/<slug>/).
-Files go to media/eng/yt/<slug>/ (existing ones are skipped); the raw
+the folder is the path of the page's AUD_DIR (…/eng/yt/<slug>/, …/fr/yt/<slug>/).
+Files go to media/<that path>/ (existing ones are skipped); the raw
 ElevenLabs downloads are kept in media/elevenlabs-raw/<slug> so --renormalize
 redoes the leveling without spending credits. --upload sends new/changed files
-to the R2 bucket "languages" under eng/yt/<slug>/ (compared by MD5).
+to the R2 bucket "languages" under <that path>/ (compared by MD5).
 
-Voice: British Modern RP-Woman, model eleven_v4. Output matches the older story
-clips: 48 kHz stereo 320 kbps, about -12 LUFS.
+Voice, from the page's <html lang>: British Modern RP-Woman (en), Fr-Melissa (fr).
+Model eleven_v4. Output matches the older story clips: 48 kHz stereo 320 kbps,
+about -12 LUFS. Gender notes in brackets, "l'arbre (m)", aren't spoken.
 
 Needs ELEVENLABS_API_KEY, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_ACCOUNT_ID
 (User env vars), ffmpeg, and for --upload boto3 + truststore. Run with -E, not
 -I: -I hides the user site-packages where boto3 is installed.
 """
-import argparse, hashlib, json, os, re, subprocess, sys, urllib.request, winreg
+import argparse, hashlib, json, os, re, subprocess, sys, urllib.parse, urllib.request, winreg
 from concurrent.futures import ThreadPoolExecutor
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-VOICE = "MOAe6Ugu3k7GT4qGvdi6"  # British Modern RP-Woman
+VOICES = {"en": "MOAe6Ugu3k7GT4qGvdi6",  # British Modern RP-Woman
+          "fr": "KzPZhE4ZluG6tjLsI1qh"}  # Fr-Melissa
 MODEL = "eleven_v4"
 TARGET = -12.0  # LUFS; the older story clips are -11 to -14
 BASE = "pan=stereo|c0=c0|c1=c0,aresample=48000"
@@ -49,7 +51,9 @@ def env(k):
 
 
 src = open(f"stories/{a.page}.html", encoding="utf-8").read()
-slug = re.search(r'const AUD_DIR = "([^"]+)"', src).group(1).rstrip("/").rsplit("/", 1)[-1]
+VOICE = VOICES[re.search(r'<html lang="(\w+)"', src).group(1)]
+aud_path = urllib.parse.urlparse(re.search(r'const AUD_DIR = "([^"]+)"', src).group(1)).path.strip("/")  # eng/yt/<slug>
+slug = aud_path.rsplit("/", 1)[-1]
 body = src[src.index("const pages"):]
 # ["text", 12] or ['"Quoted," text', 12]
 chunks = [(int(n), (t1 or t2).replace("\\'", "'").replace('\\"', '"'))
@@ -58,7 +62,7 @@ nums = [n for n, _ in chunks]
 if nums != list(range(1, len(nums) + 1)):
     sys.exit(f"chunk numbers aren't 1..{len(nums)} in order: {nums}")
 
-media = f"media/eng/yt/{slug}"
+media = f"media/{aud_path}"
 raw = f"media/elevenlabs-raw/{slug}"
 os.makedirs(media, exist_ok=True)
 os.makedirs(raw, exist_ok=True)
@@ -103,8 +107,8 @@ def make(n, text):
     if os.path.exists(out) and not redo and not (a.renormalize and os.path.exists(rawf)):
         return None
     if redo or not os.path.exists(rawf):
-        # quotation marks are for the reader; the voice doesn't need them
-        tts(" ".join(text.replace('"', "").split()), rawf)
+        # quotation marks and gender notes are for the reader; the voice doesn't need them
+        tts(" ".join(re.sub(r"\([^)]*\)", "", text).replace('"', "").split()), rawf)
     return f"{name}  {normalize(rawf, out):6.1f} LUFS  {text}"
 
 
@@ -124,7 +128,7 @@ if a.upload:
     s3 = boto3.client("s3", endpoint_url=f"https://{env('R2_ACCOUNT_ID')}.r2.cloudflarestorage.com",
                       aws_access_key_id=env("R2_ACCESS_KEY_ID"), aws_secret_access_key=env("R2_SECRET_ACCESS_KEY"),
                       region_name="auto")
-    prefix = f"eng/yt/{slug}/"
+    prefix = f"{aud_path}/"
     online = {}
     for pg in s3.get_paginator("list_objects_v2").paginate(Bucket=BUCKET, Prefix=prefix):
         online.update({o["Key"]: o["ETag"].strip('"') for o in pg.get("Contents", [])})
