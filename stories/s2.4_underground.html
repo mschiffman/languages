@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Secret World Beneath Our Feet</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="6.2" r="5" fill="#6FAE4E" />
+            <path d="M11 9.5h2v3h-2z" fill="#7A4E2A" />
+            <rect x="2" y="13" width="20" height="3.4" fill="#5A3A22" />
+            <rect x="2" y="16.4" width="20" height="2.8" fill="#B5653A" />
+            <rect x="2" y="19.2" width="20" height="2.8" fill="#8A8F96" />
+            <rect x="2" y="11.8" width="20" height="1.6" rx="0.8" fill="#6FAE4E" />
+            <path d="M12 13v5M12 14.6l-3.2 2.2M12 14.6l3.2 2.2" stroke="#D9BE94" stroke-width="0.8" stroke-linecap="round" />
+          </svg>
+          <span>The Secret <span style="color: #3f9a3a">World</span> Beneath Our&nbsp;<span style="color: #9A5B2E">Feet</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 17</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s2.4_underground/1.jpg … 8.jpg   (story, one per book page)
+              9.jpg … 17.jpg                                (new words, one per word)
+     audio  : 01.mp3 … 96.mp3 in AUD_DIR (one per phrase, in reading order;
+              88 … 96 are the new words)
+   The word pages carry heading: "New Words" (shown, not spoken).
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s2.4_underground/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s2.4_underground/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..96 in order. */
+      const pages = [
+        {
+          img: 1,
+          tr: [
+            "ဒီလှပတဲ့ သစ်ပင်ကို ကြည့်ပါ!",
+            "၎င်း၏ အရွက်များသည် လေထဲတွင် ကခုန်နေကြပါသည်။",
+            "ငှက်များသည် ၎င်း၏ အကိုင်းများပေါ်တွင် သီချင်းဆိုနေကြပါသည်။",
+            "သို့သော် မြေကြီးအောက်တွင် ဘာတွေ ပုန်းနေတာလဲ။",
+            "ကျွန်တော်တို့ မမြင်နိုင်သော ကမ္ဘာတစ်ခုလုံး ရှိနေပါသည်!",
+            "မြေအောက်ကို ဆင်းပြီး စူးစမ်းကြည့်ကြရအောင်!",
+          ],
+          sentences: [
+            [["Look at this beautiful tree!", 1]],
+            [["Its leaves dance in the wind.", 2]],
+            [["Birds sing in its branches.", 3]],
+            [
+              ["But what is hiding", 4],
+              ["beneath the ground?", 5],
+            ],
+            [
+              ["There is a whole world", 6],
+              ["we cannot see!", 7],
+            ],
+            [
+              ["Let's go underground", 8],
+              ["and explore!", 9],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          tr: [
+            "သစ်ပင်တစ်ပင်တွင် မြေကြီးအောက်၌ အမြစ်များစွာ ရှိပါသည်။",
+            "အမြစ်အချို့သည် တုတ်၍ သန်မာပါသည်။",
+            "၎င်းတို့သည် သစ်ပင်ကို နေရာတွင် မြဲမြံစွာ ရပ်တည်နိုင်အောင် ကူညီပါသည်။",
+            "အခြားအမြစ်များသည် သေးသွယ်ပြီး အလွန်သေးငယ်ပါသည်။",
+            "ဤအမြစ်သေးသေးလေးများသည် မြေဆီလွှာမှ ရေနှင့် အာဟာရဓာတ်များကို စုပ်ယူပါသည်။",
+            "သစ်ပင်အမြစ်အများစုသည် မြေမျက်နှာပြင်အနီးတွင် ကြီးထွားသော်လည်း အချို့သည် ပိုမိုနက်ရှိုင်းသည့်နေရာအထိ ရောက်ရှိပါသည်။",
+          ],
+          sentences: [
+            [
+              ["A tree has many roots", 10],
+              ["beneath the ground.", 11],
+            ],
+            [["Some roots are thick and strong.", 12]],
+            [["They help hold the tree in place.", 13]],
+            [["Other roots are thin and tiny.", 14]],
+            [
+              ["These tiny roots take in", 15],
+              ["water and nutrients", 16],
+              ["from the soil.", 17],
+            ],
+            [
+              ["Most tree roots grow", 18],
+              ["near the surface,", 19],
+              ["but some reach much deeper.", 20],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          tr: [
+            "မြေကြီးကို ကြွေကျနေသော သစ်ရွက်များနှင့် သစ်ကိုင်းငယ်လေးများက ဖုံးအုပ်ထားပါသည်။",
+            "ဤအလွှာကို organic layer (အော်ဂဲနစ်အလွှာ) ဟု ခေါ်ပါသည်။",
+            "တီကောင်များ၊ မှိုများ နှင့် သေးငယ်သော သတ္တဝါများသည် သေဆုံးသော အပင်များကို ဆွေးမြေ့ပြိုကွဲစေရန် ကူညီပါသည်။",
+            "အချိန်ကြာလာသည်နှင့်အမျှ သေဆုံးသော အပင်များသည် မြေဆီလွှာ၏ အစိတ်အပိုင်းတစ်ခု ဖြစ်လာပါသည်။",
+            "သဘာဝတရားတွင် အလဟဿ ဖြစ်သွားသည့်အရာ မရှိပါ!",
+          ],
+          sentences: [
+            [
+              ["The ground is covered", 21],
+              ["with fallen leaves and tiny twigs.", 22],
+            ],
+            [["This is called the organic layer.", 23]],
+            [
+              ["Earthworms, fungi, and tiny creatures", 24],
+              ["help break down dead plants.", 25],
+            ],
+            [
+              ["Over time,", 26],
+              ["the dead plants become", 27],
+              ["part of the soil.", 28],
+            ],
+            [["Nothing goes to waste in nature!", 29]],
+          ],
+        },
+        {
+          img: 4,
+          tr: [
+            "အော်ဂဲနစ်အလွှာ၏ အောက်တွင် topsoil (အပေါ်ယံမြေလွှာ) ရှိပါသည်။",
+            "၎င်းတွင် ဆွေးမြေ့နေသော အပင်များနှင့် အခြားအော်ဂဲနစ်ပစ္စည်းများ ပါဝင်သောကြောင့် အရောင်ရင့်လေ့ရှိပါသည်။",
+            "ဤနေရာတွင် အမြစ်သေးသေးလေးများစွာ ပေါက်ရောက်ပါသည်။",
+            "တီကောင်များသည် မြေဆီလွှာထဲတွင် လှိုဏ်ခေါင်းများ တူးကြပါသည်။",
+            "၎င်းတို့၏ လှိုဏ်ခေါင်းများက လေနှင့် ရေကို မြေအောက်တွင် သွားလာနိုင်အောင် ကူညီပါသည်။",
+            "အပေါ်ယံမြေလွှာသည် အလွန် အလုပ်များသော နေရာတစ်ခု ဖြစ်ပါသည်!",
+          ],
+          sentences: [
+            [
+              ["Just below the organic layer", 30],
+              ["is the topsoil.", 31],
+            ],
+            [
+              ["It is often dark", 32],
+              ["because it contains decayed plants", 33],
+              ["and other organic matter.", 34],
+            ],
+            [["Many tiny roots grow here.", 35]],
+            [
+              ["Earthworms dig tunnels", 36],
+              ["through the soil.", 37],
+            ],
+            [
+              ["Their tunnels help air and water", 38],
+              ["move underground.", 39],
+            ],
+            [["Topsoil is a busy place!", 40]],
+          ],
+        },
+        {
+          img: 5,
+          tr: [
+            "နည်းနည်း ပိုနက်တဲ့နေရာကို သွားကြည့်ရအောင်!",
+            "ဤသည်မှာ subsoil (အောက်ခံမြေလွှာ) ဖြစ်ပါသည်။",
+            "၎င်း၏ အရောင်သည် ပိုဖျော့သော အရောင်၊ အဝါရောင် သို့မဟုတ် နီညိုရောင် ဖြစ်လေ့ရှိပါသည်။",
+            "၎င်းတွင် သတ္တုဓာတ်များ ပါဝင်ပြီး တစ်ခါတစ်ရံ ရွှံ့စေးများစွာလည်း ပါဝင်ပါသည်။",
+            "ဤနေရာတွင် အမြစ်များနှင့် သက်ရှိသတ္တဝါများ ပိုနည်းလေ့ရှိပါသည်။",
+            "ရေသည် မြေဆီလွှာအတွင်းရှိ ကွက်လပ်များကြားမှ ဖြည်းဖြည်းချင်း စီးဆင်းပါသည်။",
+          ],
+          sentences: [
+            [["Let's travel a little deeper!", 41]],
+            [["Here is the subsoil.", 42]],
+            [
+              ["It is often lighter,", 43],
+              ["yellow, or reddish-brown.", 44],
+            ],
+            [
+              ["It contains minerals", 45],
+              ["and sometimes a lot of clay.", 46],
+            ],
+            [
+              ["There are usually fewer roots", 47],
+              ["and living creatures here.", 48],
+            ],
+            [
+              ["Water slowly moves", 49],
+              ["through spaces in the soil.", 50],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          tr: [
+            "ကျွန်တော်တို့ ပိုနက်ရာသို့ ဆက်သွားနေပါသည်!",
+            "ယခု ကျွန်တော်တို့ parent material (မြေဆီလွှာ၏ မူလပစ္စည်း) သို့ ရောက်လာပါပြီ။",
+            "ဤနေရာတွင် ကျိုးပဲ့နေသော ကျောက်တုံးများ၊ ကျောက်ခဲများ နှင့် ဆွေးမြေ့နေသော သတ္တုဓာတ်များကို တွေ့ရပါသည်။",
+            "မိုးရေ၊ အပူချိန်ပြောင်းလဲမှုများ နှင့် သက်ရှိများသည် ကျောက်တုံးများကို ဖြည်းဖြည်းချင်း ပြိုကွဲစေပါသည်။",
+            "ဤဖြစ်စဉ်ကို weathering (ကျောက်ဆွေးမြေ့ခြင်း) ဟု ခေါ်ပါသည်။",
+            "အချိန်အလွန်ကြာမြင့်လာသောအခါ ဆွေးမြေ့နေသော ပစ္စည်းများသည် မြေဆီလွှာအသစ် ဖြစ်ပေါ်လာစေရန် ကူညီနိုင်ပါသည်။",
+          ],
+          sentences: [
+            [["We are going deeper still!", 51]],
+            [["Now we reach the parent material.", 52]],
+            [
+              ["Here we find broken rocks,", 53],
+              ["stones, and weathered minerals.", 54],
+            ],
+            [
+              ["Rainwater, temperature changes,", 55],
+              ["and living things", 56],
+              ["slowly break rocks apart.", 57],
+            ],
+            [["This process is called weathering.", 58]],
+            [
+              ["Over a very long time,", 59],
+              ["weathered material", 60],
+              ["can help form new soil.", 61],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          tr: [
+            "နောက်ဆုံးတွင် ကျွန်တော်တို့ bedrock (အောက်ခံကျောက်သား) သို့ ရောက်လာပါပြီ!",
+            "အောက်ခံကျောက်သားသည် မြေဆီလွှာနှင့် ပြေလျော့သော ပစ္စည်းများ၏ အောက်တွင် ရှိသည့် မာကျောသော ကျောက်ဖြစ်ပါသည်။",
+            "၎င်းသည် ဂရင်းနိုက်၊ သဲကျောက်၊ ထုံးကျောက် သို့မဟုတ် အခြားကျောက်အမျိုးအစားများဖြင့် ဖွဲ့စည်းထားနိုင်ပါသည်။",
+            "အချို့သော အောက်ခံကျောက်သားတွင် ရေစီးဝင်နိုင်သော အက်ကြောင်းများ ရှိပါသည်။",
+            "အောက်ခံကျောက်သားသည် မြေမျက်နှာပြင်နှင့် နီးကပ်စွာ သို့မဟုတ် ၎င်း၏ အောက်တွင် အလွန်နက်စွာ တည်ရှိနိုင်ပါသည်။",
+            "ကျွန်တော်တို့၏ မြေဆီလွှာခရီးစဉ်၏ အောက်ခြေသို့ ရောက်ရှိပါပြီ!",
+          ],
+          sentences: [
+            [
+              ["At last,", 62],
+              ["we reach the bedrock!", 63],
+            ],
+            [
+              ["Bedrock is solid rock", 64],
+              ["beneath the soil", 65],
+              ["and loose material.", 66],
+            ],
+            [
+              ["It may be made of granite,", 67],
+              ["sandstone, limestone, or other rocks.", 68],
+            ],
+            [
+              ["Some bedrock has cracks", 69],
+              ["where water can travel.", 70],
+            ],
+            [
+              ["Bedrock can lie close to the surface", 71],
+              ["or far below it.", 72],
+            ],
+            [
+              ["We have reached the bottom", 73],
+              ["of our soil journey!", 74],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          tr: [
+            "ဘယ်လောက် အံ့သြစရာကောင်းတဲ့ ခရီးစဉ်လဲ!",
+            "မြေကြီးအပေါ်တွင် သစ်ပင်များ၊ ပန်းများ နှင့် မြက်ပင်များကို မြင်ရပါသည်။",
+            "မြေကြီးအောက်တွင် အမြစ်များ၊ တီကောင်များ၊ မှိုများ၊ မြေဆီလွှာ နှင့် ကျောက်တုံးများကို တွေ့ရပါသည်။",
+            "အလွှာတိုင်းတွင် ကိုယ်ပိုင် ထူးခြားသော ဇာတ်လမ်းတစ်ပုဒ် ရှိပါသည်။",
+            "နောက်တစ်ကြိမ် ဥယျာဉ်တစ်ခုထဲ လမ်းလျှောက်သည့်အခါ သတိရပါ-",
+            "အံ့ဖွယ်ကောင်းသော လျှို့ဝှက်ကမ္ဘာတစ်ခုသည် သင့်ခြေထောက်အောက်မှာပင် ရှိနေပါသည်!",
+          ],
+          sentences: [
+            [["What an amazing journey!", 75]],
+            [
+              ["Above the ground,", 76],
+              ["we see trees, flowers, and grass.", 77],
+            ],
+            [
+              ["Below the ground,", 78],
+              ["we find roots, earthworms,", 79],
+              ["fungi, soil, and rocks.", 80],
+            ],
+            [
+              ["Every layer has", 81],
+              ["its own special story.", 82],
+            ],
+            [
+              ["The next time you walk", 83],
+              ["through a garden,", 84],
+              ["remember:", 85],
+            ],
+            [
+              ["A wonderful hidden world", 86],
+              ["is right beneath your feet!", 87],
+            ],
+          ],
+        },
+        {
+          img: 9,
+          tr: ["သစ်ပင်"],
+          heading: "New Words",
+          sentences: [[["tree", 88]]],
+        },
+        {
+          img: 10,
+          tr: ["သစ်ရွက်"],
+          heading: "New Words",
+          sentences: [[["leaf", 89]]],
+        },
+        {
+          img: 11,
+          tr: ["အမြစ်များ"],
+          heading: "New Words",
+          sentences: [[["roots", 90]]],
+        },
+        {
+          img: 12,
+          tr: ["မြေကြီး"],
+          heading: "New Words",
+          sentences: [[["ground", 91]]],
+        },
+        {
+          img: 13,
+          tr: ["တီကောင်"],
+          heading: "New Words",
+          sentences: [[["earthworm", 92]]],
+        },
+        {
+          img: 14,
+          tr: ["ကျောက်တုံး"],
+          heading: "New Words",
+          sentences: [[["rock", 93]]],
+        },
+        {
+          img: 15,
+          tr: ["ကျောက်ခဲ"],
+          heading: "New Words",
+          sentences: [[["stone", 94]]],
+        },
+        {
+          img: 16,
+          tr: ["အပူချိန်"],
+          heading: "New Words",
+          sentences: [[["temperature", 95]]],
+        },
+        {
+          img: 17,
+          tr: ["ခြေထောက်များ"],
+          heading: "New Words",
+          sentences: [[["feet", 96]]],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

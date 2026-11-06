@@ -23,6 +23,7 @@
         { title: "How Does a Rainbow Appear in the Sky?", href: "s2.2_rainbow.html" },
         { title: "Rainbow: Quiz", href: "s2.2_rainbow_quiz.html" },
         { title: "The Plant That Eats Insects!", href: "s2.3_pitcher.html" },
+        { title: "The Secret World Beneath Our Feet", href: "s2.4_underground.html" },
       ],
     },
     {
