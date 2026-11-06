@@ -27,10 +27,12 @@ pages.forEach((page, i) => {
   const art = document.createElement("div");
   art.className = "art";
   const img = new Image();
-  img.src = media(`${IMG_DIR}${page.img}.${IMG_EXT}`);
+  // page.imgExt overrides IMG_EXT for one picture (e.g. an animated webp)
+  const imgName = `${page.img}.${page.imgExt || IMG_EXT}`;
+  img.src = media(`${IMG_DIR}${imgName}`);
   img.alt = `Illustration for page ${i + 1}`;
   img.onerror = () => {
-    art.innerHTML = `<div class="missing"><b>${page.img}.${IMG_EXT}</b>illustration goes here</div>`;
+    art.innerHTML = `<div class="missing"><b>${imgName}</b>illustration goes here</div>`;
   };
   art.appendChild(img);
   el.appendChild(art);

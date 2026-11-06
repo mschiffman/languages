@@ -140,6 +140,10 @@ Put the 8 pictures in `img/ytstory/<slug>/` as `1.jpg` … `8.jpg`
 (around 1230–1340 px wide, 16:9, a few hundred KB each). The user usually
 provides these.
 
+For an animated picture, add `imgExt: "webp"` right after that page's `img:`
+line. `ytstory.js` and `build_single.py` both honor it (first used on page 3
+of `s1.5_dayNight`). `ytquiz.js` does not, so quizzes still use `IMG_EXT`.
+
 ---
 
 ## Step 3 — Audio (ElevenLabs) and upload (R2)

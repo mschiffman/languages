@@ -106,7 +106,11 @@ def js_const(html: str, name: str, default=None) -> str:
 def expected_media(html: str, img_ext: str, aud_ext: str):
     """Return (image file names, audio file names) the page will ask for."""
     if "const pages" in html:  # story reader: pages -> sentences -> [text, audio#]
-        imgs = sorted({int(n) for n in re.findall(r"\bimg:\s*(\d+)", html)})
+        # a page may override the extension with imgExt, right after img: {img: 3, imgExt: "webp"}
+        imgs = sorted({
+            (int(n), ext or img_ext)
+            for n, ext in re.findall(r'\bimg:\s*(\d+)(?:\s*,\s*imgExt:\s*"(\w+)")?', html)
+        })
         auds = sorted({
             int(n)
             for n in re.findall(  # text may be "double" or 'single' quoted
@@ -118,7 +122,7 @@ def expected_media(html: str, img_ext: str, aud_ext: str):
         # Quiz pages (ytquiz.js) list only the answer clips, so gaps are expected there.
         if gaps and "ytquiz.js" not in html:
             print(f"  warning: no phrase uses audio number(s) {gaps}")
-        return ([f"{n}.{img_ext}" for n in imgs], [f"{n:02d}.{aud_ext}" for n in auds])
+        return ([f"{n}.{ext}" for n, ext in imgs], [f"{n:02d}.{aud_ext}" for n in auds])
     if "const LETTERS" in html:  # alphabet: 1 image per letter, name+word audio each
         n = len(re.findall(r'\bL:\s*"', html))
         return ([f"{i:02d}.jpg" for i in range(1, n + 1)],
