@@ -318,8 +318,7 @@ header {
   display: flex;
   flex-direction: column;
   padding: 0 1.1rem 0.4rem;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden; /* the picture stays put; only .read scrolls */
 }
 
 /* ---- illustration ---- */
@@ -364,7 +363,13 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   gap: 0.55rem;
-  padding: 1.5rem 0.2rem 0.4rem;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* margins keep the scrolling text clear of the picture's shadow and leave
+     room inside the clip for the highlight glow and focus outline */
+  margin: 1.3rem -0.6rem 0;
+  padding: 0.2rem 0.8rem 0.4rem;
 }
 /* optional label above the text (page.heading, see ytstory.js) */
 .page-heading {
@@ -585,6 +590,22 @@ footer {
   }
   .has-lesson-nav header {
     padding-left: 3.2rem;
+  }
+}
+/* phone held sideways: picture beside the text, or the text area would be a sliver */
+@media (max-height: 480px) and (orientation: landscape) {
+  .leaf-page {
+    flex-direction: row;
+  }
+  .art {
+    flex: 0 0 40%;
+    align-self: flex-start;
+    max-height: 100%;
+  }
+  .read {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0 -0.6rem 0 1.3rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
