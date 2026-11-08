@@ -47,6 +47,7 @@ Copy a story page from the same menu (`Jack_beanstalk.html` for a fairy tale,
    Use `&nbsp;` so a two-word part doesn't break across lines.
 3. `IMG_DIR` / `AUD_DIR`, and the media comment above them (chunk count).
 4. The `pages` array: one object per book page, `img` = picture number,
+   `tr` = the Burmese lines (see "Burmese translation" below),
    `sentences` = list of sentences, each a list of `[text, audioNumber]` chunks.
 5. The menu `<script src="/assets/js/nav-….js">` if the story goes in a
    different menu than the page you copied.
@@ -81,11 +82,25 @@ the `pages` JS with the numbers filled in.
 Don't save the chunks in a separate `.txt` file: the `pages` array is the
 only copy.
 
-### Translations (optional)
+### Burmese translation (မြန်မာ)
 
-A story can carry a translation, e.g. Burmese in `s2.2_rainbow.html`
-(2026-11-03). The source `.md` then has the translation after the English, one
-line per English sentence. In the page:
+Every new English story gets a Burmese translation, first used in
+`s2.2_rainbow.html` (2026-11-03). If the source `.md` has it (after the
+English, one line per English sentence), use that. If it doesn't, write it
+while building the page:
+
+- One Burmese line per line of the English source, so a line with two short
+  sentences ("Oh no! Its legs were stuck!") is one `tr` string.
+- Match `s2.4_underground.html` and `s2.5_amber.html`: written style ending in
+  `…ပါသည်။` for statements, spoken style for exclamations
+  (`ဘယ်လောက် လှပတဲ့ အတွေးလဲ!`).
+- Where a sentence introduces a science term, keep the English term and put the
+  Burmese in brackets: `resin (သစ်စေး)`. After that, use the Burmese alone.
+- Translate the New Words too, one `tr` line per word page.
+- Tell the user which lines to have a Burmese reader check if a word is
+  uncertain.
+
+In the page:
 
 - `const TRANSLATION = { lang: "my", label: "မြန်မာ" };` before `pages`
   (`label` is the button text).
@@ -300,6 +315,7 @@ including when a picture is replaced (rebuild the offline copy first).
 ## Checklist
 
 - [ ] `stories/<page>.html` with `</head>`, title, brand, `IMG_DIR`, `AUD_DIR`, `pages`
+- [ ] Burmese: `TRANSLATION`, a `tr` line for every sentence and word page, the Noto Sans Myanmar font link
 - [ ] 8 pictures in `img/ytstory/<slug>/`
 - [ ] Audio made, checked with `check_audio.py`, uploaded; every URL returns 200, a few MD5-matched
 - [ ] Menu entry in `assets/js/nav-*.js`

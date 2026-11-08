@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Golden Treasure from an Ancient Tree!</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.5C8 8 5 11.5 5 15a7 7 0 0 0 14 0c0-3.5-3-7-7-12.5z" fill="#E8A02C" />
+            <path d="M8.2 12.5c-.9 1.5-1.4 2.8-1.4 4a5 5 0 0 0 1.4 3.3" stroke="#F8D88A" stroke-width="1.2" stroke-linecap="round" />
+            <ellipse cx="12.5" cy="15.5" rx="1.3" ry="2.3" fill="#5A3A22" />
+            <path d="M12.5 13.5l-2.6-1.500M12.5 13.5l2.6-1.500M11.5 15.500l-2 .4M13.5 15.500l2 .4" stroke="#5A3A22" stroke-width="0.7" stroke-linecap="round" />
+          </svg>
+          <span>The <span style="color: #C98512">Golden</span> Treasure from an Ancient&nbsp;<span style="color: #3f9a3a">Tree</span>!</span>
+        </div>
+        <div class="counter" id="counter">1 / 18</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/s2.5_amber/1.jpg … 8.jpg   (story, one per book page)
+              9.jpg … 18.jpg                       (new words, one per word)
+     audio  : 01.mp3 … 98.mp3 in AUD_DIR (one per phrase, in reading order;
+              89 … 98 are the new words)
+   The word pages carry heading: "New Words" (shown, not spoken).
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/s2.5_amber/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/s2.5_amber/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..98 in order. */
+      const pages = [
+        {
+          img: 1,
+          tr: [
+            "ပျားရည်လို ရွှေရောင်ဖြစ်ပြီး ဖန်လို တောက်ပတာက ဘာလဲ။",
+            "အဲဒါက ပယင်း ပါ!",
+            "ရှေးအခါက ရှေးဟောင်းဂရိလူမျိုးများသည် ပယင်းကို ခဲနေသော နေရောင်ခြည်စက်များဖြင့် ပြုလုပ်ထားသည်ဟု ထင်ခဲ့ကြပါသည်။",
+            "ဘယ်လောက် လှပတဲ့ အတွေးလဲ!",
+            "သို့သော် ပယင်းတွင် ပို၍ အံ့သြစရာကောင်းသော လျှို့ဝှက်ချက်တစ်ခု ရှိပါသည်။",
+            "၎င်းသည် လွန်ခဲ့သော နှစ်သန်းပေါင်းများစွာက ရှင်သန်ခဲ့သော သစ်ပင်များမှ ရရှိလာခြင်း ဖြစ်ပါသည်!",
+          ],
+          sentences: [
+            [
+              ["What is golden like honey", 1],
+              ["and shines like glass?", 2],
+            ],
+            [["It's amber!", 3]],
+            [
+              ["Long ago,", 4],
+              ["the ancient Greeks thought", 5],
+              ["amber was made from", 6],
+              ["drops of solid sunshine.", 7],
+            ],
+            [["What a beautiful idea!", 8]],
+            [
+              ["But amber has", 9],
+              ["an even more amazing secret.", 10],
+            ],
+            [
+              ["It comes from trees", 11],
+              ["that lived millions of years ago!", 12],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          tr: [
+            "ဟိုးရှေးရှေးတုန်းက သစ်တောကြီးတစ်ခုသည် မြေပြင်ကို ဖုံးအုပ်ထားခဲ့ပါသည်။",
+            "တစ်နေ့တွင် သစ်ပင်တစ်ပင်၏ သစ်ခေါက်သည် ပျက်စီးသွားပါသည်။",
+            "ဒဏ်ရာမှ ပျစ်ချွဲသော အရည်တစ်မျိုး စတင် စီးထွက်လာပါသည်။",
+            "ဤအရည်ကို resin (သစ်စေး) ဟု ခေါ်ပါသည်။",
+            "သစ်စေးသည် ဒဏ်ရာကို ပိတ်ပေးပြီး သစ်ပင်ကို ကာကွယ်ပေးပါသည်။",
+            "၎င်းသည် သစ်ပင်ကိုယ်တိုင် ပြုလုပ်ထားသော ပတ်တီးတစ်ခုနှင့် တူပါသည်!",
+          ],
+          sentences: [
+            [
+              ["Long, long ago,", 13],
+              ["a great forest covered the land.", 14],
+            ],
+            [
+              ["One day,", 15],
+              ["a tree's bark was damaged.", 16],
+            ],
+            [
+              ["A thick, sticky liquid", 17],
+              ["began to flow from the wound.", 18],
+            ],
+            [["This liquid was called resin.", 19]],
+            [
+              ["The resin helped seal the wound", 20],
+              ["and protect the tree.", 21],
+            ],
+            [
+              ["It was like a bandage", 22],
+              ["made by the tree itself!", 23],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          tr: [
+            "နေသာသော မနက်ခင်းတစ်ခုတွင် ယင်ကောင်လေးတစ်ကောင်သည် ရွှေရောင်သစ်စေးပေါ်သို့ နားလိုက်ပါသည်။",
+            "အိုး၊ ဒုက္ခပါပဲ! ၎င်း၏ ခြေထောက်များ ကပ်သွားပါပြီ!",
+            "ယင်ကောင်သည် လွတ်မြောက်ရန် ကြိုးစားပါသည်။",
+            "သို့သော် သစ်စေးက စေးကပ်လွန်းပါသည်။",
+            "သစ်စေးများ ထပ်မံ စီးကျလာပြီး အင်းဆက်ပိုးကောင်လေးကို ဖုံးအုပ်သွားပါသည်။",
+            "မကြာမီ ၎င်းသည် အထဲတွင် လုံးဝ ပိတ်မိသွားပါသည်။",
+          ],
+          sentences: [
+            [
+              ["One sunny morning,", 24],
+              ["a little fly landed", 25],
+              ["on the golden resin.", 26],
+            ],
+            [
+              ["Oh no!", 27],
+              ["Its legs were stuck!", 28],
+            ],
+            [["The fly tried to escape.", 29]],
+            [["But the resin was too sticky.", 30]],
+            [
+              ["More resin flowed", 31],
+              ["over the tiny insect.", 32],
+            ],
+            [
+              ["Soon,", 33],
+              ["it was completely trapped inside.", 34],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          tr: [
+            "စေးကပ်သော သစ်စေးသည် ဖြည်းဖြည်းချင်း မာကျောလာပါသည်။",
+            "အင်းဆက်ပိုးကောင်လေးသည် အထဲတွင် ဆက်လက် ရှိနေပါသည်။",
+            "၎င်းသည် ရွှေရောင်သေတ္တာထဲတွင် သော့ခတ်ထားသော ရတနာလေးတစ်ခုနှင့် တူပါသည်!",
+            "သို့သော် သစ်စေးသည် ပယင်း မဖြစ်သေးပါ။",
+            "၎င်း ပြောင်းလဲရန် အချိန် အလွန်အလွန် ကြာမြင့်ဖို့ လိုပါသည်။",
+            "၎င်း၏ ခရီးသည် စတင်ရုံသာ ရှိသေးပါသည်။",
+          ],
+          sentences: [
+            [
+              ["Slowly,", 35],
+              ["the sticky resin began to harden.", 36],
+            ],
+            [["The little insect remained inside.", 37]],
+            [
+              ["It was like a tiny treasure", 38],
+              ["locked in a golden box!", 39],
+            ],
+            [["But the resin was not amber yet.", 40]],
+            [
+              ["It needed a very, very long time", 41],
+              ["to change.", 42],
+            ],
+            [["Its journey had only just begun.", 43]],
+          ],
+        },
+        {
+          img: 5,
+          tr: [
+            "နှစ်များ ကုန်လွန်သွားပါသည်။",
+            "နောက်ဆုံးတွင် သစ်ပင်အိုကြီးသည် လဲကျသွားပါသည်။",
+            "မာကျောသွားသော သစ်စေးသည် သစ်တောမြေပြင်သို့ ရောက်ရှိသွားပါသည်။",
+            "မြေဆီလွှာနှင့် သဲတို့က ၎င်းကို ဖြည်းဖြည်းချင်း ဖုံးအုပ်သွားပါသည်။",
+            "အချိန်ကြာလာသည်နှင့်အမျှ အလွှာများ ထပ်မံ စုပုံလာပါသည်။",
+            "မြေကြီးအောက် နက်နက်တွင် သစ်စေးသည် ပုန်းကွယ်လျက် ရှိနေပါသည်။",
+          ],
+          sentences: [
+            [["Years passed.", 44]],
+            [["The old tree eventually fell.", 45]],
+            [
+              ["The hardened resin", 46],
+              ["reached the forest floor.", 47],
+            ],
+            [["Soil and sand slowly covered it.", 48]],
+            [["More layers collected over time.", 49]],
+            [
+              ["Deep beneath the ground,", 50],
+              ["the resin remained hidden.", 51],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          tr: [
+            "နှစ်ထောင်ပေါင်းများစွာ ကုန်လွန်သွားပါသည်။",
+            "ထို့နောက် နှစ်သန်းပေါင်းများစွာ ကုန်လွန်သွားပါသည်!",
+            "မြှုပ်နေသော သစ်စေးသည် ဖြည်းဖြည်းချင်း ပြောင်းလဲလာပါသည်။",
+            "ဓာတုပြောင်းလဲမှုများကြောင့် ၎င်းသည် ပိုမို မာကျောပြီး ပိုမို တည်ငြိမ်လာပါသည်။",
+            "နောက်ဆုံးတွင် ၎င်းသည် ပယင်း ဖြစ်လာပါသည်။",
+            "အင်းဆက်ပိုးကောင်လေးသည်လည်း အထဲတွင် မပျက်မစီး ရှိနေဆဲ ဖြစ်ပါသည်!",
+          ],
+          sentences: [
+            [["Thousands of years passed.", 52]],
+            [["Then millions of years passed!", 53]],
+            [["The buried resin slowly changed.", 54]],
+            [
+              ["Chemical changes made it", 55],
+              ["harder and more stable.", 56],
+            ],
+            [
+              ["At last,", 57],
+              ["it became amber.", 58],
+            ],
+            [
+              ["And the little insect", 59],
+              ["was still preserved inside!", 60],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          tr: [
+            "တစ်နေ့တွင် တစ်စုံတစ်ဦးသည် ရွှေရောင်ပယင်းကို တွေ့ရှိခဲ့ပါသည်။",
+            "အထဲတွင် ရှေးယခင်က အင်းဆက်ပိုးကောင်လေးတစ်ကောင် ရှိနေပါသည်!",
+            "သိပ္ပံပညာရှင်များသည် ပယင်းထဲတွင် မပျက်မစီး ကျန်ရှိနေသော အင်းဆက်ပိုးများ၊ ပင့်ကူများ နှင့် အပင်အစအနများကို လေ့လာနိုင်ပါသည်။",
+            "ဤရတနာလေးများက ရှေးဟောင်းသက်ရှိများအကြောင်း လေ့လာသိရှိရန် ကျွန်တော်တို့ကို ကူညီပါသည်။",
+            "ပယင်းသည် သမိုင်းမတင်မီခေတ် ကမ္ဘာမှ time capsule (အချိန်ကာလ သိုလှောင်သေတ္တာ) တစ်ခုနှင့် တူပါသည်။",
+            "၎င်းက လွန်ခဲ့သော နှစ်သန်းပေါင်းများစွာကို ပြန်ကြည့်ခွင့် ပေးပါသည်!",
+          ],
+          sentences: [
+            [
+              ["One day,", 61],
+              ["someone discovered the golden amber.", 62],
+            ],
+            [
+              ["Inside was a tiny insect", 63],
+              ["from long ago!", 64],
+            ],
+            [
+              ["Scientists can study insects,", 65],
+              ["spiders, and plant pieces", 66],
+              ["preserved in amber.", 67],
+            ],
+            [
+              ["These tiny treasures help us", 68],
+              ["learn about ancient life.", 69],
+            ],
+            [
+              ["Amber is like a time capsule", 70],
+              ["from the prehistoric world.", 71],
+            ],
+            [
+              ["It lets us look", 72],
+              ["millions of years into the past!", 73],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          tr: [
+            "ပယင်းအများစုသည် အဝါရောင်၊ လိမ္မော်ရောင် သို့မဟုတ် ရွှေညိုရောင် ဖြစ်ပါသည်။",
+            "သို့သော် ရှားပါးသော ပယင်းအချို့တွင် အံ့သြစရာကောင်းသည့် အရာတစ်ခု ရှိပါသည်!",
+            "သာမန်အလင်းရောင်တွင် ၎င်းသည် ရွှေရောင်ပုံပေါက်နိုင်ပါသည်။",
+            "ခရမ်းလွန်ရောင်ခြည်အောက်တွင် ၎င်းသည် အပြာရောင် တောက်တောက်ပပ လင်းလာနိုင်ပါသည်!",
+            "ပယင်းထဲရှိ အချို့သော ဒြပ်ပစ္စည်းများက အပြာရောင်အလင်းကို ထုတ်လွှတ်သောကြောင့် ဤသို့ ဖြစ်ပါသည်။",
+            "ဘယ်လောက် အံ့သြစရာကောင်းတဲ့ ရတနာလဲ!",
+            "စေးကပ်သော သစ်စေးမှသည် တောက်ပသော ရှေးဟောင်းရတနာအထိ သဘာဝတရားသည် အံ့ဖွယ်များဖြင့် ပြည့်နှက်နေပါသည်!",
+          ],
+          sentences: [
+            [
+              ["Most amber looks yellow,", 74],
+              ["orange, or golden brown.", 75],
+            ],
+            [
+              ["But some rare amber", 76],
+              ["has a wonderful surprise!", 77],
+            ],
+            [
+              ["In ordinary light,", 78],
+              ["it can look golden.", 79],
+            ],
+            [
+              ["Under ultraviolet light,", 80],
+              ["it may glow bright blue!", 81],
+            ],
+            [
+              ["This happens because", 82],
+              ["certain substances in the amber", 83],
+              ["give off blue light.", 84],
+            ],
+            [["What an amazing treasure!", 85]],
+            [
+              ["From sticky tree resin", 86],
+              ["to a glowing ancient jewel,", 87],
+              ["nature is full of wonders!", 88],
+            ],
+          ],
+        },
+        {
+          img: 9,
+          tr: ["ပယင်း"],
+          heading: "New Words",
+          sentences: [[["amber", 89]]],
+        },
+        {
+          img: 10,
+          tr: ["ရှေးဟောင်း"],
+          heading: "New Words",
+          sentences: [[["ancient", 90]]],
+        },
+        {
+          img: 11,
+          tr: ["သစ်စေး"],
+          heading: "New Words",
+          sentences: [[["resin", 91]]],
+        },
+        {
+          img: 12,
+          tr: ["သစ်ခေါက်"],
+          heading: "New Words",
+          sentences: [[["bark", 92]]],
+        },
+        {
+          img: 13,
+          tr: ["ဒဏ်ရာ"],
+          heading: "New Words",
+          sentences: [[["wound", 93]]],
+        },
+        {
+          img: 14,
+          tr: ["မာကျောလာသည်"],
+          heading: "New Words",
+          sentences: [[["harden", 94]]],
+        },
+        {
+          img: 15,
+          tr: ["ထိန်းသိမ်းသည်"],
+          heading: "New Words",
+          sentences: [[["preserve", 95]]],
+        },
+        {
+          img: 16,
+          tr: ["သမိုင်းမတင်မီခေတ်"],
+          heading: "New Words",
+          sentences: [[["prehistoric", 96]]],
+        },
+        {
+          img: 17,
+          tr: ["အချိန်ကာလ သိုလှောင်သေတ္တာ"],
+          heading: "New Words",
+          sentences: [[["time capsule", 97]]],
+        },
+        {
+          img: 18,
+          tr: ["ခရမ်းလွန်ရောင်ခြည်"],
+          heading: "New Words",
+          sentences: [[["ultraviolet light", 98]]],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

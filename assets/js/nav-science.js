@@ -24,6 +24,7 @@
         { title: "Rainbow: Quiz", href: "s2.2_rainbow_quiz.html" },
         { title: "The Plant That Eats Insects!", href: "s2.3_pitcher.html" },
         { title: "The Secret World Beneath Our Feet", href: "s2.4_underground.html" },
+        { title: "The Golden Treasure from an Ancient Tree!", href: "s2.5_amber.html" },
       ],
     },
     {
