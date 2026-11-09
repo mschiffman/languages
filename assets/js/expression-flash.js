@@ -55,7 +55,7 @@
     <div class="${i ? "mt-14 " : ""}mb-6">
       <h2 class="text-3xl font-bold" style="font-family: 'Playfair Display', serif; color: white">
         ${esc(cat.en)}
-        <span class="text-xl" style="color: var(--cyan); opacity: 0.85; font-style: italic">· ${esc(cat.fr)}</span>
+        <span class="text-xl" style="color: var(--cyan); opacity: 0.85; font-style: italic">· ${esc(cat.fr ?? cat.my ?? "")}</span>
       </h2>
       <p class="mt-1 text-sm" style="color: rgba(255, 255, 255, 0.55); font-family: 'Roboto', sans-serif">${esc(cat.desc)}</p>
       <div class="header-line w-48 mt-3"></div>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Greetings and Goodbyes</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">GREETINGS & GOODBYES</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Greetings & Goodbyes
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          နှုတ်ဆက်ခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">24</span> expressions · Greetings & Goodbyes
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 29.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/greet_goodbye/";
+      const AUD_EXT = "mp3?v=2611090647";
+
+      const categories = [
+        {
+          en: "Saying hello",
+          my: "တွေ့တွေ့ချင်း နှုတ်ဆက်ခြင်း",
+          desc: "The first words: for friends, for strangers, at any time of day.",
+          cards: [
+            ["Hello.", "မင်္ဂလာပါ။", "Safe with everyone: friends, teachers, strangers, customers. On the phone, it is how you answer: Hello?",
+              "Hello? Who's calling, please?", "ဟယ်လို။ ဘယ်သူ ဆက်တာလဲ ခင်ဗျာ။"],
+            ["Hi!", "ဟိုင်း။", "Friendly and casual: friends, classmates, coworkers. Fine for most everyday situations.",
+              "Hi, Thida! I didn't see you there.", "ဟိုင်း သီတာ။ သီတာ့ကို မမြင်လိုက်ဘူး။"],
+            ["Good morning.", "မင်္ဂလာနံနက်ခင်းပါ။", "Until about 12 noon. More polite than hi: for teachers, bosses and customers. Friends often just say Morning!",
+              "Good morning, everyone. Please sit down.", "မင်္ဂလာနံနက်ခင်းပါ အားလုံးပဲ။ ထိုင်ကြပါ။"],
+            ["Good afternoon.", "မင်္ဂလာနေ့လယ်ခင်းပါ။", "From 12 noon until about 6 pm. Polite: shops, offices, phone calls. Friends rarely say it.",
+              "Good afternoon. Can I help you?", "မင်္ဂလာနေ့လယ်ခင်းပါ။ ဘာကူညီပေးရမလဲ ခင်ဗျာ။"],
+            ["Good evening.", "မင်္ဂလာညနေခင်းပါ။", "After about 6 pm, when you arrive. It is hello, not goodbye. To say goodbye at night, use Good night.",
+              "Good evening. A table for two, please.", "မင်္ဂလာညနေခင်းပါ။ နှစ်ယောက်စာ စားပွဲတစ်လုံး ပေးပါ။"],
+            ["Hey!", "ဟေး။", "Very casual: close friends only. Shouted at a stranger, Hey! sounds rude. To a stranger, say Excuse me.",
+              "Hey, Aung! Wait for me!", "ဟေး အောင်။ စောင့်ဦး။"],
+          ],
+        },
+        {
+          en: "How are you?",
+          my: "နေကောင်းလား",
+          desc: "The question after hello. Most of the time it is part of the greeting, not a real question.",
+          cards: [
+            ["How are you?", "နေကောင်းလား။", "Usually just part of hello: give a short, positive answer. In Burmese we greet with ထမင်းစားပြီးပြီလား or ဘယ်သွားမလို့လဲ, but Have you eaten? and Where are you going? sound strange or nosy in English. Use How are you? instead.",
+              "Hi, Tom. How are you?", "ဟိုင်း တွမ်။ နေကောင်းလား။"],
+            ["Good, thanks. And you?", "နေကောင်းပါတယ်၊ ကျေးဇူးပါ။ ခင်ဗျား/ရှင်ရော။", "The everyday answer. I'm fine, thank you is correct but sounds like a textbook. Always ask back: And you? or You? Not asking back sounds cold.",
+              "— How are you? — Good, thanks. And you?", "— နေကောင်းလား။ — နေကောင်းပါတယ်၊ ကျေးဇူးပါ။ ခင်ဗျားရော။"],
+            ["How's it going?", "ဘယ်လိုလဲ၊ အဆင်ပြေလား။", "A casual How are you? Answer the same way: Good, thanks. or Not bad.",
+              "Hey, Sarah! How's it going?", "ဟေး ဆာရာ။ ဘယ်လိုလဲ၊ အဆင်ပြေလား။"],
+            ["What's up?", "ဘာထူးလဲ။", "Very casual, for friends. It means What's new? The usual answer: Not much. You?",
+              "— What's up? — Not much. You?", "— ဘာထူးလဲ။ — ဘာမှမထူးပါဘူး။ မင်းရော။"],
+            ["Not bad.", "မဆိုးပါဘူး။", "It means good. English speakers often say good things in a small way. Also: Pretty good.",
+              "— How was your weekend? — Not bad, thanks.", "— ပိတ်ရက်က ဘယ်လိုလဲ။ — မဆိုးပါဘူး၊ ကျေးဇူးပါ။"],
+            ["Not so good.", "သိပ်မကောင်းဘူး။", "An honest answer for friends and family. They will ask What's wrong? With strangers, most people just say Fine.",
+              "— How are you? — Not so good. I have a cold.", "— နေကောင်းလား။ — သိပ်မကောင်းဘူး။ အအေးမိနေတယ်။"],
+          ],
+        },
+        {
+          en: "Meeting people",
+          my: "တွေ့ဆုံခြင်း",
+          desc: "Meeting someone for the first time, or seeing them again.",
+          cards: [
+            ["Nice to meet you.", "တွေ့ရတာ ဝမ်းသာပါတယ်။", "Only the first time you meet someone, often with a handshake. More formal: Pleased to meet you.",
+              "Hi, I'm Thida. Nice to meet you.", "ဟိုင်း၊ ကျွန်မ သီတာပါ။ တွေ့ရတာ ဝမ်းသာပါတယ်။"],
+            ["Nice to meet you too.", "ကျွန်တော်/ကျွန်မလည်း တွေ့ရတာ ဝမ်းသာပါတယ်။", "The answer. Shorter: You too. Put the stress on you: Nice to meet YOU too.",
+              "— Nice to meet you. — Nice to meet you too.", "— တွေ့ရတာ ဝမ်းသာပါတယ်။ — ကျွန်တော်လည်း တွေ့ရတာ ဝမ်းသာပါတယ်။"],
+            ["Good to see you.", "ပြန်တွေ့ရတာ ဝမ်းသာပါတယ်။", "For people you already know. Burmese uses the same words for meeting someone new and seeing them again, but English doesn't: Nice to meet you to an old friend sounds like you forgot them!",
+              "Hello, Aung! Good to see you again.", "မင်္ဂလာပါ အောင်။ ပြန်တွေ့ရတာ ဝမ်းသာပါတယ်။"],
+            ["Long time no see!", "မတွေ့တာ ကြာပြီနော်။", "Casual and warm, for a friend you haven't seen for months or years. The grammar is strange, but everyone says it.",
+              "Thida! Long time no see!", "သီတာ။ မတွေ့တာ ကြာပြီနော်။"],
+            ["How have you been?", "အခုတလော နေကောင်းရဲ့လား။", "How are you? for someone you haven't seen for a while. Spoken: How've you been? Answer: Good! Busy, but good.",
+              "— How have you been? — Busy, but good. You?", "— အခုတလော နေကောင်းရဲ့လား။ — အလုပ်များနေတယ်၊ ဒါပေမဲ့ အဆင်ပြေပါတယ်။ မင်းရော။"],
+          ],
+        },
+        {
+          en: "Saying goodbye",
+          my: "ပြန်ခါနီး နှုတ်ဆက်ခြင်း",
+          desc: "Leaving: from a quick bye to a warm take care.",
+          cards: [
+            ["Goodbye.", "နှုတ်ဆက်ပါတယ်။", "Correct, but a little formal or final. In everyday life, people usually say Bye! or See you!",
+              "Goodbye, and thank you for coming.", "နှုတ်ဆက်ပါတယ်၊ လာတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။"],
+            ["Bye!", "ဘိုင်ဘိုင်။", "The everyday goodbye: friends, shops, phone calls. Bye-bye! is softer and friendly, and also what you say to children.",
+              "OK, bye! See you on Monday.", "အိုကေ၊ ဘိုင်ဘိုင်။ တနင်္လာနေ့ တွေ့မယ်။"],
+            ["See you later.", "နောက်မှ တွေ့မယ်။", "A friendly goodbye, even with no plan to meet. Shorter: See you! In casual messages: See ya!",
+              "I'm going home now. See you later!", "အိမ်ပြန်တော့မယ်။ နောက်မှ တွေ့မယ်နော်။"],
+            ["See you tomorrow.", "မနက်ဖြန် တွေ့မယ်။", "Change the time: See you on Friday. See you next week. See you soon.",
+              "Thanks for today. See you tomorrow!", "ဒီနေ့အတွက် ကျေးဇူးပါ။ မနက်ဖြန် တွေ့မယ်။"],
+            ["Have a nice day.", "ကောင်းသောနေ့လေး ဖြစ်ပါစေ။", "Shop assistants and waiters say it all the time. Answer: Thanks, you too! Also: Have a good weekend.",
+              "— Here's your change. Have a nice day! — Thanks, you too!", "— ပြန်အမ်းငွေပါ။ ကောင်းသောနေ့လေး ဖြစ်ပါစေ။ — ကျေးဇူးပါ၊ ခင်ဗျားလည်း ဒီလိုပဲ ဖြစ်ပါစေ။"],
+            ["Take care.", "ဂရုစိုက်နော်။", "A warm goodbye: family, friends, someone who is sick or going on a trip. Answer: You too!",
+              "Have a safe trip. Take care!", "ခရီးသွားတာ ချောချောမောမော ဖြစ်ပါစေ။ ဂရုစိုက်နော်။"],
+            ["Good night.", "ကောင်းသောညပါ။", "Only for goodbye at night, or before bed. It is not hello: when you arrive in the evening, say Good evening.",
+              "It's late. Good night, everyone!", "နောက်ကျပြီ။ အားလုံးပဲ ကောင်းသောညပါ။"],
+          ],
+        },
+        {
+          en: "Ending a conversation",
+          my: "စကားပြောတာ အဆုံးသတ်ခြင်း",
+          desc: "Leaving politely, so the goodbye doesn't feel sudden.",
+          cards: [
+            ["I have to go.", "သွားရတော့မယ်။", "Shows the conversation is ending. Softer: Sorry, I have to go. or I'd better go.",
+              "Oh, it's three o'clock! I have to go.", "အိုး၊ သုံးနာရီ ထိုးပြီ။ သွားရတော့မယ်။"],
+            ["It was nice meeting you.", "တွေ့ရတာ ဝမ်းသာပါတယ်။", "The goodbye after a first meeting. At the start: Nice to meet you. At the end: It was nice meeting you.",
+              "Well, it was nice meeting you. Bye!", "ကဲ၊ တွေ့ရတာ ဝမ်းသာပါတယ်။ ဘိုင်ဘိုင်။"],
+            ["It was nice talking to you.", "စကားပြောရတာ ဝမ်းသာပါတယ်။", "A warm last line, for new people or old friends.",
+              "It was nice talking to you. Take care!", "စကားပြောရတာ ဝမ်းသာပါတယ်။ ဂရုစိုက်နော်။"],
+            ["Talk to you later.", "နောက်မှ ပြောမယ်နော်။", "For the end of a phone call or chat with a friend. In text messages: TTYL.",
+              "My bus is here. Talk to you later!", "ဘတ်စ်ကား ရောက်လာပြီ။ နောက်မှ ပြောမယ်နော်။"],
+            ["Say hello to Aung for me.", "အောင် ကို ကျွန်တော့်/ကျွန်မ ကိုယ်စား နှုတ်ဆက်ပေးပါ။", "Sends your greeting to someone's family or friends, just like in Burmese. Casual: Say hi to ___ for me.",
+              "Say hello to your parents for me.", "မိဘတွေကို ကျွန်တော့်ကိုယ်စား နှုတ်ဆက်ပေးပါ။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

@@ -37,6 +37,8 @@ fr/expression/.build_cache/
 # Generated offline expression pages (see fr/expression/build_single.py)
 fr/expression/single/
 fr/expression/single_small/
+eng/expressions/single/
+eng/expressions/.build_cache/
 
 # Generated offline conversation pages, with embedded audio
 # (see fr/everyday/conversations/make_single.py)
