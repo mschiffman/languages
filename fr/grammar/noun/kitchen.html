@@ -599,7 +599,9 @@
 
     <script>
       function playAudio(word) {
-        const audio = new Audio(`/media/lessons/noun/kitchen/${word}.mp3`);
+        const audio = new Audio(
+          `https://languages.rmlives.com/lessons/noun/kitchen/${word}.mp3`,
+        );
 
         audio.play().catch((error) => {
           console.error("Error playing audio:", error);
