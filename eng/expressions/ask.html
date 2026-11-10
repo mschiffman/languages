@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Asking</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+    <style>
+      .gray {
+        color:gray;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">ASKING</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Asking
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          တောင်းဆိုတဲ့အခါ
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(173, 195, 160, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(209, 230, 199, 0.297);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">29</span> expressions · Asking
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 29.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/ask/";
+      const AUD_EXT = "mp3?v=2611090947";
+
+const categories = [
+        {
+          en: "Asking for things",
+          my: "တစ်ခုခု တောင်းခြင်း",
+          desc: "In shops, cafés and at the table: the polite basics.",
+          cards: [
+            ["<span class=gray>The bill</span>, please.", "ပြေစာ ပေးပါ။", "The shortest polite request: name the thing and add please. ပေးပါ is polite in Burmese, but Give me ___ in English can sound rude. Use ___, please. or Can I have ___?",
+              "A coffee, please.", "ကော်ဖီတစ်ခွက် ပေးပါ။"],
+            ["Can I have <span class=gray>one more</span>?","နောက်တစ်ခု ထပ်ရနိုင်မလား။", "Polite and everyday: shops, restaurants, at home. Add please at the end.",
+              "Can I have a glass of water, please?", "ရေတစ်ခွက် ရနိုင်မလား။"],
+            ["Could I have <span class=gray>a scoop of ice cream</span>?","ရေခဲမုန့် တစ်ခပ်စာလောက် ရနိုင်မလား။", "A little more polite than Can I. Good with strangers, staff and older people.",
+              "Could I have a receipt, please?", "ပြေစာ ရနိုင်မလား ခင်ဗျာ။"],
+            ["I'd like <span class=gray>one kilo</span>.","တစ်ကီလို လိုချင်ပါတယ်။", "I'd like = I would like. Polite for shops and restaurants. I want ___ can sound demanding.",
+              "I'd like two tickets for the six o'clock show.", "ခြောက်နာရီပွဲအတွက် လက်မှတ် နှစ်စောင် လိုချင်ပါတယ်။"],
+            ["Do you have <span class=gray>sugar</span>?","သကြား ရှိလား။", "Asks if a shop has something. Answer: Yes, we do. or Sorry, we don't.",
+              "Do you have this in a bigger size?", "ဒါ အရွယ်အစား ပိုကြီးတာ ရှိလား။"],
+          ],
+        },
+        {
+          en: "Asking someone to do something",
+          my: "တစ်ခုခု လုပ်ပေးဖို့ ပြောခြင်း",
+          desc: "From a casual can you to a very polite would you mind.",
+          cards: [
+            ["Can you <span class=gray>close the door</span>?", "<span class=gray>တံခါး ပိတ်</span>ပေးနိုင်မလား။", "Everyday and friendly: family, friends, coworkers. Add please.",
+              "Can you open the window, please?", "ပြတင်းပေါက် ဖွင့်ပေးနိုင်မလား။"],
+            ["Could you <span class=gray>call a taxi</span>?", "<span class=gray>တက္ကစီ ခေါ်</span>ပေးနိုင်မလား ခင်ဗျာ။", "More polite than Can you. Safe with almost everyone: strangers, bosses, customers.",
+              "Could you help me with this form?", "ဒီဖောင် ဖြည့်ဖို့ ကူညီပေးနိုင်မလား ခင်ဗျာ။"],
+            ["Would you <span class=gray>sign here</span>?", "<span class=gray>ဒီမှာ လက်မှတ်ထိုး</span>ပေးမလား။", "Polite and soft. Staff often use it with customers. Usually with please.",
+              "Would you wait here for a moment, please?", "ဒီမှာ ခဏ စောင့်ပေးမလား။"],
+            ["Would you mind <span class=gray>moving your bag</span>?", "<span class=gray>အိတ် နည်းနည်း ရွှေ့</span>ပေးရင် အဆင်ပြေမလား။", "Very polite. The verb takes -ing: Would you mind waiting? To say yes, answer No, not at all.",
+              "Would you mind turning the music down?", "သီချင်းသံ နည်းနည်း တိုးပေးရင် အဆင်ပြေမလား။"],
+            ["Please <span class=gray>take off your shoes</span>.", "<span class=gray>ဖိနပ် ချွတ်</span>ပါ။", "An instruction, not a question. Fine from teachers, doctors and signs. Between equals, a question is softer: Could you…?",
+              "Please take a seat.", "ထိုင်ပါ။"],
+          ],
+        },
+        {
+          en: "Big favors",
+          my: "အကူအညီကြီးကြီး တောင်းခြင်း",
+          desc: "When you're asking a lot: more words make it softer.",
+          cards: [
+            ["Could you do me a favor?", "အကူအညီ တစ်ခု တောင်းလို့ရမလား။", "Gets the person ready for a request. British spelling: favour.",
+              "Could you do me a favor? Can you feed my cat this weekend?", "အကူအညီ တစ်ခု တောင်းလို့ရမလား။ ဒီပိတ်ရက် ကြောင်လေးကို အစာကျွေးပေးနိုင်မလား။"],
+            ["I was wondering if you could <span class=gray>help me move</span>.", "<span class=gray>အိမ်ပြောင်းဖို့ ကူညီ</span>ပေးနိုင်မလားလို့ပါ။", "Very polite and indirect: good at work and for big requests. It sounds like a statement, but it's a question.",
+              "I was wondering if you could write me a reference.", "ထောက်ခံစာ တစ်စောင် ရေးပေးနိုင်မလားလို့ပါ။"],
+            ["Would it be possible to <span class=gray>pay by card</span>?", "<span class=gray>ကတ်နဲ့ ငွေချေ</span>လို့ ဖြစ်နိုင်မလား။", "Formal: for offices, rules and bookings. You ask about the situation, not the person.",
+              "Would it be possible to change my appointment?", "ချိန်းထားတဲ့ရက်ကို ပြောင်းလို့ ဖြစ်နိုင်မလား။"],
+            ["Do you think you could <span class=gray>fix my bike</span>?", "<span class=gray>စက်ဘီး ပြင်</span>ပေးနိုင်မယ် ထင်လား။", "Polite and friendly, for a request that takes time or effort.",
+              "Do you think you could drive me to the station tomorrow?", "မနက်ဖြန် ဘူတာကို ကားနဲ့ လိုက်ပို့ပေးနိုင်မယ် ထင်လား။"],
+            ["If it's not too much trouble…", "အားနာပေမယ့်…", "Adds extra politeness to a request. Close to အားနာပေမယ့်.",
+              "If it's not too much trouble, could you check it again?", "အားနာပေမယ့် ထပ်စစ်ပေးနိုင်မလား။"],
+          ],
+        },
+        {
+          en: "Asking permission",
+          my: "ခွင့်တောင်းခြင်း",
+          desc: "When you want to do something: from can I to do you mind if I.",
+          cards: [
+            ["Can I <span class=gray>take a photo</span>?", "<span class=gray>ဓာတ်ပုံ ရိုက်</span>လို့ ရလား။", "Everyday permission: Can I sit here? Can I use your pen?",
+              "Can I sit here?", "ဒီမှာ ထိုင်လို့ ရလား။"],
+            ["May I <span class=gray>ask a question</span>?", "<span class=gray>မေးခွန်း မေး</span>ခွင့်ပြုပါ။", "Very polite and a little formal: to teachers, at interviews, in offices.",
+              "May I come in?", "ဝင်ခွင့်ပြုပါ။"],
+            ["Is it OK if I <span class=gray>park here</span>?", "<span class=gray>ဒီမှာ ကားရပ်</span>ရင် ရလား။", "Friendly and clear. Works almost everywhere.",
+              "Is it OK if I leave a little early today?", "ဒီနေ့ နည်းနည်း စောပြန်ရင် ရလား။"],
+            ["Do you mind if I <span class=gray>turn on the fan</span>?", "<span class=gray>ပန်ကာ ဖွင့်</span>ရင် ကိစ္စရှိလား။", "Careful: the yes answer is No! No, not at all means Go ahead. It works like ကိစ္စရှိလား, answered with ကိစ္စမရှိပါဘူး.",
+              "— Do you mind if I open the window? — No, not at all.", "— ပြတင်းပေါက် ဖွင့်ရင် ကိစ္စရှိလား။ — ကိစ္စမရှိပါဘူး။"],
+          ],
+        },
+        {
+          en: "Casual with friends",
+          my: "သူငယ်ချင်းတွေကြား",
+          desc: "Short, relaxed requests for people you know well.",
+          cards: [
+            ["Can I borrow <span class=gray>your umbrella</span>?", "<span class=gray>ထီး</span> ငှားလို့ ရလား။", "Borrow = take and give back. Not: Can you borrow me ___? That's lend: Can you lend me ___?",
+              "Can I borrow your charger?", "အားသွင်းကြိုး ငှားလို့ ရလား။"],
+            ["Pass me the <span class=gray>scissors</span>, would you?", "<span class=gray>ကတ်ကြေး</span> လှမ်းပေးပါဦး။", "At the table or at work. Would you? at the end makes it friendly. Also: Could you pass the ___?",
+              "Pass me the salt, would you?", "ဆားလေး လှမ်းပေးပါဦး။"],
+            ["Got a <span class=gray>tissue</span>?", "<span class=gray>တစ်ရှူး</span> ပါလား။", "Very casual Do you have a ___? Friends only.",
+              "Got a pen? Mine stopped working.", "ဘောပင် ပါလား။ ငါ့ဟာ ရေးလို့မရတော့ဘူး။"],
+            ["Mind if I <span class=gray>take this chair</span>?", "<span class=gray>ဒီထိုင်ခုံ ယူသွား</span>ရင် ရလား။", "Short for Do you mind if I…? Same answer: No, go ahead.",
+              "Mind if I join you?", "လိုက်ထိုင်ရင် ရလား။"],
+            ["Can you grab me <span class=gray>a coffee</span>?", "<span class=gray>ကော်ဖီတစ်ခွက်</span> ယူခဲ့ပေးပါဦး။", "Grab = get quickly. Friends and coworkers only.",
+              "You're going out? Can you grab me some bread?", "အပြင်ထွက်မလို့လား။ ပေါင်မုန့် ဝယ်ခဲ့ပေးပါဦး။"],
+          ],
+        },
+        {
+          en: "Answering a request",
+          my: "တောင်းဆိုတာကို ပြန်ဖြေခြင်း",
+          desc: "Saying yes, handing things over, and saying no nicely.",
+          cards: [
+            ["Sure.", "ရတယ်။", "Casual yes. Also: Sure thing! or Yeah, of course.",
+              "— Can I use your phone? — Sure.", "— ဖုန်း ခဏ သုံးလို့ရလား။ — ရတယ်။"],
+            ["Of course.", "ဟုတ်ကဲ့၊ ရပါတယ်။", "Warm and polite: perfect for requests. As an answer to a question (Is the shop open? — Of course!) it can sound like the question was silly.",
+              "— Could you help me? — Of course.", "— ကူညီပေးနိုင်မလား။ — ဟုတ်ကဲ့၊ ရပါတယ်။"],
+            ["Here you go.", "ဒီမှာပါ။", "Said as you hand something to someone. Also: Here you are.",
+              "— Can I have the salt? — Here you go.", "— ဆား ပေးပါဦး။ — ဒီမှာ။"],
+            ["Go ahead.", "လုပ်ပါ။", "Yes to a permission question: please do it.",
+              "— Can I sit here? — Sure, go ahead.", "— ဒီမှာ ထိုင်လို့ ရလား။ — ရပါတယ်၊ ထိုင်ပါ။"],
+            ["Sorry, I can't.", "ဆောရီး၊ မရဘူး။", "A polite no. Add a short reason if you can.",
+              "— Can you work on Saturday? — Sorry, I can't. I have a family event.", "— စနေနေ့ အလုပ်ဆင်းနိုင်မလား။ — ဆောရီး၊ မရဘူး။ မိသားစုကိစ္စ ရှိလို့။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

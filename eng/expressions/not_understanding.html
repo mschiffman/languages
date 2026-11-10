@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Not Understanding</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">NOT UNDERSTANDING</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Not Understanding
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          နားမလည်တဲ့အခါ
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">31</span> expressions · Not Understanding
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 31.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/not_understanding/";
+      const AUD_EXT = "mp3?v=2611090857";
+
+const categories = [
+        {
+          en: "Asking someone to repeat",
+          my: "ထပ်ပြောခိုင်းခြင်း",
+          desc: "When you didn't hear or didn't catch the words.",
+          cards: [
+            ["Sorry?", "ဗျာ။ / ရှင်။", "The quickest polite way to ask someone to repeat. Let your voice go up. Just What? can sound rude.",
+              "— The meeting is at three. — Sorry? — The meeting is at three o'clock.", "— အစည်းအဝေးက သုံးနာရီမှာ။ — ဗျာ။ — အစည်းအဝေးက သုံးနာရီထိုးမှာပါ။"],
+            ["Pardon?", "ဗျာ။ / ရှင်။", "Polite and a little formal. Americans also say Pardon me?",
+              "— Your number, please? — Pardon? — Your phone number, please.", "— နံပါတ်လေး ပေးပါ။ — ရှင်။ — ဖုန်းနံပါတ်လေး ပေးပါ။"],
+            ["Can you say that again?", "ထပ်ပြောပေးပါဦး။", "Clear and polite. More polite: Could you say that again, please? Also: Can you repeat that?",
+              "Sorry, can you say that again? The train is very loud.", "ဆောရီး၊ ထပ်ပြောပေးပါဦး။ ရထားသံ အရမ်းကျယ်နေလို့။"],
+            ["Sorry, I didn't catch that.", "ဆောရီး၊ မကြားလိုက်ဘူး။", "Catch here means hear clearly. Natural and polite, and very common on the phone.",
+              "Sorry, I didn't catch your name.", "ဆောရီး၊ နာမည် မကြားလိုက်ဘူး။"],
+            ["What did you say?", "ဘာပြောလိုက်တာလဲ။", "Fine with friends. With strangers, start with Sorry: Sorry, what did you say? Said sharply, it can sound angry.",
+              "Sorry, what did you say? The music is too loud.", "ဆောရီး၊ ဘာပြောလိုက်တာလဲ။ သီချင်းသံ ကျယ်လွန်းလို့။"],
+          ],
+        },
+        {
+          en: "Slower, louder, clearer",
+          my: "ဖြည်းဖြည်း၊ ကျယ်ကျယ်၊ ရှင်းရှင်း",
+          desc: "Asking people to help you understand them.",
+          cards: [
+            ["Can you speak more slowly, please?", "ဖြည်းဖြည်း ပြောပေးပါ။", "Native speakers often forget to slow down. It is normal to ask, and most people are happy to help. Short: Slowly, please.",
+              "Sorry, can you speak more slowly, please?", "ဆောရီး၊ ဖြည်းဖြည်း ပြောပေးပါ။"],
+            ["Can you speak up a little?", "နည်းနည်း ကျယ်ကျယ် ပြောပေးပါ။", "Speak up means speak louder. Also: Can you speak a little louder?",
+              "Sorry, can you speak up a little? I can't hear you.", "ဆောရီး၊ နည်းနည်း ကျယ်ကျယ် ပြောပေးပါ။ မကြားရဘူး။"],
+            ["Can you spell that, please?", "စာလုံးပေါင်း ပြောပြပေးပါ။", "For names, streets and email addresses. Knowing the letter names in English really helps here.",
+              "— My last name is Kowalski. — Can you spell that, please?", "— ကျွန်တော့် မျိုးရိုးအမည်က ကိုဝါလ်စကီးပါ။ — စာလုံးပေါင်း ပြောပြပေးပါ။"],
+            ["Can you write it down, please?", "ချရေးပေးပါ။", "When a word or number is hard to hear: addresses, prices, times. Also: Can you type it for me?",
+              "This address is hard for me. Can you write it down, please?", "ဒီလိပ်စာက ကျွန်တော့်အတွက် ခက်တယ်။ ချရေးပေးပါ။"],
+            ["Can you show me?", "ပြပေးပါ။", "When showing is easier than words: on a map, on a phone, on a menu.",
+              "I don't know that street. Can you show me on the map?", "အဲဒီလမ်း မသိဘူး။ မြေပုံမှာ ပြပေးပါ။"],
+          ],
+        },
+        {
+          en: "I don't understand",
+          my: "နားမလည်တဲ့အခါ",
+          desc: "When you hear the words but don't get the meaning.",
+          cards: [
+            ["Sorry, I don't understand.", "ဆောရီး၊ နားမလည်ဘူး။", "Say it! Nodding when you don't understand causes bigger problems later. In English, saying it is normal, not rude. Not the same as I don't know, which is about facts.",
+              "Sorry, I don't understand. Can you explain again?", "ဆောရီး၊ နားမလည်ဘူး။ ထပ်ရှင်းပြပေးပါ။"],
+            ["What does it mean?", "အဲဒါ ဘာအဓိပ္ပာယ်လဲ။", "Ask about one word. Not: What is mean ___? Correct: What does it mean?",
+              "What does deadline mean?", "deadline ဆိုတာ ဘာအဓိပ္ပာယ်လဲ။"],
+            ["What do you mean?", "ဘာကိုဆိုလိုတာလဲ။", "You know the words, but not the idea. Careful with your voice: said sharply, it sounds like an argument.",
+              "— Bring something for the party. — What do you mean? Food or drinks?", "— ပါတီအတွက် တစ်ခုခု ယူလာခဲ့။ — ဘာကိုဆိုလိုတာလဲ။ စားစရာလား၊ သောက်စရာလား။"],
+            ["I'm not sure what you mean.", "ဘာကိုဆိုလိုမှန်း သေချာ မသိဘူး။", "A softer, more polite What do you mean? Good at work.",
+              "Sorry, I'm not sure what you mean. Do you need it today or tomorrow?", "ဆောရီး၊ ဘာကိုဆိုလိုမှန်း သေချာမသိဘူး။ ဒီနေ့ လိုတာလား၊ မနက်ဖြန်လား။"],
+            ["Can you explain that?", "အဲဒါ ရှင်းပြပေးပါ။", "For a longer idea or instructions. Softer: Could you explain that another way?",
+              "Can you explain that? I've never used this machine before.", "အဲဒါ ရှင်းပြပေးပါ။ ဒီစက်ကို တစ်ခါမှ မသုံးဖူးလို့ပါ။"],
+          ],
+        },
+        {
+          en: "Checking you understood",
+          my: "မှန်မမှန် စစ်ကြည့်ခြင်း",
+          desc: "Saying back what you heard, so you know you got it right.",
+          cards: [
+            ["Do you mean oranges?", "လိမ်မော်သီး ကို ပြောတာလား။", "Check one detail by saying what you think. Much safer than guessing.",
+              "— Meet me at the gate. — Do you mean the front gate?", "— ဂိတ်မှာ စောင့်နေမယ်။ — ရှေ့ဂိတ်ကို ပြောတာလား။"],
+            ["So, 2 o'clock. Is that right?", "ဆိုတော့ နှစ်နာရီပေါ့ ။ ဟုတ်လား။", "Repeat the important part: times, numbers, places. People like this, because it stops mistakes.",
+              "So, Gate 12 at 9:30. Is that right?", "ဆိုတော့ ဂိတ် ၁၂၊ ကိုးနာရီခွဲ။ ဟုတ်လား။"],
+            ["Did you say Tuesday or Thursday?", "အင်္ဂါနေ့လား၊ ကြာသပတေးနေ့ကိုပြောတာလား။", "For numbers and words that sound almost the same. Fifteen or fifty? is the classic one.",
+              "Sorry, did you say fifteen or fifty?", "ဆောရီး၊ ဆယ့်ငါးလို့ ပြောတာလား၊ ငါးဆယ်လို့ ပြောတာလား။"],
+            ["Let me check I understand.", "နားလည်တာ မှန်မမှန် စစ်ကြည့်ပါရစေ။", "Before you repeat longer instructions back: at the doctor, at work, at the bank.",
+              "Let me check I understand. Two pills a day, after meals?", "နားလည်တာ မှန်မမှန် စစ်ကြည့်ပါရစေ။ တစ်နေ့ နှစ်လုံး၊ ထမင်းစားပြီးမှ သောက်ရမှာလား။"],
+          ],
+        },
+        {
+          en: "Asking for words",
+          my: "စကားလုံး မေးခြင်း",
+          desc: "Learning new words from the people around you.",
+          cards: [
+            ["How do you say လ in English?", "လကို အင်္ဂလိပ်လို ဘယ်လိုပြောလဲ။", "The most useful question for learners. Ask the full question. Not: How to say ___?",
+              "— How do you say ထမင်းချိုင့် in English? — Lunch box.", "— ထမင်းချိုင့်ကို အင်္ဂလိပ်လို ဘယ်လိုပြောလဲ။ — Lunch box တဲ့။"],
+            ["What's this called?", "ဒါကို ဘာခေါ်လဲ။", "Point at something when you don't know its name. For more than one: What are these called?",
+              "— What's this called? — It's a ladle.", "— ဒါကို ဘာခေါ်လဲ။ — ဟင်းခပ်ယောက်မပါ။"],
+            ["How do you spell rainbow?", "သက်တံ့ ကို ဘယ်လို စာလုံးပေါင်းလဲ။", "For writing a word you heard. English spelling is hard for everyone, even native speakers!",
+              "How do you spell Wednesday?", "Wednesday ကို ဘယ်လို စာလုံးပေါင်းလဲ။"],
+            ["How do you pronounce this?", "ဒါကို ဘယ်လို အသံထွက်လဲ။", "For a word you can read but can't say. Point at the word.",
+              "How do you pronounce this word? R-E-C-I-P-E.", "ဒီစကားလုံးကို ဘယ်လို အသံထွက်လဲ။ R-E-C-I-P-E။"],
+          ],
+        },
+        {
+          en: "Buying time",
+          my: "အချိန်ယူခြင်း",
+          desc: "When you need a moment, or can't find the word.",
+          cards: [
+            ["Just a moment.", "ခဏလေးနော်။", "When you need a little time to think or find something. Also: Just a second. or Hang on.",
+              "Just a moment, I'll find the paper.", "ခဏလေးနော်၊ စာရွက် ရှာလိုက်ဦးမယ်။"],
+            ["Let me think.", "စဉ်းစားပါရစေ။", "Shows you are working on an answer, not ignoring the question. Also: Hmm, let me see.",
+              "— Which day is best for you? — Let me think… Friday.", "— ဘယ်နေ့ အဆင်ပြေလဲ။ — စဉ်းစားပါရစေ… သောကြာနေ့။"],
+            ["What's the word…?", "ဘယ်လို ပြောရမလဲ…", "Saying this out loud when you can't find a word is normal. Describe the thing, and the other person will often help you.",
+              "It's a… what's the word… a thing for opening bottles.", "အဲဒါက… ဘယ်လိုပြောရမလဲ… ပုလင်းဖောက်တဲ့ ပစ္စည်း။"],
+            ["I'm still learning English.", "အင်္ဂလိပ်စကား သင်နေတုန်းပါ။", "Asks people to be patient and speak simply. No need to say Sorry for my bad English: people are usually kind.",
+              "I'm still learning English, so please speak slowly.", "အင်္ဂလိပ်စကား သင်နေတုန်းမို့ ဖြည်းဖြည်း ပြောပေးပါ။"],
+          ],
+        },
+        {
+          en: "When you understand",
+          my: "နားလည်သွားတဲ့အခါ",
+          desc: "Showing that the message got through.",
+          cards: [
+            ["I see.", "ဪ၊ ဟုတ်ကဲ့။", "Shows you understand and are listening. In Burmese, ဟုတ်ကဲ့ can just mean I'm listening. In English, Yes can sound like I understand or I agree, so only say it if it's true.",
+              "— Turn left after the bank. — I see. Thank you.", "— ဘဏ်ကို ကျော်ရင် ဘယ်ဘက်ကွေ့ပါ။ — ဪ၊ ဟုတ်ကဲ့။ ကျေးဇူးပါ။"],
+            ["Got it.", "နားလည်ပြီ။", "Casual: I understand. Very common at work. Also: Got it, thanks!",
+              "— Press the green button, then wait. — Got it.", "— အစိမ်းရောင်ခလုတ်ကို နှိပ်ပြီး စောင့်ပါ။ — နားလည်ပြီ။"],
+            ["Oh, now I understand.", "ဪ၊ အခုမှ နားလည်တော့တယ်။", "After an explanation worked. It tells the person their help was useful.",
+              "Oh, now I understand. Thank you for explaining.", "ဪ၊ အခုမှ နားလည်တော့တယ်။ ရှင်းပြပေးလို့ ကျေးဇူးပါ။"],
+            ["That makes sense.", "အဲဒါ ယုတ္တိရှိတယ်။", "I understand, and it sounds right and logical.",
+              "— We start early because it's cooler. — Ah, that makes sense.", "— အေးတဲ့အချိန်မို့ စောစော စတာ။ — အာ၊ ဟုတ်သားပဲ။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

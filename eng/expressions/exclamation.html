@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Exclamations</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">EXCLAMATIONS</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Exclamations
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          အာမေဋိတ် စကားများ
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">31</span> expressions · Exclamations
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 31.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/exclamation/";
+      const AUD_EXT = "mp3?v=2611090841";
+
+const categories = [
+        {
+          en: "Surprise",
+          my: "အံ့ဩတဲ့အခါ",
+          desc: "When something surprises you, good or bad.",
+          cards: [
+            ["Wow!", "ဝိုး။", "Big surprise or admiration. Say it long and high: Woooow! Also: Wow, that's amazing!",
+              "Wow! Your garden is beautiful.", "ဝိုး။ ပန်းခြံလေး အရမ်းလှတယ်။"],
+            ["Really?", "တကယ်လား။", "Surprise or interest. Let your voice go up at the end. Said flat, it can sound like you don't believe them.",
+              "— I got a job in Thailand. — Really? When do you start?", "— ထိုင်းမှာ အလုပ်ရပြီ။ — တကယ်လား။ ဘယ်တော့ စမှာလဲ။"],
+            ["No way!", "မယုံနိုင်ဘူး။", "Two meanings. With a happy, surprised face: I can't believe it! As an answer to a request: Absolutely not!",
+              "— I won the prize! — No way! Congratulations!", "— ဆုရသွားပြီ။ — မယုံနိုင်ဘူး။ ဂုဏ်ယူပါတယ်။"],
+            ["Oh my gosh!", "အမလေး။", "Shock or excitement. You'll also hear Oh my God! and OMG in messages, but some people don't like God used this way. Oh my gosh! is safe everywhere.",
+              "Oh my gosh! Is that a snake?", "အမလေး။ အဲဒါ မြွေလား။"],
+            ["You're kidding!", "နောက်နေတာလား။", "Kidding means joking. It means: That's so surprising, is it true? Also: Are you serious?",
+              "— The bus is free today. — You're kidding!", "— ဒီနေ့ ဘတ်စ်ကား အလကားစီးရတယ်။ — နောက်နေတာလား။"],
+          ],
+        },
+        {
+          en: "Good news",
+          my: "သတင်းကောင်း ကြားတဲ့အခါ",
+          desc: "Happy reactions, from a calm great to a joyful yay.",
+          cards: [
+            ["Great!", "ကောင်းလိုက်တာ။", "The all-purpose happy answer. Stronger: That's wonderful! or Fantastic!",
+              "— I passed the test! — Great! Well done!", "— စာမေးပွဲ အောင်ပြီ။ — ကောင်းလိုက်တာ။ တော်လိုက်တာ။"],
+            ["Cool!", "မိုက်တယ်။", "Casual: I like it, that's interesting. Very common with young people.",
+              "— I got a new phone. — Cool! Can I see?", "— ဖုန်းအသစ် ဝယ်လိုက်တယ်။ — မိုက်တယ်။ ကြည့်ပါရစေ။"],
+            ["Awesome!", "အရမ်းမိုက်တယ်။", "Casual and very American: great, excellent. Americans say it for small things too: Awesome, thanks!",
+              "— Dinner's ready. — Awesome! I'm so hungry.", "— ညစာ အဆင်သင့်ပဲ။ — အရမ်းမိုက်တယ်။ ဗိုက်အရမ်းဆာနေတာ။"],
+            ["Lucky you!", "ကံကောင်းလိုက်တာ။", "When something good happens to someone else. Friendly, sometimes with a little jealousy, in a nice way.",
+              "— I'm going to the beach for a week. — Lucky you!", "— ကမ်းခြေကို တစ်ပတ် သွားမလို့။ — ကံကောင်းလိုက်တာ။"],
+            ["Yay!", "ဟေး၊ ပျော်လိုက်တာ။", "Pure happiness, like a child. Adults say it too, when they're very pleased.",
+              "Yay! No school tomorrow!", "ဟေး၊ မနက်ဖြန် ကျောင်းပိတ်တယ်။"],
+          ],
+        },
+        {
+          en: "Oops and ouch",
+          my: "မှားတဲ့အခါ၊ နာတဲ့အခါ",
+          desc: "Small accidents, mistakes, and pain.",
+          cards: [
+            ["Oops!", "အိုး၊ မှားသွားပြီ။", "A small accident or mistake: you drop something or press the wrong button. Also: Whoops!",
+              "Oops! I dropped my keys.", "အိုး။ သော့ ပြုတ်ကျသွားပြီ။"],
+            ["Uh-oh.", "ဒုက္ခပဲ။", "You can see trouble coming. Say it slowly, with your voice going down.",
+              "Uh-oh. I think I left my wallet at home.", "ဒုက္ခပဲ။ ပိုက်ဆံအိတ် အိမ်မှာ ကျန်ခဲ့ပြီ ထင်တယ်။"],
+            ["Ouch!", "အား၊ နာလိုက်တာ။", "Sudden pain. Shorter: Ow! Also for news that hurts: The ticket is $200? Ouch!",
+              "Ouch! I hit my head.", "အား၊ နာလိုက်တာ။ ခေါင်း ဆောင့်မိသွားတယ်။"],
+          ],
+        },
+        {
+          en: "Bad news and annoyance",
+          my: "သတင်းဆိုး၊ စိတ်ညစ်တဲ့အခါ",
+          desc: "When things go wrong, big or small.",
+          cards: [
+            ["Oh no!", "ဟာ၊ ဒုက္ခပါဘဲ။", "Something bad just happened, or you just remembered something. Very common.",
+              "Oh no! I forgot my homework!", "ဟာ၊ သွားပြီ။ အိမ်စာ မေ့ကျန်ခဲ့ပြီ။"],
+            ["What a shame!", "နှမြောစရာပဲ။", "Means: That's sad, that's disappointing. It is not about feeling ashamed (ရှက်တယ်). Also: What a pity!",
+              "— I can't come to your party. — Oh, what a shame!", "— မင်းပါတီကို မလာနိုင်ဘူး။ — ဟာ၊ နှမြောစရာပဲ။"],
+            ["Oh well.", "ထားလိုက်ပါတော့။", "Accepting something bad that you can't change. Calm, with a small shrug.",
+              "It's raining. Oh well, we can stay home and cook.", "မိုးရွာနေတယ်။ ထားလိုက်ပါတော့၊ အိမ်မှာပဲ ချက်ပြုတ်စားကြမယ်။"],
+            ["Ugh!", "ဟာကွာ။", "Annoyed or disgusted. Casual: with friends, or to yourself.",
+              "Ugh! The internet is down again.", "ဟာကွာ။ အင်တာနက် ထပ်ပြတ်ပြန်ပြီ။"],
+            ["Come on!", "ကဲပါကွာ။", "Two uses. Annoyed: Oh, come on! means That's not fair or Hurry up! Encouraging: Come on, you can do it!",
+              "Come on! We'll be late!", "ကဲပါကွာ။ နောက်ကျတော့မယ်။"],
+          ],
+        },
+        {
+          en: "Relief",
+          my: "စိတ်သက်သာရာ ရတဲ့အခါ",
+          desc: "When the danger or worry is over.",
+          cards: [
+            ["Phew!", "ဟူး။", "The sound of breathing out after a worry. Say it like a long breath.",
+              "Phew! I found my passport.", "ဟူး။ ပတ်စပို့ တွေ့ပြီ။"],
+            ["Thank goodness!", "တော်ပါသေးရဲ့။", "Something bad didn't happen. You'll also hear Thank God!",
+              "Thank goodness you're safe!", "မင်း ဘေးကင်းတာ တော်ပါသေးရဲ့။"],
+            ["What a relief!", "စိတ်အေးသွားပြီ။", "When a long worry ends: good test results, a safe arrival.",
+              "— The doctor says it's nothing serious. — What a relief!", "— ဆရာဝန်က ဘာမှ မဖြစ်ဘူးတဲ့။ — စိတ်အေးသွားပြီ။"],
+          ],
+        },
+        {
+          en: "Warnings",
+          my: "သတိပေးခြင်း",
+          desc: "Short and loud: when someone is in danger.",
+          cards: [
+            ["Look out!", "သတိ!", "Danger right now: a car, something falling. Also: Watch out!",
+              "Look out! There's a car coming!", "သတိ! ကား လာနေတယ်။"],
+            ["Careful!", "သတိထားနော်။", "Less urgent: take care, go slowly. Also: Be careful!",
+              "Careful! The floor is wet.", "သတိထားနော်။ ကြမ်းပြင် စိုနေတယ်။"],
+            ["Help!", "ကယ်ကြပါဦး။", "Shout it when you are in real danger. To ask for everyday help, say Can you help me, please?",
+              "Help! Someone fell in the river!", "ကယ်ကြပါဦး။ မြစ်ထဲ လူကျသွားတယ်။"],
+            ["Stop!", "ရပ်!", "To stop someone right now: danger, or something that must not happen.",
+              "Stop! Don't touch that, it's hot!", "ရပ်! မကိုင်နဲ့၊ ပူတယ်။"],
+          ],
+        },
+        {
+          en: "For other people",
+          my: "တခြားသူတွေအတွက်",
+          desc: "Quick words for other people's big moments and small ones.",
+          cards: [
+            ["Congratulations!", "ဂုဏ်ယူပါတယ်။", "For good news: a new job, a wedding, a baby, passing an exam. Casual: Congrats!",
+              "— We're getting married! — Congratulations!", "— ကျွန်တော်တို့ လက်ထပ်တော့မယ်။ — ဂုဏ်ယူပါတယ်။"],
+            ["Well done!", "တော်လိုက်တာ။", "Praise for something someone did well. Americans often say Good job!, especially to children and students.",
+              "You finished the race? Well done!", "ပြိုင်ပွဲ ပြီးအောင် ပြေးနိုင်ခဲ့တယ်ဆို။ တော်လိုက်တာ။"],
+            ["Way to go!", "တော်တယ်ဟေ့။", "Casual and cheering, especially in American English: for friends, teammates and children who just did something good. Careful with your voice: said flat, it is sarcastic and means You made a mess of that.",
+              "You passed your driving test? Way to go!", "ကားမောင်းစာမေးပွဲ အောင်တယ်ဟုတ်လား။ တော်တယ်ဟေ့။"],
+            ["Good luck!", "ကံကောင်းပါစေ။", "Before an exam, an interview, a game. Answer: Thanks! Also: Best of luck!",
+              "Good luck with your interview tomorrow!", "မနက်ဖြန် အင်တာဗျူးမှာ ကံကောင်းပါစေ။"],
+            ["Bless you!", "(နှာချေသူကို ပြောတဲ့ စကား)", "Say it when someone sneezes. English speakers expect it, and the answer is Thank you.",
+              "— Achoo! — Bless you! — Thank you.", "— ဟတ်ချိုး။ — (Bless you!) — ကျေးဇူးပါ။"],
+            ["Cheers!", "ချီးယားစ်။", "When you lift your glasses together before drinking. In British English it also means thanks or bye.",
+              "To our new home. Cheers!", "အိမ်သစ်အတွက်။ ချီးယားစ်။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Polite Refusal</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">POLITE REFUSAL</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Polite Refusal
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ယဉ်ယဉ်ကျေးကျေး ငြင်းဆိုခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">26</span> expressions · Polite Refusal
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 26.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/polite_refusal/";
+      const AUD_EXT = "mp3?v=2611100543";
+
+const categories = [
+        {
+          en: "Softening a no",
+          my: "ငြင်းစကားကို ပျော့ပျောင်းအောင် ပြောခြင်း",
+          desc: "Small words that make a no sound kind.",
+          cards: [
+            ["I'm afraid not.", "စိတ်မကောင်းပေမယ့် မရဘူး။", "A polite start before bad news or a no. It has nothing to do with fear.",
+              "I'm afraid I can't come on Friday.", "စိတ်မကောင်းပေမယ့် သောကြာနေ့ မလာနိုင်ဘူး။"],
+            ["Unfortunately, it's sold out.", "စိတ်မကောင်းပါဘူး၊ ရောင်းကုန်သွားပြီ။", "A little formal: work, emails, shops. Shows you're sorry about the situation.",
+              "Unfortunately, we're closed on Sundays.", "ကံမကောင်းတာက တနင်္ဂနွေနေ့တွေ ဆိုင်ပိတ်ပါတယ်။"],
+            ["I wish I could, but I'm working.", "လုပ်ပေးချင်ပါတယ်၊ ဒါပေမဲ့ အလုပ်ဆင်းရမယ်။", "Shows you really want to say yes, but can't. Warm and friendly.",
+              "I wish I could help, but I don't have a car.", "ကူညီနိုင်ရင် ကောင်းမှာပဲ၊ ဒါပေမဲ့ ကားမရှိဘူး။"],
+            ["Sorry, but I can't.", "အားနာပါတယ်၊ ဒါပေမဲ့ မလုပ်နိုင်ဘူး။", "The simplest soft no. Sorry first makes the no easier to hear.",
+              "Sorry, but I need the car today.", "အားနာပါတယ်၊ ဒါပေမဲ့ ဒီနေ့ ကားလိုတယ်။"],
+          ],
+        },
+        {
+          en: "Saying no to invitations",
+          my: "ဖိတ်ခေါ်တာကို ငြင်းခြင်း",
+          desc: "Parties, meals, trips: saying no without hurting feelings.",
+          cards: [
+            ["I'd love to, but I can't.", "လုပ်ချင်ပါတယ်၊ ဒါပေမဲ့ မလုပ်နိုင်ဘူး။", "The classic friendly no to an invitation. Add a short reason if you like.",
+              "I'd love to, but I can't. I'm working that night.", "လာချင်ပါတယ်၊ ဒါပေမဲ့ မလာနိုင်ဘူး။ အဲဒီည အလုပ်ဆင်းရမယ်။"],
+            ["I already have plans.", "တခြားလုပ်စရာတွေ ရှိနေတယ်။", "A polite reason that needs no details. You don't have to say what the plans are.",
+              "Thanks for asking, but I already have plans on Saturday.", "မေးပေးလို့ ကျေးဇူးပါ၊ ဒါပေမဲ့ စနေနေ့ အစီအစဉ် ရှိပြီးသားပါ။"],
+            ["Maybe another time?", "နောက်တစ်ခါပေါ့။", "No to this time, but yes to the friendship. Only say it if you mean it: people will ask again. Can't make it = can't come.",
+              "I can't make it tonight. Maybe another time?", "ဒီည မလာနိုင်ဘူး။ နောက်တစ်ခါ ဖြစ်မလား။"],
+            ["Can I take a rain check?", "ဒီတစ်ခါတော့ မဖြစ်သေးဘူး။ နောက်တစ်ခါမှ ရမလား။", "American: No for now, but please ask me again. It comes from baseball, where rain stops a game and you get a ticket for another day.",
+              "Dinner sounds great, but can I take a rain check? I'm so tired tonight.", "ညစာက ကောင်းတော့ကောင်းတယ်၊ နောက်မှ ပြန်ဖိတ်ပါ။ ဒီည အရမ်းပင်ပန်းနေလို့။"],
+            ["I'll have to pass this time.", "ဒီတစ်ခါတော့ မပါနိုင်တော့ဘူး။", "Pass = say no to this one. Friendly and casual.",
+              "— We're going to the beach. Want to come? — I'll have to pass this time.", "— ကမ်းခြေ သွားကြမလို့။ လိုက်မလား။ — ဒီတစ်ခါတော့ မလိုက်တော့ဘူး။"],
+          ],
+        },
+        {
+          en: "Saying no to requests",
+          my: "တောင်းဆိုတာကို ငြင်းခြင်း",
+          desc: "When someone asks you to do something you can't or won't do.",
+          cards: [
+            ["Sorry, I can't help with that.", "ဆောရီး၊ အဲဒါကိုတော့ မကူညီနိုင်ပါဘူး။", "Clear and polite. In English, a kind no is better than a yes you can't keep.",
+              "Sorry, I can't help with that. I don't know much about computers.", "ဆောရီး၊ အဲဒါ ကူညီလို့ မရဘူး။ ကွန်ပျူတာ အကြောင်း သိပ်မသိဘူး။"],
+            ["I'm afraid that's not possible.", "စိတ်မကောင်းပေမယ့် အဲဒါတော့ မဖြစ်နိုင်ပါဘူး။", "Formal and firm: offices, shops, rules. You'll hear it from staff.",
+              "I'm afraid that's not possible. The office closes at five.", "စိတ်မကောင်းပေမယ့် အဲဒါ မဖြစ်နိုင်ပါဘူး။ ရုံးက ငါးနာရီ ပိတ်ပါတယ်။"],
+            ["I don't think I can.", "လုပ်နိုင်မယ် မထင်ဘူး။", "A soft no. In English, it almost always means no.",
+              "— Can you finish it by tonight? — I don't think I can, sorry.", "— ဒီည မတိုင်ခင် ပြီးအောင် လုပ်နိုင်မလား။ — ရမယ် မထင်ဘူး၊ ဆောရီး။"],
+            ["I'm a bit busy right now.", "အခု နည်းနည်း အလုပ်များနေတယ်။", "No for now, maybe later. Often followed by Can it wait?",
+              "I'm a bit busy right now. Can I help you after lunch?", "အခု နည်းနည်း အလုပ်များနေတယ်။ နေ့လယ်စာ စားပြီးမှ ကူညီပေးရင် ရမလား။"],
+            ["I'd rather not.", "မလုပ်ချင်ပါဘူး။", "Polite but firm. You don't need to give a reason.",
+              "— Can you sing for us? — I'd rather not, thanks.", "— သီချင်း တစ်ပုဒ် ဆိုပြပါလား။ — မဆိုချင်ပါဘူး၊ ကျေးဇူးပါ။"],
+          ],
+        },
+        {
+          en: "Offering something else",
+          my: "အစားထိုး အကြံပြုခြင်း",
+          desc: "Turning a no into a smaller yes.",
+          cards: [
+            ["I can't today, but I can tomorrow.", "ဒီနေ့တော့ မရဘူး၊ ဒါပေမဲ့ မနက်ဖြန် ရတယ်။", "The kindest no: say what you can do.",
+              "I can't lend you my car, but I can drive you there.", "ကား ငှားလို့ မရဘူး၊ ဒါပေမဲ့ လိုက်ပို့ပေးလို့ရတယ်။"],
+            ["How about lunch instead?", "အဲဒီအစား နေ့လယ်စာ စားကြရင်ရော။", "Suggests a different time, place or idea.",
+              "Not Friday. How about Saturday instead?", "သောကြာနေ့ မရဘူး။ အဲဒီအစား စနေနေ့ဆို ဘယ်လိုလဲ။"],
+            ["Could we do it another day?", "တခြားနေ့ လုပ်လို့ ရမလား။", "Says no to the day, not to the person. Good at work and with friends.",
+              "I'm busy tomorrow. Could we do it another day?", "မနက်ဖြန် အလုပ်များတယ်။ တခြားနေ့ လုပ်လို့ ရမလား။"],
+            ["Maybe someone else can help you.", "တခြားတစ်ယောက်ယောက် ကူညီပေးနိုင်မယ် ထင်တယ်။", "Sends the person to someone who can help better.",
+              "I don't know, but maybe the front desk can help you.", "ကျွန်တော် မသိဘူး၊ ဒါပေမဲ့ ရှေ့ကောင်တာက ကူညီပေးနိုင်မယ် ထင်တယ်။"],
+          ],
+        },
+        {
+          en: "Saying no at work",
+          my: "အလုပ်မှာ ငြင်းခြင်း",
+          desc: "Honest answers for bosses, coworkers and customers. A clear no now is better than a broken yes later.",
+          cards: [
+            ["I can't take on any more right now.", "အခုအချိန်မှာတော့ နောက်ထပ် အပိုအလုပ် ထပ်မယူနိုင်တော့ဘူး။", "Take on = accept more work. Professional and honest. Better than saying yes and not finishing.",
+              "Sorry, I can't take on any more right now. I'm still working on the report.", "ဆောရီး၊ အခု နောက်ထပ် အလုပ် မယူနိုင်တော့ဘူး။ အစီရင်ခံစာ လုပ်နေတုန်းပါ။"],
+            ["I'll need to check with my manager.", "မန်နေဂျာကို အရင် မေးကြည့်ရမယ်။", "When it isn't your decision. Honest and safe, especially with customers.",
+              "I'll need to check with my manager first. Can I call you back?", "မန်နေဂျာကို အရင် မေးကြည့်ရမယ်။ ပြန်ဖုန်းဆက်လို့ ရမလား။"],
+            ["I'll try.", "ကြိုးစားကြည့်မယ်။", "Careful: in English, I'll try means you really will try. If you mean no, say no kindly: I don't think I can.",
+              "— Can you come in early tomorrow? — I'll try, but I can't promise.", "— မနက်ဖြန် စောစော လာနိုင်မလား။ — ကြိုးစားကြည့်မယ်၊ ဒါပေမဲ့ ကတိ မပေးနိုင်ဘူး။"],
+            ["Let me think about it.", "စဉ်းစားကြည့်ပါရစေ။", "In English, this is a real maybe: people will wait for your answer. If you already know it's no, say so kindly.",
+              "— Do you want to join the team? — Let me think about it. I'll tell you on Monday.", "— အဖွဲ့ထဲ ဝင်မလား။ — စဉ်းစားကြည့်ပါရစေ။ တနင်္လာနေ့ ပြောပြမယ်။"],
+          ],
+        },
+        {
+          en: "A firm no",
+          my: "ပြတ်ပြတ်သားသား ငြင်းခြင်း",
+          desc: "For salespeople, pressure, and anything you're not OK with. Polite words, clear meaning.",
+          cards: [
+            ["No, thank you. I'm not interested.", "မလိုဘူး၊ ကျေးဇူးပါ၊ စိတ်မဝင်စားပါဘူး။", "For sellers on the phone or at the door. You can say it and end the call. That is not rude.",
+              "No, thank you. I'm not interested. Goodbye.", "မလိုပါဘူး၊ စိတ်မဝင်စားပါဘူး။ နှုတ်ဆက်ပါတယ်။"],
+            ["I'm not comfortable with that.", "အဲဒါကိုတော့ စိတ်စနိုးစနောက် ဖြစ်တယ်။", "A calm, strong no when something feels wrong. You can say it at work too: you have the right to say no.",
+              "Sorry, I'm not comfortable with that. I won't sign it.", "ဆောရီး၊ အဲဒါကို စိတ်မသက်မသာ ဖြစ်တယ်။ လက်မှတ် မထိုးဘူး။"],
+            ["I've already said no.", "မရဘူးလို့ ပြောပြီးပြီလေ။", "When someone keeps asking. Say it calmly. Repeating the same words is OK.",
+              "I've already said no. Please don't ask again.", "မရဘူးလို့ ပြောပြီးပြီ။ ထပ်မမေးပါနဲ့။"],
+            ["Please stop.", "ရပ်ပါ။", "Clear and serious. When someone won't listen, or does something you don't want.",
+              "Please stop. I don't like that.", "ရပ်ပါ။ အဲဒါ မကြိုက်ဘူး။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

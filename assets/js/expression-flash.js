@@ -27,6 +27,14 @@
   const frSpace = (s) =>
     s.replace(/ ([!?;:»])/g, "\u202F$1").replace(/« /g, "«\u202F");
 
+  // Either line of a card may mark its swappable part with
+  // <span class=gray>…</span>; everything else in it stays escaped.
+  const phrase = (s) =>
+    esc(s).replace(
+      /&lt;span class=gray&gt;(.*?)&lt;\/span&gt;/g,
+      '<span class="gray">$1</span>',
+    );
+
   const SPEAKER = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>`;
   const CLIPBOARD = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>`;
 
@@ -42,8 +50,8 @@
     <div class="card p-5 flex items-center gap-4 shadow-md">
       <button class="sound-btn" data-audio="${esc(`${AUD_DIR}${pad(++audioNum)}.${AUD_EXT}`)}" title="Play audio">${SPEAKER}</button>
       <div class="flex-1 min-w-0">
-        <p class="phrase text-lg mb-1" lang="fr">${esc(frSpace(fr))}</p>
-        <p class="english">${esc(en)}</p>
+        <p class="phrase text-lg mb-1" lang="fr">${phrase(frSpace(fr))}</p>
+        <p class="english">${phrase(en)}</p>
       </div>
       <div class="note-wrapper note-multiline" data-note="${esc(frSpace(popup))}">
         <button class="note-btn" title="Notes" aria-label="Notes">${CLIPBOARD}</button>

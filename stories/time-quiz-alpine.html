@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, interactive-widget=resizes-content"
+    />
+    <title>What Time Is It? Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz-time.css" />
+  </head>
+  <body>
+    <div class="stage" x-data="timeQuiz" :class="{ 'show-results': mode === 'results' }">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>What Time Is It?</span>
+          <span class="tag" id="modeTag" x-text="practice ? 'Practice' : 'Quiz'">Quiz</span>
+        </div>
+        <div class="counter" id="counter" x-text="counterText"></div>
+      </header>
+
+      <div class="progress" id="progress" aria-hidden="true" :hidden="mode === 'results'">
+        <template x-for="(id, i) in round" :key="i">
+          <i :class="segClass(i)"></i>
+        </template>
+      </div>
+
+      <main class="quiz-body" id="quiz" :hidden="mode === 'results'">
+        <div class="art"><img id="pic" alt="A clock" :src="curPic && imgUrl(curPic)" /></div>
+        <form class="answer" id="answerForm" autocomplete="off" @submit.prevent="check()">
+          <div class="answers" id="answers">
+            <template x-for="box in boxes" :key="box.k">
+              <div style="display: contents">
+                <div class="answer-row">
+                  <button
+                    type="button"
+                    class="say"
+                    :class="{ playing: playingKey === 'say-' + box.k }"
+                    :aria-label="`Listen: answer ${box.k + 1}`"
+                    @mousedown.prevent
+                    @click="sayAnswer(box)"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+                      <path d="M16 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                  <input
+                    type="text"
+                    :id="`answer${box.k + 1}`"
+                    :aria-label="`Answer ${box.k + 1}`"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    :enterkeyhint="box.k === boxes.length - 1 ? 'go' : 'next'"
+                    :placeholder="box.k === 0 ? 'Type it here' : 'Say it another way'"
+                    x-model="box.value"
+                    :readonly="box.done"
+                    :class="{ right: box.done && box.ok, wrong: box.done && !box.ok }"
+                    @keydown.enter.prevent="enterIn(box)"
+                  />
+                </div>
+                <p class="feedback" :class="box.fbKind" aria-live="polite" x-html="box.fbHtml"></p>
+              </div>
+            </template>
+          </div>
+        </form>
+      </main>
+
+      <section class="results" id="results" aria-live="polite" x-ref="results" :hidden="mode !== 'results'">
+        <!-- score card -->
+        <template x-if="summary">
+          <div class="score-card">
+            <div class="grade-label" x-text="summary.grade"></div>
+            <div class="score-big" x-text="`${summary.right} / ${summary.n}`"></div>
+            <p class="score-sub"><b x-text="summary.pct + '%'"></b> correct</p>
+            <div class="tally">
+              <span class="t correct" x-text="summary.right + ' correct'"></span>
+              <span class="t wrong" x-text="summary.wrong.length + ' wrong'"></span>
+            </div>
+          </div>
+        </template>
+
+        <!-- feedback by mistake type -->
+        <template x-if="summary">
+          <section class="panel tips">
+            <h2>Feedback</h2>
+            <p
+              class="tip-lead"
+              x-text="!summary.tips.length
+                ? 'You told every time without a mistake. Try again in a few days to keep it fresh.'
+                : summary.pct >= 75 ? 'Nice work! A few things to practice:' : 'Here is what to practice:'"
+            ></p>
+            <template x-if="summary.tips.length">
+              <ul>
+                <template x-for="t in summary.tips" :key="t.type">
+                  <li><span class="tip-text" x-html="t.text"></span><span class="tip-ex" x-text="t.ex"></span></li>
+                </template>
+              </ul>
+            </template>
+          </section>
+        </template>
+
+        <!-- wrong answers next to the correct ones -->
+        <template x-if="summary && summary.wrong.length">
+          <section class="panel">
+            <h2>Wrong answers <span class="count" x-text="summary.wrong.length"></span></h2>
+            <ul class="review">
+              <template x-for="w in summary.wrong" :key="w.id + '-' + w.j">
+                <li>
+                  <img :src="imgUrl(PICS[w.id])" alt="" />
+                  <div class="pair">
+                    <div class="row yours">
+                      <span class="lbl">You wrote</span>
+                      <span class="val">
+                        <template x-for="(t, i) in w.typed" :key="i"><s x-text="t"></s></template>
+                        <template x-if="!w.typed.length"><em>(nothing)</em></template>
+                      </span>
+                    </div>
+                    <div class="row correct">
+                      <span class="lbl">Correct</span>
+                      <span class="val">
+                        <span
+                          class="chunk"
+                          role="button"
+                          tabindex="0"
+                          :class="{ playing: playingKey === chipKey(w.id, w.j) }"
+                          :aria-label="'Play: ' + answerText(w.id, w.j)"
+                          x-text="answerText(w.id, w.j)"
+                          @click="playChip(w.id, w.j)"
+                          @keydown.enter.prevent="playChip(w.id, w.j)"
+                          @keydown.space.prevent="playChip(w.id, w.j)"
+                        ></span>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </template>
+            </ul>
+          </section>
+        </template>
+
+        <!-- right answers, one tile per clock -->
+        <template x-if="summary && summary.rightPics.length">
+          <section class="panel">
+            <h2>Right answers <span class="count ok" x-text="summary.right"></span></h2>
+            <div class="right-grid time-grid">
+              <template x-for="t in summary.rightPics" :key="t.id">
+                <div class="tile correct">
+                  <div class="thumb">
+                    <img :src="imgUrl(PICS[t.id])" alt="" />
+                    <template x-if="t.full"><i class="badge">✓</i></template>
+                  </div>
+                  <template x-for="j in t.js" :key="j">
+                    <span
+                      class="chunk"
+                      role="button"
+                      tabindex="0"
+                      :class="{ playing: playingKey === chipKey(t.id, j) }"
+                      :aria-label="'Play: ' + answerText(t.id, j)"
+                      x-text="answerText(t.id, j)"
+                      @click="playChip(t.id, j)"
+                      @keydown.enter.prevent="playChip(t.id, j)"
+                      @keydown.space.prevent="playChip(t.id, j)"
+                    ></span>
+                  </template>
+                </div>
+              </template>
+            </div>
+          </section>
+        </template>
+      </section>
+
+      <footer>
+        <button class="nav" id="again" aria-label="Start again with all clocks" @click="again()">&#8635;</button>
+        <button
+          class="nav"
+          id="listen"
+          aria-label="Listen to the question"
+          :class="{ playing: playingKey === 'ask' }"
+          @mousedown.prevent
+          @click="listen()"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+            <path
+              d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button class="play-page" id="check" @mousedown.prevent @click="onCheckBtn()">
+          <span id="checkLabel" x-text="checkLabel">Check</span>
+        </button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Clock -> type the time two ways. Pictures 9 … 18 of time.html:
+           images : /img/ytstory/time/9.jpg … 18.jpg
+           audio  : 01.mp3 … 20.mp3 = the answers, 21.mp3 = "What time is it?"
+                    (played when each clock opens)
+         Each page lists its two answers; each gets an input box with a
+         🔊 button that says it.
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/time/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/time-quiz/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=2611021600";
+
+      const pages = [
+        { img: 9, sentences: [[["It's one twenty-seven.", 1]], [["It's twenty-seven past one.", 2]]] },
+        { img: 10, sentences: [[["It's four thirty.", 3]], [["It's half past four.", 4]]] },
+        { img: 11, sentences: [[["It's three thirty-three.", 5]], [["It's twenty-seven to four.", 6]]] },
+        { img: 12, sentences: [[["It's two forty-five.", 7]], [["It's a quarter to three.", 8]]] },
+        { img: 13, sentences: [[["It's seven oh two.", 9]], [["It's two past seven.", 10]]] },
+        { img: 14, sentences: [[["It's six eighteen.", 11]], [["It's eighteen past six.", 12]]] },
+        { img: 15, sentences: [[["It's eight thirteen.", 13]], [["It's thirteen past eight.", 14]]] },
+        { img: 16, sentences: [[["It's ten oh six.", 15]], [["It's six past ten.", 16]]] },
+        { img: 17, sentences: [[["It's ten fifteen.", 17]], [["It's a quarter past ten.", 18]]] },
+        { img: 18, sentences: [[["It's twelve oh seven.", 19]], [["It's seven past twelve.", 20]]] },
+      ];
+
+      /* the question, played when each clock opens and by the footer 🔊 */
+      const ASK = ["What time is it?", 21];
+
+      /* Other forms marked correct ("It is", hyphens, case and full stops
+         are already ignored). */
+      const ALSO = {
+        "It's twenty-seven past one.": ["It's twenty-seven minutes past one."],
+        "It's half past four.": ["It's half four."],
+        "It's twenty-seven to four.": ["It's twenty-seven minutes to four."],
+        "It's a quarter to three.": ["It's quarter to three."],
+        "It's seven oh two.": ["It's seven o two."],
+        "It's two past seven.": ["It's two minutes past seven."],
+        "It's eighteen past six.": ["It's eighteen minutes past six."],
+        "It's thirteen past eight.": ["It's thirteen minutes past eight."],
+        "It's ten oh six.": ["It's ten o six."],
+        "It's six past ten.": ["It's six minutes past ten."],
+        "It's a quarter past ten.": ["It's quarter past ten."],
+        "It's twelve oh seven.": ["It's twelve o seven."],
+        "It's seven past twelve.": ["It's seven minutes past twelve."],
+      };
+    </script>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Clock -> type-the-time quiz engine, Alpine version.
+         Same rules, data shape and grading as ytquiz-time.js; the page
+         markup above is the view, this is only state + logic.
+         (nav-ytstory.js is no longer loaded: the quiz never used it.)
+      --------------------------------------------------------------- */
+      document.addEventListener("alpine:init", () => {
+        const SECOND_TRY = ["noIts", "apostrophe", "digits", "same"];
+        const GRADES = [
+          [100, "Perfect!"],
+          [90, "Excellent!"],
+          [75, "Very good!"],
+          [60, "Good work!"],
+          [40, "Keep going!"],
+          [0, "Keep practicing!"],
+        ];
+        const TIPS = [
+          ["noIts", "Start with <b>It's</b>: <b>It's</b> one twenty-seven."],
+          ["apostrophe", "Write <b>It's</b> with an apostrophe (It is = It's)."],
+          ["digits", "Write the numbers in words."],
+          ["same", "Say each time two ways: <b>one twenty-seven</b> and <b>twenty-seven past one</b>."],
+          ["quarterHalf", "15 minutes is <b>a quarter</b>, 30 minutes is <b>half</b>: a quarter past ten, half past four."],
+          ["pastTo", "Up to half past, use <b>past</b>. After half past, use <b>to</b> and the next hour."],
+          ["nearWord", "Read the notes on these times."],
+          ["spelling", "Check the spelling."],
+          ["other", "Practice these times. Tap them to listen."],
+        ];
+        const PRAISE = ["Great!", "Yes!", "Well done!", "Correct!", "Super!"];
+
+        /* Offline single-file builds define EMBED = { "<url>": dataURI }. */
+        const media = (url) => (typeof EMBED !== "undefined" && EMBED[url]) || url;
+        const pad = (n) => String(n).padStart(2, "0");
+        const esc = (s) =>
+          String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+        const imgUrl = (pic) => media(`${IMG_DIR}${pic.img}.${IMG_EXT}`);
+        const audUrl = (num) => media(`${AUD_DIR}${pad(num)}.${AUD_EXT}`);
+        const byBook = (ids) => ids.slice().sort((a, b) => a - b);
+
+        const PICS = pages.map((p, i) => ({
+          id: i,
+          img: p.img,
+          answers: p.sentences.flat().map(([text, num]) => ({ text, audio: num })),
+        }));
+        const also = typeof ALSO !== "undefined" ? ALSO : {};
+        const hints = typeof HINTS !== "undefined" ? HINTS : {};
+
+        /* ---- answer checking (unchanged from ytquiz-time.js) ---- */
+        const norm = (s) =>
+          s
+            .normalize("NFKC")
+            .toLowerCase()
+            .replace(/[‘’`]/g, "'")
+            .replace(/[-‐-―_]/g, " ")
+            .replace(/[.,!?;"]/g, " ")
+            .replace(/\bit\s+is\b/g, "it's")
+            .replace(/\s+/g, " ")
+            .trim();
+        const squash = (s) => s.replace(/\s+/g, "");
+        const bare = (s) => squash(s.replace(/^it'?s\b\s*/, ""));
+        const words = (s) => s.split(" ").filter(Boolean);
+
+        function lev(a, b) {
+          const row = Array.from({ length: b.length + 1 }, (_, j) => j);
+          for (let i = 1; i <= a.length; i++) {
+            let prev = row[0];
+            row[0] = i;
+            for (let j = 1; j <= b.length; j++) {
+              const tmp = row[j];
+              row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1));
+              prev = tmp;
+            }
+          }
+          return row[b.length];
+        }
+
+        function slip(typed, form) {
+          const a = words(typed);
+          const b = words(form);
+          if (a.length !== b.length) return lev(squash(typed), squash(form)) <= 1;
+          let total = 0;
+          for (let i = 0; i < a.length; i++) {
+            const d = lev(a[i], b[i]);
+            if (d > 1 || (d && b[i].length < 4)) return false;
+            total += d;
+          }
+          return total <= 2;
+        }
+
+        function judge(raw, text) {
+          const typed = norm(raw);
+          const forms = [text, ...(also[text] || [])].map(norm);
+          if (forms.some((f) => squash(f) === squash(typed))) return { ok: true, exact: typed === forms[0] };
+          const miss = (type, note, retry) => ({ ok: false, type, note, retry });
+
+          if (/\d/.test(typed)) {
+            return miss("digits", "Write the numbers in words.", "Almost! Write the numbers in <b>words</b>.");
+          }
+          if (forms.some((f) => bare(f) === squash(typed))) {
+            return miss("noIts", "Start with <b>It's</b>.", "Almost! Start with <b>It's</b>.");
+          }
+          const noApos = (s) => squash(s).replace(/'/g, "");
+          if (forms.some((f) => noApos(f) === noApos(typed))) {
+            return miss("apostrophe", "Write <b>It's</b> with an apostrophe.", "Almost! Write <b>It's</b> with an apostrophe.");
+          }
+          for (const [near, note] of Object.entries(hints[text] || {})) {
+            if (bare(norm(near)) === bare(typed)) return miss("nearWord", esc(note));
+          }
+          const main = forms[0];
+          if (/\bquarter\b/.test(main) && /\bfifteen (past|to)\b/.test(typed)) {
+            return miss("quarterHalf", "15 minutes: say <b>a quarter</b>.");
+          }
+          if (/\bhalf\b/.test(main) && /\bthirty past\b/.test(typed)) {
+            return miss("quarterHalf", "30 minutes: say <b>half past</b>.");
+          }
+          if (/\bto\b/.test(main) && /\bpast\b/.test(typed)) {
+            return miss("pastTo", "After half past, say the minutes <b>to</b> the next hour.");
+          }
+          if (/\bpast\b/.test(main) && /\bto\b/.test(typed)) {
+            return miss("pastTo", "Up to half past, say the minutes <b>past</b> the hour.");
+          }
+          if (forms.some((f) => slip(typed, f))) return miss("spelling", "Check the spelling.");
+          return miss("other", "");
+        }
+
+        const picStatus = (r) => {
+          const right = r.filter((a) => a.ok).length;
+          return right === r.length ? "correct" : right ? "half" : "wrong";
+        };
+
+        /* the audio element stays outside Alpine's reactive state */
+        const player = new Audio();
+
+        Alpine.data("timeQuiz", () => {
+          let queue = [];
+          let playId = 0;
+          let asked = false;
+
+          return {
+            PICS,
+            imgUrl,
+            mode: "quiz", // "quiz" | "results"
+            practice: false,
+            round: [], // picture ids in play order
+            pos: 0,
+            results: {}, // id -> [{ ok, wrong: [typed...], types: [...] }] per answer
+            boxes: [], // one per answer: { k, value, done, ok, retried, slot, wrong, types, fbKind, fbHtml }
+            picDone: false,
+            playingKey: null, // "ask" | "say-<k>" | "chip-<id>-<j>"
+            redo: [],
+            summary: null,
+
+            /* ---- derived view state ---- */
+            get curPic() {
+              return this.round.length ? PICS[this.round[this.pos]] : null;
+            },
+            get counterText() {
+              if (this.mode === "results") return this.practice ? "Practice done" : "Results";
+              return this.round.length ? `${this.pos + 1} / ${this.round.length}` : "";
+            },
+            get checkLabel() {
+              if (this.mode === "results") return this.redo.length ? `Practice these (${this.redo.length})` : "Play again";
+              if (this.picDone) return this.pos === this.round.length - 1 ? "See results" : "Next";
+              return "Check";
+            },
+            segClass(i) {
+              const r = this.results[this.round[i]];
+              return r ? picStatus(r) : i === this.pos ? "now" : "";
+            },
+            answerText(id, j) {
+              return PICS[id].answers[j].text;
+            },
+            chipKey(id, j) {
+              return `chip-${id}-${j}`;
+            },
+
+            init() {
+              const stage = this.$el;
+              /* Browsers block sound before the first tap: ask again on the first one. */
+              const unlock = (e) => {
+                if (asked || this.mode !== "quiz" || this.picDone) return;
+                if (e.target.closest && e.target.closest("button")) return;
+                this.askNow();
+              };
+              document.addEventListener("pointerdown", unlock, true);
+              document.addEventListener("keydown", unlock, true);
+
+              /* fit the stage above the on-screen keyboard */
+              const vv = window.visualViewport;
+              const fit = () => {
+                stage.style.height = (vv ? vv.height : window.innerHeight) + "px";
+                window.scrollTo(0, 0);
+              };
+              if (vv) vv.addEventListener("resize", fit);
+              window.addEventListener("resize", fit);
+              fit();
+
+              this.startRound(PICS.map((p) => p.id), false);
+            },
+
+            /* ---- audio (one reusable element; a queue for the answers) ---- */
+            play(list) {
+              player.pause();
+              queue = list.slice();
+              return this.step();
+            },
+            step() {
+              this.playingKey = null;
+              const next = queue.shift();
+              if (!next) return null;
+              const [num, key] = next;
+              const id = ++playId;
+              player.src = audUrl(num);
+              this.playingKey = key;
+              player.onended = () => this.step();
+              const p = player.play();
+              if (p && p.catch) {
+                p.catch(() => {
+                  if (id !== playId) return;
+                  queue = [];
+                  this.playingKey = null;
+                });
+              }
+              return p;
+            },
+            ask() {
+              return this.play([[ASK[1], "ask"]]);
+            },
+            askNow() {
+              const p = this.ask();
+              asked = true;
+              if (p && p.catch) p.catch(() => (asked = false));
+            },
+            playChip(id, j) {
+              this.play([[PICS[id].answers[j].audio, this.chipKey(id, j)]]);
+            },
+
+            /* ---- boxes ---- */
+            inputEl(box) {
+              return document.getElementById(`answer${box.k + 1}`);
+            },
+            focusBox(box) {
+              const el = box && this.inputEl(box);
+              if (!el) return;
+              try {
+                el.focus({ preventScroll: true });
+              } catch (e) {
+                el.focus();
+              }
+            },
+            openBoxes() {
+              return this.boxes.filter((b) => !b.done);
+            },
+            focusOpen() {
+              const open = this.openBoxes();
+              this.focusBox(open.find((b) => !b.value.trim()) || open[0]);
+            },
+            shake(box) {
+              const el = this.inputEl(box);
+              if (!el) return;
+              el.classList.remove("shake");
+              void el.offsetWidth; // restart the animation
+              el.classList.add("shake");
+            },
+            say(box, kind, html) {
+              box.fbKind = kind;
+              box.fbHtml = html || "";
+            },
+            /* The rows are kept from clock to clock (same number of answers),
+               so the focused box stays and the phone keyboard doesn't close. */
+            resetBoxes(p) {
+              const n = p.answers.length;
+              if (this.boxes.length !== n) this.boxes = Array.from({ length: n }, (_, k) => ({ k }));
+              this.boxes.forEach((b) => {
+                Object.assign(b, {
+                  value: "",
+                  done: false,
+                  ok: false,
+                  retried: false,
+                  slot: null,
+                  wrong: [],
+                  types: [],
+                  fbKind: "",
+                  fbHtml: "",
+                });
+                const el = this.inputEl(b);
+                if (el) el.classList.remove("shake");
+              });
+            },
+            sayAnswer(box) {
+              if (this.mode !== "quiz" || !this.curPic) return;
+              this.play([[this.curPic.answers[box.k].audio, "say-" + box.k]]);
+              if (!box.done) this.focusBox(box);
+            },
+            enterIn(box) {
+              const empty = this.openBoxes().find((b) => !b.value.trim());
+              if (empty && empty !== box && box.value.trim()) this.focusBox(empty);
+              else this.check();
+            },
+
+            /* ---- round flow ---- */
+            order(ids) {
+              const out = [...ids];
+              if (new URLSearchParams(location.search).get("order") === "book") return byBook(out);
+              for (let i = out.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [out[i], out[j]] = [out[j], out[i]];
+              }
+              return out;
+            },
+            startRound(ids, isPractice) {
+              this.practice = isPractice;
+              this.round = this.order(ids);
+              this.pos = 0;
+              this.results = {};
+              this.summary = null;
+              this.mode = "quiz";
+              this.showItem();
+            },
+            showItem() {
+              const p = this.curPic;
+              this.resetBoxes(p);
+              this.picDone = false;
+              const next = PICS[this.round[this.pos + 1]];
+              if (next) new Image().src = imgUrl(next);
+              this.$nextTick(() => this.focusBox(this.boxes[0]));
+              this.askNow();
+            },
+
+            /* Match the open boxes to the answers not yet taken: a box keeps its
+               own answer when it is right, else takes whichever free answer it matches. */
+            assign() {
+              const answers = this.curPic.answers;
+              const taken = new Set(this.boxes.filter((b) => b.done).map((b) => b.slot));
+              const open = this.openBoxes();
+              const out = new Map(); // box -> { slot, r }
+              const tryClaim = (box, j) => {
+                const r = judge(box.value, answers[j].text);
+                if (r.ok) {
+                  taken.add(j);
+                  out.set(box, { slot: j, r });
+                }
+                return r.ok;
+              };
+              for (const box of open) if (!taken.has(box.k)) tryClaim(box, box.k);
+              for (const box of open) {
+                if (out.has(box)) continue;
+                answers.some((_, j) => !taken.has(j) && tryClaim(box, j));
+              }
+              const free = answers.map((_, j) => j).filter((j) => !taken.has(j));
+              for (const box of open) {
+                if (out.has(box)) continue;
+                const dup = answers.some((a, j) => taken.has(j) && judge(box.value, a.text).ok);
+                const slot = !taken.has(box.k) ? box.k : free.find((j) => ![...out.values()].some((o) => o.slot === j));
+                const r = dup
+                  ? {
+                      ok: false,
+                      type: "same",
+                      note: "Write the time another way.",
+                      retry: "Almost! You wrote that one. Write it <b>another way</b>.",
+                    }
+                  : judge(box.value, answers[slot].text);
+                out.set(box, { slot, r });
+              }
+              return out;
+            },
+
+            check() {
+              if (this.picDone) return this.next();
+              const open = this.openBoxes();
+              const empty = open.find((b) => !b.value.trim());
+              if (empty) {
+                this.say(empty, "", open.length > 1 && empty === open[0] ? "Write the time two ways." : "Write the time here too.");
+                return this.focusBox(empty);
+              }
+              for (const [box, { slot, r }] of this.assign()) {
+                const answer = this.curPic.answers[slot];
+                if (r.ok) {
+                  Object.assign(box, { done: true, ok: true, slot });
+                  const el = this.inputEl(box);
+                  if (el) el.classList.remove("shake");
+                  let html = `<span class="mark">✓</span> ${box.retried ? "Yes! Good fix." : PRAISE[Math.floor(Math.random() * PRAISE.length)]}`;
+                  if (!r.exact) html += ` We write: <b>${esc(answer.text)}</b>`;
+                  this.say(box, "right", html);
+                  continue;
+                }
+                const typed = box.value.trim().replace(/\s+/g, " ");
+                if (!box.wrong.includes(typed)) box.wrong.push(typed);
+                if (!box.types.includes(r.type)) box.types.push(r.type);
+                if (!box.retried && r.retry && SECOND_TRY.includes(r.type)) {
+                  box.retried = true;
+                  this.say(box, "almost", r.retry);
+                  this.shake(box);
+                } else {
+                  Object.assign(box, { done: true, ok: false, slot });
+                  this.shake(box);
+                  this.say(
+                    box,
+                    "wrong",
+                    `<span class="mark">✗</span> <b>${esc(answer.text)}</b>` + (r.note ? `<span class="note">${r.note}</span>` : ""),
+                  );
+                }
+              }
+              if (this.openBoxes().length) return this.focusOpen();
+              this.finish();
+            },
+
+            finish() {
+              this.picDone = true;
+              const p = this.curPic;
+              const r = p.answers.map(() => ({ ok: false, wrong: [], types: [] }));
+              for (const b of this.boxes) r[b.slot] = { ok: b.ok, wrong: [...b.wrong], types: [...b.types] };
+              this.results[p.id] = r;
+              /* say the answers, each lighting up the 🔊 of the box that holds it */
+              const holder = (j) => "say-" + this.boxes.find((b) => b.slot === j).k;
+              this.play(p.answers.map((a, j) => [a.audio, holder(j)]));
+            },
+
+            next() {
+              this.pos++;
+              if (this.pos >= this.round.length) this.showResults();
+              else this.showItem();
+            },
+
+            /* ---- results: grade, feedback, wrong vs correct, right answers ---- */
+            showResults() {
+              document.activeElement && document.activeElement.blur && document.activeElement.blur();
+              player.pause();
+              queue = [];
+              this.playingKey = null;
+
+              const res = this.results;
+              const all = this.round.flatMap((id) => PICS[id].answers.map((_, j) => [id, j]));
+              const isOk = ([id, j]) => res[id][j].ok;
+              const right = all.filter(isOk);
+              const wrong = all.filter((a) => !isOk(a));
+              const pct = Math.round((100 * right.length) / all.length);
+              const bookOrder = (list) => list.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+
+              this.summary = {
+                grade: GRADES.find(([min]) => pct >= min)[1],
+                n: all.length,
+                right: right.length,
+                pct,
+                /* feedback by mistake type (a fixed slip still gets a reminder) */
+                tips: TIPS.map(([type, text]) => ({
+                  type,
+                  text,
+                  hit: all.filter(([id, j]) => res[id][j].types.includes(type)),
+                }))
+                  .filter((t) => t.hit.length)
+                  .map((t) => ({
+                    type: t.type,
+                    text: t.text,
+                    ex: bookOrder(t.hit)
+                      .map(([id, j]) => PICS[id].answers[j].text)
+                      .join(" · "),
+                  })),
+                wrong: bookOrder(wrong).map(([id, j]) => ({ id, j, typed: res[id][j].wrong })),
+                rightPics: byBook(this.round.filter((id) => res[id].some((a) => a.ok))).map((id) => ({
+                  id,
+                  full: res[id].every((a) => a.ok),
+                  js: res[id].map((a, j) => (a.ok ? j : -1)).filter((j) => j >= 0),
+                })),
+              };
+              this.redo = this.round.filter((id) => res[id].some((a) => !a.ok));
+              this.mode = "results";
+              this.$nextTick(() => (this.$refs.results.scrollTop = 0));
+            },
+
+            /* ---- footer ---- */
+            onCheckBtn() {
+              if (this.mode === "results") {
+                if (this.redo.length) this.startRound(this.redo, true);
+                else this.startRound(PICS.map((p) => p.id), false);
+              } else this.check();
+            },
+            again() {
+              this.startRound(PICS.map((p) => p.id), false);
+            },
+            listen() {
+              if (this.mode !== "quiz") return;
+              this.ask();
+              asked = true;
+              if (!this.picDone) this.focusOpen();
+            },
+          };
+        });
+      });
+    </script>
+    <!-- Offline build: inline this file's contents in place of the src. -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+  </body>
+</html>

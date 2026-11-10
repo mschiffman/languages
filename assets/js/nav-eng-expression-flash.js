@@ -7,6 +7,14 @@
 (function () {
   const CATEGORIES = [
     { label: "👋 Greetings & Goodbyes", href: "greet_goodbye.html" },
+    { label: "🙏 Thanking", href: "thank.html" },
+    { label: "🙇 Apology", href: "apology.html" },
+    { label: "😮 Exclamations", href: "exclamation.html" },
+    { label: "🤔 Not Understanding", href: "not_understanding.html" },
+    { label: "🙋 Asking", href: "ask.html" },
+    { label: "🤝 Offering & Accepting", href: "offer_accept.html" },
+    { label: "🙅 Polite Refusal", href: "polite_refusal.html" },
+    { label: "❤️ Likes & Dislikes", href: "likes_dislikes.html" },
   ];
 
   // ── Insert hamburger, overlay and sidebar ──

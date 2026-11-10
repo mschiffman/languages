@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Thanking</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">THANKING</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Thanking
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ကျေးဇူးတင်ခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">27</span> expressions · Thanking
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 27.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/thank/";
+      const AUD_EXT = "mp3?v=2611090800";
+
+const categories = [
+        {
+          en: "Saying thank you",
+          my: "ကျေးဇူးတင်ခြင်း",
+          desc: "The everyday thanks, from a quick thanks to a warm thank you so much.",
+          cards: [
+            ["Thank you.", "ကျေးဇူးတင်ပါတယ်။", "Safe everywhere: shops, teachers, strangers, family. English speakers say it many times a day, even for small things like passing the salt.",
+              "— Here's your coffee. — Thank you.", "— ကော်ဖီ ရပါပြီ။ — ကျေးဇူးတင်ပါတယ်။"],
+            ["Thanks!", "ကျေးဇူးပါ။", "Short and friendly. In Burmese we don't often thank close family, but in English people thank family and friends all the time. It sounds warm, not distant.",
+              "Thanks, Grandma! The soup is delicious.", "ကျေးဇူးပါ အဖွား။ ဟင်းချို အရမ်းစားကောင်းတယ်။"],
+            ["Thank you so much.", "အရမ်း ကျေးဇူးတင်ပါတယ်။", "Warmer and stronger. Thank you very much means the same, but is a little more formal.",
+              "Thank you so much for the lovely dinner.", "ညစာ ကောင်းကောင်း ကျွေးတဲ့အတွက် အရမ်း ကျေးဇူးတင်ပါတယ်။"],
+            ["Thanks a lot.", "ကျေးဇူး အများကြီးပါ။", "Friendly and casual. Careful with your voice: said flat or annoyed, Thanks a lot! is sarcastic and means the opposite.",
+              "Thanks a lot! You saved me so much time.", "ကျေးဇူး အများကြီးပါ။ အချိန်တွေ အများကြီး သက်သာသွားတယ်။"],
+          ],
+        },
+        {
+          en: "Thanks for…",
+          my: "တစ်ခုခုအတွက် ကျေးဇူးတင်ခြင်း",
+          desc: "Saying what you are thankful for: thanks for + a thing, or thanks for + -ing.",
+          cards: [
+            ["Thanks for your help.", "ကူညီပေးတဲ့အတွက် ကျေးဇူးပါ။", "After someone helps you. With a verb, use -ing: Thanks for helping me. Not: Thanks for help me.",
+              "Thanks for your help with the bags.", "အိတ်တွေ သယ်ပေးတဲ့အတွက် ကျေးဇူးပါ။"],
+            ["Thanks for the gift.", "လက်ဆောင် အတွက် ကျေးဇူးပါ။", "For a gift, a meal, a message: anything someone gives you. Say something nice about it, too.",
+              "Thanks for the flowers! They're beautiful.", "ပန်းတွေအတွက် ကျေးဇူးပါ။ အရမ်းလှတယ်။"],
+            ["Thank you for coming.", "လာတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။", "What a host says to guests, at the door or at the end of a party or meeting.",
+              "Thank you for coming. Please come again!", "လာတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။ နောက်လည်း လာခဲ့ပါဦး။"],
+            ["Thanks for waiting.", "စောင့်ပေးတဲ့အတွက် ကျေးဇူးပါ။", "When you kept someone waiting. Shops and offices say: Thank you for your patience.",
+              "Sorry I'm late. Thanks for waiting.", "နောက်ကျသွားလို့ ဆောရီးနော်။ စောင့်ပေးတဲ့အတွက် ကျေးဇူးပါ။"],
+            ["Thanks anyway.", "ဘာပဲဖြစ်ဖြစ် ကျေးဇူးပါ။", "When someone tried to help but couldn't. It is kind, not rude.",
+              "— Sorry, I don't know where the bank is. — OK, thanks anyway.", "— ဆောရီး၊ ဘဏ် ဘယ်မှာလဲ မသိဘူး။ — ရပါတယ်၊ ဘာပဲဖြစ်ဖြစ် ကျေးဇူးပါ။"],
+          ],
+        },
+        {
+          en: "Big thanks",
+          my: "အထူး ကျေးဇူးတင်ခြင်း",
+          desc: "When someone did something really kind or important for you.",
+          cards: [
+            ["I really appreciate it.", "တကယ် ကျေးဇူးတင်ပါတယ်။", "Deeper than thanks: it shows you know the help cost them time or effort. Often comes after Thank you.",
+              "Thanks for driving me to the airport. I really appreciate it.", "လေဆိပ်ကို လိုက်ပို့ပေးလို့ ကျေးဇူးပါ။ တကယ်ကို ကျေးဇူးတင်မိပါတယ်။"],
+            ["That's very kind of you.", "အရမ်း သဘောကောင်းတာပဲ။", "Thanks the person for being kind, not just for the thing. Polite and warm: good with older people and strangers.",
+              "— Let me carry that for you. — Oh, that's very kind of you.", "— အဲဒါ ကျွန်တော် သယ်ပေးမယ်။ — အို၊ အရမ်း သဘောကောင်းတာပဲ။"],
+            ["You shouldn't have!", "အားနာလိုက်တာ။", "The English way to show အားနာ when you get a gift. It sounds like a complaint, but it means Thank you, that's so kind. Then accept the gift and say thank you.",
+              "A present for me? Oh, you shouldn't have! Thank you!", "ကျွန်မအတွက် လက်ဆောင်လား။ အို၊ အားနာလိုက်တာ။ ကျေးဇူးပါ။"],
+            ["You're a lifesaver!", "ကယ်တင်ရှင်ပဲ။", "Casual and a little funny, for help that came at the perfect time. Nobody's life is really in danger.",
+              "You found my phone? You're a lifesaver!", "ကျွန်တော့်ဖုန်း တွေ့တယ်ဟုတ်လား။ ကယ်တင်ရှင်ပဲ။"],
+            ["I owe you one.", "ကျေးဇူးတစ်ခု တင်သွားပြီနော်။", "Casual: I'll help you next time. Between friends and coworkers.",
+              "Thanks for covering my shift. I owe you one.", "ကျွန်တော့်အလှည့် ဝင်လုပ်ပေးလို့ ကျေးဇူးပဲ။ ကျေးဇူးတစ်ခု တင်သွားပြီနော်။"],
+          ],
+        },
+        {
+          en: "Replying to thanks",
+          my: "ကျေးဇူးတင်တာကို ပြန်ဖြေခြင်း",
+          desc: "What to say when someone thanks you.",
+          cards: [
+            ["You're welcome.", "ရပါတယ်။", "The standard answer. Always say the whole phrase: Welcome! alone means I'm happy you're here, not You're welcome.",
+              "— Thank you. — You're welcome.", "— ကျေးဇူးတင်ပါတယ်။ — ရပါတယ်။"],
+            ["No problem.", "ကိစ္စမရှိပါဘူး။", "Casual and very common. Also: No worries, popular in Australia and the UK and growing in the US.",
+              "— Thanks for the ride. — No problem!", "— လိုက်ပို့ပေးလို့ ကျေးဇူးပါ။ — ကိစ္စမရှိပါဘူး။"],
+            ["My pleasure.", "ကူညီရတာ ဝမ်းသာပါတယ်။", "Warm and polite: I was happy to do it. Hotel and restaurant staff say it often.",
+              "— Thank you for the lovely meal. — My pleasure.", "— စားလို့ အရမ်းကောင်းတယ်၊ ကျေးဇူးပါ။ — ကျွေးရတာ ဝမ်းသာပါတယ်။"],
+            ["Don't mention it.", "ပြောစရာ မလိုပါဘူး။", "It was nothing, no need to thank me. Friendly, a little old-fashioned.",
+              "— Thanks for fixing my bike. — Don't mention it.", "— စက်ဘီး ပြင်ပေးလို့ ကျေးဇူးပါ။ — ပြောစရာ မလိုပါဘူး။"],
+            ["Anytime!", "အချိန်မရွေး ပြောပါ။", "Friendly: I'm happy to help again. Between friends.",
+              "— Thanks for listening. — Anytime!", "— နားထောင်ပေးလို့ ကျေးဇူးပါ။ — အချိန်မရွေး ပြောပါ။"],
+          ],
+        },
+        {
+          en: "Yes, please / No, thank you",
+          my: "လက်ခံခြင်းနဲ့ ယဉ်ယဉ်ကျေးကျေး ငြင်းခြင်း",
+          desc: "Saying yes or no to an offer, politely.",
+          cards: [
+            ["Yes, please.", "ဟုတ်ကဲ့၊ ပေးပါ။", "To accept an offer. Yes alone can sound a little rude: add please.",
+              "— Would you like some tea? — Yes, please.", "— လက်ဖက်ရည် သောက်မလား။ — ဟုတ်ကဲ့၊ ပေးပါ။"],
+            ["No, thank you.", "မလိုပါဘူး၊ ကျေးဇူးပါ။", "A polite no. Important: in Myanmar, guests often say no first to be polite and wait to be asked again. English speakers believe your first no and won't ask again. If you want it, say Yes, please!",
+              "— More rice? — No, thank you. I'm full.", "— ထမင်း ထပ်ထည့်ဦးမလား။ — မလိုပါဘူး၊ ကျေးဇူးပါ။ ဗိုက်ပြည့်ပြီ။"],
+            ["I'm fine, thanks.", "ရပါတယ်၊ ကျေးဇူးပါ။", "Another polite no, often to an offer of help. Here it is not about your health.",
+              "— Do you need help with that? — I'm fine, thanks.", "— အကူအညီ လိုလား။ — ရပါတယ်၊ ကျေးဇူးပါ။"],
+            ["Thanks for asking.", "မေးပေးလို့ ကျေးဇူးပါ။", "Makes a no softer, or thanks someone for caring about you.",
+              "— Are you OK? You look tired. — I'm OK, but thanks for asking.", "— နေကောင်းရဲ့လား။ ပင်ပန်းနေပုံရတယ်။ — ရပါတယ်၊ မေးပေးလို့ ကျေးဇူးပါ။"],
+          ],
+        },
+        {
+          en: "Thanks at work and in messages",
+          my: "အလုပ်မှာနဲ့ စာထဲမှာ ကျေးဇူးတင်ခြင်း",
+          desc: "Polite thanks for interviews, meetings, emails and texts.",
+          cards: [
+            ["Thank you for your time.", "အချိန်ပေးတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။", "Polite thanks at the end of a meeting. The best last line in a job interview.",
+              "Thank you for your time. I hope to hear from you soon.", "အချိန်ပေးတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။ မကြာခင် အကြောင်းပြန်မယ်လို့ မျှော်လင့်ပါတယ်။"],
+            ["Thanks for letting me know.", "အသိပေးတဲ့အတွက် ကျေးဇူးပါ။", "When someone gives you news or information, even bad news.",
+              "— The meeting is cancelled. — OK, thanks for letting me know.", "— အစည်းအဝေး ဖျက်လိုက်ပြီ။ — အိုကေ၊ အသိပေးတဲ့အတွက် ကျေးဇူးပါ။"],
+            ["Thanks in advance.", "ကြိုတင်ပြီး ကျေးဇူးတင်ပါတယ်။", "At the end of a message that asks for something. Some people find it a little pushy: Thank you for your help is softer.",
+              "Could you send me the form? Thanks in advance!", "ဖောင်ကို ပို့ပေးနိုင်မလား။ ကြိုတင်ပြီး ကျေးဇူးတင်ပါတယ်။"],
+            ["Thanks again.", "ထပ်ပြီး ကျေးဇူးတင်ပါတယ်။", "A second thank you at the end of a conversation or email, for something you thanked them for earlier.",
+              "Thanks again for everything. See you next week!", "အားလုံးအတွက် ထပ်ပြီး ကျေးဇူးတင်ပါတယ်။ နောက်အပတ် တွေ့မယ်။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

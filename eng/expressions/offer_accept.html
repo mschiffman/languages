@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Offering & Accepting</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">OFFERING & ACCEPTING</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Offering & Accepting
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ကမ်းလှမ်းခြင်းနှင့် လက်ခံခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">31</span> expressions · Offering & Accepting
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 31.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/offer_accept/";
+      const AUD_EXT = "mp3?v=2611100523";
+
+const categories = [
+        {
+          en: "Offering things",
+          my: "တစ်ခုခု ကမ်းလှမ်းခြင်း",
+          desc: "Food, drinks and other things: from a polite would you like to a warm have some.",
+          cards: [
+            ["Would you like some tea?", "လက်ဖက်ရည် ယူမလား။", "The polite way to offer. Not the same as Do you like tea?, which asks what you like in general. With a verb: Would you like to sit down?",
+              "— Would you like a cup of tea? — Yes, please.", "— လက်ဖက်ရည် တစ်ခွက် သောက်မလား။ — ဟုတ်ကဲ့၊ ပေးပါ။"],
+            ["Do you want a coffee?", "ကော်ဖီ လိုချင်လား။", "Casual: for family and friends. With strangers, Would you like…? is safer.",
+              "Do you want some cake?", "ကိတ်မုန့် စားမလား။"],
+            ["How about some water?", "ရေ ရော ဘယ်လိုလဲ။", "Offers an idea or another choice. Answer: Sounds good! or Maybe something else?",
+              "No coffee? How about some juice?", "ကော်ဖီ မသောက်ဘူးလား။ ဖျော်ရည် ရော ဘယ်လိုလဲ။"],
+            ["Can I get you anything?", "ဘာယူပေးရမလဲ။", "Hosts and staff say it. Answer with what you want, or I'm fine, thanks.",
+              "Come in, sit down. Can I get you anything?", "ဝင်ပါ၊ ထိုင်ပါ။ ဘာယူပေးရမလဲ။"],
+            ["Help yourself.", "စိတ်ကြိုက် ယူစားပါ။", "Take what you want, no need to ask. The host means it: don't wait to be offered again.",
+              "There's food on the table. Help yourself!", "စားပွဲပေါ်မှာ စားစရာတွေ ရှိတယ်။ စိတ်ကြိုက် ယူစားပါ။"],
+            ["Have some fruit.", "အသီး စားပါဦး။", "A warm, direct offer, like စားပါဦး. Friendly, between people who know each other.",
+              "Have some more rice. There's plenty.", "ထမင်း ထပ်စားပါဦး။ အများကြီး ရှိတယ်။"],
+          ],
+        },
+        {
+          en: "Offering help",
+          my: "ကူညီဖို့ ကမ်းလှမ်းခြင်း",
+          desc: "Asking if someone wants help, or just starting to help.",
+          cards: [
+            ["Can I help you?", "ဘာကူညီပေးရမလဲ။", "What shop staff say, and what you can say to anyone who looks lost. In a shop, if you're only looking: I'm just looking, thanks.",
+              "— Can I help you? — No, thanks. I'm just looking.", "— ဘာကူညီပေးရမလဲ။ — ရပါတယ်၊ ကြည့်ရုံပါ။"],
+            ["Do you need a hand?", "အကူအညီလိုပါသလား။", "A hand = help. Friendly, when someone is carrying, lifting or fixing something.",
+              "That box looks heavy. Do you need a hand?", "အဲဒီသေတ္တာ လေးပုံရတယ်။ ကူပေးရမလား။"],
+            ["Let me help.", "ကူပေးပရစေ။", "Offers by starting to help right away. Friendly and quick.",
+              "Let me get the door for you.", "တံခါး ဖွင့်ပေးမယ်။"],
+            ["Shall I carry it?", "သယ်ပေးရမလား။", "Asks if your help is wanted. More common in British English. Americans often say Should I…?",
+              "It's cold. Shall I close the window?", "အေးတယ်နော်။ ပြတင်းပေါက် ပိတ်ပေးရမလား။"],
+            ["Do you want me to wait?", "စောင့်ပေးစေချင်လား။", "Everyday and clear, especially in American English.",
+              "Do you want me to call a taxi?", "တက္ကစီ ခေါ်ပေးစေချင်လား။"],
+            ["I can drive if you like.", "လိုရင် ကားမောင်းပေးလို့ရတယ်။", "A gentle offer: it's easy for the other person to say no.",
+              "I can show you the way, if you like.", "လိုရင် လမ်းပြပေးလို့ရတယ်။"],
+          ],
+        },
+        {
+          en: "Accepting",
+          my: "လက်ခံခြင်း",
+          desc: "Saying yes to an offer. Yes, please. is the simplest; these are warmer.",
+          cards: [
+            ["That would be great.", "အဲဒါဆို အရမ်းကောင်းမှာပဲ။", "A warm yes, especially to an offer of help. Also: That would be lovely.",
+              "— I can pick you up at the station. — That would be great, thanks!", "— ဘူတာမှာ လာကြိုပေးမယ်။ — အဲဒါဆို အရမ်းကောင်းမှာပဲ၊ ကျေးဇူးပါ။"],
+            ["I'd love one.", "တခုလိုချင်တယ်။", "A happy yes. For things you count: I'd love one. For food or drinks you don't count: I'd love some.",
+              "— Would you like a coffee? — Oh, I'd love one!", "— ကော်ဖီ သောက်မလား။ — အို၊ သိပ်သောက်ချင်တာပဲ။"],
+            ["Sure, why not?", "ရတာပေါ့၊ ဘာလို့ မရရမှာလဲ။", "A relaxed, casual yes. Friends only.",
+              "— Want to get lunch together? — Sure, why not?", "— နေ့လယ်စာ အတူ စားကြမလား။ — ရတာပေါ့။"],
+            ["If you don't mind.", "စိတ်မရှိဘူးဆိုရင်ပေါ့။", "A polite yes that shows you don't want to be any trouble. Good with people you don't know well.",
+              "— I'll drive you home. — Oh, if you don't mind. Thank you.", "— အိမ်ကို ကားနဲ့ လိုက်ပို့ပေးမယ်။ — အို၊ ကိစ္စမရှိရင်တော့ပေါ့။ ကျေးဇူးပါ။"],
+            ["Just a little, please.", "နည်းနည်းပဲ ပေးပါ။", "A polite middle way: you accept, but only a small amount. Useful when you're not very hungry.",
+              "— More soup? — Just a little, please.", "— ဟင်းချို ထပ်ထည့်ဦးမလား။ — နည်းနည်းပဲ ပေးပါ။"],
+          ],
+        },
+        {
+          en: "Saying no nicely",
+          my: "ယဉ်ယဉ်ကျေးကျေး ငြင်းခြင်း",
+          desc: "Refusing without sounding cold. Remember: English speakers believe your first no.",
+          cards: [
+            ["I'm good, thanks.", "ရပါတယ်၊ ကျေးဇူးပါ။", "Casual and very American. It means No, thanks, not I'm happy. You'll hear it all the time.",
+              "— More coffee? — I'm good, thanks.", "— ကော်ဖီ ထပ်ထည့်ဦးမလား။ — ရပါတယ်၊ ကျေးဇူးပါ။"],
+            ["Not right now, thanks.", "အခု မလိုသေးဘူး၊ ကျေးဇူးပါ။", "A soft no that leaves the door open for later. Also: Maybe later.",
+              "— Would you like something to drink? — Not right now, thanks.", "— တစ်ခုခု သောက်မလား။ — အခု မလိုသေးဘူး၊ ကျေးဇူးပါ။"],
+            ["I couldn't eat another bite!", "နောက်ထပ် တစ်လုတ်တောင် မစားနိုင်တော့ဘူး။", "A friendly no to more food. It also tells the cook the food was good.",
+              "Thank you, it was delicious, but I couldn't eat another bite!", "ကျေးဇူးပါ၊ အရမ်းစားကောင်းတယ်၊ ဒါပေမဲ့ နောက်ထပ် တစ်လုတ်တောင် မစားနိုင်တော့ဘူး။"],
+            ["Thanks, but I can manage.", "ကျေးဇူးပါ၊ ကိုယ့်ဘာသာ လုပ်နိုင်ပါတယ်။", "A polite no to an offer of help. Manage = do it by yourself.",
+              "— Do you need a hand with those bags? — Thanks, but I can manage.", "— အိတ်တွေ ကူသယ်ပေးရမလား။ — ကျေးဇူးပါ၊ ကိုယ့်ဘာသာ သယ်နိုင်ပါတယ်။"],
+            ["That's kind of you, but…", "စေတနာကို ကျေးဇူးပါ၊ ဒါပေမဲ့…", "Thanks the person first, then says no with a reason. Good for bigger offers.",
+              "That's kind of you, but my friend is coming to get me.", "သဘောကောင်းလို့ပါ၊ ဒါပေမဲ့ သူငယ်ချင်း လာကြိုမှာပါ။"],
+            ["Really, I'm fine.", "တကယ် ရပါတယ်။", "A firm, friendly no after a second offer. Smile when you say it.",
+              "Really, I'm fine. Thank you.", "တကယ် ရပါတယ်။ ကျေးဇူးပါ။"],
+          ],
+        },
+        {
+          en: "Insisting and giving in",
+          my: "ထပ်ခါ တိုက်တွန်းခြင်းနဲ့ လက်ခံလိုက်ခြင်း",
+          desc: "Offering a second time, and changing your mind. In English, one more try is usually enough.",
+          cards: [
+            ["Are you sure?", "သေချာလား။", "English-speaking hosts usually ask this once. If you answer Yes, I'm sure, they will stop offering.",
+              "— No, thanks. — Are you sure? There's plenty.", "— ရပါတယ်။ — သေချာလား။ အများကြီး ရှိတယ်နော်။"],
+            ["Go on, have some more!", "စားပါဦး၊ နောက်ထပ် နည်းနည်းလောက်။", "Friendly insisting, once or twice. When you are the host, don't push many times: in English, that can feel like pressure.",
+              "Go on, have a little more. You hardly ate anything!", "စားပါဦး၊ နည်းနည်းလေး။ ဘာမှ မစားရသေးဘူး။"],
+            ["Well, if you insist!", "ကဲ၊ ဒီလောက် ပြောမှတော့…", "A playful yes after someone offers again. Said with a smile.",
+              "— Please, take the last piece. — Well, if you insist!", "— နောက်ဆုံး တစ်ဖတ် ယူလိုက်ပါ။ — ကဲ၊ ဒီလောက် ပြောမှတော့…"],
+            ["Don't be shy!", "အားမနာနဲ့။", "Said to guests to make them feel free to take things. The English for အားမနာနဲ့.",
+              "Don't be shy! Take as much as you like.", "အားမနာနဲ့။ ကြိုက်သလောက် ယူပါ။"],
+          ],
+        },
+        {
+          en: "Offering to pay",
+          my: "ငွေရှင်းဖို့ ကမ်းလှမ်းခြင်း",
+          desc: "Who pays? Treating, sharing and paying back.",
+          cards: [
+            ["It's on me.", "ငါ ဒကာခံမယ်။", "I'll pay for everyone. Also: My treat! Casual and friendly.",
+              "Put your money away. It's on me.", "ပိုက်ဆံ ပြန်သိမ်းထား။ ငါ ဒကာခံမယ်။"],
+            ["Let me get this.", "ဒါ ကျွန်တော် ရှင်းပါရစေ။", "A polite offer to pay, often said as the bill arrives. Softer than It's on me.",
+              "No, no, let me get this. You paid last time.", "မဟုတ်ဘူး၊ ဒါ ကျွန်တော် ရှင်းပါရစေ။ ပြီးခဲ့တဲ့တစ်ခါ ခင်ဗျား ရှင်းခဲ့တာလေ။"],
+            ["Let's split it.", "ခွဲရှင်းကြမယ်။", "Everyone pays their part. Among friends and coworkers in English-speaking countries, this is normal, not rude.",
+              "That's 40 dollars. Let's split it: 20 each.", "စုစုပေါင်း ဒေါ်လာ ၄၀။ ခွဲရှင်းကြမယ်၊ တစ်ယောက် ၂၀ စီ။"],
+            ["I'll get the next one.", "နောက်တစ်ခါ ကျွန်တော် ရှင်းမယ်။", "Accepts a treat and promises to pay next time. Friendly and fair.",
+              "Thanks for lunch! I'll get the next one.", "နေ့လယ်စာအတွက် ကျေးဇူးပါ။ နောက်တစ်ခါ ကျွန်တော် ရှင်းမယ်။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

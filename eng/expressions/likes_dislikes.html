@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Likes & Dislikes</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">LIKES & DISLIKES</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Likes & Dislikes
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ကြိုက်တာနဲ့ မကြိုက်တာ
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">27</span> expressions · Likes & Dislikes
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 27.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/likes_dislikes/";
+      const AUD_EXT = "mp3?v=2611100606";
+
+const categories = [
+        {
+          en: "Saying you like something",
+          my: "ကြိုက်တာကို ပြောခြင်း",
+          desc: "From a simple like to a big love.",
+          cards: [
+            ["I like Burmese food.", "ဗမာအစားအစာကို ကြိုက်တယ်။", "For general likes, use the plural: I like cats. I like movies. For things you don't count, no plural: I like rice. I like coffee.",
+              "I like cats, but I don't have one.", "ကြောင်ကို ကြိုက်တယ်၊ ဒါပေမဲ့ မမွေးထားဘူး။"],
+            ["I love noodles.", "ခေါက်ဆွဲကို အရမ်းကြိုက်တယ်။", "Stronger than like. English uses love for food, music, places and hobbies, not only people. Here it means အရမ်းကြိုက်တယ်, not ချစ်တယ်.",
+              "I love mohinga. I eat it every Sunday.", "မုန့်ဟင်းခါး အရမ်းကြိုက်တယ်။ တနင်္ဂနွေတိုင်း စားတယ်။"],
+            ["I enjoy reading.", "စာဖတ်တာ နှစ်သက်ပါတယ်။", "Enjoy takes -ing or a noun: I enjoy cooking. I enjoy the music. Not: I enjoy to cook.",
+              "I enjoy walking in the evening.", "ညနေ လမ်းလျှောက်ရတာ ပျော်တယ်။"],
+            ["I'm really into football.", "ဘောလုံးကို အရမ်း ဝါသနာပါတယ်။", "Casual: a hobby or interest you love right now. Common with young people.",
+              "I'm really into Korean dramas these days.", "အခုတလော ကိုရီးယား ဇာတ်လမ်းတွဲတွေ စွဲနေတယ်။"],
+            ["My favorite color is blue.", "အကြိုက်ဆုံး အရောင်က အပြာပါ။", "Your number one. British spelling: favourite.",
+              "My favorite food is tea leaf salad.", "အကြိုက်ဆုံး အစားအစာက လက်ဖက်သုပ်ပါ။"],
+          ],
+        },
+        {
+          en: "Saying you don't like something",
+          my: "မကြိုက်တာကို ပြောခြင်း",
+          desc: "From soft to strong. About other people's things, softer is kinder.",
+          cards: [
+            ["I don't like cold weather.", "အေးတဲ့ ရာသီဥတုကို မကြိုက်ဘူး။", "Clear and simple. Fine for things like weather, noise, or food in general.",
+              "I don't like rainy days.", "မိုးရွာတဲ့နေ့တွေကို မကြိုက်ဘူး။"],
+            ["I don't really like horror movies.", "သရဲကားတွေကို သိပ်မကြိုက်ဘူး။", "Softer. Word order matters: I don't really like it is soft, but I really don't like it is strong!",
+              "I don't really like spicy food.", "စပ်တဲ့ အစားအစာကို သိပ်မကြိုက်ဘူး။"],
+            ["I'm not a big fan of sports.", "အားကစားကို သိပ် ဝါသနာမပါဘူး။", "A friendly, gentle way to say you don't like something. Good for food someone made, or a friend's hobby.",
+              "I'm not a big fan of durian. The smell is too strong for me.", "ဒူးရင်းသီးကို သိပ် ဝါသနာမပါဘူး။ အနံ့ ပြင်းလွန်းတယ်။"],
+            ["Shopping isn't really my thing.", "ဈေးဝယ်ရတာ သိပ်ဝါသနာမပါဘူး။", "Casual: it's fine for other people, just not for me. No criticism.",
+              "Dancing isn't really my thing.", "ကခုန်တာက ကိုယ်နဲ့ သိပ်မကိုက်ဘူး။"],
+            ["I hate traffic jams.", "ကားကြပ်တာကို အရမ်း မုန်းတယ်။", "Very strong. Also: I can't stand it. Fine for traffic or mosquitoes, but never about food someone cooked for you.",
+              "I hate mosquitoes!", "ခြင်တွေကို အရမ်း မုန်းတယ်။"],
+          ],
+        },
+        {
+          en: "In between",
+          my: "ကြားထဲက ခံစားချက်",
+          desc: "When you don't love it and don't hate it.",
+          cards: [
+            ["It's OK.", "သာမန်ပါပဲ။", "Careful: with a flat voice, It's OK means only average, not good. To praise something, say It's great!",
+              "— How's the new restaurant? — It's OK. Nothing special.", "— ဆိုင်အသစ်က ဘယ်လိုလဲ။ — သာမန်ပါပဲ။ ထူးထူးခြားခြား မရှိဘူး။"],
+            ["I don't mind the rain.", "မိုးရွာလည်း ကိစ္စမရှိပါဘူး။", "It's OK for me, I won't complain. With a verb, use -ing: I don't mind waiting.",
+              "I don't mind working on Saturdays.", "စနေနေ့ အလုပ်ဆင်းရလည်း ရပါတယ်။"],
+            ["It depends.", "အခြေအနေပေါ် မူတည်တယ်။", "Your answer changes with the situation. Then explain: It depends on the weather.",
+              "— Do you like walking? — It depends. Not in the hot sun!", "— လမ်းလျှောက်ရတာ ကြိုက်လား။ — အခြေအနေပေါ် မူတည်တယ်။ နေပူကြီးထဲမှာတော့ မကြိုက်ဘူး။"],
+            ["I can take it or leave it.", "ရှိလည်း ရတယ်၊ မရှိလည်း ရပါတယ်။", "You don't feel strongly: you're happy with it or without it.",
+              "— Do you like chocolate? — I can take it or leave it.", "— ချောကလက် ကြိုက်လား။ — ရှိလည်း ရ၊ မရှိလည်း ရပါတယ်။"],
+          ],
+        },
+        {
+          en: "Asking about likes",
+          my: "ကြိုက်တာကို မေးခြင်း",
+          desc: "Good questions for small talk and getting to know people.",
+          cards: [
+            ["Do you like tea?", "လက်ဖက်ရည် ကြိုက်လား။", "The basic question. Answer: Yes, I do. or No, I don't. Not the same as Would you like some tea?, which is an offer.",
+              "— Do you like swimming? — Yes, I do!", "— ရေကူးရတာ ကြိုက်လား။ — ကြိုက်တယ်။"],
+            ["What kind of food do you like?", "ဘယ်လို အစားအစာမျိုး ကြိုက်လဲ။", "Asks for details, and keeps the conversation going.",
+              "What kind of music do you like?", "ဘယ်လို သီချင်းမျိုး ကြိုက်လဲ။"],
+            ["What's your favorite movie?", "အကြိုက်ဆုံး ရုပ်ရှင်က ဘာလဲ။", "A fun, easy question for new friends.",
+              "What's your favorite song right now?", "အခု အကြိုက်ဆုံး သီချင်းက ဘာလဲ။"],
+            ["What do you like doing in your free time?", "အားလပ်ချိန်မှာ ဘာလုပ်ရတာ ကြိုက်လဲ။", "A friendly question about hobbies. Also: What do you do for fun?",
+              "— What do you like doing in your free time? — I like reading and playing chinlone.", "— အားလပ်ချိန်မှာ ဘာလုပ်ရတာ ကြိုက်လဲ။ — စာဖတ်ရတာနဲ့ ခြင်းလုံး ခတ်ရတာ ကြိုက်တယ်။"],
+            ["Are you into music?", "ဂီတကို ဝါသနာပါလား။", "Casual: Are you interested in music? Common with young people.",
+              "Are you into photography?", "ဓာတ်ပုံရိုက်တာ ဝါသနာပါလား။"],
+          ],
+        },
+        {
+          en: "Same or different",
+          my: "တူတာ၊ မတူတာ",
+          desc: "Answering when someone tells you what they like or don't like.",
+          cards: [
+            ["Me too.", "ကျွန်တော်/ကျွန်မလည်း ဒီလိုပဲ။", "Agrees with a positive sentence: I like tea. — Me too. More formal: So do I.",
+              "— I love the rainy season. — Me too!", "— မိုးရာသီကို အရမ်းကြိုက်တယ်။ — ကျွန်မလည်း ဒီလိုပဲ။"],
+            ["Me neither.", "ကျွန်တော်/ကျွန်မလည်း မကြိုက်ဘူး။", "Agrees with a negative sentence. Not: I don't like it. — Me too. Correct: Me neither. More formal: Neither do I.",
+              "— I don't like horror movies. — Me neither.", "— သရဲကား မကြိုက်ဘူး။ — ကျွန်တော်လည်း မကြိုက်ဘူး။"],
+            ["Really? I love it!", "တကယ်လား။ အရမ်းကြိုက်တယ်။", "Disagrees in a friendly way when someone doesn't like something. Smile, and add a reason.",
+              "— I don't like durian. — Really? I love it! It's my favorite fruit.", "— ဒူးရင်းသီး မကြိုက်ဘူး။ — တကယ်လား။ ကျွန်မကတော့ အရမ်းကြိုက်တယ်။ အကြိုက်ဆုံး အသီးပဲ။"],
+            ["Not me.", "ကျွန်တော်/ကျွန်မကတော့ မကြိုက်ဘူး။", "Disagrees with a positive sentence, casually. Kinder with a reason.",
+              "— I love sweet tea. — Not me. It's too sweet.", "— လက်ဖက်ရည်ချို အရမ်းကြိုက်တယ်။ — ကျွန်တော်ကတော့ မကြိုက်ဘူး။ ချိုလွန်းတယ်။"],
+          ],
+        },
+        {
+          en: "Preferences",
+          my: "ပိုကြိုက်တာ",
+          desc: "Choosing between two things.",
+          cards: [
+            ["I prefer rice to bread.", "ပေါင်မုန့်ထက် ထမင်းကို ပိုကြိုက်တယ်။", "Prefer A to B, not than. With than, say: I like A more than B. The order is the reverse of Burmese: I prefer tea to coffee = ကော်ဖီထက် လက်ဖက်ရည်ကို ပိုကြိုက်တယ်.",
+              "I prefer tea to coffee.", "ကော်ဖီထက် လက်ဖက်ရည်ကို ပိုကြိုက်တယ်။"],
+            ["I'd rather stay home.", "အိမ်မှာပဲ နေချင်ပါတယ်။", "I'd rather = I would rather. Use the base verb: I'd rather walk. Not: I'd rather to walk.",
+              "— Shall we take a taxi? — I'd rather walk. It's not far.", "— တက္ကစီ စီးကြမလား။ — လမ်းလျှောက်ရင် ပိုကောင်းမယ်။ မဝေးပါဘူး။"],
+            ["I like both.", "နှစ်ခုလုံး ကြိုက်တယ်။", "When you can't choose. Also: I like them both.",
+              "— Cats or dogs? — I like both!", "— ကြောင်လား၊ ခွေးလား။ — နှစ်ခုလုံး ကြိုက်တယ်။"],
+            ["Either is fine.", "ဘယ်ဟာဖြစ်ဖြစ် ရပါတယ်။", "When you really don't mind. If you have a small preference, say it: hosts are happy to know.",
+              "— Tea or coffee? — Either is fine, thanks.", "— လက်ဖက်ရည်လား၊ ကော်ဖီလား။ — ဘယ်ဟာဖြစ်ဖြစ် ရပါတယ်၊ ကျေးဇူးပါ။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>
