@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Opinions</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">OPINIONS</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Opinions
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ထင်မြင်ချက်များ
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">32</span> expressions · Opinions
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 32.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/opinion/";
+      const AUD_EXT = "mp3?v=2611100932";
+
+const categories = [
+        {
+          en: "Giving your opinion",
+          my: "ကိုယ့်အမြင်ကို ပြောခြင်း",
+          desc: "Simple ways to say what you think.",
+          cards: [
+            ["I think <span class=gray>it's good</span>.", "ကောင်းတယ်လို့ ထင်တယ်။", "The everyday way to give an opinion: short and soft. Also for guesses: I think it's going to rain.",
+              "I think the blue one looks better.", "အပြာရောင်က ပိုကြည့်ကောင်းတယ်လို့ ထင်တယ်။"],
+            ["In my opinion, <span class=gray>it's too long</span>.", "ကျွန်တော့်/ကျွန်မ အမြင်မှာတော့ ရှည်လွန်းတယ်။", "More formal: good for school, meetings and writing. In everyday talk, I think is more natural.",
+              "In my opinion, children should start learning English early.", "ကျွန်မ အမြင်မှာတော့ ကလေးတွေ အင်္ဂလိပ်စာကို စောစော စသင်သင့်တယ်။"],
+            ["For me, <span class=gray>it's too spicy</span>.", "ကျွန်တော့်/ကျွန်မ အတွက်ကတော့ စပ်လွန်းတယ်။", "Says it's true for you, maybe not for others. Use For me or I think, not both: For me, I think… says it twice.",
+              "For me, the morning is the best time to study.", "ကျွန်တော့်အတွက်ကတော့ မနက်ပိုင်းက စာကျက်ဖို့ အကောင်းဆုံးအချိန်ပဲ။"],
+            ["I feel <span class=gray>we should wait</span>.", "စောင့်သင့်တယ်လို့ ခံစားရတယ်။", "A soft, personal opinion, often about people or situations. Gentle at work.",
+              "I feel we need more time.", "အချိန် ပိုလိုမယ်လို့ ခံစားရတယ်။"],
+          ],
+        },
+        {
+          en: "Softer negative opinions",
+          my: "အပျော့ အငြင်းအမြင်",
+          desc: "Saying something isn't good, without sounding rude.",
+          cards: [
+            ["I don't think <span class=gray>he's coming</span>.", "သူ လာမယ်လို့ မထင်ဘူး။", "Put the not on think: I don't think it's a good idea. This sounds more natural and softer than I think it's not a good idea.",
+              "I don't think the shop is open on Sundays.", "တနင်္ဂနွေနေ့ ဆိုင်ဖွင့်မယ်လို့ မထင်ဘူး။"],
+            ["It's a bit <span class=gray>far</span>.", "နည်းနည်း ဝေးတယ်။", "A bit makes a problem sound smaller. Use it with negative words: a bit expensive, a bit far. Not: a bit good.",
+              "It's nice, but it's a bit expensive.", "ကောင်းတော့ ကောင်းတယ်၊ ဒါပေမဲ့ နည်းနည်း ဈေးကြီးတယ်။"],
+            ["It's not very <span class=gray>good</span>.", "သိပ် မကောင်းဘူး။", "A polite way to say something is bad: not very good instead of bad, not very clean instead of dirty.",
+              "The hotel was OK, but the room wasn't very clean.", "ဟိုတယ်က အဆင်ပြေပါတယ်၊ ဒါပေမဲ့ အခန်းက သိပ်မသန့်ဘူး။"],
+            ["I'm not sure that's a good idea.", "ဒီအကြံကောင်းရဲ့လားဆိုတာ မသေချာဘူး။", "A gentle way to disagree with a plan. Then give your reason.",
+              "I'm not sure that's a good idea. It's getting dark.", "အဲဒါ ကောင်းတဲ့ အကြံလား မသေချာဘူး။ မှောင်လာပြီ။"],
+          ],
+        },
+        {
+          en: "Short answers",
+          my: "အတိုချုပ် အဖြေများ",
+          desc: "Quick answers to yes/no questions, from definitely to I hope not.",
+          cards: [
+            ["I think so.", "ဟုတ်မယ် ထင်တယ်။", "A soft yes. Not: I think yes.",
+              "— Is the shop open today? — I think so.", "— ဒီနေ့ ဆိုင်ဖွင့်လား။ — ဖွင့်မယ် ထင်တယ်။"],
+            ["I don't think so.", "မဟုတ်ဘူး ထင်တယ်။", "A soft no. Not: I think no.",
+              "— Is Aung coming tonight? — I don't think so. He's working.", "— အောင် ဒီည လာမလား။ — မလာဘူး ထင်တယ်။ အလုပ်ဆင်းနေတယ်။"],
+            ["Not really.", "သိပ်မဟုတ်ပါဘူး။", "A soft, polite no. Kinder than just No.",
+              "— Did you like the movie? — Not really. It was too long.", "— ရုပ်ရှင် ကြိုက်လား။ — သိပ်မကြိုက်ဘူး။ ရှည်လွန်းတယ်။"],
+            ["I guess so.", "ဟုတ်မယ်ထင်တယ်။", "A weak yes: not excited, or not completely sure. Said slowly, it can sound unwilling.",
+              "— Should we leave now? — I guess so. It's getting late.", "— အခု ပြန်ကြရမလား။ — ပြန်ရမှာပေါ့။ နောက်ကျလာပြီ။"],
+            ["Definitely!", "သေချာပေါက်ဘဲ။", "A strong, happy yes. Also: Absolutely!",
+              "— Will you come to my wedding? — Definitely!", "— ကျွန်မ မင်္ဂလာဆောင်ကို လာမှာလား။ — သေချာပေါက်။"],
+            ["Probably.", "ဖြစ်နိုင်ပါတယ်။", "Probably is about 80% sure. Maybe is about 50%.",
+              "— Are you going home for Thingyan? — Probably.", "— သင်္ကြန် အိမ်ပြန်မှာလား။ — ပြန်ဖြစ်မယ် ထင်တယ်။"],
+            ["I hope so.", "အဲဒီလို ဖြစ်ပါစေ။", "You want the answer to be yes.",
+              "— Will it be sunny tomorrow? — I hope so!", "— မနက်ဖြန် နေသာမလား။ — သာပါစေ။"],
+            ["I hope not.", "အဲဒီလို မဖြစ်ပါစေနဲ့။", "You want the answer to be no. Not: I don't hope so.",
+              "— Is the test hard? — I hope not!", "— စာမေးပွဲ ခက်မလား။ — မခက်ပါစေနဲ့။"],
+          ],
+        },
+        {
+          en: "When you're not sure",
+          my: "မသေချာတဲ့အခါ",
+          desc: "Honest answers when you don't know, or can't decide.",
+          cards: [
+            ["I'm not sure.", "မသေချာဘူး။", "Honest and polite. Better than guessing when it matters.",
+              "— What time does the bank close? — I'm not sure. Maybe four?", "— ဘဏ် ဘယ်နှနာရီ ပိတ်လဲ။ — မသေချာဘူး။ လေးနာရီလောက်လား။"],
+            ["Maybe.", "ဖြစ်ချင် ဖြစ်မယ်။", "Fifty-fifty. Careful: as an answer to an invitation, Maybe can sound like a soft no.",
+              "— Are you coming to the party? — Maybe. I'll tell you tomorrow.", "— ပါတီကို လာမလား။ — လာချင် လာမယ်။ မနက်ဖြန် ပြောမယ်။"],
+            ["It's hard to say.", "ပြောရခက်တယ်။", "The answer isn't clear yet, or the question is complicated.",
+              "— Who will win? — It's hard to say. Both teams are good.", "— ဘယ်သူ နိုင်မလဲ။ — ပြောရခက်တယ်။ အသင်း နှစ်သင်းလုံး တော်တယ်။"],
+            ["I have no idea.", "လုံးဝ မသိဘူး။", "I don't know at all. Casual and strong: with a boss or a customer, I'm not sure is softer.",
+              "— Where are my keys? — I have no idea!", "— ငါ့သော့ ဘယ်မှာလဲ။ — လုံးဝ မသိဘူး။"],
+            ["I don't know much about <span class=gray>football</span>.", "ဘောလုံးအကြောင်း သိပ်မသိဘူး။", "Says politely that you can't give a good opinion.",
+              "I don't know much about cars, sorry.", "ကားအကြောင်း သိပ်မသိဘူး၊ ဆောရီး။"],
+          ],
+        },
+        {
+          en: "Asking for opinions",
+          my: "အမြင်ကို မေးခြင်း",
+          desc: "Asking what other people think.",
+          cards: [
+            ["What do you think?", "ဘယ်လို ထင်လဲ။", "Asks for someone's opinion. Not: How do you think? In Burmese we say ဘယ်လို, but in English it's What.",
+              "I want to paint the room green. What do you think?", "အခန်းကို အစိမ်းရောင် ဆေးသုတ်ချင်တယ်။ ဘယ်လို ထင်လဲ။"],
+            ["What do you think of <span class=gray>this song</span>?", "ဒီသီချင်းကို ဘယ်လို ထင်လဲ။", "Asks about one thing. Of and about both work: What do you think about my idea?",
+              "What do you think of my new haircut?", "ကျွန်မ ဆံပင်ပုံစံအသစ်ကို ဘယ်လို ထင်လဲ။"],
+            ["Do you think <span class=gray>it's too late</span>?", "နောက်ကျလွန်းပြီလို့ ထင်လား။", "After Do you think, use normal word order: Do you think it will rain? Not: Do you think will it rain?",
+              "Do you think the shop is still open?", "ဆိုင် ဖွင့်တုန်းပဲ ထင်လား။"],
+            ["How was <span class=gray>the movie</span>?", "ရုပ်ရှင်က ဘယ်လိုလဲ။", "Asks about an experience in the past: a trip, a movie, a meal. Here How is right.",
+              "How was your trip to Bagan?", "ပုဂံ ခရီးက ဘယ်လိုလဲ။"],
+            ["Is it any good?", "ကောင်းရဲ့လား။", "Casual: Is it good? For a movie, a book, a restaurant.",
+              "I want to read that book. Is it any good?", "အဲဒီစာအုပ် ဖတ်ချင်တယ်။ ကောင်းရဲ့လား။"],
+          ],
+        },
+        {
+          en: "Simple judgments",
+          my: "ရိုးရိုး အကဲဖြတ်ခြင်း",
+          desc: "Short sentences for how good or bad something is.",
+          cards: [
+            ["It's really good.", "တကယ် ကောင်းတယ်။", "Simple praise. Stronger: It's excellent! or It's amazing!",
+              "Try this soup. It's really good.", "ဒီဟင်းချို မြည်းကြည့်။ တကယ် ကောင်းတယ်။"],
+            ["It's too <span class=gray>small</span>.", "သေးလွန်းတယ်။", "Too means more than you want: it's a problem. Not: This dress is too beautiful. For praise, use very or really.",
+              "I can't drink it yet. It's too hot.", "မသောက်နိုင်သေးဘူး။ ပူလွန်းတယ်။"],
+            ["It's not <span class=gray>warm</span> enough.", "မနွေးလောက်ဘူး။", "Less than you need. Enough goes after the word: big enough. Not: enough big.",
+              "This bag isn't big enough for all my things.", "ဒီအိတ်က ပစ္စည်းအားလုံး ထည့်ဖို့ မကြီးလောက်ဘူး။"],
+            ["It's better than <span class=gray>before</span>.", "အရင်ကထက် ပိုကောင်းတယ်။", "Better, not more good. The opposite: worse than.",
+              "The new phone is better than my old one.", "ဖုန်းအသစ်က ဖုန်းအဟောင်းထက် ပိုကောင်းတယ်။"],
+            ["It's worth it.", "တန်ပါတယ်။", "Good value for the money, time or effort.",
+              "The ticket is expensive, but it's worth it.", "လက်မှတ်က ဈေးကြီးတယ်၊ ဒါပေမဲ့ တန်ပါတယ်။"],
+            ["It's not worth it.", "မတန်ဘူး။", "Not good value: too much money, time or effort for what you get.",
+              "Don't take a taxi. It's not worth it, the station is close.", "တက္ကစီ မစီးနဲ့။ မတန်ဘူး၊ ဘူတာက နီးနီးလေးပဲ။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

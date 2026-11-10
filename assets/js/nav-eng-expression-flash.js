@@ -15,6 +15,7 @@
     { label: "🤝 Offering & Accepting", href: "offer_accept.html" },
     { label: "🙅 Polite Refusal", href: "polite_refusal.html" },
     { label: "❤️ Likes & Dislikes", href: "likes_dislikes.html" },
+    { label: "💬 Opinions", href: "opinion.html" },
   ];
 
   // ── Insert hamburger, overlay and sidebar ──

@@ -74,6 +74,16 @@
         font-size: 0.78rem;
       }
 
+      /* The swappable part of a card line: <span class=gray>…</span> */
+      .phrase .gray {
+        color: #777;
+      }
+
+      /* Burmese translation line on the English pages */
+      .english[lang="my"] {
+        color: #4a76bb;
+      }
+
       .sound-btn {
         background: linear-gradient(135deg, #e8f4ff, #cce8ff);
         border-radius: 50%;
