@@ -31,6 +31,7 @@
     { label: "🗣️ Idioms", href: "idioms.html" },
     { label: "💭 I Mean", href: "iMean.html" },
     { label: "🎈 Interjections and Fillers", href: "fillers.html" },
+    { label: "😋 Likes & Dislikes", href: "likes_dislikes.html" },
     { label: "🎲 Miscellaneous", href: "miscellaneous.html" },
     { label: "🗳️ Opinion", href: "opinion.html" },
     { label: "☕ Offers", href: "offers.html" },

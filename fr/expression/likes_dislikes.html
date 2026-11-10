@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les Expressions — Likes &amp; Dislikes</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">LIKES &amp; DISLIKES</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Likes &amp; Dislikes
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          Goûts et dégoûts
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">41</span> expressions · Likes &amp; Dislikes · Bonne chance&#8239;!
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 41.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [French, English, note, example FR, example EN]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/lessons/Expressions/likes_dislikes/";
+      const AUD_EXT = "mp3?v=261110";
+
+      const categories = [
+        {
+          en: "I like it",
+          fr: "J'aime bien",
+          desc: "Everyday liking: places, food, activities, people.",
+          cards: [
+            ["J'aime beaucoup la cuisine japonaise.", "I really like Japanese food.", "French keeps the article after aimer where English drops it: j'aime le café, j'aime les chats.",
+              "J'aime beaucoup la cuisine japonaise, surtout les ramen.", "I really like Japanese food, especially ramen."],
+            ["J'aime bien ce quartier.", "I like this neighborhood.", "Aimer bien is softer than aimer alone: ‘I quite like, I'm fond of’.",
+              "J'aime bien ce quartier, il y a plein de petits cafés.", "I like this neighborhood, there are lots of little cafés."],
+            ["Je l'aime bien.", "I like him / her.", "With people, bien changes everything: je l'aime bien = I like him; je l'aime = I love him. Beaucoup doesn't turn it into love either: je t'aime beaucoup = I'm very fond of you.",
+              "Le nouveau voisin ? Je l'aime bien, il est sympa.", "The new neighbor? I like him, he's nice."],
+            ["J'aime cuisiner.", "I like cooking.", "Aimer + infinitive, no preposition: j'aime lire, j'aime marcher.",
+              "J'aime cuisiner pour toute la famille le dimanche.", "I like cooking for the whole family on Sundays."],
+            ["J'aime l'idée.", "I like the idea.", "Handy for welcoming a suggestion. Add parce que… to say why.",
+              "Un pique-nique au bord de la rivière ? J'aime l'idée !", "A picnic by the river? I like the idea!"],
+            ["Ça me plaît.", "I like it.", "Literally ‘it pleases me’: the thing you like is the subject. Ce quartier me plaît = I like this area.",
+              "Cette petite maison me plaît beaucoup.", "I really like this little house."],
+          ],
+        },
+        {
+          en: "Love it!",
+          fr: "J'adore",
+          desc: "Real enthusiasm for food, places, hobbies, and things you can't get enough of.",
+          cards: [
+            ["J'adore !", "I love it!", "On its own, the quickest way to show enthusiasm. For things, French uses adorer where English says ‘love’: j'adore le chocolat.",
+              "— Tu aimes le gratin dauphinois ? — J'adore !", "— Do you like gratin dauphinois? — I love it!"],
+            ["J'adore ce manteau.", "I love that coat.", "Adorer + noun works for anything: ce vin, ce jeu, le vent.",
+              "J'adore ce manteau, il te va super bien.", "I love that coat, it really suits you."],
+            ["On adore ça.", "We love that.", "On = we in everyday speech. Ça stands in for something already mentioned.",
+              "Les marchés de Noël ? Oh, on adore ça !", "Christmas markets? Oh, we love them!"],
+            ["J'adorerais faire du voilier.", "I'd love to go sailing.", "Conditional j'adorerais + infinitive for a wish. Softer: j'aimerais bien.",
+              "J'adorerais faire du voilier en Bretagne cet été.", "I'd love to go sailing in Brittany this summer."],
+            ["J'adorais venir ici.", "I used to love coming here.", "Imparfait for a past habit you loved. Same with aimer: on aimait bien venir ici.",
+              "Quand j'étais petite, j'adorais venir ici avec ma grand-mère.", "When I was little, I used to love coming here with my grandmother."],
+            ["Je vous adore.", "I adore you.", "With people, adorer is affectionate, not romantic: friends, family, a favorite teacher. Informal: je t'adore. Natural English is often ‘you're the best!’",
+              "Merci pour le gâteau, je vous adore !", "Thanks for the cake, you're the best!"],
+          ],
+        },
+        {
+          en: "Do you like it?",
+          fr: "Ça te plaît ?",
+          desc: "Asking what someone thinks, and saying what pleases you.",
+          cards: [
+            ["Ça te plaît ?", "Do you like it?", "The standard question after a gift, a meal, a visit. Formal or plural: ça vous plaît ?",
+              "Je l'ai trouvé au marché. Ça te plaît ?", "I found it at the market. Do you like it?"],
+            ["Il te plaît ?", "Do you like it?", "Il / elle for a specific masculine / feminine thing: il te plaît, ce pull ? elle te plaît, la robe ?",
+              "Je l'ai choisi pour toi, ce pull. Il te plaît ?", "I picked this sweater for you. Do you like it?"],
+            ["Ça devrait te plaire.", "You should like it.", "Devrait = should: a confident recommendation.",
+              "Si tu aimes le piment, ce plat devrait te plaire.", "If you like chili, you should like this dish."],
+            ["Ce qui me plaît, c'est…", "What I like is…", "Ce qui me plaît, c'est + noun or infinitive: a neat way to give your reason.",
+              "Ce qui me plaît, c'est le calme de la campagne.", "What I like is the peace and quiet of the countryside."],
+            ["T'as aimé ?", "Did you like it?", "Casual for tu as aimé ? (spoken French squeezes tu as into t'as). Negative: t'as pas aimé ?",
+              "— Alors, le film, t'as aimé ? — Oui, beaucoup !", "— So, did you like the film? — Yes, a lot!"],
+            ["Tu me plais.", "I'm attracted to you.", "With a person, plaire means attraction, not just liking. For a friendly ‘I like him’, say je l'aime bien.",
+              "J'ai l'impression que Julien te plaît, non ?", "I get the feeling you've got a crush on Julien, right?"],
+          ],
+        },
+        {
+          en: "Preferences",
+          fr: "Je préfère",
+          desc: "Choosing between options and saying which you'd rather have.",
+          cards: [
+            ["Je préfère le thé.", "I prefer tea.", "Préférer + le/la/les, like aimer. Watch the accents: je préfère, nous préférons.",
+              "Merci, mais le matin, je préfère le thé.", "Thanks, but in the morning I prefer tea."],
+            ["Tu préfères quoi ?", "Which do you prefer?", "Casual word order. Add entre… et… to give the choices.",
+              "Tu préfères quoi, entre la calèche et le canoë ?", "Which would you rather do, the horse-drawn carriage or the canoe?"],
+            ["Moi, je préfère rester à la maison.", "Personally, I'd rather stay home.", "Moi, je… stresses ‘as for me’. Préférer + infinitive, no preposition.",
+              "Sortir ce soir ? Moi, je préfère rester à la maison et regarder une série.", "Go out tonight? Personally, I'd rather stay home and watch a series."],
+            ["Je préfère que tu viennes.", "I'd rather you came.", "Préférer que + subjunctive: que tu viennes, que vous restiez.",
+              "Je préfère que tu viennes avec moi, c'est plus sûr.", "I'd rather you came with me, it's safer."],
+            ["J'aime mieux la montagne.", "I prefer the mountains.", "Aimer mieux = préférer, very common in speech. To compare: j'aime mieux X que Y.",
+              "J'aime mieux la montagne que la mer, il fait moins chaud.", "I prefer the mountains to the seaside, it's not as hot."],
+          ],
+        },
+        {
+          en: "Casual praise",
+          fr: "C'est top !",
+          desc: "Informal ways to say you love something, among friends and family.",
+          cards: [
+            ["C'est top !", "It's great!", "Casual, all-purpose approval. Also super ! and génial !",
+              "Le nouveau resto ? C'est top, il faut y aller !", "The new restaurant? It's great, you have to go!"],
+            ["C'est trop bon !", "It's so good!", "In casual speech trop often means ‘so, really’, not ‘too much’. Mostly for food.",
+              "Goûte cette tarte, c'est trop bon !", "Try this tart, it's so good!"],
+            ["C'est hyper bon.", "It's really good.", "Hyper as an intensifier: hyper sympa, hyper beau. Bon still agrees: ta soupe est hyper bonne.",
+              "Ta soupe est hyper bonne, c'est quoi la recette ?", "Your soup is really good, what's the recipe?"],
+            ["C'est canon !", "It's gorgeous!", "Slang: canon means ‘stunning’. For a person, il est canon = he's hot.",
+              "Ta nouvelle cuisine, c'est canon !", "Your new kitchen is gorgeous!"],
+            ["Je kiffe !", "I love it!", "Slang from Arabic kif (pleasure), very common with younger speakers: je kiffe ta veste. Je te kiffe = I'm really into you. Grave = totally.",
+              "J'ai écouté son nouvel album, je kiffe grave !", "I listened to his new album, I'm totally into it!"],
+          ],
+        },
+        {
+          en: "Not for me",
+          fr: "C'est pas mon truc",
+          desc: "Milder dislike, turning something down, or losing interest.",
+          cards: [
+            ["J'aime pas ça.", "I don't like that.", "Spoken French drops the ne: j'aime pas = je n'aime pas. Write the full form in formal texts. Softer: j'aime pas trop ça.",
+              "Le fromage bleu ? Non, j'aime pas trop ça.", "Blue cheese? No, I'm not too keen on it."],
+            ["T'aimes pas ?", "Don't you like it?", "Casual question, rising intonation. Past: t'as pas aimé ? = didn't you like it?",
+              "T'aimes pas ? T'as presque rien mangé.", "Don't you like it? You've hardly eaten anything."],
+            ["C'est pas mon truc.", "It's not my thing.", "Casual and friendly. Typical pattern: les + noun, c'est pas mon truc. Standard: ce n'est pas mon truc.",
+              "Les boîtes de nuit, c'est pas mon truc.", "Nightclubs aren't my thing."],
+            ["Il n'est pas mon genre.", "He's not my type.", "Mon genre = my type, mostly for people. For things: ce n'est pas trop mon genre de film.",
+              "Il est gentil, mais il n'est pas mon genre.", "He's nice, but he's not my type."],
+            ["Ça me dit pas trop.", "I don't really feel like it.", "Ça me dit = it appeals to me, for plans and suggestions. Ça te dit ? = do you fancy it?",
+              "— On va au cinéma ? — Bof, ça me dit pas trop.", "— Shall we go to the movies? — Meh, I don't really feel like it."],
+            ["J'en veux pas.", "I don't want any.", "En replaces de + noun. Casual; standard je n'en veux pas. Politer still: non merci.",
+              "— Tu reprends du gâteau ? — Non, j'en veux pas, merci.", "— More cake? — No, I don't want any, thanks."],
+            ["J'ai plus envie.", "I don't feel like it anymore.", "Casual for je n'ai plus envie. Avoir envie de + noun or infinitive; plus = no longer.",
+              "On devait sortir, mais il pleut. J'ai plus envie.", "We were supposed to go out, but it's raining. I don't feel like it anymore."],
+          ],
+        },
+        {
+          en: "Hate & disgust",
+          fr: "Je déteste",
+          desc: "Strong dislike and revulsion. Mostly casual, and some are blunt.",
+          cards: [
+            ["Je déteste attendre.", "I hate waiting.", "Détester + noun or infinitive: je déteste le froid. Je te déteste ! is said in anger, or teasingly.",
+              "Je déteste attendre au téléphone pendant des heures.", "I hate being on hold for hours."],
+            ["C'est dégueu !", "It's gross!", "Short for dégueulasse, which is vulgar. Dégueu is casual but fine among friends: trop dégueu = so gross.",
+              "Il y a un cheveu dans ma soupe, c'est dégueu !", "There's a hair in my soup, gross!"],
+            ["Ça me dégoûte.", "It disgusts me.", "Physical or moral disgust. Careful: je suis dégoûté(e) usually means ‘I'm gutted’, really disappointed.",
+              "Les gens qui jettent leurs déchets par terre, ça me dégoûte.", "People who throw their litter on the ground disgust me."],
+            ["Tu me dégoûtes !", "You disgust me!", "In anger, it's very harsh. Said with a smile, it means ‘I'm so jealous!’",
+              "Tu pars trois semaines aux Antilles ? Tu me dégoûtes !", "You're off to the Caribbean for three weeks? I'm so jealous!"],
+            ["Ça me donne envie de vomir.", "It makes me feel sick.", "Literally ‘it makes me want to vomit’: for a smell or taste, or for behavior you find revolting. Also c'est à vomir.",
+              "L'odeur du poisson pas frais, ça me donne envie de vomir.", "The smell of stale fish makes me feel sick."],
+            ["Ça va dégoûter les acheteurs.", "That'll put buyers off.", "Dégoûter quelqu'un = to put someone off. Dégoûter de: ça m'a dégoûté(e) du poisson = it put me off fish.",
+              "Avec ces murs tachés, les acheteurs vont être dégoûtés.", "With these stained walls, buyers will be put off."],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-expression-flash.js"></script>
+  </body>
+</html>
