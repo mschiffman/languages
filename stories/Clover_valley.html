@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Rosie and the Little People of Clover Valley</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M12 13c1 3 1 6 -1 9.5" stroke="#3E8E41" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M12 12.5C9 12 6 10 6.5 7.2 7 4.8 10 4.6 12 7.4 14 4.6 17 4.8 17.5 7.2 18 10 15 12 12 12.5z" fill="#5DB85F" />
+            <path d="M12 12.5C10 14 7.2 16.8 4.8 15.2 2.8 13.8 4 11 7.2 11.2 9 11.3 11 12 12 12.5z" fill="#4CA64F" />
+            <path d="M12 12.5C14 14 16.8 16.8 19.2 15.2 21.2 13.8 20 11 16.8 11.2 15 11.3 13 12 12 12.5z" fill="#4CA64F" />
+            <circle cx="12" cy="12.3" r="1.3" fill="#F2A7C3" />
+          </svg>
+          <span
+            ><span class="lion">Rosie</span> and the Little People of
+            <span class="mouse">Clover&nbsp;Valley</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/Clover/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 101.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/Clover/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/Clover/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..101 in order. */
+      const pages = [
+        {
+          img: 1,
+          tr: [
+            "ရိုဇီနှင့် ကလိုဗာ ချိုင့်ဝှမ်းမှ လူပုလေးများ",
+            "တစ်နေ့ နေရောင်တောက်ပသော မနက်ခင်းတွင် ယုန်မလေး ရိုဇီသည် မြက်ခင်းပြင်တစ်ခုထဲတွင် ခုန်ပေါက်သွားနေပါသည်။",
+            "ကလိုဗာ ပန်းပွင့်လေးများသည် လေပြည်ထဲတွင် ကခုန်နေကြပါသည်။",
+            "ရုတ်တရက် ရိုဇီသည် သေးငယ်သော အသံလေးတစ်ခုကို ကြားလိုက်ရပါသည်။",
+            "“ကယ်ကြပါ! ကျေးဇူးပြုပြီး သတိထားပါ!”",
+            "ရိုဇီသည် ချက်ချင်း ရပ်လိုက်ပါသည်။",
+            "“ဘယ်သူ ပြောလိုက်တာလဲ” ဟု သူမ တိုးတိုးလေး မေးလိုက်ပါသည်။",
+          ],
+          sentences: [
+            [["Rosie and the Little People of Clover Valley", 1]],
+            [
+              ["One bright morning,", 2],
+              ["Rosie Rabbit was hopping", 3],
+              ["through a meadow.", 4],
+            ],
+            [
+              ["The clover flowers danced", 5],
+              ["in the breeze.", 6],
+            ],
+            [
+              ["Suddenly,", 7],
+              ["Rosie heard a tiny voice.", 8],
+            ],
+            [
+              ['"Help!"', 9],
+              ['"Please be careful!"', 10],
+            ],
+            [["Rosie stopped at once.", 11]],
+            [
+              ['"Who said that?"', 12],
+              ["she whispered.", 13],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          tr: [
+            "ရိုဇီသည် ကလိုဗာ ပင်စည်လေးများကြားသို့ ငုံ့ကြည့်လိုက်ပါသည်။",
+            "ထိုနေရာတွင် ပန်းပွင့်များအောက်၌ ပုန်းကွယ်နေသော ရွာကလေးတစ်ရွာ ရှိနေပါသည်!",
+            "အိမ်များကို ဝက်သစ်ချသီးများ၊ သစ်ကြားသီးခွံများနှင့် ချောမွေ့ဝိုင်းစက်သော ကျောက်ခဲများဖြင့် ဆောက်ထားပါသည်။",
+            "လူပုလေးများသည် ကျောက်စရစ်လမ်းလေးများပေါ်တွင် အလျင်အမြန် သွားလာနေကြပါသည်။",
+            "ရိုဇီ၏ မျက်လုံးများ ပြူးကျယ်သွားပါသည်။",
+            "“အိုး!” ဟု သူမက ပြောပါသည်။ “လျှို့ဝှက် မြို့လေးပါလား!”",
+          ],
+          sentences: [
+            [
+              ["Rosie looked down", 14],
+              ["between the clover stems.", 15],
+            ],
+            [
+              ["There, hidden under the flowers,", 16],
+              ["was a tiny village!", 17],
+            ],
+            [
+              ["The houses were made from acorns,", 18],
+              ["walnut shells,", 19],
+              ["and smooth round stones.", 20],
+            ],
+            [
+              ["Little people hurried", 21],
+              ["along pebble streets.", 22],
+            ],
+            [["Rosie's eyes grew wide.", 23]],
+            [
+              ['"Oh!"', 24],
+              ["she said.", 25],
+              ['"A secret town!"', 26],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          tr: [
+            "လူပုလေးများသည် မော့ကြည့်ပြီး လန့်ဖျပ်၍ အသက်ရှူ ရပ်သွားကြပါသည်။",
+            "သူတို့အတွက်တော့ ရိုဇီသည် တောင်ကုန်းတစ်ခုလောက် ကြီးမားလှပါသည်!",
+            "အချို့သည် မှိုအိမ်လေးများ နောက်ကွယ်သို့ ပြေးသွားကြပါသည်။",
+            "အချို့သည် လက်ဖက်ရည်ခွက်များနှင့် ပန်းအိုးများ နောက်ကွယ်တွင် ပုန်းနေကြပါသည်။",
+            "နောက်ဆုံးတွင် သတ္တိရှိသော မိန်းကလေးငယ်တစ်ယောက်သည် ရှေ့သို့ ထွက်လာပါသည်။",
+            "“ကျွန်မနာမည် ကလိုဗာပါ” ဟု သူမက ပြောပါသည်။ “ကျေးဇူးပြုပြီး ကျွန်မတို့ ရွာကို မနင်းပါနဲ့။”",
+            "ရိုဇီသည် သူမ၏ ခေါင်းကို ညင်ညင်သာသာ ငုံ့ချလိုက်ပါသည်။",
+            "“မနင်းပါဘူး” ဟု သူမက ပြောပါသည်။ “ငါ မင်းတို့ရဲ့ သူငယ်ချင်း ဖြစ်ချင်တယ်။”",
+          ],
+          sentences: [
+            [
+              ["The tiny people looked up", 27],
+              ["and gasped.", 28],
+            ],
+            [
+              ["To them,", 29],
+              ["Rosie was as big as a hill!", 30],
+            ],
+            [["Some ran behind mushroom houses.", 31]],
+            [["Some hid behind teacups and flowerpots.", 32]],
+            [
+              ["At last,", 33],
+              ["a brave little girl stepped forward.", 34],
+            ],
+            [
+              ['"My name is Clover,"', 35],
+              ["she said.", 36],
+              ['"Please don\'t step"', 37],
+              ['"on our village."', 38],
+            ],
+            [["Rosie lowered her head gently.", 39]],
+            [
+              ['"I won\'t,"', 40],
+              ["she said.", 41],
+              ['"I want to be your friend."', 42],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          tr: [
+            "မကြာမီ လူပုလေးများသည် ရိုဇီ သဘောကောင်းကြောင်း သိလာကြပါသည်။",
+            "ကလိုဗာသည် ရိုဇီကို ရွာတစ်ပတ် လိုက်ပြပါသည်။",
+            "လက်ဖက်ရည်ကရားထဲရှိ မုန့်ဖုတ်ဆိုင်၊ သစ်ရွက်ခေါင်မိုးအောက်ရှိ စာသင်ကျောင်းနှင့် သစ်ကိုင်းလေးများဖြင့် ဆောက်ထားသော တံတားတစ်စင်း ရှိပါသည်။",
+            "ခရုတစ်ကောင်က စာများကို ပို့ဆောင်ပေးပါသည်။",
+            "အနီရောင် အစက်ပြောက် ပိုးတောင်မာလေးတစ်ကောင်က လှည်းကလေးတစ်စီးကို ဆွဲပါသည်။",
+            "ရိုဇီက ပြုံးလိုက်ပါသည်။ “မင်းတို့ရွာက အရမ်း အံ့သြစရာ ကောင်းတာပဲ!”",
+          ],
+          sentences: [
+            [
+              ["Soon the little people saw", 43],
+              ["that Rosie was kind.", 44],
+            ],
+            [["Clover showed her around the village.", 45]],
+            [
+              ["There was a bakery inside a teapot,", 46],
+              ["a school under a leaf roof,", 47],
+              ["and a bridge made of twigs.", 48],
+            ],
+            [["A snail delivered the mail.", 49]],
+            [["A ladybug pulled a tiny cart.", 50]],
+            [
+              ["Rosie smiled.", 51],
+              ['"Your village is amazing!"', 52],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          tr: [
+            "ထို့နောက် ကောင်းကင်သည် ပြောင်းလဲလာပါသည်။",
+            "မီးခိုးရောင် တိမ်တိုက်များသည် မြက်ခင်းပြင်ပေါ်သို့ လိပ်ဝင်လာကြပါသည်။",
+            "လေသည် ကလိုဗာ ပန်းပွင့်များကို လှုပ်ယမ်းစေပါသည်။",
+            "“အို၊ ဒုက္ခပဲ!” ဟု ကလိုဗာက အော်ပါသည်။ “မုန်တိုင်း လာနေပြီ!”",
+            "ရိုဇီအတွက်တော့ ၎င်းသည် မိုးရွာခြင်း သက်သက်သာ ဖြစ်ပါသည်။",
+            "သို့သော် လူပုလေးများအတွက်မူ မိုးစက်တစ်စက်ချင်းစီသည် ကြီးမားလှပါလိမ့်မည်။",
+            "“ငါတို့ အမြန်လုပ်ရမယ်!” ဟု သူတို့က အော်ကြပါသည်။",
+          ],
+          sentences: [
+            [["Then the sky began to change.", 53]],
+            [
+              ["Gray clouds rolled", 54],
+              ["across the meadow.", 55],
+            ],
+            [["The wind shook the clover flowers.", 56]],
+            [
+              ['"Oh no!"', 57],
+              ["cried Clover.", 58],
+              ['"A storm is coming!"', 59],
+            ],
+            [
+              ["To Rosie,", 60],
+              ["it was only rain.", 61],
+            ],
+            [
+              ["But to the little people,", 62],
+              ["each raindrop would be huge.", 63],
+            ],
+            [
+              ['"We must hurry!"', 64],
+              ["they cried.", 65],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          tr: [
+            "ပထမဆုံး မိုးစက်များ စတင် ကျလာပါသည်။",
+            "ရိုဇီသည် သစ်ရွက်ကြီးတစ်ရွက်ကို အမြန်ကောက်ယူပြီး ထီးတစ်လက်ကဲ့သို့ ရွာပေါ်တွင် မိုးကာထားပေးပါသည်။",
+            "ထို့နောက် သူမသည် သစ်ကိုင်းလေးများနှင့် ကျောက်စရစ်ခဲများကို အသုံးပြု၍ စီးဆင်းလာသော ရေကို ပိတ်ဆို့လိုက်ပါသည်။",
+            "လူပုလေးများသည် မျိုးစေ့များ၊ ခွက်များနှင့် ခြင်းတောင်းများကို ဘေးကင်းသော နေရာများသို့ သယ်ဆောင်သွားကြပါသည်။",
+            "“ကျေးဇူးတင်ပါတယ် ရိုဇီ!” ဟု ကလိုဗာက ပြောပါသည်။",
+            "ရိုဇီက ပြုံးလိုက်ပါသည်။ “ငါတို့ အတူတူ လုပ်နိုင်ပါတယ်!”",
+          ],
+          sentences: [
+            [["The first drops began to fall.", 66]],
+            [
+              ["Rosie quickly picked up a big leaf", 67],
+              ["and held it over the village", 68],
+              ["like an umbrella.", 69],
+            ],
+            [
+              ["Then she used twigs and pebbles", 70],
+              ["to block the rushing water.", 71],
+            ],
+            [
+              ["The little people carried", 72],
+              ["seeds, cups, and baskets", 73],
+              ["to safe places.", 74],
+            ],
+            [
+              ['"Thank you, Rosie!"', 75],
+              ["said Clover.", 76],
+            ],
+            [
+              ["Rosie smiled.", 77],
+              ['"We can do it together!"', 78],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          tr: [
+            "နောက်ဆုံးတွင် မိုးတိတ်သွားပါသည်။",
+            "တိမ်တိုက်များသည် လွင့်မျော ထွက်ခွာသွားကြပါသည်။",
+            "ရွာကလေးသည် ဘေးကင်းလုံခြုံပါသည်။",
+            "လူပုလေးများသည် နေရောင်ခြည်အောက်တွင် ဝမ်းသာအားရ အော်ဟစ်ပြီး ကခုန်ကြပါသည်။",
+            "“မင်းက ကလိုဗာ ချိုင့်ဝှမ်းကို ကယ်တင်ခဲ့တာပဲ!” ဟု သူတို့က ပြောကြပါသည်။",
+            "ရိုဇီက ရယ်လိုက်ပါသည်။ “ငါတို့ အားလုံး အတူတူ ကယ်တင်ခဲ့ကြတာပါ။”",
+          ],
+          sentences: [
+            [
+              ["At last,", 79],
+              ["the rain stopped.", 80],
+            ],
+            [["The clouds floated away.", 81]],
+            [["The tiny village was safe.", 82]],
+            [
+              ["The little people cheered", 83],
+              ["and danced in the sunshine.", 84],
+            ],
+            [
+              ['"You saved Clover Valley!"', 85],
+              ["they said.", 86],
+            ],
+            [
+              ["Rosie laughed.", 87],
+              ['"We all saved it together."', 88],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          tr: [
+            "ထိုညနေတွင် လူပုလေးများသည် ရိုဇီအတွက် ပါတီပွဲလေးတစ်ပွဲ ကျင်းပပေးကြပါသည်။",
+            "သူတို့သည် တောက်ပြောင်သော ဝက်သစ်ချသီး ခွက်လေးဖြင့် ရိုဇီကို လက်ဖက်ရည် တိုက်ကြပါသည်။",
+            "သူတို့သည် ဘယ်ရီသီး ကိတ်မုန့်၊ ပျားရည် မုန့်အစအနလေးများနှင့် ပန်းပွင့်ယိုတို့ကို ကျွေးကြပါသည်။",
+            "ဂီတသံများသည် မြက်ခင်းပြင်တစ်ခုလုံး ပြည့်လျှံနေပါသည်။",
+            "ထိုနေ့မှစ၍ ရိုဇီသည် ကလိုဗာ ချိုင့်ဝှမ်းသို့ မကြာခဏ လာလည်ပါသည်။",
+            "လူပုလေးများကလည်း “ငါတို့ရဲ့ သူငယ်ချင်း အကြီးကြီး ရောက်လာပြီ!” ဟု အမြဲ ပြောကြပါသည်။",
+          ],
+          sentences: [
+            [
+              ["That evening,", 89],
+              ["the little people held a party", 90],
+              ["for Rosie.", 91],
+            ],
+            [
+              ["They gave her tea", 92],
+              ["in a shiny acorn cup.", 93],
+            ],
+            [
+              ["They served berry cake,", 94],
+              ["honey crumbs,", 95],
+              ["and flower jam.", 96],
+            ],
+            [["Music filled the meadow.", 97]],
+            [
+              ["From that day on,", 98],
+              ["Rosie often visited Clover Valley.", 99],
+            ],
+            [
+              ["And the little people always said,", 100],
+              ['"Our giant friend is here!"', 101],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-stories.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

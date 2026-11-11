@@ -25,6 +25,10 @@
           href: "butterfly.html",
         },
         { title: "The Little Mushroom House", href: "mushroom_house.html" },
+        {
+          title: "Rosie and the Little People of Clover Valley",
+          href: "Clover_valley.html",
+        },
       ],
     },
   ];
