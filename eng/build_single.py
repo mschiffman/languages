@@ -163,7 +163,7 @@ def find_audio(url_name: str, slug: str, aud_dir: str) -> Path:
 
 
 def collect_embed(html: str, kbps: int) -> dict:
-    img_dir = js_const(html, "IMG_DIR")
+    img_dir = js_const(html, "IMG_DIR", "")  # text-frame quizzes have no pictures
     aud_dir = js_const(html, "AUD_DIR")
     img_ext = js_const(html, "IMG_EXT", "jpg")
     aud_ext = js_const(html, "AUD_EXT", "mp3")

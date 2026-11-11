@@ -1,12 +1,15 @@
 /* ---------------------------------------------------------------
    Hamburger sidebar for the English expression flashcard pages
    (eng/expressions/<topic>.html). Inserts the menu markup into <body>
-   and lists every expression category. Styled by pimsleur.css.
-   Add new categories by extending CATEGORIES below.
+   and lists every expression category. Styled by pimsleur.css on the
+   card pages, and by nav-eng-expression.css on the typing quizzes
+   (<topic>_quiz.html), which also load this menu.
+   Add new categories by extending CATEGORIES below; quiz: "<file>" adds
+   a "✍️ Quiz" link under the category.
 --------------------------------------------------------------- */
 (function () {
   const CATEGORIES = [
-    { label: "👋 Greetings & Goodbyes", href: "greet_goodbye.html" },
+    { label: "👋 Greetings & Goodbyes", href: "greet_goodbye.html", quiz: "greet_goodbye_quiz.html" },
     { label: "🙏 Thanking", href: "thank.html" },
     { label: "🙇 Apology", href: "apology.html" },
     { label: "😮 Exclamations", href: "exclamation.html" },
@@ -63,16 +66,25 @@
   const list = document.createElement("div");
   list.className = "lessons-list open";
 
-  CATEGORIES.forEach((cat) => {
+  function addLink(label, href, indent) {
     const a = document.createElement("a");
     a.className = "lesson-link";
-    a.textContent = cat.label;
-    a.href = cat.href;
-    if (currentFile === stem(cat.href)) {
+    a.textContent = label;
+    a.href = href;
+    if (indent) a.style.paddingLeft = "56px";
+    if (currentFile === stem(href)) {
       a.classList.add("active");
     }
     list.appendChild(a);
+  }
+  CATEGORIES.forEach((cat) => {
+    addLink(cat.label, cat.href);
+    if (cat.quiz) addLink("✍️ Quiz", cat.quiz, true);
   });
+
+  // Quiz pages (ytstory.css layout): make room in the header for the button.
+  const stage = document.querySelector(".stage");
+  if (stage) stage.classList.add("has-lesson-nav");
 
   scroll.appendChild(list);
 

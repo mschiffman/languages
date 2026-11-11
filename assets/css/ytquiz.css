@@ -531,3 +531,92 @@ footer {
     transition: none;
   }
 }
+
+/* ---- text frame instead of a picture (phrase quizzes: Burmese -> English) ---- */
+.quiz-body .art.say {
+  flex-basis: min(36dvh, 320px);
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+}
+.say-label {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.78rem, 3.2vw, 0.9rem);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--forest-soft);
+  opacity: 0.8;
+}
+#sayMy,
+#sayHint,
+.say-thumb {
+  font-family: "Noto Sans Myanmar", "Myanmar Text", "Padauk", "Andika", sans-serif;
+  overflow-wrap: break-word;
+}
+#sayMy {
+  margin: 0;
+  font-size: clamp(1.2rem, min(6.4vw, 5.4dvh), 2.3rem);
+  line-height: 1.75;
+  color: var(--forest);
+}
+#sayHint {
+  margin: 0;
+  font-size: clamp(0.9rem, min(3.8vw, 3dvh), 1.1rem);
+  line-height: 1.6;
+  color: var(--bark);
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 0.1em 0.85em;
+}
+#sayHint[hidden] {
+  display: none;
+}
+.review .say-thumb {
+  flex: 0 0 auto;
+  width: min(36%, 9.5rem);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--forest);
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 0.35rem 0.5rem;
+}
+.right-grid.text {
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 0.5rem 0.9rem;
+}
+.right-grid.text .tile {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.6rem;
+}
+.right-grid.text .thumb {
+  aspect-ratio: auto;
+  display: flex;
+  align-items: center;
+  padding: 0.35rem 1.9rem 0.35rem 0.65rem;
+}
+.right-grid.text .badge {
+  top: 50%;
+  margin-top: -10px;
+}
+.right-grid.text .say-thumb {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.right-grid.text .chunk {
+  justify-self: start;
+  text-align: left;
+}
+/* the title links back to the cards (eng/expressions/<topic>_quiz.html) */
+a.brand {
+  color: inherit;
+  text-decoration: none;
+}
+.brand .wave {
+  font-size: 1.1em;
+}

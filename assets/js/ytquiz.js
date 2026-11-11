@@ -31,6 +31,15 @@
 
    URL option:  ?order=book  keeps the book order (default: shuffled; pages
    that repeat a picture, one question per numbered label, stay together)
+
+   Text frame instead of a picture (phrase quizzes, e.g. eng/expressions/
+   greet_goodbye_quiz.html): give each page  my: "<text>"  (and optionally
+   hint: "<context line>") in place of  img , and put
+     <p id="sayMy" lang="my"></p> <p id="sayHint" lang="my"></p>
+   in the frame instead of <img id="pic">. IMG_DIR / IMG_EXT aren't needed.
+   Text mode also changes the checking for phrases: apostrophes don't count
+   ("whats up"), the "It's" rule is off, and word order / one missing or
+   extra word get their own notes.
 --------------------------------------------------------------- */
 (function () {
   /* Mistake types that get one more try. Add "spelling" (small slip) or
@@ -66,8 +75,16 @@
     const chunks = p.sentences.flat();
     const [text, num] = chunks[chunks.length - 1];
     const q = !asks ? null : Array.isArray(asks) ? asks : asks[p.ask] || null;
-    return { id: i, img: p.img, answer: text, audio: num, ask: q };
+    return { id: i, img: p.img, my: p.my, hint: p.hint, answer: text, audio: num, ask: q };
   });
+  /* text frame (Burmese line) instead of a picture */
+  const TEXT = ITEMS.some((it) => it.my != null);
+  const WORD = TEXT ? "phrase" : "word";
+  /* small preview of the question for the results screen */
+  const thumb = (item) =>
+    item.my != null
+      ? `<span class="say-thumb" lang="my">${esc(item.my)}</span>`
+      : `<img src="${imgUrl(item)}" alt="" />`;
   const also = typeof ALSO !== "undefined" ? ALSO : {};
   const hints = typeof HINTS !== "undefined" ? HINTS : {};
 
@@ -88,6 +105,8 @@
   const listenBtn = $("listen");
   const askBtn = $("ask"); // optional: shows the question, tap to hear it again
   const askText = $("askText");
+  const sayMy = $("sayMy"); // text frame (instead of the picture)
+  const sayHint = $("sayHint");
 
   /* ---- answer checking ---- */
   const norm = (s) =>
@@ -103,7 +122,8 @@
     const m = s.match(/^(a|an)\s+(.+)$/);
     return m ? { art: m[1], noun: m[2] } : { art: "", noun: s };
   };
-  const squash = (s) => s.replace(/\s+/g, "");
+  const squash = (s) => (TEXT ? s.replace(/[\s']+/g, "") : s.replace(/\s+/g, ""));
+  const words = (s) => s.replace(/'/g, "").split(" ").filter(Boolean);
 
   function lev(a, b) {
     const row = Array.from({ length: b.length + 1 }, (_, j) => j);
@@ -127,7 +147,7 @@
   function judge(raw, item) {
     let typed = norm(raw);
     /* "It's red." for "red" (only when the answer itself has no "It's") */
-    if (!/^it('s| is)\b/.test(norm(item.answer))) typed = typed.replace(/^it('s| is|s) /, "");
+    if (!TEXT && !/^it('s| is)\b/.test(norm(item.answer))) typed = typed.replace(/^it('s| is|s) /, "");
     const u = split(typed);
     const forms = [item.answer, ...(also[item.answer] || [])].map(norm);
     const main = split(forms[0]);
@@ -160,11 +180,30 @@
     if (m && squash(u.noun) === squash(m[2])) {
       return miss("measure", `Don't forget <b>${esc(main.art)} ${esc(m[1])} of</b>.`);
     }
+    /* phrases: right words in the wrong order, one word missing or one too many */
+    if (TEXT) {
+      const tw = words(typed);
+      const sorted = (ws) => ws.slice().sort().join(" ");
+      const dropOne = (ws, i) => ws.filter((_, j) => j !== i).join(" ");
+      for (const f of forms) {
+        const fw = words(f);
+        if (fw.length === tw.length && sorted(fw) === sorted(tw)) {
+          return miss("order", "Check the word order.");
+        }
+        const gone = fw.findIndex((_, i) => dropOne(fw, i) === tw.join(" "));
+        if (fw.length > 1 && gone >= 0) {
+          const w = fw[gone] === "i" ? "I" : fw[gone];
+          return miss("words", `A word is missing: <b>${esc(w)}</b>.`);
+        }
+        const extra = tw.findIndex((_, i) => dropOne(tw, i) === fw.join(" "));
+        if (extra >= 0) return miss("words", `One word too many: <b>${esc(tw[extra])}</b>.`);
+      }
+    }
     /* part of a compound: "a pencil" for "a colored pencil", "a pencil" for "a pencil sharpener" */
     const un = squash(u.noun);
     const an = squash(main.noun);
     if (un.length >= 3 && un !== an && (an.endsWith(un) || an.startsWith(un))) {
-      return miss("partial", "Say the whole name.");
+      return miss("partial", `Say the whole ${TEXT ? "phrase" : "name"}.`);
     }
     /* small spelling slip */
     const dist = Math.min(...forms.map((f) => lev(typed, f)));
@@ -227,7 +266,7 @@
     if (new URLSearchParams(location.search).get("order") === "book") return byBook(ids);
     const groups = new Map(); // img -> ids
     for (const id of byBook(ids)) {
-      const k = ITEMS[id].img;
+      const k = ITEMS[id].img != null ? ITEMS[id].img : "t" + id; // text frames never group
       if (!groups.has(k)) groups.set(k, []);
       groups.get(k).push(id);
     }
@@ -282,7 +321,13 @@
   function showItem() {
     const item = ITEMS[round[pos]];
     cur = { item, wrong: [], types: new Set(), retried: false, listened: false, done: false };
-    pic.src = imgUrl(item);
+    if (item.my != null) {
+      sayMy.textContent = item.my;
+      if (sayHint) {
+        sayHint.textContent = item.hint || "";
+        sayHint.hidden = !item.hint;
+      }
+    } else pic.src = imgUrl(item);
     counter.textContent = `${pos + 1} / ${round.length}`;
     input.value = "";
     input.classList.remove("right", "wrong", "shake");
@@ -296,7 +341,7 @@
     }
     paintProgress();
     const next = ITEMS[round[pos + 1]];
-    if (next) new Image().src = imgUrl(next);
+    if (next && next.img != null) new Image().src = imgUrl(next);
     focusInput();
     if (item.ask) ask();
   }
@@ -314,7 +359,7 @@
   function check() {
     if (cur.done) return next();
     if (!input.value.trim()) {
-      say("", "Type the word for the picture.");
+      say("", TEXT ? "Type it in English." : "Type the word for the picture.");
       return focusInput();
     }
     const r = judge(input.value, cur.item);
@@ -366,10 +411,12 @@
     ["extraArticle", "No <b>a</b> or <b>an</b> before these words."],
     ["wrongArticle", "Use <b>an</b> before a vowel sound (<b>an eraser</b>), <b>a</b> before other sounds (<b>a book</b>)."],
     ["measure", "Some words need <b>a pair of</b> or <b>a piece of</b>."],
-    ["partial", "Say the whole name of the thing."],
-    ["nearWord", "Use the word from this lesson."],
+    ["order", "Check the word order."],
+    ["words", "Every word counts: check for a missing or extra word."],
+    ["partial", TEXT ? "Say the whole phrase." : "Say the whole name of the thing."],
+    ["nearWord", TEXT ? "Don't mix these up with phrases that look alike." : "Use the word from this lesson."],
     ["spelling", "Check the spelling."],
-    ["other", "Learn these words. Tap them to listen."],
+    ["other", `Learn these ${WORD}s. Tap them to listen.`],
   ];
   const SPEAKER =
     '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/></svg>';
@@ -409,7 +456,7 @@
     if (audio.length) tips.push({ text: "You listened first for these. Try them again without 🔊.", ids: audio });
     html += `<section class="panel tips"><h2>Feedback</h2>`;
     if (!tips.length) {
-      html += `<p class="tip-lead">You remembered every word without help. Try this set again in a few days to keep it fresh.</p>`;
+      html += `<p class="tip-lead">You remembered every ${WORD} without help. Try this set again in a few days to keep it fresh.</p>`;
     } else {
       html +=
         `<p class="tip-lead">${pct >= 75 ? "Nice work! A few things to practice:" : "Here is what to practice:"}</p><ul>` +
@@ -434,7 +481,7 @@
           .map((id) => {
             const it = ITEMS[id];
             return (
-              `<li><img src="${imgUrl(it)}" alt="" />` +
+              `<li>${thumb(it)}` +
               `<div class="pair"><div class="row yours"><span class="lbl">You wrote</span><span class="val">` +
               results[id].wrong.map((w) => `<s>${esc(w)}</s>`).join("") +
               `</span></div>` +
@@ -450,12 +497,12 @@
     if (rightIds.length) {
       html +=
         `<section class="panel"><h2>Right answers <span class="count ok">${correct.length}</span></h2>` +
-        `<div class="right-grid">` +
+        `<div class="right-grid${TEXT ? " text" : ""}">` +
         rightIds
           .map((id) => {
             const st = results[id].status;
             const badge = st === "audio" ? SPEAKER : "✓";
-            return `<div class="tile ${st}"><div class="thumb"><img src="${imgUrl(ITEMS[id])}" alt="" /><i class="badge">${badge}</i></div>${chip(ITEMS[id])}</div>`;
+            return `<div class="tile ${st}"><div class="thumb">${thumb(ITEMS[id])}<i class="badge">${badge}</i></div>${chip(ITEMS[id])}</div>`;
           })
           .join("") +
         `</div></section>`;

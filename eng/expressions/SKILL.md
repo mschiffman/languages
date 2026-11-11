@@ -17,6 +17,10 @@ paths and menu are different.
 | Expression page | `eng/expressions/<topic>.html` |
 | Card engine (shared with French) | `assets/js/expression-flash.js` |
 | Hamburger menu (category list) | `assets/js/nav-eng-expression-flash.js` |
+| Quiz engine ("Test yourself"; its header documents the data format) | `assets/js/expression-quiz.js` |
+| Quiz styles | `assets/css/expression-quiz.css` |
+| Typing quiz: Burmese in the frame → type the English (optional; `ytquiz.js` text mode, styled by `ytstory.css` + `ytquiz.css`) | `eng/expressions/<topic>_quiz.html`, model: `greet_goodbye_quiz.html` |
+| Alpine.js 3.17.5 (used by the quiz; kept local so the offline build inlines it) | `assets/js/alpine.min.js` |
 | Stylesheet | `assets/css/pimsleur.css` |
 | English map | `english.html` (root) |
 | Make / upload audio | `eng/expressions/make_audio.py` |
@@ -27,7 +31,7 @@ paths and menu are different.
 
 `<folder>` is the last part of the page's `AUD_DIR`, normally the topic name.
 
-Current pages: `greet_goodbye` (29 cards), `thank` (27), `apology` (27), `exclamation` (31), `not_understanding` (32), `ask` (29), `offer_accept` (31), `polite_refusal` (26), `likes_dislikes` (27), `opinion` (32), `small_talk` (33).
+Current pages: `greet_goodbye` (29 cards, quiz of 15), `thank` (27), `apology` (27), `exclamation` (31), `not_understanding` (32), `ask` (29), `offer_accept` (31), `polite_refusal` (26), `likes_dislikes` (27), `opinion` (32), `small_talk` (33).
 
 ---
 
@@ -91,6 +95,48 @@ const categories = [
 - **Audio follows reading order across all sections** (card 1 = `01.mp3`).
   Inserting a card anywhere but at the very end shifts every later clip; see
   Step 3.
+
+### The quiz (optional, "Test yourself")
+
+A page with a `quiz` array gets a "Test yourself" button above the cards that
+opens the quiz over them; `<topic>.html#quiz` opens it directly. Model a new
+one on `greet_goodbye.html`, and see the header of
+`assets/js/expression-quiz.js` for every field.
+
+1. Add the stylesheet after `pimsleur.css`:
+   `<link rel="stylesheet" href="../../assets/css/expression-quiz.css" />`
+2. Add `const quiz = [ … ];` after `categories`, in the same `<script>`.
+3. Scripts at the end of `<body>`, in this order (Alpine must be last):
+
+   ```html
+   <script src="../../assets/js/expression-flash.js"></script>
+   <script src="../../assets/js/expression-quiz.js"></script>
+   <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+   <script src="../../assets/js/alpine.min.js"></script>
+   ```
+
+Writing the questions:
+
+- Four types: `say` (scene → pick the phrase), `reply` (hear a line → pick
+  the answer), `build` (tap word tiles into order), `judge` (OK / not OK).
+  About 15 per topic, mixed.
+- Phrases are the cards' English, **exactly** as written (`"Good evening."`).
+  That gives the question the card's clip, Burmese and note, so a quiz needs no
+  new audio. Answers, `reply` prompts and `judge` phrases must be cards; a
+  wrong option can be any text (it just has no 🔊).
+- Every wrong option has a mistake tag: `time`, `moment`, `register`,
+  `literal`, `reply`, `words` (add others per page with `quizTags`). The
+  results group mistakes by tag. **If you can't name why an option is wrong,
+  it isn't a wrong option**: a near-acceptable answer (`Good, thanks.` without
+  `And you?`) makes the question unfair.
+- Notes default to the cards' notes. Write one when the card's note doesn't
+  explain the mistake in this scene.
+- Scene and cue lines: short parts joined by ` · `, each starting with an
+  emoji; the Burmese scene goes in `my`.
+- **No line of the quiz may start with `["`**: `make_audio.py` would count it
+  as a card. Write wrong options as `wrong: { "Hey!": ["register", "…"] }`.
+- Test it on the page: data mistakes (a phrase that isn't a card, an unknown
+  tag) are listed in red at the top of the quiz.
 
 ---
 
@@ -161,6 +207,14 @@ very end):
 { label: "🙇 Apology", href: "apology.html" },
 ```
 
+A topic with a typing quiz (`<topic>_quiz.html`) also gets `quiz:`, which adds
+a "✍️ Quiz" link under it. The quiz page loads the same menu, styled by
+`assets/css/nav-eng-expression.css` (it doesn't load `pimsleur.css`):
+
+```js
+{ label: "👋 Greetings & Goodbyes", href: "greet_goodbye.html", quiz: "greet_goodbye_quiz.html" },
+```
+
 **b) English map** (`english.html`): add a node to the `expressions` group, and
 a link from `expressions`.
 
@@ -189,7 +243,13 @@ python -I eng/expressions/build_single.py <topic>
 This writes `eng/expressions/single/<topic>.html`, about 2 MB. It embeds the
 audio from the local folder as recorded, inlines the CSS and JS, compiles
 Tailwind and embeds the fonts, including Noto Sans Myanmar for the Burmese. The
-menu is left out. Run it with no names to rebuild every page.
+menu is left out; the quiz, with Alpine, is included and uses the same embedded
+clips. Run it with no names to rebuild every page.
+
+Typing quizzes are built the same way (`build_single.py greet_goodbye_quiz`,
+about 2 MB), by the stories builder `eng/build_single.py` with the audio as
+recorded. Their stylesheet and script links must start with `/assets/…`: the
+builder only inlines site-absolute links.
 
 Rebuild the offline copy whenever the page or its audio changes, and after the
 upload, so it contains the final clips.
@@ -204,6 +264,7 @@ upload, so it contains the final clips.
 - [ ] Audio made; `<<< check` lines reviewed; clip count = card count
 - [ ] Audio uploaded with `--upload`; CDN check matches
 - [ ] Menu entry in `nav-eng-expression-flash.js`
+- [ ] Quiz (if any): stylesheet + scripts added, played through once, no red data problems
 - [ ] Node and link in `english.html`
 - [ ] Offline copy built
 - [ ] Committed and pushed (when the user asks)

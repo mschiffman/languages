@@ -1,0 +1,144 @@
+/* ---------------------------------------------------------------
+   The English expressions menu (assets/js/nav-eng-expression-flash.js)
+   for pages that don't load pimsleur.css: the typing quizzes
+   (eng/expressions/<topic>_quiz.html, light ytstory.css pages).
+   The sidebar is a copy of the pimsleur.css rules, so the menu looks the
+   same as on the card pages; the button is restyled for a light page.
+--------------------------------------------------------------- */
+
+/* ── Hamburger button (dark on the light quiz page) ── */
+#hamburger {
+  position: fixed;
+  top: 12px;
+  left: 14px;
+  z-index: 110;
+  background: var(--forest, #274b2f);
+  border: none;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#hamburger:hover {
+  background: var(--forest-soft, #3c6b45);
+}
+#hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+#hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+#hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+#hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* room for the button in the quiz header (the script adds has-lesson-nav) */
+.stage.has-lesson-nav > header {
+  padding-left: 4rem;
+}
+
+/* ── Overlay ── */
+#sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+#sidebar-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Sidebar (same as pimsleur.css) ── */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 270px;
+  background: linear-gradient(180deg, #0b1f4d 0%, #060f28 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 105;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#sidebar.open {
+  transform: translateX(0);
+}
+.sidebar-header {
+  padding: 18px 16px 14px 66px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+.sidebar-title {
+  font-family: "Fredoka", sans-serif;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.sidebar-subtitle {
+  font-family: "Andika", sans-serif;
+  color: rgba(0, 200, 255, 0.65);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.sidebar-scroll {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: auto;
+  min-width: 0;
+}
+.lessons-list {
+  display: none;
+  padding: 2px 0 8px;
+  white-space: nowrap;
+}
+.lessons-list.open {
+  display: block;
+}
+.lesson-link {
+  display: block;
+  padding: 7px 16px 7px 34px;
+  font-family: "Andika", sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    background 0.15s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.lesson-link:hover {
+  color: rgba(0, 200, 255, 0.9);
+  background: rgba(0, 200, 255, 0.06);
+}
+.lesson-link.active {
+  color: #00c8ff;
+  background: rgba(0, 200, 255, 0.1);
+  font-weight: 700;
+}

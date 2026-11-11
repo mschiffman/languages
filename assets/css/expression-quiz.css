@@ -1,0 +1,656 @@
+/* ---------------------------------------------------------------
+   Expression quiz (assets/js/expression-quiz.js), on top of
+   pimsleur.css (colours, .badge, .sound-btn). Plain CSS, no Tailwind,
+   so the offline build needs nothing extra. Everything is prefixed xq-.
+--------------------------------------------------------------- */
+[x-cloak] {
+  display: none !important;
+}
+
+html.xq-lock,
+html.xq-lock body {
+  overflow: hidden;
+}
+
+/* ---- "Test yourself" button on the card page ---- */
+.xq-launch {
+  text-align: center;
+}
+.xq-launch-top {
+  margin: -24px 0 40px;
+}
+.xq-launch-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--blue-accent), var(--cyan));
+  color: white;
+  font: 700 1.05rem/1.3 "Roboto", sans-serif;
+  text-decoration: none;
+  box-shadow:
+    0 0 24px rgba(0, 200, 255, 0.35),
+    0 6px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s;
+}
+.xq-launch-btn:hover {
+  transform: translateY(-2px);
+}
+.xq-launch-btn [lang="my"] {
+  font: 400 0.8rem/1.6 "Roboto", "Noto Sans Myanmar", sans-serif;
+  opacity: 0.9;
+}
+
+/* ---- the quiz screen ---- */
+.xq {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 200; /* above the menu button (110) */
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(0, 43, 123);
+  background-image:
+    radial-gradient(circle at 0 0, rgba(26, 110, 245, 0.28), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(0, 200, 255, 0.16), transparent 40%),
+    linear-gradient(rgba(26, 110, 245, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 110, 245, 0.07) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    40px 40px,
+    40px 40px;
+  color: white;
+  font-family: "Roboto", "Noto Sans Myanmar", sans-serif;
+  font-size: 17px;
+}
+.xq [lang="my"] {
+  font-family: "Roboto", "Noto Sans Myanmar", sans-serif;
+  line-height: 1.8;
+}
+.xq button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.xq button:disabled {
+  cursor: default;
+}
+
+.xq-top,
+.xq-inner,
+.xq-foot {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.xq-top {
+  padding: 12px 16px 6px;
+}
+.xq-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.xq-back {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+}
+.xq-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+.xq-count {
+  flex-shrink: 0;
+  font: 700 0.85rem "Space Mono", monospace;
+  color: var(--cyan);
+}
+.xq-dots {
+  display: flex;
+  gap: 4px;
+  margin-top: 10px;
+}
+.xq-dots i {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.16);
+  transition: background 0.2s;
+}
+.xq-dots i.now {
+  background: var(--cyan);
+}
+.xq-dots i.right {
+  background: #34d399;
+}
+.xq-dots i.wrong {
+  background: #f87171;
+}
+
+.xq-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+.xq-inner {
+  padding: 18px 16px 28px;
+}
+
+.xq-problems {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff1f1;
+  color: #9b1c1c;
+  font-size: 0.85rem;
+}
+
+/* ---- question: scene, prompt, the question line ---- */
+.xq-scene {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.xq-chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.95rem;
+}
+.xq-my {
+  margin-top: 10px;
+  color: var(--cyan);
+  font-size: 1.05rem;
+}
+
+.xq-bubble,
+.xq-phrase {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px 14px 14px;
+  border: 0;
+  border-radius: 20px;
+  background: white;
+  color: #111 !important;
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+  text-align: left;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+.xq-bubble {
+  margin-top: 14px;
+  border-bottom-left-radius: 4px;
+}
+.xq-spk {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e8f4ff, #cce8ff);
+  color: var(--blue-accent);
+}
+.xq-say {
+  margin-top: 16px;
+}
+.xq-say-lbl {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.xq-ask {
+  margin-top: 22px;
+  font: italic 700 1.9rem/1.15 "Playfair Display", serif;
+  text-shadow: 0 0 30px rgba(0, 200, 255, 0.45);
+}
+.xq-ask-my {
+  margin-top: 2px;
+  color: var(--cyan);
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+/* ---- say / reply options ---- */
+.xq-opts {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+.xq-opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 3px solid transparent;
+  background: rgba(255, 255, 255, 0.96);
+  color: #111;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    opacity 0.2s,
+    transform 0.1s;
+}
+.xq-opt:active {
+  transform: scale(0.99);
+}
+.xq-opt-text {
+  flex: 1;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: #111 !important;
+  font-size: 1.12rem !important;
+  font-weight: 500 !important;
+}
+.xq-mark {
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.xq-opt.sel {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(0, 200, 255, 0.25);
+}
+.xq-opt.right {
+  border-color: #22c55e;
+  background: #ecfdf3;
+}
+.xq-opt.right .xq-mark {
+  color: #16a34a;
+}
+.xq-opt.wrong {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+.xq-opt.wrong .xq-opt-text {
+  text-decoration: line-through;
+  color: #7f1d1d !important;
+}
+.xq-opt.wrong .xq-mark {
+  color: #dc2626;
+}
+.xq-opt.dim {
+  opacity: 0.55;
+}
+
+/* ---- judge ---- */
+.xq-judge {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.xq-jbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 14px 8px 10px;
+  border-radius: 16px;
+  border: 3px solid transparent;
+  background: rgba(255, 255, 255, 0.96);
+  color: #111 !important;
+  transition:
+    border-color 0.15s,
+    opacity 0.2s;
+}
+.xq-jicon {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+.xq-jtext {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.xq-jbtn small {
+  font-size: 0.8rem;
+  color: #4a76bb;
+}
+.xq-jbtn.sel {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(0, 200, 255, 0.25);
+}
+.xq-jbtn.right {
+  border-color: #22c55e;
+  background: #ecfdf3;
+}
+.xq-jbtn.wrong {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+.xq-jbtn.dim {
+  opacity: 0.55;
+}
+
+/* ---- build ---- */
+.xq-build {
+  margin-top: 16px;
+}
+.xq-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 66px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 2px dashed rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+}
+.xq-line.right {
+  border: 2px solid #34d399;
+  background: rgba(52, 211, 153, 0.12);
+}
+.xq-line.wrong {
+  border: 2px solid #f87171;
+  background: rgba(248, 113, 113, 0.12);
+}
+.xq-hint {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+}
+.xq-end {
+  margin-left: -6px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.xq-bank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.xq-tile {
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: white;
+  color: #111 !important;
+  font-size: 1.15rem !important;
+  font-weight: 500 !important;
+  box-shadow: 0 3px 0 #9ec5ff;
+  transition:
+    transform 0.1s,
+    opacity 0.15s;
+}
+.xq-tile:not(:disabled):active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #9ec5ff;
+}
+/* a used tile leaves an empty slot, so the others don't jump */
+.xq-tile.ghost {
+  background: rgba(255, 255, 255, 0.1);
+  color: transparent !important;
+  box-shadow: none;
+}
+
+/* ---- feedback ---- */
+.xq-fb {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border-left: 6px solid;
+  background: white;
+  color: #222;
+  animation: xq-in 0.25s ease both;
+}
+.xq-fb.ok {
+  border-color: #22c55e;
+}
+.xq-fb.ok b {
+  color: #15803d;
+}
+.xq-fb.no {
+  border-color: #ef4444;
+}
+.xq-fb.no b {
+  color: #b91c1c;
+}
+.xq-fb b {
+  font-size: 1.1rem;
+}
+.xq-fb-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.xq-fb-note {
+  margin-top: 6px;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #374151;
+  white-space: pre-line;
+}
+.lbl {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+@keyframes xq-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* a phrase you can tap to hear */
+.xq-chipbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1e3a8a !important;
+  font-size: 0.98rem !important;
+  font-weight: 500 !important;
+}
+.xq-chipbtn.ok {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+  color: #14532d !important;
+}
+.xq-chipbtn i {
+  font-style: normal;
+  color: #16a34a;
+}
+
+/* ---- results ---- */
+.xq-score {
+  text-align: center;
+  padding: 8px 0 18px;
+}
+.xq-grade {
+  font: italic 700 2rem "Playfair Display", serif;
+  text-shadow: 0 0 30px rgba(0, 200, 255, 0.5);
+}
+.xq-big {
+  margin-top: 4px;
+  font: 700 3.2rem/1.1 "Space Mono", monospace;
+}
+.xq-pct {
+  color: rgba(255, 255, 255, 0.75);
+}
+.xq-tally {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.xq-tally .t {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.xq-tally .ok {
+  background: rgba(52, 211, 153, 0.2);
+  color: #6ee7b7;
+}
+.xq-tally .no {
+  background: rgba(248, 113, 113, 0.2);
+  color: #fca5a5;
+}
+.xq-panel {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #222;
+}
+.xq-panel h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font: italic 700 1.25rem "Playfair Display", serif;
+  color: #0d3b7a;
+}
+.xq-panel p {
+  font-size: 0.95rem;
+  color: #374151;
+}
+.xq-n {
+  padding: 1px 9px;
+  border-radius: 999px;
+  font: 700 0.8rem "Roboto", sans-serif;
+}
+.xq-n.ok {
+  background: #dcfce7;
+  color: #166534;
+}
+.xq-n.no {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.xq-tips {
+  margin-top: 6px;
+  padding-left: 18px;
+  list-style: disc;
+}
+.xq-tips li {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+.xq-tip-ex {
+  display: block;
+  margin-top: 2px;
+  color: #1a6ef5;
+  font-weight: 500;
+}
+.xq-review li {
+  padding: 10px 0;
+  border-top: 1px solid #e5e7eb;
+}
+.xq-review li:first-child {
+  border-top: 0;
+}
+.xq-rv-q {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: #4b5563;
+  font-family: "Roboto", "Noto Sans Myanmar", sans-serif;
+  line-height: 1.7;
+}
+.xq-rv-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.xq-rv-row .lbl {
+  width: 64px;
+}
+.xq-rv-row s {
+  color: #b91c1c;
+}
+.xq-rights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---- footer ---- */
+.xq-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px calc(12px + env(safe-area-inset-bottom));
+}
+.xq-round {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 1.4rem;
+}
+.xq-round:disabled {
+  opacity: 0.35;
+}
+.xq-main {
+  flex: 1;
+  height: 52px;
+  border: 0;
+  border-radius: 26px;
+  background: linear-gradient(135deg, var(--blue-accent), var(--cyan));
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+  box-shadow: 0 0 24px rgba(0, 200, 255, 0.3);
+  transition: opacity 0.2s;
+}
+.xq-main:disabled {
+  opacity: 0.4;
+  box-shadow: none;
+}
+
+@media (min-width: 700px) {
+  .xq {
+    font-size: 18px;
+  }
+  .xq-ask {
+    font-size: 2.3rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xq * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

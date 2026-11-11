@@ -30,6 +30,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+    <link rel="stylesheet" href="../../assets/css/expression-quiz.css" />
   </head>
   <body class="min-h-screen bg-grid relative">
     <!-- Background decorative blobs -->
@@ -121,7 +122,7 @@
             font-family: &quot;Space Mono&quot;, monospace;
           "
         >
-          <span id="count">24</span> expressions · Greetings & Goodbyes
+          <span id="count">29</span> expressions · Greetings & Goodbyes
         </p>
       </div>
     </div>
@@ -131,6 +132,8 @@
    Media:
      audio : 01.mp3 … 29.mp3 in AUD_DIR (one per card, in reading order)
    categories -> cards: [English, Burmese, note, example EN, example MY]
+   quiz       -> the "Test yourself" questions (expression-quiz.js has the
+                 format); they reuse the cards' audio, no new clips
 --------------------------------------------------------------- */
       const AUD_DIR = "https://languages.rmlives.com/eng/expressions/greet_goodbye/";
       const AUD_EXT = "mp3?v=2611090647";
@@ -230,8 +233,156 @@
           ],
         },
       ];
+
+      /* Test yourself. Phrases must match a card exactly (that gives the clip).
+         Tags: time, moment, register, literal, reply, words. */
+      const quiz = [
+        {
+          type: "say",
+          scene: "👩‍🏫 Your teacher · ☀️ 9 am · You arrive at class.",
+          my: "မနက် ၉ နာရီ။ စာသင်ခန်းကို ရောက်လာပြီး ဆရာမကို နှုတ်ဆက်တယ်။",
+          answer: "Good morning.",
+          wrong: {
+            "What's up?": ["register", "Very casual: for friends, not for a teacher."],
+            "Good evening.": ["time", "Good evening is for after about 6 pm. Before 12 noon, say Good morning."],
+            "Good night.": ["moment", "Good night is a goodbye, at night or before bed. You are arriving."],
+          },
+        },
+        {
+          type: "judge",
+          scene: "🛒 2 pm · A customer walks into your shop.",
+          my: "နေ့လယ် ၂ နာရီ။ ဆိုင်ထဲကို ဈေးဝယ်သူတစ်ယောက် ဝင်လာတယ်။",
+          phrase: "Good afternoon.",
+          ok: true,
+          tag: "time",
+        },
+        {
+          type: "say",
+          scene: "🌙 8 pm · 🍽️ At a restaurant · You walk in.",
+          my: "ည ၈ နာရီ။ စားသောက်ဆိုင်ထဲ ဝင်လာတယ်။",
+          answer: "Good evening.",
+          wrong: {
+            "Good night.": "moment",
+            "Good afternoon.": ["time", "Good afternoon is from 12 noon until about 6 pm. At 8 pm, say Good evening."],
+            "Hey!": ["register", "Too casual for a waiter. Hey! is for close friends."],
+          },
+        },
+        {
+          type: "reply",
+          prompt: "Nice to meet you.",
+          answer: "Nice to meet you too.",
+          wrong: {
+            "Good to see you.": ["moment", "Good to see you is for people you already know. This is your first meeting."],
+            "Long time no see!": ["moment", "That's for an old friend you haven't seen for a long time. You have just met."],
+            "Good, thanks. And you?": ["reply", "That answers How are you?"],
+          },
+        },
+        {
+          type: "build",
+          answer: "How have you been?",
+          cue: "👫 A friend you haven't seen for months",
+          decoys: {
+            are: ["words", "For someone you haven't seen for a while: How have you been? (How are you been? is not English.)"],
+          },
+        },
+        {
+          type: "say",
+          scene: "👫 An old friend · 📅 You last met 3 years ago · You meet in the street.",
+          my: "လမ်းမှာ သူငယ်ချင်းဟောင်းတစ်ယောက်နဲ့ ဆုံတယ်။ မတွေ့တာ ၃ နှစ် ရှိပြီ။",
+          answer: "Long time no see!",
+          wrong: {
+            "Nice to meet you.": ["moment", "Only for the first time you meet someone. To an old friend, it sounds like you forgot them!"],
+            "Have a nice day.": ["moment", "That's a goodbye. You are just meeting."],
+          },
+        },
+        {
+          type: "judge",
+          scene: "🤝 You meet your friend's mother for the first time.",
+          my: "သူငယ်ချင်းရဲ့ အမေကို ပထမဆုံး တွေ့တယ်။",
+          phrase: "Nice to meet you.",
+          ok: true,
+          tag: "moment",
+        },
+        {
+          type: "reply",
+          prompt: "How are you?",
+          answer: "Good, thanks. And you?",
+          wrong: {
+            "Nice to meet you.": ["moment", "That's for meeting someone for the first time."],
+            "Not much. You?": ["reply", "Not much answers What's up? To How are you?, say Good, thanks. And you?"],
+          },
+        },
+        {
+          type: "say",
+          scene: "🏢 At work · ☕ Morning · You meet a coworker and want to ask how she is.",
+          my: "အလုပ်မှာ မနက်ပိုင်း လုပ်ဖော်ကိုင်ဖက်တစ်ယောက်နဲ့ တွေ့တယ်။ သူ နေကောင်းလား မေးချင်တယ်။",
+          answer: "How are you?",
+          wrong: {
+            "Have you eaten?": ["literal", "In Burmese, ထမင်းစားပြီးပြီလား is a greeting. In English, Have you eaten? is a real question about food. Say How are you?"],
+            "Where are you going?": ["literal", "In Burmese, ဘယ်သွားမလို့လဲ is a greeting. In English, it sounds nosy. Say How are you?"],
+          },
+        },
+        {
+          type: "build",
+          answer: "Have a nice day.",
+          cue: "🛍️ A customer is leaving your shop",
+          decoys: {
+            be: ["literal", "Burmese says ဖြစ်ပါစေ (may it be), but English says Have a nice day."],
+          },
+        },
+        {
+          type: "judge",
+          scene: "🏢 7 pm · You're leaving the office. You say goodbye to your boss.",
+          my: "ည ၇ နာရီ။ ရုံးက ပြန်တော့မယ်။ သူဌေးကို နှုတ်ဆက်တယ်။",
+          phrase: "Good evening.",
+          ok: false,
+          tag: "moment",
+          note: "Good evening is hello, when you arrive. When you leave in the evening, say Good night or Have a nice evening.",
+        },
+        {
+          type: "say",
+          scene: "🏠 At a friend's home · 👴 You met her father today, for the first time · You're leaving.",
+          my: "သူငယ်ချင်းအိမ်မှာ သူ့အဖေနဲ့ ဒီနေ့ ပထမဆုံး တွေ့ခဲ့တယ်။ အခု ပြန်တော့မယ်။",
+          answer: "It was nice meeting you.",
+          wrong: {
+            "Nice to meet you.": ["moment", "That's for the start, when you meet. At the end: It was nice meeting you."],
+            "Long time no see!": ["moment", "That's for old friends you haven't seen for a long time."],
+            "Talk to you later.": ["register", "For friends, at the end of a phone call or chat."],
+          },
+        },
+        {
+          type: "reply",
+          prompt: "How's it going?",
+          answer: "Not bad.",
+          wrong: {
+            "I'm going to the market.": ["literal", "How's it going? is not about where you are going. It means How are you? Answer: Not bad. or Good, thanks."],
+            "Nice to meet you too.": ["reply", "That answers Nice to meet you."],
+            "Goodbye.": ["moment", "That ends the conversation. How's it going? asks how you are."],
+          },
+        },
+        {
+          type: "build",
+          answer: "It was nice talking to you.",
+          cue: "👋 The end of a nice chat",
+          decoys: {
+            talk: ["words", "After It was nice, use the -ing form: It was nice talking to you."],
+          },
+        },
+        {
+          type: "judge",
+          scene: "👩‍🏫 You see your teacher in the street.",
+          my: "လမ်းမှာ ဆရာမကို တွေ့တယ်။",
+          phrase: "Hey!",
+          ok: false,
+          tag: "register",
+          note: "Hey! is for close friends. To a teacher, say Hello or Good morning.",
+        },
+      ];
     </script>
     <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/expression-quiz.js"></script>
     <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+    <!-- last: Alpine starts the quiz once everything above has run -->
+    <script src="../../assets/js/alpine.min.js"></script>
   </body>
 </html>

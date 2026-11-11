@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, interactive-widget=resizes-content"
+    />
+    <title>Greetings Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz.css" />
+    <link rel="stylesheet" href="/assets/css/nav-eng-expression.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <a class="brand" href="greet_goodbye.html" title="Back to the cards">
+          <span class="wave" aria-hidden="true">👋</span>
+          <span>Greetings</span>
+          <span class="tag" id="modeTag">Quiz</span>
+        </a>
+        <div class="counter" id="counter">1 / 29</div>
+      </header>
+
+      <div class="progress" id="progress" aria-hidden="true"></div>
+
+      <main class="quiz-body" id="quiz">
+        <div class="art say">
+          <span class="say-label">Say it in English</span>
+          <p id="sayMy" lang="my"></p>
+          <p id="sayHint" lang="my" hidden></p>
+        </div>
+        <form class="answer" id="answerForm" autocomplete="off">
+          <label for="answer" class="sr-only">Type it in English</label>
+          <input
+            id="answer"
+            type="text"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            enterkeyhint="go"
+            placeholder="Type it in English"
+          />
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+        </form>
+      </main>
+
+      <section class="results" id="results" aria-live="polite" hidden></section>
+
+      <footer>
+        <button class="nav" id="again" aria-label="Start again with all phrases">&#8635;</button>
+        <button class="nav" id="listen" aria-label="Listen to the answer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+            <path
+              d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button class="play-page" id="check">
+          <span id="checkLabel">Check</span>
+        </button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Burmese -> type the English. Every card of greet_goodbye.html:
+           frame : the card's Burmese (my), plus a context line (hint)
+                   where two cards share the same Burmese
+           audio : the cards' own clips, 01.mp3 … 29.mp3 in reading order
+                   (the 🔊 cue says the answer; no new clips)
+         Keep the numbers in step with greet_goodbye.html: inserting a card
+         there shifts every later clip.
+      --------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/greet_goodbye/";
+      const AUD_EXT = "mp3?v=2611090647";
+
+      const pages = [
+        /* Saying hello */
+        { my: "မင်္ဂလာပါ", sentences: [[["Hello.", 1]]] },
+        { my: "ဟိုင်း", sentences: [[["Hi!", 2]]] },
+        { my: "မင်္ဂလာနံနက်ခင်းပါ", sentences: [[["Good morning.", 3]]] },
+        { my: "မင်္ဂလာနေ့လယ်ခင်းပါ", sentences: [[["Good afternoon.", 4]]] },
+        { my: "မင်္ဂလာညနေခင်းပါ", sentences: [[["Good evening.", 5]]] },
+        { my: "ဟေး", sentences: [[["Hey!", 6]]] },
+        /* How are you? */
+        { my: "နေကောင်းလား", sentences: [[["How are you?", 7]]] },
+        { my: "နေကောင်းပါတယ်၊ ကျေးဇူးပါ။ ခင်ဗျား/ရှင်ရော", sentences: [[["Good, thanks. And you?", 8]]] },
+        { my: "ဘယ်လိုလဲ၊ အဆင်ပြေလား", sentences: [[["How's it going?", 9]]] },
+        { my: "ဘာထူးလဲ", sentences: [[["What's up?", 10]]] },
+        { my: "မဆိုးပါဘူး", sentences: [[["Not bad.", 11]]] },
+        { my: "သိပ်မကောင်းဘူး", sentences: [[["Not so good.", 12]]] },
+        /* Meeting people */
+        { my: "တွေ့ရတာ ဝမ်းသာပါတယ်", hint: "ပထမဆုံး တွေ့တွေ့ချင်း", sentences: [[["Nice to meet you.", 13]]] },
+        { my: "ကျွန်တော်/ကျွန်မလည်း တွေ့ရတာ ဝမ်းသာပါတယ်", sentences: [[["Nice to meet you too.", 14]]] },
+        { my: "ပြန်တွေ့ရတာ ဝမ်းသာပါတယ်", sentences: [[["Good to see you.", 15]]] },
+        { my: "မတွေ့တာ ကြာပြီနော်", sentences: [[["Long time no see!", 16]]] },
+        { my: "အခုတလော နေကောင်းရဲ့လား", sentences: [[["How have you been?", 17]]] },
+        /* Saying goodbye */
+        { my: "နှုတ်ဆက်ပါတယ်", sentences: [[["Goodbye.", 18]]] },
+        { my: "ဘိုင်ဘိုင်", sentences: [[["Bye!", 19]]] },
+        { my: "နောက်မှ တွေ့မယ်", sentences: [[["See you later.", 20]]] },
+        { my: "မနက်ဖြန် တွေ့မယ်", sentences: [[["See you tomorrow.", 21]]] },
+        { my: "ကောင်းသောနေ့လေး ဖြစ်ပါစေ", sentences: [[["Have a nice day.", 22]]] },
+        { my: "ဂရုစိုက်နော်", sentences: [[["Take care.", 23]]] },
+        { my: "ကောင်းသောညပါ", sentences: [[["Good night.", 24]]] },
+        /* Ending a conversation */
+        { my: "သွားရတော့မယ်", sentences: [[["I have to go.", 25]]] },
+        { my: "တွေ့ရတာ ဝမ်းသာပါတယ်", hint: "ပထမဆုံး တွေ့ပြီး ပြန်ခါနီး", sentences: [[["It was nice meeting you.", 26]]] },
+        { my: "စကားပြောရတာ ဝမ်းသာပါတယ်", sentences: [[["It was nice talking to you.", 27]]] },
+        { my: "နောက်မှ ပြောမယ်နော်", sentences: [[["Talk to you later.", 28]]] },
+        { my: "အောင် ကို ကျွန်တော့်/ကျွန်မ ကိုယ်စား နှုတ်ဆက်ပေးပါ", sentences: [[["Say hello to Aung for me.", 29]]] },
+      ];
+
+      /* Other forms marked correct (feedback shows the card's form).
+         Case, punctuation, spaces and apostrophes don't count:
+         "whats up", "goodnight" and "bye-bye" are already accepted. */
+      const ALSO = {
+        "Good, thanks. And you?": [
+          "Good, thanks. You?",
+          "Good, thank you. And you?",
+          "Fine, thanks. And you?",
+          "Fine, thank you. And you?",
+          "I'm good, thanks. And you?",
+          "I'm fine, thanks. And you?",
+          "I'm fine, thank you. And you?",
+        ],
+        "How's it going?": ["How is it going?"],
+        "What's up?": ["What's new?"],
+        "Bye!": ["Bye-bye!"],
+        "Not bad.": ["Not too bad."],
+        "Not so good.": ["Not very good.", "Not too good."],
+        "Nice to meet you.": ["Pleased to meet you."],
+        "Good to see you.": ["Good to see you again.", "Nice to see you.", "Nice to see you again.", "Great to see you."],
+        "How have you been?": ["How've you been?"],
+        "Have a nice day.": ["Have a good day."],
+        "I have to go.": ["I've got to go.", "I have got to go.", "I need to go."],
+        "It was nice meeting you.": ["Nice meeting you.", "It was nice to meet you.", "It was good meeting you."],
+        "It was nice talking to you.": ["Nice talking to you.", "It was nice talking with you.", "It was good talking to you."],
+        "Say hello to Aung for me.": ["Say hi to Aung for me.", "Please say hello to Aung for me."],
+      };
+
+      /* Near misses: the answer is still wrong, and this note is shown
+         with the correct answer. */
+      const HINTS = {
+        "Hello.": {
+          hi: "ဟိုင်း is Hi! မင်္ဂလာပါ is Hello.",
+          hey: "ဟေး is Hey! (very casual). မင်္ဂလာပါ is Hello.",
+        },
+        "Hi!": {
+          hello: "Hello is မင်္ဂလာပါ. ဟိုင်း is Hi!",
+          hey: "Hey! is ဟေး. ဟိုင်း is Hi!",
+        },
+        "Hey!": {
+          hi: "Hi! is ဟိုင်း. ဟေး is Hey!",
+          hello: "Hello is မင်္ဂလာပါ. ဟေး is Hey!",
+        },
+        "Good morning.": {
+          "good afternoon": "နေ့လယ်ခင်း is afternoon. နံနက်ခင်း is morning.",
+          "good evening": "ညနေခင်း is evening. နံနက်ခင်း is morning.",
+        },
+        "Good afternoon.": {
+          "good morning": "နံနက်ခင်း is morning. နေ့လယ်ခင်း is afternoon.",
+          "good evening": "ညနေခင်း is evening. နေ့လယ်ခင်း is afternoon.",
+        },
+        "Good evening.": {
+          "good night": "Good night is a goodbye. Good evening is hello, when you arrive after about 6 pm.",
+          "good afternoon": "နေ့လယ်ခင်း is afternoon. ညနေခင်း is evening.",
+        },
+        "Good night.": {
+          "good evening": "Good evening is hello, when you arrive. For goodbye at night, or before bed: Good night.",
+        },
+        "How are you?": {
+          "how have you been": "That's for someone you haven't seen for a while (အခုတလော). Every day: How are you?",
+          "are you well": "Correct, but rare. Everyday English: How are you?",
+          "have you eaten": "In English, Have you eaten? is a real question about food. As a greeting: How are you?",
+        },
+        "How have you been?": {
+          "how are you": "Close! အခုတလော (lately) means you haven't met for a while: How have you been?",
+        },
+        "How's it going?": {
+          "how are you": "Close! The casual one: How's it going?",
+          "what's up": "What's up? is ဘာထူးလဲ. ဘယ်လိုလဲ၊ အဆင်ပြေလား is How's it going?",
+        },
+        "What's up?": {
+          "how's it going": "How's it going? is ဘယ်လိုလဲ၊ အဆင်ပြေလား. ဘာထူးလဲ is What's up?",
+        },
+        "Good, thanks. And you?": {
+          "good thanks": "Always ask back: And you? Not asking back sounds cold.",
+          "fine thanks": "Always ask back: And you? Not asking back sounds cold.",
+          "fine thank you": "Always ask back: And you? Not asking back sounds cold.",
+          "good thank you": "Always ask back: And you? Not asking back sounds cold.",
+          "i'm good thanks": "Always ask back: And you? Not asking back sounds cold.",
+          "i'm fine thanks": "Always ask back: And you? Not asking back sounds cold.",
+          "i'm fine thank you": "Always ask back: And you? Not asking back sounds cold.",
+        },
+        "Not bad.": {
+          "not good": "Not good means bad! မဆိုးပါဘူး is Not bad, and it means good.",
+        },
+        "Not so good.": {
+          "not bad": "Not bad means good! သိပ်မကောင်းဘူး is Not so good.",
+          "not good": "Close! Softer: Not so good.",
+        },
+        "Nice to meet you.": {
+          "it was nice meeting you": "That's for the end, when you leave. When you first meet: Nice to meet you.",
+          "good to see you": "That's for people you already know. The first time: Nice to meet you.",
+        },
+        "Nice to meet you too.": {
+          "you too": "Correct when you speak, but say the whole answer here: Nice to meet you too.",
+        },
+        "Good to see you.": {
+          "nice to meet you": "Only for the first meeting. To someone you know, it sounds like you forgot them! Say Good to see you.",
+        },
+        "It was nice meeting you.": {
+          "nice to meet you": "That's for the start, when you meet. When you leave: It was nice meeting you.",
+        },
+        "Goodbye.": {
+          bye: "ဘိုင်ဘိုင် is Bye! နှုတ်ဆက်ပါတယ် is the full Goodbye.",
+        },
+        "Bye!": {
+          goodbye: "Goodbye is နှုတ်ဆက်ပါတယ်. ဘိုင်ဘိုင် is just Bye!",
+        },
+        "See you later.": {
+          "talk to you later": "ပြော is talk. တွေ့ is see: See you later.",
+          "see you tomorrow": "မနက်ဖြန် is tomorrow. နောက်မှ is later.",
+          "see you": "Correct when you speak, but say the whole phrase here: See you later.",
+        },
+        "See you tomorrow.": {
+          "see you later": "နောက်မှ is later. မနက်ဖြန် is tomorrow.",
+        },
+        "Talk to you later.": {
+          "see you later": "တွေ့ is see. ပြော is talk: Talk to you later.",
+        },
+        "Take care.": {
+          "be careful": "Be careful warns about a danger. As a warm goodbye: Take care.",
+        },
+        "I have to go.": {
+          "i must go": "Correct, but strong. Everyday English: I have to go.",
+        },
+      };
+    </script>
+    <script src="/assets/js/nav-eng-expression-flash.js"></script>
+    <script src="/assets/js/ytquiz.js"></script>
+  </body>
+</html>
