@@ -24,6 +24,7 @@
           title: "Hansel and Gretel and the Butterfly Forest",
           href: "butterfly.html",
         },
+        { title: "The Little Mushroom House", href: "mushroom_house.html" },
       ],
     },
   ];

@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Little Mushroom House</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M9.5 13h5l1 7.5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1z" fill="#F3E3C3" />
+            <path d="M2.5 13.5C3 7.5 7 3 12 3s9 4.5 9.5 10.5z" fill="#D9473A" />
+            <circle cx="8" cy="9.5" r="1.4" fill="#FFF4E0" />
+            <circle cx="13" cy="6.5" r="1.1" fill="#FFF4E0" />
+            <circle cx="16.5" cy="10.5" r="1.3" fill="#FFF4E0" />
+            <path d="M11 17.2a1 1 0 0 1 2 0V21h-2z" fill="#3D7CC9" />
+          </svg>
+          <span
+            >The <span class="lion">Little&nbsp;Mushroom</span>
+            <span class="mouse">House</span></span
+          >
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/mushroom_house/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 104.mp3 in AUD_DIR (one per phrase, in reading order)
+   To use a subfolder, set IMG_DIR / AUD_DIR below (e.g. "media/").
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/mushroom_house/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/mushroom_house/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..104 in order. */
+      const pages = [
+        {
+          img: 1,
+          tr: [
+            "မှိုအိမ်လေး",
+            "စိမ်းလန်းသော သစ်တောကြီး၏ အတွင်းပိုင်းတွင် မှိုအိမ်လေးတစ်လုံး ရှိပါသည်။",
+            "၎င်းတွင် အနီရောင် ခေါင်မိုးကြီး၊ အပြာရောင် တံခါးလေးနှင့် ကြယ်ပွင့်လေးများကဲ့သို့ လင်းလက်နေသော ပြတင်းပေါက်များ ရှိပါသည်။",
+            "မနက်တိုင်း ၎င်း၏ မီးခိုးခေါင်းတိုင်မှ မွှေးကြိုင်သော မီးခိုးငွေ့လေးများ ခွေလိမ်တက်လာပါသည်။",
+            "ဒါပေမဲ့ အထဲမှာ ဘယ်သူ နေလဲ။",
+            "ဘယ်သူမှ မသိကြဘူး!",
+          ],
+          sentences: [
+            [["The Little Mushroom House", 1]],
+            [
+              ["Deep in a green forest", 2],
+              ["stood a little mushroom house.", 3],
+            ],
+            [
+              ["It had a big red roof,", 4],
+              ["a tiny blue door,", 5],
+              ["and windows that glowed like stars.", 6],
+            ],
+            [
+              ["Every morning,", 7],
+              ["sweet smoke curled from its chimney.", 8],
+            ],
+            [["But who lived inside?", 9]],
+            [["Nobody knew!", 10]],
+          ],
+        },
+        {
+          img: 2,
+          tr: [
+            "တစ်နေ့ နေသာသော မနက်ခင်းတွင် ရိုဇီ ဆိုသော ယုန်မလေးတစ်ကောင်သည် သစ်တောထဲတွင် ခုန်ပေါက်သွားနေပါသည်။",
+            "ရုတ်တရက် သူမသည် အသံတစ်ခုကို ကြားလိုက်ရပါသည်။",
+            "ဒင်! ဒင်! ဒင်!",
+            "ရိုဇီသည် ရပ်ပြီး နားထောင်လိုက်ပါသည်။",
+            "“ဒီအသံက ဘယ်ကလာတာလဲ” ဟု သူမ တွေးမိပါသည်။",
+            "အသံသည် မှိုအိမ်လေးဆီမှ လာနေခြင်း ဖြစ်ပါသည်!",
+          ],
+          sentences: [
+            [
+              ["One sunny morning,", 11],
+              ["a young rabbit named Rosie", 12],
+              ["was hopping through the forest.", 13],
+            ],
+            [
+              ["Suddenly,", 14],
+              ["she heard a sound.", 15],
+            ],
+            [["Ding! Ding! Ding!", 16]],
+            [["Rosie stopped and listened.", 17]],
+            [
+              ['"Where is that sound coming from?"', 18],
+              ["she wondered.", 19],
+            ],
+            [["It was coming from the mushroom house!", 20]],
+          ],
+        },
+        {
+          img: 3,
+          tr: [
+            "ရိုဇီသည် ကျောက်ခဲ ခြေနင်းလမ်းလေးအတိုင်း လျှောက်တက်သွားပါသည်။",
+            "သူမသည် လှပသော ပန်းများကို ကြည့်လိုက်ပါသည်။",
+            "သူမသည် လင်းလက်နေသော ပြတင်းပေါက်များကို ကြည့်လိုက်ပါသည်။",
+            "ထို့နောက် သူမသည် အပြာရောင် တံခါးလေးကို ခေါက်လိုက်ပါသည်။",
+            "ဒေါက်! ဒေါက်! ဒေါက်!",
+            "“ဟယ်လို။ အိမ်ထဲမှာ ဘယ်သူ ရှိလဲ။”",
+            "မည်သူမျှ ပြန်မဖြေပါ။",
+            "သို့သော် တံခါးသည် ဖြည်းဖြည်းချင်း ပွင့်လာပါသည်။",
+          ],
+          sentences: [
+            [
+              ["Rosie walked up", 21],
+              ["the stepping-stone path.", 22],
+            ],
+            [["She looked at the beautiful flowers.", 23]],
+            [["She looked at the glowing windows.", 24]],
+            [
+              ["Then she knocked", 25],
+              ["on the tiny blue door.", 26],
+            ],
+            [["Knock! Knock! Knock!", 27]],
+            [
+              ['"Hello?"', 28],
+              ['"Is anybody home?"', 29],
+            ],
+            [["Nobody answered.", 30]],
+            [["But the door slowly opened.", 31]],
+          ],
+        },
+        {
+          img: 4,
+          tr: [
+            "အိမ်ထဲတွင် ခရမ်းရောင် ခါးစည်းအဝတ် (apron) ဝတ်ထားသော ကြွက်ကလေးတစ်ကောင် ရှိပါသည်။",
+            "“အို၊ မင်္ဂလာပါ!” ဟု ကြွက်လေးက ပြောပါသည်။ “ကျွန်မနာမည် မီမီပါ။ အထဲကို ကြွပါ!”",
+            "အိမ်လေးသည် နွေးထွေးပြီး သက်တောင့်သက်သာ ရှိပါသည်။",
+            "မီးဖိုချောင်လေးတစ်ခု၊ စားပွဲဝိုင်းတစ်လုံးနှင့် အရောင်စုံ ခွက်များ အပြည့်ရှိသော ဗီရိုတစ်လုံး ရှိပါသည်။",
+            "ပြီးတော့ တစ်ခုခုက အနံ့ အရမ်းမွှေးနေတယ်!",
+            "“ကိတ်မုန့် ဖုတ်နေတာလား” ဟု ရိုဇီက မေးပါသည်။",
+            "“အဲဒါ မဟုတ်ပါဘူး!” ဟု မီမီက ရယ်ပြီး ပြောပါသည်။",
+          ],
+          sentences: [
+            [
+              ["Inside the house was a tiny mouse", 32],
+              ["wearing a purple apron.", 33],
+            ],
+            [
+              ['"Oh, hello!"', 34],
+              ["said the mouse.", 35],
+              ['"I\'m Mimi."', 36],
+              ['"Please come in!"', 37],
+            ],
+            [["The little house was warm and cozy.", 38]],
+            [
+              ["There was a small kitchen,", 39],
+              ["a round table,", 40],
+              ["and a cupboard", 41],
+              ["full of colorful cups.", 42],
+            ],
+            [["And something smelled delicious!", 43]],
+            [
+              ['"Are you baking a cake?"', 44],
+              ["asked Rosie.", 45],
+            ],
+            [
+              ['"Not quite!"', 46],
+              ["laughed Mimi.", 47],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          tr: [
+            "မီမီသည် အပြာရောင် အိုးလေးထဲတွင် ပေါက်နေသော ရွှေရောင် ပန်းပွင့်လေးတစ်ပွင့်ကို ရိုဇီအား ပြပါသည်။",
+            "“ဒါက ကျွန်မရဲ့ မှော်ပန်းလေးပါ” ဟု သူမက ရှင်းပြပါသည်။",
+            "“မနက်တိုင်း သစ်တောထဲမှာ တစ်ယောက်ယောက် အကူအညီ လိုတဲ့အခါ ဒီပန်းလေးက ခေါင်းလောင်းလေးလို မြည်တယ်။”",
+            "ဒင်! ဒင်! ဒင်!",
+            "ပန်းလေးသည် ထပ်မံ မြည်လာပြန်ပါသည်!",
+            "“အို၊ ဒုက္ခပဲ!” ဟု မီမီက ပြောပါသည်။ “တစ်ယောက်ယောက်က ငါတို့ကို လိုအပ်နေတယ်!”",
+          ],
+          sentences: [
+            [
+              ["Mimi showed Rosie", 48],
+              ["a little golden flower", 49],
+              ["growing in a blue pot.", 50],
+            ],
+            [
+              ['"This is my magic flower,"', 51],
+              ["she explained.", 52],
+            ],
+            [
+              ['"Every morning,"', 53],
+              ['"it rings like a tiny bell"', 54],
+              ['"when someone in the forest"', 55],
+              ['"needs help."', 56],
+            ],
+            [["Ding! Ding! Ding!", 57]],
+            [["The flower began to ring again!", 58]],
+            [
+              ['"Oh dear!"', 59],
+              ["said Mimi.", 60],
+              ['"Someone needs us!"', 61],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          tr: [
+            "ရိုဇီနှင့် မီမီသည် အပြင်သို့ အလျင်အမြန် ထွက်သွားကြပါသည်။",
+            "သူတို့သည် မြည်နေသော အသံနောက်သို့ မြက်ပင်ရှည်များကြားမှ လိုက်သွားကြပါသည်။",
+            "သစ်ရွက်ကြီးတစ်ရွက်အောက်တွင် သူတို့သည် hedgehog (ဖြူကောင်) ပေါက်စလေးတစ်ကောင်ကို တွေ့ကြပါသည်။",
+            "သူသည် ငိုနေပါသည်။",
+            "“ကျွန်တော် အိမ်ပြန်လမ်း ရှာမတွေ့ဘူး” ဟု သူက ပြောပါသည်။",
+            "“မပူပါနဲ့” ဟု ရိုဇီက ပြောပါသည်။ “ငါတို့ ကူညီပေးမယ်!”",
+          ],
+          sentences: [
+            [["Rosie and Mimi hurried outside.", 62]],
+            [
+              ["They followed the ringing sound", 63],
+              ["through the tall grass.", 64],
+            ],
+            [
+              ["Under a big leaf,", 65],
+              ["they found a baby hedgehog.", 66],
+            ],
+            [["He was crying.", 67]],
+            [
+              ['"I can\'t find my way home,"', 68],
+              ["he said.", 69],
+            ],
+            [
+              ['"Don\'t worry,"', 70],
+              ["said Rosie.", 71],
+              ['"We\'ll help you!"', 72],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          tr: [
+            "မီမီသည် သူမ၏ မှော်ပန်းလေးကို မြှောက်ကိုင်လိုက်ပါသည်။",
+            "၎င်း၏ ပွင့်ချပ်များသည် လင်းလက်လာပါသည်။",
+            "ရွှေရောင် အလင်းစက်လေးများသည် လေထဲသို့ လွင့်မျောတက်သွားပါသည်။",
+            "“အလင်းတွေနောက်ကို လိုက်ကြ!” ဟု မီမီက အော်ပြောပါသည်။",
+            "သူငယ်ချင်း သုံးယောက်သည် သစ်ပင်အိုကြီးတစ်ပင်အောက်ရှိ နွေးထွေးသော အသိုက်လေးဆီ ရောက်သည်အထိ သစ်တောထဲတွင် လျှောက်သွားကြပါသည်။",
+            "“မေမေ!” ဟု ဖြူကောင်ပေါက်စလေးက အော်ခေါ်ပါသည်။",
+            "သူ့အမေသည် ပြေးထွက်လာပြီး သူ့ကို ဖက်လိုက်ပါသည်။",
+          ],
+          sentences: [
+            [["Mimi held up her magic flower.", 73]],
+            [["Its petals began to glow.", 74]],
+            [
+              ["Little golden lights", 75],
+              ["floated into the air.", 76],
+            ],
+            [
+              ['"Follow the lights!"', 77],
+              ["cried Mimi.", 78],
+            ],
+            [
+              ["The three friends walked through the forest", 79],
+              ["until they reached a cozy nest", 80],
+              ["beneath an old tree.", 81],
+            ],
+            [
+              ['"Mama!"', 82],
+              ["shouted the baby hedgehog.", 83],
+            ],
+            [
+              ["His mother ran out", 84],
+              ["and hugged him.", 85],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          tr: [
+            "ထိုညနေတွင် ရိုဇီနှင့် မီမီသည် မှိုအိမ်လေးသို့ ပြန်လာကြပါသည်။",
+            "ပြတင်းပေါက်များသည် အမှောင်ထဲတွင် နွေးနွေးထွေးထွေး လင်းလက်နေပါသည်။",
+            "မီမီက ချောကလက်ပူပူ ဖျော်ပေးပြီး ရိုဇီက ပျားရည် ဘီစကစ်အချို့ကို မျှဝေပေးပါသည်။",
+            "“ဘယ်လောက် အံ့သြစရာကောင်းတဲ့ အိမ်လေးလဲ!” ဟု ရိုဇီက ပြောပါသည်။",
+            "မီမီက ပြုံးလိုက်ပါသည်။",
+            "“ဒီအိမ်လေးကို ထူးခြားစေတာက အိမ်ကြောင့် မဟုတ်ဘူး” ဟု သူမက ပြောပါသည်။",
+            "“သူ့တံခါးကနေ ဝင်လာတဲ့ သူငယ်ချင်းတွေကြောင့်ပါ။”",
+            "ထိုနေ့မှစ၍ အပြာရောင် တံခါးလေးသည် သူငယ်ချင်း လိုအပ်သူ မည်သူ့အတွက်မဆို အမြဲ ပွင့်နေပါသည်။",
+          ],
+          sentences: [
+            [
+              ["That evening,", 86],
+              ["Rosie and Mimi returned", 87],
+              ["to the mushroom house.", 88],
+            ],
+            [
+              ["The windows glowed warmly", 89],
+              ["in the dark.", 90],
+            ],
+            [
+              ["Mimi made hot chocolate,", 91],
+              ["and Rosie shared", 92],
+              ["some honey biscuits.", 93],
+            ],
+            [
+              ['"What a wonderful little house!"', 94],
+              ["said Rosie.", 95],
+            ],
+            [["Mimi smiled.", 96]],
+            [
+              ['"It\'s not the house"', 97],
+              ['"that makes it special,"', 98],
+              ["she said.", 99],
+            ],
+            [
+              ['"It\'s the friends"', 100],
+              ['"who come through its door."', 101],
+            ],
+            [
+              ["And from that day on,", 102],
+              ["the tiny blue door was always open", 103],
+              ["to anyone who needed a friend.", 104],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-stories.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
