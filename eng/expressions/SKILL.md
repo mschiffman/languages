@@ -27,7 +27,7 @@ paths and menu are different.
 
 `<folder>` is the last part of the page's `AUD_DIR`, normally the topic name.
 
-Current pages: `greet_goodbye` (29 cards), `thank` (27), `apology` (27), `exclamation` (31), `not_understanding` (32), `ask` (29), `offer_accept` (31), `polite_refusal` (26), `likes_dislikes` (27), `opinion` (32).
+Current pages: `greet_goodbye` (29 cards), `thank` (27), `apology` (27), `exclamation` (31), `not_understanding` (32), `ask` (29), `offer_accept` (31), `polite_refusal` (26), `likes_dislikes` (27), `opinion` (32), `small_talk` (33).
 
 ---
 

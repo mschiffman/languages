@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Small Talk</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">SMALL TALK</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Small Talk
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          စကားစမြည် ပြောခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">33</span> expressions · Small Talk
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 33.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/small_talk/";
+      const AUD_EXT = "mp3?v=2611110945";
+
+const categories = [
+        {
+          en: "Starting a conversation",
+          my: "စကားစ ပြောခြင်း",
+          desc: "Easy first lines for neighbors, coworkers and people waiting next to you.",
+          cards: [
+            ["Nice day, isn't it?", "ဒီနေ့ ရာသီဥတု သာယာတယ်နော်။", "Isn't it? at the end works like နော်: it invites the other person to agree. Just answer: Yes, it is! or It really is!",
+              "— Nice day, isn't it? — It really is!", "— ရာသီဥတု သာယာတယ်နော်။ — ဟုတ်တယ်နော်။"],
+            ["How's your day going?", "ဒီနေ့ ဘယ်လိုလဲ။", "A friendly question for coworkers, or shop staff you know. Answer short: Pretty good, thanks. You?",
+              "— How's your day going? — Not bad! It's almost Friday.", "— ဒီနေ့ ဘယ်လိုလဲ။ — မဆိုးပါဘူး။ သောကြာနေ့ ရောက်တော့မှာပဲ။"],
+            ["Busy day?", "ဒီနေ့ အလုပ်များလား။", "Short and casual, at work or in a shop. Shows you notice the other person.",
+              "— Busy day? — Yes, it's been crazy!", "— ဒီနေ့ အလုပ်များလား။ — အင်း၊ အရမ်းများတာပဲ။"],
+            ["Have you been here before?", "ဒီကို အရင် ရောက်ဖူးလား။", "Good at a café, an event or any new place. Easy for the other person to answer.",
+              "Have you been here before? The noodles are great.", "ဒီကို အရင် ရောက်ဖူးလား။ ခေါက်ဆွဲက အရမ်းကောင်းတယ်။"],
+            ["Are you waiting for the bus too?", "မင်းလဲ ဘတ်စ်ကား စောင့်နေတာလား။", "A natural way to start talking to someone waiting next to you.",
+              "Are you waiting for the number 12 bus too? It's late again.", "၁၂ နံပါတ် ဘတ်စ်ကား စောင့်နေတာလား။ ထပ်နောက်ကျနေပြန်ပြီ။"],
+          ],
+        },
+        {
+          en: "The weather",
+          my: "ရာသီဥတု",
+          desc: "The safest small-talk topic in English. Everyone has something to say about the weather.",
+          cards: [
+            ["It's so hot today!", "ဒီနေ့ အရမ်း ပူတာပဲ။", "Easy to say, easy to agree with. Also: It's boiling!",
+              "It's so hot today! I need a cold drink.", "ဒီနေ့ အရမ်း ပူတာပဲ။ အအေး တစ်ခွက် သောက်ချင်တယ်။"],
+            ["It looks like rain.", "ကြည့်ရတာ မိုးရွာမယ့်ပုံပဲ။", "The sky is dark and rain is coming. Also: It's going to rain.",
+              "It looks like rain. Do you have an umbrella?", "မိုးရွာမယ့်ပုံပဲ။ ထီး ပါလား။"],
+            ["What a lovely day!", "ရာသီဥတု သာယာလိုက်တာ။", "A happy comment on sunny, pleasant weather. Lovely is very common in British English.",
+              "What a lovely day! Let's eat outside.", "ရာသီဥတု လှလိုက်တာ။ အပြင်မှာ ထိုင်စားကြရအောင်။"],
+            ["It's freezing!", "အရမ်း စိမ့်အေးတာပဲ။", "Very cold. People say it even when it's only a little cold.",
+              "It's freezing in this office! Can we turn the air conditioning off?", "ဒီရုံးခန်းထဲ အရမ်း အေးတာပဲ။ အဲယားကွန်း ပိတ်လို့ ရမလား။"],
+            ["Is it going to rain all week?", "တစ်ပတ်လုံး မိုးရွာမှာလား။", "Weather questions keep the conversation going. Also: What's the weather like tomorrow?",
+              "— Is it going to rain all week? — I hope not. My clothes won't dry!", "— တစ်ပတ်လုံး မိုးရွာမှာလား။ — မရွာပါစေနဲ့။ အဝတ်တွေ မခြောက်ဘူး။"],
+          ],
+        },
+        {
+          en: "Weekends and plans",
+          my: "ပိတ်ရက်နဲ့ အစီအစဉ်",
+          desc: "Monday and Friday questions, at work and with friends.",
+          cards: [
+            ["How was your weekend?", "ပိတ်ရက်က ဘယ်လိုလဲ။", "The Monday-morning question. Answer short, then ask back: Good, thanks. How was yours?",
+              "— How was your weekend? — Good, thanks. How was yours?", "— ပိတ်ရက်က ဘယ်လိုလဲ။ — ကောင်းပါတယ်၊ ကျေးဇူးပါ။ မင်းရော။"],
+            ["Did you do anything nice?", "ဘာပျော်စရာတွေ လုပ်ဖြစ်သေးလဲ။", "A follow-up question. A short answer is fine: one or two sentences.",
+              "— Did you do anything nice? — We went to the beach.", "— ဘာ ထူးထူးခြားခြား လုပ်ခဲ့လဲ။ — ကမ်းခြေ သွားခဲ့တယ်။"],
+            ["Any plans for the weekend?", "ပိတ်ရက် ဘာအစီအစဉ် ရှိလဲ။", "The Friday question. Short for Do you have any plans for the weekend?",
+              "— Any plans for the weekend? — I'm visiting my aunt.", "— ပိတ်ရက် ဘာအစီအစဉ် ရှိလဲ။ — အဒေါ့်ဆီ သွားလည်မယ်။"],
+            ["Ready for the weekend?", "ပိတ်ရက် မျှော်နေပြီလား။", "Another Friday question at work. It means: Are you happy the weekend is almost here? Answer: So ready! or Definitely!",
+              "— Ready for the weekend? — So ready! It's been a long week.", "— ပိတ်ရက် မျှော်နေပြီလား။ — အရမ်း မျှော်နေတာ။ ဒီတစ်ပတ် အရမ်း ပင်ပန်းတယ်။"],
+            ["Just relaxing at home.", "အိမ်မှာပဲ အနားယူနေမယ်။", "A perfect answer, even if your weekend is quiet. Also: Nothing much.",
+              "— What are you doing this weekend? — Just relaxing at home.", "— ဒီပိတ်ရက် ဘာလုပ်မလဲ။ — အိမ်မှာပဲ အနားယူနေမယ်။"],
+            ["Have a good weekend!", "ပိတ်ရက် ပျော်ပါစေ။", "The Friday goodbye. Answer: You too!",
+              "See you Monday. Have a good weekend!", "တနင်္လာနေ့ တွေ့မယ်။ ပိတ်ရက် ပျော်ပါစေ။"],
+          ],
+        },
+        {
+          en: "Food",
+          my: "အစားအသောက်",
+          desc: "Everyone eats, so food is easy to talk about.",
+          cards: [
+            ["This looks delicious!", "စားချင်စရာ ကောင်းလိုက်တာ။", "A compliment before you eat. Hosts and cooks love to hear it.",
+              "Wow, this looks delicious! Did you make it?", "ဝိုး၊ စားချင်စရာ ကောင်းလိုက်တာ။ ကိုယ်တိုင် ချက်တာလား။"],
+            ["Have you tried mohinga?", "မုန့်ဟင်းခါး စားကြည့်ဖူးလား။", "Good for talking about local food. Tried = eaten or drunk for the first time.",
+              "— Have you tried mohinga? — No, what's that? — It's a fish noodle soup. You'll love it!", "— မုန့်ဟင်းခါး စားကြည့်ဖူးလား။ — မစားဖူးဘူး၊ အဲဒါ ဘာလဲ။ — ငါးဟင်းရည်နဲ့ ခေါက်ဆွဲ။ ကြိုက်မှာ သေချာတယ်။"],
+            ["What's good here?", "ဒီမှာ ဘာကောင်းလဲ။", "Ask a friend or a waiter at a new restaurant.",
+              "It's my first time here. What's good?", "ဒီကို ပထမဆုံး ရောက်ဖူးတာ။ ဘာကောင်းလဲ။"],
+            ["Have you had lunch yet?", "နေ့လယ်စာ စားပြီးပြီလား။", "As a greeting, Have you eaten? sounds strange in English. But near lunchtime, this is a real, friendly question, often before an invitation.",
+              "Have you had lunch yet? Do you want to come with us?", "နေ့လယ်စာ စားပြီးပြီလား။ ငါတို့နဲ့ လိုက်မလား။"],
+            ["I'm starving!", "ဗိုက် အရမ်းဆာနေပြီ။", "Very hungry. Casual, and not meant literally.",
+              "I'm starving! Let's get something to eat.", "ဗိုက် အရမ်းဆာနေပြီ။ တစ်ခုခု သွားစားရအောင်။"],
+          ],
+        },
+        {
+          en: "Work and free time",
+          my: "အလုပ်နဲ့ အားလပ်ချိန်",
+          desc: "Easy questions about someone's job, hobbies, and what they're watching or reading.",
+          cards: [
+            ["How's work treating you?", "အလုပ်ကော အဆင်ပြေရဲ့လား။", "A friendly way to say How's work? Answer: Not bad, thanks. or Can't complain.",
+              "— How's work treating you? — Can't complain. Busy, but good.", "— အလုပ်ကော အဆင်ပြေရဲ့လား။ — အဆင်ပြေပါတယ်။ အလုပ်များပေမယ့် ကောင်းပါတယ်။"],
+            ["What do you do to unwind?", "အနားယူချင်ရင် ဘာလုပ်လဲ။", "Unwind = relax after work or a busy day. A warm way to ask about someone's hobbies.",
+              "— What do you do to unwind? — I go for a walk or cook something.", "— အနားယူချင်ရင် ဘာလုပ်လဲ။ — လမ်းလျှောက်တယ်၊ ဒါမှမဟုတ် တစ်ခုခု ချက်စားတယ်။"],
+            ["Picked up any new hobbies?", "ဝါသနာ အသစ် တစ်ခုခု စလုပ်ဖြစ်လား။", "Short for Have you picked up any new hobbies? Pick up a hobby = start a new hobby.",
+              "— Picked up any new hobbies? — Yes, I've started playing badminton.", "— ဝါသနာ အသစ် တစ်ခုခု စလုပ်ဖြစ်လား။ — အင်း၊ ကြက်တောင် စရိုက်နေတယ်။"],
+            ["Watching anything good?", "ရုပ်ရှင်ကောင်းကောင်း တစ်ခုခု ကြည့်နေလား။", "About TV shows and series. Casual questions often drop the first words: (Are you) watching anything good?",
+              "— Watching anything good? — Yes, a great Korean drama.", "— ကောင်းတာ တစ်ခုခု ကြည့်နေလား။ — အင်း၊ ကိုရီးယား ဇာတ်လမ်းတွဲ ကောင်းကောင်း တစ်ခု။"],
+            ["Read any good books lately?", "အခုတလော စာအုပ်ကောင်းကောင်း ဖတ်ဖြစ်လား။", "Short for Have you read...? Lately = recently. Change the noun: Seen any good movies lately?",
+              "— Read any good books lately? — Not really. I don't have time!", "— အခုတလော စာအုပ်ကောင်းကောင်း ဖတ်ဖြစ်လား။ — သိပ်မဖတ်ဖြစ်ဘူး။ အချိန် မရဘူး။"],
+          ],
+        },
+        {
+          en: "Keeping the conversation going",
+          my: "စကားဆက်ပြောခြင်း",
+          desc: "Small talk is like a ball game: catch it, then throw it back.",
+          cards: [
+            ["What about you?", "ခင်ဗျား/ရှင်ရော။", "Throws the question back. Without it, small talk stops. Also: How about you?",
+              "— I've lived here for three years. What about you? — Only six months.", "— ဒီမှာ သုံးနှစ် နေခဲ့ပြီ။ ခင်ဗျားရော။ — ခြောက်လပဲ ရှိသေးတယ်။"],
+            ["Oh, really?", "အော်၊ ဟုတ်လား။", "Shows interest and invites the person to tell you more. Let your voice go up.",
+              "— I used to be a nurse. — Oh, really? Where did you work?", "— အရင်က သူနာပြု လုပ်ခဲ့တယ်။ — အော်၊ ဟုတ်လား။ ဘယ်မှာ လုပ်ခဲ့လဲ။"],
+            ["That sounds fun!", "ပျော်စရာကြီး။", "A warm reaction to someone's plans or story. Also: That sounds great!",
+              "— We're going camping this weekend. — That sounds fun!", "— ဒီပိတ်ရက် စခန်းချ သွားမလို့။ — ပျော်စရာကြီး။"],
+            ["How long have you lived here?", "ဒီမှာ နေတာ ဘယ်လောက် ကြာပြီလဲ။", "A great follow-up question about someone's life. Also: How long have you worked here?",
+              "— How long have you lived here? — About five years.", "— ဒီမှာ နေတာ ဘယ်လောက် ကြာပြီလဲ။ — ငါးနှစ်လောက် ရှိပြီ။"],
+            ["Oh, nice!", "ကောင်းလိုက်တာ။", "A short, happy reaction that keeps things friendly. Also: Oh, cool!",
+              "— I just started a cooking class. — Oh, nice! What are you making?", "— ချက်ပြုတ်နည်း သင်တန်း အခုမှ စတက်တာ။ — ကောင်းလိုက်တာ။ ဘာချက်နေလဲ။"],
+          ],
+        },
+        {
+          en: "Careful: too personal",
+          my: "သတိ၊ ကိုယ်ရေးကိုယ်တာ လွန်တယ်",
+          desc: "Questions that are friendly in Myanmar can feel too personal in English, especially with people you've just met.",
+          cards: [
+            ["How old are you?", "အသက် ဘယ်လောက်လဲ။", "Normal in Burmese, where age tells you how to address someone. In English, adults rarely ask people they've just met. Wait until you're friends.",
+              "— How old are you? — Ha, that's a secret!", "— အသက် ဘယ်လောက်လဲ။ — ဟား၊ လျှို့ဝှက်ချက်ပါ။"],
+            ["That's a bit personal.", "အဲဒါက နည်းနည်း ကိုယ်ရေးကိုယ်တာ ကျတယ်။", "A polite way not to answer a personal question. Smile, then change the topic.",
+              "— How much did you pay for your house? — Oh, that's a bit personal! So, how's work?", "— အိမ်ကို ဘယ်လောက်နဲ့ ဝယ်ခဲ့လဲ။ — အော်၊ အဲဒါက နည်းနည်း ကိုယ်ရေးကိုယ်တာ ကျတယ်။ ဒါနဲ့ အလုပ်ကော ဘယ်လိုလဲ။"],
+          ],
+        },
+      ];
+
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

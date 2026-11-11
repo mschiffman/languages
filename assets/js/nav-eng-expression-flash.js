@@ -16,6 +16,7 @@
     { label: "🙅 Polite Refusal", href: "polite_refusal.html" },
     { label: "❤️ Likes & Dislikes", href: "likes_dislikes.html" },
     { label: "💬 Opinions", href: "opinion.html" },
+    { label: "☕ Small Talk", href: "small_talk.html" },
   ];
 
   // ── Insert hamburger, overlay and sidebar ──
