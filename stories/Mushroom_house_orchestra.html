@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Mushroom House Orchestra</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M12 13c1 3 1 6 -1 9.5" stroke="#3E8E41" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M12 12.5C9 12 6 10 6.5 7.2 7 4.8 10 4.6 12 7.4 14 4.6 17 4.8 17.5 7.2 18 10 15 12 12 12.5z" fill="#5DB85F" />
+            <path d="M12 12.5C10 14 7.2 16.8 4.8 15.2 2.8 13.8 4 11 7.2 11.2 9 11.3 11 12 12 12.5z" fill="#4CA64F" />
+            <path d="M12 12.5C14 14 16.8 16.8 19.2 15.2 21.2 13.8 20 11 16.8 11.2 15 11.3 13 12 12 12.5z" fill="#4CA64F" />
+            <circle cx="12" cy="12.3" r="1.3" fill="#F2A7C3" />
+          </svg>
+          <span>The <span class="lion">Mushroom&nbsp;House</span> <span class="mouse">Orchestra</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/orchestra/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 85.mp3 in AUD_DIR (one per phrase, in reading order)
+   Made from story.md by stories/new_story.py.
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/orchestra/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/orchestra/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..85 in order. */
+      const pages = [
+        {
+          img: 1,
+          tr: [
+            "မှိုအိမ်လေး၏ တေးဂီတအဖွဲ့",
+            "မိုးရွာနေသော နံနက်ခင်းတစ်ခုတွင် ရိုစီသည် မှိုအိမ်လေး၌ နေထိုင်သော မီမီထံ အလည်လာခဲ့ပါသည်။",
+            "မိုးစက်လေးများသည် အနီရောင်ခေါင်မိုးကြီးပေါ်သို့ တဖွဲဖွဲ ကျဆင်းနေပါသည်။",
+            '"ပလစ်၊ ပလော့! ပလစ်၊ ပလော့!"',
+            '"အသံလေးက နားထောင်လို့ ကောင်းလိုက်တာ!" ဟု ရိုစီက ပြောလိုက်သည်။',
+          ],
+          sentences: [
+            [["The Mushroom House Orchestra", 1]],
+            [
+              ["One rainy morning,", 2],
+              ["Rosie visited Mimi", 3],
+              ["at the little mushroom house.", 4],
+            ],
+            [
+              ["Rain tapped softly", 5],
+              ["on the big red roof.", 6],
+            ],
+            [['"Plip, plop! Plip, plop!"', 7]],
+            [
+              ['"What a lovely sound!"', 8],
+              ["said Rosie.", 9],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          tr: [
+            "မီမီသည် သူမ၏ နွေးထွေးသော မီးဖိုချောင်လေးထဲတွင် ပန်ကိတ်မုန့်များ ပြုလုပ်နေပါသည်။",
+            "သူမသည် သစ်သားဇွန်းဖြင့် အိုးလေးတစ်လုံးကို ခေါက်လိုက်ပါသည်။",
+            '"တင်၊ တင်၊ တင်!"',
+            "ရိုစီသည် ဇွန်းနှစ်ချောင်းကို ကောက်ယူပြီး တစ်ချောင်းနှင့်တစ်ချောင်း ခေါက်လိုက်ပါသည်။",
+            '"ခလက်၊ ခလက်၊ ခလက်!"',
+            "သူငယ်ချင်းနှစ်ယောက် ရယ်မောလိုက်ကြပါသည်။",
+          ],
+          sentences: [
+            [
+              ["Mimi was making pancakes", 10],
+              ["in her cozy kitchen.", 11],
+            ],
+            [
+              ["She tapped a wooden spoon", 12],
+              ["against a little pot.", 13],
+            ],
+            [['"Ting, ting, ting!"', 14]],
+            [
+              ["Rosie picked up two spoons", 15],
+              ["and tapped them together.", 16],
+            ],
+            [['"Clack, clack, clack!"', 17]],
+            [["The two friends laughed.", 18]],
+          ],
+        },
+        {
+          img: 3,
+          tr: [
+            '"တို့တွေ သီချင်းတီးကြရအောင်!" ဟု ရိုစီက အော်ပြောလိုက်သည်။',
+            "မီမီသည် ပဲခြောက်များကို ဖန်ပုလင်းလေးတစ်လုံးထဲသို့ ထည့်လိုက်ပါသည်။",
+            "သူမသည် ဖန်ပုလင်းလေးကို ညင်သာစွာ လှုပ်ခါလိုက်ပါသည်။",
+            '"ရှိတ်၊ ရှိတ်၊ ရှိတ်!"',
+            "ရိုစီသည် သစ်သားပန်းကန်လုံးတစ်လုံးကို ရှာတွေ့ပြီး စည်းချက်လိုက်၍ စတင်တီးခတ်ပါသည်။",
+            '"ဘုန်း၊ ဘုန်း၊ ဘုန်း!"',
+          ],
+          sentences: [
+            [
+              ['"Let\'s make some music!"', 19],
+              ["cried Rosie.", 20],
+            ],
+            [
+              ["Mimi filled a little jar", 21],
+              ["with dried beans.", 22],
+            ],
+            [["She shook it gently.", 23]],
+            [['"Shake, shake, shake!"', 24]],
+            [
+              ["Rosie found a wooden bowl", 25],
+              ["and began to drum.", 26],
+            ],
+            [['"Boom, boom, boom!"', 27]],
+          ],
+        },
+        {
+          img: 4,
+          tr: [
+            "ရုတ်တရက် တစ်စုံတစ်ယောက်က တံခါးကို ခေါက်လိုက်ပါသည်။",
+            "ထိုသူမှာ ပစ်ပ်ဟုခေါ်သော အညိုရောင်ရှဉ့်လေး ဖြစ်ပါသည်။",
+            '"မင်းတို့ တီးနေတဲ့ သီချင်းသံကို ငါကြားတယ်!" ဟု သူက ပြောလိုက်သည်။',
+            '"ငါလည်း ဝင်တီးလို့ ရမလား?"',
+            '"ရတာပေါ့!" ဟု မီမီက ပြောလိုက်သည်။',
+            "ပစ်ပ်သည် ဝက်သစ်ချသီးခွံနှစ်ခြမ်းကို ယူလာပြီး တစ်ခြမ်းနှင့်တစ်ခြမ်း ခေါက်လိုက်ပါသည်။",
+            '"ကလစ်ကတစ်ကလစ်! ကလစ်ကတစ်ကလစ်!"',
+          ],
+          sentences: [
+            [
+              ["Suddenly,", 28],
+              ["someone knocked on the door.", 29],
+            ],
+            [
+              ["It was Pip,", 30],
+              ["a tiny brown squirrel.", 31],
+            ],
+            [
+              ['"I heard your music!"', 32],
+              ["he said.", 33],
+            ],
+            [['"Can I join you?"', 34]],
+            [
+              ['"Of course!"', 35],
+              ["said Mimi.", 36],
+            ],
+            [
+              ["Pip brought two acorn shells", 37],
+              ["and clicked them together.", 38],
+            ],
+            [['"Clickety-click! Clickety-click!"', 39]],
+          ],
+        },
+        {
+          img: 5,
+          tr: [
+            "မကြာမီ ဖြူကောင်လေးတစ်ကောင်သည် တောက်ပသော ငွေရောင်ခေါင်းလောင်းလေးတစ်လုံးကို ယူဆောင်၍ ရောက်လာပါသည်။",
+            '"ဒင်ဂလင်! ဒင်ဂလင်!"',
+            "ထို့နောက် ပျော်ရွှင်နေသော ရော်ဘင်ငှက်လေးတစ်ကောင်သည် ဖွင့်ထားသော ပြတင်းပေါက်မှ ပျံဝင်လာပါသည်။",
+            '"တွိ၊ တွိ၊ တွိ!" ဟု ငှက်ကလေးက သီဆိုလိုက်သည်။',
+            '"တို့မှာ တေးဂီတအဖွဲ့ ရှိသွားပြီ!" ဟု ရိုစီက ဝမ်းသာအားရ အော်ပြောလိုက်သည်။',
+          ],
+          sentences: [
+            [
+              ["Soon,", 40],
+              ["a little hedgehog arrived", 41],
+              ["with a shiny silver bell.", 42],
+            ],
+            [['"Ding-a-ling! Ding-a-ling!"', 43]],
+            [
+              ["Then a cheerful robin", 44],
+              ["flew through the open window.", 45],
+            ],
+            [
+              ['"Tweet, tweet, tweet!"', 46],
+              ["sang the little bird.", 47],
+            ],
+            [
+              ['"We have an orchestra!"', 48],
+              ["shouted Rosie.", 49],
+            ],
+          ],
+        },
+        {
+          img: 6,
+          tr: [
+            "အားလုံးသည် တစ်ချိန်တည်းတွင် တီးမှုတ်သီဆိုကြပါသည်။",
+            '"ဘုန်း! ခလက်! ရှိတ်! ဒင်!"',
+            "တေးဂီတသံသည် အလွန်ကျယ်လောင်လွန်းသဖြင့် စင်ပေါ်ရှိ ခွက်များပင် တခွမ်းခွမ်း မြည်နေပါသည်။",
+            '"အလိုလေး!" ဟု မီမီက ရယ်မောရင်း ပြောလိုက်သည်။',
+            '"တို့အားလုံး ဆူညံအောင် တီးနေကြတာ၊ ဒါပေမဲ့ ဘယ်သူမှ နားမထောင်ကြဘူး!"',
+          ],
+          sentences: [
+            [
+              ["Everyone began playing", 50],
+              ["at the same time.", 51],
+            ],
+            [['"BOOM! CLACK! SHAKE! DING!"', 52]],
+            [
+              ["The music was so loud", 53],
+              ["that the cups rattled", 54],
+              ["on the shelves.", 55],
+            ],
+            [
+              ['"Oh dear!"', 56],
+              ["laughed Mimi.", 57],
+            ],
+            [
+              ['"We\'re all making noise,', 58],
+              ['but nobody is listening!"', 59],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          tr: [
+            "မီမီသည် သစ်သားဇွန်းလေးတစ်ချောင်းကို ကောက်ယူလိုက်ပါသည်။",
+            '"ငါ့ဇွန်းလေးကို ကြည့်ကြနော်" ဟု သူမက ပြောလိုက်သည်။',
+            "သူမသည် ဇွန်းလေးကို ဖြည်းဖြည်းချင်း ဝှေ့ယမ်းလိုက်ပါသည်။",
+            "အားလုံးသည် အသံတိုးတိုးဖြင့် တီးမှုတ်ကြပါသည်။",
+            "ထို့နောက် သူမက ဇွန်းလေးကို မြန်မြန်ဝှေ့ယမ်းလိုက်သောအခါ အားလုံးသည် ပိုမိုမြန်ဆန်စွာ တီးမှုတ်ကြပါသည်။",
+            '"အခုတော့ တကယ့်ဂီတကို တီးနိုင်ပြီ!" ဟု ရိုစီက ဝမ်းသာအားရ အော်ပြောလိုက်သည်။',
+          ],
+          sentences: [
+            [
+              ["Mimi picked up", 60],
+              ["a little wooden spoon.", 61],
+            ],
+            [
+              ['"Watch my spoon,"', 62],
+              ["she said.", 63],
+            ],
+            [["She waved it slowly.", 64]],
+            [["Everyone played softly.", 65]],
+            [
+              ["Then she waved it quickly,", 66],
+              ["and everyone played faster!", 67],
+            ],
+            [
+              ['"We\'re making real music!"', 68],
+              ["cried Rosie.", 69],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          tr: [
+            "နောက်ဆုံးတွင် မိုးတိတ်သွားပြီး နေရောင်ခြည်များ ပြန်လည်ထွက်ပေါ်လာပါသည်။",
+            "မီမီသည် အပြာရောင်တံခါးကို ဖွင့်လိုက်ပြီး သူငယ်ချင်းများသည် မိမိတို့၏ တူရိယာများကို အပြင်သို့ သယ်ဆောင်လာကြပါသည်။",
+            "တောထဲမှ တိရစ္ဆာန်လေးများသည် မှိုအိမ်လေးပတ်လည်တွင် စုဝေးလာကြပါသည်။",
+            "မီမီသည် သူမ၏ဇွန်းလေးကို ဝှေ့ယမ်းလိုက်သောအခါ တေးဂီတအဖွဲ့သည် စတင်တီးမှုတ်ကြပါသည်။",
+            "ငှက်ကလေးများ သီချင်းဆိုကြပြီး တိရစ္ဆာန်လေးများ ကခုန်ကြကာ အားလုံးသည် ပျော်ရွှင်စွာ လက်ခုပ်တီးကြပါသည်။",
+            '"အကောင်းဆုံးဂီတဆိုတာ အားလုံးအတူတူ ဖန်တီးကြတဲ့ ဂီတပဲ!" ဟု မီမီက ပြုံးရင်း ပြောလိုက်သည်။',
+          ],
+          sentences: [
+            [
+              ["At last,", 70],
+              ["the rain stopped,", 71],
+              ["and the sun came out.", 72],
+            ],
+            [
+              ["Mimi opened the blue door,", 73],
+              ["and the friends carried", 74],
+              ["their instruments outside.", 75],
+            ],
+            [
+              ["The forest animals gathered", 76],
+              ["around the mushroom house.", 77],
+            ],
+            [
+              ["Mimi waved her spoon,", 78],
+              ["and the orchestra began to play.", 79],
+            ],
+            [
+              ["The birds sang,", 80],
+              ["the animals danced,", 81],
+              ["and everyone clapped happily.", 82],
+            ],
+            [
+              ['"The best music,"', 83],
+              ["said Mimi with a smile,", 84],
+              ['"is music we make together!"', 85],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-stories.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

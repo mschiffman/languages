@@ -29,6 +29,7 @@
           title: "Rosie and the Little People of Clover Valley",
           href: "Clover_valley.html",
         },
+        { title: "The Mushroom House Orchestra", href: "Mushroom_house_orchestra.html" },
       ],
     },
   ];
