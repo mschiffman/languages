@@ -1,0 +1,48 @@
+Paste this into ChatGPT with the finished story. Save its answer as a .md file
+and run:  python -E stories/new_story.py <that file>
+
+----------------------------------------------------------------------------
+
+Write the story in exactly this format, as plain text in one code block.
+
+# <Story title>
+page: <file name for the web page, letters/digits/underscores, e.g. Clover_valley>
+slug: <short folder name for pictures and audio, e.g. Clover>
+menu: stories
+brand: <the title again, with the two words or phrases to colour in [square brackets]>
+
+## 1
+EN: <chunk>
+EN: <chunk>
+MY: <Burmese translation of the whole sentence>
+
+EN: <chunk>
+MY: <Burmese translation of the whole sentence>
+
+## 2
+...
+
+Rules:
+- One "## N" heading per picture, numbered 1, 2, 3 … with no gaps. The
+  picture files will be named 1.png, 2.png … in the same order.
+- Each sentence is one or more EN lines (chunks), then exactly ONE MY line
+  with the Burmese for the whole sentence. Put a blank line between sentences.
+  If one English line holds two short sentences ("Oh no! Its legs were
+  stuck!"), it gets one MY line.
+- For fairy tales and fables, the first sentence under "## 1" is the title
+  on its own. Science stories have no title sentence.
+- A fable's moral ends the last picture: "Moral:" is its own chunk.
+- Chunks are short phrases of about 2–6 words, split at natural pauses:
+  before "and"/"but", after a fronted phrase ("One day," / "At last,"),
+  between a quote and its speech tag ('"Go down,"' / "said the magician.").
+  Short sentences stay one chunk. Never more than about 12 words in a chunk.
+- Use straight quotes (" and ') in the English.
+- Burmese: written style ending in …ပါသည်။ for statements, spoken style for
+  exclamations (ဘယ်လောက် လှပတဲ့ အတွေးလဲ!). Where a sentence introduces a
+  science term, keep the English term with the Burmese in brackets the first
+  time, e.g. resin (သစ်စေး); after that, the Burmese alone.
+- New words at the end: one picture per word, with the heading
+  "## N | New Words", one EN line (the word) and one MY line each.
+- menu is "stories" for fairy tales and other stories, "aesop" for Aesop's
+  fables, "science" for science readers.
+- Nothing else: no notes, no picture prompts, no extra lines.

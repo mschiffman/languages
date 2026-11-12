@@ -11,6 +11,37 @@ text, split into short phrases ("chunks"). Tapping a chunk plays that chunk;
 
 ---
 
+## Quick way (since 2026-11-12)
+
+For a new English story with Burmese, two scripts do Steps 1, 4, 5 and 6:
+
+```
+python -E stories/new_story.py story.md        # page + menu entry from ChatGPT's story.md
+python -E stories/story_audio.py <page>        # audio (Step 3)
+python -E stories/check_audio.py <page>        # Whisper check, then listen
+python -E stories/publish_story.py <page>      # upload, checks, offline copy, Drive, commit, push, live check
+```
+
+- `story.md` is ChatGPT's output in the format of `stories/chatgpt_format.txt`
+  (paste that file into ChatGPT with the story): a header (`page`, `slug`,
+  `menu`, `brand`), `## N` per picture, then per sentence one `EN:` line per
+  chunk and one `MY:` line, sentences separated by blank lines.
+  `new_story.py --check` only checks it and lists problems with line numbers.
+- `new_story.py` copies the layout of the last story in the menu group
+  (or `template: <page>` from the header), fills in the title, header brand,
+  `IMG_DIR`/`AUD_DIR`, Burmese `tr` lines and `pages`, and adds the menu entry.
+  It needs the pictures in `img/ytstory/<slug>/` first (run
+  `all_downloads_to_ytstory.bat`), and refuses to replace a page without `--force`.
+- `publish_story.py` asks for a typed `yes` (`--dry-run` shows the plan,
+  `--no-push` stops before git). It never requests an audio URL before the upload,
+  commits only the page, its picture folder and the menu script, and checks the
+  live page at `https://languages-4ko.pages.dev` (a missing page there answers 200
+  with "Protected Page", so it compares the page content). Every step can be re-run.
+- Fixes after publishing (a Burmese typo, a re-take, a new picture) are made
+  as before; then run `publish_story.py <page>` again.
+
+---
+
 ## File locations
 
 | File | Path |
