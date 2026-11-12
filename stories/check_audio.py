@@ -43,3 +43,4 @@ for n, text in chunks:
     bad += not ok
     print(("   " if ok else "?? ") + f"{n:02d} {d:5.2f}s  {text}" + ("" if ok else f"   | heard: {heard}"))
 print(bad, "to look at")
+sys.exit(1 if bad else 0)  # story_audio.py holds back the upload when something is flagged

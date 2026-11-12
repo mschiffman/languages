@@ -5,8 +5,8 @@ usage (from the LANGUAGES root):
     python -E stories/publish_story.py <page> --dry-run    only the local checks and what would happen
     python -E stories/publish_story.py <page> --no-push    everything except commit/push/live check
 
-Run it after story_audio.py and check_audio.py, when you've listened to the
-story. Steps, in this order (the order matters: Cloudflare caches a 404 for
+Run it after story_audio.py (which also runs the Whisper check), when you've
+listened to anything it flagged. Steps, in this order (the order matters: Cloudflare caches a 404 for
 4 hours, so nothing requests an audio URL before it's uploaded):
 
   1. local checks: every clip in media/, every picture, the menu entry
@@ -128,7 +128,7 @@ def main():
         print("  then push" + (" (skipped: --no-push)" if a.no_push else ""))
     else:
         print("  git: nothing to commit for this story")
-    print("Did you run check_audio.py and listen to the doubtful clips?")
+    print("Did you listen to the clips Whisper flagged (??) when story_audio.py made them?")
 
     if a.dry_run:
         step("dry run: what the upload would send")

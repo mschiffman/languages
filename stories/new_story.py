@@ -39,7 +39,7 @@ story in that menu group).
 
 The page is a copy of the template with the title, header, folders, Burmese
 and pages filled in, and gets a menu entry. Audio comes next:
-story_audio.py, check_audio.py, then publish_story.py.
+story_audio.py (which runs the Whisper check), then publish_story.py.
 """
 import argparse, re, sys
 from pathlib import Path
@@ -309,8 +309,7 @@ def main():
         print(f"menu: added to {nav_path.name}, group {group[0]!r}")
 
     print("\nnext:")
-    print(f"  python -E stories/story_audio.py {f['page']}")
-    print(f"  python -E stories/check_audio.py {f['page']}")
+    print(f"  python -E stories/story_audio.py {f['page']}      (makes the audio and checks it with Whisper)")
     print(f"  python -E stories/publish_story.py {f['page']}")
     print("Don't open the page in a browser before publish_story.py has uploaded the audio.")
 

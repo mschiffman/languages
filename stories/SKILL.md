@@ -17,8 +17,7 @@ For a new English story with Burmese, two scripts do Steps 1, 4, 5 and 6:
 
 ```
 python -E stories/new_story.py story.md        # page + menu entry from ChatGPT's story.md
-python -E stories/story_audio.py <page>        # audio (Step 3)
-python -E stories/check_audio.py <page>        # Whisper check, then listen
+python -E stories/story_audio.py <page>        # audio + Whisper check of the new takes (Step 3); listen to any ??
 python -E stories/publish_story.py <page>      # upload, checks, offline copy, Drive, commit, push, live check
 ```
 
@@ -239,7 +238,11 @@ python -E stories/story_audio.py <page> --upload   # make missing clips, then up
   site-packages. Keys come from the User env vars `ELEVENLABS_API_KEY`,
   `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_ACCOUNT_ID`.
 
-**Check the takes** before uploading:
+**Check the takes** before uploading. Since 2026-11-12 `story_audio.py` does
+this by itself for every new take (`--no-check` skips it); if anything is
+flagged it holds back `--upload` and exits with an error. Once the flagged
+clips are re-taken or judged fine by ear, run `--upload` again (no new takes,
+so no check). To check clips by hand:
 
 ```
 python -E stories/check_audio.py <page>          # or <page> 12 30 for single clips
@@ -323,7 +326,9 @@ didn't work on the Android tablet. Audio is taken from `media/eng/yt/<slug>/`
 ## Step 6 — Copy to Google Drive
 
 Copy the new page and its offline copy to the Google Drive folder
-`G:\My Drive\_LANGUAGES`:
+`G:\My Drive\_LANGUAGES`. That folder is how the user shares files with
+anyone who has the link, so it must always hold the latest version
+(`publish_story.py` does this copy):
 
 | File | Copy to |
 |---|---|

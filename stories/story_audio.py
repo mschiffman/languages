@@ -14,6 +14,10 @@ ElevenLabs downloads are kept in media/elevenlabs-raw/<slug> so --renormalize
 redoes the leveling without spending credits. --upload sends new/changed files
 to the R2 bucket "languages" under <that path>/ (compared by MD5).
 
+New takes are checked with Whisper (check_audio.py) right after they're made
+(--no-check skips that). If any is flagged, --upload is held back and the
+script exits with an error: re-take or listen, then run --upload again.
+
 Voice, from the page's <html lang>: British Modern RP-Woman (en), Fr-Melissa (fr).
 Model eleven_v4. Output matches the older story clips: 48 kHz stereo 320 kbps,
 about -12 LUFS. Gender notes in brackets, "l'arbre (m)", aren't spoken.
@@ -40,6 +44,7 @@ ap.add_argument("--redo", type=int, nargs="+", default=[], metavar="N", help="ma
 ap.add_argument("--renormalize", action="store_true", help="redo the leveling from the raw files")
 ap.add_argument("--upload", action="store_true", help="upload new/changed clips to R2")
 ap.add_argument("--dry-run", action="store_true", help="with --upload: only report")
+ap.add_argument("--no-check", action="store_true", help="don't run check_audio.py (Whisper) on the new takes")
 a = ap.parse_args()
 
 
@@ -109,16 +114,30 @@ def make(n, text):
     if redo or not os.path.exists(rawf):
         # quotation marks and gender notes are for the reader; the voice doesn't need them
         tts(" ".join(re.sub(r"\([^)]*\)", "", text).replace('"', "").split()), rawf)
+        made.append(n)
     return f"{name}  {normalize(rawf, out):6.1f} LUFS  {text}"
 
 
+made = []  # clips with a new ElevenLabs take this run
 with ThreadPoolExecutor(4) as pool:
     for line in pool.map(lambda c: make(*c), chunks):
         if line:
-            print(line)
-print(f"{slug}: {len(chunks)} chunks in {media}")
+            print(line, flush=True)
+print(f"{slug}: {len(chunks)} chunks in {media}", flush=True)
 
-if a.upload:
+flagged = False
+if made and not a.no_check:
+    made.sort()
+    print(f"\nWhisper check of the {len(made)} new take(s):", flush=True)
+    flagged = subprocess.run([sys.executable, "-E", os.path.join(os.path.dirname(__file__), "check_audio.py"),
+                              a.page, *map(str, made)]).returncode != 0
+    if flagged:
+        print(f"\nRe-take what's really wrong (--redo N) or listen to it; "
+              f"once they're fine, run with --upload again (nothing new to check then).")
+        if a.upload:
+            print("Upload held back until then.")
+
+if a.upload and not flagged:
     import truststore
     truststore.inject_into_ssl()  # use the Windows certificate store
     import urllib3
@@ -142,3 +161,6 @@ if a.upload:
         with ThreadPoolExecutor(8) as pool:
             list(pool.map(put, todo))
         print(f"  uploaded {len(todo)}")
+
+if flagged:
+    sys.exit(1)

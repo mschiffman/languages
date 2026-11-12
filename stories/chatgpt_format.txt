@@ -3,7 +3,7 @@ and run:  python -E stories/new_story.py <that file>
 
 ----------------------------------------------------------------------------
 
-Write the story in exactly this format, as plain text in one code block.
+Write the story in exactly this format, as plain text in one code block. Chunks are natural breaks in sentences so that children can shadow the speaker.
 
 # <Story title>
 page: <file name for the web page, letters/digits/underscores, e.g. Clover_valley>
