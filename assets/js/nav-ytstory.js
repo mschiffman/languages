@@ -26,6 +26,7 @@
       name: "Level 2",
       lessons: [
         { title: "A Busy Morning", href: "2.1_busyMorning.html" },
+        { title: "A Busy Morning: Quiz", href: "2.1_busyMorning_quiz.html" },
         { title: "Where Are My Shoes?", href: "2.2_whereShoes.html" },
         { title: "I’m Hungry", href: "2.3_breakfast.html" },
         { title: "Let's get ready", href: "2.4_getReady.html" },

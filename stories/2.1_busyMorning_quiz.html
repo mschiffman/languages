@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, interactive-widget=resizes-content"
+    />
+    <title>A Busy Morning Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <a class="brand" href="2.1_busyMorning.html" title="Back to the story">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>A Busy Morning</span>
+          <span class="tag" id="modeTag">Quiz</span>
+        </a>
+        <div class="counter" id="counter">1 / 21</div>
+      </header>
+
+      <div class="progress" id="progress" aria-hidden="true"></div>
+
+      <main class="quiz-body" id="quiz">
+        <div class="art say">
+          <span class="say-label">Say it in English</span>
+          <p id="sayMy" lang="my"></p>
+          <p id="sayHint" lang="my" hidden></p>
+        </div>
+        <form class="answer" id="answerForm" autocomplete="off">
+          <label for="answer" class="sr-only">Type it in English</label>
+          <input
+            id="answer"
+            type="text"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            enterkeyhint="go"
+            placeholder="Type it in English"
+          />
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+        </form>
+      </main>
+
+      <section class="results" id="results" aria-live="polite" hidden></section>
+
+      <footer>
+        <button class="nav" id="again" aria-label="Start again with all phrases">&#8635;</button>
+        <button class="nav" id="listen" aria-label="Listen to the answer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+            <path
+              d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+        <button class="play-page" id="check">
+          <span id="checkLabel">Check</span>
+        </button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Burmese -> type the English. Every sentence of 2.1_busyMorning.html except "Ring! Ring!" (03):
+           frame : the sentence's Burmese (the story's page.tr line)
+           audio : the story's own clips, 01.mp3 … 22.mp3 in reading order
+                   (the 🔊 cue says the answer; no new clips)
+         Keep the numbers in step with 2.1_busyMorning.html: inserting a
+         sentence there shifts every later clip.
+      --------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/2.1_busyMorning/";
+      const AUD_EXT = "mp3?v=261112b";
+
+      const pages = [
+        /* page 1 */
+        { my: "အလုပ်ရှုပ်သော မနက်ခင်းတခု", sentences: [[["A Busy Morning", 1]]] },
+        { my: "မနက်ရောက်ပြီ။", sentences: [[["It is morning.", 2]]] },
+        { my: "မီယာရေ၊ အိပ်ရာထတော့။", sentences: [[["Wake up, Mia!", 4]]] },
+        /* page 2 */
+        { my: "မင်္ဂလာနံနက်ခင်းပါ။", sentences: [[["Good morning.", 5]]] },
+        { my: "အိပ်ချင်သေးတယ်။", sentences: [[["I’m sleepy.", 6]]] },
+        { my: "အိပ်ရာထတယ်။", sentences: [[["I get up.", 7]]] },
+        /* page 3 */
+        { my: "မျက်နှာသစ်တယ်။", sentences: [[["I wash my face.", 8]]] },
+        { my: "ဆံပင်ဖြီးတယ်။", sentences: [[["I brush my hair.", 9]]] },
+        { my: "အဝတ်အစားလဲတယ်။", sentences: [[["I get dressed.", 10]]] },
+        /* page 4 */
+        { my: "ငါ့ခြေအိတ်တွေ ဘယ်မှာလဲ။", sentences: [[["Where are my socks?", 11]]] },
+        { my: "ဒီမှာပဲ!", sentences: [[["Here they are!", 12]]] },
+        { my: "ကျေးဇူးပါ မေမေ။", sentences: [[["Thank you, Mom.", 13]]] },
+        /* page 5 */
+        { my: "ဗိုက်ဆာနေပြီ။", sentences: [[["I’m hungry.", 14]]] },
+        { my: "မနက်စာစားတယ်။", sentences: [[["I eat breakfast.", 15]]] },
+        { my: "စားလို့ကောင်းလိုက်တာ!", sentences: [[["Yum!", 16]]] },
+        /* page 6 */
+        { my: "မီယာရေ၊ မြန်မြန်လုပ်!", sentences: [[["Hurry up, Mia!", 17]]] },
+        { my: "အဆင်သင့်ဖြစ်ခါနီးပါပြီ။", sentences: [[["I’m almost ready.", 18]]] },
+        { my: "ဖိနပ်စီးတယ်။", sentences: [[["I put on my shoes.", 19]]] },
+        /* page 7 */
+        { my: "လွယ်အိတ်ယူထားပြီ။", sentences: [[["I have my bag.", 20]]] },
+        { my: "အဆင်သင့်ဖြစ်ပြီ။", sentences: [[["I’m ready.", 21]]] },
+        { my: "သွားကြစို့။", sentences: [[["Let’s go!", 22]]] },
+      ];
+
+      /* Other forms marked correct (feedback shows the story's form).
+         Case, punctuation, spaces and apostrophes don't count:
+         "im sleepy" is already accepted. */
+      const ALSO = {
+        "A Busy Morning": ["Busy morning"],
+        "It is morning.": ["It's morning."],
+        "I’m sleepy.": ["I am sleepy."],
+        "I get dressed.": ["I get changed."],
+        "Thank you, Mom.": ["Thanks, Mom.", "Thank you, Mum.", "Thanks, Mum.", "Thank you, Mommy."],
+        "I’m hungry.": ["I am hungry."],
+        "I eat breakfast.": ["I have breakfast.", "I eat my breakfast."],
+        "Yum!": ["Yummy!", "Yum yum!"],
+        "Hurry up, Mia!": ["Hurry, Mia!"],
+        "I’m almost ready.": ["I am almost ready.", "I'm nearly ready.", "I am nearly ready."],
+        "I put on my shoes.": ["I put my shoes on."],
+        "I have my bag.": ["I've got my bag.", "I have got my bag."],
+        "I’m ready.": ["I am ready."],
+        "Let’s go!": ["Let us go!"],
+      };
+
+      /* Near misses: the answer is still wrong, and this note is shown
+         with the correct answer. */
+      const HINTS = {
+        "Wake up, Mia!": {
+          "get up mia": "Close! Mom is calling her: Wake up, Mia!",
+        },
+        "I get up.": {
+          "i wake up": "Close! အိပ်ရာထ is getting out of bed: I get up.",
+        },
+        "I’m sleepy.": {
+          "i'm tired": "Tired is ပင်ပန်း. အိပ်ချင် is sleepy.",
+        },
+        "I brush my hair.": {
+          "i brush my teeth": "သွား is teeth. ဆံပင် is hair.",
+          "i wash my hair": "ဖြီး is brush. ဆံပင် is hair: I brush my hair.",
+        },
+        "I wash my face.": {
+          "i wash my hands": "လက် is hands. မျက်နှာ is face.",
+        },
+        "Where are my socks?": {
+          "where are my shoes": "ဖိနပ် is shoes. ခြေအိတ် is socks.",
+          "where is my socks": "Socks is plural: Where are my socks?",
+        },
+        "Thank you, Mom.": {
+          "thank you dad": "ဖေဖေ is Dad. မေမေ is Mom.",
+        },
+        "I’m hungry.": {
+          "i'm thirsty": "ရေဆာ is thirsty. ဗိုက်ဆာ is hungry.",
+        },
+        "I put on my shoes.": {
+          "i put on my socks": "ခြေအိတ် is socks. ဖိနပ် is shoes.",
+        },
+        "I’m almost ready.": {
+          "i'm ready": "ခါနီး is almost: I'm almost ready.",
+        },
+        "I’m ready.": {
+          "i'm almost ready": "No ခါနီး (almost) this time. She is ready: I'm ready.",
+        },
+      };
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/ytquiz.js"></script>
+  </body>
+</html>

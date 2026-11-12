@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/ytstory.css" />
@@ -81,12 +81,21 @@
       const IMG_DIR = "/img/ytstory/2.1_busyMorning/";
       const AUD_DIR = "https://languages.rmlives.com/eng/yt/2.1_busyMorning/";
       const IMG_EXT = "jpg";
-      const AUD_EXT = "mp3";
+      const AUD_EXT = "mp3?v=261112b";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
 
       /* pages -> sentences -> chunks. Audio numbers run 1..22 in order. */
       const pages = [
         {
           img: 1,
+          tr: [
+            "အလုပ်ရှုပ်သော မနက်ခင်းတခု",
+            "မနက်ရောက်ပြီ။",
+            "တီတီ! တီတီ!",
+            "မီယာရေ၊ အိပ်ရာထတော့။",
+          ],
           sentences: [
             [["A Busy Morning", 1]],
             [["It is morning.", 2]],
@@ -96,6 +105,11 @@
         },
         {
           img: 2,
+          tr: [
+            "မင်္ဂလာနံနက်ခင်းပါ။",
+            "အိပ်ချင်သေးတယ်။",
+            "အိပ်ရာထတယ်။",
+          ],
           sentences: [
             [["Good morning.", 5]],
             [["I’m sleepy.", 6]],
@@ -104,6 +118,11 @@
         },
         {
           img: 3,
+          tr: [
+            "မျက်နှာသစ်တယ်။",
+            "ဆံပင်ဖြီးတယ်။",
+            "အဝတ်အစားလဲတယ်။",
+          ],
           sentences: [
             [["I wash my face.", 8]],
             [["I brush my hair.", 9]],
@@ -112,6 +131,11 @@
         },
         {
           img: 4,
+          tr: [
+            "ငါ့ခြေအိတ်တွေ ဘယ်မှာလဲ။",
+            "ဒီမှာပဲ!",
+            "ကျေးဇူးပါ မေမေ။",
+          ],
           sentences: [
             [["Where are my socks?", 11]],
             [["Here they are!", 12]],
@@ -120,6 +144,11 @@
         },
         {
           img: 5,
+          tr: [
+            "ဗိုက်ဆာနေပြီ။",
+            "မနက်စာစားတယ်။",
+            "စားလို့ကောင်းလိုက်တာ!",
+          ],
           sentences: [
             [["I’m hungry.", 14]],
             [["I eat breakfast.", 15]],
@@ -128,6 +157,11 @@
         },
         {
           img: 6,
+          tr: [
+            "မီယာရေ၊ မြန်မြန်လုပ်!",
+            "အဆင်သင့်ဖြစ်ခါနီးပါပြီ။",
+            "ဖိနပ်စီးတယ်။",
+          ],
           sentences: [
             [["Hurry up, Mia!", 17]],
             [["I’m almost ready.", 18]],
@@ -136,6 +170,11 @@
         },
         {
           img: 7,
+          tr: [
+            "လွယ်အိတ်ယူထားပြီ။",
+            "အဆင်သင့်ဖြစ်ပြီ။",
+            "သွားကြစို့။",
+          ],
           sentences: [
             [["I have my bag.", 20]],
             [["I’m ready.", 21]],
