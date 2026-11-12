@@ -21,6 +21,14 @@ python -E stories/story_audio.py <page>        # audio + Whisper check of the ne
 python -E stories/publish_story.py <page>      # upload, checks, offline copy, Drive, commit, push, live check
 ```
 
+The same from a dashboard (since 2026-11-12): double-click `stories/story_app.bat`
+(or `python -E stories/story_app.py`), type `orchestra.md` (looked up in
+`Desktop\story-md`) or a page name. **Process** runs new_story.py, story_audio.py
+and `publish_story.py --dry-run`, one panel each; **Publish** runs
+`publish_story.py --yes`. It won't overwrite a page that was fixed by hand
+(shows the difference; "Replace" overwrites), and re-takes clips whose text
+changed since the last Process. Memory: `media/story_app_state.json`.
+
 - `story.md` is ChatGPT's output in the format of `stories/chatgpt_format.txt`
   (paste that file into ChatGPT with the story): a header (`page`, `slug`,
   `menu`, `brand`), `## N` per picture, then per sentence one `EN:` line per
