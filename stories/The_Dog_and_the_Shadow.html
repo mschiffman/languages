@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Dog and the Shadow</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>The <span class="lion">Dog</span> and the <span class="mouse">Shadow</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/dog_shadow/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 48.mp3 in AUD_DIR (one per phrase, in reading order)
+   Made from story.md by stories/new_story.py.
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/dog_shadow/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/dog_shadow/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..48 in order. */
+      const pages = [
+        {
+          img: 1,
+          tr: [
+            "ခွေးလေးနှင့် ရေထဲက အရိပ်",
+            "နေသာသော နံနက်ခင်းတစ်ခုတွင် ဗိုက်ဆာနေသော ခွေးတစ်ကောင်သည် အရိုးကြီးတစ်ချောင်းကို တွေ့ရှိခဲ့ပါသည်။",
+            '"စားစရာကောင်းကောင်းလေး ရပြီကွ!" ဟု သူ တွေးလိုက်သည်။',
+          ],
+          sentences: [
+            [["The Dog and the Shadow", 1]],
+            [
+              ["One sunny morning,", 2],
+              ["a hungry dog", 3],
+              ["found a big bone.", 4],
+            ],
+            [
+              ['"What a wonderful treat!"', 5],
+              ["he thought.", 6],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          tr: [
+            "ခွေးလေးသည် အရိုးကို ပါးစပ်ဖြင့် ကိုက်ချီပြီး ပျော်ရွှင်စွာ ပြေးသွားပါသည်။",
+            "သူသည် အရိုးကို အေးအေးဆေးဆေး စားရန် တိတ်ဆိတ်သောနေရာတစ်ခုကို ရှာချင်နေပါသည်။",
+          ],
+          sentences: [
+            [
+              ["The dog picked up the bone", 7],
+              ["in his mouth", 8],
+              ["and trotted happily away.", 9],
+            ],
+            [
+              ["He wanted to find", 10],
+              ["a quiet place", 11],
+              ["to enjoy his meal.", 12],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          tr: [
+            "မကြာမီ သူသည် ကြည်လင်သော ချောင်းတစ်ခုအပေါ်ရှိ သစ်သားတံတားလေးတစ်စင်းသို့ ရောက်လာပါသည်။",
+            "တံတားကို ဖြတ်ကူးနေစဉ် သူသည် အောက်ဘက်ရှိ ရေထဲသို့ ငုံ့ကြည့်လိုက်ပါသည်။",
+          ],
+          sentences: [
+            [
+              ["Soon,", 13],
+              ["he came to a wooden bridge", 14],
+              ["over a clear stream.", 15],
+            ],
+            [
+              ["As he crossed the bridge,", 16],
+              ["he looked down", 17],
+              ["into the water.", 18],
+            ],
+          ],
+        },
+        {
+          img: 4,
+          tr: [
+            "ရေထဲတွင် အခြားခွေးတစ်ကောင်ကို သူ တွေ့လိုက်ရပါသည်။",
+            "ထိုခွေး၏ ပါးစပ်ထဲတွင်လည်း အရိုးတစ်ချောင်း ရှိနေပါသည်။",
+            "သို့သော် ထိုအရာမှာ အခြားခွေးတစ်ကောင် မဟုတ်ဘဲ ရေထဲတွင် ထင်ဟပ်နေသော သူ့ကိုယ်သူ၏ ပုံရိပ်သာ ဖြစ်ပါသည်။",
+          ],
+          sentences: [
+            [
+              ["There, in the water,", 19],
+              ["he saw another dog!", 20],
+            ],
+            [
+              ["That dog had a bone", 21],
+              ["in his mouth, too.", 22],
+            ],
+            [
+              ["But it wasn't another dog.", 23],
+              ["It was his own reflection!", 24],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          tr: [
+            "ခွေးလေးကတော့ ထိုအချက်ကို မသိခဲ့ပါ။",
+            '"ဟိုအရိုးက ငါ့အရိုးထက် ပိုကြီးပုံရတယ်!" ဟု သူ တွေးလိုက်သည်။',
+            '"အဲဒီအရိုးကိုလည်း ငါ လိုချင်တယ်!"',
+          ],
+          sentences: [
+            [["The dog did not know that.", 25]],
+            [
+              ['"That bone looks bigger', 26],
+              ['than mine!"', 27],
+              ["he thought.", 28],
+            ],
+            [['"I want that bone, too!"', 29]],
+          ],
+        },
+        {
+          img: 6,
+          tr: [
+            "သူသည် အခြားခွေးကို ဟောင်ရန် ပါးစပ်ကို ဟလိုက်ပါသည်။",
+            '"ဝုတ်!"',
+            "ပလုံ! သူ့ပါးစပ်ထဲမှ အရိုးသည် ချောင်းထဲသို့ ပြုတ်ကျသွားပါသည်။",
+          ],
+          sentences: [
+            [
+              ["He opened his mouth", 30],
+              ["to bark at the other dog.", 31],
+            ],
+            [['"WOOF!"', 32]],
+            [
+              ["Plop!", 33],
+              ["His own bone fell", 34],
+              ["into the stream.", 35],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          tr: [
+            "အရိုးသည် ရေအောက်သို့ နစ်မြုပ်သွားသည်ကို ခွေးလေးက ဝမ်းနည်းစွာ ကြည့်နေပါသည်။",
+            "သူသည် အခြားခွေးကို လိုက်ရှာကြည့်သော်လည်း ထိုခွေးလည်း ပျောက်ကွယ်သွားခဲ့ပါသည်။",
+            "ယခုတော့ သူ့ထံတွင် အရိုးတစ်ချောင်းမှ မကျန်တော့ပါ။",
+          ],
+          sentences: [
+            [
+              ["The dog watched sadly", 36],
+              ["as the bone sank", 37],
+              ["beneath the water.", 38],
+            ],
+            [
+              ["He looked for the other dog,", 39],
+              ["but it had disappeared, too.", 40],
+            ],
+            [["Now he had no bone at all.", 41]],
+          ],
+        },
+        {
+          img: 8,
+          tr: [
+            "နောက်ဆုံးတွင် ခွေးလေးသည် မိမိ၏ မိုက်မဲသောအမှားကို နားလည်သွားပါသည်။",
+            "အခြားအရိုးတစ်ချောင်းကို လိုချင်စိတ်ကြောင့် မိမိပိုင်အရိုးကိုပင် ဆုံးရှုံးခဲ့ရပါသည်။",
+            "သင်ခန်းစာ",
+            "သင့်မှာ ရှိပြီးသားအရာကို ကျေနပ်တတ်ပါ။",
+          ],
+          sentences: [
+            [
+              ["At last,", 42],
+              ["the dog understood", 43],
+              ["his foolish mistake.", 44],
+            ],
+            [
+              ["He had lost his own bone", 45],
+              ["because he wanted another.", 46],
+            ],
+            [["Moral:", 47]],
+            [["Be happy with what you have.", 48]],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-aesop.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

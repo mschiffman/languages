@@ -19,6 +19,7 @@
         },
         { title: "The Ant and the Grasshopper", href: "ant_grasshopper.html" },
         { title: "The Bundle of Sticks", href: "bundle_sticks.html" },
+        { title: "The Dog and the Shadow", href: "The_Dog_and_the_Shadow.html" },
       ],
     },
   ];
