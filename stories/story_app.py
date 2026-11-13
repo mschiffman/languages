@@ -6,7 +6,9 @@ usage (from the LANGUAGES root), or double-click stories/story_app.bat:
 Opens http://127.0.0.1:8765. Type a story.md (a name in Desktop\\story-md, or
 a full path) or the name of an existing page, then:
 
-  Process   1. new_story.py: the page from story.md (skipped for a page name)
+  Process   0. all_downloads_to_ytstory.bat, in its own window (it asks questions),
+               when Downloads has numbered PNGs (1.png, 2.png …); skipped otherwise
+            1. new_story.py: the page from story.md (skipped for a page name)
             2. story_audio.py: makes missing clips, Whisper-checks the new takes
             3. publish_story.py --dry-run: pictures, menu, what would be uploaded
             Each step has its own panel; a step that fails stops the ones after it.
@@ -30,8 +32,10 @@ STORIES = ROOT / "stories"
 MD_DIR = ROOT.parent / "story-md"  # where the story.md files from ChatGPT are kept
 STATE = ROOT / "media" / "story_app_state.json"
 PORT = 8765
+DOWNLOADS = Path.home() / "Downloads"
+PICS_BAT = Path(r"C:\Users\mschi\OneDrive\Desktop\PYTHON AUTOMATIONS\_IMG\PNG to JPG\all_downloads_to_ytstory.bat")
 CHUNK = re.compile(r"""\[\s*(?:"((?:[^"\\]|\\.)*)"|'((?:[^'\\]|\\.)*)')\s*,\s*(\d+)\s*\]""")
-STEPS = ("page", "audio", "check", "publish")
+STEPS = ("pics", "page", "audio", "check", "publish")
 
 lock = threading.RLock()
 job = {"busy": False, "page": None, "aud": None, "ready": None, "conflict": False, "steps": {}}
@@ -96,12 +100,52 @@ def suggestions():
 
 # ---------------------------------------------------------------- Process
 
+def numbered_pngs():
+    return sorted((f.name for f in DOWNLOADS.glob("*.png") if re.fullmatch(r"\d+\.png", f.name, re.I)),
+                  key=lambda n: int(n[:-4]))
+
+
+def pictures(slug):
+    """0. Numbered PNGs in Downloads -> _YOUTUBE -> img/ytstory, with the .bat in its own window (it asks questions)."""
+    pngs = numbered_pngs()
+    if not pngs:
+        return finish("pics", "skipped", "No numbered PNGs (1.png, 2.png …) in Downloads.")
+    if not PICS_BAT.is_file():
+        return finish("pics", "error", f"Can't find {PICS_BAT}.")
+    ask = f"Answer the questions in the window that opened (ytstory name: {slug})." if slug else \
+        "Answer the questions in the window that opened."
+    with lock:
+        job["steps"]["pics"].update(status="running", note=ask)
+    log("pics", f"{len(pngs)} numbered PNG(s) in Downloads: {', '.join(pngs)}", f"Running {PICS_BAT.name} …")
+    rc = subprocess.Popen(["cmd", "/c", str(PICS_BAT)], cwd=PICS_BAT.parent,
+                          creationflags=subprocess.CREATE_NEW_CONSOLE).wait()
+    log("pics", f"The window closed (exit code {rc}).")
+    left = numbered_pngs()
+    note = []
+    if slug:
+        jpgs = [f for f in (ROOT / "img/ytstory" / slug).glob("*.jpg") if f.stem.isdigit()]
+        note.append(f"img/ytstory/{slug}/ has {len(jpgs)} picture(s).")
+    if left:
+        note.append(f"{len(left)} numbered PNG(s) still in Downloads.")
+    return finish("pics", "ok", " ".join(note) or "Done.")
+
+
 def process(story, replace):
     reset(STEPS)
     with lock:
         job.update(page=None, aud=None, ready=None, conflict=False)
     st = load_state()
     s = story.strip().strip('"')
+
+    # ---- 0. pictures from Downloads (step 1 checks that they're all there)
+    if s.lower().endswith(".md"):
+        md = find_md(s)
+        m = md and re.search(r"(?m)^\s*slug\s*:\s*([\w.-]+)", md.read_text(encoding="utf-8-sig"))
+    else:
+        pf = STORIES / f"{Path(s).name.removesuffix('.html')}.html"
+        m = pf.is_file() and re.search(r'const IMG_DIR = "/img/ytstory/([^"/]+)/', pf.read_text(encoding="utf-8"))
+    if not pictures(m.group(1) if m else None):
+        return
 
     # ---- 1. page from story.md
     if s.lower().endswith(".md"):
@@ -284,8 +328,9 @@ button.main:disabled{opacity:.35;cursor:default}
 #publish{background:var(--ok)}
 @media (prefers-color-scheme:dark){#publish{color:#0f1a12}}
 label.rep{font-size:13.5px;color:var(--err);display:flex;gap:6px;align-items:center}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
-@media (max-width:960px){.grid{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
 .card.ok{border-top-color:var(--ok)}.card.error{border-top-color:var(--err)}.card.running{border-top-color:var(--run)}
 .head{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -321,6 +366,7 @@ font:12px/1.5 Consolas,"Myanmar Text",monospace;white-space:pre-wrap;overflow-wr
   </div>
   <label class="rep" id="replabel" hidden><input type="checkbox" id="replace"> Replace the page with what story.md makes (loses the hand-made changes shown in step 1)</label>
   <div class="grid">
+    <section class="card" id="c-pics"></section>
     <section class="card" id="c-page"></section>
     <section class="card" id="c-audio"></section>
     <section class="card" id="c-check"></section>
@@ -329,7 +375,7 @@ font:12px/1.5 Consolas,"Myanmar Text",monospace;white-space:pre-wrap;overflow-wr
   <p class="foot">The ▶ buttons play your local clips, so listening never touches R2 before the upload. To stop the app, close its window.</p>
 </main>
 <script>
-const TITLES={page:"1 · Page from story.md",audio:"2 · Audio + Whisper check",check:"3 · Publish checks",publish:"Publish"};
+const TITLES={pics:"0 · Pictures from Downloads",page:"1 · Page from story.md",audio:"2 · Audio + Whisper check",check:"3 · Publish checks",publish:"Publish"};
 const LABEL={idle:"waiting",running:"running…",ok:"OK",error:"needs fixing",skipped:"skipped"};
 const KEY=/^STOPPED|problem\(s\)$|^\?\? |^warning:|Traceback|Error|refused|failed|^Put stories\//;
 const $=id=>document.getElementById(id);
