@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>The Apple That Asked a Question</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2.5C8 8 5 11.5 5 15a7 7 0 0 0 14 0c0-3.5-3-7-7-12.5z" fill="#E8A02C" />
+            <path d="M8.2 12.5c-.9 1.5-1.4 2.8-1.4 4a5 5 0 0 0 1.4 3.3" stroke="#F8D88A" stroke-width="1.2" stroke-linecap="round" />
+            <ellipse cx="12.5" cy="15.5" rx="1.3" ry="2.3" fill="#5A3A22" />
+            <path d="M12.5 13.5l-2.6-1.500M12.5 13.5l2.6-1.500M11.5 15.500l-2 .4M13.5 15.500l2 .4" stroke="#5A3A22" stroke-width="0.7" stroke-linecap="round" />
+          </svg>
+          <span>The <span class="lion">Apple</span> That Asked a <span class="mouse">Question</span></span>
+        </div>
+        <div class="counter" id="counter">1 / 8</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     images : /img/ytstory/Newton_apple/1.jpg … 8.jpg   (one per book page)
+     audio  : 01.mp3 … 89.mp3 in AUD_DIR (one per phrase, in reading order)
+   Made from story.md by stories/new_story.py.
+--------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/Newton_apple/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/Newton_apple/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..89 in order. */
+      const pages = [
+        {
+          img: 1,
+          tr: [
+            "ရှေးအခါက အင်္ဂလန်နိုင်ငံရှိ တိတ်ဆိတ်အေးချမ်းသော ရွာလေးတစ်ရွာတွင် အိုင်ဇက်နယူတန်ဟု အမည်ရသော စူးစမ်းလိုစိတ်ပြင်းပြသည့် လူငယ်တစ်ဦး နေထိုင်ခဲ့ပါသည်။",
+            "အိုင်ဇက်သည် သူ့ပတ်ဝန်းကျင်ရှိ ကမ္ဘာကြီးအကြောင်း မေးခွန်းများ မေးရသည်ကို အလွန်နှစ်သက်ပါသည်။",
+            "နေသာသော နေ့လယ်ခင်းတစ်ခုတွင် သူသည် အေးချမ်းသာယာသော ဥယျာဉ်ထဲရှိ ပန်းသီးပင်တစ်ပင်အောက်တွင် ထိုင်နေခဲ့ပါသည်။",
+          ],
+          sentences: [
+            [
+              ["Long ago,", 1],
+              ["in a quiet English village,", 2],
+              ["lived a curious young man", 3],
+              ["named Isaac Newton.", 4],
+            ],
+            [
+              ["Isaac loved asking questions", 5],
+              ["about the world around him.", 6],
+            ],
+            [
+              ["One sunny afternoon,", 7],
+              ["he sat beneath an apple tree,", 8],
+              ["enjoying the peaceful garden.", 9],
+            ],
+          ],
+        },
+        {
+          img: 2,
+          tr: [
+            "ရုတ်တရက် မှည့်နေသော ပန်းသီးအနီတစ်လုံးသည် သစ်ပင်ပေါ်မှ ပြုတ်ကျလာပါသည်။",
+            "ဘုတ်!",
+            "ပန်းသီးသည် အိုင်ဇက်၏ ဘေးနားရှိ မြက်ခင်းနုနုပေါ်သို့ ကျရောက်သွားပါသည်။",
+            "အိုင်ဇက်သည် ပန်းသီးကို ကြည့်ရင်း စဉ်းစားတွေးတောမိပါသည်။",
+          ],
+          sentences: [
+            [
+              ["Suddenly,", 10],
+              ["a ripe red apple", 11],
+              ["fell from the tree.", 12],
+            ],
+            [["THUMP!", 13]],
+            [
+              ["The apple landed", 14],
+              ["on the soft grass", 15],
+              ["beside Isaac.", 16],
+            ],
+            [
+              ["Isaac looked at the apple", 17],
+              ["and began to wonder.", 18],
+            ],
+          ],
+        },
+        {
+          img: 3,
+          tr: [
+            '"ပန်းသီးက ဘာလို့ အောက်ကို ပြုတ်ကျတာလဲ?" ဟု သူ တွေးမိသည်။',
+            '"ဘာလို့ ကောင်းကင်ပေါ်ကို ပျံမတက်တာလဲ?"',
+            "သူသည် ပန်းသီးကို ကောက်ယူပြီး အပေါ်သို့ မြှောက်ကိုင်လိုက်ပါသည်။",
+            "ထို့နောက် ပန်းသီးကို လွှတ်ချလိုက်ပါသည်။",
+            "ပန်းသီးသည် အောက်သို့ ထပ်မံပြုတ်ကျသွားပြန်သည်။",
+          ],
+          sentences: [
+            [
+              ['"Why did the apple', 19],
+              ['fall down?" he wondered.', 20],
+            ],
+            [
+              ['"Why didn\'t it', 21],
+              ['fly up into the sky?"', 22],
+            ],
+            [
+              ["He picked up the apple", 23],
+              ["and held it high.", 24],
+            ],
+            [["Then he let it go.", 25]],
+            [["Down it fell again!", 26]],
+          ],
+        },
+        {
+          img: 4,
+          tr: [
+            "အိုင်ဇက်သည် မမြင်နိုင်သော အားတစ်မျိုးအကြောင်း စတင်စဉ်းစားမိပါသည်။",
+            "ကမ္ဘာမြေကြီးက ပန်းသီးကို မိမိထံသို့ ဆွဲငင်နေခြင်း ဖြစ်နိုင်မလားဟု သူ တွေးမိပါသည်။",
+            "ယနေ့ခေတ်တွင် ဤဆွဲငင်အားကို gravity (ဒြပ်ဆွဲအား) ဟု ခေါ်ပါသည်။",
+            "ဒြပ်ဆွဲအားသည် အရာဝတ္ထုများကို ကမ္ဘာမြေကြီးဘက်သို့ ဆွဲငင်ပါသည်။",
+            "ထို့ကြောင့် ပန်းသီးများသည် လေထဲတွင် လွင့်မျောမသွားဘဲ မြေပြင်ပေါ်သို့ ပြုတ်ကျခြင်း ဖြစ်ပါသည်။",
+          ],
+          sentences: [
+            [
+              ["Isaac began thinking", 27],
+              ["about an invisible force.", 28],
+            ],
+            [
+              ["What if the Earth", 29],
+              ["was pulling the apple", 30],
+              ["toward itself?", 31],
+            ],
+            [
+              ["Today, we call", 32],
+              ["this force gravity.", 33],
+            ],
+            [
+              ["Gravity pulls objects", 34],
+              ["toward the Earth.", 35],
+            ],
+            [
+              ["That is why apples fall", 36],
+              ["instead of floating away!", 37],
+            ],
+          ],
+        },
+        {
+          img: 5,
+          tr: [
+            "ထိုနေ့ညနေတွင် အိုင်ဇက်သည် လှပသော လမင်းကြီးကို မော့ကြည့်လိုက်ပါသည်။",
+            "အံ့ဩဖွယ် မေးခွန်းတစ်ခု သူ့စိတ်ထဲတွင် ပေါ်လာပါသည်။",
+            '"ကမ္ဘာမြေကြီးက ပန်းသီးကို ဆွဲငင်နိုင်တယ်ဆိုရင် လကိုလည်း ဆွဲငင်နိုင်မလား?"',
+            "သို့သော် လမင်းကြီးသည် ကမ္ဘာမြေကြီးပေါ်သို့ ပြုတ်ကျမလာခဲ့ပါ။",
+            "ဘာကြောင့်ပါလိမ့်?",
+          ],
+          sentences: [
+            [
+              ["That evening,", 38],
+              ["Isaac looked up", 39],
+              ["at the beautiful Moon.", 40],
+            ],
+            [
+              ["A wonderful question", 41],
+              ["came into his mind.", 42],
+            ],
+            [
+              ['"If Earth pulls an apple,', 43],
+              ["could it also pull", 44],
+              ['the Moon?"', 45],
+            ],
+            [
+              ["But the Moon", 46],
+              ["did not crash", 47],
+              ["into the Earth.", 48],
+            ],
+            [["Why not?", 49]],
+          ],
+        },
+        {
+          img: 6,
+          tr: [
+            "အိုင်ဇက်တွင် ထူးခြားအံ့ဖွယ် စိတ်ကူးတစ်ခု ပေါ်လာပါသည်။",
+            "လသည် အာကာသထဲတွင် ဘေးတိုက်ရွေ့လျားနေပါသည်။",
+            "တစ်ချိန်တည်းမှာပင် ကမ္ဘာမြေ၏ ဒြပ်ဆွဲအားက လကို အတွင်းဘက်သို့ ဆွဲငင်နေပါသည်။",
+            "လသည် ကမ္ဘာမြေဘက်သို့ အဆက်မပြတ် ကျဆင်းနေသော်လည်း ကမ္ဘာမြေနှင့် မတိုက်မိဘဲ လွဲသွားနေပါသည်။",
+            "ထိုသို့ဖြင့် လသည် ကမ္ဘာမြေကို ပတ်လမ်းအတိုင်း လှည့်ပတ်နေခြင်း ဖြစ်ပါသည်။",
+          ],
+          sentences: [
+            [["Isaac had a remarkable idea.", 50]],
+            [
+              ["The Moon is moving", 51],
+              ["sideways through space.", 52],
+            ],
+            [
+              ["At the same time,", 53],
+              ["Earth's gravity", 54],
+              ["pulls it inward.", 55],
+            ],
+            [
+              ["The Moon keeps falling", 56],
+              ["toward the Earth,", 57],
+              ["but keeps missing it!", 58],
+            ],
+            [
+              ["That is how", 59],
+              ["the Moon stays", 60],
+              ["in orbit around Earth.", 61],
+            ],
+          ],
+        },
+        {
+          img: 7,
+          tr: [
+            "အိုင်ဇက်သည် နှစ်ပေါင်းများစွာ လေ့လာစူးစမ်းခြင်းနှင့် သင်္ချာတွက်ချက်ခြင်းများ ပြုလုပ်ခဲ့ပါသည်။",
+            "ဂြိုဟ်များနှင့် ၎င်းတို့၏ လများ ရွေ့လျားပုံကိုလည်း တူညီသော ဒြပ်ဆွဲအားဖြင့် ရှင်းပြနိုင်ကြောင်း သူ ရှာဖွေတွေ့ရှိခဲ့ပါသည်။",
+            "သူသည် universal gravitation (စကြဝဠာလုံးဆိုင်ရာ ဒြပ်ဆွဲအားနိယာမ) ဟုခေါ်သော သင်္ချာနိယာမတစ်ခုကို ဖော်ထုတ်ခဲ့ပါသည်။",
+            "ထိုနိယာမသည် အရာဝတ္ထုများ အချင်းချင်း ဆွဲငင်ပုံကို သိပ္ပံပညာရှင်များ နားလည်စေရန် အထောက်အကူပြုခဲ့ပါသည်။",
+          ],
+          sentences: [
+            [
+              ["Isaac spent many years", 62],
+              ["studying and calculating.", 63],
+            ],
+            [
+              ["He discovered that", 64],
+              ["the same force", 65],
+              ["helps explain", 66],
+              ["the movements of planets", 67],
+              ["and their moons.", 68],
+            ],
+            [
+              ["He developed a mathematical law", 69],
+              ["called universal gravitation.", 70],
+            ],
+            [
+              ["It helped scientists understand", 71],
+              ["how objects attract", 72],
+              ["one another.", 73],
+            ],
+          ],
+        },
+        {
+          img: 8,
+          tr: [
+            "အရာအားလုံးသည် ပြုတ်ကျလာသော ပန်းသီးတစ်လုံးအကြောင်း ရိုးရှင်းသည့် မေးခွန်းတစ်ခုမှ စတင်ခဲ့ပါသည်။",
+            "အိုင်ဇက်နယူတန် မတိုင်မီကပင် သန်းပေါင်းများစွာသော လူများသည် ပန်းသီးများ ပြုတ်ကျသည်ကို မြင်ဖူးခဲ့ကြပါသည်။",
+            "သို့သော် အိုင်ဇက်ကတော့ ပန်းသီးများ ဘာကြောင့် ပြုတ်ကျသည်ကို သိချင်ခဲ့ပါသည်။",
+            "တစ်ခါတစ်ရံ အကြီးမားဆုံးသော ရှာဖွေတွေ့ရှိမှုများသည် အသေးငယ်ဆုံးသော မေးခွန်းလေးများမှ စတင်တတ်ပါသည်။",
+            'ထို့ကြောင့် ဆက်လက်ကြည့်ရှုလေ့လာပါ၊ ဆက်လက်စူးစမ်းပါ၊ "ဘာကြောင့်လဲ?" ဟူသော မေးခွန်းကို မေးမြန်းခြင်းအား ဘယ်တော့မှ မရပ်တန့်ပါနှင့်။',
+          ],
+          sentences: [
+            [
+              ["It all began", 74],
+              ["with a simple question", 75],
+              ["about a falling apple.", 76],
+            ],
+            [
+              ["Millions of people", 77],
+              ["had seen apples fall", 78],
+              ["before Isaac Newton.", 79],
+            ],
+            [
+              ["But Isaac wanted to know", 80],
+              ["why they fell.", 81],
+            ],
+            [
+              ["Sometimes,", 82],
+              ["the biggest discoveries", 83],
+              ["begin with", 84],
+              ["the smallest questions.", 85],
+            ],
+            [
+              ["So keep looking,", 86],
+              ["keep wondering,", 87],
+              ["and never stop asking,", 88],
+              ['"Why?"', 89],
+            ],
+          ],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-science.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>
