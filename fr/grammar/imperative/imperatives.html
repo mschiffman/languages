@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Imperatives in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-teal-800 via-teal-900 to-slate-900 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-teal-300 mb-4"
+        >
+          French grammar · Imperatives
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">Attends, regarde !</span>
+        </h1>
+        <p class="text-lg md:text-xl text-teal-100 max-w-2xl mx-auto leading-relaxed">
+          The imperative is the verb with no subject:
+          <i lang="fr">Écoute</i>, <i lang="fr">Allons-y</i>,
+          <i lang="fr">Entrez</i>. French uses it for orders, but even more
+          for small everyday nudges: <i lang="fr">Tiens</i> (here you go),
+          <i lang="fr">Allez</i> (come on), <i lang="fr">T'inquiète</i> (don't
+          worry). Here is how to form it, where the pronouns go, and how to
+          keep it polite.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The chart (filled by the script from FORMS below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-teal-900 mb-2">
+          First, the chart: three forms, no subject
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          Take the present-tense <i lang="fr">tu</i>, <i lang="fr">nous</i>
+          and <i lang="fr">vous</i> forms and drop the pronoun. Two changes:
+          <i lang="fr">-er</i> verbs (and <i lang="fr">aller</i>) lose the
+          <i lang="fr">-s</i> of the <i lang="fr">tu</i> form, and four verbs
+          borrow their forms from the subjunctive.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold align-bottom">Verb</th>
+                <th scope="col" class="bg-teal-600 text-white px-3 py-2 font-semibold align-bottom">tu<span class="block text-xs font-normal opacity-90">one person you know</span></th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold align-bottom">nous<span class="block text-xs font-normal opacity-90">let's</span></th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 font-semibold align-bottom">vous<span class="block text-xs font-normal opacity-90">polite, or several people</span></th>
+                <th scope="col" class="bg-rose-600 text-white px-3 py-2 rounded-tr-xl font-semibold align-bottom">Don't (tu)<span class="block text-xs font-normal opacity-90">written · spoken</span></th>
+              </tr>
+            </thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the chart sideways to see every column.</p>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-teal-800">No -s for -er.</b> It's
+            <i lang="fr">Parle !</i>, <i lang="fr">Mange !</i>,
+            <i lang="fr">Va !</i>, but the <i lang="fr">-s</i> comes back
+            before <i lang="fr">y</i> and <i lang="fr">en</i>:
+            <i lang="fr">Vas-y !</i>
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-teal-800">Pronouns after, with hyphens.</b>
+            <i lang="fr">Dis-moi</i>, <i lang="fr">Lève-toi</i>,
+            <i lang="fr">Donne-le-moi</i>. In a negative they go back in
+            front: <i lang="fr">Ne me dis pas</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-teal-800">Soften it.</b> Add
+            <i lang="fr">s'il te plaît</i>, or turn it into a question:
+            <i lang="fr">Tu peux fermer la porte ?</i> A bare imperative to a
+            stranger can sound rude.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-teal-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Almost the same command, not the same meaning
+        </h2>
+        <p class="text-teal-100 leading-relaxed mb-6 max-w-3xl">
+          One small word added, a pronoun or a <i lang="fr">-y</i>, and the
+          command says something else.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-teal-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-teal-600 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most are about the pronouns: which form, which side of the
+              verb, and in what order. The crossed-out line is the slip; the
+              line under it is what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../verb/verbs.html" class="font-semibold text-teal-700 underline underline-offset-2 hover:text-teal-900">verbs</a>
+          ·
+          <a href="../pronoun/pronouns.html" class="font-semibold text-teal-700 underline underline-offset-2 hover:text-teal-900">pronouns</a>
+          ·
+          <a href="../negation/negation.html" class="font-semibold text-teal-700 underline underline-offset-2 hover:text-teal-900">negation</a>
+          ·
+          <a href="../others/french-y-en.html" class="font-semibold text-teal-700 underline underline-offset-2 hover:text-teal-900">y and en</a>
+        </p>
+        <a href="../index.html" class="text-teal-700 underline underline-offset-2 hover:text-teal-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "[Attends]-moi !"
+      --------------------------------------------------------------- */
+
+      /* Chart rows: [verb, tu, nous, vous, negative written · spoken] */
+      const FORMS = [
+        ["parler", "Parle !", "Parlons !", "Parlez !", "Ne parle pas. · Parle pas."],
+        ["finir", "Finis !", "Finissons !", "Finissez !", "Ne finis pas. · Finis pas."],
+        ["attendre", "Attends !", "Attendons !", "Attendez !", "N'attends pas. · Attends pas."],
+        ["aller", "Va ! · Vas-y !", "Allons-y !", "Allez-y !", "Ne va pas là-bas. · Va pas là-bas."],
+        ["venir", "Viens !", "Venons !", "Venez !", "Ne viens pas. · Viens pas."],
+        ["faire", "Fais !", "Faisons !", "Faites !", "Ne fais pas ça. · Fais pas ça."],
+        ["être", "Sois !", "Soyons !", "Soyez !", "Ne sois pas triste. · Sois pas triste."],
+        ["avoir", "Aie !", "Ayons !", "Ayez !", "N'aie pas peur. · Aie pas peur."],
+        ["savoir", "Sache !", "Sachons !", "Sachez !", "—"],
+        ["vouloir", "—", "—", "Veuillez … (formal)", "—"],
+        ["se lever", "Lève-toi !", "Levons-nous !", "Levez-vous !", "Ne te lève pas. · Te lève pas."],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "tu",
+          title: "Everyday commands with tu",
+          fr: "Écoute · Regarde · Attends · Viens · Arrête",
+          tone: "teal",
+          blurb:
+            "The tu imperative is what you hear at home, among friends and with children. Most of these are short, said many times a day, and don't sound bossy between people who know each other.",
+          ex: [
+            ["[Écoute] ça !", "Listen to this!"],
+            ["[Regarde] !", "Look!"],
+            ["[Attends] deux secondes.", "Hang on a sec."],
+            ["[Viens] voir !", "Come and see!"],
+            ["[Arrête] !", "Stop it!"],
+            ["[Dépêche]-toi !", "Hurry up!"],
+            ["[Mange] !", "Eat up!", "No -s: -er verbs drop it in the tu imperative."],
+            ["[Dis] bonjour à la dame.", "Say hello to the lady.", "What parents say to children."],
+            ["[Fais] attention !", "Be careful!"],
+            ["[Prends] ton temps.", "Take your time."],
+            ["[Ferme] la porte, s'il te plaît.", "Close the door, please."],
+            ["[Laisse] tomber.", "Forget it. · Never mind."],
+          ],
+        },
+        {
+          id: "vous",
+          title: "Vous: polite, or more than one person",
+          fr: "Entrez · Asseyez-vous · Allez-y · Suivez-moi",
+          tone: "amber",
+          blurb:
+            "Use vous with strangers, at work, in shops, and to any group. Many vous commands are fixed polite phrases you'll hear from staff and officials.",
+          ex: [
+            ["[Entrez] !", "Come in!"],
+            ["[Asseyez]-vous.", "Please sit down."],
+            ["[Allez]-y.", "Go ahead."],
+            ["[Suivez]-moi.", "Follow me."],
+            ["[Excusez]-moi.", "Excuse me."],
+            ["[Attendez] ici, s'il vous plaît.", "Please wait here."],
+            ["[Ne quittez pas].", "Please hold.", "On the phone."],
+            ["[Prenez] la deuxième à droite.", "Take the second on the right.", "Directions are usually given with vous."],
+            ["[Faites] comme chez vous.", "Make yourself at home."],
+            ["[Servez]-vous.", "Help yourself."],
+            ["[Veuillez] patienter.", "Please wait.", "Veuillez + infinitive: very formal, mostly in writing and recorded messages."],
+            ["Les enfants, [venez] manger !", "Kids, come and eat!", "Vous for a group, even of children."],
+          ],
+        },
+        {
+          id: "nous",
+          title: "Let's: the nous form, or on",
+          fr: "Allons-y · Voyons · On y va ?",
+          tone: "sky",
+          blurb:
+            "The nous imperative means “let's”. It sounds a little formal; in conversation people usually say on + verb as a question instead.",
+          ex: [
+            ["[Allons]-y !", "Let's go!"],
+            ["[On y va] ?", "Shall we go?", "The everyday version."],
+            ["[Voyons]…", "Let's see…"],
+            ["[Soyons] honnêtes.", "Let's be honest."],
+            ["[Commençons].", "Let's begin.", "Teachers, meetings, speeches."],
+            ["[On commence] ?", "Shall we start?"],
+            ["[On mange] ?", "Shall we eat?"],
+            ["[Ne perdons pas] de temps.", "Let's not waste time."],
+            ["[On se calme].", "Let's all calm down.", "A statement with on can work as an order too."],
+            ["[Si on allait] au ciné ?", "How about going to the cinema?", "Si on + imparfait: a friendly suggestion."],
+          ],
+        },
+        {
+          id: "pronouns",
+          title: "Pronouns after the verb",
+          fr: "Dis-moi · Donne-le-moi · Vas-y · Prends-en",
+          tone: "violet",
+          blurb:
+            "In a positive command, object pronouns go after the verb, joined by hyphens. Me and te become moi and toi. With two pronouns, le, la, les come first.",
+          ex: [
+            ["[Dis-moi].", "Tell me.", "me → moi"],
+            ["[Regarde-moi].", "Look at me."],
+            ["[Aide-moi], s'il te plaît.", "Help me, please."],
+            ["[Prends-le].", "Take it."],
+            ["[Appelle-la].", "Call her."],
+            ["[Donne-lui] ça.", "Give him this."],
+            ["[Donne-le-moi].", "Give it to me.", "Two pronouns: le, la, les first, then moi, lui, nous, leur."],
+            ["[Dis-le-lui].", "Tell him."],
+            ["[Vas-y] !", "Go on! · Go for it!", "The -s comes back before y and en, for the sound."],
+            ["[Prends-en] un.", "Take one."],
+            ["[Manges-en], c'est bon.", "Have some, it's good."],
+            ["[Laisse-moi] faire.", "Let me do it."],
+          ],
+          more: ["../pronoun/pronouns.html", "All the pronoun forms"],
+        },
+        {
+          id: "negative",
+          title: "Don't: negative commands",
+          fr: "Ne touche pas · Touche pas · Ne me regarde pas",
+          tone: "rose",
+          blurb:
+            "A negative command puts ne … pas round the verb, and the pronouns go back in front in their usual forms. In speech the ne disappears, as always.",
+          ex: [
+            ["[Ne touche pas] !", "Don't touch!", "Written or careful."],
+            ["[Touche pas] !", "Don't touch!", "Spoken: no ne."],
+            ["[Bouge pas].", "Stay still. · Stay there."],
+            ["[T'inquiète pas].", "Don't worry.", "Often just T'inquiète !"],
+            ["[Ne t'inquiète pas].", "Don't worry.", "Careful form. The pronoun goes back in front, as te."],
+            ["[Me regarde pas] comme ça.", "Don't look at me like that.", "Regarde-moi becomes me regarde pas."],
+            ["[Ne le dis à personne].", "Don't tell anyone."],
+            ["[Dis rien].", "Don't say anything."],
+            ["[Fais pas] ça !", "Don't do that!"],
+            ["[N'aie pas] peur.", "Don't be afraid.", "Avoir peur: the command uses aie."],
+            ["[Oublie pas] tes clés.", "Don't forget your keys."],
+            ["[Ne quittez pas].", "Please hold.", "Fixed phrases keep the ne."],
+          ],
+          more: ["../negation/negation.html", "Where pas goes"],
+        },
+        {
+          id: "reflexive",
+          title: "Reflexive verbs: lève-toi, dépêche-toi",
+          fr: "lève-toi · assieds-toi · calmez-vous · ne te lève pas",
+          tone: "emerald",
+          blurb:
+            "With reflexive verbs, the se becomes toi, nous or vous after the verb. In the negative it goes back in front as te, nous, vous.",
+          ex: [
+            ["[Lève-toi] !", "Get up!"],
+            ["[Dépêche-toi] !", "Hurry up!"],
+            ["[Assieds-toi].", "Sit down."],
+            ["[Calme-toi].", "Calm down."],
+            ["[Tais-toi] !", "Be quiet!", "Blunt. Chut ! is softer."],
+            ["[Amuse-toi] bien !", "Have fun!"],
+            ["[Repose-toi].", "Get some rest."],
+            ["[Sers-toi].", "Help yourself."],
+            ["[Calmez-vous].", "Calm down.", "Vous form."],
+            ["[Ne te lève pas].", "Don't get up.", "Negative: te in front."],
+            ["[Te fâche pas].", "Don't get cross.", "Spoken negative: te in front, no ne."],
+            ["[Va-t'en] !", "Go away!", "S'en aller: va-t'en, allez-vous-en."],
+          ],
+        },
+        {
+          id: "irregular",
+          title: "Être, avoir, savoir, vouloir",
+          fr: "sois sage · aie confiance · sachez que · veuillez",
+          tone: "indigo",
+          blurb:
+            "These four take their imperative from the subjunctive. Sois and aie are everyday words; sachez and veuillez belong to formal speech and writing.",
+          ex: [
+            ["[Sois] sage !", "Be good!", "To a child."],
+            ["[Sois] prudent.", "Be careful."],
+            ["[Soyez] les bienvenus !", "Welcome!"],
+            ["[Sois] pas bête.", "Don't be silly.", "Spoken negative."],
+            ["[Aie] confiance.", "Trust me."],
+            ["[N'aie pas] peur.", "Don't be scared."],
+            ["[Ayez] l'amabilité de…", "Kindly…", "Formal."],
+            ["[Sachez] que la porte ferme à 20 h.", "Please note the door closes at 8 pm.", "Sachez que: formal “be aware that”."],
+            ["[Veuillez] trouver ci-joint…", "Please find attached…", "Standard in formal emails and letters."],
+            ["[Veuillez] vous asseoir.", "Please take a seat."],
+          ],
+        },
+        {
+          id: "fillers",
+          title: "Commands that aren't really commands",
+          fr: "Tiens ! · Allez ! · Dis donc ! · Voyons !",
+          tone: "teal",
+          blurb:
+            "A handful of imperatives have become everyday fillers and exclamations. Their meaning comes from the tone, not the verb. Allez and tenez are used even with people you call tu.",
+          ex: [
+            ["[Tiens], c'est pour toi.", "Here, this is for you.", "Handing something over: tiens (tu), tenez (vous)."],
+            ["[Tiens] ! Paul !", "Oh look, it's Paul!", "Surprise."],
+            ["[Allez], on y va !", "Come on, let's go!"],
+            ["[Allez], salut !", "Right, bye!", "Winding up a conversation."],
+            ["[Dis donc], t'as vu l'heure ?", "Hey, have you seen the time?"],
+            ["[Écoute], je sais pas.", "Look, I don't know.", "Écoute or écoutez to start a point."],
+            ["[Attends], c'est pas ça.", "Hang on, that's not right."],
+            ["[Voyons] !", "Come on now!", "A mild telling-off."],
+            ["[Regarde-moi] ça !", "Just look at that!"],
+            ["[Va] savoir.", "Who knows."],
+            ["[Remarque], c'est pas faux.", "Mind you, that's true."],
+            ["[Arrête] !", "No way! · You're kidding!", "Also surprise, not only “stop”."],
+          ],
+        },
+        {
+          id: "polite",
+          title: "Softer ways to ask",
+          fr: "s'il te plaît · tu peux… ? · tu pourrais… ? · je voudrais…",
+          tone: "amber",
+          blurb:
+            "A bare imperative can sound sharp, especially to a stranger. French usually softens a request with a question, a conditional, or both.",
+          ex: [
+            ["[Passe-moi] le sel, s'il te plaît.", "Pass me the salt, please.", "Fine with family and friends."],
+            ["[Tu peux] me passer le sel ?", "Can you pass me the salt?"],
+            ["[Tu pourrais] baisser la musique ?", "Could you turn the music down?", "Conditional: softer."],
+            ["[Vous pourriez] m'aider ?", "Could you help me?"],
+            ["[Ça vous dérangerait] de fermer la fenêtre ?", "Would you mind closing the window?"],
+            ["[Je voudrais] un café.", "I'd like a coffee.", "In a café: a statement, not an order."],
+            ["[Merci de] ne pas fumer.", "Please don't smoke.", "Merci de + infinitive: common on signs."],
+            ["[N'hésitez pas] à m'appeler.", "Feel free to call me."],
+            ["[Il faudrait] que tu ranges ta chambre.", "You really need to tidy your room.", "Il faudrait que: firm but not rude."],
+          ],
+        },
+        {
+          id: "other",
+          title: "Orders without the imperative",
+          fr: "Ne pas toucher · Tu fermes la porte ? · Tu feras attention",
+          tone: "violet",
+          blurb:
+            "Instructions and orders often use other forms. Signs and recipes use the infinitive; the present and the future can be orders too, depending on the tone.",
+          ex: [
+            ["[Ne pas] toucher.", "Do not touch.", "Signs: ne pas + infinitive."],
+            ["[Mélanger] la farine et le sucre.", "Mix the flour and sugar.", "Recipes and instructions: infinitive."],
+            ["[Agiter] avant emploi.", "Shake before use."],
+            ["Tu [fermes] la porte ?", "Close the door, will you?", "Present as a question: an everyday request."],
+            ["Tu [viens], là ?", "Are you coming or what?", "Impatient."],
+            ["Tu [feras] attention, hein.", "Mind you're careful.", "The future softens an order: advice for later."],
+            ["[Silence] !", "Quiet!", "A noun alone."],
+            ["[Pas de] bruit !", "No noise!"],
+            ["[Qu'il entre] !", "Let him in!", "Que + subjunctive: an order about a third person."],
+          ],
+          more: ["../subjunctive/subjunctive.html", "More on que + subjunctive"],
+        },
+        {
+          id: "phrases",
+          title: "Set phrases worth learning whole",
+          fr: "Laisse tomber · Fais gaffe · Prends soin de toi",
+          tone: "emerald",
+          blurb:
+            "Fixed imperatives you will hear constantly. Some are casual; the note says which.",
+          ex: [
+            ["[Laisse tomber].", "Forget it."],
+            ["[Fais gaffe] !", "Watch out!", "Casual. Careful: fais attention."],
+            ["[Prends soin de toi].", "Take care of yourself."],
+            ["[Fais comme chez toi].", "Make yourself at home."],
+            ["[Laisse-moi tranquille].", "Leave me alone."],
+            ["[Lâche-moi] !", "Get off me! · Leave me alone!", "Casual."],
+            ["[Ne t'en fais pas].", "Don't worry about it."],
+            ["[Vas-y], dis-moi.", "Go on, tell me."],
+            ["[Fais de beaux rêves].", "Sweet dreams."],
+            ["[Profite] bien !", "Enjoy!"],
+            ["[Bon courage] !", "Good luck! · Hang in there!", "Not a verb, but used exactly like one."],
+            ["[Rentre] bien !", "Get home safe!"],
+          ],
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["[Allez] !", "Come on!", "[Allez-y] !", "Go ahead!"],
+        ["[Va] !", "Go!", "[Vas-y] !", "Go on! · Go for it!"],
+        ["[Attends] !", "Wait!", "[Attends-moi] !", "Wait for me!"],
+        ["[Laisse-moi faire].", "Let me do it.", "[Laisse-moi tranquille].", "Leave me alone."],
+        ["[Dis-le-moi].", "Tell me.", "[Ne me le dis pas].", "Don't tell me."],
+        ["[Tiens] !", "Here, take this!", "[Tiens] ?", "Oh really?"],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["Parles plus fort !", "[Parle] plus fort !", "Speak up!", "-er verbs drop the -s with tu."],
+        ["Va-y !", "[Vas-y] !", "Go on!", "The -s comes back before y."],
+        ["Me donne le sel.", "[Donne-moi] le sel.", "Give me the salt.", "Positive command: pronoun after the verb."],
+        ["Donne-me le sel.", "Donne-[moi] le sel.", "Give me the salt.", "After the verb, me becomes moi."],
+        ["Donne-moi-le.", "Donne-[le-moi].", "Give it to me.", "Le comes before moi."],
+        ["Ne touche le pas.", "Ne [le] touche pas.", "Don't touch it.", "Negative: pronoun back in front of the verb."],
+        ["Ne lève-toi pas.", "Ne [te] lève pas.", "Don't get up.", "Negative: te in front, not toi after."],
+        ["Lève-te !", "Lève-[toi] !", "Get up!", "After the verb, te becomes toi."],
+        ["Sois pas peur.", "[N'aie pas] peur.", "Don't be afraid.", "Avoir peur, so the command uses aie."],
+        ["Faisez attention !", "[Faites] attention !", "Be careful!", "Faire: vous faites, so faites."],
+        ["Être sage !", "[Sois] sage !", "Be good!", "Être: sois, soyons, soyez."],
+        ["Ne fumer pas.", "Ne [pas] fumer.", "No smoking.", "Infinitive: ne pas together in front."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [Attends] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- chart ---------- */
+      const cell = (s, cls) =>
+        s === "—" ? `<span class="text-slate-400">—</span>` : `<span class="${cls}">${esc(s)}</span>`;
+      document.getElementById("chart-body").innerHTML = FORMS.map(
+        ([verb, tu, nous, vous, neg]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-playfair italic font-semibold text-lg text-slate-700 whitespace-nowrap" lang="fr">${esc(verb)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-teal-50 font-semibold text-teal-800 whitespace-nowrap" lang="fr">${cell(tu, "")}</td>
+          <td class="px-3 py-2 border-b border-slate-100 font-medium text-sky-800 whitespace-nowrap" lang="fr">${cell(nous, "")}</td>
+          <td class="px-3 py-2 border-b border-slate-100 font-medium text-amber-800 whitespace-nowrap" lang="fr">${cell(vous, "")}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-rose-800" lang="fr">${cell(neg, "")}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-teal-100 border border-teal-200 px-3 py-1.5 text-sm font-medium text-teal-900 hover:bg-teal-200">The chart</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-teal-400 hover:text-teal-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-teal-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-teal-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-teal-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-teal-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+<script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

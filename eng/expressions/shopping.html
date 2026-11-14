@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Shopping</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">SHOPPING</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Shopping
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ဈေးဝယ်ခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">25</span> expressions · Shopping
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 25.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/shopping/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Looking and asking",
+          my: "ကြည့်ခြင်းနှင့် မေးခြင်း",
+          desc: "Looking around, and asking for what you want.",
+          cards: [
+            ["I'm just looking, thanks.", "ကြည့်ရုံ ကြည့်နေတာပါ၊ ကျေးဇူးပါ။", "The polite answer when a shop assistant asks Can I help you? and you don't need help yet.",
+              "— Can I help you? — I'm just looking, thanks.", "— ဘာကူညီရမလဲ။ — ကြည့်ရုံ ကြည့်နေတာပါ၊ ကျေးဇူးပါ။"],
+            ["Do you have <span class=gray>this in blue</span>?", "ဒါ အပြာရောင် ရှိလား။", "Asks for another colour or size of the same thing.",
+              "I like this shirt. Do you have it in green?", "ဒီရှပ်အင်္ကျီ ကြိုက်တယ်။ အစိမ်းရောင် ရှိလား။"],
+            ["Where can I find <span class=gray>rice</span>?", "ဆန် ဘယ်မှာ ရှိလဲ။", "In a big shop or supermarket.",
+              "Excuse me, where can I find the eggs?", "တဆိတ်လောက်၊ ကြက်ဥ ဘယ်မှာ ရှိလဲ။"],
+            ["Do you sell <span class=gray>batteries</span>?", "ဓာတ်ခဲ ရောင်းလား။", "When you aren't sure the shop has it at all.",
+              "Do you sell phone chargers?", "ဖုန်းအားသွင်းကြိုး ရောင်းလား။"],
+            ["Can I try it on?", "ဝတ်ကြည့်လို့ ရမလား။", "For clothes and shoes. Try on = put on to see if it fits.",
+              "I like these trousers. Can I try them on?", "ဒီဘောင်းဘီ ကြိုက်တယ်။ ဝတ်ကြည့်လို့ ရမလား။"],
+          ],
+        },
+        {
+          en: "Prices",
+          my: "ဈေးနှုန်း",
+          desc: "Asking how much, and talking about the price.",
+          cards: [
+            ["How much is this?", "ဒါ ဘယ်လောက်လဲ။", "For one thing. Point to it as you ask.",
+              "Excuse me, how much is this bag?", "တဆိတ်လောက်၊ ဒီအိတ် ဘယ်လောက်လဲ။"],
+            ["How much are these?", "ဒါတွေ ဘယ်လောက်လဲ။", "For more than one thing: these, those, the apples.",
+              "How much are the mangoes?", "သရက်သီးတွေ ဘယ်လောက်လဲ။"],
+            ["That's too expensive.", "ဈေးကြီးလွန်းတယ်။", "Polite enough, but softer: It's a bit expensive for me.",
+              "Ten thousand? That's too expensive.", "တစ်သောင်းလား။ ဈေးကြီးလွန်းတယ်။"],
+            ["Is there a discount?", "လျှော့ဈေး ရှိလား။", "Asks if the price is lower today, or for students, or for buying two.",
+              "Is there a discount if I buy three?", "သုံးခု ဝယ်ရင် လျှော့ဈေး ရှိလား။"],
+            ["Can you give me a better price?", "ဈေး လျှော့ပေးလို့ ရမလား။", "Bargaining, as in a market. In shops in Britain or America, prices are usually fixed.",
+              "It's nice, but can you give me a better price?", "ကောင်းတော့ ကောင်းတယ်၊ ဒါပေမဲ့ ဈေး လျှော့ပေးလို့ ရမလား။"],
+          ],
+        },
+        {
+          en: "Sizes and choosing",
+          my: "ဆိုဒ်နှင့် ရွေးချယ်ခြင်း",
+          desc: "Checking it fits, then deciding.",
+          cards: [
+            ["Do you have a smaller size?", "ဆိုဒ် အသေး ရှိလား။", "Or a bigger size, a larger size.",
+              "These shoes are too big. Do you have a smaller size?", "ဒီဖိနပ်က ကြီးလွန်းတယ်။ ဆိုဒ် အသေး ရှိလား။"],
+            ["It's too big.", "ကြီးလွန်းတယ်။", "Too + adjective: too small, too long, too tight.",
+              "The jacket is too big for me.", "ဂျာကင်က ကျွန်မအတွက် ကြီးလွန်းတယ်။"],
+            ["It fits perfectly.", "အတိအကျ တော်တယ်။", "Fit is about size. Suit is about style or colour.",
+              "I'll buy this dress. It fits perfectly.", "ဒီဝတ်စုံ ဝယ်မယ်။ အတိအကျ တော်တယ်။"],
+            ["I'll take it.", "ဒါ ယူမယ်။", "You've decided to buy it. For more than one: I'll take them.",
+              "OK, I'll take it. And this one too.", "အိုကေ၊ ဒါ ယူမယ်။ ဒါလည်း ယူမယ်။"],
+            ["I'll leave it, thanks.", "မယူတော့ဘူး၊ ကျေးဇူးပါ။", "A polite way to say you won't buy it.",
+              "Hmm, I'll leave it, thanks. Maybe next time.", "အင်း၊ မယူတော့ဘူး၊ ကျေးဇူးပါ။ နောက်မှ ဝယ်မယ်။"],
+          ],
+        },
+        {
+          en: "Paying",
+          my: "ငွေပေးချေခြင်း",
+          desc: "At the till: card or cash, a bag, the receipt.",
+          cards: [
+            ["Do you take cards?", "ကတ်နဲ့ ပေးလို့ ရလား။", "Asks if you can pay by card. Also: Can I pay by card?",
+              "Do you take cards, or only cash?", "ကတ်နဲ့ ပေးလို့ ရလား၊ ဒါမှမဟုတ် ငွေသားပဲလား။"],
+            ["Can I pay in cash?", "ငွေသားနဲ့ ပေးလို့ ရလား။", "In cash, by card. Or with a phone: Can I pay with KBZPay?",
+              "Can I pay in cash? I don't have a card.", "ငွေသားနဲ့ ပေးလို့ ရလား။ ကတ် မရှိဘူး။"],
+            ["Can I have a bag, please?", "အိတ် တစ်လုံး ရနိုင်မလား။", "Some shops charge for bags or don't give them unless you ask.",
+              "Can I have a bag, please? I have a lot of things.", "အိတ် တစ်လုံး ရနိုင်မလား။ ပစ္စည်း အများကြီး ပါလို့။"],
+            ["Can I have the receipt?", "ဘောက်ချာ ရနိုင်မလား။", "Keep the receipt if you might bring something back.",
+              "Can I have the receipt, please?", "ဘောက်ချာ ရနိုင်မလား။"],
+            ["Keep the change.", "အကြွေ ယူထားလိုက်ပါ။", "You don't want the extra money back. Common with taxi drivers.",
+              "Here's ten dollars. Keep the change.", "ဒေါ်လာ ဆယ် ပါ။ အကြွေ ယူထားလိုက်ပါ။"],
+          ],
+        },
+        {
+          en: "What the shop assistant says",
+          my: "ဆိုင်ဝန်ထမ်း ပြောတတ်တာများ",
+          desc: "Phrases you will hear at the till, so you can answer.",
+          cards: [
+            ["Anything else?", "တခြား ဘာလိုသေးလဲ။", "Answer: No, that's all, thanks. Or name the next thing.",
+              "— Anything else? — No, that's all, thanks.", "— တခြား ဘာလိုသေးလဲ။ — မလိုတော့ဘူး၊ ကျေးဇူးပါ။"],
+            ["That's five thousand kyats.", "ငါးထောင်ကျပ် ကျပါတယ်။", "Tells you the total. Also: That'll be five thousand kyats.",
+              "Two coffees? That's five thousand kyats, please.", "ကော်ဖီ နှစ်ခွက်လား။ ငါးထောင်ကျပ် ကျပါတယ်။"],
+            ["Cash or card?", "ငွေသားလား၊ ကတ်လား။", "Asks how you want to pay. Answer: Cash, please. / Card, please.",
+              "— Cash or card? — Card, please.", "— ငွေသားလား၊ ကတ်လား။ — ကတ်နဲ့ပါ။"],
+            ["Would you like a bag?", "အိတ် ယူမလား။", "Answer: Yes, please. / No, thanks, I have one.",
+              "— Would you like a bag? — No, thanks. I have one.", "— အိတ် ယူမလား။ — မယူတော့ဘူး၊ ကျေးဇူးပါ။ ပါလာပါတယ်။"],
+            ["Here's your change.", "ပြန်အမ်းငွေ ပါ။", "The money you get back. Count it and say Thank you.",
+              "Here's your change, and your receipt.", "ပြန်အမ်းငွေနဲ့ ဘောက်ချာ ပါ။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

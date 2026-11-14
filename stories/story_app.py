@@ -8,20 +8,20 @@ a full path) or the name of an existing page, then:
 
   Process   0. all_downloads_to_ytstory.bat, in its own window (it asks questions),
                when Downloads has numbered PNGs (1.png, 2.png …); skipped otherwise
-            1. new_story.py: the page from story.md (skipped for a page name)
+            1. new_story.py: the page from story.md (skipped for a page name);
+               a quiz.md (header line "type: quiz", see stories/quiz_format.txt)
+               goes to new_quiz.py instead, which makes a mixed vocabulary quiz
             2. story_audio.py: makes missing clips, Whisper-checks the new takes
             3. publish_story.py --dry-run: pictures, menu, what would be uploaded
+            4. publish_story.py --offline: the offline copy in eng/single, checked in
+               Edge, and copied to G:\\My Drive\\_LANGUAGES (eng\\single\\Stories)
             Each step has its own panel; a step that fails stops the ones after it.
   Publish   publish_story.py --yes: upload, offline copy, Drive, commit, push,
-            live check. Only after all three steps passed for that story.
-
-Two things it adds so "fix story.md, press Process again" is safe:
-  - If the page was changed by hand since the app last wrote it, step 1 puts it
-    back and shows the difference instead of overwriting it ("Replace" overwrites).
-  - Clips whose text changed since the last Process get new takes
-    (story_audio.py --redo), so old audio isn't published with new text.
-Its memory is media/story_app_state.json (not in git).
-To stop the app, close its window (or Ctrl+C).
+            live check. Only after all the steps passed for that story.
+  Make video  story_video.py, for the page of the story typed above, on its own
+            (no Process needed, but the page's clips must exist): YouTube copy,
+            two small offline copies and the .srt, in the story's folder in
+            G:\\My Drive\\_YOUTUBE (video\\). English narration, the page's own clips.
 """
 import difflib, hashlib, json, re, subprocess, sys, threading, traceback, urllib.parse, webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -35,10 +35,11 @@ PORT = 8765
 DOWNLOADS = Path.home() / "Downloads"
 PICS_BAT = Path(r"C:\Users\mschi\OneDrive\Desktop\PYTHON AUTOMATIONS\_IMG\PNG to JPG\all_downloads_to_ytstory.bat")
 CHUNK = re.compile(r"""\[\s*(?:"((?:[^"\\]|\\.)*)"|'((?:[^'\\]|\\.)*)')\s*,\s*(\d+)\s*\]""")
-STEPS = ("pics", "page", "audio", "check", "publish")
+STEPS = ("pics", "page", "audio", "check", "offline", "publish", "video")
 
 lock = threading.RLock()
-job = {"busy": False, "page": None, "aud": None, "ready": None, "conflict": False, "steps": {}}
+job = {"busy": False, "page": None, "aud": None, "ready": None, "conflict": False, "steps": {},
+       "video_dir": None}
 
 
 def reset(names):
@@ -152,14 +153,16 @@ def process(story, replace):
         md = find_md(s)
         if not md:
             return finish("page", "error", f"Can't find {s} (looked in {MD_DIR} and in LANGUAGES).")
-        m = re.search(r"(?m)^\s*page\s*:\s*([\w.-]+)", md.read_text(encoding="utf-8-sig"))
+        text = md.read_text(encoding="utf-8-sig")
+        m = re.search(r"(?m)^\s*page\s*:\s*([\w.-]+)", text)
         page = m and m.group(1).removesuffix(".html")
+        maker = "new_quiz.py" if re.search(r"(?mi)^\s*type\s*:\s*quiz\s*$", text) else "new_story.py"
         pf = STORIES / f"{page}.html"
         old = pf.read_bytes() if page and pf.exists() else None
         known = old is not None and st.get(page, {}).get("page_sha") == sha(old)
         log("page", f"{md}")
-        if run("page", "new_story.py", md, *(["--force"] if old is not None else [])):
-            return finish("page", "error", "new_story.py stopped: fix story.md, then Process again.")
+        if run("page", maker, md, *(["--force"] if old is not None else [])):
+            return finish("page", "error", f"{maker} stopped: fix {md.name}, then Process again.")
         with lock:
             job["page"] = page
         new = pf.read_bytes()
@@ -219,7 +222,13 @@ def process(story, replace):
     if run("check", "publish_story.py", page, "--dry-run"):
         return finish("check", "error", "publish_story.py found problems: see below.")
     up = next((l for l in job["steps"]["check"]["log"] if re.match(r"R2 .*to upload", l)), "")
-    finish("check", "ok", f"Ready to publish. {up}")
+    finish("check", "ok", up)
+
+    # ---- 4. offline copy, and the copies on Google Drive
+    if run("offline", "publish_story.py", page, "--offline"):
+        return finish("offline", "error", "The offline copy stopped: see below.")
+    mb = next((l.split(": ", 1)[1] for l in job["steps"]["offline"]["log"] if l.startswith("eng") and l.endswith(" MB")), "")
+    finish("offline", "ok", f"eng/single/{page}.html ({mb}), copied to Google Drive eng\\single\\Stories. Ready to publish.")
     with lock:
         job["ready"] = page
 
@@ -234,6 +243,34 @@ def publish(page):
         finish("publish", "error", "publish_story.py stopped: fix what it says, then Process and Publish again.")
     else:
         finish("publish", "ok", f"Published: {url}")
+
+
+# ---------------------------------------------------------------- Make video
+
+def make_video(story):
+    reset(["video"])
+    with lock:
+        job["video_dir"] = None
+    s = story.strip().strip('"')
+    if s.lower().endswith(".md"):
+        md = find_md(s)
+        m = md and re.search(r"(?m)^\s*page\s*:\s*([\w.-]+)", md.read_text(encoding="utf-8-sig"))
+        page = m.group(1).removesuffix(".html") if m else ""
+    else:
+        page = Path(s).name.removesuffix(".html")
+    if not page or not (STORIES / f"{page}.html").is_file():
+        return finish("video", "error", f"No page in stories/ for “{s}”. Process the story first, or type the page's name.")
+    if run("video", "story_video.py", page):
+        return finish("video", "error", "story_video.py stopped: see below.")
+    out = job["steps"]["video"]["log"]
+    files = [l.split(None, 2) for l in out if re.match(r"\s*[\d.]+ MB  ", l)]
+    if files:
+        with lock:
+            job["video_dir"] = str(Path(files[0][2]).parent)
+    mins = next((l.split(" (")[0] for l in out if re.match(r"[\d.]+ min \(", l)), "")
+    sizes = ", ".join(f"{'YouTube' if 'youtube' in f[2] else 'offline AV1' if 'av1' in f[2] else 'offline H.264'} {f[0]} MB"
+                      for f in files)
+    finish("video", "ok", f"{mins}: {sizes}.")
 
 
 def guarded(fn, *args):
@@ -293,6 +330,12 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send(409, '{"error": "busy"}')
             if path == "/api/process":
                 fn, args = process, (str(data.get("story", "")), bool(data.get("replace")))
+            elif path == "/api/open":  # show the finished videos in Explorer
+                if job["video_dir"] and Path(job["video_dir"]).is_dir():
+                    subprocess.Popen(["explorer", job["video_dir"]])
+                return self.send(200, "{}")
+            elif path == "/api/video":
+                fn, args = make_video, (str(data.get("story", "")),)
             elif path == "/api/publish" and data.get("page") and data["page"] == job["ready"]:
                 fn, args = publish, (job["ready"],)
             else:
@@ -328,9 +371,7 @@ button.main:disabled{opacity:.35;cursor:default}
 #publish{background:var(--ok)}
 @media (prefers-color-scheme:dark){#publish{color:#0f1a12}}
 label.rep{font-size:13.5px;color:var(--err);display:flex;gap:6px;align-items:center}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0}
-@media (max-width:1100px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.grid{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:14px;margin:18px 0}
 .card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
 .card.ok{border-top-color:var(--ok)}.card.error{border-top-color:var(--err)}.card.running{border-top-color:var(--run)}
 .head{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -349,20 +390,24 @@ pre{max-height:360px;overflow:auto;margin:6px 0 0;padding:8px 10px;background:va
 font:12px/1.5 Consolas,"Myanmar Text",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
 .flag{color:var(--err);font-weight:600}
 .play{border:0;background:none;color:var(--accent);padding:0 6px 0 0;cursor:pointer;font:inherit}
+#video{background:#7c3aed}
+button.link{border:0;background:none;color:var(--accent);padding:0;cursor:pointer;font:inherit;text-decoration:underline}
 #pubcard[hidden]{display:none}
 #pubcard{margin-top:14px}
+#c-video{margin-top:14px}
 .foot{color:var(--mute);font-size:12.5px;margin-top:22px}
 </style>
 </head>
 <body>
 <main>
   <h1>Story publisher</h1>
-  <p class="sub">Type a story.md from Desktop\story-md, or the name of a page in stories/ to skip step 1.</p>
+  <p class="sub">Type a story.md or quiz.md from Desktop\story-md, or the name of a page in stories/ to skip step 1.</p>
   <div class="bar">
     <input type="text" id="story" list="stories" placeholder="orchestra.md  or  Mushroom_house_orchestra" autocomplete="off">
     <datalist id="stories"></datalist>
     <button class="main" id="process">Process</button>
     <button class="main" id="publish" disabled>Publish</button>
+    <button class="main" id="video">Make video</button>
   </div>
   <label class="rep" id="replabel" hidden><input type="checkbox" id="replace"> Replace the page with what story.md makes (loses the hand-made changes shown in step 1)</label>
   <div class="grid">
@@ -370,12 +415,14 @@ font:12px/1.5 Consolas,"Myanmar Text",monospace;white-space:pre-wrap;overflow-wr
     <section class="card" id="c-page"></section>
     <section class="card" id="c-audio"></section>
     <section class="card" id="c-check"></section>
+    <section class="card" id="c-offline"></section>
   </div>
   <section class="card" id="c-publish" hidden></section>
+  <section class="card" id="c-video" hidden></section>
   <p class="foot">The ▶ buttons play your local clips, so listening never touches R2 before the upload. To stop the app, close its window.</p>
 </main>
 <script>
-const TITLES={pics:"0 · Pictures from Downloads",page:"1 · Page from story.md",audio:"2 · Audio + Whisper check",check:"3 · Publish checks",publish:"Publish"};
+const TITLES={pics:"0 · Pictures from Downloads",page:"1 · Page from story.md / quiz.md",audio:"2 · Audio + Whisper check",check:"3 · Publish checks",offline:"4 · Offline copy + Drive",publish:"Publish",video:"Video"};
 const LABEL={idle:"waiting",running:"running…",ok:"OK",error:"needs fixing",skipped:"skipped"};
 const KEY=/^STOPPED|problem\(s\)$|^\?\? |^warning:|Traceback|Error|refused|failed|^Put stories\//;
 const $=id=>document.getElementById(id);
@@ -400,8 +447,9 @@ function errs(lines){
 function line(id,l){
   let h=esc(l);
   if(l.startsWith('?? '))h=`<span class="flag">${h}</span>`;
-  const m=id==='audio'&&S.aud&&l.match(/^(?:\?\? |   )?(\d{2,3})(?:\.mp3 | )/);
-  return m?`<button class="play" data-n="${m[1]}" title="Play ${m[1]}.mp3">▶</button>`+h:h;
+  const dir=id==='audio'?S.aud:null;
+  const m=dir&&l.match(/^(?:\?\? |   )?(\d{2,3})(?:\.mp3 | )/);
+  return m?`<button class="play" data-dir="${dir}" data-n="${m[1]}" title="Play ${m[1]}.mp3">▶</button>`+h:h;
 }
 function paint(id,st){
   const key=st.status+'|'+st.log.length+'|'+st.note;
@@ -409,6 +457,7 @@ function paint(id,st){
   const c=$('c-'+id);c.className='card '+st.status;
   c.querySelector('.badge').textContent=LABEL[st.status];
   c.querySelector('.note').innerHTML=esc(st.note).replace(/https?:\/\/\S+/g,u=>`<a href="${u}" target="_blank">${u}</a>`);
+  if(id==='video'&&st.status==='ok'&&S.video_dir)c.querySelector('.note').innerHTML+=' <button class="link" id="openvid">Open the folder</button>';
   const e=errs(st.log),box=c.querySelector('.box');
   box.hidden=!e.length;box.classList.toggle('warn',st.status!=='error');
   box.innerHTML=e.map(l=>line(id,l)).join('\n');
@@ -421,6 +470,8 @@ function paint(id,st){
 function render(){
   for(const id of Object.keys(TITLES))paint(id,S.steps[id]);
   $('c-publish').hidden=S.steps.publish.status==='idle';
+  $('c-video').hidden=S.steps.video.status==='idle';
+  $('video').disabled=S.busy;
   $('process').disabled=S.busy;
   $('publish').disabled=S.busy||!S.ready;
   $('publish').textContent=S.ready?`Publish ${S.ready}`:'Publish';
@@ -446,10 +497,17 @@ $('publish').onclick=()=>{
   if(confirm(`Publish ${S.ready}?\n\nThis uploads the audio to R2, copies to Google Drive, commits, pushes and checks the live page.`))
     post('/api/publish',{page:S.ready});
 };
+$('video').onclick=()=>{
+  const story=$('story').value.trim();if(!story)return $('story').focus();
+  if(!confirm(`Make the video of ${story}?\n\nThis builds it from the page's clips and pictures. It takes about 6 minutes.`))return;
+  try{localStorage.setItem('story',story)}catch(e){}
+  post('/api/video',{story});
+};
 $('story').onkeydown=e=>{if(e.key==='Enter')$('process').click()};
 document.addEventListener('click',e=>{
+  if(e.target.id==='openvid')return void fetch('/api/open',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
   const b=e.target.closest('.play');if(!b)return;
-  player.src=`/media/${S.aud}/${b.dataset.n}.mp3?t=${Date.now()}`;player.play();
+  player.src=`/media/${b.dataset.dir}/${b.dataset.n}.mp3?t=${Date.now()}`;player.play();
 });
 fetch('/api/stories').then(r=>r.json()).then(list=>{
   $('stories').innerHTML=list.map(s=>`<option value="${esc(s)}">`).join('');

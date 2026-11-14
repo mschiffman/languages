@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Pronouns in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-teal-900 via-emerald-800 to-cyan-900 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-emerald-300 mb-4"
+        >
+          French grammar · Pronouns
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">je, me, moi, le mien</span>
+        </h1>
+        <p class="text-lg md:text-xl text-emerald-100 max-w-2xl mx-auto leading-relaxed">
+          English has “I, me, my, mine”. French has a few more forms, puts
+          most of them before the verb, and in everyday speech says
+          <i lang="fr">on</i> far more often than <i lang="fr">nous</i>. Here
+          is the whole family on one chart, then each form the way people
+          really use it.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The chart (filled by the script from COLS and ROWS below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-teal-900 mb-2">
+          First, the chart: one person, seven forms
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          Read across a row to see every form one person can take. Read down
+          a column to see one job. <b>Choose a person</b> to see a sentence
+          for each form. The colours are the same all the way down the page.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead id="chart-head"></thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the chart sideways to see every column.</p>
+
+        <div id="chart-examples" class="mt-6" aria-live="polite"></div>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-teal-800">Short forms.</b> Before a vowel,
+            <i lang="fr">je, me, te, se, le, la</i> lose their vowel:
+            <i lang="fr">j'ai, il m'aide, je t'aime, je l'ai vu</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-teal-800">Where it differs.</b> Only the third
+            person has three different object forms:
+            <i lang="fr">le / lui / lui</i> and <i lang="fr">les / leur / eux</i>.
+            For <i lang="fr">me, te, nous, vous</i> one form does it all.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-teal-800">Mine, yours.</b> The last column changes
+            with the thing owned:
+            <i lang="fr">le mien, la mienne, les miens, les miennes</i>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Same word, several jobs ---------- -->
+      <section
+        id="jobs"
+        class="bg-teal-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="jobs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          Why pronouns feel slippery
+        </p>
+        <h2 id="jobs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Same word, several jobs
+        </h2>
+        <p class="text-emerald-100 leading-relaxed mb-6 max-w-3xl">
+          Six small words appear in more than one column of the chart, or
+          double as something else. Where the word stands tells you which
+          job it is doing.
+        </p>
+        <div id="job-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-rose-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-rose-600 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Each one comes from keeping the English word order or the
+              English preposition. The crossed-out line is the slip; the
+              line under it is what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          More practice:
+          <a href="../others/pronouns.html" class="font-semibold text-teal-700 underline underline-offset-2 hover:text-teal-900">the interactive pronoun lesson</a>
+          ·
+          <a href="../others/french-y-en.html" class="font-semibold text-teal-700 underline underline-offset-2 hover:text-teal-900">y and en in detail</a>
+        </p>
+        <a href="../index.html" class="text-teal-700 underline underline-offset-2 hover:text-teal-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the pronoun you want
+         highlighted:  "Je [le] connais."
+         [∅] marks a place where spoken French drops the pronoun.
+      --------------------------------------------------------------- */
+
+      /* Chart columns: key, heading, what it answers, colour set */
+      const COLS = [
+        { key: "s", name: "Subject", hint: "who does it", tone: "sky", go: "subject" },
+        { key: "r", name: "Reflexive", hint: "myself", tone: "violet", go: "reflexive" },
+        { key: "d", name: "Direct object", hint: "sees me", tone: "emerald", go: "direct" },
+        { key: "i", name: "Indirect object", hint: "talks to me", tone: "amber", go: "indirect" },
+        { key: "t", name: "Stressed", hint: "with me · Me!", tone: "rose", go: "stressed" },
+        { key: "a", name: "My…", hint: "before a noun", tone: "teal", go: "my" },
+        { key: "p", name: "Mine", hint: "replaces the noun", tone: "indigo", go: "mine" },
+      ];
+
+      /* Chart rows. forms: one cell per column. ex: one [French, English] per column. */
+      const ROWS = [
+        {
+          id: "je", en: "I",
+          forms: { s: "je", r: "me", d: "me", i: "me", t: "moi", a: "mon · ma · mes", p: "le mien" },
+          ex: [
+            ["[Je] suis crevé.", "I'm shattered."],
+            ["Je [me] couche tôt.", "I go to bed early."],
+            ["Tu [m']attends ?", "Will you wait for me?"],
+            ["Tu [me] passes le sel ?", "Can you pass me the salt?"],
+            ["C'est [moi] qui paie.", "I'm paying."],
+            ["T'as vu [mon] téléphone ?", "Have you seen my phone?"],
+            ["Prends [le mien].", "Take mine."],
+          ],
+        },
+        {
+          id: "tu", en: "you (one person, familiar)",
+          forms: { s: "tu", r: "te", d: "te", i: "te", t: "toi", a: "ton · ta · tes", p: "le tien" },
+          ex: [
+            ["[Tu] viens ?", "Are you coming?"],
+            ["Tu [te] lèves à quelle heure ?", "What time do you get up?"],
+            ["Je [t']appelle ce soir.", "I'll call you tonight."],
+            ["Je [te] dis ça demain.", "I'll let you know tomorrow."],
+            ["Et [toi], ça va ?", "And you, how are you?"],
+            ["C'est [ta] voiture ?", "Is that your car?"],
+            ["Ce stylo, c'est [le tien] ?", "Is this pen yours?"],
+          ],
+        },
+        {
+          id: "il", en: "he · it",
+          forms: { s: "il", r: "se", d: "le", i: "lui", t: "lui", a: "son · sa · ses", p: "le sien" },
+          ex: [
+            ["[Il] arrive.", "He's on his way."],
+            ["Il [se] rase.", "He's shaving."],
+            ["Je [le] connais bien.", "I know him well."],
+            ["Je [lui] ai écrit.", "I wrote to him."],
+            ["Je pars avec [lui].", "I'm leaving with him."],
+            ["C'est [son] frère.", "That's his brother."],
+            ["C'est pas mon sac, c'est [le sien].", "It's not my bag, it's his."],
+          ],
+        },
+        {
+          id: "elle", en: "she · it",
+          forms: { s: "elle", r: "se", d: "la", i: "lui", t: "elle", a: "son · sa · ses", p: "le sien" },
+          ex: [
+            ["[Elle] bosse à Lyon.", "She works in Lyon."],
+            ["Elle [se] repose.", "She's resting."],
+            ["Je [la] vois samedi.", "I'm seeing her on Saturday."],
+            ["Je [lui] ai tout dit.", "I told her everything."],
+            ["C'est pour [elle].", "It's for her."],
+            ["C'est [sa] mère.", "That's her mother."],
+            ["Ma voiture est en panne, on prend [la sienne].", "My car's broken down, we're taking hers."],
+          ],
+        },
+        {
+          id: "on", en: "we (everyday) · people · someone",
+          forms: { s: "on", r: "se", d: "nous", i: "nous", t: "nous", a: "notre · nos", p: "le nôtre" },
+          ex: [
+            ["[On] mange quoi ce soir ?", "What are we eating tonight?"],
+            ["On [se] retrouve où ?", "Where shall we meet?"],
+            ["Ils [nous] ont vus.", "They saw us."],
+            ["Ils [nous] ont rien dit.", "They didn't tell us anything."],
+            ["[Nous], on reste.", "We're staying."],
+            ["On a pris [notre] voiture.", "We took our car."],
+            ["Leur jardin est plus grand que [le nôtre].", "Their garden is bigger than ours."],
+          ],
+        },
+        {
+          id: "nous", en: "we (careful, written)",
+          forms: { s: "nous", r: "nous", d: "nous", i: "nous", t: "nous", a: "notre · nos", p: "le nôtre" },
+          ex: [
+            ["[Nous] sommes fermés le lundi.", "We are closed on Mondays."],
+            ["Nous [nous] retrouvons à midi.", "We are meeting at noon."],
+            ["Il [nous] a invités.", "He invited us."],
+            ["Elle [nous] a écrit.", "She wrote to us."],
+            ["Viens avec [nous] !", "Come with us!"],
+            ["Voici [nos] enfants.", "These are our children."],
+            ["Vos enfants sont petits ; [les nôtres] sont déjà grands.", "Your children are small; ours are grown up."],
+          ],
+        },
+        {
+          id: "vous", en: "you (polite, or several people)",
+          forms: { s: "vous", r: "vous", d: "vous", i: "vous", t: "vous", a: "votre · vos", p: "le vôtre" },
+          ex: [
+            ["[Vous] désirez ?", "What would you like?"],
+            ["Vous [vous] appelez comment ?", "What's your name?"],
+            ["Je [vous] écoute.", "I'm listening. / Go ahead."],
+            ["Je [vous] apporte la carte.", "I'll bring you the menu."],
+            ["Après [vous] !", "After you!"],
+            ["[Votre] café, monsieur.", "Your coffee, sir."],
+            ["À [la vôtre] !", "Cheers! (To yours!)"],
+          ],
+        },
+        {
+          id: "ils", en: "they (men, or a mixed group)",
+          forms: { s: "ils", r: "se", d: "les", i: "leur", t: "eux", a: "leur · leurs", p: "le leur" },
+          ex: [
+            ["[Ils] sont en retard.", "They're late."],
+            ["Ils [se] connaissent depuis longtemps.", "They've known each other a long time."],
+            ["Je [les] ai invités.", "I've invited them."],
+            ["Je [leur] ai dit de venir.", "I told them to come."],
+            ["Je dîne chez [eux].", "I'm having dinner at their place."],
+            ["[Leurs] enfants sont adorables.", "Their children are lovely."],
+            ["Notre appart est petit, [le leur] est immense.", "Our flat is small, theirs is huge."],
+          ],
+        },
+        {
+          id: "elles", en: "they (women only)",
+          forms: { s: "elles", r: "se", d: "les", i: "leur", t: "elles", a: "leur · leurs", p: "le leur" },
+          ex: [
+            ["[Elles] arrivent demain.", "They arrive tomorrow."],
+            ["Elles [se] parlent plus.", "They're not speaking to each other anymore."],
+            ["Je [les] ai croisées en ville.", "I bumped into them in town."],
+            ["Je [leur] ai envoyé un message.", "I sent them a message."],
+            ["C'est grâce à [elles].", "It's thanks to them."],
+            ["[Leur] mère est médecin.", "Their mother is a doctor."],
+            ["Ce chien, c'est [le leur].", "That dog is theirs."],
+          ],
+        },
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per kind of pronoun.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           strip (optional row of boxes shown under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "subject",
+          title: "Who does it: subject pronouns",
+          fr: "je · tu · il · elle · on · nous · vous · ils · elles",
+          tone: "sky",
+          blurb:
+            "The subject can never be left out in French, and the big everyday fact is on. In conversation on has almost replaced nous for “we”. It also means “people in general” and “someone”.",
+          ex: [
+            ["[J']arrive !", "I'm coming!", "Je becomes j' before a vowel."],
+            ["[T']es où ?", "Where are you?", "Casual speech also shortens tu before a vowel: t'es, t'as, t'arrives. Write Tu es où ?"],
+            ["[On] y va ?", "Shall we go?", "On = we. The verb is in the il form."],
+            ["[On] est arrivés hier.", "We arrived yesterday.", "When on means “we”, the past participle agrees with the real people: arrivés."],
+            ["[On] m'a volé mon vélo.", "My bike got stolen.", "On = someone, I don't know who. French uses on where English uses a passive."],
+            ["En France, [on] dîne tard.", "In France people eat late.", "On = people in general."],
+            ["[Ils] ont encore augmenté les prix.", "They've put the prices up again.", "Ils = “they”, the people in charge, as in English."],
+            ["[Vous] avez l'heure ?", "Do you have the time?", "Vous for one stranger, and for any group."],
+            ["[Il] pleut.", "It's raining.", "An empty il for weather and time: il fait froid, il est tard."],
+            ["[∅] Faut y aller.", "We'd better go.", "Casual speech drops that empty il: (il) faut, (il) y a → y a."],
+            ["[Elle] est où, ma veste ?", "Where's my jacket?", "Il and elle are for things too. A jacket is elle because veste is feminine."],
+          ],
+          tip: "Tu or vous? Tu for friends, family, children, and people your own age in relaxed settings. Vous for strangers, older people, shops and offices. When someone says On se tutoie ? they are offering to switch to tu.",
+        },
+        {
+          id: "stressed",
+          title: "Me! With me. It's me: stressed pronouns",
+          fr: "moi · toi · lui · elle · nous · vous · eux · elles",
+          tone: "rose",
+          blurb:
+            "Je, tu, il cannot stand on their own or carry stress. Whenever the pronoun is alone, after a preposition, after c'est, or said with force, French switches to the stressed set.",
+          ex: [
+            ["[Moi], j'adore ça.", "I love that.", "For emphasis the stressed pronoun is added in front. English just says “I” more loudly."],
+            ["[Lui], il s'en fiche.", "He couldn't care less."],
+            ["[Nous], on reste ici.", "We're staying here.", "Nous, on… is the everyday way to stress “we”."],
+            ["— Qui veut du café ? — [Moi] !", "— Who wants coffee? — Me!", "Alone: never je."],
+            ["C'est [toi] ?", "Is that you?", "After c'est."],
+            ["Tu viens avec [moi] ?", "Are you coming with me?", "After a preposition: avec, pour, sans, chez, à, de."],
+            ["On va chez [eux] ce soir.", "We're going to their place tonight.", "Eux = them, for men or a mixed group."],
+            ["Il est plus grand que [moi].", "He's taller than me.", "After que in a comparison."],
+            ["[Moi] aussi. · [Moi] non plus.", "Me too. · Me neither."],
+            ["[Toi] et [moi], on fait une bonne équipe.", "You and I make a good team.", "With et: always the stressed form."],
+            ["Je l'ai fait [moi]-même.", "I did it myself.", "Moi-même, toi-même, lui-même: “myself” for emphasis."],
+            ["Chacun pour [soi].", "Every man for himself.", "Soi is the stressed form for on, chacun, tout le monde."],
+          ],
+          tip: "Only moi, toi and eux are new shapes. Lui, elle, nous, vous and elles look like forms you already know, so check the position: after a preposition or alone, it is the stressed one.",
+        },
+        {
+          id: "direct",
+          title: "Him, her, it, them: direct object",
+          fr: "me · te · le · la · nous · vous · les",
+          tone: "emerald",
+          blurb:
+            "The person or thing the verb acts on directly, with no à in between. It goes in front of the verb. Le, la, les stand for things as well as people, so they also mean “it” and “them”.",
+          ex: [
+            ["Je [le] connais.", "I know him."],
+            ["Tu [m']entends ?", "Can you hear me?"],
+            ["Je [la] vois demain.", "I'm seeing her tomorrow."],
+            ["Tes clés ? Je [les] ai pas vues.", "Your keys? I haven't seen them.", "With avoir, the participle agrees with a direct object that comes before it: vues, for les clés."],
+            ["Je [l']attends depuis une heure.", "I've been waiting for him for an hour.", "Attendre takes a direct object. No word for “for”."],
+            ["Cette chanson, je [l']écoute en boucle.", "I listen to that song on repeat.", "Écouter, regarder, chercher, attendre, payer, demander (a thing): direct in French, preposition in English."],
+            ["Je [le] savais !", "I knew it!", "Le can stand for a whole idea."],
+            ["Je [te] crois.", "I believe you."],
+            ["Attends-[moi] !", "Wait for me!", "In a command the pronoun goes after the verb, and me becomes moi."],
+            ["Laisse-[le] tranquille.", "Leave him alone."],
+            ["Tu [m']énerves.", "You're getting on my nerves."],
+          ],
+          tip: "English often leaves “it” out where French needs it, and the reverse. Je sais (I know) is fine alone, but Je le sais insists: “I do know that”. After aimer, people usually say ça for a thing: J'aime ça, not Je l'aime, which sounds like “I love him / her”.",
+        },
+        {
+          id: "indirect",
+          title: "To him, to her, to them: indirect object",
+          fr: "me · te · lui · nous · vous · leur",
+          tone: "amber",
+          blurb:
+            "For verbs built with à + a person: parler à, dire à, donner à, téléphoner à, demander à, répondre à. Only the third person changes: lui (to him and to her) and leur (to them).",
+          ex: [
+            ["Je [lui] ai dit.", "I told him. · I told her.", "Lui is both. Only the context tells you which."],
+            ["Je [leur] ai parlé hier.", "I spoke to them yesterday.", "This leur never takes an s."],
+            ["Tu [me] prêtes dix euros ?", "Can you lend me ten euros?"],
+            ["Je [lui] téléphone ce soir.", "I'll phone her tonight.", "Téléphoner à, demander à, répondre à, dire à: indirect in French, direct in English."],
+            ["Demande-[lui] !", "Ask him! · Ask her!"],
+            ["Ça [te] plaît ?", "Do you like it?", "Plaire à: “does it please you?”"],
+            ["Elle [me] manque.", "I miss her.", "Manquer à runs backwards: “she is missing to me”. Tu me manques = I miss you."],
+            ["Ça [lui] va bien.", "It suits him. · It suits her."],
+            ["Il [m']a répondu tout de suite.", "He answered me straight away."],
+            ["Ça [vous] dérange si j'ouvre ?", "Do you mind if I open the window?"],
+            ["Je pense à [lui].", "I'm thinking of him.", "The exception: penser à + a person keeps à and takes the stressed form. “Je lui pense” is wrong."],
+          ],
+          tip: "How to choose between le and lui: ask how the verb is built. Voir quelqu'un → je le vois. Parler à quelqu'un → je lui parle. Me, te, nous, vous are the same either way, so the choice only matters for him, her and them.",
+        },
+        {
+          id: "reflexive",
+          title: "Myself, each other: reflexive pronouns",
+          fr: "me · te · se · nous · vous · se",
+          tone: "violet",
+          blurb:
+            "The subject and the object are the same person. French uses this far more than English: many everyday verbs are reflexive where English just says “get up”, “hurry”, “remember”. In the plural, se also means “each other”.",
+          ex: [
+            ["Je [me] lève à sept heures.", "I get up at seven."],
+            ["Tu [te] souviens de lui ?", "Do you remember him?"],
+            ["Il [s']appelle comment ?", "What's his name?", "Literally “he calls himself how?”"],
+            ["Je [me] suis trompé.", "I made a mistake.", "All reflexive verbs take être in the past."],
+            ["On [se] voit demain ?", "Shall we see each other tomorrow?", "Se = each other."],
+            ["On [s']appelle !", "Talk soon!", "“We'll call each other.”"],
+            ["Ils [se] sont mariés l'an dernier.", "They got married last year."],
+            ["Dépêche-[toi] !", "Hurry up!", "In a command, te becomes toi after the verb."],
+            ["[T']inquiète !", "Don't worry!", "Casual short form of Ne t'inquiète pas."],
+            ["Je [m']en fiche.", "I don't care."],
+            ["Ça [se] dit pas.", "You don't say that.", "Se for “is done”: ça se voit (it shows), ça se mange froid (it's eaten cold)."],
+            ["Je [me] lave les mains.", "I'm washing my hands.", "Me says whose hands, so no mes."],
+          ],
+          tip: "Some verbs change meaning with se: appeler (to call) and s'appeler (to be named), passer (to go past) and se passer (to happen), rendre (to give back) and se rendre compte (to realise), aller (to go) and s'en aller (to leave).",
+        },
+        {
+          id: "y-en",
+          title: "The two small ones: y and en",
+          fr: "y = à + thing or place · en = de + thing",
+          tone: "slate",
+          blurb:
+            "Two pronouns with no English twin. En replaces de + something: “some”, “of it”, “of them”, “about it”. Y replaces à (or another place word) + something: “there”, “about it”, “to it”.",
+          ex: [
+            ["J'[en] veux.", "I want some.", "En = du café, de la soupe, des frites."],
+            ["J'[en] ai deux.", "I've got two.", "With a number or a quantity, en is required. “J'ai deux” is not a sentence."],
+            ["Y [en] a plus.", "There's none left.", "Careful French: Il n'y en a plus."],
+            ["T'[en] penses quoi ?", "What do you think of it?", "Penser de → en."],
+            ["J'[en] ai marre.", "I'm fed up."],
+            ["Je m'[en] vais.", "I'm off."],
+            ["J'[y] vais.", "I'm going. · I'm off.", "Aller cannot stand alone, so y fills the gap even when “there” is not said in English."],
+            ["On [y] va ?", "Shall we go?"],
+            ["J'[y] pense.", "I'm thinking about it. · I'll keep it in mind.", "Penser à + a thing → y. For a person: Je pense à lui."],
+            ["Ça [y] est !", "That's it! · Done!"],
+            ["Vas-[y] !", "Go on! · Go ahead!"],
+            ["Je m'[y] connais pas trop.", "I don't know much about it."],
+          ],
+          tip: "Y and en are for things and places. For people, use the stressed pronoun: Je parle de lui (about him), not J'en parle, which means “I talk about it”.",
+          more: ["../others/french-y-en.html", "Open the full y and en lesson"],
+        },
+        {
+          id: "position",
+          title: "Where the pronoun goes, and two at once",
+          fr: "Je le vois · Je vais le faire · Je te le donne",
+          tone: "slate",
+          blurb:
+            "English puts the pronoun after the verb. French puts it in front of the verb it belongs to. Commands are the one case where it goes after.",
+          ex: [
+            ["Je [le] vois.", "I see him.", "In front of the verb."],
+            ["Je [le] vois pas.", "I don't see him.", "The pronoun stays glued to the verb; pas comes after. Careful French: Je ne le vois pas."],
+            ["Je [l']ai vu hier.", "I saw him yesterday.", "In the past: in front of avoir or être."],
+            ["Je vais [le] faire.", "I'm going to do it.", "With two verbs: in front of the infinitive, because that is the verb it belongs to."],
+            ["Je peux [t']aider ?", "Can I help you?"],
+            ["Je veux pas [y] aller.", "I don't want to go."],
+            ["Dis-[moi] !", "Tell me!", "Command: after the verb, with a hyphen."],
+            ["[Me] dis pas ça !", "Don't tell me that!", "Negative command: back in front."],
+            ["Je [te le] donne.", "I'm giving it to you.", "Two pronouns: me, te, nous, vous go first."],
+            ["Il [me l']a dit.", "He told me."],
+            ["Je [le lui] ai dit.", "I told him.", "But le, la, les go before lui and leur. In fast speech the le often disappears: J'lui ai dit."],
+            ["Donne-[le-moi].", "Give it to me.", "After a command: the thing first, the person second."],
+            ["Je [t'en] parle demain.", "I'll tell you about it tomorrow.", "Y and en always come last."],
+            ["Il [y en] a.", "There is some. · There are some."],
+          ],
+          strip: ["me · te · se · nous · vous", "le · la · les", "lui · leur", "y", "en"],
+          tip: "The row above is the order in front of the verb. In practice you rarely need more than two, and the common pairs are worth learning as blocks: je te le, il me l'a, je le lui, y en a, je t'en.",
+        },
+        {
+          id: "my",
+          title: "My, your, his, her: before a noun",
+          fr: "mon · ma · mes · ton · son · notre · votre · leur",
+          tone: "teal",
+          blurb:
+            "Strictly these are adjectives, since they always sit in front of a noun, but they belong to the same family. The key nuance: they agree with the thing owned, not with the owner.",
+          ex: [
+            ["T'as vu [mon] téléphone ?", "Have you seen my phone?"],
+            ["C'est [ma] sœur.", "This is my sister."],
+            ["J'ai oublié [mes] clés.", "I've forgotten my keys."],
+            ["C'est [son] frère.", "That's his brother. · That's her brother.", "French has no his / her difference. Son is there because frère is masculine."],
+            ["Elle a pris [sa] voiture.", "She took her car.", "Sa because voiture is feminine. Il a pris sa voiture = he took his car."],
+            ["C'est [mon] amie Léa.", "This is my friend Léa.", "Mon, ton, son before any feminine word that starts with a vowel: mon amie, ton idée, son école."],
+            ["[Leur] fils a dix ans.", "Their son is ten.", "One thing owned: leur."],
+            ["[Leurs] enfants sont grands.", "Their children are grown up.", "Several things owned: leurs."],
+            ["On a perdu [nos] billets.", "We've lost our tickets.", "On meaning “we” takes notre and nos."],
+            ["C'est [votre] manteau ?", "Is this your coat?"],
+            ["C'est un ami [à moi].", "He's a friend of mine.", "“Of mine” = à moi."],
+            ["C'est [sa] voiture [à lui].", "It's HIS car.", "To show which owner, add à lui or à elle."],
+          ],
+          tip: "With parts of the body French normally uses le, la, les and not mon: J'ai mal à la tête, Je me lave les mains.",
+        },
+        {
+          id: "mine",
+          title: "Mine, yours, theirs",
+          fr: "le mien · le tien · le sien · le nôtre · le vôtre · le leur",
+          tone: "indigo",
+          blurb:
+            "These replace the noun altogether, and they keep an article. They agree with the thing owned: le mien, la mienne, les miens, les miennes.",
+          ex: [
+            ["C'est pas ton verre, c'est [le mien].", "That's not your glass, it's mine."],
+            ["Ma voiture est en panne. On prend [la tienne] ?", "My car's broken down. Shall we take yours?", "La tienne because voiture is feminine."],
+            ["Mes parents sont cool. [Les tiens] aussi ?", "My parents are easy-going. Yours too?"],
+            ["Ce sac, c'est [le sien].", "That bag is his. · That bag is hers."],
+            ["Leur jardin est plus grand que [le nôtre].", "Their garden is bigger than ours.", "Notre (our) has no accent; le nôtre (ours) has one and a longer ô sound."],
+            ["À [la tienne] ! · À [la vôtre] !", "Cheers!", "Short for à ta santé, à votre santé."],
+            ["Chacun [le sien].", "One each."],
+            ["— C'est à qui ? — C'est [à moi].", "— Whose is it? — It's mine.", "For plain ownership, à + stressed pronoun is the most common answer."],
+            ["Ce livre est [à toi] ?", "Is this book yours?"],
+          ],
+          tip: "C'est à moi says “it belongs to me”. C'est le mien picks one out from several: “that one is mine (and that one is yours)”. In everyday talk the first is far more frequent.",
+        },
+        {
+          id: "ca",
+          title: "It, that, this one: ça, ce, celui",
+          fr: "ça · ce / c' · celui · celle · ceux · celles",
+          tone: "sky",
+          blurb:
+            "Ça is the all-purpose “it / that” of spoken French, for things, situations and ideas. In front of être it becomes ce or c'. Celui and its forms mean “the one”.",
+          ex: [
+            ["[Ça] va ?", "How's it going?"],
+            ["[Ça] dépend.", "It depends."],
+            ["[Ça] marche !", "OK, deal! · That works."],
+            ["[C']est [ça] !", "That's it! · Exactly!", "C' before est, ça everywhere else."],
+            ["[Ça] me dit rien.", "It doesn't ring a bell. · I don't fancy it."],
+            ["T'as vu [ça] ?", "Did you see that?"],
+            ["J'adore [ça].", "I love it.", "After aimer, adorer, détester, a thing is ça. J'adore ça, not Je l'adore."],
+            ["[C']est qui ?", "Who is it?"],
+            ["Je prends [celui-là].", "I'll take that one.", "Celui, celle, ceux, celles + -ci (this) or -là (that). In speech -là is used for both."],
+            ["Ma voiture est vieille, [celle] de Paul est neuve.", "My car is old; Paul's is new.", "Celle de Paul = “the one of Paul”. This is how French says Paul's."],
+            ["[Ceux] qui veulent peuvent rester.", "Those who want to can stay."],
+          ],
+          tip: "Ça is the spoken form of cela, which you will mostly see in writing. Ça is for things: said about a person it sounds dismissive. C'est or il est? C'est + noun (C'est un ami), il est + adjective or job (Il est sympa, il est prof).",
+        },
+        {
+          id: "relative",
+          title: "Who, that, which, where: joining two ideas",
+          fr: "qui · que · où · dont · ce qui · ce que",
+          tone: "emerald",
+          blurb:
+            "The choice between qui and que has nothing to do with people or things. Qui is the subject of the verb that follows; que is its object. And que can never be left out the way “that” can in English.",
+          ex: [
+            ["Le mec [qui] habite en face.", "The guy who lives opposite.", "Qui + verb: qui is the subject."],
+            ["C'est une série [qui] me plaît.", "It's a series I like.", "Qui for a thing. The series is doing the pleasing."],
+            ["Le film [que] j'ai vu hier.", "The film I saw yesterday.", "Que + subject + verb. English drops “that”; French keeps que."],
+            ["La fille [qu']il a invitée.", "The girl he invited.", "Que becomes qu' before a vowel. Qui never shortens."],
+            ["Le resto [où] on a mangé.", "The restaurant where we ate."],
+            ["Le jour [où] je t'ai rencontré.", "The day I met you.", "Où is also used for time. Not quand."],
+            ["Le truc [dont] je t'ai parlé.", "The thing I told you about.", "Dont replaces de + thing: parler de, avoir besoin de, avoir envie de."],
+            ["Je sais pas [ce que] tu veux.", "I don't know what you want.", "“What” in the middle of a sentence is ce que or ce qui."],
+            ["[Ce qui] m'énerve, c'est le bruit.", "What annoys me is the noise."],
+            ["C'est [moi] [qui] paie.", "I'm paying. · It's on me.", "C'est … qui puts the spotlight on one person."],
+            ["Le type avec [qui] je bosse.", "The guy I work with.", "The preposition cannot be left at the end as in English."],
+          ],
+          tip: "In casual speech people often dodge dont and say le truc que je t'ai parlé. You will hear it, but it is counted as a mistake, so don't copy it in writing.",
+        },
+        {
+          id: "indefinite",
+          title: "Someone, something, nobody, nothing",
+          fr: "quelqu'un · quelque chose · personne · rien · tout",
+          tone: "amber",
+          blurb:
+            "The vague pronouns. Careful French adds ne with personne and rien; everyday speech drops it, so the word alone carries the negative.",
+          ex: [
+            ["Y a [quelqu'un] ?", "Is anyone there?"],
+            ["[Quelqu'un] a appelé pour toi.", "Someone called for you."],
+            ["T'as dit [quelque chose] ?", "Did you say something?"],
+            ["J'ai [rien] vu.", "I didn't see anything.", "Careful French: Je n'ai rien vu. Rien goes before the participle."],
+            ["J'ai vu [personne].", "I didn't see anyone.", "Personne goes after the participle."],
+            ["[Personne] est venu.", "Nobody came.", "Careful French: Personne n'est venu."],
+            ["[Tout] va bien.", "Everything's fine."],
+            ["[Tout le monde] est là ?", "Is everyone here?", "Everyone = tout le monde, with a singular verb."],
+            ["C'est [quelqu'un] de bien.", "He's a good person.", "De + adjective after these words: quelque chose de bon, rien de grave, personne d'autre."],
+            ["[Chacun] son tour.", "Everyone in turn."],
+            ["[N'importe qui] peut le faire.", "Anyone can do it."],
+            ["Dis pas [n'importe quoi] !", "Don't talk rubbish!", "N'importe quoi = “anything at all”, so: nonsense."],
+            ["Y en a [plusieurs].", "There are several."],
+          ],
+        },
+        {
+          id: "question",
+          title: "Who? What? Which one?",
+          fr: "qui · quoi · qu'est-ce que · lequel",
+          tone: "violet",
+          blurb:
+            "Spoken French keeps the normal word order and puts the question word where the answer would go, often at the end. Que becomes quoi whenever it is stressed.",
+          ex: [
+            ["C'est [qui] ?", "Who is it?"],
+            ["[Qui] veut un café ?", "Who wants a coffee?"],
+            ["Tu fais [quoi] ce week-end ?", "What are you doing this weekend?", "Casual: quoi after the verb. Neutral: Qu'est-ce que tu fais ?"],
+            ["[Qu'est-ce que] tu veux ?", "What do you want?", "Qu'est-ce que when “what” is the object."],
+            ["[Qu'est-ce qui] se passe ?", "What's going on?", "Qu'est-ce qui when “what” is the subject."],
+            ["De [quoi] tu parles ?", "What are you talking about?", "After a preposition: quoi, and the preposition goes first."],
+            ["T'y vas avec [qui] ?", "Who are you going with?"],
+            ["[Lequel] tu préfères ?", "Which one do you prefer?", "Lequel, laquelle, lesquels, lesquelles agree with the thing."],
+            ["C'est [laquelle], ta voiture ?", "Which one is your car?"],
+            ["C'est [quoi], ça ?", "What's that?"],
+            ["[Quoi] ?", "What?", "Blunt. Politer: Comment ? or Pardon ?"],
+          ],
+        },
+      ];
+
+      /* Same word, several jobs: word, then [French, English, job] */
+      const JOBS = [
+        {
+          word: "nous",
+          lines: [
+            ["[Nous] partons.", "We are leaving.", "subject (careful)"],
+            ["Il [nous] voit.", "He sees us.", "direct object"],
+            ["Il [nous] parle.", "He's talking to us.", "indirect object"],
+            ["Viens avec [nous].", "Come with us.", "stressed"],
+          ],
+        },
+        {
+          word: "lui",
+          lines: [
+            ["Je [lui] parle.", "I'm talking to him / to her.", "indirect: him or her"],
+            ["Je parle de [lui].", "I'm talking about him.", "stressed: him only"],
+          ],
+        },
+        {
+          word: "leur",
+          lines: [
+            ["Je [leur] parle.", "I'm talking to them.", "indirect: never an s"],
+            ["[Leur] chien, [leurs] chats.", "Their dog, their cats.", "“their”: s in the plural"],
+            ["C'est [le leur].", "It's theirs.", "“theirs”"],
+          ],
+        },
+        {
+          word: "le · la · les",
+          lines: [
+            ["[Le] film est bien.", "The film is good.", "article: before a noun"],
+            ["Je [le] regarde.", "I'm watching it.", "pronoun: before a verb"],
+          ],
+        },
+        {
+          word: "en",
+          lines: [
+            ["J'[en] veux.", "I want some.", "pronoun: before a verb"],
+            ["[En] France, [en] voiture.", "In France, by car.", "preposition: before a noun"],
+          ],
+        },
+        {
+          word: "on",
+          lines: [
+            ["[On] y va ?", "Shall we go?", "we"],
+            ["[On] sonne.", "Someone's at the door.", "someone"],
+            ["[On] dit que c'est bien.", "People say it's good.", "people in general"],
+          ],
+        },
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["Je vois le.", "Je [le] vois.", "I see him.", "The pronoun goes in front of the verb."],
+        ["Je le vais faire.", "Je vais [le] faire.", "I'm going to do it.", "In front of the infinitive it belongs to."],
+        ["Je regarde à lui.", "Je [le] regarde.", "I'm looking at him.", "Regarder takes a direct object."],
+        ["Je le téléphone.", "Je [lui] téléphone.", "I'm phoning him.", "Téléphoner à → lui."],
+        ["Je lui pense.", "Je pense à [lui].", "I'm thinking of him.", "Penser à + person keeps à."],
+        ["— Qui est là ? — Je.", "— Qui est là ? — [Moi].", "— Who's there? — Me.", "Alone: the stressed form."],
+        ["Je leurs ai dit.", "Je [leur] ai dit.", "I told them.", "Leur as “to them” never takes s."],
+        ["Donne-me-le.", "Donne-[le-moi].", "Give it to me.", "After a command: thing, then person, and moi."],
+        ["C'est sa frère.", "C'est [son] frère.", "That's her brother.", "Agrees with frère, not with the owner."],
+        ["C'est ma amie.", "C'est [mon] amie.", "This is my friend.", "Mon before a feminine vowel."],
+        ["J'ai trois.", "J'[en] ai trois.", "I have three.", "A number alone needs en."],
+        ["Le film j'ai vu.", "Le film [que] j'ai vu.", "The film I saw.", "Que cannot be dropped."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600", chip: "bg-sky-100 text-sky-800", head: "bg-sky-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600", chip: "bg-violet-100 text-violet-800", head: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600", chip: "bg-emerald-100 text-emerald-800", head: "bg-emerald-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600", chip: "bg-amber-100 text-amber-800", head: "bg-amber-600" },
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600", chip: "bg-rose-100 text-rose-800", head: "bg-rose-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600", chip: "bg-teal-100 text-teal-800", head: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600", chip: "bg-indigo-100 text-indigo-800", head: "bg-indigo-600" },
+        slate: { bar: "bg-cyan-600", edge: "border-cyan-500", soft: "bg-cyan-50", text: "text-cyan-700", num: "bg-cyan-700", chip: "bg-cyan-100 text-cyan-800", head: "bg-cyan-700" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [le] → highlighted pronoun;  [∅] → a pale "nothing here" mark */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) =>
+          a === "∅"
+            ? `<span class="text-slate-400 font-normal" title="pronoun dropped">∅</span>`
+            : `<b class="${cls} font-bold">${a}</b>`,
+        );
+
+      /* ---------- chart ---------- */
+      document.getElementById("chart-head").innerHTML = `
+        <tr>
+          <th scope="col" class="sticky left-0 z-10 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500 align-bottom">Person</th>
+          ${COLS.map(
+            (c, k) => `
+          <th scope="col" class="${TONES[c.tone].head} text-white px-3 py-2 align-bottom ${k === 0 ? "rounded-tl-xl" : ""} ${k === COLS.length - 1 ? "rounded-tr-xl" : ""}">
+            <a href="#${c.go}" class="block font-semibold leading-tight hover:underline">${c.name}</a>
+            <span class="block text-xs font-normal opacity-90">${c.hint}</span>
+          </th>`,
+          ).join("")}
+        </tr>`;
+
+      let picked = "je";
+      function drawChart() {
+        document.getElementById("chart-body").innerHTML = ROWS.map((r) => {
+          const on = r.id === picked;
+          return `
+          <tr>
+            <th scope="row" class="sticky left-0 z-10 bg-white p-1 border-b border-slate-100">
+              <button type="button" data-row="${r.id}" aria-pressed="${on}"
+                class="w-full text-left rounded-lg px-3 py-2 font-playfair italic font-semibold text-xl ${on ? "bg-teal-700 text-white" : "bg-slate-100 text-slate-800 hover:bg-teal-100"}" lang="fr">${r.id}</button>
+            </th>
+            ${COLS.map((c) => {
+              const t = TONES[c.tone];
+              return `<td class="px-3 py-2 border-b border-slate-100 whitespace-nowrap font-medium ${on ? `${t.soft} ${t.text} font-bold` : "text-slate-800"}" lang="fr">${esc(r.forms[c.key])}</td>`;
+            }).join("")}
+          </tr>`;
+        }).join("");
+
+        const r = ROWS.find((x) => x.id === picked);
+        document.getElementById("chart-examples").innerHTML = `
+          <div class="rounded-xl border border-teal-200 bg-teal-50/60 p-4 md:p-5">
+            <p class="mb-3"><span class="font-playfair italic font-bold text-2xl text-teal-800" lang="fr">${r.id}</span>
+              <span class="text-slate-600"> — ${esc(r.en)}</span></p>
+            <ul class="grid md:grid-cols-2 gap-x-6 gap-y-3">
+              ${COLS.map((c, k) => {
+                const t = TONES[c.tone];
+                return `
+              <li class="flex items-start gap-3">
+                <span class="shrink-0 w-28 mt-0.5 rounded-full px-2.5 py-0.5 text-xs font-bold text-center ${t.chip}">${c.name}</span>
+                <div>
+                  <p class="font-medium text-slate-900" lang="fr">${mark(r.ex[k][0], t.text)}</p>
+                  <p class="text-sm text-slate-500">${esc(r.ex[k][1])}</p>
+                </div>
+              </li>`;
+              }).join("")}
+            </ul>
+          </div>`;
+      }
+      document.getElementById("chart-body").addEventListener("click", (e) => {
+        const b = e.target.closest("button[data-row]");
+        if (!b) return;
+        picked = b.dataset.row;
+        drawChart();
+        document.querySelector(`button[data-row="${picked}"]`).focus();
+      });
+      drawChart();
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-teal-100 border border-teal-200 px-3 py-1.5 text-sm font-medium text-teal-900 hover:bg-teal-200">The chart</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-teal-400 hover:text-teal-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#jobs" class="rounded-full bg-teal-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-teal-700">Several jobs</a>` +
+        `<a href="#slips" class="rounded-full bg-rose-100 border border-rose-200 px-3 py-1.5 text-sm font-medium text-rose-900 hover:bg-rose-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${
+              u.strip
+                ? `<div class="mt-5 flex flex-wrap items-center gap-2" aria-label="Order of pronouns before the verb">
+                    ${u.strip
+                      .map((s, n) => `<span class="rounded-lg ${t.soft} border ${t.edge} px-3 py-1.5 font-playfair italic font-semibold ${t.text}" lang="fr"><span class="not-italic font-inter text-xs font-bold mr-1.5 opacity-70">${n + 1}</span>${esc(s)}</span>`)
+                      .join(`<span class="text-slate-400" aria-hidden="true">→</span>`)}
+                    <span class="text-slate-400" aria-hidden="true">→</span>
+                    <span class="rounded-lg bg-slate-800 text-white px-3 py-1.5 text-sm font-semibold">verb</span>
+                  </div>`
+                : ""
+            }
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- same word, several jobs ---------- */
+      document.getElementById("job-list").innerHTML = JOBS.map(
+        (j) => `
+        <div class="bg-white/10 rounded-xl p-5">
+          <p class="font-playfair italic font-bold text-2xl text-amber-300 mb-3" lang="fr">${esc(j.word)}</p>
+          <ul class="space-y-3">
+            ${j.lines
+              .map(
+                ([fr, en, job]) => `
+            <li>
+              <p class="flex flex-wrap items-baseline gap-x-3"><span class="text-lg font-semibold" lang="fr">${mark(fr, "text-amber-300")}</span>
+                <span class="text-xs font-semibold uppercase tracking-wide text-emerald-200">${esc(job)}</span></p>
+              <p class="text-emerald-100">${esc(en)}</p>
+            </li>`,
+              )
+              .join("")}
+          </ul>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+  <script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

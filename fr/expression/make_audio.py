@@ -111,6 +111,11 @@ def finish(raw, dest, cut):
 
 os.makedirs(RAWROOT, exist_ok=True)
 flagged = open(os.path.join(RAWROOT, "flagged.txt"), "a", encoding="utf-8")
+ONLY = set()  # --only N ...: make only these clips (one at a time from audio_app.bat)
+if "--only" in sys.argv:
+    k = sys.argv.index("--only")
+    ONLY = {int(x) for x in sys.argv[k + 1:]}
+    del sys.argv[k:]
 for page in sys.argv[1:]:
     h = open(f"{ROOT}/fr/expression/{page}.html", encoding="utf-8").read()
     folder = re.search(r'AUD_DIR = "[^"]*/Expressions/([^/"]+)/"', h).group(1)
@@ -121,6 +126,8 @@ for page in sys.argv[1:]:
     os.makedirs(raw_dir, exist_ok=True)
     made = 0
     for i, card in enumerate(cards, 1):
+        if ONLY and i not in ONLY:
+            continue
         dest = f"{out_dir}/{i:02d}.mp3"
         if os.path.exists(dest):
             continue

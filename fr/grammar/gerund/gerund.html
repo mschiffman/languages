@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Gerund in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-slate-900 via-slate-800 to-yellow-800 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-yellow-300 mb-4"
+        >
+          French grammar · Gerund
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">en marchant</span>
+        </h1>
+        <p class="text-lg md:text-xl text-yellow-100 max-w-2xl mx-auto leading-relaxed">
+          <i lang="fr">En</i> + a verb in <i lang="fr">-ant</i> means “while
+          doing”, “by doing” or “on doing”: <i lang="fr">Je chante en me
+          douchant</i>. It's one of the few places French uses an
+          <i lang="fr">-ant</i> form. Most English “-ing” words turn into
+          something else entirely, and that's where the real traps are.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The charts (filled by the script from BUILD, JOBS, ING below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-yellow-900 mb-2">
+          First, the chart: how to build it
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          Take the <i lang="fr">nous</i> form of the present, drop
+          <i lang="fr">-ons</i>, add <i lang="fr">-ant</i>, and put
+          <i lang="fr">en</i> in front. It never changes for person, gender
+          or number. Only three verbs break the rule.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[640px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Verb</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold">nous, present</th>
+                <th scope="col" class="bg-yellow-600 text-white px-3 py-2 rounded-tr-xl font-semibold">Gerund</th>
+              </tr>
+            </thead>
+            <tbody id="build-body"></tbody>
+          </table>
+        </div>
+
+        <!-- Jobs -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-yellow-900 mt-10 mb-2">
+          What en + -ant can mean
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          One form, several English translations. The context tells you
+          which. In every case the person doing the <i lang="fr">-ant</i>
+          verb is the subject of the main verb.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[640px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Job</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold">English</th>
+                <th scope="col" class="bg-yellow-600 text-white px-3 py-2 rounded-tr-xl font-semibold">In a sentence</th>
+              </tr>
+            </thead>
+            <tbody id="jobs-body"></tbody>
+          </table>
+        </div>
+
+        <!-- -ing translations -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-yellow-900 mt-10 mb-2">
+          English “-ing” is usually not en + -ant
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          This is the chart to remember. Most English “-ing” forms become an
+          infinitive, a present tense, or a noun in French.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[640px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">English</th>
+                <th scope="col" class="bg-rose-600 text-white px-3 py-2 font-semibold">French</th>
+                <th scope="col" class="bg-emerald-600 text-white px-3 py-2 rounded-tr-xl font-semibold">What it becomes</th>
+              </tr>
+            </thead>
+            <tbody id="ing-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the charts sideways to see every column.</p>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-yellow-800">Same subject.</b> “Leaving the house,
+            it started to rain” works loosely in English. In French the
+            <i lang="fr">-ant</i> verb must belong to the subject.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-yellow-800">Never changes.</b> <i lang="fr">En
+            parlant</i> is the same for je, elle, nous, ils. Pronouns go
+            between: <i lang="fr">en le voyant</i>, <i lang="fr">en me
+            levant</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-yellow-800">Spoken and written.</b> The gerund
+            with <i lang="fr">en</i> is everyday French. The bare
+            <i lang="fr">-ant</i> form without <i lang="fr">en</i> is mostly
+            written (section 12).
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-yellow-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Almost the same words, not the same meaning
+        </h2>
+        <p class="text-yellow-100 leading-relaxed mb-6 max-w-3xl">
+          Who is doing the <i lang="fr">-ant</i> verb, a small word added, or
+          one letter of spelling changes the sentence.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-yellow-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-yellow-700 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Almost all come from copying an English “-ing” into French. The
+              crossed-out line is the slip; the line under it is what people
+              say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../verb/verbs.html" class="font-semibold text-yellow-700 underline underline-offset-2 hover:text-yellow-900">verbs</a>
+          ·
+          <a href="../connector/connectors.html" class="font-semibold text-yellow-700 underline underline-offset-2 hover:text-yellow-900">linking words</a>
+          ·
+          <a href="../preposition/prepositions.html" class="font-semibold text-yellow-700 underline underline-offset-2 hover:text-yellow-900">prepositions</a>
+          ·
+          <a href="../condition/si-clauses.html" class="font-semibold text-yellow-700 underline underline-offset-2 hover:text-yellow-900">si-clauses</a>
+        </p>
+        <a href="../index.html" class="text-yellow-700 underline underline-offset-2 hover:text-yellow-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "Je chante [en me douchant]."
+      --------------------------------------------------------------- */
+
+      /* Build: [verb, nous form, gerund, note] */
+      const BUILD = [
+        ["parler", "nous parl·ons", "en parlant", ""],
+        ["finir", "nous finiss·ons", "en finissant", ""],
+        ["prendre", "nous pren·ons", "en prenant", ""],
+        ["faire", "nous fais·ons", "en faisant", ""],
+        ["voir", "nous voy·ons", "en voyant", ""],
+        ["boire", "nous buv·ons", "en buvant", ""],
+        ["manger", "nous mange·ons", "en mangeant", "the e stays"],
+        ["commencer", "nous commenç·ons", "en commençant", "the ç stays"],
+        ["se lever", "nous nous lev·ons", "en se levant", "en me levant, en te levant…"],
+        ["être", "—", "en étant", "irregular"],
+        ["avoir", "—", "en ayant", "irregular"],
+        ["savoir", "—", "en sachant", "irregular"],
+      ];
+
+      /* Jobs: [job, English, example French, example English] */
+      const JOBS = [
+        ["At the same time", "while …ing", "Je chante [en me douchant].", "I sing in the shower."],
+        ["How", "by …ing", "On apprend [en pratiquant].", "You learn by practising."],
+        ["The moment", "on …ing, when", "[En arrivant], j'ai vu Paul.", "When I arrived, I saw Paul."],
+        ["Condition", "if you …", "[En partant] maintenant, on sera à l'heure.", "If we leave now, we'll be on time."],
+        ["Cause", "from …ing", "Il s'est blessé [en tombant].", "He hurt himself falling."],
+        ["Manner of moving", "ran out, swam across", "Il est sorti [en courant].", "He ran out."],
+        ["Even though (tout en)", "while, although", "[Tout en étant] riche, il vit simplement.", "Although he's rich, he lives simply."],
+      ];
+
+      /* -ing translations: [English, French, what it becomes] */
+      const ING = [
+        ["I like swimming.", "J'aime [nager].", "infinitive after aimer, adorer, détester, préférer"],
+        ["Stop talking!", "Arrête [de parler] !", "de + infinitive"],
+        ["before leaving", "[avant de partir]", "avant de + infinitive"],
+        ["without saying a word", "[sans dire] un mot", "sans + infinitive"],
+        ["after eating", "[après avoir mangé]", "après + avoir / être + participle"],
+        ["I'm eating.", "Je [mange]. · Je [suis en train de] manger.", "present tense"],
+        ["I've been waiting for an hour.", "J'[attends] depuis une heure.", "present + depuis"],
+        ["I saw him leaving.", "Je l'ai vu [partir].", "infinitive after voir, entendre, regarder"],
+        ["Swimming is good for you.", "[Nager], c'est bon pour la santé.", "infinitive as the subject"],
+        ["a swimming pool", "une [piscine]", "a noun"],
+        ["Thanks for coming.", "Merci [d'être venu].", "de + past infinitive"],
+        ["I spend my time reading.", "Je passe mon temps [à lire].", "à + infinitive"],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "build",
+          title: "Building it: en + nous form + -ant",
+          fr: "en parlant · en faisant · en étant · en se levant",
+          tone: "amber",
+          blurb:
+            "Start from nous: nous faisons → faisant. The gerund doesn't change for the person. Object and reflexive pronouns go between en and the verb.",
+          ex: [
+            ["[En parlant] avec lui, j'ai compris.", "Talking to him, I understood."],
+            ["[En faisant] les courses, j'ai croisé Marie.", "While doing the shopping, I bumped into Marie."],
+            ["[En étant] patient, tu y arriveras.", "By being patient, you'll get there.", "Être → étant."],
+            ["[En ayant] un peu de chance…", "With a bit of luck…", "Avoir → ayant."],
+            ["[En sachant] ça, j'aurais dit non.", "Knowing that, I'd have said no.", "Savoir → sachant."],
+            ["Je me suis fait mal [en me levant].", "I hurt myself getting up.", "Reflexive: me, te, se, nous, vous between en and the verb."],
+            ["[En le voyant], elle a souri.", "When she saw him, she smiled.", "Object pronoun: en le, en la, en lui."],
+            ["[En y allant] à pied, tu gagnes du temps.", "If you walk there, you save time."],
+            ["[En ne disant rien], il a tout compris.", "By saying nothing, he understood everything.", "Negative: en ne … pas around the verb. Speech drops ne: en disant rien."],
+          ],
+        },
+        {
+          id: "while",
+          title: "While: two things at once",
+          fr: "en marchant · en conduisant · en mangeant",
+          tone: "sky",
+          blurb:
+            "The most common use: the subject does two things at the same time. English often says “while …ing”, or just “and”, or uses a different structure altogether.",
+          ex: [
+            ["Je chante [en me douchant].", "I sing in the shower."],
+            ["Il mange [en regardant] la télé.", "He eats in front of the TV."],
+            ["On a discuté [en marchant].", "We chatted as we walked."],
+            ["Ne téléphone pas [en conduisant].", "Don't use your phone while driving.", "The person driving is the person phoning: same subject."],
+            ["Elle travaille [en écoutant] de la musique.", "She works with music on."],
+            ["Ne parle pas [en mangeant].", "Don't talk with your mouth full."],
+            ["J'ai lu ton message [en attendant] le bus.", "I read your message while waiting for the bus."],
+            ["Il est arrivé [en sifflant].", "He came in whistling."],
+          ],
+          tip: "If two different people are involved, use pendant que instead: Pendant que tu cuisines, je mets la table.",
+          more: ["../connector/connectors.html", "Pendant que and other time links"],
+        },
+        {
+          id: "by",
+          title: "By: how something is done",
+          fr: "en pratiquant · en travaillant · c'est en forgeant…",
+          tone: "emerald",
+          blurb:
+            "The gerund answers “how?”: by doing what. It is the French for “by …ing”.",
+          ex: [
+            ["On apprend une langue [en la parlant].", "You learn a language by speaking it."],
+            ["— T'as appris comment ? — [En regardant] des séries.", "— How did you learn? — By watching series."],
+            ["Il a réussi [en travaillant] dur.", "He succeeded by working hard."],
+            ["Tu gagnes du temps [en prenant] le métro.", "You save time by taking the metro."],
+            ["Tu l'ouvres [en tournant] à gauche.", "You open it by turning it to the left."],
+            ["Elle a maigri [en faisant] du sport.", "She lost weight by doing sport."],
+            ["C'est [en forgeant] qu'on devient forgeron.", "Practice makes perfect.", "Proverb: “it's by forging that you become a blacksmith”."],
+            ["[En cherchant] bien, tu trouveras.", "If you look hard enough, you'll find it."],
+          ],
+        },
+        {
+          id: "when",
+          title: "On, when: the moment something happens",
+          fr: "en arrivant · en sortant · en ouvrant la porte",
+          tone: "teal",
+          blurb:
+            "The gerund marks the moment: “on arriving”, “as I came out”. English usually needs “when” + a full clause.",
+          ex: [
+            ["[En arrivant], appelle-moi.", "Call me when you arrive."],
+            ["[En sortant] du métro, tourne à droite.", "Turn right as you come out of the metro."],
+            ["[En ouvrant] la porte, j'ai vu le désordre.", "When I opened the door, I saw the mess."],
+            ["[En rentrant], j'ai trouvé une lettre.", "When I got home, I found a letter."],
+            ["[En le voyant], j'ai tout de suite compris.", "As soon as I saw him, I understood."],
+            ["[En me réveillant], j'avais mal à la tête.", "When I woke up, I had a headache."],
+            ["J'y ai pensé [en me couchant].", "I thought about it as I was going to bed."],
+          ],
+        },
+        {
+          id: "if",
+          title: "If: a condition",
+          fr: "en partant maintenant · en prenant le métro",
+          tone: "indigo",
+          blurb:
+            "The gerund can replace a si-clause when the subject is the same: “by doing this, if you do this”.",
+          ex: [
+            ["[En partant] maintenant, on sera à l'heure.", "If we leave now, we'll be on time.", "= Si on part maintenant…"],
+            ["[En prenant] le métro, tu mets dix minutes.", "If you take the metro, it takes ten minutes."],
+            ["[En réservant] en ligne, c'est moins cher.", "It's cheaper if you book online."],
+            ["[En y réfléchissant] bien, c'est pas idiot.", "If you think about it, it's not stupid."],
+            ["[En travaillant] un peu plus, tu aurais réussi.", "If you'd worked a bit more, you'd have passed.", "Works with a past conditional too."],
+          ],
+          more: ["../condition/si-clauses.html", "Si-clauses"],
+        },
+        {
+          id: "manner",
+          title: "Ran out, swam across: movement + manner",
+          fr: "Il est sorti en courant · J'ai traversé à la nage",
+          tone: "rose",
+          blurb:
+            "English puts the manner in the verb (run, swim, limp) and the direction in a little word (out, across, in). French does the opposite: the direction is the verb, the manner is a gerund or à + noun.",
+          ex: [
+            ["Il est [sorti en courant].", "He ran out.", "Direction: sortir. Manner: en courant."],
+            ["Elle est [entrée en pleurant].", "She came in crying."],
+            ["Il a [traversé] la rue [en courant].", "He ran across the street."],
+            ["On a [traversé] la rivière [à la nage].", "We swam across the river.", "À la nage, à pied, à vélo: à + noun works too."],
+            ["Il est [rentré en boitant].", "He limped home."],
+            ["Elle est [montée en courant].", "She ran upstairs."],
+            ["Le chat est [descendu en sautant].", "The cat jumped down."],
+            ["Je suis [venu à pied].", "I walked here.", "Simplest of all: venir, aller + à pied."],
+          ],
+          tip: "English speakers tend to say “il a couru dehors” for “he ran out”. It is understood, but sounds translated. Start from the direction verb: sortir, entrer, traverser, monter, descendre.",
+        },
+        {
+          id: "tout-en",
+          title: "Tout en: at the same time, or even though",
+          fr: "tout en parlant · tout en sachant que · tout en étant d'accord",
+          tone: "violet",
+          blurb:
+            "Tout in front stresses that the two actions happen together, often with a contrast between them.",
+          ex: [
+            ["Il m'écoutait [tout en] regardant son téléphone.", "He was listening to me while looking at his phone."],
+            ["[Tout en étant] riche, il vit simplement.", "Although he's rich, he lives simply.", "Contrast: even though."],
+            ["[Tout en sachant] que c'était risqué, il y est allé.", "Even though he knew it was risky, he went."],
+            ["[Tout en étant] d'accord, j'ai des doutes.", "While I agree, I have some doubts."],
+            ["Elle souriait [tout en] pleurant.", "She was smiling and crying at the same time."],
+          ],
+        },
+        {
+          id: "subject",
+          title: "The same-subject rule",
+          fr: "En sortant, j'ai vu… · Quand je suis sorti, il pleuvait",
+          tone: "amber",
+          blurb:
+            "The gerund always belongs to the subject of the main verb. If the main verb has a different subject, use quand, pendant que or another full clause.",
+          ex: [
+            ["[En sortant], j'ai vu qu'il pleuvait.", "As I came out, I saw it was raining.", "Je sors, je vois: same subject."],
+            ["[Quand je suis sorti], il pleuvait.", "When I came out, it was raining.", "Different subjects: je, il. Use quand."],
+            ["[En rentrant], j'ai trouvé le chat dehors.", "When I got home, I found the cat outside."],
+            ["[Quand je suis rentré], le chat était dehors.", "When I got home, the cat was outside."],
+            ["[Pendant que] tu dormais, j'ai fait le ménage.", "While you were sleeping, I did the cleaning.", "Two people: pendant que."],
+          ],
+          tip: "English allows “Walking home, the rain started”. In French “En rentrant, la pluie a commencé” means the rain was walking home. Learners and French speakers both trip on this, but it is still counted as a mistake.",
+        },
+        {
+          id: "infinitive",
+          title: "English -ing, French infinitive",
+          fr: "j'aime nager · arrête de parler · avant de partir · sans rien dire",
+          tone: "emerald",
+          blurb:
+            "This is where most “-ing” words end up. After a verb, after a preposition, or as the subject of a sentence, French uses the infinitive.",
+          ex: [
+            ["J'adore [voyager].", "I love travelling.", "After aimer, adorer, détester, préférer."],
+            ["[Arrête de] crier !", "Stop shouting!", "After a preposition: de, à, pour, sans."],
+            ["J'ai [fini de] manger.", "I've finished eating."],
+            ["Je pense [à partir].", "I'm thinking of leaving.", "Penser à + infinitive."],
+            ["Mange [avant de] partir.", "Eat before leaving."],
+            ["Il est parti [sans] dire au revoir.", "He left without saying goodbye."],
+            ["[Après avoir] mangé, on est sortis.", "After eating, we went out.", "Après + past infinitive."],
+            ["Je l'ai [entendu chanter].", "I heard her singing.", "Voir, entendre, regarder + infinitive."],
+            ["[Fumer] tue.", "Smoking kills.", "Infinitive as a subject."],
+            ["Ça vaut la peine [d']essayer.", "It's worth trying."],
+            ["J'ai du mal [à] dormir.", "I'm having trouble sleeping."],
+            ["Merci [de m'avoir] aidé.", "Thanks for helping me.", "De + past infinitive for something done."],
+          ],
+          more: ["../preposition/prepositions.html", "Which verbs take à and which take de"],
+        },
+        {
+          id: "present",
+          title: "English -ing, French present or imparfait",
+          fr: "je mange · je suis en train de · j'attends depuis · je marchais quand",
+          tone: "sky",
+          blurb:
+            "French has no “-ing” tenses. “I'm eating”, “I've been waiting” and “I was walking” all use simple tenses.",
+          ex: [
+            ["Je [mange].", "I'm eating."],
+            ["Je [suis en train de] manger.", "I'm (busy) eating right now.", "To stress that it's happening now."],
+            ["Il [pleut].", "It's raining."],
+            ["J'[attends] depuis une heure.", "I've been waiting for an hour.", "Present + depuis."],
+            ["Je [marchais] quand il m'a appelé.", "I was walking when he called me.", "Imparfait for the background action."],
+            ["Je [pars] demain.", "I'm leaving tomorrow.", "Present for a near plan."],
+            ["Tu [fais] quoi ?", "What are you doing?"],
+          ],
+          more: ["../verb/verbs.html", "More on verbs and tenses"],
+        },
+        {
+          id: "nouns",
+          title: "English -ing, French noun",
+          fr: "la natation · une piscine · le parking · le shopping",
+          tone: "teal",
+          blurb:
+            "Many “-ing” nouns have their own French word. Some English “-ing” words have been borrowed, often with a different meaning.",
+          ex: [
+            ["Je fais de la [natation].", "I go swimming."],
+            ["On va à la [piscine] ?", "Shall we go to the swimming pool?"],
+            ["J'aime la [lecture].", "I like reading."],
+            ["Je me gare au [parking].", "I'll park in the car park.", "Le parking = the car park, not the activity."],
+            ["On fait du [camping].", "We go camping.", "Le camping is also the campsite."],
+            ["J'ai fait du [shopping].", "I went shopping."],
+            ["Je vais faire un [footing].", "I'm going for a jog.", "Footing is French-made English: “jogging” in English."],
+            ["Un [smoking].", "A dinner jacket.", "False friend!"],
+          ],
+        },
+        {
+          id: "participle",
+          title: "Without en: the -ant form in writing",
+          fr: "une femme portant un chapeau · ayant fini · une histoire intéressante",
+          tone: "indigo",
+          blurb:
+            "Without en, the -ant form is a present participle: mostly written, meaning “who is …ing” or “since …”. A separate group of -ant words are adjectives and agree like any adjective. A few are spelled differently from the participle.",
+          ex: [
+            ["Une femme [portant] un chapeau.", "A woman wearing a hat.", "Written. Speech: une femme qui porte un chapeau."],
+            ["Les étudiants [parlant] français…", "Students who speak French…"],
+            ["[Ayant] fini, il est parti.", "Having finished, he left.", "Written."],
+            ["[Étant donné] la situation…", "Given the situation…", "Fixed phrase, used in speech too."],
+            ["Une histoire [intéressante].", "An interesting story.", "Adjective: agrees."],
+            ["Des rues [glissantes].", "Slippery streets."],
+            ["Un travail [fatigant].", "A tiring job.", "Adjective: fatigant. Gerund: en fatiguant."],
+            ["Un argument [convaincant].", "A convincing argument.", "Adjective: convaincant. Gerund: en convainquant."],
+            ["Le jour [précédent].", "The day before.", "Adjective: précédent. Participle: précédant."],
+          ],
+        },
+        {
+          id: "phrases",
+          title: "Set phrases and proverbs",
+          fr: "en attendant · en passant · en parlant de… · l'appétit vient en mangeant",
+          tone: "rose",
+          blurb:
+            "A handful of gerunds have become fixed expressions you'll hear every day.",
+          ex: [
+            ["[En attendant], on prend un café ?", "Meanwhile, shall we have a coffee?", "En attendant: in the meantime."],
+            ["[En attendant] ton appel…", "While waiting for your call…"],
+            ["[En passant], t'as vu Paul ?", "By the way, have you seen Paul?", "Also soit dit en passant."],
+            ["[En parlant de] Paul, il est où ?", "Speaking of Paul, where is he?"],
+            ["[En y repensant], t'avais raison.", "Thinking back, you were right."],
+            ["[En gros]…", "Basically…", "En + adjective, not a gerund, but used the same way."],
+            ["L'appétit vient [en mangeant].", "The more you have, the more you want.", "Proverb: “appetite comes with eating”."],
+            ["[En fin de compte], c'était bien.", "At the end of the day, it was good.", "En + noun, often heard alongside gerunds."],
+          ],
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["Je l'ai vu [en sortant].", "I saw him as I was leaving. (I left)", "Je l'ai vu [sortir].", "I saw him leave. (he left)"],
+        ["Il a traversé la rue [en courant].", "He ran across the street.", "Il court [dans] la rue.", "He's running in the street."],
+        ["Un travail [fatigant].", "A tiring job. (adjective)", "Il réussit [en fatiguant] tout le monde.", "He succeeds by wearing everyone out. (gerund)"],
+        ["Arrête [de] parler.", "Stop talking.", "Arrête-toi [pour] parler.", "Stop to talk."],
+        ["[En attendant], on mange.", "In the meantime, let's eat.", "[En t'attendant], j'ai mangé.", "While waiting for you, I ate."],
+        ["[En passant], t'as vu Paul ?", "By the way, have you seen Paul?", "[En passant par] Lyon.", "Going via Lyon."],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["J'aime en nageant.", "J'aime [nager].", "I like swimming.", "After aimer: infinitive."],
+        ["Arrête parlant !", "Arrête [de parler] !", "Stop talking!", "Arrêter de + infinitive."],
+        ["Je suis mangeant.", "Je [mange].", "I'm eating.", "No -ing tense: simple present."],
+        ["Merci pour venant.", "Merci [d'être venu].", "Thanks for coming.", "De + past infinitive."],
+        ["Avant partant.", "[Avant de partir].", "Before leaving.", "Avant de + infinitive."],
+        ["Sans disant au revoir.", "[Sans dire] au revoir.", "Without saying goodbye.", "Sans + infinitive."],
+        ["Nageant est bon pour la santé.", "[Nager], c'est bon pour la santé.", "Swimming is good for you.", "Infinitive as the subject."],
+        ["Je l'ai vu partant.", "Je l'ai vu [partir].", "I saw him leaving.", "Voir + infinitive."],
+        ["en savant", "en [sachant]", "knowing", "Savoir is irregular: sachant."],
+        ["En sortant, la pluie a commencé.", "[Quand je suis sorti], il a commencé à pleuvoir.", "As I came out, it started to rain.", "The gerund must share the subject."],
+        ["Il a couru dehors.", "Il est [sorti en courant].", "He ran out.", "Direction verb + en + manner."],
+        ["Un travail fatiguant.", "Un travail [fatigant].", "A tiring job.", "The adjective drops the u."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [en marchant] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- build chart ---------- */
+      document.getElementById("build-body").innerHTML = BUILD.map(([verb, nous, ger, note]) => {
+        const [stem, end] = nous.includes("·") ? nous.split("·") : [nous, ""];
+        return `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-playfair italic font-semibold text-lg text-slate-700 whitespace-nowrap" lang="fr">${esc(verb)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 whitespace-nowrap" lang="fr">${nous === "—" ? `<span class="text-slate-400">—</span>` : `${esc(stem)}<span class="text-slate-400 line-through">${esc(end)}</span>`}</td>
+          <td class="px-3 py-2 border-b border-slate-100 bg-yellow-50">
+            <span class="font-semibold text-yellow-900" lang="fr">${esc(ger)}</span>
+            ${note ? `<span class="ml-2 text-xs text-slate-500">${esc(note)}</span>` : ""}
+          </td>
+        </tr>`;
+      }).join("");
+
+      /* ---------- jobs chart ---------- */
+      document.getElementById("jobs-body").innerHTML = JOBS.map(
+        ([job, en1, fr, en]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 text-sm font-semibold text-slate-700 align-top">${esc(job)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-sky-800 italic align-top">${esc(en1)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 bg-yellow-50 align-top">
+            <span class="block font-medium text-slate-900" lang="fr">${mark(fr, "text-yellow-800")}</span>
+            <span class="block text-sm text-slate-500">${esc(en)}</span>
+          </td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- -ing chart ---------- */
+      document.getElementById("ing-body").innerHTML = ING.map(
+        ([en, fr, what]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-normal text-slate-700 align-top">${esc(en)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 font-medium text-slate-900 align-top" lang="fr">${mark(fr, "text-rose-700")}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-emerald-800 align-top">${esc(what)}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-yellow-100 border border-yellow-200 px-3 py-1.5 text-sm font-medium text-yellow-900 hover:bg-yellow-200">The charts</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-yellow-400 hover:text-yellow-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-yellow-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-yellow-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-yellow-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-yellow-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+<script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

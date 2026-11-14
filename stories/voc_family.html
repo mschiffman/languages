@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>My Family</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <div class="brand">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>My Family</span>
+        </div>
+        <div class="counter" id="counter">1 / 18</div>
+      </header>
+
+      <div class="viewport">
+        <div class="track" id="track"></div>
+      </div>
+
+      <footer>
+        <button class="nav" id="prev" aria-label="Previous page">
+          &#8592;
+        </button>
+        <button class="play-page" id="playPage" aria-label="Play this page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 5v14l12-7z" fill="currentColor" />
+          </svg>
+          <span id="playLabel">Play page</span>
+        </button>
+        <button class="nav" id="next" aria-label="Next page">&#8594;</button>
+      </footer>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Media:
+           images : /img/ytstory/voc-family/1.jpg … 18.jpg   (one per book page)
+           audio  : 01.mp3 … 42.mp3 in AUD_DIR (one per phrase, in reading order)
+         Until a picture exists, the page shows "N.jpg — illustration goes here".
+
+         Pictures (the same family in every picture, so children can point
+         at the same people: a Myanmar village family, warm and friendly):
+            1  the whole family together in front of their house
+            2  mother          3  father          4  mother and father together
+            5  a boy with his big brother and little brother
+            6  a girl with her big sister and little sister
+            7  a baby sleeping
+            8  grandmother     9  grandfather    10  a child visiting grandma and grandpa
+           11  aunt           12  uncle          13  two cousins playing
+           14  parents with their son        15  parents with their daughter
+           16  husband and wife (a married couple)
+           17  twins (two children who look the same)
+           18  the whole family hugging
+
+         AUD_EXT carries a placeholder tag: a clip tapped before the audio is
+         uploaded gets its 404 cached for 4 hours under this URL. After
+         uploading, change the tag (e.g. mp3?v=YYMMDD) so the real clips load.
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/voc-family/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/voc-family/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=2611141753";
+
+      /* Burmese translation, one line per sentence (page.tr), shown by the footer button. */
+      const TRANSLATION = { lang: "my", label: "မြန်မာ" };
+
+      /* pages -> sentences -> chunks. Audio numbers run 1..42 in order. */
+      const pages = [
+        {
+          img: 1,
+          tr: ["မိသားစု", "ဒါက ကျွန်တော်/ကျွန်မတို့ မိသားစုပါ။"],
+          sentences: [[["My Family", 1]], [["This is my family.", 2]]],
+        },
+        {
+          img: 2,
+          tr: ["အမေ", "မေမေ", "ဒါက အမေပါ။"],
+          sentences: [[["mother", 3]], [["mom", 4]], [["This is my mother.", 5]]],
+        },
+        {
+          img: 3,
+          tr: ["အဖေ", "ဖေဖေ", "ဒါက အဖေပါ။"],
+          sentences: [[["father", 6]], [["dad", 7]], [["This is my father.", 8]]],
+        },
+        {
+          img: 4,
+          tr: ["မိဘ", "ဒါက မိဘ နှစ်ပါးပါ။"],
+          sentences: [[["parents", 9]], [["These are my parents.", 10]]],
+        },
+        {
+          img: 5,
+          tr: ["အစ်ကို၊ ညီ၊ မောင်", "အစ်ကို", "ညီလေး / မောင်လေး"],
+          sentences: [[["brother", 11]], [["my big brother", 12]], [["my little brother", 13]]],
+        },
+        {
+          img: 6,
+          tr: ["အစ်မ၊ ညီမ၊ နှမ", "အစ်မ", "ညီမလေး / နှမလေး"],
+          sentences: [[["sister", 14]], [["my big sister", 15]], [["my little sister", 16]]],
+        },
+        {
+          img: 7,
+          tr: ["ကလေးငယ်", "ကလေးငယ်လေး အိပ်နေတယ်။"],
+          sentences: [[["baby", 17]], [["The baby is sleeping.", 18]]],
+        },
+        {
+          img: 8,
+          tr: ["အဖွား", "ဖွားဖွား", "ဒါက အဖွားပါ။"],
+          sentences: [[["grandmother", 19]], [["grandma", 20]], [["This is my grandmother.", 21]]],
+        },
+        {
+          img: 9,
+          tr: ["အဖိုး", "ဖိုးဖိုး", "ဒါက အဖိုးပါ။"],
+          sentences: [[["grandfather", 22]], [["grandpa", 23]], [["This is my grandfather.", 24]]],
+        },
+        {
+          img: 10,
+          tr: ["အဖိုးအဖွား", "အဖိုးအဖွားဆီ အလည်သွားတယ်။"],
+          sentences: [[["grandparents", 25]], [["I visit my grandparents.", 26]]],
+        },
+        {
+          img: 11,
+          tr: ["အဒေါ်", "ဒါက အဒေါ်ပါ။"],
+          sentences: [[["aunt", 27]], [["This is my aunt.", 28]]],
+        },
+        {
+          img: 12,
+          tr: ["ဦးလေး", "ဒါက ဦးလေးပါ။"],
+          sentences: [[["uncle", 29]], [["This is my uncle.", 30]]],
+        },
+        {
+          img: 13,
+          tr: ["ဝမ်းကွဲ", "ဒါက ဝမ်းကွဲပါ။"],
+          sentences: [[["cousin", 31]], [["This is my cousin.", 32]]],
+        },
+        {
+          img: 14,
+          tr: ["သား", "သူက သူတို့ရဲ့ သားပါ။"],
+          sentences: [[["son", 33]], [["He is their son.", 34]]],
+        },
+        {
+          img: 15,
+          tr: ["သမီး", "သူက သူတို့ရဲ့ သမီးပါ။"],
+          sentences: [[["daughter", 35]], [["She is their daughter.", 36]]],
+        },
+        {
+          img: 16,
+          tr: ["ခင်ပွန်း", "ဇနီး", "သူတို့က လင်မယားပါ။"],
+          sentences: [[["husband", 37]], [["wife", 38]], [["They are husband and wife.", 39]]],
+        },
+        {
+          img: 17,
+          tr: ["အမွှာ", "သူတို့က အမွှာတွေပါ။"],
+          sentences: [[["twins", 40]], [["They are twins.", 41]]],
+        },
+        {
+          img: 18,
+          tr: ["ကျွန်တော်/ကျွန်မ မိသားစုကို ချစ်တယ်။"],
+          sentences: [[["I love my family.", 42]]],
+        },
+      ];
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/ytstory.js"></script>
+  </body>
+</html>

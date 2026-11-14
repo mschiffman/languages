@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Café &amp; Restaurant</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">CAFÉ &amp; RESTAURANT</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Café &amp; Restaurant
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ကော်ဖီဆိုင်နှင့် စားသောက်ဆိုင်
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">22</span> expressions · Café &amp; Restaurant
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 22.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/restaurant/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Arriving",
+          my: "ရောက်ရှိခြင်း",
+          desc: "Getting a table and the menu.",
+          cards: [
+            ["A table for two, please.", "နှစ်ယောက်စာ စားပွဲ တစ်လုံး ရနိုင်မလား။", "Say how many people. For three: A table for three, please.",
+              "— Hello! — Hi, a table for four, please.", "— မင်္ဂလာပါ။ — ဟိုင်း၊ လေးယောက်စာ စားပွဲ တစ်လုံး ရနိုင်မလား။"],
+            ["Do you have a table by the window?", "ပြတင်းပေါက်နား စားပွဲ ရှိလား။", "Asks for a place you like. Also: outside, in the corner.",
+              "Do you have a table outside?", "အပြင်ဘက်မှာ စားပွဲ ရှိလား။"],
+            ["Is this seat free?", "ဒီခုံ အားလား။", "Before you sit next to strangers. Free here means no one is sitting there.",
+              "Excuse me, is this seat free?", "တဆိတ်လောက်၊ ဒီခုံ အားလား။"],
+            ["Can I see the menu, please?", "မီနူး ကြည့်လို့ ရမလား။", "The menu is the list of food and prices.",
+              "Can we see the menu, please? And some water?", "မီနူး ကြည့်လို့ ရမလား။ ရေလည်း နည်းနည်း။"],
+          ],
+        },
+        {
+          en: "Ordering",
+          my: "မှာယူခြင်း",
+          desc: "Saying what you want, and asking about the food.",
+          cards: [
+            ["I'll have <span class=gray>the fried rice</span>.", "ထမင်းကြော် ယူမယ်။", "The usual way to order. Not: I want… (it can sound rude).",
+              "I'll have the noodle soup, please.", "ခေါက်ဆွဲပြုတ် ယူမယ်။"],
+            ["Can I get <span class=gray>a mango juice</span>?", "သရက်သီးဖျော်ရည် တစ်ခွက် ရမလား။", "Casual and very common, especially in cafés. Can I have…? is a little more polite.",
+              "Can I get a coffee with milk, please?", "နို့ကော်ဖီ တစ်ခွက် ရမလား။"],
+            ["What do you recommend?", "ဘာ စားသင့်လဲ အကြံပေးပါဦး။", "Asks the waiter for the best or most popular dish.",
+              "It all looks good. What do you recommend?", "အကုန် ကောင်းပုံ ရတယ်။ ဘာ စားသင့်လဲ အကြံပေးပါဦး။"],
+            ["Is it spicy?", "စပ်လား။", "Very useful! Also: Is it very spicy? Not too spicy, please.",
+              "— Is it spicy? — Just a little.", "— စပ်လား။ — နည်းနည်းပဲ။"],
+            ["Without <span class=gray>ice</span>, please.", "ရေခဲ မထည့်ပါနဲ့။", "Asks for something to be left out. The opposite: with extra ice.",
+              "A lemon juice without sugar, please.", "သံပုရာရည် သကြား မထည့်ဘဲ တစ်ခွက်။"],
+            ["I'm vegetarian.", "သက်သတ်လွတ် စားပါတယ်။", "You don't eat meat or fish. Ask: Is there meat in this?",
+              "I'm vegetarian. Is there meat in this soup?", "သက်သတ်လွတ် စားပါတယ်။ ဒီဟင်းချိုထဲမှာ အသား ပါလား။"],
+          ],
+        },
+        {
+          en: "What the waiter says",
+          my: "စားပွဲထိုး ပြောတတ်တာများ",
+          desc: "Questions you will hear, so you can answer quickly.",
+          cards: [
+            ["Are you ready to order?", "မှာမလား။", "Answer: Yes, please. Or: Not yet. Can we have a few more minutes?",
+              "— Are you ready to order? — Not yet, sorry.", "— မှာမလား။ — မမှာရသေးဘူး၊ ဆောရီး။"],
+            ["For here or to go?", "ဒီမှာ စားမလား၊ ပါဆယ်လား။", "Eat in the café, or take it away. British English: Eat in or take away?",
+              "— For here or to go? — To go, please.", "— ဒီမှာ စားမလား၊ ပါဆယ်လား။ — ပါဆယ်ပါ။"],
+            ["Anything to drink?", "သောက်စရာ ဘာယူမလဲ။", "Answer with your drink, or: Just water, please.",
+              "— Anything to drink? — Just water, please.", "— သောက်စရာ ဘာယူမလဲ။ — ရေပဲ ပေးပါ။"],
+            ["Is everything OK?", "အားလုံး အဆင်ပြေရဲ့လား။", "The waiter checks during the meal. Answer: Yes, it's great, thanks!",
+              "— Is everything OK? — Yes, it's delicious, thanks!", "— အားလုံး အဆင်ပြေရဲ့လား။ — ဟုတ်ကဲ့၊ အရမ်း စားကောင်းပါတယ်၊ ကျေးဇူးပါ။"],
+          ],
+        },
+        {
+          en: "During the meal",
+          my: "စားနေစဉ်",
+          desc: "Asking for more, or saying politely that something is wrong.",
+          cards: [
+            ["Could we have some water?", "ရေ နည်းနည်း ရနိုင်မလား။", "Start with Excuse me to call the waiter politely. Don't snap your fingers.",
+              "Excuse me, could we have some water?", "တဆိတ်လောက်၊ ရေ နည်းနည်း ရနိုင်မလား။"],
+            ["Can we have some more rice?", "ထမင်း နည်းနည်း ထပ်ရနိုင်မလား။", "Some more = an extra amount.",
+              "This is great. Can we have some more rice?", "ဒါ အရမ်း ကောင်းတယ်။ ထမင်း နည်းနည်း ထပ်ရနိုင်မလား။"],
+            ["This isn't what I ordered.", "ဒါ မှာထားတာ မဟုတ်ဘူး။", "Polite if you say it calmly. Then say what you ordered.",
+              "Sorry, this isn't what I ordered. I asked for chicken.", "ဆောရီး၊ ဒါ မှာထားတာ မဟုတ်ဘူး။ ကြက်သား မှာထားတာပါ။"],
+            ["It's a bit cold.", "နည်းနည်း အေးနေတယ်။", "A bit makes a complaint softer. Ask: Could you heat it up, please?",
+              "Excuse me, my soup is a bit cold.", "တဆိတ်လောက်၊ ဟင်းချိုက နည်းနည်း အေးနေတယ်။"],
+          ],
+        },
+        {
+          en: "Finishing and paying",
+          my: "စားပြီး ငွေရှင်းခြင်း",
+          desc: "Asking for the bill, taking food home, saying thank you.",
+          cards: [
+            ["Could we have the bill, please?", "ငွေ ရှင်းမယ်နော်။", "Polite. In American English: Could we have the check, please?",
+              "Excuse me, could we have the bill, please?", "တဆိတ်လောက်၊ ငွေ ရှင်းမယ်နော်။"],
+            ["Can I pay at the counter?", "ကောင်တာမှာ ငွေရှင်းလို့ ရမလား။", "In some places you pay at the table, in others at the counter.",
+              "Can I pay at the counter, or do you bring the bill?", "ကောင်တာမှာ ငွေရှင်းလို့ ရမလား၊ ဒါမှမဟုတ် ဘောက်ချာ ယူလာပေးမလား။"],
+            ["Can I take this home?", "ဒါ အိမ် ယူသွားလို့ ရမလား။", "For food you didn't finish. Also: Can I have a box for this?",
+              "I can't finish it. Can I take this home?", "မကုန်နိုင်တော့ဘူး။ ဒါ အိမ် ယူသွားလို့ ရမလား။"],
+            ["That was lovely, thank you.", "အရမ်း ကောင်းပါတယ်၊ ကျေးဇူးပါ။", "What you say to the waiter or cook as you leave.",
+              "Thank you, that was lovely. We'll come again.", "ကျေးဇူးပါ၊ အရမ်း ကောင်းပါတယ်။ နောက်လည်း လာဦးမယ်။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

@@ -409,6 +409,88 @@ html.xq-lock body {
   box-shadow: none;
 }
 
+/* ---- match: two columns, a pair shares a number and a colour ---- */
+.xq-match {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+.xq-mrow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.xq-mitem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 58px;
+  padding: 8px 12px;
+  border-radius: 14px;
+  border: 3px solid transparent;
+  background: rgba(255, 255, 255, 0.96);
+  color: #111 !important;
+  font-size: 1.05rem !important;
+  font-weight: 500 !important;
+  text-align: left;
+  transition:
+    border-color 0.15s,
+    transform 0.1s;
+}
+.xq-mitem[lang="my"] {
+  font-size: 0.98rem !important;
+  font-weight: 400 !important;
+}
+.xq-mitem:active {
+  transform: scale(0.99);
+}
+.xq-mtext {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.xq-mbadge {
+  position: absolute;
+  top: -10px;
+  left: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--mc, #2563eb);
+  color: white;
+  font: 700 0.8rem/1 "Roboto", sans-serif;
+  box-shadow: 0 0 0 2px white;
+}
+.xq-mitem.paired {
+  border-color: var(--mc, #2563eb);
+}
+.xq-mitem.sel {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(0, 200, 255, 0.25);
+}
+.xq-mitem.right {
+  border-color: #22c55e;
+  background: #ecfdf3;
+}
+.xq-mitem.right .xq-mark {
+  color: #16a34a;
+}
+.xq-mitem.wrong {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+.xq-mitem.wrong .xq-mark {
+  color: #dc2626;
+}
+.xq-mitem.shown {
+  background: rgba(255, 255, 255, 0.88);
+  cursor: default;
+}
+
 /* ---- feedback ---- */
 .xq-fb {
   margin-top: 18px;

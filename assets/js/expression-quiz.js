@@ -20,7 +20,7 @@
    Burmese line and note, so it needs no new audio. A wrong option that is
    not a card is fine; it just has no clip.
 
-   Four types (scene/cue: short parts joined by " · "; each becomes a chip):
+   Five types (scene/cue: short parts joined by " · "; each becomes a chip):
 
      say    What do you say in this situation?
             { type: "say", scene: "🌙 8 pm · 🍽️ At a restaurant · You walk in.",
@@ -38,6 +38,16 @@
      judge  Is this OK to say here?
             { type: "judge", scene: "...", my: "...", phrase: "Hey!",
               ok: false, tag: "register", note: "<note>" }
+     match  Two columns: tap one on the left, then its partner on the right.
+            Tapping a matched one frees it again. 2 to 6 pairs.
+            English ↔ Burmese, the Burmese being each card's own line:
+            { type: "match", cards: ["Hello.", "Take care.", "Not bad."] }
+            A line ↔ its reply (the left ones must be cards, for their clips):
+            { type: "match", pairs: { "How are you?": "Good, thanks. And you?",
+                                      "What's up?": "Not much. You?" } }
+            The right-hand texts must all be different (two cards with the
+            same Burmese can't be in one match). It is right only when every
+            pair is right; the tag is "meaning" (cards) or "reply" (pairs).
 
    Every wrong option, decoy and judge has a mistake tag (TAGS below); the
    results group the mistakes by tag. A wrong option's value is the tag, or
@@ -80,6 +90,7 @@
       register: "Think about who you're talking to: a friend, a teacher, a customer or a stranger.",
       literal: "Don't translate word for word from Burmese: English says it in its own way.",
       reply: "Answer what the person said.",
+      meaning: "Learn what each phrase means: go through the cards again.",
       words: "Check the word order and the form of each word.",
     },
     typeof quizTags !== "undefined" ? quizTags : {},
@@ -90,7 +101,10 @@
     reply: ["What do you say back?", "ဘယ်လို ပြန်ပြောမလဲ။"],
     build: ["Put the words in order.", "စကားလုံးတွေကို အစဉ်လိုက် စီပါ။"],
     judge: ["Is this OK?", "ဒီလိုပြောရင် အဆင်ပြေလား။"],
+    match: ["Match the English with the Burmese.", "အင်္ဂလိပ်နဲ့ မြန်မာ တွဲပေးပါ။"],
+    matchReply: ["Match each line with its reply.", "စကားတစ်ခွန်းစီကို သင့်တော်တဲ့ အဖြေနဲ့ တွဲပေးပါ။"],
   };
+  const MATCH_COLORS = ["#2563eb", "#d97706", "#7c3aed", "#0d9488", "#db2777", "#65a30d"];
 
   const GRADES = [
     [100, "Perfect!"],
@@ -177,6 +191,16 @@
       tagged(q.tag, where);
       const phrase = card(q.phrase, where, true);
       QS.push({ ...base, phrase, ok: q.ok === true, tag: q.tag, note: q.note || phrase.note });
+    } else if (q.type === "match") {
+      const src = q.pairs ? Object.entries(q.pairs) : (q.cards || []).map((t) => [t, null]);
+      const items = src.map(([text, right], k) => {
+        const c = card(text, where, true);
+        return { k, en: c.en, url: c.url, right: right || c.my };
+      });
+      if (items.length < 2 || items.length > 6) problems.push(`${where}: a match needs 2 to 6 pairs`);
+      if (new Set(items.map((x) => x.right)).size < items.length)
+        problems.push(`${where}: two pairs have the same right-hand text`);
+      QS.push({ ...base, items, ask: q.pairs ? "matchReply" : "match", rlang: q.pairs ? null : "my", tag: q.pairs ? "reply" : "meaning" });
     } else {
       problems.push(`${where}: unknown type "${q.type}"`);
     }
@@ -203,9 +227,22 @@
   }
 
   /* a judge answer keeps its verdict, so "Hey!" never looks like the thing to say */
-  const answerText = (q) => (q.type === "judge" ? `${q.ok ? "OK" : "Not OK"}: ${q.phrase.en}` : q.answer.en);
-  const answerUrl = (q) => (q.type === "judge" ? q.phrase.url : q.answer.url);
+  /* a match shows its pairs; with a result r that has misses, only the missed ones */
+  function answerText(q, r) {
+    if (q.type === "judge") return `${q.ok ? "OK" : "Not OK"}: ${q.phrase.en}`;
+    if (q.type !== "match") return q.answer.en;
+    const miss = r && r.miss && r.miss.length ? q.items.filter((it) => r.miss.includes(it.k)) : null;
+    return miss ? miss.map((it) => `${it.en} = ${it.right}`).join(" · ") : "Match: " + q.items.map((it) => it.en).join(" / ");
+  }
+  const answerUrl = (q) => (q.type === "judge" ? q.phrase.url : q.type === "match" ? null : q.answer.url);
+  /* right column in a new order, with no pair left side by side when that's possible */
+  function mix(left) {
+    let r = shuffle(left);
+    for (let tries = 0; tries < 30 && r.some((x, i) => x.k === left[i].k); tries++) r = shuffle(left);
+    return r.map((x) => ({ k: x.k, text: x.right }));
+  }
   function label(q) {
+    if (q.type === "match") return ASK[q.ask][0];
     if (q.type === "reply") return `“${q.prompt.en}”`;
     if (q.type === "build") return [q.my, ...q.chips].filter(Boolean).join(" · ");
     return q.chips.join(" · ");
@@ -278,8 +315,28 @@
             </div>
           </template>
 
-          <h2 class="xq-ask" x-text="ASK[q.type][0]"></h2>
-          <p class="xq-ask-my" lang="my" x-text="ASK[q.type][1]"></p>
+          <h2 class="xq-ask" x-text="ASK[q.ask || q.type][0]"></h2>
+          <p class="xq-ask-my" lang="my" x-text="ASK[q.ask || q.type][1]"></p>
+
+          <!-- match: tap one on the left, then its partner on the right -->
+          <template x-if="q.type === 'match'">
+            <div class="xq-match">
+              <template x-for="(l, i) in mL" :key="l.k">
+                <div class="xq-mrow">
+                  <button class="xq-mitem" :class="mClass('l', l.k)" :style="mStyle('l', l.k)" @click="mTap('l', l.k)">
+                    <i class="xq-mbadge" x-show="mBadge('l', l.k)" x-text="mBadge('l', l.k)"></i>
+                    <span class="xq-mtext" x-text="l.en"></span>
+                    <span class="xq-mark" x-text="mMark(l.k)"></span>
+                  </button>
+                  <button class="xq-mitem" :lang="q.rlang" :class="mClass('r', mRight(i).k)" :style="mStyle('r', mRight(i).k)"
+                          @click="mTap('r', mRight(i).k)">
+                    <i class="xq-mbadge" x-show="mBadge('r', mRight(i).k)" x-text="mBadge('r', mRight(i).k)"></i>
+                    <span class="xq-mtext" x-text="mRight(i).text"></span>
+                  </button>
+                </div>
+              </template>
+            </div>
+          </template>
 
           <!-- say / reply: options -->
           <template x-if="q.type === 'say' || q.type === 'reply'">
@@ -413,6 +470,11 @@
       opts: [],
       bank: [],
       placed: [],
+      mL: [], // match: left items, in the order shown
+      mR: [], // match: right items { k, text }, k = the left item it belongs to
+      mPair: [], // match: left k -> the right k the learner chose (or null)
+      mSel: null, // match: { side, k } tapped and waiting for its partner
+      mOk: [], // match, after Check: left k -> was its pair right
       sel: null,
       revealed: false,
       fb: null,
@@ -478,6 +540,11 @@
         this.placed = [];
         this.opts = q.opts ? shuffle(q.opts.map((o, k) => ({ ...o, k }))) : [];
         this.bank = q.tiles ? scramble(q.tiles) : [];
+        this.mL = q.items ? shuffle(q.items) : [];
+        this.mR = q.items ? mix(this.mL) : [];
+        this.mPair = q.items ? q.items.map(() => null) : [];
+        this.mSel = null;
+        this.mOk = [];
         this.$nextTick(() => {
           if (this.$refs.body) this.$refs.body.scrollTop = 0;
           this.autoplay();
@@ -504,14 +571,65 @@
         if (t) t.used = false;
       },
 
+      /* ---- match ---- */
+      mRight(i) {
+        return this.mR[i] || { k: -1, text: "" };
+      },
+      mTap(side, k) {
+        if (side === "l") play((this.mL.find((x) => x.k === k) || {}).url);
+        if (this.revealed || k < 0) return;
+        const pair = this.mPair.slice();
+        const lk = side === "l" ? k : pair.indexOf(k);
+        if (lk >= 0 && pair[lk] != null) {
+          pair[lk] = null; // tapping a matched one frees both
+          this.mPair = pair;
+          this.mSel = null;
+        } else if (!this.mSel || this.mSel.side === side) {
+          this.mSel = this.mSel && this.mSel.k === k ? null : { side, k };
+        } else {
+          pair[side === "l" ? k : this.mSel.k] = side === "l" ? this.mSel.k : k;
+          this.mPair = pair;
+          this.mSel = null;
+        }
+      },
+      /* a pair's number: the row of its left item (0 = not matched, or the answer is showing) */
+      mBadge(side, k) {
+        if (this.revealed) return 0;
+        const lk = side === "l" ? (this.mPair[k] != null ? k : -1) : this.mPair.indexOf(k);
+        return lk < 0 ? 0 : this.mL.findIndex((x) => x.k === lk) + 1;
+      },
+      mStyle(side, k) {
+        const b = this.mBadge(side, k);
+        return b ? `--mc: ${MATCH_COLORS[(b - 1) % MATCH_COLORS.length]}` : "";
+      },
+      mClass(side, k) {
+        if (this.revealed) return side === "l" ? (this.mOk[k] ? "right" : "wrong") : "shown";
+        return { sel: !!this.mSel && this.mSel.side === side && this.mSel.k === k, paired: this.mBadge(side, k) > 0 };
+      },
+      mMark(k) {
+        return this.revealed ? (this.mOk[k] ? "✓" : "✗") : "";
+      },
+
       get canCheck() {
         const q = this.q;
-        return !!q && (q.type === "build" ? this.placed.length > 0 : this.sel !== null);
+        if (!q) return false;
+        if (q.type === "match") return this.mPair.length > 0 && this.mPair.every((r) => r != null);
+        return q.type === "build" ? this.placed.length > 0 : this.sel !== null;
       },
       check() {
         const q = this.q;
-        let ok, tag = null, note, chosen, line = "";
-        if (q.type === "say" || q.type === "reply") {
+        let ok, tag = null, note, chosen, line = "", miss;
+        if (q.type === "match") {
+          const wrong = q.items.filter((it) => this.mPair[it.k] !== it.k);
+          miss = wrong.map((it) => it.k);
+          ok = !wrong.length;
+          if (!ok) tag = q.tag;
+          chosen = wrong.map((it) => `${it.en} → ${q.items[this.mPair[it.k]].right}`).join(" · ");
+          note = ok ? "" : `${q.items.length - wrong.length} of ${q.items.length} matched. Each line now has its partner beside it.`;
+          this.mOk = q.items.map((it) => this.mPair[it.k] === it.k);
+          this.mR = this.mL.map((l) => ({ k: l.k, text: l.right })); // show the answer: partners side by side
+          this.mSel = null;
+        } else if (q.type === "say" || q.type === "reply") {
           const o = this.opts.find((x) => x.k === this.sel);
           ok = o.ok;
           note = o.note;
@@ -538,10 +656,10 @@
         }
         const head =
           (ok ? "✓ Right!" : "✗ Not quite.") + (q.type === "judge" ? (q.ok ? " It's OK." : " It's not OK.") : "");
-        this.results[q.id] = { ok, tag, chosen };
+        this.results[q.id] = { ok, tag, chosen, miss };
         this.revealed = true;
         this.fb = { ok, head, line, note, url: q.answer && q.answer.url };
-        if (q.type !== "judge") play(q.answer.url);
+        if (q.answer) play(q.answer.url);
         this.$nextTick(() => {
           const el = this.$root.querySelector(".xq-fb");
           if (el && el.scrollIntoView) el.scrollIntoView({ block: "nearest", behavior: "smooth" });
@@ -577,7 +695,7 @@
         if (this.view !== "q" || !q) return false;
         if (q.type === "reply") return !!q.prompt.url;
         if (q.type === "judge") return !!q.phrase.url;
-        return this.revealed && !!q.answer.url;
+        return this.revealed && !!(q.answer && q.answer.url);
       },
       replay() {
         const q = this.q;
@@ -646,7 +764,7 @@
         const out = [];
         for (const [tag, text] of Object.entries(TAGS)) {
           const hit = this.wrongIds.filter((id) => this.results[id].tag === tag);
-          if (hit.length) out.push({ tag, text, phrases: hit.map((id) => answerText(QS[id])) });
+          if (hit.length) out.push({ tag, text, phrases: hit.map((id) => answerText(QS[id], this.results[id])) });
         }
         return out;
       },
@@ -657,7 +775,7 @@
             id,
             label: label(q),
             chosen: this.results[id].chosen,
-            correct: answerText(q),
+            correct: answerText(q, this.results[id]),
             url: answerUrl(q),
           };
         });

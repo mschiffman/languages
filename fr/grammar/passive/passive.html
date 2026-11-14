@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Passive in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-slate-900 via-cyan-900 to-sky-800 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-4"
+        >
+          French grammar · Passive
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">On m'a volé mon vélo</span>
+        </h1>
+        <p class="text-lg md:text-xl text-cyan-100 max-w-2xl mx-auto leading-relaxed">
+          French has a passive (<i lang="fr">Mon vélo a été volé</i>), but in
+          conversation people usually avoid it. They say <i lang="fr">on</i>,
+          <i lang="fr">se faire</i>, or a reflexive verb instead. Here is how
+          the passive is built, where you'll meet it, and the everyday ways
+          around it.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The charts (filled by the script from WAYS and FORMS below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-cyan-900 mb-2">
+          First, the chart: one event, five ways to say it
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          English reaches for the passive (“my bike was stolen”) far more
+          often than French does. Here is the same kind of event told five
+          ways, from the most formal to the most spoken.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Way</th>
+                <th scope="col" class="bg-cyan-700 text-white px-3 py-2 font-semibold">In a sentence</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold">Where you'll hear it</th>
+              </tr>
+            </thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the charts sideways to see every column.</p>
+
+        <!-- Forms -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-cyan-900 mt-10 mb-2">
+          Building it: être in any tense + past participle
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          Put <i lang="fr">être</i> in the tense you need and add the past
+          participle, which agrees with the subject like an adjective.
+          The person who does the action, if you mention them, comes after
+          <i lang="fr">par</i>.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Tense</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold">Active</th>
+                <th scope="col" class="bg-cyan-700 text-white px-3 py-2 rounded-tr-xl font-semibold">Passive</th>
+              </tr>
+            </thead>
+            <tbody id="forms-body"></tbody>
+          </table>
+        </div>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-cyan-800">Agreement.</b> The participle matches
+            the subject: <i lang="fr">la voiture a été réparée</i>,
+            <i lang="fr">les clés ont été retrouvées</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-cyan-800">“I was told” doesn't work.</b> Only a
+            direct object can become the subject. For “I was told, given,
+            asked”, use <i lang="fr">on</i>: <i lang="fr">On m'a dit</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-cyan-800">Spoken French prefers on.</b>
+            <i lang="fr">On parle français ici</i> sounds natural;
+            <i lang="fr">Le français est parlé ici</i> sounds like a sign.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-cyan-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Almost the same words, not the same meaning
+        </h2>
+        <p class="text-cyan-100 leading-relaxed mb-6 max-w-3xl">
+          Who did it, whether it's a state or an action, or one letter of
+          spelling.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-cyan-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-cyan-700 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most come from copying an English passive that French can't
+              build, or from forgetting the agreement. The crossed-out line
+              is the slip; the line under it is what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../verb/verbs.html" class="font-semibold text-cyan-700 underline underline-offset-2 hover:text-cyan-900">verbs</a>
+          ·
+          <a href="../pronoun/pronouns.html" class="font-semibold text-cyan-700 underline underline-offset-2 hover:text-cyan-900">pronouns</a>
+          ·
+          <a href="../adjective/adjectives.html" class="font-semibold text-cyan-700 underline underline-offset-2 hover:text-cyan-900">adjectives</a>
+          ·
+          <a href="../reported/reported-speech.html" class="font-semibold text-cyan-700 underline underline-offset-2 hover:text-cyan-900">reported speech</a>
+        </p>
+        <a href="../index.html" class="text-cyan-700 underline underline-offset-2 hover:text-cyan-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "Mon vélo [a été volé]."
+      --------------------------------------------------------------- */
+
+      /* Five ways: [way, example French, example English, where] */
+      const WAYS = [
+        ["Passive: être + participle", "Mon vélo [a été volé].", "My bike was stolen.", "News, reports, formal writing, signs"],
+        ["On + active verb", "[On m'a volé] mon vélo.", "Someone stole my bike.", "Everyday speech: the most common"],
+        ["Se faire + infinitive", "Je [me suis fait voler] mon vélo.", "I got my bike stolen.", "Speech: something happens to you"],
+        ["Ils + active verb", "[Ils ont volé] mon vélo.", "They stole my bike.", "Casual speech, an unknown “they”"],
+        ["Reflexive: se + verb", "Les vélos [se volent] facilement ici.", "Bikes get stolen easily here.", "Things in general, habits, rules"],
+      ];
+
+      /* Forms: [tense, active, passive] */
+      const FORMS = [
+        ["présent", "Le garagiste répare la voiture.", "La voiture [est réparée] par le garagiste."],
+        ["passé composé", "Le garagiste a réparé la voiture.", "La voiture [a été réparée]."],
+        ["imparfait", "Le garagiste réparait la voiture.", "La voiture [était réparée]."],
+        ["futur", "Le garagiste réparera la voiture.", "La voiture [sera réparée] demain."],
+        ["futur proche", "Le garagiste va réparer la voiture.", "La voiture [va être réparée]."],
+        ["conditionnel", "Le garagiste réparerait la voiture.", "La voiture [serait réparée]."],
+        ["plus-que-parfait", "Le garagiste avait réparé la voiture.", "La voiture [avait été réparée]."],
+        ["infinitive", "Il faut réparer la voiture.", "La voiture doit [être réparée]."],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "build",
+          title: "The passive: être + participle, par for “by”",
+          fr: "La porte est fermée · Il a été arrêté par la police",
+          tone: "sky",
+          blurb:
+            "Être carries the tense; the participle agrees with the subject. Add par + the person or thing that did it, or leave them out.",
+          ex: [
+            ["Le magasin [est fermé] le dimanche.", "The shop is closed on Sundays."],
+            ["La réunion [a été annulée].", "The meeting has been cancelled.", "Feminine: annulée."],
+            ["Les résultats [seront publiés] lundi.", "The results will be published on Monday.", "Plural: publiés."],
+            ["Il [a été arrêté par] la police.", "He was arrested by the police."],
+            ["Ce tableau [a été peint par] Monet.", "This painting was painted by Monet."],
+            ["Elle [a été élue] présidente.", "She was elected president."],
+            ["La lettre [avait été ouverte].", "The letter had been opened."],
+            ["Ce document doit [être signé].", "This document must be signed."],
+            ["Tu [as été] prévenu !", "You've been warned!"],
+          ],
+        },
+        {
+          id: "where",
+          title: "Where you'll meet the passive",
+          fr: "Le pont a été construit en 1890 · Trois personnes ont été blessées",
+          tone: "indigo",
+          blurb:
+            "The passive is at home in news reports, history, instructions, signs and official writing, where the event matters more than who did it.",
+          ex: [
+            ["Trois personnes [ont été blessées].", "Three people were injured.", "News."],
+            ["Le pont [a été construit] en 1890.", "The bridge was built in 1890.", "History."],
+            ["Ce film [a été tourné] à Lyon.", "This film was shot in Lyon."],
+            ["Le suspect [a été interpellé] hier soir.", "The suspect was detained last night.", "Police and news vocabulary."],
+            ["Les animaux ne [sont] pas [admis].", "No animals allowed.", "Signs."],
+            ["Petit-déjeuner [compris].", "Breakfast included.", "A bare participle on a menu or sign."],
+            ["Votre commande [a été expédiée].", "Your order has been dispatched.", "Emails and notifications."],
+            ["Vous [êtes priés] de patienter.", "You are kindly asked to wait.", "Formal announcements."],
+          ],
+        },
+        {
+          id: "on",
+          title: "On: the everyday alternative",
+          fr: "On m'a volé mon portefeuille · On parle français ici",
+          tone: "emerald",
+          blurb:
+            "On + an active verb is the normal spoken way to say that something was done without saying by whom. It also covers “people”, “they”, “you” in general.",
+          ex: [
+            ["[On m'a volé] mon portefeuille.", "My wallet was stolen."],
+            ["[On a annulé] le vol.", "The flight's been cancelled."],
+            ["[On parle] français ici.", "French is spoken here."],
+            ["[On m'a dit] que c'était fermé.", "I was told it was closed."],
+            ["[On vous demande] au téléphone.", "You're wanted on the phone."],
+            ["[On a retrouvé] tes clés.", "Your keys have been found."],
+            ["[On] construit un nouveau stade.", "A new stadium is being built."],
+            ["[On] ne sait jamais.", "You never know."],
+          ],
+          tip: "On takes the il form of the verb: on parle, on a dit. Here on means “someone”, so it doesn't include you, unlike on meaning “we”.",
+        },
+        {
+          id: "indirect",
+          title: "“I was told, given, asked”: French can't",
+          fr: "On m'a dit · On m'a offert · On lui a demandé",
+          tone: "rose",
+          blurb:
+            "English can make the person receiving something the subject of a passive. French can't: only a direct object can become the subject. Use on + the indirect pronoun instead.",
+          ex: [
+            ["[On m'a dit] de revenir demain.", "I was told to come back tomorrow.", "Not “j'ai été dit”."],
+            ["[On m'a offert] un livre.", "I was given a book.", "Not “j'ai été offert un livre”."],
+            ["[On lui a demandé] de partir.", "He was asked to leave."],
+            ["[On nous a promis] une réponse.", "We were promised an answer."],
+            ["[On m'a proposé] un poste.", "I've been offered a job."],
+            ["[On leur a expliqué] la situation.", "The situation was explained to them."],
+            ["[On m'a appris] à nager à cinq ans.", "I was taught to swim at five."],
+            ["[On t'a] répondu ?", "Did you get an answer?", "Répondre à: indirect, so no passive."],
+          ],
+          tip: "The verbs behind this all take à + person: dire à, donner à, demander à, offrir à, répondre à, téléphoner à. The person can't become a passive subject.",
+        },
+        {
+          id: "se-faire",
+          title: "Se faire + infinitive: it happened to me",
+          fr: "Je me suis fait voler · Il s'est fait virer · Elle s'est fait couper les cheveux",
+          tone: "amber",
+          blurb:
+            "Se faire + infinitive is the spoken passive for something done to you, often something bad, sometimes something you arranged. English says “get …ed”.",
+          ex: [
+            ["Je [me suis fait voler] mon téléphone.", "I got my phone stolen."],
+            ["Il [s'est fait renverser] par une voiture.", "He got run over by a car."],
+            ["On [s'est fait engueuler].", "We got told off.", "Engueuler: casual."],
+            ["Il [s'est fait virer].", "He got fired.", "Virer: casual for licencier."],
+            ["Je [me suis fait avoir].", "I got ripped off. · I was had."],
+            ["Elle [s'est fait couper] les cheveux.", "She got her hair cut.", "Something you arranged: a service."],
+            ["Je vais [me faire opérer] du genou.", "I'm going to have knee surgery."],
+            ["Tu vas [te faire gronder] !", "You're going to get told off!"],
+            ["Elle [s'est fait] remarquer.", "She got herself noticed."],
+          ],
+          tip: "Fait never agrees in this structure, even for a woman: elle s'est fait voler, not “faite”.",
+        },
+        {
+          id: "faire-faire",
+          title: "Getting something done: faire + infinitive",
+          fr: "Je fais réparer ma voiture · J'ai fait construire une maison",
+          tone: "teal",
+          blurb:
+            "When someone else does the job for you, French uses faire + infinitive. It's the active cousin of se faire.",
+          ex: [
+            ["Je [fais réparer] ma voiture.", "I'm having my car repaired."],
+            ["On [a fait construire] une maison.", "We had a house built."],
+            ["Je dois [faire nettoyer] ma veste.", "I need to get my jacket cleaned."],
+            ["Il [a fait venir] un médecin.", "He sent for a doctor."],
+            ["Tu me [fais rire] !", "You make me laugh!", "Faire + infinitive also means “make someone do”."],
+            ["Ça me [fait penser] à mon père.", "It reminds me of my father."],
+            ["[Fais voir] !", "Let me see!"],
+          ],
+          more: ["../verb/verbs.html", "More on faire"],
+        },
+        {
+          id: "reflexive",
+          title: "Ça se mange, ça se voit: the reflexive passive",
+          fr: "Ça se voit · Ça ne se fait pas · Le vin blanc se boit frais",
+          tone: "violet",
+          blurb:
+            "Se + verb with a thing as subject describes what is usually done, what can be done, or what shows. English uses a passive, “can be”, or “you”.",
+          ex: [
+            ["[Ça se voit].", "It shows."],
+            ["Ça [ne se fait pas].", "That's not done. · You don't do that."],
+            ["Ça [ne se dit pas].", "You don't say that."],
+            ["Comment ça [s'écrit] ?", "How is it spelled?"],
+            ["Comment ça [se prononce] ?", "How is that pronounced?"],
+            ["Le vin blanc [se boit] frais.", "White wine is served chilled."],
+            ["Ça [se mange] ?", "Can you eat that?"],
+            ["Ce livre [se vend] bien.", "This book is selling well."],
+            ["Ça [se trouve] où ?", "Where is it?", "Se trouver: to be located."],
+            ["La porte [s'est ouverte] toute seule.", "The door opened by itself."],
+          ],
+          tip: "These describe habits and general truths. For one specific event, use on: On a vendu la maison, not “la maison s'est vendue” (which would sound like it sold itself).",
+        },
+        {
+          id: "par-de",
+          title: "Par or de?",
+          fr: "arrêté par la police · aimé de tous · couvert de neige",
+          tone: "sky",
+          blurb:
+            "Par introduces whoever performs an action. De is used after participles of feeling, knowing and description, where nobody is really acting.",
+          ex: [
+            ["Il a été arrêté [par] la police.", "He was arrested by the police.", "An action: par."],
+            ["Le roman a été écrit [par] Camus.", "The novel was written by Camus."],
+            ["Elle est aimée [de] tous.", "She is loved by everyone.", "A feeling: de. Par is possible too."],
+            ["Il est connu [de] tout le monde.", "Everyone knows him."],
+            ["La montagne est couverte [de] neige.", "The mountain is covered in snow.", "Description: de."],
+            ["Le verre est rempli [d']eau.", "The glass is full of water."],
+            ["Elle était entourée [d']amis.", "She was surrounded by friends."],
+            ["Le dîner sera suivi [d']un concert.", "The dinner will be followed by a concert."],
+          ],
+        },
+        {
+          id: "state",
+          title: "State or action?",
+          fr: "La porte est fermée · La porte a été fermée",
+          tone: "indigo",
+          blurb:
+            "Être + participle often just describes a state, like an adjective. The passive of an action in the past usually needs a été.",
+          ex: [
+            ["La porte [est fermée].", "The door is closed.", "A state: it's shut now."],
+            ["La porte [a été fermée] à 20 h.", "The door was closed at 8 pm.", "An action: someone closed it."],
+            ["Le magasin [est ouvert].", "The shop is open."],
+            ["Je [suis né] en 1990.", "I was born in 1990.", "Naître uses être in the passé composé: not a passive."],
+            ["Il [est marié].", "He's married."],
+            ["[C'est fait].", "It's done."],
+            ["[C'est compris] ?", "Is that understood?"],
+            ["La table [est réservée].", "The table is booked."],
+          ],
+        },
+        {
+          id: "no-passive",
+          title: "Verbs with no passive in French",
+          fr: "On lui a répondu · On m'a téléphoné · On leur a parlé",
+          tone: "teal",
+          blurb:
+            "Verbs that take à + person (répondre à, téléphoner à, parler à, obéir à) and verbs with no object at all can't be made passive. Use on, or rephrase.",
+          ex: [
+            ["[On lui a répondu].", "He was answered. · He got a reply."],
+            ["[On m'a téléphoné] ce matin.", "I got a phone call this morning."],
+            ["[On leur a parlé].", "They were spoken to."],
+            ["[On m'a souri].", "Someone smiled at me."],
+            ["[On s'est occupé de] moi.", "I was looked after."],
+            ["[J'ai eu] une réponse.", "I got an answer.", "Avoir or recevoir: another way round it."],
+            ["[J'ai reçu] un appel.", "I received a call."],
+          ],
+        },
+        {
+          id: "phrases",
+          title: "Everyday phrases built on the passive",
+          fr: "être censé · être obligé de · être pris · être prié de",
+          tone: "emerald",
+          blurb:
+            "A few passive-looking phrases are completely everyday. Learn them as fixed expressions.",
+          ex: [
+            ["Je [suis censé] partir à 8 h.", "I'm supposed to leave at 8.", "Censé + infinitive. Not supposé de."],
+            ["Je [suis obligé de] partir.", "I have to leave.", "Être obligé de: very common for “have to”."],
+            ["T'[es] pas [obligé].", "You don't have to."],
+            ["J'[ai été pris] !", "I got in! · I got the job!", "Être pris: accepted, hired. Also: busy (je suis pris ce soir)."],
+            ["J'[ai été reçu] à l'examen.", "I passed the exam."],
+            ["Les passagers [sont priés de] se présenter…", "Passengers are requested to report…", "Announcements."],
+            ["[Il est interdit de] fumer.", "Smoking is forbidden."],
+            ["[C'est réglé].", "It's sorted."],
+            ["[Ça a été] ?", "How did it go?", "Ça a été: spoken, “was it OK?”"],
+          ],
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["La porte [est fermée].", "The door is closed. (a state)", "La porte [a été fermée].", "The door was closed. (someone did it)"],
+        ["Je me suis [fait couper] les cheveux.", "I got my hair cut. (someone else did it)", "Je me suis [coupé] les cheveux.", "I cut my hair. (myself)"],
+        ["Il [s'est fait renverser].", "He got run over.", "Il [a renversé] quelqu'un.", "He ran someone over."],
+        ["Ça [se mange].", "It can be eaten. (it's edible)", "Ça [a été mangé].", "It's been eaten. (it's gone)"],
+        ["Mon vélo [a été volé].", "My bike was stolen.", "Mon vélo [a volé].", "My bike flew."],
+        ["Il est [censé] venir.", "He's supposed to come.", "Il est [sensé].", "He's sensible."],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["J'ai été dit que c'était fermé.", "[On m'a dit] que c'était fermé.", "I was told it was closed.", "Dire à: no passive. Use on."],
+        ["J'ai été donné un cadeau.", "[On m'a offert] un cadeau.", "I was given a present.", "Donner à: no passive. Use on."],
+        ["Il a été répondu.", "[On lui a répondu].", "He got an answer.", "Répondre à: no passive."],
+        ["Il a été téléphoné.", "[On lui a téléphoné].", "He was phoned.", "Téléphoner à: no passive."],
+        ["La voiture a été réparé.", "La voiture a été [réparée].", "The car's been repaired.", "The participle agrees."],
+        ["Mon vélo a volé.", "Mon vélo [a été volé].", "My bike was stolen.", "Without été it means it flew."],
+        ["J'étais né en 1990.", "Je [suis né] en 1990.", "I was born in 1990.", "Passé composé with être."],
+        ["Couvert par neige.", "Couvert [de] neige.", "Covered in snow.", "Description: de."],
+        ["Je me suis faite voler.", "Je me suis [fait] voler.", "I got robbed.", "Fait never agrees before an infinitive."],
+        ["Je me suis fait couper mes cheveux.", "Je me suis fait couper [les] cheveux.", "I got my hair cut.", "Body parts: les."],
+        ["Ça se ne fait pas.", "Ça [ne se] fait pas.", "That's not done.", "Ne goes before se."],
+        ["Je suis supposé de partir.", "Je suis [censé] partir.", "I'm supposed to leave.", "Censé + infinitive."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [a été volé] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- five ways ---------- */
+      document.getElementById("chart-body").innerHTML = WAYS.map(
+        ([way, fr, en, where]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 text-sm font-semibold text-slate-700 align-top">${esc(way)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-cyan-50 align-top">
+            <span class="block font-medium text-slate-900" lang="fr">${mark(fr, "text-cyan-800")}</span>
+            <span class="block text-sm text-slate-500">${esc(en)}</span>
+          </td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-slate-600 align-top">${esc(where)}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- forms ---------- */
+      document.getElementById("forms-body").innerHTML = FORMS.map(
+        ([tense, active, passive]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-playfair italic font-semibold text-slate-700 whitespace-nowrap align-top" lang="fr">${esc(tense)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 text-slate-600 align-top" lang="fr">${esc(active)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 bg-cyan-50 font-medium text-slate-900 align-top" lang="fr">${mark(passive, "text-cyan-800")}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-cyan-100 border border-cyan-200 px-3 py-1.5 text-sm font-medium text-cyan-900 hover:bg-cyan-200">The charts</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-cyan-400 hover:text-cyan-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-cyan-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-cyan-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-cyan-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-cyan-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+<script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

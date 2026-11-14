@@ -39,6 +39,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("topic", help="eng/expressions/<topic>.html, without .html")
 ap.add_argument("--redo", type=int, nargs="+", default=[], metavar="N", help="make new takes of these clips")
 ap.add_argument("--upload", action="store_true", help="upload new/changed clips to R2, then set a new ?v= tag")
+ap.add_argument("--only", type=int, nargs="+", default=[], metavar="N", help="make only these clips (one at a time from audio_app.bat)")
 a = ap.parse_args()
 
 
@@ -106,6 +107,8 @@ def normalize(path, dest):
 
 def make(i):
     n = i + 1
+    if a.only and n not in a.only:
+        return None
     out = f"{media}/{n:02d}.mp3"
     if os.path.exists(out) and n not in a.redo:
         return None

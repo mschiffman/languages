@@ -4,6 +4,7 @@ usage (from the LANGUAGES root):
     python -E stories/publish_story.py <page>              asks for a typed yes, then does everything
     python -E stories/publish_story.py <page> --dry-run    only the local checks and what would happen
     python -E stories/publish_story.py <page> --no-push    everything except commit/push/live check
+    python -E stories/publish_story.py <page> --offline    only the offline copy and Drive copies (steps 4-5)
 
 Run it after story_audio.py (which also runs the Whisper check), when you've
 listened to anything it flagged. Steps, in this order (the order matters: Cloudflare caches a 404 for
@@ -13,7 +14,7 @@ listened to anything it flagged. Steps, in this order (the order matters: Cloudf
   2. upload new/changed clips to R2 (story_audio.py --upload)
   3. every clip URL answers 200 with the same size as the local file
   4. offline copy (eng/build_single.py), opened in Edge: no console errors
-  5. copy the page, offline copy and menu script to G:\\My Drive\\_LANGUAGES
+  5. copy the page and menu script to G:\\My Drive\\_LANGUAGES, the offline copy to its eng\\single\\Stories
   6. commit only this story's files (page, pictures, menu script) and push
   7. wait for Cloudflare Pages, then check the live page and every picture
 
@@ -27,6 +28,7 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8", line_buffering=True)  # keep our lines in order with the sub-scripts'
 ROOT = Path(__file__).resolve().parent.parent
 DRIVE = Path(r"G:\My Drive\_LANGUAGES")
+DRIVE_SINGLE = DRIVE / "eng" / "single" / "Stories"  # where the story offline copies are kept
 SITE = "https://languages-4ko.pages.dev"  # Cloudflare Pages (production = master)
 PY = [sys.executable, "-E"]
 
@@ -64,6 +66,7 @@ def main():
     ap = argparse.ArgumentParser(description="Publish a story page")
     ap.add_argument("page", help="stories/<page>.html, without .html")
     ap.add_argument("--dry-run", action="store_true", help="local checks only, change nothing")
+    ap.add_argument("--offline", action="store_true", help="only the offline copy and Drive copies (steps 4-5)")
     ap.add_argument("--no-push", action="store_true", help="stop before commit and push")
     ap.add_argument("--yes", action="store_true", help="don't ask (only when Marissa has said go ahead)")
     ap.add_argument("-m", "--message", help="commit message (default: Stories: add/update <title>)")
@@ -87,7 +90,9 @@ def main():
                    re.findall(r'img:\s*(\d+),(?:\s*imgExt:\s*"(\w+)",)?', body)})
     aud_path = urllib.parse.urlparse(aud_dir).path.strip("/")
     media = ROOT / "media" / aud_path
-    clips = [media / f"{n:02d}.{aud_ext}" for n in nums]
+    clips = [media / f"{n:02d}.{aud_ext.split('?')[0]}" for n in nums]  # AUD_EXT may carry a cache tag: "mp3?v=261027"
+    # a mixed quiz (new_quiz.py) also needs its engine online and on Drive
+    engine = [f for f in ("assets/js/vocquiz.js", "assets/css/vocquiz.css", "assets/js/alpine.min.js") if "/" + f in src]
     pic_files = [ROOT / img_dir.strip("/") / f"{n}.{ext}" for n, ext in pics]
 
     # ---- 1. local checks
@@ -109,7 +114,7 @@ def main():
     if problems:
         fail("\n  " + "\n  ".join(problems))
     branch = subprocess.run(["git", "branch", "--show-current"], capture_output=True, text=True).stdout.strip()
-    git_paths = [str(page.relative_to(ROOT)), img_dir.strip("/"), nav.group(1)]
+    git_paths = [str(page.relative_to(ROOT)), img_dir.strip("/"), nav.group(1), *engine]
     git_status = subprocess.run(["git", "status", "--porcelain", "--untracked-files=all", "--", *git_paths],
                                 capture_output=True, text=True).stdout.splitlines()
     new_page = subprocess.run(["git", "ls-files", "--error-unmatch", str(page.relative_to(ROOT))],
@@ -120,7 +125,7 @@ def main():
     print(f"  {len(clips)} clips ({size / 1e6:.1f} MB) in {media.relative_to(ROOT)} -> R2 {aud_path}/")
     print(f"  {len(pic_files)} pictures in {img_dir}")
     print(f"  menu: {nav.group(1)}")
-    print(f"  offline copy: eng/single/{page.name}, copies to {DRIVE}")
+    print(f"  offline copy: eng/single/{page.name}, copies to {DRIVE_SINGLE}")
     if git_status:
         print(f"  commit on {branch!r}: {msg}")
         for line in git_status:
@@ -130,6 +135,55 @@ def main():
         print("  git: nothing to commit for this story")
     print("Did you listen to the clips Whisper flagged (??) when story_audio.py made them?")
 
+    def offline():
+        """Steps 4-5: the offline copy, checked in Edge, and the Drive copies."""
+        # ---- 4. offline copy
+        step("4. offline copy")
+        if subprocess.run([sys.executable, "-I", "eng/build_single.py", name]).returncode:
+            fail("build_single.py failed (see above)")
+        single = ROOT / "eng" / "single" / page.name
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError:
+            print("Playwright isn't available: open the offline copy by hand to check it.")
+        else:
+            errors = []
+            with sync_playwright() as p:
+                browser = p.chromium.launch(channel="msedge")
+                pg = browser.new_page()
+                pg.on("console", lambda m: m.type == "error" and errors.append(m.text))
+                pg.on("pageerror", lambda e: errors.append(str(e)))
+                pg.goto(single.as_uri())
+                pg.wait_for_timeout(1500)
+                n_chunks = pg.locator(".chunk").count()
+                n_questions = pg.locator(".progress i").count()
+                browser.close()
+            if errors:
+                fail("offline copy has console errors:\n  " + "\n  ".join(errors))
+            if engine:  # a quiz shows questions, not the reader's chunks
+                if not n_questions:
+                    fail("offline copy shows no quiz questions")
+                print(f"opens in Edge with no console errors, {n_questions} questions")
+            elif n_chunks != len(clips):
+                fail(f"offline copy shows {n_chunks} chunks, the page has {len(clips)}")
+            else:
+                print(f"opens in Edge with no console errors, all {n_chunks} chunks shown")
+        print(f"{single.relative_to(ROOT)}: {single.stat().st_size / 1e6:.1f} MB")
+
+        # ---- 5. Google Drive
+        step("5. copy to Google Drive")
+        if not DRIVE.exists():
+            fail(f"can't find {DRIVE}. Is Google Drive running?")
+        for f, dest in [(page, DRIVE / "stories"), (single, DRIVE_SINGLE), (ROOT / nav.group(1), DRIVE / "assets" / "js"),
+                        *((ROOT / e, DRIVE / Path(e).parent) for e in engine)]:
+            dest.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(f, dest / f.name)
+            print(f"  {f.name} -> {dest}")
+
+    if a.offline:
+        offline()
+        print("\nOffline copy done (--offline: no upload, commit or push).")
+        return
     if a.dry_run:
         step("dry run: what the upload would send")
         subprocess.run(PY + ["stories/story_audio.py", name, "--upload", "--dry-run"])
@@ -167,41 +221,7 @@ def main():
              + "\n  A cached 404 clears after 4 hours, or purge the URL: Cloudflare > Caching > Purge Cache > Custom URL.")
     print(f"all {len(clips)} clips OK")
 
-    # ---- 4. offline copy
-    step("4. offline copy")
-    if subprocess.run([sys.executable, "-I", "eng/build_single.py", name]).returncode:
-        fail("build_single.py failed (see above)")
-    single = ROOT / "eng" / "single" / page.name
-    try:
-        from playwright.sync_api import sync_playwright
-    except ImportError:
-        print("Playwright isn't available: open the offline copy by hand to check it.")
-    else:
-        errors = []
-        with sync_playwright() as p:
-            browser = p.chromium.launch(channel="msedge")
-            pg = browser.new_page()
-            pg.on("console", lambda m: m.type == "error" and errors.append(m.text))
-            pg.on("pageerror", lambda e: errors.append(str(e)))
-            pg.goto(single.as_uri())
-            pg.wait_for_timeout(1500)
-            n_chunks = pg.locator(".chunk").count()
-            browser.close()
-        if errors:
-            fail("offline copy has console errors:\n  " + "\n  ".join(errors))
-        if n_chunks != len(clips):
-            fail(f"offline copy shows {n_chunks} chunks, the page has {len(clips)}")
-        print(f"opens in Edge with no console errors, all {n_chunks} chunks shown")
-    print(f"{single.relative_to(ROOT)}: {single.stat().st_size / 1e6:.1f} MB")
-
-    # ---- 5. Google Drive
-    step("5. copy to Google Drive")
-    if not DRIVE.exists():
-        fail(f"can't find {DRIVE}. Is Google Drive running?")
-    for f, dest in [(page, DRIVE / "stories"), (single, DRIVE / "eng" / "single"), (ROOT / nav.group(1), DRIVE / "assets" / "js")]:
-        dest.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(f, dest / f.name)
-        print(f"  {f.name} -> {dest}")
+    offline()
 
     if a.no_push:
         print("\nDone up to the commit (--no-push).")

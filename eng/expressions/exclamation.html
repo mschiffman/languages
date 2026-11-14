@@ -30,6 +30,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+    <link rel="stylesheet" href="../../assets/css/expression-quiz.css" />
   </head>
   <body class="min-h-screen bg-grid relative">
     <!-- Background decorative blobs -->
@@ -248,8 +249,177 @@ const categories = [
           ],
         },
       ];
+
+      /* quiz:start: made from exclamation_quiz.md by new_expr_quiz.py. Change the .md and run it again. */
+      const quizTags = {
+        feeling: "Match the feeling: surprise, happiness, pain, bad news or relief.",
+        danger: "How urgent is it? Look out! and Stop! are for danger right now.",
+        moment: "Check the moment: before it happens (Good luck!) or after (Congratulations! Well done!).",
+      };
+      const quiz = [
+        { type: "match", cards: ["Really?", "Oops!", "Ouch!", "Great!", "Look out!"] },
+        { type: "match", cards: ["What a shame!", "Oh well.", "Thank goodness!", "Congratulations!", "Good luck!"] },
+        {
+          type: "say",
+          scene: "🚗 A car is coming fast · 👦 Your friend steps into the road.",
+          my: "ကားတစ်စီး အရှိန်နဲ့ လာနေတယ်။ သူငယ်ချင်းက လမ်းပေါ် တက်လိုက်တယ်။",
+          answer: "Look out!",
+          wrong: {
+            "Careful!": ["danger", "Careful! is for going slowly. A car is coming right now: shout Look out!"],
+            "Oops!": ["feeling", "Oops! is for a small mistake, after it happens."],
+            "Help!": ["danger", "Help! is for when you are in danger yourself."],
+          },
+        },
+        {
+          type: "say",
+          scene: "🎓 Your friend passed her exam.",
+          my: "သူငယ်ချင်း စာမေးပွဲ အောင်သွားတယ်။",
+          answer: "Congratulations!",
+          wrong: {
+            "Good luck!": ["moment", "Good luck! is before the exam. After good news, say Congratulations!"],
+            "Bless you!": ["meaning", "Bless you! is only for when someone sneezes."],
+            "What a shame!": "feeling",
+          },
+        },
+        {
+          type: "judge",
+          scene: "👔 Your boss tells you he got the new contract.",
+          my: "သူဌေးက ကန်ထရိုက်အသစ် ရပြီလို့ ပြောတယ်။",
+          phrase: "Congratulations!",
+          ok: true,
+          tag: "moment",
+        },
+        {
+          type: "say",
+          scene: "📝 Your friend has a job interview tomorrow.",
+          my: "သူငယ်ချင်းက မနက်ဖြန် အလုပ်အင်တာဗျူး ရှိတယ်။",
+          answer: "Good luck!",
+          wrong: {
+            "Congratulations!": ["moment", "Congratulations! is for after good news. She hasn't had the interview yet."],
+            "Well done!": ["moment", "Well done! is praise after someone did something well."],
+            "Cheers!": ["meaning", "Cheers! is for lifting glasses before drinking."],
+          },
+        },
+        {
+          type: "build",
+          cue: "😮‍💨 A long worry ends",
+          answer: "What a relief!",
+          decoys: {
+            "an": ["words", "What a relief! Relief starts with an r sound, so it is a, not an."],
+          },
+        },
+        {
+          type: "say",
+          scene: "🤧 The woman next to you on the bus sneezes.",
+          my: "ဘတ်စ်ကားပေါ်မှာ ဘေးက အမျိုးသမီး နှာချေတယ်။",
+          answer: "Bless you!",
+          wrong: {
+            "Cheers!": ["meaning", "Cheers! is for lifting glasses before drinking."],
+            "Good luck!": ["meaning", "Good luck! is before an exam, an interview or a game."],
+            "Oh my gosh!": ["feeling", "A sneeze is not a shock. English speakers say Bless you!"],
+          },
+        },
+        {
+          type: "judge",
+          scene: "😢 Your friend says her grandmother is very sick.",
+          my: "သူငယ်ချင်းက သူ့အဖွား အရမ်းနေမကောင်းဘူးလို့ ပြောတယ်။",
+          phrase: "Oh well.",
+          ok: false,
+          tag: "feeling",
+          note: "Oh well. sounds like you don't care. It is for small things in your own life that you can't change. For a friend's bad news, say Oh no! or I'm so sorry.",
+        },
+        {
+          type: "say",
+          scene: "☕ You knock over your cup · A little tea spills on the table.",
+          my: "ခွက်ကို တိုက်မိလို့ လက်ဖက်ရည် နည်းနည်း စားပွဲပေါ် ဖိတ်သွားတယ်။",
+          answer: "Oops!",
+          wrong: {
+            "Ouch!": ["feeling", "Ouch! is for pain. Nothing hurts: it is a small accident."],
+            "Help!": ["danger", "Help! is for real danger, not a little spilled tea."],
+            "Yay!": ["feeling", "Yay! is for happiness."],
+          },
+        },
+        {
+          type: "build",
+          cue: "😲 You can't believe the news",
+          answer: "You're kidding!",
+          decoys: {
+            "are": ["words", "You're already has are in it: You're kidding!"],
+          },
+        },
+        {
+          type: "say",
+          scene: "🩺 The doctor says your mother's test results are good · You were worried all week.",
+          my: "အမေ့ရဲ့ ဆေးစစ်ချက်အဖြေ ကောင်းတယ်လို့ ဆရာဝန်က ပြောတယ်။ တစ်ပတ်လုံး စိတ်ပူနေခဲ့တာ။",
+          answer: "What a relief!",
+          wrong: {
+            "What a shame!": ["feeling", "What a shame! is for sad or disappointing news. This is good news after a long worry."],
+            "Oh well.": ["feeling", "Oh well. accepts something bad that you can't change."],
+            "Uh-oh.": ["feeling", "Uh-oh. is for trouble you can see coming."],
+          },
+        },
+        {
+          type: "judge",
+          scene: "🍽️ At dinner with friends · Everyone lifts a glass.",
+          my: "သူငယ်ချင်းတွေနဲ့ ညစာစားနေတယ်။ အားလုံး ခွက်မြှောက်ကြတယ်။",
+          phrase: "Cheers!",
+          ok: true,
+          tag: "meaning",
+        },
+        {
+          type: "say",
+          scene: "🌧️ It's raining · Your friend says the picnic is cancelled.",
+          my: "မိုးရွာနေတယ်။ ပျော်ပွဲစား ဖျက်လိုက်ပြီလို့ သူငယ်ချင်းက ပြောတယ်။",
+          answer: "What a shame!",
+          wrong: {
+            "Shame on you!": ["literal", "What a shame! is not about feeling ashamed (ရှက်တယ်). Shame on you! blames the person. For sad news, say What a shame!"],
+            "Thank goodness!": ["feeling", "Thank goodness! is for when something bad didn't happen."],
+            "Awesome!": ["feeling", "Awesome! is for good news."],
+          },
+        },
+        {
+          type: "judge",
+          scene: "👩‍🏫 Your teacher gives the class a lot of homework · You answer her.",
+          my: "ဆရာမက အိမ်စာ အများကြီး ပေးတယ်။ ဆရာမကို ပြန်ပြောတယ်။",
+          phrase: "Ugh!",
+          ok: false,
+          tag: "register",
+          note: "Ugh! is casual: with friends, or to yourself. Said to a teacher, it is rude.",
+        },
+        {
+          type: "build",
+          cue: "🙏 Something bad didn't happen",
+          answer: "Thank goodness!",
+          decoys: {
+            "thanks": ["words", "It is Thank goodness!, without s."],
+          },
+        },
+        {
+          type: "say",
+          scene: "🎁 Your friend says she won a free trip to Bagan.",
+          my: "သူငယ်ချင်းက ပုဂံကို အခမဲ့ သွားရမယ့် ဆု ရတယ်လို့ ပြောတယ်။",
+          answer: "Lucky you!",
+          wrong: {
+            "What a shame!": ["feeling", "What a shame! is for sad or disappointing news."],
+            "Look out!": ["danger", "Look out! is a warning about danger."],
+            "Oh well.": ["feeling", "Oh well. accepts something bad."],
+          },
+        },
+        {
+          type: "judge",
+          scene: "🧒 A small boy shows you the picture he drew.",
+          my: "ကလေးလေးတစ်ယောက်က သူဆွဲထားတဲ့ ပုံကို ပြတယ်။",
+          phrase: "Well done!",
+          ok: true,
+          tag: "moment",
+        },
+      ];
+      /* quiz:end */
     </script>
     <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/expression-quiz.js"></script>
     <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+    <!-- last: Alpine starts the quiz once everything above has run -->
+    <script src="../../assets/js/alpine.min.js"></script>
   </body>
 </html>

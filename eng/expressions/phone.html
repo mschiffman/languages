@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — On the Phone</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">ON THE PHONE</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          On the Phone
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ဖုန်းပြောခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">24</span> expressions · On the Phone
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 24.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/phone/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Starting a call",
+          my: "ဖုန်းခေါ်ဆိုမှု စတင်ခြင်း",
+          desc: "Answering, saying who you are, and asking for someone.",
+          cards: [
+            ["Hello?", "ဟယ်လို။", "On the phone, Hello? with a rising voice means: I'm here, who is it?",
+              "— (ring ring) — Hello? — Hi, Mum!", "— (ဖုန်းမြည်) — ဟယ်လို။ — ဟိုင်း၊ မေမေ။"],
+            ["Hi, it's <span class=gray>May</span>.", "ဟိုင်း၊ မေ ပါ။", "On the phone, say It's…, not I am… Also: This is May.",
+              "Hi, Grandma, it's Aung!", "ဟိုင်း အဖွား၊ အောင် ပါ။"],
+            ["Who's calling, please?", "ဘယ်သူ ပြောနေတာပါလဲ။", "Polite: asks the caller's name.",
+              "— Can I speak to Mr Tun? — Who's calling, please?", "— ဦးထွန်းနဲ့ ပြောလို့ ရမလား။ — ဘယ်သူ ပြောနေတာပါလဲ။"],
+            ["Can I speak to <span class=gray>Aung</span>, please?", "အောင်နဲ့ စကား ပြောလို့ ရမလား။", "When someone else answers the phone.",
+              "Hello, can I speak to your mother, please?", "ဟယ်လို၊ မေမေနဲ့ စကား ပြောလို့ ရမလား။"],
+            ["Is this a good time?", "အခု ပြောလို့ အဆင်ပြေလား။", "Polite: checks the other person isn't busy.",
+              "Hi, it's Lin. Is this a good time?", "ဟိုင်း၊ လင်း ပါ။ အခု ပြောလို့ အဆင်ပြေလား။"],
+          ],
+        },
+        {
+          en: "Waiting and messages",
+          my: "စောင့်ခြင်းနှင့် မှာထားခြင်း",
+          desc: "When the person isn't there, or needs a moment.",
+          cards: [
+            ["Hold on, please.", "ခဏ စောင့်ပါ။", "Wait and don't hang up. Casual: Hang on a sec.",
+              "Hold on, please. I'll check.", "ခဏ စောင့်ပါ။ စစ်ကြည့်လိုက်မယ်။"],
+            ["I'll get him for you.", "သူ့ကို ခေါ်ပေးမယ်။", "You go and find the person they asked for. For a woman: I'll get her.",
+              "— Is your dad there? — Yes, I'll get him for you.", "— အဖေ ရှိလား။ — ရှိတယ်၊ ခေါ်ပေးမယ်။"],
+            ["He's not here right now.", "သူ အခု မရှိဘူး။", "The person can't come to the phone. Also: She's out.",
+              "Sorry, he's not here right now. He'll be back at six.", "ဆောရီး၊ သူ အခု မရှိဘူး။ ခြောက်နာရီ ပြန်ရောက်မယ်။"],
+            ["Can I take a message?", "မှာစရာ ရှိရင် မှာထားခဲ့မလား။", "You offer to tell the person what the caller said.",
+              "She's at school. Can I take a message?", "သူ ကျောင်းသွားနေတယ်။ မှာစရာ ရှိရင် မှာထားခဲ့မလား။"],
+            ["Can you ask her to call me back?", "ကျွန်တော့်/ကျွန်မ ဆီ ဖုန်းပြန်ဆက်ဖို့ ပြောပေးလို့ ရမလား။", "Leaves a message. Call back = phone again later.",
+              "Can you ask her to call me back? It's Mia.", "ကျွန်မဆီ ဖုန်းပြန်ဆက်ဖို့ ပြောပေးလို့ ရမလား။ မီယာ ပါ။"],
+          ],
+        },
+        {
+          en: "Problems on the line",
+          my: "လိုင်း အခက်အခဲများ",
+          desc: "Bad signal, wrong number, low battery.",
+          cards: [
+            ["Sorry, wrong number.", "ဆောရီး၊ နံပါတ် မှားနေတယ်။", "When someone calls the wrong person, or you do. Also: I think you have the wrong number.",
+              "— Is this the pizza shop? — Sorry, wrong number.", "— ဒါ ပီဇာဆိုင်လား။ — ဆောရီး၊ နံပါတ် မှားနေတယ်။"],
+            ["You're breaking up.", "အသံ ပြတ်ပြတ်နေတယ်။", "The signal is bad and the voice keeps cutting out.",
+              "Sorry, you're breaking up. Can you say that again?", "ဆောရီး၊ အသံ ပြတ်ပြတ်နေတယ်။ ပြန်ပြောပေးလို့ ရမလား။"],
+            ["I can't hear you very well.", "အသံ သိပ် မကြားရဘူး။", "It's too quiet or too noisy where you are.",
+              "I can't hear you very well. I'm on the bus.", "အသံ သိပ် မကြားရဘူး။ ဘတ်စ်ကားပေါ်မှာ ရောက်နေလို့။"],
+            ["My battery is low.", "ဖုန်း အားကုန်ခါနီးပြီ။", "Warns that the call may end suddenly.",
+              "Quick, my battery is low!", "မြန်မြန်ပြော၊ ဖုန်း အားကုန်ခါနီးပြီ။"],
+            ["Can I call you back?", "ဖုန်း ပြန်ဆက်လို့ ရမလား။", "When you can't talk now. Add when: in ten minutes, after dinner.",
+              "I'm in class. Can I call you back later?", "စာသင်ခန်းထဲမှာ ရှိနေတယ်။ နောက်မှ ဖုန်း ပြန်ဆက်လို့ ရမလား။"],
+          ],
+        },
+        {
+          en: "Ending a call",
+          my: "ဖုန်းခေါ်ဆိုမှု အဆုံးသတ်ခြင်း",
+          desc: "Finishing the call in a friendly way.",
+          cards: [
+            ["Thanks for calling.", "ဖုန်းဆက်တဲ့အတွက် ကျေးဇူးပါ။", "Polite, near the end of a call.",
+              "Thanks for calling, Grandpa. Love you!", "ဖုန်းဆက်တဲ့အတွက် ကျေးဇူးပါ အဖိုး။ ချစ်တယ်။"],
+            ["Call me when you get home.", "အိမ်ရောက်ရင် ဖုန်းဆက်နော်။", "Parents and friends say this to know you are safe.",
+              "Have a safe trip. Call me when you get home.", "ခရီး ချောမောပါစေ။ အိမ်ရောက်ရင် ဖုန်းဆက်နော်။"],
+            ["Bye, speak soon!", "တာ့တာ၊ မကြာခင် ပြန်ပြောမယ်။", "A friendly goodbye on the phone. British English often says speak to you soon.",
+              "OK, bye, speak soon!", "အိုကေ၊ တာ့တာ၊ မကြာခင် ပြန်ပြောမယ်။"],
+            ["I'll text you.", "မက်ဆေ့ချ် ပို့လိုက်မယ်။", "Text = send a written message on the phone. Also: I'll message you.",
+              "I'll text you the time later.", "အချိန်ကို နောက်မှ မက်ဆေ့ချ် ပို့လိုက်မယ်။"],
+          ],
+        },
+        {
+          en: "Messages and video calls",
+          my: "မက်ဆေ့ချ်နှင့် ဗီဒီယိုကော",
+          desc: "Phrases for chat apps and video calls.",
+          cards: [
+            ["Did you get my message?", "ကျွန်တော့်/ကျွန်မ မက်ဆေ့ချ် ရလား။", "Checks that a message arrived.",
+              "Did you get my message about tomorrow?", "မနက်ဖြန်အကြောင်း ပို့ထားတဲ့ မက်ဆေ့ချ် ရလား။"],
+            ["Can you see me?", "ကျွန်တော့်/ကျွန်မ ကို မြင်ရလား။", "At the start of a video call.",
+              "Can you see me? Is the camera on?", "ကျွန်မကို မြင်ရလား။ ကင်မရာ ဖွင့်ထားလား။"],
+            ["You're on mute.", "အသံ ပိတ်ထားတယ်။", "The other person's microphone is off, so you can't hear them.",
+              "I can't hear you. You're on mute!", "အသံ မကြားရဘူး။ အသံ ပိတ်ထားတယ်။"],
+            ["Send me a voice message.", "အသံ မက်ဆေ့ချ် ပို့ပေး။", "A recorded spoken message in a chat app.",
+              "I'm driving. Send me a voice message.", "ကား မောင်းနေတယ်။ အသံ မက်ဆေ့ချ် ပို့ပေး။"],
+            ["I'll send you the address.", "လိပ်စာ ပို့ပေးမယ်။", "Promises to send written details: the address, the time, a photo.",
+              "I'll send you the address after this call.", "ဖုန်းချပြီးရင် လိပ်စာ ပို့ပေးမယ်။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

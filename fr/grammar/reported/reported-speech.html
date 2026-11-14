@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Reported Speech in Everyday French</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-blue-950 via-blue-900 to-cyan-800 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-4"
+        >
+          French grammar · Reported speech
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">Il m'a dit que…</span>
+        </h1>
+        <p class="text-lg md:text-xl text-cyan-100 max-w-2xl mx-auto leading-relaxed">
+          Passing on what someone said: <i lang="fr">« Je suis fatigué »</i>
+          becomes <i lang="fr">Il m'a dit qu'il était fatigué</i>. The verb
+          shifts back in time, the pronouns change, and questions lose their
+          question form. Here are the rules, and how people actually report
+          speech when they're telling a story.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The charts (filled by the script from SHIFTS, TIMEWORDS, QUESTIONS below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-blue-900 mb-2">
+          First, the chart: how the verb shifts
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          When the reporting verb is in the past (<i lang="fr">il a dit
+          que</i>, <i lang="fr">elle m'a expliqué que</i>), the verb in the
+          reported part moves one step back. With <i lang="fr">il dit
+          que</i> in the present, nothing moves.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[820px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold align-bottom">They said</th>
+                <th scope="col" class="bg-blue-600 text-white px-3 py-2 font-semibold align-bottom">You report</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold align-bottom">Direct</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold align-bottom">Reported</th>
+              </tr>
+            </thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the charts sideways to see every column.</p>
+
+        <!-- Questions -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-blue-900 mt-10 mb-2">
+          Questions lose their question form
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          Inside a sentence, a question takes plain statement order: no
+          <i lang="fr">est-ce que</i>, no inversion, no question mark.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[640px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">In the question</th>
+                <th scope="col" class="bg-blue-600 text-white px-3 py-2 font-semibold">Becomes</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold">Example</th>
+              </tr>
+            </thead>
+            <tbody id="question-body"></tbody>
+          </table>
+        </div>
+
+        <!-- Time words -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-blue-900 mt-10 mb-2">
+          Time and place words, when the moment has passed
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          If you are reporting days or weeks later, words like
+          <i lang="fr">demain</i> and <i lang="fr">ici</i> no longer fit.
+          In conversation, people only change them when the original
+          word would be confusing.
+        </p>
+        <div id="time-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3" lang="fr"></div>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-blue-800">Still true?</b> Speech often keeps the
+            present: <i lang="fr">Il m'a dit qu'il est malade</i>, if he
+            still is. The shifted form is always correct.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-blue-800">Orders: de + infinitive.</b>
+            <i lang="fr">« Viens ! »</i> →
+            <i lang="fr">Il m'a dit de venir.</i> No que, no tense to shift.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-blue-800">Pronouns follow the people.</b>
+            <i lang="fr">« Je t'aime »</i> → <i lang="fr">Il m'a dit qu'il
+            m'aimait</i>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-blue-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Almost the same report, not the same message
+        </h2>
+        <p class="text-blue-100 leading-relaxed mb-6 max-w-3xl">
+          <i lang="fr">De</i> or <i lang="fr">que</i>, <i lang="fr">si</i> or
+          <i lang="fr">de</i>, one tense or another: small choices that
+          change what you are passing on.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-blue-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-blue-700 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most are question forms kept inside the report, or English
+              “told me to” copied word for word. The crossed-out line is the
+              slip; the line under it is what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../question/questions.html" class="font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-900">questions</a>
+          ·
+          <a href="../tense/index.html" class="font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-900">tenses</a>
+          ·
+          <a href="../pronoun/pronouns.html" class="font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-900">pronouns</a>
+          ·
+          <a href="../condition/si-clauses.html" class="font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-900">si-clauses</a>
+        </p>
+        <a href="../index.html" class="text-blue-700 underline underline-offset-2 hover:text-blue-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "Il a dit qu'il [était] fatigué."
+      --------------------------------------------------------------- */
+
+      /* Tense shifts: [they said, you report, direct, reported] */
+      const SHIFTS = [
+        ["présent", "imparfait", "« Je [suis] fatigué. »", "Il a dit qu'il [était] fatigué."],
+        ["passé composé", "plus-que-parfait", "« J'[ai fini]. »", "Il a dit qu'il [avait fini]."],
+        ["futur", "conditionnel", "« Je [viendrai]. »", "Il a dit qu'il [viendrait]."],
+        ["futur proche", "aller in the imparfait", "« Je [vais partir]. »", "Il a dit qu'il [allait partir]."],
+        ["venir de", "venir de in the imparfait", "« Je [viens de] manger. »", "Il a dit qu'il [venait de] manger."],
+        ["imparfait", "no change", "« J'[étais] malade. »", "Il a dit qu'il [était] malade."],
+        ["plus-que-parfait · conditionnel", "no change", "« Je [voudrais] venir. »", "Il a dit qu'il [voudrait] venir."],
+        ["impératif", "de + infinitive", "« [Viens] ! »", "Il m'a dit [de venir]."],
+      ];
+
+      /* Questions: [in the question, becomes, example] */
+      const QUESTIONS = [
+        ["yes / no, est-ce que", "si", "Elle m'a demandé [si] j'avais faim."],
+        ["qu'est-ce que · que", "ce que", "Il m'a demandé [ce que] je voulais."],
+        ["qu'est-ce qui", "ce qui", "Il m'a demandé [ce qui] se passait."],
+        ["où · quand · comment · pourquoi · combien", "stay, with normal word order", "Elle m'a demandé [où] j'habitais."],
+        ["qui · lequel · quel", "stay", "Il voulait savoir [qui] était là."],
+        ["quoi + infinitive", "stays", "Je sais pas [quoi] dire."],
+      ];
+
+      /* Time words: [then, later] */
+      const TIMEWORDS = [
+        ["aujourd'hui", "ce jour-là"],
+        ["hier", "la veille"],
+        ["demain", "le lendemain"],
+        ["maintenant", "à ce moment-là"],
+        ["ce soir", "ce soir-là"],
+        ["la semaine prochaine", "la semaine suivante"],
+        ["la semaine dernière", "la semaine d'avant"],
+        ["dans deux jours", "deux jours plus tard"],
+        ["il y a deux jours", "deux jours plus tôt"],
+        ["ici", "là · là-bas"],
+        ["ce livre-ci", "ce livre-là"],
+        ["en ce moment", "à ce moment-là"],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "now",
+          title: "Reporting right away: il dit que",
+          fr: "Il dit qu'il arrive · Elle dit qu'elle viendra · On dit que…",
+          tone: "sky",
+          blurb:
+            "If the reporting verb is in the present (passing on a message, a text, what someone keeps saying), the tenses stay exactly as they were. Only the pronouns change.",
+          ex: [
+            ["« J'arrive. » → Il dit qu'il [arrive].", "He says he's on his way.", "Present reporting verb: no shift."],
+            ["« Je viendrai. » → Elle dit qu'elle [viendra].", "She says she'll come."],
+            ["« J'ai raté le train. » → Il dit qu'il [a raté] le train.", "He says he missed the train."],
+            ["Maman dit que tu [dois] rentrer.", "Mum says you have to come home."],
+            ["Il [dit] toujours que c'est pas sa faute.", "He always says it's not his fault."],
+            ["[On dit que] c'est le meilleur resto du coin.", "They say it's the best restaurant around.", "On dit que: people say."],
+            ["Il [paraît que] Paul déménage.", "Apparently Paul's moving.", "Il paraît que: I've heard that."],
+            ["Elle m'[écrit] qu'elle est bien arrivée.", "She's written to say she got there safely."],
+          ],
+        },
+        {
+          id: "present",
+          title: "Present becomes imparfait",
+          fr: "« Je suis fatigué » → Il a dit qu'il était fatigué",
+          tone: "indigo",
+          blurb:
+            "With a past reporting verb, a present tense moves back to the imparfait: English “is” → “was”.",
+          ex: [
+            ["« Je suis fatigué. » → Il a dit qu'il [était] fatigué.", "He said he was tired."],
+            ["« J'ai faim. » → Elle m'a dit qu'elle [avait] faim.", "She told me she was hungry."],
+            ["« Je sais pas. » → Il m'a répondu qu'il [savait] pas.", "He answered that he didn't know."],
+            ["« Je travaille demain. » → Elle a dit qu'elle [travaillait] le lendemain.", "She said she was working the next day."],
+            ["« On part en vacances. » → Ils m'ont dit qu'ils [partaient] en vacances.", "They told me they were going on holiday."],
+            ["« C'est trop cher. » → J'ai trouvé que c'[était] trop cher.", "I thought it was too expensive."],
+            ["Il m'a dit qu'il [est] malade.", "He told me he's ill.", "Speech keeps the present if it is still true now. The imparfait is the safe choice."],
+          ],
+        },
+        {
+          id: "past",
+          title: "Passé composé becomes plus-que-parfait",
+          fr: "« J'ai fini » → Il a dit qu'il avait fini",
+          tone: "violet",
+          blurb:
+            "Something already done at the time of speaking moves back to the plus-que-parfait: avait or était + participle. English “has done” → “had done”.",
+          ex: [
+            ["« J'ai fini. » → Il a dit qu'il [avait fini].", "He said he'd finished."],
+            ["« Je suis allée à Rome. » → Elle m'a dit qu'elle [était allée] à Rome.", "She told me she'd been to Rome.", "Être verbs keep être: était allée."],
+            ["« J'ai perdu mes clés. » → Il a dit qu'il [avait perdu] ses clés.", "He said he'd lost his keys.", "Mes → ses."],
+            ["« On s'est trompés. » → Ils ont avoué qu'ils [s'étaient trompés].", "They admitted they'd made a mistake."],
+            ["« Tu as vu le film ? » → Elle m'a demandé si j'[avais vu] le film.", "She asked me if I'd seen the film."],
+            ["Il m'a dit qu'il [a trouvé] un boulot.", "He told me he's found a job.", "Speech often keeps the passé composé for recent news."],
+          ],
+          more: ["../tense/plus-que-parfait.html", "The plus-que-parfait"],
+        },
+        {
+          id: "future",
+          title: "Future becomes conditional",
+          fr: "« Je viendrai » → Il a dit qu'il viendrait",
+          tone: "teal",
+          blurb:
+            "Will becomes would. The futur simple moves to the conditional; the futur proche (je vais + infinitive) moves to j'allais + infinitive.",
+          ex: [
+            ["« Je viendrai. » → Il a dit qu'il [viendrait].", "He said he'd come."],
+            ["« Je t'appellerai. » → Elle m'a promis qu'elle m'[appellerait].", "She promised she'd call me."],
+            ["« Il fera beau. » → Ils ont dit qu'il [ferait] beau.", "They said it would be nice."],
+            ["« Je vais partir. » → Il a dit qu'il [allait partir].", "He said he was going to leave."],
+            ["« On va se marier ! » → Ils nous ont annoncé qu'ils [allaient se marier].", "They told us they were getting married."],
+            ["Il m'a dit qu'il [viendra] demain.", "He told me he'll come tomorrow.", "Speech keeps the future if the event is still ahead."],
+          ],
+          more: ["../tense/conditionnel.html", "The conditional"],
+        },
+        {
+          id: "same",
+          title: "What doesn't change",
+          fr: "imparfait · plus-que-parfait · conditionnel · subjonctif",
+          tone: "emerald",
+          blurb:
+            "Tenses that are already “one step back” stay as they are: the imparfait, the plus-que-parfait, the conditional and the subjunctive.",
+          ex: [
+            ["« J'étais malade. » → Il a dit qu'il [était] malade.", "He said he'd been ill.", "Imparfait stays."],
+            ["« Je voudrais un café. » → Elle a dit qu'elle [voudrait] un café.", "She said she'd like a coffee.", "Conditional stays."],
+            ["« Si j'avais su… » → Il a dit que s'il [avait su]…", "He said that if he'd known…", "Plus-que-parfait stays."],
+            ["« Il faut que tu viennes. » → Elle a dit qu'il fallait que je [vienne].", "She said I had to come.", "Il faut → il fallait, but the subjunctive stays."],
+            ["« Je pouvais pas. » → Il a expliqué qu'il [pouvait] pas.", "He explained that he couldn't."],
+          ],
+        },
+        {
+          id: "orders",
+          title: "Orders and requests: dire de, demander de",
+          fr: "Il m'a dit de venir · Elle m'a demandé de ne pas fumer",
+          tone: "amber",
+          blurb:
+            "A command becomes de + infinitive after dire, demander, conseiller, proposer. English “told me to” is never “m'a dit venir”.",
+          ex: [
+            ["« Viens ! » → Il m'a dit [de venir].", "He told me to come."],
+            ["« Assieds-toi. » → Elle m'a dit [de m'asseoir].", "She told me to sit down.", "The reflexive pronoun follows the person: m'asseoir."],
+            ["« Ne fume pas. » → Il m'a demandé [de ne pas fumer].", "He asked me not to smoke.", "Ne pas together before the infinitive."],
+            ["« Tu peux fermer la porte ? » → Elle m'a demandé [de fermer] la porte.", "She asked me to close the door."],
+            ["Le médecin m'a conseillé [de me reposer].", "The doctor advised me to rest."],
+            ["Il m'a proposé [de l'aider].", "He offered to help me."],
+            ["Je lui ai rappelé [d']acheter du pain.", "I reminded him to buy bread."],
+            ["Ils nous ont interdit [d']entrer.", "They forbade us to go in."],
+            ["Dis-lui [de] m'appeler.", "Tell him to call me."],
+          ],
+          tip: "Dire à quelqu'un de faire quelque chose: the person takes à, so the pronoun is me, te, lui, nous, vous, leur: Je lui ai dit de partir.",
+        },
+        {
+          id: "yesno",
+          title: "Yes/no questions: demander si",
+          fr: "Elle m'a demandé si j'avais faim · Je me demande si…",
+          tone: "rose",
+          blurb:
+            "A yes/no question turns into si + a normal sentence. Si becomes s' before il and ils only.",
+          ex: [
+            ["« Tu as faim ? » → Elle m'a demandé [si] j'avais faim.", "She asked me if I was hungry."],
+            ["« Est-ce que tu viens ? » → Il m'a demandé [si] je venais.", "He asked me whether I was coming.", "Est-ce que disappears."],
+            ["« Il est là ? » → Elle a demandé [s']il était là.", "She asked if he was there.", "Si + il → s'il."],
+            ["« Vous avez réservé ? » → Il nous a demandé [si] on avait réservé.", "He asked us if we'd booked."],
+            ["Je me demande [si] c'est vrai.", "I wonder if it's true."],
+            ["Je sais pas [si] elle viendra.", "I don't know if she'll come.", "Si = whether: the future is fine."],
+            ["Demande-lui [s']il veut venir.", "Ask him if he wants to come."],
+          ],
+          more: ["../condition/si-clauses.html", "Si meaning “if” vs “whether”"],
+        },
+        {
+          id: "wh",
+          title: "Where, what, why: question words inside a sentence",
+          fr: "Il m'a demandé où j'habitais · ce que je voulais · ce qui se passait",
+          tone: "sky",
+          blurb:
+            "Question words stay, but the word order goes back to normal. Qu'est-ce que becomes ce que, and qu'est-ce qui becomes ce qui.",
+          ex: [
+            ["« Où tu habites ? » → Il m'a demandé [où] j'habitais.", "He asked me where I lived."],
+            ["« Quand est-ce que tu pars ? » → Elle voulait savoir [quand] je partais.", "She wanted to know when I was leaving."],
+            ["« Pourquoi tu ris ? » → Il m'a demandé [pourquoi] je riais.", "He asked me why I was laughing."],
+            ["« Combien ça coûte ? » → J'ai demandé [combien] ça coûtait.", "I asked how much it cost."],
+            ["« Qu'est-ce que tu veux ? » → Il m'a demandé [ce que] je voulais.", "He asked me what I wanted."],
+            ["« Qu'est-ce qui se passe ? » → Elle a demandé [ce qui] se passait.", "She asked what was going on."],
+            ["« Qui est là ? » → Il a demandé [qui] était là.", "He asked who was there."],
+            ["Je sais pas [quoi] faire.", "I don't know what to do."],
+          ],
+          tip: "Casual speech often keeps the question form: Il m'a demandé qu'est-ce que je voulais. You'll hear it all the time, but ce que is the standard form.",
+          more: ["../question/questions.html", "Questions inside sentences"],
+        },
+        {
+          id: "people",
+          title: "Pronouns and possessives follow the people",
+          fr: "« Je t'aime » → Il m'a dit qu'il m'aimait",
+          tone: "indigo",
+          blurb:
+            "Je, tu, mon, ton change to fit who is reporting to whom. Work out who each person is, then pick the pronoun.",
+          ex: [
+            ["« Je t'aime. » → Il m'a dit qu'[il m']aimait.", "He told me he loved me."],
+            ["« J'ai vu ton frère. » → Elle m'a dit qu'elle avait vu [mon] frère.", "She told me she'd seen my brother."],
+            ["« Mes parents arrivent. » → Il a dit que [ses] parents arrivaient.", "He said his parents were arriving."],
+            ["« On vous attend. » → Ils ont dit qu'[ils nous] attendaient.", "They said they were waiting for us."],
+            ["« Je viens avec toi. » → Paul a dit qu'il venait avec [moi].", "Paul said he was coming with me."],
+            ["« C'est à moi. » → Elle a dit que c'était à [elle].", "She said it was hers."],
+          ],
+          more: ["../pronoun/pronouns.html", "All the pronoun forms"],
+        },
+        {
+          id: "verbs",
+          title: "Reporting verbs beyond dire",
+          fr: "expliquer · répondre · promettre · prévenir · raconter · avouer",
+          tone: "teal",
+          blurb:
+            "Dire is the default, but other verbs say how something was said. Most take que + a sentence; a few take de + infinitive.",
+          ex: [
+            ["Il m'a [expliqué] que c'était fermé.", "He explained that it was closed."],
+            ["Elle a [répondu] qu'elle était occupée.", "She replied that she was busy."],
+            ["Il m'a [promis] qu'il viendrait.", "He promised me he'd come.", "Promettre que + conditional…"],
+            ["Il m'a [promis de] venir.", "He promised to come.", "…or promettre de + infinitive, same person."],
+            ["Je t'avais [prévenu] que ce serait dur.", "I warned you it would be hard."],
+            ["Il nous a [raconté] qu'il avait vu un ours.", "He told us he'd seen a bear.", "Raconter: tell a story."],
+            ["Elle a [avoué] qu'elle avait menti.", "She admitted she'd lied."],
+            ["Il a [ajouté] que c'était gratuit.", "He added that it was free."],
+            ["Elle s'est [plainte] que c'était trop bruyant.", "She complained it was too noisy."],
+            ["Il a [annoncé] qu'il partait.", "He announced he was leaving."],
+            ["Elle m'a [assuré] que tout allait bien.", "She assured me everything was fine."],
+          ],
+        },
+        {
+          id: "story",
+          title: "Telling it like a story: il me fait, et là elle me dit",
+          fr: "Il me fait : « … » · Et là, elle me dit… · Genre…",
+          tone: "rose",
+          blurb:
+            "When people retell a conversation, they often skip reported speech: present tense, direct quotes, and casual verbs to introduce them. Fine with friends; not in writing.",
+          ex: [
+            ["Et là, il me [dit] : « T'es sérieux ? »", "And then he goes, “Are you serious?”", "Present tense + direct quote."],
+            ["Elle me [fait] : « Non mais ça va pas ? »", "She goes, “Are you out of your mind?”", "Faire for “go”, “say”: very casual."],
+            ["Et moi, je lui [dis] que c'est pas possible.", "And I tell him it's not possible."],
+            ["Il était [genre] : « Quoi ? »", "He was like, “What?”", "Genre: “like”. Young and casual."],
+            ["Et là, il me [sort] une excuse bidon.", "And then he comes out with some lame excuse.", "Sortir: come out with. Casual."],
+            ["[D'après] lui, c'est fermé.", "According to him, it's closed."],
+            ["[Selon] elle, on est en retard.", "According to her, we're late."],
+            ["Il [paraît qu']ils se sont séparés.", "Apparently they've split up."],
+          ],
+        },
+        {
+          id: "writing",
+          title: "In writing: « guillemets » and dit-il",
+          fr: "« Viens », dit-il. · — Tu viens ? demanda-t-elle.",
+          tone: "violet",
+          blurb:
+            "French writes quotes with « » and a space inside, and starts each line of dialogue in a book with a dash. After a quote, the reporting verb and its subject swap places.",
+          ex: [
+            ["« Viens », [dit-il].", "“Come,” he said.", "Verb before subject after a quote."],
+            ["« Je suis prête », [a-t-elle répondu].", "“I'm ready,” she replied.", "A -t- between two vowels: a-t-elle."],
+            ["— Tu viens ? [demanda-t-elle].", "“Are you coming?” she asked.", "Novels: a dash for each speaker, passé simple for the verb."],
+            ["« C'est fini, [ajouta-t-il], on rentre. »", "“It's over,” he added, “we're going home.”"],
+            ["Il a dit : [« J'arrive. »]", "He said, “I'm coming.”", "Colon before a quote, and spaces inside « »."],
+          ],
+          tip: "In speech, people don't invert: « Viens », il a dit. In writing, the inverted dit-il, a-t-elle dit is expected.",
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["Il [dit] qu'il vient.", "He says he's coming.", "Il [a dit] qu'il venait.", "He said he was coming."],
+        ["Il m'a dit [de] venir.", "He told me to come.", "Il m'a dit [qu']il venait.", "He told me he was coming."],
+        ["Elle m'a demandé [si] je venais.", "She asked me whether I was coming.", "Elle m'a demandé [de] venir.", "She asked me to come."],
+        ["Il a dit qu'il [avait fini].", "He said he'd finished. (had)", "Il a dit qu'il [finirait].", "He said he'd finish. (would)"],
+        ["Il m'a demandé [ce que] je voulais.", "He asked me what I wanted.", "Il m'a demandé [ce qui] se passait.", "He asked me what was going on."],
+        ["Il a dit qu'il viendrait [demain].", "He said he'd come tomorrow. (still ahead)", "Il a dit qu'il viendrait [le lendemain].", "He said he'd come the next day. (back then)"],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["Il m'a dit venir.", "Il m'a dit [de venir].", "He told me to come.", "Dire de + infinitive."],
+        ["Il m'a dit que viens.", "Il m'a dit [de venir].", "He told me to come.", "A command becomes de + infinitive."],
+        ["Elle m'a demandé est-ce que je venais.", "Elle m'a demandé [si] je venais.", "She asked if I was coming.", "Est-ce que → si."],
+        ["Il m'a demandé qu'est-ce que je voulais.", "Il m'a demandé [ce que] je voulais.", "He asked what I wanted.", "Qu'est-ce que → ce que."],
+        ["Elle a demandé qu'est-ce qui se passait.", "Elle a demandé [ce qui] se passait.", "She asked what was happening.", "Qu'est-ce qui → ce qui."],
+        ["Il m'a demandé où habitais-je.", "Il m'a demandé où [j'habitais].", "He asked where I lived.", "No inversion inside a sentence."],
+        ["Il m'a demandé si il pouvait.", "Il m'a demandé [s']il pouvait.", "He asked if he could.", "Si + il → s'il."],
+        ["Il a dit qu'il a fini.", "Il a dit qu'il [avait fini].", "He said he'd finished.", "Passé composé → plus-que-parfait."],
+        ["Il a dit qu'il viendra le lendemain.", "Il a dit qu'il [viendrait] le lendemain.", "He said he'd come the next day.", "Future → conditional."],
+        ["Il m'a dit de ne venir pas.", "Il m'a dit [de ne pas venir].", "He told me not to come.", "Ne pas before the infinitive."],
+        ["Il a demandé moi.", "Il [m']a demandé.", "He asked me.", "Demander à quelqu'un: the pronoun goes before the verb."],
+        ["« Viens », il a dit. (in writing)", "« Viens », [a-t-il dit].", "“Come,” he said.", "Writing inverts after a quote."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [était] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- shift chart ---------- */
+      document.getElementById("chart-body").innerHTML = SHIFTS.map(
+        ([said, report, direct, reported]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-playfair italic font-semibold text-slate-700 align-top" lang="fr">${esc(said)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-blue-50 font-playfair italic font-semibold text-blue-800 align-top" lang="fr">${esc(report)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-slate-700 align-top whitespace-nowrap" lang="fr">${mark(direct, "text-sky-700")}</td>
+          <td class="px-3 py-2 border-b border-slate-100 font-medium text-slate-900 align-top" lang="fr">${mark(reported, "text-blue-700")}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- question chart ---------- */
+      document.getElementById("question-body").innerHTML = QUESTIONS.map(
+        ([q, becomes, ex]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-playfair italic font-normal text-slate-700 align-top" lang="fr">${esc(q)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-blue-50 font-semibold text-blue-800 align-top" lang="fr">${esc(becomes)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 font-medium text-slate-900 align-top" lang="fr">${mark(ex, "text-blue-700")}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- time words ---------- */
+      document.getElementById("time-grid").innerHTML = TIMEWORDS.map(
+        ([then, later]) => `
+        <div class="rounded-xl bg-blue-50 border border-blue-100 p-3">
+          <p class="text-slate-600">${esc(then)}</p>
+          <p class="font-playfair italic font-semibold text-lg text-blue-800">→ ${esc(later)}</p>
+        </div>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-blue-100 border border-blue-200 px-3 py-1.5 text-sm font-medium text-blue-900 hover:bg-blue-200">The charts</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-blue-400 hover:text-blue-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-blue-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-blue-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-blue-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+<script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

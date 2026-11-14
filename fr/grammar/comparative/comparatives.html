@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Comparatives in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-orange-900 via-amber-800 to-red-900 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-amber-300 mb-4"
+        >
+          French grammar · Comparatives
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">plus, moins, aussi, mieux</span>
+        </h1>
+        <p class="text-lg md:text-xl text-orange-100 max-w-2xl mx-auto leading-relaxed">
+          English has “-er”, “more”, “less”, “as … as”. French builds almost
+          everything with three small words and <i lang="fr">que</i>. The
+          catch is that the pattern shifts with what you compare: a quality,
+          a quantity or an action. Here is how people compare things in
+          everyday spoken French.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The charts (filled by the script from GRID and IRREG below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-orange-900 mb-2">
+          First, the chart: what are you comparing?
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          Choose the row by the kind of word you compare, then read across.
+          Two things to notice: “as” is <b lang="fr">aussi</b> with a quality
+          but <b lang="fr">autant</b> with a quantity or an action, and nouns
+          need <b lang="fr">de</b>.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[820px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold align-bottom">You compare…</th>
+                <th scope="col" class="bg-emerald-600 text-white px-3 py-2 font-semibold align-bottom">More<span class="block text-xs font-normal opacity-90">+</span></th>
+                <th scope="col" class="bg-rose-600 text-white px-3 py-2 font-semibold align-bottom">Less<span class="block text-xs font-normal opacity-90">−</span></th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold align-bottom">As … as<span class="block text-xs font-normal opacity-90">=</span></th>
+                <th scope="col" class="bg-violet-600 text-white px-3 py-2 font-semibold align-bottom">The most</th>
+                <th scope="col" class="bg-violet-700 text-white px-3 py-2 rounded-tr-xl font-semibold align-bottom">The least</th>
+              </tr>
+            </thead>
+            <tbody id="grid-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the chart sideways to see every column.</p>
+
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-orange-900 mt-8 mb-2">
+          The ones that don't use plus
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          Four everyday words have their own “better / worse / more / less”.
+          <i lang="fr">Meilleur</i> is an adjective and agrees;
+          <i lang="fr">mieux</i> is an adverb and never changes.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[680px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Word</th>
+                <th scope="col" class="bg-emerald-600 text-white px-3 py-2 font-semibold">Comparative</th>
+                <th scope="col" class="bg-violet-600 text-white px-3 py-2 font-semibold">Superlative</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold">In a sentence</th>
+              </tr>
+            </thead>
+            <tbody id="irreg-body"></tbody>
+          </table>
+        </div>
+
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-orange-900 mt-8 mb-2">
+          And the sound of « plus »
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          Examples with <i lang="fr">plus</i> carry one of these tags.
+          <a href="../adverb/plus_usage.html" class="font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-900">The « plus » page</a>
+          has the full story.
+        </p>
+        <div class="grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-rose-50 border-l-4 border-rose-500 p-4">
+            <span class="inline-block rounded-full bg-rose-600 text-white text-xs font-bold px-2.5 py-0.5 mb-1">/ply/</span><br />
+            Silent s: before an adjective or adverb that starts with a
+            consonant. <i lang="fr">plus grand, plus vite</i>
+          </p>
+          <p class="rounded-xl bg-sky-50 border-l-4 border-sky-500 p-4">
+            <span class="inline-block rounded-full bg-sky-600 text-white text-xs font-bold px-2.5 py-0.5 mb-1">/plyz/</span><br />
+            Linking z: before a vowel sound.
+            <i lang="fr">plus‿important, de plus‿en plus</i>
+          </p>
+          <p class="rounded-xl bg-emerald-50 border-l-4 border-emerald-500 p-4">
+            <span class="inline-block rounded-full bg-emerald-600 text-white text-xs font-bold px-2.5 py-0.5 mb-1">/plys/</span><br />
+            You hear the s: “more” as an amount.
+            <i lang="fr">plus de temps, il gagne plus</i>
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-orange-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic traps
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Easy to mix up
+        </h2>
+        <p class="text-orange-100 leading-relaxed mb-6 max-w-3xl">
+          Six pairs that look or sound alike. In each one, the small
+          difference is the whole point.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-rose-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-rose-600 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most come from translating “more”, “as” and “than” word for
+              word. The crossed-out line is the slip; the line under it is
+              what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../adverb/plus_usage.html" class="font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-900">the many uses of « plus »</a>
+          ·
+          <a href="../adjective/adjectives.html" class="font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-900">adjectives</a>
+          ·
+          <a href="../negation/negation.html" class="font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-900">negation</a>
+          ·
+          <a href="../pronoun/pronouns.html" class="font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-900">pronouns</a>
+          ·
+          <a href="../article/articles.html" class="font-semibold text-orange-700 underline underline-offset-2 hover:text-orange-900">articles</a>
+        </p>
+        <a href="../index.html" class="text-orange-700 underline underline-offset-2 hover:text-orange-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the words you want
+         highlighted:  "C'est [plus] simple."
+      --------------------------------------------------------------- */
+
+      /* Main chart: [what, example word, more, less, as, most, least] */
+      const GRID = [
+        ["A quality", "adjective: grand", "[plus] grand [que]", "[moins] grand [que]", "[aussi] grand [que]", "[le plus] grand", "[le moins] grand"],
+        ["A manner", "adverb: vite", "[plus] vite [que]", "[moins] vite [que]", "[aussi] vite [que]", "[le plus] vite", "[le moins] vite"],
+        ["A quantity", "noun: temps", "[plus de] temps [que]", "[moins de] temps [que]", "[autant de] temps [que]", "[le plus de] temps", "[le moins de] temps"],
+        ["An action", "verb: travailler", "travailler [plus que]", "travailler [moins que]", "travailler [autant que]", "travailler [le plus]", "travailler [le moins]"],
+      ];
+
+      /* Irregulars: [word, meaning, comparative, superlative, example French, example English] */
+      const IRREG = [
+        ["bon", "good (adjective)", "meilleur · meilleure", "le meilleur · la meilleure", "C'est [meilleur] chaud.", "It's better hot."],
+        ["bien", "well (adverb)", "mieux", "le mieux", "Je vais [mieux].", "I'm feeling better."],
+        ["mauvais", "bad (adjective)", "pire · plus mauvais", "le pire", "C'est [pire] qu'avant.", "It's worse than before."],
+        ["mal", "badly (adverb)", "plus mal", "le plus mal", "J'ai [plus mal] dormi qu'hier.", "I slept worse than yesterday."],
+        ["beaucoup", "a lot", "plus", "le plus", "Je lis [plus] qu'avant.", "I read more than before."],
+        ["peu", "little", "moins", "le moins", "Je sors [moins] qu'avant.", "I go out less than before."],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (or ""), sound of plus (optional)]
+               sound = "ply" | "plys" | "plyz"
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "plus",
+          title: "More … than, …-er than",
+          fr: "plus + adjective + que",
+          tone: "emerald",
+          blurb:
+            "Plus in front, que for “than”. French has no “-er” ending, so bigger, cheaper and simpler are all plus + adjective. The adjective still agrees with what it describes.",
+          ex: [
+            ["C'est [plus] simple comme ça.", "It's simpler this way.", "", "ply"],
+            ["Elle est [plus] grande [que] moi.", "She's taller than me.", "After que, a pronoun takes the stressed form: moi, toi, lui, eux.", "ply"],
+            ["C'est [plus] cher [qu']avant.", "It's more expensive than before.", "Que becomes qu' before a vowel.", "ply"],
+            ["Il fait [plus] froid [qu']hier.", "It's colder than yesterday.", "", "ply"],
+            ["T'es [plus] jeune [que] lui ?", "Are you younger than him?", "", "ply"],
+            ["C'est [plus] compliqué [que] ça.", "It's more complicated than that.", "", "ply"],
+            ["C'est [plus] intéressant [que] je pensais.", "It's more interesting than I thought.", "Before a vowel the s links as z. Careful French adds a ne: que je ne pensais.", "plyz"],
+            ["Il est [plus] âgé [que] son frère.", "He's older than his brother.", "", "plyz"],
+            ["Prends le [plus] petit.", "Take the smaller one.", "With two things, “the smaller one” and “the smallest” are the same in French.", "ply"],
+          ],
+          tip: "No plus with bon and bien: they become meilleur and mieux (section 7).",
+        },
+        {
+          id: "moins",
+          title: "Less … than",
+          fr: "moins + adjective + que",
+          tone: "rose",
+          blurb:
+            "Built exactly like plus. French uses moins much more than English uses “less”: it is the normal way to say cheaper, quieter, not as bad. The s of moins is silent.",
+          ex: [
+            ["C'est [moins] cher ici.", "It's cheaper here.", "Moins cher is the everyday word for “cheaper”."],
+            ["Il fait [moins] chaud [qu']hier.", "It's not as hot as yesterday."],
+            ["Je suis [moins] fatigué [qu']hier.", "I'm less tired than yesterday."],
+            ["C'est [moins] grave [que] prévu.", "It's not as bad as expected."],
+            ["C'est [moins] loin par là.", "It's not as far that way."],
+            ["Parle [moins] fort !", "Keep your voice down!"],
+            ["C'est [moins] bien [que] le premier.", "It's not as good as the first one.", "Moins bien and moins bon are the gentle, everyday alternatives to pire."],
+            ["Elle est [moins] stressée [que] moi.", "She's less stressed than me."],
+            ["C'est [moins] pire [que] je pensais.", "It's not as bad as I thought.", "You will hear moins pire. Purists reject it; moins grave is safe."],
+          ],
+        },
+        {
+          id: "aussi",
+          title: "As … as",
+          fr: "aussi + adjective + que",
+          tone: "sky",
+          blurb:
+            "Aussi for “as”, que for the second “as”. In the negative, pas aussi and pas si both work, and they are a softer way of saying moins.",
+          ex: [
+            ["Elle est [aussi] grande [que] moi.", "She's as tall as me."],
+            ["Il est [aussi] têtu [que] son père.", "He's as stubborn as his father."],
+            ["Je suis [aussi] surpris [que] toi.", "I'm as surprised as you are."],
+            ["C'est [pas aussi] simple.", "It's not that simple."],
+            ["C'est [pas aussi] bien [que] l'original.", "It's not as good as the original."],
+            ["C'est [pas si] grave.", "It's not that serious.", "Si = “so, that”. Only in the negative or a question."],
+            ["C'est [pas si] mal !", "It's not so bad!"],
+            ["Fais [aussi] vite [que] possible.", "Be as quick as you can."],
+            ["C'est [aussi] bon [que] chez ma mère.", "It's as good as at my mum's."],
+          ],
+          tip: "Aussi also means “too, also”: Moi aussi. The position tells you which: before an adjective it is “as”.",
+        },
+        {
+          id: "adverbs",
+          title: "Faster, later, more often",
+          fr: "plus · moins · aussi + adverb",
+          tone: "teal",
+          blurb:
+            "Adverbs compare in the same way as adjectives, but they never agree. Many of these are things you say several times a day.",
+          ex: [
+            ["Parle [plus] fort, j'entends rien !", "Speak up, I can't hear a thing!", "", "ply"],
+            ["Viens [plus] souvent !", "Come round more often!", "", "ply"],
+            ["Roule [moins] vite !", "Slow down!"],
+            ["On se voit [plus] tard ?", "See you later?", "", "ply"],
+            ["Je me lève [plus] tôt [que] toi.", "I get up earlier than you.", "", "ply"],
+            ["T'habites [plus] près [que] moi.", "You live nearer than I do.", "", "ply"],
+            ["Tu peux parler [plus] lentement ?", "Can you speak more slowly?", "", "ply"],
+            ["Il conduit [aussi] mal [que] toi.", "He drives as badly as you."],
+            ["J'y vais [moins] souvent [qu']avant.", "I go there less often than before."],
+            ["Ça va [plus] vite en métro.", "It's quicker by metro.", "", "ply"],
+          ],
+          tip: "Don't mix up plus tôt (earlier) and plutôt (rather). They sound the same: Viens plus tôt. C'est plutôt bon.",
+        },
+        {
+          id: "nouns",
+          title: "More of, less of, as much of",
+          fr: "plus de · moins de · autant de + noun",
+          tone: "amber",
+          blurb:
+            "Comparing amounts of a thing needs de, with no article. “As much” and “as many” are autant de, never aussi. When plus means a bigger amount, you hear the s.",
+          ex: [
+            ["J'ai [plus de] temps [que] toi.", "I have more time than you.", "", "plys"],
+            ["Il gagne [plus d']argent [que] moi.", "He earns more money than me.", "", "plys"],
+            ["Tu veux [plus de] sauce ?", "Do you want more sauce?", "", "plys"],
+            ["Y a [moins de] monde [qu']hier.", "There are fewer people than yesterday."],
+            ["Mets [moins de] sel.", "Put less salt in."],
+            ["J'ai [autant de] boulot [que] toi.", "I've got as much work as you."],
+            ["J'ai pas [autant de] chance [que] toi.", "I'm not as lucky as you."],
+            ["Y a [autant de] filles [que de] garçons.", "There are as many girls as boys.", "Comparing two nouns: the de is said again."],
+            ["Ça coûte [plus de] vingt euros.", "It costs more than twenty euros.", "Before a number, “than” is de, not que. Most speakers keep the s silent here.", "ply"],
+            ["J'en ai pour [moins de] dix minutes.", "It'll take me less than ten minutes."],
+          ],
+          tip: "Compare: Il gagne plus que moi (than a person: que) and Il gagne plus de 3 000 euros (than a number: de).",
+        },
+        {
+          id: "verbs",
+          title: "Doing it more, less, as much",
+          fr: "verb + plus · moins · autant (que)",
+          tone: "violet",
+          blurb:
+            "To compare an action, the word goes after the verb. Plus is said with its s. “As much as” is autant que.",
+          ex: [
+            ["Il gagne [plus que] moi.", "He earns more than me.", "", "plys"],
+            ["Tu devrais sortir [plus].", "You should go out more.", "", "plys"],
+            ["Il faut que je dorme [plus].", "I need to sleep more.", "", "plys"],
+            ["Je dors [moins qu']avant.", "I sleep less than I used to."],
+            ["Je travaille [autant que] toi.", "I work as much as you."],
+            ["Ça coûte [plus que] prévu.", "It costs more than expected.", "", "plys"],
+            ["Je l'aime [autant qu']avant.", "I love him as much as before."],
+            ["Mange [autant que] tu veux.", "Eat as much as you like."],
+            ["J'aime pas [tant que] ça.", "I don't like it that much.", "Tant = “so much”. Pas tant que ça = not all that much."],
+            ["J'aime [autant] rester ici.", "I'd just as soon stay here.", "J'aime autant + verb: a mild way to state a preference."],
+          ],
+          tip: "In the past, plus, moins and autant go between avoir and the participle, or after it: J'ai plus dormi qu'hier. J'ai dormi plus qu'hier.",
+        },
+        {
+          id: "better",
+          title: "Better: meilleur or mieux?",
+          fr: "bon → meilleur · bien → mieux",
+          tone: "emerald",
+          blurb:
+            "The one that catches everybody. Meilleur is the comparative of bon: it describes a noun and agrees with it. Mieux is the comparative of bien: it goes with a verb and never changes.",
+          ex: [
+            ["C'est [meilleur] avec du beurre.", "It's better with butter.", "Taste: bon → meilleur."],
+            ["Ce resto est [meilleur que] l'autre.", "This restaurant is better than the other one."],
+            ["Elle est [meilleure que] moi en maths.", "She's better than me at maths.", "It agrees: meilleure."],
+            ["T'as pas une [meilleure] idée ?", "Haven't you got a better idea?"],
+            ["Il chante [mieux que] moi.", "He sings better than me.", "With a verb: bien → mieux."],
+            ["Tu vas [mieux] ?", "Are you feeling better?"],
+            ["Je me sens [mieux].", "I feel better."],
+            ["C'est [mieux] comme ça.", "It's better like this.", "After c'est, mieux judges a situation or a choice."],
+            ["C'est encore [mieux] !", "That's even better!"],
+            ["Tant [mieux] !", "Good! · So much the better!"],
+            ["C'est [mieux que] rien.", "It's better than nothing."],
+            ["J'ai fait de mon [mieux].", "I did my best."],
+          ],
+          tip: "A quick test: C'est bon → C'est meilleur (it tastes better). C'est bien → C'est mieux (it's a better situation). “Much better” is bien meilleur and beaucoup mieux.",
+        },
+        {
+          id: "worse",
+          title: "Worse: pire, plus mauvais, moins bien",
+          fr: "mauvais → pire · mal → plus mal",
+          tone: "rose",
+          blurb:
+            "Pire is for situations and anything that was already bad. Plus mauvais is for quality and taste. In everyday talk people often prefer the softer moins bien and moins bon.",
+          ex: [
+            ["C'est [pire qu']avant.", "It's worse than before."],
+            ["C'est encore [pire].", "It's even worse."],
+            ["Y a [pire].", "It could be worse."],
+            ["C'est de [pire] en [pire].", "It's getting worse and worse."],
+            ["[Le pire], c'est qu'il le savait.", "The worst part is that he knew."],
+            ["[Au pire], on prend un taxi.", "If the worst comes to the worst, we'll get a taxi."],
+            ["Ce vin est [plus mauvais que] l'autre.", "This wine is worse than the other one.", "Quality or taste: plus mauvais.", "ply"],
+            ["Il conduit [plus mal que] moi.", "He drives worse than me.", "With a verb: plus mal.", "ply"],
+            ["C'est [moins bon qu']hier.", "It's not as good as yesterday.", "The gentle version."],
+            ["Tant [pis] !", "Too bad! · Never mind.", "Pis is the old word for “worse”. It survives only in tant pis."],
+          ],
+        },
+        {
+          id: "superlative",
+          title: "The most, the least, the best",
+          fr: "le · la · les + plus / moins",
+          tone: "violet",
+          blurb:
+            "Add le, la or les to the comparative. Two things to watch: where the adjective sits, and that “in” after a superlative is de.",
+          ex: [
+            ["C'est [la plus] jolie rue [du] quartier.", "It's the prettiest street in the neighbourhood.", "Adjective before the noun: one article. “In” = de: du quartier.", "ply"],
+            ["C'est le resto [le plus] proche.", "It's the nearest restaurant.", "Adjective after the noun: the article is said twice.", "ply"],
+            ["C'est [le moins] cher.", "It's the cheapest."],
+            ["C'est [le meilleur] film [de] l'année.", "It's the best film of the year."],
+            ["C'est mon [meilleur] ami.", "He's my best friend.", "Mon, ton, son replace the article."],
+            ["C'est elle qui court [le plus] vite.", "She's the one who runs fastest.", "With an adverb it is always le, even for a woman.", "ply"],
+            ["C'est lui qui bosse [le plus].", "He's the one who works the most.", "With a verb, le plus ends the phrase and the s is heard.", "plys"],
+            ["C'est ce que j'aime [le moins].", "It's what I like least."],
+            ["[Le plus] simple, c'est d'y aller à pied.", "The simplest thing is to walk.", "", "ply"],
+            ["Viens [le plus] tôt possible.", "Come as early as you can.", "Le plus … possible = as … as possible.", "ply"],
+            ["C'est [le pire] jour de ma vie.", "It's the worst day of my life."],
+            ["C'est [la meilleure] !", "That's a good one! · That takes the biscuit!"],
+          ],
+          tip: "Careful French uses the subjunctive after a superlative: le meilleur film que j'aie vu. In casual speech you will mostly hear que j'ai vu.",
+        },
+        {
+          id: "boost",
+          title: "Much more, a bit less, twice as",
+          fr: "beaucoup plus · un peu moins · encore plus · deux fois plus",
+          tone: "amber",
+          blurb:
+            "A comparative cannot take très. To make it stronger or weaker, these are the words that go in front.",
+          ex: [
+            ["C'est [beaucoup] plus rapide en train.", "It's a lot quicker by train.", "Beaucoup, not très.", "ply"],
+            ["C'est [bien] plus simple.", "It's far simpler.", "Bien = “much” in front of a comparative.", "ply"],
+            ["C'est [vachement] plus cher.", "It's way more expensive.", "Familiar.", "ply"],
+            ["[Un peu] moins fort, s'il te plaît.", "A bit quieter, please."],
+            ["C'est [encore] plus beau en vrai.", "It's even more beautiful in real life.", "Encore = “even”.", "ply"],
+            ["C'est [tellement] mieux !", "It's so much better!"],
+            ["C'est [deux fois] plus cher.", "It's twice as expensive.", "Deux fois plus = twice as. Not deux fois aussi.", "ply"],
+            ["C'est [dix fois] mieux.", "It's ten times better."],
+            ["C'est [pas beaucoup] plus loin.", "It's not much further.", "", "ply"],
+            ["C'est [de loin] le meilleur.", "It's by far the best."],
+            ["Il a trois ans [de plus] que moi.", "He's three years older than me.", "Number + de plus / de moins.", "plys"],
+            ["J'ai payé dix euros [de moins].", "I paid ten euros less."],
+          ],
+        },
+        {
+          id: "progress",
+          title: "More and more · the more…, the more…",
+          fr: "de plus en plus · plus… plus…",
+          tone: "sky",
+          blurb:
+            "Two patterns for things that change. Note that “the more… the more…” has no article in French: just plus, plus.",
+          ex: [
+            ["Il fait [de plus en plus] froid.", "It's getting colder and colder.", "", "plyz"],
+            ["C'est [de plus en plus] cher.", "It's getting more and more expensive.", "", "plyz"],
+            ["Je sors [de moins en moins].", "I go out less and less."],
+            ["Ça va [de mieux en mieux].", "Things are getting better and better."],
+            ["Y a [de plus en plus de] monde.", "It's getting more and more crowded.", "", "plyz"],
+            ["[Plus] j'y pense, [plus] ça m'énerve.", "The more I think about it, the more it annoys me.", "", "ply"],
+            ["[Plus] tu attends, [plus] ce sera cher.", "The longer you wait, the more expensive it'll be.", "", "ply"],
+            ["[Plus] je dors, [moins] je suis en forme.", "The more I sleep, the worse I feel.", "", "ply"],
+            ["[Moins] j'en sais, [mieux] je me porte.", "The less I know, the better I feel."],
+            ["[Plus] on est de fous, [plus] on rit.", "The more, the merrier.", "", "ply"],
+          ],
+        },
+        {
+          id: "same",
+          title: "Like, the same, different",
+          fr: "comme · pareil · le même que · différent de",
+          tone: "indigo",
+          blurb:
+            "Comparing without plus or moins. Comme is “like” and “as”. Pareil is the casual word for “the same”.",
+          ex: [
+            ["Fais [comme] moi.", "Do as I do."],
+            ["Il est [comme] son père.", "He's like his father."],
+            ["C'est [comme] chez moi.", "It's like at my place."],
+            ["[Comme] d'hab.", "As usual.", "Short for comme d'habitude."],
+            ["C'est [pareil].", "It's the same."],
+            ["C'est pas [pareil] !", "That's not the same thing!"],
+            ["[Pareil] pour moi.", "Same for me.", "Handy when ordering."],
+            ["J'ai [le même que] toi.", "I've got the same one as you.", "“The same as” is le même que, not comme."],
+            ["On a [la même] voiture.", "We have the same car.", "It agrees: le même, la même, les mêmes."],
+            ["C'est [différent de] ce que je pensais.", "It's different from what I thought."],
+            ["Ça revient [au même].", "It comes to the same thing."],
+            ["Elle te [ressemble].", "She looks like you."],
+            ["[On dirait] du poulet.", "It tastes like chicken. · It looks like chicken.", "On dirait = “you'd say”, for any likeness."],
+          ],
+        },
+        {
+          id: "fixed",
+          title: "Handy fixed phrases",
+          fr: "plus ou moins · au moins · tant mieux · autant…",
+          tone: "teal",
+          blurb:
+            "Ready-made chunks built on the comparison words. Learn each one whole.",
+          ex: [
+            ["— T'as compris ? — [Plus ou moins].", "— Did you get it? — More or less.", "", "plyz"],
+            ["Ça coûte [au moins] cent euros.", "It costs at least a hundred euros."],
+            ["Y en a pour dix minutes [au plus].", "It'll take ten minutes at most.", "", "plys"],
+            ["Rends-le-moi lundi [au plus tard].", "Give it back to me by Monday at the latest.", "", "ply"],
+            ["Ça me plaît [pas plus que ça].", "I'm not that keen on it.", "", "plys"],
+            ["[Autant] y aller tout de suite.", "We might as well go right away.", "Autant + verb = might as well."],
+            ["[D'autant plus] qu'il pleut.", "All the more so since it's raining.", "", "plys"],
+            ["[Le plus tôt] sera [le mieux].", "The sooner the better.", "", "ply"],
+            ["[Mieux vaut] tard que jamais.", "Better late than never."],
+            ["Rien de [mieux] qu'un bon café.", "Nothing beats a good coffee."],
+            ["Faute de [mieux].", "For want of anything better."],
+            ["C'est [ni plus ni moins] du vol.", "It's daylight robbery, plain and simple.", "", "ply"],
+          ],
+        },
+      ];
+
+      /* Close pairs: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["C'est [meilleur].", "It tastes better. (from bon)", "C'est [mieux].", "It's better this way. (from bien)"],
+        ["Elle est [aussi] riche que moi.", "She's as rich as me. (quality: aussi)", "Elle a [autant d']argent que moi.", "She has as much money as me. (quantity: autant)"],
+        ["Il gagne [plus que] moi.", "He earns more than me. (a person: que)", "Il gagne [plus de] 3 000 euros.", "He earns more than 3,000 euros. (a number: de)"],
+        ["J'ai [plus de] temps. /plys/", "I've got more time.", "J'ai [plus de] temps. /ply/", "I've got no time left."],
+        ["Moi [aussi].", "Me too. (also)", "[Aussi] grand que moi.", "As tall as me. (as)"],
+        ["Viens [plus tôt].", "Come earlier.", "C'est [plutôt] bon.", "It's rather good."],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["C'est plus bon.", "C'est [meilleur].", "It's better.", "Bon → meilleur."],
+        ["Il chante meilleur que moi.", "Il chante [mieux] que moi.", "He sings better than me.", "With a verb: mieux."],
+        ["C'est plus pire.", "C'est [pire].", "It's worse.", "Pire is already a comparative."],
+        ["Elle est plus grande que je.", "Elle est plus grande que [moi].", "She's taller than I am.", "Stressed pronoun after que."],
+        ["plus que dix euros", "plus [de] dix euros", "more than ten euros", "De before a number."],
+        ["J'ai aussi d'argent que toi.", "J'ai [autant d']argent que toi.", "I have as much money as you.", "Autant de with a noun."],
+        ["Je travaille aussi que toi.", "Je travaille [autant] que toi.", "I work as much as you.", "Autant with a verb."],
+        ["C'est très plus cher.", "C'est [beaucoup] plus cher.", "It's much more expensive.", "Beaucoup, not très."],
+        ["le plus grand dans le monde", "le plus grand [du] monde", "the biggest in the world", "De after a superlative."],
+        ["deux fois aussi cher", "deux fois [plus] cher", "twice as expensive", "X fois plus."],
+        ["J'ai le même comme toi.", "J'ai le même [que] toi.", "I have the same as you.", "Le même que."],
+        ["Le plus je mange, le plus j'ai faim.", "[Plus] je mange, [plus] j'ai faim.", "The more I eat, the hungrier I get.", "No article."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+      const SOUNDS = {
+        ply: ["/ply/", "bg-rose-100 text-rose-800"],
+        plys: ["/plys/", "bg-emerald-100 text-emerald-800"],
+        plyz: ["/plyz/", "bg-sky-100 text-sky-800"],
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [plus] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+      const chip = (sound) =>
+        sound
+          ? `<span class="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-bold ${SOUNDS[sound][1]}">${SOUNDS[sound][0]}</span>`
+          : "";
+
+      /* ---------- charts ---------- */
+      const GRID_TEXT = ["text-emerald-700", "text-rose-700", "text-sky-700", "text-violet-700", "text-violet-700"];
+      document.getElementById("grid-body").innerHTML = GRID.map(
+        ([what, word, ...cells]) => `
+        <tr>
+          <th scope="row" class="px-3 py-3 border-b border-slate-100 align-top">
+            <span class="block font-semibold text-slate-800">${esc(what)}</span>
+            <span class="block text-xs font-normal text-slate-500">${esc(word)}</span>
+          </th>
+          ${cells
+            .map(
+              (c, k) =>
+                `<td class="px-3 py-3 border-b border-slate-100 align-top font-playfair italic text-lg text-slate-700 ${k === 2 ? "bg-sky-50" : ""}" lang="fr">${mark(c, GRID_TEXT[k] + " not-italic font-inter text-base")}</td>`,
+            )
+            .join("")}
+        </tr>`,
+      ).join("");
+
+      document.getElementById("irreg-body").innerHTML = IRREG.map(
+        ([word, meaning, comp, sup, fr, en]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 whitespace-nowrap">
+            <span class="font-playfair italic font-semibold text-lg text-slate-800" lang="fr">${esc(word)}</span>
+            <span class="block text-xs font-normal text-slate-500">${esc(meaning)}</span>
+          </th>
+          <td class="px-3 py-2 border-b border-slate-100 font-playfair italic font-semibold text-lg text-emerald-700" lang="fr">${esc(comp)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 font-playfair italic font-semibold text-lg text-violet-700" lang="fr">${esc(sup)}</td>
+          <td class="px-3 py-2 border-b border-slate-100">
+            <span class="block font-medium text-slate-900 whitespace-nowrap" lang="fr">${mark(fr, "text-amber-700")}</span>
+            <span class="block text-sm text-slate-500">${esc(en)}</span>
+          </td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-orange-100 border border-orange-200 px-3 py-1.5 text-sm font-medium text-orange-900 hover:bg-orange-200">The chart</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-orange-400 hover:text-orange-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-orange-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-orange-700">Easy to mix up</a>` +
+        `<a href="#slips" class="rounded-full bg-rose-100 border border-rose-200 px-3 py-1.5 text-sm font-medium text-rose-900 hover:bg-rose-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note, sound]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="flex flex-wrap items-center gap-x-3 gap-y-1"><span class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</span>${chip(sound)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-orange-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-orange-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+  <script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

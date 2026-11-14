@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Agreeing &amp; Disagreeing</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">AGREEING &amp; DISAGREEING</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Agreeing &amp; Disagreeing
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          သဘောတူခြင်းနှင့် သဘောမတူခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">33</span> expressions · Agreeing &amp; Disagreeing
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 33.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/agree_disagree/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Agreeing",
+          my: "သဘောတူခြင်း",
+          desc: "Everyday ways to say you think the same.",
+          cards: [
+            ["I agree.", "ကျွန်တော်/ကျွန်မ သဘောတူပါတယ်။", "Agree is a verb, so there is no am: I agree, I don't agree. Not: I am agree.",
+              "— This street needs more lights. — I agree.", "— ဒီလမ်းမှာ မီးတိုင် ပိုလိုတယ်။ — သဘောတူပါတယ်။"],
+            ["You're right.", "ပြောတာ မှန်ပါတယ်။", "Says the other person is correct. Warm and simple.",
+              "— We should leave early. The traffic is bad on Fridays. — You're right.", "— စောစော ထွက်သင့်တယ်။ သောကြာနေ့ဆို ကားကြပ်တယ်။ — ပြောတာ မှန်ပါတယ်။"],
+            ["That's true.", "ဟုတ်တယ်။", "Agrees with a fact more than an opinion.",
+              "— Vegetables are cheaper at the market. — That's true.", "— ဈေးမှာ ဟင်းသီးဟင်းရွက်တွေ ပိုဈေးသက်သာတယ်။ — ဟုတ်တယ်။"],
+            ["Exactly!", "အဲဒါပဲ။", "Strong: that's exactly what I mean. Also: Exactly right!",
+              "— So we need more time, not more money? — Exactly!", "— ဒါဆို ငွေ ပိုလိုတာ မဟုတ်ဘဲ အချိန် ပိုလိုတာပေါ့။ — အဲဒါပဲ။"],
+            ["Good point.", "ကောင်းတဲ့ အချက်ပဲ။", "When someone says something useful that you hadn't thought of.",
+              "— If we go on Sunday, the shops will be closed. — Good point.", "— တနင်္ဂနွေ သွားရင် ဆိုင်တွေ ပိတ်နေမယ်။ — ကောင်းတဲ့ အချက်ပဲ။"],
+            ["So do I.", "ကျွန်တော်/ကျွန်မလည်း အဲဒီလိုပဲ။", "Agrees with a positive sentence. It copies the helping verb: I can swim → So can I. I'm tired → So am I. Me too is more casual.",
+              "— I think the new teacher is great. — So do I.", "— ဆရာမ အသစ်က အရမ်းတော်တယ်လို့ ထင်တယ်။ — ကျွန်မလည်း အဲလိုပဲ ထင်တယ်။"],
+            ["Neither do I.", "ကျွန်တော်/ကျွန်မလည်း အဲလို မထင်ဘူး။", "Agrees with a negative sentence. Not: So do I or Me too after a no. I can't swim → Neither can I. Me neither is more casual.",
+              "— I don't think it's a good idea. — Neither do I.", "— အဲဒါ ကောင်းတဲ့ အကြံလို့ မထင်ဘူး။ — ကျွန်မလည်း မထင်ဘူး။"],
+          ],
+        },
+        {
+          en: "Strong agreement",
+          my: "အပြည့်အဝ သဘောတူခြင်း",
+          desc: "When you agree completely, or share the same feeling.",
+          cards: [
+            ["I totally agree.", "လုံးဝ သဘောတူပါတယ်။", "Stronger than I agree. Also: I completely agree.",
+              "— Children need more time to play outside. — I totally agree.", "— ကလေးတွေ အပြင်မှာ ကစားချိန် ပိုလိုတယ်။ — လုံးဝ သဘောတူပါတယ်။"],
+            ["I couldn't agree more.", "အပြည့်အဝ သဘောတူပါတယ်။", "It sounds negative, but it is the strongest yes: I agree so much that I couldn't agree any more.",
+              "— That was the best trip ever. — I couldn't agree more!", "— အဲဒီခရီးက အကောင်းဆုံးပဲ။ — အပြည့်အဝ သဘောတူပါတယ်။"],
+            ["You can say that again!", "ဟုတ်လိုက်တာ။", "Casual and friendly. It doesn't ask you to repeat anything: it means you're so right.",
+              "— It's so hot today! — You can say that again!", "— ဒီနေ့ အရမ်း ပူတယ်။ — ဟုတ်လိုက်တာ။"],
+            ["Tell me about it!", "ပြောမနေနဲ့တော့၊ ကိုယ်တိုင်လည်း ကြုံနေရတာ။", "Casual. It doesn't ask for more details: it means I know exactly, the same happened to me. Mostly for shared problems.",
+              "— The traffic this morning was terrible. — Tell me about it! I was an hour late.", "— ဒီမနက် ကားကြပ်တာ ဆိုးလိုက်တာ။ — ပြောမနေနဲ့တော့။ ကျွန်မ တစ်နာရီ နောက်ကျသွားတယ်။"],
+            ["That's exactly what I think.", "ကျွန်တော်/ကျွန်မ ထင်တာလည်း အဲဒါပဲ။", "You had the same idea before they said it.",
+              "— We should ask the teacher first. — That's exactly what I think.", "— ဆရာ့ကို အရင် မေးသင့်တယ်။ — ကျွန်မ ထင်တာလည်း အဲဒါပဲ။"],
+          ],
+        },
+        {
+          en: "Partly agreeing",
+          my: "တစ်စိတ်တစ်ပိုင်း သဘောတူခြင်း",
+          desc: "Yes, but… Agreeing with one part before you add your own view.",
+          cards: [
+            ["That's true, but…", "ဟုတ်တော့ ဟုတ်တယ်၊ ဒါပေမဲ့…", "The most common way to disagree kindly: agree first, then give the other side.",
+              "— The big phone has a better camera. — That's true, but it's very expensive.", "— ဖုန်းအကြီးက ကင်မရာ ပိုကောင်းတယ်။ — ဟုတ်တော့ ဟုတ်တယ်၊ ဒါပေမဲ့ အရမ်း ဈေးကြီးတယ်။"],
+            ["I see what you mean, but…", "ဆိုလိုတာကို နားလည်ပါတယ်၊ ဒါပေမဲ့…", "Shows you listened before you disagree. Also: I see your point, but…",
+              "I see what you mean, but I still think we should wait.", "ဆိုလိုတာကို နားလည်ပါတယ်၊ ဒါပေမဲ့ စောင့်သင့်တယ်လို့ပဲ ထင်နေတုန်းပါ။"],
+            ["I agree up to a point.", "တစ်စိတ်တစ်ပိုင်းတော့ သဘောတူပါတယ်။", "You agree with some of it, not all. A little formal: good for class and meetings. Follow it with but…",
+              "— Money makes people happy. — I agree up to a point, but health is more important.", "— ငွေက လူတွေကို ပျော်စေတယ်။ — တစ်စိတ်တစ်ပိုင်းတော့ သဘောတူပါတယ်၊ ဒါပေမဲ့ ကျန်းမာရေးက ပိုအရေးကြီးတယ်။"],
+            ["Maybe, but…", "ဖြစ်ချင် ဖြစ်မယ်၊ ဒါပေမဲ့…", "Accepts the idea as possible, then adds a different view.",
+              "— The bus is faster. — Maybe, but the train is more comfortable.", "— ဘတ်စ်ကားက ပိုမြန်တယ်။ — ဖြစ်ချင် ဖြစ်မယ်၊ ဒါပေမဲ့ ရထားက ပိုသက်သောင့်သက်သာ ရှိတယ်။"],
+            ["Fair enough.", "ဒါဆိုလည်း ဟုတ်ပါတယ်။", "You accept someone's reason, even if you didn't agree at first.",
+              "— I can't come tonight. I have an exam tomorrow. — Fair enough.", "— ဒီည လာလို့ မရဘူး။ မနက်ဖြန် စာမေးပွဲ ရှိတယ်။ — ဒါဆိုလည်း ဟုတ်ပါတယ်။"],
+            ["I suppose you're right.", "မှန်မယ် ထင်ပါတယ်။", "Agreeing slowly, or a little unwillingly.",
+              "— We can't buy a new car this year. — I suppose you're right.", "— ဒီနှစ် ကားအသစ် မဝယ်နိုင်ဘူး။ — မှန်မယ် ထင်ပါတယ်။"],
+          ],
+        },
+        {
+          en: "Disagreeing politely",
+          my: "ယဉ်ယဉ်ကျေးကျေး သဘောမတူခြင်း",
+          desc: "Saying you think differently, without starting an argument.",
+          cards: [
+            ["I'm not so sure.", "ကျွန်တော်/ကျွန်မကတော့ သိပ်မသေချာဘူး။", "The softest way to disagree. Then give your reason.",
+              "— This road is quicker. — I'm not so sure. It's very busy at this time.", "— ဒီလမ်းက ပိုမြန်တယ်။ — သိပ်မသေချာဘူး။ ဒီအချိန်ဆို ကားအရမ်းများတယ်။"],
+            ["I don't really agree.", "သိပ်တော့ သဘောမတူဘူး။", "Really makes it softer than I don't agree. Not: I'm not agree.",
+              "— Homework is a waste of time. — I don't really agree. It helps you practise.", "— အိမ်စာက အချိန်ဖြုန်းတာပဲ။ — သိပ်တော့ သဘောမတူဘူး။ လေ့ကျင့်ဖို့ အထောက်အကူ ဖြစ်တယ်။"],
+            ["I see it differently.", "ကျွန်တော်/ကျွန်မကတော့ တခြားပုံ မြင်တယ်။", "Calm and respectful: you have a different view, not a better one.",
+              "I see it differently. For me, the city is more exciting than the village.", "ကျွန်မကတော့ တခြားပုံ မြင်တယ်။ ကျွန်မအတွက်ကတော့ ရွာထက် မြို့က ပိုစိတ်လှုပ်ရှားစရာ ကောင်းတယ်။"],
+            ["Actually, I think…", "တကယ်တော့… လို့ ထင်တယ်။", "Corrects someone gently. Actually means in fact here, not now.",
+              "— The shop opens at nine. — Actually, I think it opens at ten.", "— ဆိုင်က ကိုးနာရီ ဖွင့်တယ်။ — တကယ်တော့ ဆယ်နာရီ ဖွင့်တယ် ထင်တယ်။"],
+            ["Do you really think so?", "တကယ် အဲလို ထင်လို့လား။", "Gently shows you doubt it, and invites the other person to explain.",
+              "— This is the best restaurant in town. — Do you really think so? I thought it was just OK.", "— ဒါ မြို့ထဲမှာ အကောင်းဆုံး စားသောက်ဆိုင်ပဲ။ — တကယ် အဲလို ထင်လို့လား။ ကျွန်မကတော့ သာမန်ပဲ ထင်တာ။"],
+            ["I'm afraid I disagree.", "စိတ်မရှိပါနဲ့၊ သဘောမတူပါဘူး။", "Polite and a little formal: good at work and in meetings. I'm afraid softens it.",
+              "I'm afraid I disagree. The price is too high for us.", "စိတ်မရှိပါနဲ့၊ သဘောမတူပါဘူး။ ဈေးနှုန်းက ကျွန်တော်တို့အတွက် မြင့်လွန်းတယ်။"],
+          ],
+        },
+        {
+          en: "Strong disagreement",
+          my: "ပြင်းပြင်းထန်ထန် သဘောမတူခြင်း",
+          desc: "Direct and strong. Fine with friends or when it really matters; careful with older people and at work.",
+          cards: [
+            ["I don't agree at all.", "လုံးဝ သဘောမတူဘူး။", "A clear, strong no. Use it when something matters to you.",
+              "— Girls don't need to go to university. — I don't agree at all!", "— မိန်းကလေးတွေ တက္ကသိုလ် တက်ဖို့ မလိုဘူး။ — လုံးဝ သဘောမတူဘူး။"],
+            ["That's not true.", "အဲဒါ မမှန်ဘူး။", "Says a fact is wrong. Add a reason so it doesn't sound like an attack.",
+              "— You never help at home. — That's not true! I cooked dinner yesterday.", "— မင်း အိမ်မှာ ဘယ်တော့မှ မကူဘူး။ — မမှန်ဘူး။ မနေ့က ညစာ ချက်ခဲ့တာလေ။"],
+            ["You're wrong.", "မှားနေတယ်။", "Very direct: it can sound rude. Softer: I don't think that's right.",
+              "— Bangkok is the capital of Vietnam. — You're wrong. It's Hanoi.", "— ဘန်ကောက်က ဗီယက်နမ်ရဲ့ မြို့တော်ပဲ။ — မှားနေတယ်။ ဟနွိုင်းပါ။"],
+            ["Of course not!", "ဘယ်ဟုတ်မလဲ။", "A strong no to a question. Often kind: it tells someone not to worry.",
+              "— Do you think I'm lazy? — Of course not!", "— ကျွန်မကို ပျင်းတယ်လို့ ထင်လား။ — ဘယ်ဟုတ်မလဲ။"],
+          ],
+        },
+        {
+          en: "Ending a disagreement",
+          my: "သဘောကွဲလွဲမှုကို အဆုံးသတ်ခြင်း",
+          desc: "Moving on calmly when you don't agree, or when you change your mind.",
+          cards: [
+            ["Let's agree to disagree.", "သဘောကွဲတာကို လက်ခံလိုက်ကြရအောင်။", "We both keep our own opinion, and stay friends.",
+              "We like different football teams. Let's agree to disagree!", "ကျွန်တော်တို့ မတူတဲ့ ဘောလုံးအသင်းတွေ ကြိုက်တယ်။ သဘောကွဲတာကို လက်ခံလိုက်ကြရအောင်။"],
+            ["You may be right.", "မှန်ကောင်း မှန်မှာပါ။", "Accepts that the other person could be correct. Calm and polite.",
+              "— I think it will rain later. — You may be right. Let's take an umbrella.", "— နောက်မှ မိုးရွာမယ် ထင်တယ်။ — မှန်ကောင်း မှန်မှာပါ။ ထီး ယူသွားကြရအောင်။"],
+            ["I hadn't thought of that.", "အဲဒါကို မစဉ်းစားမိခဲ့ဘူး။", "You hear a new idea and start to change your mind.",
+              "— If we leave at five, we'll miss the traffic. — Oh, I hadn't thought of that.", "— ငါးနာရီ ထွက်ရင် ကားကြပ်ချိန်နဲ့ မကြုံရဘူး။ — အို၊ အဲဒါကို မစဉ်းစားမိခဲ့ဘူး။"],
+            ["OK, you win!", "အိုကေ၊ မင်းပဲ နိုင်ပါတယ်။", "Playful: giving in with a smile. Only with friends and family.",
+              "— Pizza or noodles? Come on, pizza! — OK, you win!", "— ပီဇာလား ခေါက်ဆွဲလား။ လာပါ၊ ပီဇာ စားရအောင်။ — အိုကေ၊ မင်းပဲ နိုင်ပါတယ်။"],
+            ["Let's talk about it later.", "နောက်မှ ဆက်ပြောကြရအောင်။", "Stops an argument before it gets worse.",
+              "We're both tired. Let's talk about it later.", "နှစ်ယောက်လုံး ပင်ပန်းနေကြပြီ။ နောက်မှ ဆက်ပြောကြရအောင်။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

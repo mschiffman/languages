@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Negation in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-rose-900 via-red-800 to-orange-900 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-rose-300 mb-4"
+        >
+          French grammar · Negation
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">Je sais pas</span>
+        </h1>
+        <p class="text-lg md:text-xl text-rose-100 max-w-2xl mx-auto leading-relaxed">
+          The textbook says <i lang="fr">Je ne sais pas</i>. The street says
+          <i lang="fr">Je sais pas</i>, or just <i lang="fr">Chais pas</i>.
+          In everyday French the <i lang="fr">ne</i> has all but vanished, and
+          the second word does the whole job. Here is how people really say
+          no, never, nothing and nobody.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The chart (filled by the script from WORDS below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-rose-900 mb-2">
+          First, the chart: the negative words and their positive twins
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          Written French builds a negative from two parts: <i lang="fr">ne</i>
+          before the verb and a second word after it. Spoken French keeps
+          only the second word. Each one also has a positive twin, and it
+          helps to learn them as a pair: <i lang="fr">déjà</i> ↔
+          <i lang="fr">pas encore</i>.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold align-bottom">Written<span class="block text-xs font-normal opacity-90">careful French</span></th>
+                <th scope="col" class="bg-rose-600 text-white px-3 py-2 font-semibold align-bottom">Spoken<span class="block text-xs font-normal opacity-90">no ne</span></th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold align-bottom">Meaning</th>
+                <th scope="col" class="bg-emerald-600 text-white px-3 py-2 font-semibold align-bottom">Positive twin</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold align-bottom">In a sentence</th>
+              </tr>
+            </thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the chart sideways to see every column.</p>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-rose-800">Speaking.</b> Dropping
+            <i lang="fr">ne</i> is not sloppy. Everyone does it in
+            conversation, at every level of society.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-rose-800">Writing.</b> Keep the
+            <i lang="fr">ne</i> in anything more formal than a text message:
+            <i lang="fr">Je ne sais pas</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-rose-800">One per verb.</b>
+            <i lang="fr">Pas</i> never joins <i lang="fr">rien, personne,
+            jamais</i>. It is <i lang="fr">J'ai rien vu</i>, not “j'ai pas
+            rien vu”.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Word order changes the meaning ---------- -->
+      <section
+        id="pairs"
+        class="bg-rose-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Almost the same words, not the same meaning
+        </h2>
+        <p class="text-rose-100 leading-relaxed mb-6 max-w-3xl">
+          In each pair the negative words are nearly identical. The order,
+          or one small word, changes what is being denied.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-rose-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-rose-600 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most come from putting the negative where English puts “not”,
+              or from adding a <i lang="fr">pas</i> too many. The crossed-out
+              line is the slip; the line under it is what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../adverb/plus_usage.html" class="font-semibold text-rose-700 underline underline-offset-2 hover:text-rose-900">the many uses of « plus »</a>
+          ·
+          <a href="../article/articles.html" class="font-semibold text-rose-700 underline underline-offset-2 hover:text-rose-900">articles</a>
+          ·
+          <a href="../pronoun/pronouns.html" class="font-semibold text-rose-700 underline underline-offset-2 hover:text-rose-900">pronouns</a>
+          ·
+          <a href="../adjective/adjectives.html" class="font-semibold text-rose-700 underline underline-offset-2 hover:text-rose-900">adjectives</a>
+        </p>
+        <a href="../index.html" class="text-rose-700 underline underline-offset-2 hover:text-rose-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "Je sais [pas]."
+      --------------------------------------------------------------- */
+
+      /* Chart rows: [written, spoken, meaning, positive twin, example French, example English] */
+      const WORDS = [
+        ["ne … pas", "pas", "not", "", "Je sais [pas].", "I don't know."],
+        ["ne … plus", "plus", "no longer, no more", "encore · toujours", "Il habite [plus] ici.", "He doesn't live here anymore."],
+        ["ne … jamais", "jamais", "never", "toujours · souvent · parfois", "Je fume [jamais].", "I never smoke."],
+        ["ne … rien", "rien", "nothing", "quelque chose · tout", "J'ai [rien] vu.", "I didn't see anything."],
+        ["ne … personne", "personne", "nobody", "quelqu'un · tout le monde", "Y a [personne].", "There's nobody here."],
+        ["ne … pas encore", "pas encore", "not yet", "déjà", "J'ai [pas encore] mangé.", "I haven't eaten yet."],
+        ["ne … toujours pas", "toujours pas", "still not", "enfin", "Il est [toujours pas] là.", "He's still not here."],
+        ["ne … aucun(e)", "aucun(e)", "no, not a single", "un · quelques · plusieurs", "J'ai [aucune] idée.", "I have no idea."],
+        ["ne … nulle part", "nulle part", "nowhere", "quelque part · partout", "Je le trouve [nulle part].", "I can't find it anywhere."],
+        ["ne … ni … ni", "ni … ni", "neither … nor", "et … et · ou", "J'ai [ni] faim [ni] soif.", "I'm neither hungry nor thirsty."],
+        ["ne … pas non plus", "pas non plus", "not either", "aussi", "Moi [non plus].", "Me neither."],
+        ["ne … pas du tout", "pas du tout", "not at all", "beaucoup · tout à fait", "J'aime [pas du tout].", "I don't like it at all."],
+        ["ne … que", "que", "only (not a real negative)", "", "J'ai [que] dix euros.", "I've only got ten euros."],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "pas",
+          title: "Not: pas, with or without ne",
+          fr: "(ne) … pas",
+          tone: "rose",
+          blurb:
+            "The basic negative. In conversation the ne is dropped almost every time and pas carries the meaning alone. Ne comes back when people speak carefully, formally, or slowly for emphasis.",
+          ex: [
+            ["Je sais [pas].", "I don't know.", "Written: Je ne sais pas. In fast speech it shrinks again to J'sais pas, then Chais pas."],
+            ["J'ai [pas] le temps.", "I don't have time.", "Written: Je n'ai pas le temps. Ne becomes n' before a vowel."],
+            ["C'est [pas] grave.", "It doesn't matter."],
+            ["Je comprends [pas].", "I don't understand."],
+            ["Ça marche [pas].", "It's not working."],
+            ["Je suis [pas] d'accord.", "I don't agree."],
+            ["T'es [pas] obligé.", "You don't have to."],
+            ["Je peux [pas], désolé.", "I can't, sorry."],
+            ["Il est [pas] là.", "He's not here."],
+            ["C'est [pas] moi !", "It wasn't me!"],
+            ["Je [ne] vous dérange [pas] ?", "I'm not disturbing you?", "Ne is kept in polite speech: with vous, at work, with strangers."],
+            ["[Ne] quittez [pas].", "Hold the line.", "Fixed formal phrases keep it too."],
+          ],
+          tip: "In writing you will meet two things that everyday speech never uses. A few verbs can be negative with ne alone (je ne sais, je ne peux, je n'ose). And ne sometimes appears with no negative meaning at all: avant qu'il ne parte (before he leaves).",
+        },
+        {
+          id: "place",
+          title: "Where pas goes",
+          fr: "J'ai pas mangé · Je veux pas y aller · Touche pas",
+          tone: "sky",
+          blurb:
+            "Pas comes straight after the verb that carries the ending. In the past that is avoir or être, so pas lands in the middle. With an infinitive, both parts stand in front.",
+          ex: [
+            ["J'ai [pas] mangé.", "I haven't eaten.", "After avoir or être, before the participle. Written: Je n'ai pas mangé."],
+            ["Il est [pas] venu.", "He didn't come."],
+            ["Je le vois [pas].", "I can't see him.", "Object pronouns stay glued in front of the verb. Written: Je ne le vois pas."],
+            ["Je lui ai [pas] dit.", "I haven't told him."],
+            ["Y en a [pas].", "There isn't any."],
+            ["Je veux [pas] y aller.", "I don't want to go.", "Two verbs: pas goes after the first one."],
+            ["Je vais [pas] rester longtemps.", "I'm not going to stay long."],
+            ["Je préfère [ne pas] y aller.", "I'd rather not go.", "To make an infinitive negative, ne pas stand together in front of it."],
+            ["J'essaie de [pas] rire.", "I'm trying not to laugh.", "Spoken: just pas in front of the infinitive."],
+            ["[Ne pas] toucher.", "Do not touch.", "Signs and instructions."],
+            ["Touche [pas] !", "Don't touch!", "Commands: the verb, then pas."],
+            ["Bouge [pas], j'arrive.", "Stay there, I'm coming."],
+            ["Me regarde [pas] comme ça.", "Don't look at me like that.", "In a negative command the pronoun goes back in front."],
+            ["T'inquiète [pas].", "Don't worry.", "So common that people even drop the pas: T'inquiète !"],
+          ],
+          tip: "Jamais, plus and rien take the same place as pas: J'ai jamais dit ça, J'ai plus faim, J'ai rien vu. Personne, aucun, nulle part and que go after the participle: J'ai vu personne.",
+        },
+        {
+          id: "pas-de",
+          title: "Not any: pas de",
+          fr: "pas de · pas d'",
+          tone: "amber",
+          blurb:
+            "After a negative, un, une, des, du and de la all become de. It is the French for “not any” and “no”. Le, la, les do not change.",
+          ex: [
+            ["J'ai [pas de] voiture.", "I don't have a car.", "une voiture → pas de voiture"],
+            ["Y a [pas de] problème.", "No problem."],
+            ["J'ai [pas d']argent sur moi.", "I've got no money on me.", "de l'argent → pas d'argent"],
+            ["Je mange [pas de] viande.", "I don't eat meat."],
+            ["[Pas de] souci.", "No worries."],
+            ["[Pas de] chance !", "Bad luck!"],
+            ["Y a [pas de] quoi.", "Don't mention it."],
+            ["On a [plus de] lait.", "We're out of milk.", "The same happens after plus and jamais."],
+            ["J'aime [pas] le café.", "I don't like coffee.", "Le, la, les stay."],
+            ["C'est [pas] un problème.", "It's not a problem.", "After être the article stays: you are saying what something is, not how much there is."],
+            ["J'ai [pas] un centime.", "I haven't got a single cent.", "Keeping un means “not even one”."],
+          ],
+          more: ["../article/articles.html", "More on articles after a negative"],
+        },
+        {
+          id: "plus",
+          title: "No longer, no more: plus",
+          fr: "(ne) … plus",
+          tone: "violet",
+          blurb:
+            "Something that was true has stopped. The s is silent. Since speech drops the ne, that silent s is the only thing that tells “no more” from “more”.",
+          ex: [
+            ["J'ai [plus] faim.", "I'm not hungry anymore."],
+            ["Il habite [plus] ici.", "He doesn't live here anymore."],
+            ["Y a [plus de] pain.", "There's no bread left."],
+            ["J'en peux [plus] !", "I can't take any more!"],
+            ["Ça marche [plus].", "It's stopped working."],
+            ["Je sais [plus].", "I can't remember.", "Literally “I no longer know”."],
+            ["On se parle [plus].", "We don't speak anymore."],
+            ["J'ai [plus] le temps.", "I don't have time anymore."],
+            ["— Tu fumes ? — [Plus] maintenant.", "— Do you smoke? — Not anymore."],
+          ],
+          tip: "J'en veux plus with a silent s means “I don't want any more”. With the s pronounced it means “I want more”. In writing, add ne to make the negative clear.",
+          more: ["../adverb/plus_usage.html", "All the uses of plus, with the pronunciation"],
+        },
+        {
+          id: "jamais",
+          title: "Never: jamais",
+          fr: "(ne) … jamais",
+          tone: "emerald",
+          blurb:
+            "Same place as pas. Without ne it normally still means “never”, but after si and in a few other spots it means “ever”.",
+          ex: [
+            ["Je bois [jamais] de café.", "I never drink coffee."],
+            ["J'y suis [jamais] allé.", "I've never been there."],
+            ["J'ai [jamais] dit ça !", "I never said that!"],
+            ["T'es [jamais] content !", "You're never happy!"],
+            ["On sait [jamais].", "You never know."],
+            ["Il est [presque jamais] là.", "He's hardly ever here."],
+            ["[Jamais] de la vie !", "Not on your life!"],
+            ["[Plus jamais] ça.", "Never again."],
+            ["Mieux vaut tard que [jamais].", "Better late than never."],
+            ["Si [jamais] tu passes, appelle-moi.", "If you ever come by, call me.", "After si, jamais means “ever”."],
+            ["C'est le meilleur film que j'aie [jamais] vu.", "It's the best film I've ever seen.", "“Ever” again, after a superlative."],
+          ],
+          tip: "“Have you ever…?” is usually déjà, not jamais: T'es déjà allé au Japon ? — Non, jamais.",
+        },
+        {
+          id: "rien",
+          title: "Nothing: rien",
+          fr: "(ne) … rien",
+          tone: "teal",
+          blurb:
+            "Where English says “not … anything”, French says rien on its own. It goes before a participle or an infinitive, like pas.",
+          ex: [
+            ["J'ai [rien] dit.", "I didn't say anything.", "Before the participle. Written: Je n'ai rien dit."],
+            ["Je comprends [rien].", "I don't understand a thing."],
+            ["Je veux [rien] faire.", "I don't want to do anything.", "Before the infinitive."],
+            ["Ça fait [rien].", "It doesn't matter."],
+            ["De [rien].", "You're welcome."],
+            ["Ça sert à [rien].", "It's pointless."],
+            ["J'y peux [rien].", "I can't help it."],
+            ["Ça a [rien] à voir.", "That's got nothing to do with it."],
+            ["[Rien] de grave.", "Nothing serious.", "De + adjective after rien."],
+            ["— Tu fais quoi ? — [Rien] du tout.", "— What are you doing? — Nothing at all."],
+            ["Y a [rien] qui marche.", "Nothing works.", "As a subject, careful French says Rien ne marche. Speech prefers y a rien qui."],
+            ["C'est pas [rien] !", "That's quite something!", "Here pas and rien cancel out: “it's not nothing”."],
+          ],
+        },
+        {
+          id: "personne",
+          title: "Nobody: personne",
+          fr: "(ne) … personne",
+          tone: "indigo",
+          blurb:
+            "The twin of rien for people, with one difference: it goes after the participle. As a subject it starts the sentence and takes no pas.",
+          ex: [
+            ["Y a [personne].", "There's nobody here."],
+            ["J'ai vu [personne].", "I didn't see anybody.", "After the participle, unlike rien."],
+            ["Je connais [personne] ici.", "I don't know anyone here."],
+            ["Je l'ai dit à [personne].", "I haven't told anyone."],
+            ["[Personne] sait.", "Nobody knows.", "Written: Personne ne sait."],
+            ["[Personne] est venu.", "Nobody came."],
+            ["Y a [plus personne].", "Everybody's gone."],
+            ["[Personne] d'autre ?", "Nobody else?"],
+            ["C'est la faute de [personne].", "It's nobody's fault."],
+            ["Y a [personne] qui peut m'aider ?", "Can't anyone help me?"],
+          ],
+          tip: "Une personne, with an article, is “a person”, and it is always feminine, even for a man. Personne with no article is “nobody”.",
+        },
+        {
+          id: "aucun",
+          title: "Not a single one, nowhere, not much",
+          fr: "aucun · nulle part · pas un · pas grand-chose",
+          tone: "rose",
+          blurb:
+            "Stronger and weaker ways to say “no”. Aucun is a firm “none at all”. Pas grand-chose is a soft “not much”.",
+          ex: [
+            ["[Aucune] idée.", "No idea."],
+            ["[Aucun] problème.", "No problem at all.", "Firmer than pas de problème."],
+            ["J'ai [aucune] envie d'y aller.", "I have no wish at all to go."],
+            ["Ça a [aucun] sens.", "It makes no sense."],
+            ["Sans [aucun] doute.", "Without any doubt."],
+            ["Je le trouve [nulle part].", "I can't find it anywhere."],
+            ["On va [nulle part] ce week-end.", "We're not going anywhere this weekend."],
+            ["Y a [pas un] chat.", "There's not a soul about.", "Pas un + noun: not a single one."],
+            ["[Pas un] bruit.", "Not a sound."],
+            ["J'ai [pas grand-chose] à dire.", "I don't have much to say.", "Softer than rien."],
+            ["Y avait [pas grand monde].", "There weren't many people.", "Softer than personne."],
+          ],
+          tip: "Aucun agrees with its noun (aucun problème, aucune idée), stays singular, and never takes pas.",
+        },
+        {
+          id: "que",
+          title: "Only: que",
+          fr: "(ne) … que",
+          tone: "amber",
+          blurb:
+            "It looks like a negative but it means “only”. Que stands right in front of the thing you are limiting. Because it is not a real negative, articles do not change to de.",
+          ex: [
+            ["J'ai [que] dix euros.", "I've only got ten euros.", "Written: Je n'ai que dix euros."],
+            ["Je bois [que] de l'eau.", "I only drink water.", "De l'eau stays. Compare: Je bois pas d'eau."],
+            ["Il reste [que] deux places.", "There are only two seats left."],
+            ["Ça prend [que] cinq minutes.", "It only takes five minutes."],
+            ["Y a [que] toi qui comprends.", "You're the only one who understands."],
+            ["Il fait [que] se plaindre.", "All he does is complain."],
+            ["T'as [qu']à demander.", "Just ask.", "T'as qu'à + verb: “all you have to do is”. It can sound sharp."],
+            ["Y a [qu']à attendre.", "We just have to wait."],
+            ["J'ai [plus que] cinq minutes.", "I've only got five minutes left.", "Plus que = only … left."],
+            ["C'est [pas que] ça.", "That's not all there is to it.", "Pas que = not only."],
+            ["J'ai [juste] dix euros.", "I've just got ten euros.", "In speech juste and seulement often do the same job."],
+          ],
+        },
+        {
+          id: "ni",
+          title: "Neither, nor, not either",
+          fr: "ni … ni · non plus",
+          tone: "sky",
+          blurb:
+            "Ni … ni joins two things you reject. Non plus is the negative of aussi: it is how you agree with a negative sentence.",
+          ex: [
+            ["J'aime [ni] le thé [ni] le café.", "I like neither tea nor coffee."],
+            ["J'ai [ni] faim [ni] soif.", "I'm neither hungry nor thirsty."],
+            ["[Ni] l'un [ni] l'autre.", "Neither one."],
+            ["Il a dit [ni] oui [ni] non.", "He said neither yes nor no."],
+            ["J'ai pas de frère [ni] de sœur.", "I have no brother or sister.", "The everyday version: pas … ni."],
+            ["— J'ai pas faim. — Moi [non plus].", "— I'm not hungry. — Me neither.", "Agreeing with a negative: non plus, never aussi."],
+            ["Lui [non plus], il a pas compris.", "He didn't get it either."],
+            ["Il boit pas, et il fume pas [non plus].", "He doesn't drink, and he doesn't smoke either."],
+            ["[Ni] vu [ni] connu.", "No one will be any the wiser."],
+            ["C'est [ni] fait [ni] à faire.", "It's a botched job."],
+          ],
+        },
+        {
+          id: "short",
+          title: "Short answers: pas or non?",
+          fr: "pas moi · pas encore · je pense que non",
+          tone: "emerald",
+          blurb:
+            "With no verb, pas negates the word or phrase next to it. Non answers a question, or stands for a whole negative sentence.",
+          ex: [
+            ["[Pas] moi.", "Not me."],
+            ["[Pas encore].", "Not yet."],
+            ["[Pas du tout].", "Not at all."],
+            ["[Pas vraiment].", "Not really."],
+            ["— Ça va ? — [Pas trop].", "— You OK? — Not really."],
+            ["[Pas forcément].", "Not necessarily."],
+            ["[Pas tout de suite].", "Not right now."],
+            ["[Pas question] !", "No way!"],
+            ["Pourquoi [pas] ?", "Why not?"],
+            ["[Même pas] !", "Not even!"],
+            ["[Surtout pas] !", "Whatever you do, don't!"],
+            ["[Non] merci.", "No thanks."],
+            ["Je pense que [non].", "I don't think so.", "Non stands for a whole sentence after que: j'espère que non, je crois que non."],
+            ["Mais [non] !", "Of course not!"],
+          ],
+          tip: "Compare Pas moi (“not me”, pas + a word) with Moi, non (“I don't”, non as the whole answer).",
+        },
+        {
+          id: "si",
+          title: "Si, and questions with pas",
+          fr: "— T'as pas faim ? — Si !",
+          tone: "violet",
+          blurb:
+            "French has a special “yes” for contradicting a negative: si. And a question built with pas is the usual soft way to offer or ask for something.",
+          ex: [
+            ["— T'as pas faim ? — [Si] !", "— Aren't you hungry? — Yes, I am!", "Si says the negative is wrong. Oui would be unclear here."],
+            ["— Tu viens pas ? — [Si, si], j'arrive.", "— Aren't you coming? — Yes, yes, I'm coming."],
+            ["— C'est pas possible. — Mais [si] !", "— It's not possible. — Yes it is!"],
+            ["— T'as pas faim ? — [Non].", "— Aren't you hungry? — No.", "Non agrees with the negative: no, I'm not."],
+            ["Tu veux [pas] un café ?", "Wouldn't you like a coffee?", "A friendly offer. The article stays because nothing is really being denied."],
+            ["T'aurais [pas] vu mes clés ?", "You haven't seen my keys, have you?"],
+            ["Vous auriez [pas] l'heure ?", "You wouldn't have the time, would you?", "Pas + conditional: a polite way to ask a stranger."],
+            ["C'est [pas] toi qui as pris mon stylo ?", "Wasn't it you who took my pen?"],
+            ["Il fait beau, [non] ?", "It's nice out, isn't it?", "Tag questions: non ? or hein ? in speech, n'est-ce pas ? in careful French."],
+            ["On y va, ou [pas] ?", "Are we going or not?"],
+          ],
+        },
+        {
+          id: "stack",
+          title: "Two or three negatives together",
+          fr: "plus rien · jamais personne · plus jamais rien",
+          tone: "indigo",
+          blurb:
+            "French negatives pile up without cancelling. Every English “anything”, “anyone”, “ever” turns into a negative word. The only one that cannot join the pile is pas.",
+          ex: [
+            ["Y a [plus rien].", "There's nothing left."],
+            ["Y a [plus personne].", "There's no one left."],
+            ["Je dis [jamais rien].", "I never say anything."],
+            ["Y a [jamais personne] ici.", "There's never anyone here."],
+            ["Je veux [plus jamais] le voir.", "I never want to see him again."],
+            ["[Personne] dit [rien].", "Nobody says anything."],
+            ["J'ai [plus aucune] envie.", "I've no desire left at all."],
+            ["J'ai [plus jamais rien] entendu.", "I never heard anything again.", "Three at once. The order is plus, jamais, then rien or personne."],
+            ["J'ai [pas encore] fini.", "I haven't finished yet.", "Pas does combine with encore, du tout, non plus, toujours."],
+            ["Il est [toujours pas] là.", "He's still not here."],
+          ],
+          tip: "Adding pas to rien, personne or jamais is a mistake, or it flips the meaning: C'est pas rien means “that's quite something”.",
+        },
+        {
+          id: "litote",
+          title: "Saying less to mean more",
+          fr: "c'est pas mal · c'est pas donné · je dis pas non",
+          tone: "teal",
+          blurb:
+            "French loves understatement. A negative phrase is very often praise, agreement or a polite yes. These are fixed phrases worth learning whole.",
+          ex: [
+            ["C'est [pas mal].", "It's pretty good."],
+            ["C'est [pas bête].", "That's a smart idea."],
+            ["C'est [pas faux].", "You've got a point."],
+            ["T'as [pas tort].", "You're not wrong."],
+            ["C'est [pas donné].", "It's pricey.", "Literally “it's not given away”."],
+            ["C'est [pas évident].", "It's not easy.", "Évident here means “easy”, not “obvious”."],
+            ["C'est [pas terrible].", "It's not great.", "Always negative, whatever terrible means elsewhere."],
+            ["C'est [pas la peine].", "There's no need."],
+            ["C'est [pas de refus].", "I won't say no.", "A warm way to accept an offer."],
+            ["Je dis [pas non].", "I wouldn't say no."],
+            ["Ça me dit [rien].", "I don't fancy it. · It doesn't ring a bell."],
+            ["[N'importe quoi] !", "Rubbish!", "The old ne lives on inside a few fixed words: n'importe quoi, n'importe qui, n'empêche."],
+          ],
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["Il est [pas toujours] là.", "He's not always here.", "Il est [toujours pas] là.", "He's still not here."],
+        ["J'aime [pas vraiment] ça.", "I don't really like it.", "J'aime [vraiment pas] ça.", "I really don't like it."],
+        ["J'ai [pas tout] mangé.", "I didn't eat everything.", "J'ai [pas du tout] mangé.", "I didn't eat at all."],
+        ["Tu peux [pas] venir.", "You can't come.", "Tu peux [ne pas] venir.", "You're free not to come."],
+        ["Y a [personne].", "There's nobody.", "Y a [une personne].", "There's one person."],
+        ["C'est [pas mal].", "It's pretty good.", "Y a [pas mal de] monde.", "There are quite a lot of people."],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["Je pas sais.", "Je sais [pas].", "I don't know.", "Pas goes after the verb."],
+        ["J'ai mangé pas.", "J'ai [pas] mangé.", "I haven't eaten.", "After avoir, before the participle."],
+        ["J'ai pas rien vu.", "J'ai [rien] vu.", "I didn't see anything.", "Rien replaces pas."],
+        ["J'ai vu rien.", "J'ai [rien] vu.", "I saw nothing.", "Rien goes before the participle."],
+        ["J'ai personne vu.", "J'ai vu [personne].", "I saw nobody.", "Personne goes after it."],
+        ["Personne est pas venu.", "[Personne] est venu.", "Nobody came.", "No pas with personne."],
+        ["J'ai pas un chien.", "J'ai [pas de] chien.", "I don't have a dog.", "Un becomes de."],
+        ["— T'as pas faim ? — Oui !", "— T'as pas faim ? — [Si] !", "— Aren't you hungry? — Yes!", "Si contradicts a negative."],
+        ["— J'aime pas ça. — Moi aussi.", "— J'aime pas ça. — Moi [non plus].", "— I don't like it. — Me neither.", "Non plus after a negative."],
+        ["Je veux pas le.", "Je le veux [pas].", "I don't want it.", "The pronoun stays before the verb."],
+        ["Ne pas touche !", "Touche [pas] !", "Don't touch!", "A command is a verb form: verb, then pas."],
+        ["pour ne tomber pas", "pour [ne pas] tomber", "so as not to fall", "Ne pas together before an infinitive."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [pas] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- chart ---------- */
+      document.getElementById("chart-body").innerHTML = WORDS.map(
+        ([written, spoken, meaning, twin, fr, en]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-playfair italic font-normal text-lg text-slate-600 whitespace-nowrap" lang="fr">${esc(written)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-rose-50 font-playfair italic font-semibold text-lg text-rose-700 whitespace-nowrap" lang="fr">${esc(spoken)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-slate-700">${esc(meaning)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 font-playfair italic text-emerald-700" lang="fr">${twin ? esc(twin) : `<span class="not-italic font-inter text-slate-400">—</span>`}</td>
+          <td class="px-3 py-2 border-b border-slate-100">
+            <span class="block font-medium text-slate-900 whitespace-nowrap" lang="fr">${mark(fr, "text-rose-700")}</span>
+            <span class="block text-sm text-slate-500">${esc(en)}</span>
+          </td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-rose-100 border border-rose-200 px-3 py-1.5 text-sm font-medium text-rose-900 hover:bg-rose-200">The chart</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-rose-400 hover:text-rose-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-rose-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-rose-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-rose-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-rose-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+  <script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

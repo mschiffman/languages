@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Subjunctive in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-pink-900 via-fuchsia-800 to-purple-950 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-pink-300 mb-4"
+        >
+          French grammar · Subjunctive
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">Il faut que j'y aille</span>
+        </h1>
+        <p class="text-lg md:text-xl text-pink-100 max-w-2xl mx-auto leading-relaxed">
+          The subjunctive is not a tense but a mood. It switches on after
+          words of needing, wanting, feeling and doubting, and you hear it
+          every day: <i lang="fr">Il faut que j'y aille</i>, “I've got to go”.
+          Here is what brings it in, what doesn't, and the handful of forms
+          that actually sound different.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The charts (filled by the script from TRIGGERS, BUILD, IRREG below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-pink-900 mb-2">
+          First, the chart: what switches it on
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          The subjunctive almost always comes after <i lang="fr">que</i>, in
+          the second half of a sentence. Whether it appears depends on the
+          first half: is the speaker stating a fact, or wanting, feeling or
+          doubting something?
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold align-bottom">Family</th>
+                <th scope="col" class="bg-pink-600 text-white px-3 py-2 font-semibold align-bottom">Common triggers</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold align-bottom">In a sentence</th>
+              </tr>
+            </thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the chart sideways to see every column.</p>
+
+        <!-- Building it -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-pink-900 mt-10 mb-2">
+          How to build it
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          Take the <i lang="fr">ils</i> form of the present, drop
+          <i lang="fr">-ent</i>, and add <i lang="fr">-e, -es, -e, -ent</i>.
+          For <i lang="fr">nous</i> and <i lang="fr">vous</i>, add
+          <i lang="fr">-ions, -iez</i> to the <i lang="fr">nous</i> stem of
+          the present, which is why <i lang="fr">prendre</i> gives
+          <i lang="fr">que je prenne</i> but <i lang="fr">que nous prenions</i>.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[640px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Verb</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold">Present, ils</th>
+                <th scope="col" class="bg-pink-600 text-white px-3 py-2 font-semibold">que je · tu · il · ils</th>
+                <th scope="col" class="bg-violet-600 text-white px-3 py-2 rounded-tr-xl font-semibold">que nous · vous</th>
+              </tr>
+            </thead>
+            <tbody id="build-body"></tbody>
+          </table>
+        </div>
+
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-pink-900 mt-10 mb-2">
+          The eight irregulars you will hear all the time
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          These don't follow the rule. Learn them first: they are the ones
+          where the subjunctive is easy to hear.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Verb</th>
+                <th scope="col" class="bg-pink-600 text-white px-3 py-2 font-semibold">que je …</th>
+                <th scope="col" class="bg-violet-600 text-white px-3 py-2 font-semibold">que nous …</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold">In a sentence</th>
+              </tr>
+            </thead>
+            <tbody id="irreg-body"></tbody>
+          </table>
+        </div>
+        <p class="text-sm mt-3">
+          <a href="../tense/subjonctif.html" class="font-semibold text-pink-700 underline underline-offset-2">Full conjugation tables →</a>
+          <span class="text-slate-400 mx-1">·</span>
+          <a href="../tense/me-subjonctif.html" class="font-semibold text-pink-700 underline underline-offset-2">Subjunctive mind map →</a>
+        </p>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-pink-800">Two people.</b> It appears when the
+            person wanting or feeling is not the person doing:
+            <i lang="fr">Je veux que tu viennes</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-pink-800">One person.</b> Use an infinitive
+            instead: <i lang="fr">Je veux venir</i>,
+            <i lang="fr">avant de partir</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-pink-800">Often silent.</b> For most
+            <i lang="fr">-er</i> verbs, <i lang="fr">que je parle</i> sounds
+            exactly like <i lang="fr">je parle</i>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-pink-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Same verb, two moods
+        </h2>
+        <p class="text-pink-100 leading-relaxed mb-6 max-w-3xl">
+          In each pair the first half of the sentence changes slightly, and
+          the verb after <i lang="fr">que</i> flips between the ordinary
+          indicative and the subjunctive.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-pink-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-pink-600 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              English has almost no subjunctive left, so the usual slips are
+              leaving it out, putting it after <i lang="fr">espérer</i> or
+              <i lang="fr">si</i>, or using it where an infinitive belongs.
+              The crossed-out line is the slip; the line under it is what
+              people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../tense/subjonctif.html" class="font-semibold text-pink-700 underline underline-offset-2 hover:text-pink-900">subjonctif présent (tables)</a>
+          ·
+          <a href="../negation/negation.html" class="font-semibold text-pink-700 underline underline-offset-2 hover:text-pink-900">negation</a>
+          ·
+          <a href="../question/questions.html" class="font-semibold text-pink-700 underline underline-offset-2 hover:text-pink-900">questions</a>
+          ·
+          <a href="../tense/index.html" class="font-semibold text-pink-700 underline underline-offset-2 hover:text-pink-900">tenses</a>
+        </p>
+        <a href="../index.html" class="text-pink-700 underline underline-offset-2 hover:text-pink-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "Il faut que je [parte]."
+      --------------------------------------------------------------- */
+
+      /* Trigger chart: [family, triggers, example French, example English] */
+      const TRIGGERS = [
+        ["Need", "il faut que · c'est important que · c'est mieux que", "Il faut que je [parte].", "I have to go."],
+        ["Wanting", "vouloir que · aimer que · préférer que · demander que", "Je veux que tu [viennes].", "I want you to come."],
+        ["Feeling", "content que · désolé que · avoir peur que · c'est dommage que", "Je suis content que tu [sois] là.", "I'm glad you're here."],
+        ["Doubt", "douter que · ne pas penser que · ne pas être sûr que", "Je pense pas qu'il [puisse] venir.", "I don't think he can come."],
+        ["Possibility", "il se peut que · c'est possible que · il est rare que", "Il se peut qu'il [pleuve].", "It might rain."],
+        ["Linking words", "pour que · avant que · bien que · sans que · à moins que · jusqu'à ce que", "Je t'appelle avant que tu [partes].", "I'll call you before you leave."],
+        ["The only, the best", "le seul … qui · le meilleur … que · le premier … qui", "C'est le seul qui me [comprenne].", "He's the only one who understands me."],
+        ["Wishes, orders", "que … ! · pourvu que · vive …", "Pourvu qu'il [fasse] beau !", "Let's hope the weather's nice!"],
+      ];
+
+      /* Regular build: [verb, present ils (| marks the cut), je/tu/il/ils, nous/vous] */
+      const BUILD = [
+        ["parler", "ils parl|ent", "que je parle · que tu parles · qu'il parle · qu'ils parlent", "que nous parlions · que vous parliez"],
+        ["finir", "ils finiss|ent", "que je finisse · qu'il finisse", "que nous finissions"],
+        ["partir", "ils part|ent", "que je parte · qu'il parte", "que nous partions"],
+        ["dire", "ils dis|ent", "que je dise · qu'il dise", "que nous disions"],
+        ["prendre", "ils prenn|ent", "que je prenne · qu'il prenne", "que nous prenions"],
+        ["venir", "ils vienn|ent", "que je vienne · qu'il vienne", "que nous venions"],
+        ["boire", "ils boiv|ent", "que je boive · qu'il boive", "que nous buvions"],
+      ];
+
+      /* Irregulars: [verb, je forms, nous forms, example French, example English] */
+      const IRREG = [
+        ["être", "que je sois · tu sois · il soit · ils soient", "que nous soyons · vous soyez", "Il faut que tu [sois] patient.", "You need to be patient."],
+        ["avoir", "que j'aie · tu aies · il ait · ils aient", "que nous ayons · vous ayez", "J'ai peur qu'il [ait] froid.", "I'm afraid he's cold."],
+        ["aller", "que j'aille · ils aillent", "que nous allions", "Il faut que j'y [aille].", "I've got to go."],
+        ["faire", "que je fasse", "que nous fassions", "Qu'est-ce que tu veux que je [fasse] ?", "What do you want me to do?"],
+        ["pouvoir", "que je puisse", "que nous puissions", "Je parle lentement pour que tu [puisses] suivre.", "I'm speaking slowly so you can follow."],
+        ["savoir", "que je sache", "que nous sachions", "Pas que je [sache].", "Not that I know of."],
+        ["vouloir", "que je veuille", "que nous voulions", "C'est pas que je [veuille] pas…", "It's not that I don't want to…"],
+        ["falloir · pleuvoir", "qu'il faille · qu'il pleuve", "—", "J'ai peur qu'il [pleuve].", "I'm afraid it's going to rain."],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "falloir",
+          title: "Il faut que: the one you'll hear most",
+          fr: "il faut que · faut que",
+          tone: "pink",
+          blurb:
+            "Il faut que + subjunctive says someone has to do something. In speech the il often disappears: Faut que j'y aille. With no particular person in mind, use il faut + infinitive instead.",
+          ex: [
+            ["Il faut que j'y [aille].", "I've got to go.", "The standard way to wind up a conversation or leave."],
+            ["Faut que je [file].", "I've got to dash.", "Spoken: il is dropped."],
+            ["Il faut que tu [voies] ce film.", "You have to see this film."],
+            ["Il faut qu'on [parle].", "We need to talk.", "Sounds just like the present: on parle."],
+            ["Il faut que vous [soyez] là à huit heures.", "You need to be here at eight."],
+            ["Il faut que je [fasse] les courses.", "I need to do the shopping."],
+            ["Il faudrait qu'on se [voie].", "We should get together.", "Conditional il faudrait: softer."],
+            ["Il faut pas que tu t'[inquiètes].", "You mustn't worry.", "Il faut pas que = you mustn't, not “you don't have to”."],
+            ["Il faut [partir].", "We have to go.", "No person named: il faut + infinitive."],
+            ["C'est important que tu [viennes].", "It's important that you come."],
+            ["C'est mieux que tu le lui [dises].", "It's better if you tell him."],
+          ],
+          tip: "Il faut + a noun is “it takes” or “you need”: Il faut du temps (it takes time), Il me faut un stylo (I need a pen).",
+        },
+        {
+          id: "vouloir",
+          title: "Wanting someone else to do something",
+          fr: "je veux que · j'aimerais que · je préfère que",
+          tone: "sky",
+          blurb:
+            "English says “I want you to come”. French can't: it says “I want that you come”, with the subjunctive. If the person wanting and the person doing are the same, use the infinitive.",
+          ex: [
+            ["Je veux que tu [viennes].", "I want you to come."],
+            ["Je veux [venir].", "I want to come.", "Same person: infinitive."],
+            ["J'aimerais que tu m'[aides].", "I'd like you to help me."],
+            ["Je préfère que tu [restes] ici.", "I'd rather you stayed here.", "English uses a past form; French uses the subjunctive."],
+            ["Tu veux que je t'[accompagne] ?", "Do you want me to come with you?"],
+            ["Qu'est-ce que tu veux que je te [dise] ?", "What do you want me to say?", "Also a shrug: “What can I tell you?”"],
+            ["Je veux pas que tu [partes].", "I don't want you to leave."],
+            ["Elle demande qu'on [soit] à l'heure.", "She's asking us to be on time."],
+            ["J'ai hâte que tu [sois] là.", "I can't wait for you to be here."],
+            ["J'attends qu'il [revienne].", "I'm waiting for him to come back."],
+            ["Ça me dérange pas que tu [fumes].", "I don't mind you smoking."],
+          ],
+        },
+        {
+          id: "feelings",
+          title: "Feelings about what someone else does",
+          fr: "content que · désolé que · j'ai peur que · c'est dommage que",
+          tone: "amber",
+          blurb:
+            "Being glad, sorry, surprised, afraid or annoyed that something is happening takes the subjunctive, even when the thing is a plain fact.",
+          ex: [
+            ["Je suis content que tu [sois] là.", "I'm glad you're here."],
+            ["Je suis désolé que tu [aies] attendu.", "I'm sorry you had to wait.", "Past subjunctive: que + aie or sois + participle."],
+            ["C'est dommage que tu [puisses] pas venir.", "It's a shame you can't come."],
+            ["Ça m'étonne qu'il [soit] pas encore là.", "I'm surprised he's not here yet."],
+            ["Ça m'énerve qu'il [dise] toujours ça.", "It annoys me that he always says that."],
+            ["J'ai peur qu'il [soit] trop tard.", "I'm afraid it's too late.", "Careful French adds a ne with no negative meaning: J'ai peur qu'il ne soit trop tard."],
+            ["C'est normal que tu [sois] fatigué.", "No wonder you're tired."],
+            ["C'est bizarre qu'elle [réponde] pas.", "It's odd that she's not answering."],
+            ["Ça me fait plaisir que tu [viennes].", "I'm really pleased you're coming."],
+            ["Je suis content [de] te voir.", "I'm glad to see you.", "Same person: de + infinitive."],
+          ],
+        },
+        {
+          id: "doubt",
+          title: "Doubt, and opinions with pas",
+          fr: "je pense pas que · je doute que · je suis pas sûr que",
+          tone: "violet",
+          blurb:
+            "Saying you believe something takes the ordinary indicative. Saying you don't believe it, or that you doubt it, switches to the subjunctive.",
+          ex: [
+            ["Je pense qu'il [vient].", "I think he's coming.", "Positive opinion: indicative."],
+            ["Je pense pas qu'il [vienne].", "I don't think he's coming.", "Negative opinion: subjunctive."],
+            ["Je crois pas que ce [soit] une bonne idée.", "I don't think it's a good idea."],
+            ["Je suis pas sûr qu'il [ait] compris.", "I'm not sure he understood."],
+            ["Je doute qu'elle [soit] d'accord.", "I doubt she'll agree."],
+            ["Ça m'étonnerait qu'il [vienne].", "I'd be surprised if he came.", "A very French way of saying “I doubt it”."],
+            ["Tu crois qu'il [vient] ?", "Do you think he's coming?", "Everyday questions usually keep the indicative."],
+            ["Crois-tu qu'il [vienne] ?", "Do you think he'll come?", "With inversion, careful French often uses the subjunctive."],
+            ["Je suis sûr qu'il [viendra].", "I'm sure he'll come.", "Certainty: indicative."],
+          ],
+        },
+        {
+          id: "possible",
+          title: "Maybe: possible, but not probable",
+          fr: "il se peut que · c'est possible que · peut-être que",
+          tone: "teal",
+          blurb:
+            "Possibility takes the subjunctive. Probability does not. And peut-être que, the everyday “maybe”, never does.",
+          ex: [
+            ["Il se peut qu'il [pleuve].", "It might rain."],
+            ["C'est possible qu'elle [soit] malade.", "She might be ill."],
+            ["C'est pas possible qu'il [ait] déjà fini !", "He can't have finished already!"],
+            ["Il est rare qu'il [fasse] aussi chaud.", "It's rare for it to be this hot."],
+            ["Il arrive qu'on se [trompe].", "Sometimes people get it wrong."],
+            ["Peut-être qu'il [viendra].", "Maybe he'll come.", "Peut-être que: indicative."],
+            ["Il est probable qu'il [viendra].", "He'll probably come.", "Probable: indicative."],
+            ["Il paraît qu'il [est] parti.", "Apparently he's left.", "Il paraît que: indicative."],
+            ["Il va [sûrement] pleuvoir.", "It's bound to rain.", "In speech, adverbs like sûrement and sans doute avoid the question altogether."],
+          ],
+        },
+        {
+          id: "conj",
+          title: "Linking words that bring it in",
+          fr: "pour que · avant que · bien que · à moins que · sans que · jusqu'à ce que",
+          tone: "pink",
+          blurb:
+            "A small set of linking words always take the subjunctive. Learn them as a list; their lookalikes often don't (après que, parce que, pendant que, même si).",
+          ex: [
+            ["Je te le dis pour que tu [saches].", "I'm telling you so you know.", "Pour que: so that."],
+            ["Rentre avant qu'il [fasse] nuit.", "Come home before it gets dark.", "Avant que: before."],
+            ["Bien qu'il [soit] riche, il est radin.", "Although he's rich, he's stingy.", "Bien que: although. Speech often prefers même si."],
+            ["Même s'il [est] riche, il est radin.", "Even if he's rich, he's stingy.", "Même si: indicative."],
+            ["On y va, à moins qu'il [pleuve].", "We'll go, unless it rains.", "À moins que: unless."],
+            ["Il est parti sans que je le [voie].", "He left without my seeing him.", "Sans que: without someone else doing something."],
+            ["Attends jusqu'à ce que je [revienne].", "Wait until I come back.", "Jusqu'à ce que: until."],
+            ["En attendant qu'il [arrive], on prend un verre.", "While we wait for him, let's have a drink."],
+            ["Je t'aide, à condition que tu [fasses] la vaisselle.", "I'll help you, as long as you do the washing-up."],
+            ["Pourvu qu'il [fasse] beau !", "Let's hope it's sunny!", "Pourvu que on its own: “let's hope”."],
+          ],
+          tip: "Après que takes the indicative by the rules: après qu'il est parti. Many French speakers use the subjunctive here anyway; it is very common but still counted as a mistake.",
+        },
+        {
+          id: "infinitive",
+          title: "Same person? Use the infinitive instead",
+          fr: "je veux partir · avant de partir · sans rien dire",
+          tone: "emerald",
+          blurb:
+            "The subjunctive appears when two different people are involved. With only one person, French uses an infinitive, and the linking word often changes.",
+          ex: [
+            ["Je veux [partir].", "I want to leave.", "Compare Je veux que tu partes."],
+            ["Je suis content d'[être] là.", "I'm glad to be here.", "Compare Je suis content que tu sois là."],
+            ["Je bosse pour [payer] le loyer.", "I work to pay the rent.", "pour que → pour"],
+            ["Mange avant de [partir].", "Eat before you go.", "avant que → avant de"],
+            ["Il est parti sans [dire] au revoir.", "He left without saying goodbye.", "sans que → sans"],
+            ["J'ai peur de [tomber].", "I'm afraid of falling.", "j'ai peur que → j'ai peur de"],
+            ["À moins de [payer], tu rentres pas.", "Unless you pay, you're not getting in.", "à moins que → à moins de"],
+            ["Je pense pas [pouvoir] venir.", "I don't think I can come.", "Je pense pas que je puisse venir is also correct."],
+            ["Je t'appelle avant de [dormir].", "I'll call you before I go to sleep."],
+          ],
+        },
+        {
+          id: "not",
+          title: "When it doesn't come",
+          fr: "j'espère que · je suis sûr que · parce que · si",
+          tone: "rose",
+          blurb:
+            "These look as if they should take the subjunctive but use the ordinary forms. Espérer is the famous one: hoping is treated as nearly sure.",
+          ex: [
+            ["J'espère que tu [vas] bien.", "I hope you're well.", "Espérer: indicative, never subjunctive."],
+            ["J'espère qu'il [viendra].", "I hope he'll come."],
+            ["Je suis sûr qu'elle [a] raison.", "I'm sure she's right."],
+            ["Je sais qu'il [est] là.", "I know he's here."],
+            ["Je trouve qu'il [a] changé.", "I think he's changed."],
+            ["Je suis parti parce qu'il [était] tard.", "I left because it was late."],
+            ["Pendant que tu [dors], je bosse.", "While you sleep, I work."],
+            ["Si tu [veux], on y va.", "If you like, let's go.", "Si never takes the subjunctive."],
+            ["Il est arrivé après que tu [es] parti.", "He arrived after you'd left.", "By the rules: indicative. Après que tu sois parti is very common in speech."],
+            ["Il me semble que c'[est] fermé.", "I think it's closed.", "Il me semble que: indicative. Il semble que, without me, often takes the subjunctive."],
+          ],
+        },
+        {
+          id: "only",
+          title: "The best, the only, and the one I'm looking for",
+          fr: "le seul qui · le meilleur que · je cherche quelqu'un qui",
+          tone: "indigo",
+          blurb:
+            "After a superlative, or seul, premier, dernier, careful French uses the subjunctive. It also appears when you describe something that may not exist.",
+          ex: [
+            ["C'est le meilleur film que j'[aie] jamais vu.", "It's the best film I've ever seen."],
+            ["C'est le seul qui me [comprenne].", "He's the only one who understands me.", "Speech often uses the indicative here: le seul qui me comprend."],
+            ["C'est la plus belle ville que je [connaisse].", "It's the most beautiful city I know."],
+            ["T'es la seule personne à qui je [puisse] parler.", "You're the only person I can talk to."],
+            ["Je cherche quelqu'un qui [sache] coder.", "I'm looking for someone who can code.", "Not sure such a person exists: subjunctive."],
+            ["J'ai trouvé quelqu'un qui [sait] coder.", "I've found someone who can code.", "They exist: indicative."],
+            ["Y a personne qui [puisse] m'aider ?", "Is there no one who can help me?"],
+            ["Je connais pas de resto qui [soit] ouvert le lundi.", "I don't know any restaurant that's open on Mondays."],
+          ],
+        },
+        {
+          id: "que",
+          title: "Que at the start: wishes and orders",
+          fr: "Qu'il entre ! · Pourvu que… · Vive les vacances !",
+          tone: "amber",
+          blurb:
+            "With nothing in front of it, que + subjunctive gives an order about someone who isn't being spoken to, or makes a wish. A few old phrases keep the subjunctive with no que at all.",
+          ex: [
+            ["Qu'il [entre] !", "Let him come in!", "An order about a third person."],
+            ["Que ça [reste] entre nous.", "Let's keep this between us."],
+            ["Que tout le monde [sorte] !", "Everybody out!"],
+            ["Qu'il [vienne], s'il veut.", "He can come if he wants."],
+            ["Pourvu que ça [dure] !", "Let's hope it lasts!"],
+            ["[Vive] les vacances !", "Hooray for the holidays!", "Vive = long live. A fixed subjunctive."],
+            ["Que je [sache], non.", "Not as far as I know.", "Also: pas que je sache."],
+            ["Ainsi [soit]-il.", "So be it. · Amen."],
+            ["[Soit].", "Very well.", "Formal."],
+          ],
+        },
+        {
+          id: "sound",
+          title: "Can you even hear it?",
+          fr: "que je parle = je parle · que je fasse ≠ je fais",
+          tone: "violet",
+          blurb:
+            "For je, tu, il and ils, most -er verbs sound exactly the same in the subjunctive as in the present. You only hear the difference with irregular verbs, with many -ir and -re verbs, and with nous and vous. So the forms worth drilling are the irregular ones.",
+          ex: [
+            ["Il faut que je [parle] au chef.", "I need to speak to the boss.", "Sounds like je parle."],
+            ["Il faut que tu [manges].", "You need to eat.", "Sounds like tu manges."],
+            ["Il faut que je [finisse].", "I need to finish.", "je finis → que je finisse"],
+            ["Il faut que je [parte].", "I need to leave.", "je pars → que je parte"],
+            ["Il faut que je [prenne] le train.", "I need to take the train.", "je prends → que je prenne"],
+            ["Il faut que je [fasse] ça.", "I need to do this.", "je fais → que je fasse"],
+            ["Il faut que nous [parlions].", "We need to talk.", "Nous form: -ions, the same as the imparfait."],
+            ["Il faut qu'on [parle].", "We need to talk.", "Speech uses on, which sounds like the present again."],
+            ["Il faut que vous [veniez].", "You need to come.", "vous venez → que vous veniez"],
+            ["Il faut que tu [aies] confiance.", "You need to trust yourself.", "Aies sounds like ai, es, est. Only the spelling is hard."],
+          ],
+          more: ["../tense/subjonctif.html", "Full conjugation tables"],
+        },
+        {
+          id: "chunks",
+          title: "Twelve everyday chunks to learn whole",
+          fr: "Faut que j'y aille · Je veux pas que tu t'en ailles · Pourvu que…",
+          tone: "teal",
+          blurb:
+            "If you only learn a few, learn these. Between them they cover most of the subjunctive you will hear in conversation.",
+          ex: [
+            ["Faut que j'y [aille].", "I've got to go."],
+            ["Faut que je te [dise] un truc.", "I've got to tell you something."],
+            ["Tu veux que je [vienne] ?", "Do you want me to come?"],
+            ["Qu'est-ce que tu veux que j'y [fasse] ?", "What do you want me to do about it?", "A shrug: “It's not my fault.”"],
+            ["Je veux pas que tu t'en [ailles].", "I don't want you to go."],
+            ["Je suis content que ça te [plaise].", "I'm glad you like it."],
+            ["Ça m'étonnerait qu'il [vienne].", "I doubt he'll come."],
+            ["Pourvu que ça [marche] !", "Fingers crossed it works!"],
+            ["Je t'attends, le temps que tu te [prépares].", "I'll wait while you get ready.", "Le temps que: for as long as it takes."],
+            ["C'est pas que je [veuille] pas, mais…", "It's not that I don't want to, but…"],
+            ["Bien que ce [soit] cher…", "Even though it's expensive…"],
+            ["Avant que j'[oublie]…", "Before I forget…"],
+          ],
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["Je pense qu'il [vient].", "I think he's coming.", "Je pense pas qu'il [vienne].", "I don't think he's coming."],
+        ["J'espère qu'il [vient].", "I hope he's coming.", "Je souhaite qu'il [vienne].", "I'd like him to come."],
+        ["Je veux [partir].", "I want to leave.", "Je veux que tu [partes].", "I want you to leave."],
+        ["J'ai trouvé quelqu'un qui [sait] coder.", "I've found someone who can code.", "Je cherche quelqu'un qui [sache] coder.", "I'm looking for someone who can code."],
+        ["Peut-être qu'il [pleut].", "Maybe it's raining.", "C'est possible qu'il [pleuve].", "It might be raining."],
+        ["Même s'il [est] tard…", "Even if it's late…", "Bien qu'il [soit] tard…", "Although it's late…"],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["Il faut que tu viens.", "Il faut que tu [viennes].", "You have to come.", "Il faut que + subjunctive."],
+        ["Je veux toi venir.", "Je veux que tu [viennes].", "I want you to come.", "No “want you to” in French: que + subjunctive."],
+        ["Je veux que je parte.", "Je veux [partir].", "I want to leave.", "Same person: infinitive."],
+        ["J'espère qu'il vienne.", "J'espère qu'il [vient].", "I hope he comes.", "Espérer takes the indicative."],
+        ["Je pense qu'il soit malade.", "Je pense qu'il [est] malade.", "I think he's ill.", "Positive opinion: indicative."],
+        ["Bien qu'il est fatigué, il sort.", "Bien qu'il [soit] fatigué, il sort.", "Although he's tired, he's going out.", "Bien que + subjunctive."],
+        ["Je parle lentement pour tu comprends.", "Je parle lentement pour que tu [comprennes].", "I'm speaking slowly so you understand.", "Pour que + subjunctive."],
+        ["Avant que partir.", "Avant de [partir].", "Before leaving.", "Same person: avant de + infinitive."],
+        ["Il faut que j'ai le temps.", "Il faut que j'[aie] le temps.", "I need to have time.", "Same sound, different spelling: que j'aie."],
+        ["Je suis content que tu es là.", "Je suis content que tu [sois] là.", "I'm glad you're here.", "Feelings: subjunctive."],
+        ["Je sais pas s'il soit là.", "Je sais pas s'il [est] là.", "I don't know if he's there.", "Si never takes the subjunctive."],
+        ["Je doute qu'il vient.", "Je doute qu'il [vienne].", "I doubt he's coming.", "Doubt: subjunctive."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        pink: { bar: "bg-pink-500", edge: "border-pink-500", soft: "bg-pink-50", text: "text-pink-700", num: "bg-pink-600" },
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [parte] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- charts ---------- */
+      document.getElementById("chart-body").innerHTML = TRIGGERS.map(
+        ([family, triggers, fr, en]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-semibold text-slate-700 whitespace-nowrap align-top">${esc(family)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-pink-50 font-playfair italic text-pink-800 align-top" lang="fr">${esc(triggers)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 align-top">
+            <span class="block font-medium text-slate-900" lang="fr">${mark(fr, "text-pink-700")}</span>
+            <span class="block text-sm text-slate-500">${esc(en)}</span>
+          </td>
+        </tr>`,
+      ).join("");
+
+      document.getElementById("build-body").innerHTML = BUILD.map(
+        ([verb, ils, sing, plur]) => {
+          const [stem, end] = ils.split("|");
+          return `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-playfair italic font-semibold text-lg text-slate-700 whitespace-nowrap" lang="fr">${esc(verb)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 whitespace-nowrap" lang="fr">${esc(stem)}<span class="text-slate-400 line-through">${esc(end)}</span></td>
+          <td class="px-3 py-2 border-b border-slate-100 bg-pink-50 text-pink-800" lang="fr">${esc(sing)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-violet-800" lang="fr">${esc(plur)}</td>
+        </tr>`;
+        },
+      ).join("");
+
+      document.getElementById("irreg-body").innerHTML = IRREG.map(
+        ([verb, je, nous, fr, en]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-playfair italic font-semibold text-lg text-slate-700 whitespace-nowrap align-top" lang="fr">${esc(verb)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-pink-50 text-pink-800 align-top" lang="fr">${esc(je)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-violet-800 align-top" lang="fr">${esc(nous)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 align-top">
+            <span class="block font-medium text-slate-900" lang="fr">${mark(fr, "text-pink-700")}</span>
+            <span class="block text-sm text-slate-500">${esc(en)}</span>
+          </td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-pink-100 border border-pink-200 px-3 py-1.5 text-sm font-medium text-pink-900 hover:bg-pink-200">The charts</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-pink-400 hover:text-pink-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-pink-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-pink-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-pink-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-pink-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+<script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

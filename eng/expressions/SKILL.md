@@ -31,7 +31,7 @@ paths and menu are different.
 
 `<folder>` is the last part of the page's `AUD_DIR`, normally the topic name.
 
-Current pages: `greet_goodbye` (29 cards, quiz of 15), `thank` (27), `apology` (27), `exclamation` (31), `not_understanding` (32), `ask` (29), `offer_accept` (31), `polite_refusal` (26), `likes_dislikes` (27), `opinion` (32), `small_talk` (33).
+Current pages: `greet_goodbye` (29 cards, quiz of 18), `thank` (27), `apology` (27), `exclamation` (31), `not_understanding` (32), `ask` (29), `offer_accept` (31), `polite_refusal` (26), `likes_dislikes` (27), `opinion` (32), `small_talk` (33), `agree_disagree` (33, no audio yet), `wishes_celebrations` (28, no audio yet), `invitations` (31, no audio yet), `comfort` (26, no audio yet), `compliments` (24, no audio yet), `advice` (23, no audio yet), `directions` (24, no audio yet), `shopping` (25, no audio yet), `restaurant` (22, no audio yet), `phone` (24, no audio yet), `health` (23, no audio yet), `classroom` (25, no audio yet), `emergency` (24, no audio yet).
 
 ---
 
@@ -117,9 +117,17 @@ one on `greet_goodbye.html`, and see the header of
 
 Writing the questions:
 
-- Four types: `say` (scene → pick the phrase), `reply` (hear a line → pick
-  the answer), `build` (tap word tiles into order), `judge` (OK / not OK).
-  About 15 per topic, mixed.
+- Five types: `say` (scene → pick the phrase), `reply` (hear a line → pick
+  the answer), `build` (tap word tiles into order), `judge` (OK / not OK),
+  `match` (two columns, tap the pairs). About 15 per topic, mixed, plus two or
+  three matches.
+- `match` has two forms, 2 to 6 pairs each (5 reads well on a phone):
+  `cards: ["Hello.", "Take care.", …]` matches English with each card's Burmese;
+  `pairs: { "How are you?": "Good, thanks. And you?", … }` matches a line with
+  its reply (the left side must be cards; the right side can be any text).
+  Never put two cards with the same Burmese in one match (`Nice to meet you.` /
+  `It was nice meeting you.`): the quiz lists that as a data problem. Keep
+  `cards: [` on one line with its key, because of the `["` rule below.
 - Phrases are the cards' English, **exactly** as written (`"Good evening."`).
   That gives the question the card's clip, Burmese and note, so a quiz needs no
   new audio. Answers, `reply` prompts and `judge` phrases must be cards; a

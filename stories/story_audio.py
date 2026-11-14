@@ -45,6 +45,7 @@ ap.add_argument("--renormalize", action="store_true", help="redo the leveling fr
 ap.add_argument("--upload", action="store_true", help="upload new/changed clips to R2")
 ap.add_argument("--dry-run", action="store_true", help="with --upload: only report")
 ap.add_argument("--no-check", action="store_true", help="don't run check_audio.py (Whisper) on the new takes")
+ap.add_argument("--only", type=int, nargs="+", default=[], metavar="N", help="make only these clips (one at a time from audio_app.bat)")
 a = ap.parse_args()
 
 
@@ -106,6 +107,8 @@ def normalize(path, dest):
 
 
 def make(n, text):
+    if a.only and n not in a.only:
+        return None
     name = f"{n:02d}.mp3"
     out, rawf = os.path.join(media, name), os.path.join(raw, name)
     redo = n in a.redo

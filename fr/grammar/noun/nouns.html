@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Nouns in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-blue-950 via-slate-800 to-violet-900 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-violet-300 mb-4"
+        >
+          French grammar · Nouns
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">un livre, une table</span>
+        </h1>
+        <p class="text-lg md:text-xl text-violet-100 max-w-2xl mx-auto leading-relaxed">
+          Every French noun is masculine or feminine, even a table or an
+          idea, and you usually can't hear the plural at all: <i lang="fr">le
+          livre</i> and <i lang="fr">les livres</i> differ only in the little
+          word in front. Here is how to guess the gender, build the plural,
+          and put nouns together the French way.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The charts (filled by the script from ENDINGS and PLURALS below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-violet-900 mb-2">
+          First, the chart: guessing the gender from the ending
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          There is no rule that works every time, but the end of a noun is
+          a strong clue. These endings are reliable; the last column lists
+          the everyday exceptions worth knowing.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Ending</th>
+                <th scope="col" class="bg-violet-600 text-white px-3 py-2 font-semibold">Gender</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold">Examples</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold">Everyday exceptions</th>
+              </tr>
+            </thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the chart sideways to see every column.</p>
+
+        <!-- Plurals -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-violet-900 mt-10 mb-2">
+          Plurals: mostly a silent -s
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          In writing, almost every noun adds <i lang="fr">-s</i> or
+          <i lang="fr">-x</i>. In speech you hear the plural on the article
+          (<i lang="fr">le</i> → <i lang="fr">les</i>, <i lang="fr">un</i> →
+          <i lang="fr">des</i>), not on the noun, except in the few rows
+          marked below.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Rule</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold">One</th>
+                <th scope="col" class="bg-violet-600 text-white px-3 py-2 font-semibold">Several</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold">Watch out</th>
+              </tr>
+            </thead>
+            <tbody id="plural-body"></tbody>
+          </table>
+        </div>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-violet-800">Learn it with un or une.</b>
+            <i lang="fr">L'</i> hides the gender: learn
+            <i lang="fr">une idée</i>, <i lang="fr">un arbre</i>, not
+            <i lang="fr">l'idée</i>, <i lang="fr">l'arbre</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-violet-800">Gender spreads.</b> It changes the
+            article, the adjective and the pronoun:
+            <i lang="fr">la petite table, je la prends</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-violet-800">Not about the thing.</b> Gender is
+            grammar, not meaning: <i lang="fr">une personne</i> is
+            feminine even when it's a man.
+          </p>
+        </div>
+        <p class="text-sm mt-4">
+          <a href="../article/articles.html" class="font-semibold text-violet-700 underline underline-offset-2">Articles: le, un, du… →</a>
+          <span class="text-slate-400 mx-1">·</span>
+          <a href="landforms.html" class="font-semibold text-violet-700 underline underline-offset-2">Noun vocabulary pages (landforms, house, body…) →</a>
+        </p>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-violet-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Same word, other gender, other meaning
+        </h2>
+        <p class="text-violet-100 leading-relaxed mb-6 max-w-3xl">
+          A handful of nouns exist in both genders with different
+          meanings. Only <i lang="fr">le</i> or <i lang="fr">la</i> tells
+          you which one is meant.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-violet-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-violet-600 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most are a gender exception, an irregular plural, or an
+              English noun + noun pattern copied word for word. The
+              crossed-out line is the slip; the line under it is what people
+              say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../article/articles.html" class="font-semibold text-violet-700 underline underline-offset-2 hover:text-violet-900">articles</a>
+          ·
+          <a href="../adjective/adjectives.html" class="font-semibold text-violet-700 underline underline-offset-2 hover:text-violet-900">adjectives</a>
+          ·
+          <a href="../pronoun/pronouns.html" class="font-semibold text-violet-700 underline underline-offset-2 hover:text-violet-900">pronouns</a>
+          ·
+          <a href="../preposition/prepositions.html" class="font-semibold text-violet-700 underline underline-offset-2 hover:text-violet-900">prepositions</a>
+        </p>
+        <a href="../index.html" class="text-violet-700 underline underline-offset-2 hover:text-violet-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "[La] plage."
+      --------------------------------------------------------------- */
+
+      /* Gender chart: [ending, m or f, examples, exceptions] */
+      const ENDINGS = [
+        ["-age", "m", "le fromage · le voyage · le garage", "la plage · la page · l'image · la cage"],
+        ["-ment", "m", "le moment · l'appartement · le changement", "la jument (mare)"],
+        ["-eau", "m", "le gâteau · le bateau · le cadeau", "l'eau · la peau"],
+        ["-isme", "m", "le tourisme · le racisme", ""],
+        ["-ème · -amme", "m", "le problème · le système · le programme", "la crème · la femme"],
+        ["-o", "m", "le vélo · le métro · le stylo", "la photo · la radio · la moto · la météo (all shortened words)"],
+        ["-al · -ail", "m", "le journal · le cheval · le travail", ""],
+        ["-oir", "m", "le soir · le miroir · le couloir", ""],
+        ["-tion · -sion", "f", "la question · la station · la télévision", ""],
+        ["-té", "f", "la santé · la liberté · la cité", "l'été · le côté · le pâté"],
+        ["-ette", "f", "la baguette · la fourchette · la chaussette", "le squelette"],
+        ["-ure", "f", "la voiture · la nature · la confiture", "le mercure · le murmure"],
+        ["-ance · -ence", "f", "la chance · la patience · la France", "le silence"],
+        ["-ie", "f", "la boulangerie · la vie · la sortie", "le parapluie · l'incendie · le génie"],
+        ["-ée", "f", "l'idée · la journée · l'année", "le musée · le lycée"],
+        ["-ude · -ise", "f", "l'habitude · la valise · la crise", ""],
+        ["-eur (feelings, qualities)", "f", "la peur · la couleur · la chaleur", "le bonheur · le malheur · l'honneur · and jobs: le chanteur"],
+      ];
+
+      /* Plurals: [rule, one, several, watch out] */
+      const PLURALS = [
+        ["Most nouns: add -s (silent)", "un livre · une table", "des livres · des tables", "You hear le /lə/ → les /le/, not the -s."],
+        ["Ends in -s, -x, -z: no change", "un bus · un prix · un nez", "des bus · des prix · des nez", ""],
+        ["-eau, -au, -eu: add -x", "un gâteau · un tuyau · un jeu", "des gâteaux · des tuyaux · des jeux", "des pneus · des bleus"],
+        ["-al: -aux (you hear it)", "un journal · un animal", "des journaux · des animaux", "des festivals · des bals · des carnavals"],
+        ["-ou: add -s", "un trou · un clou", "des trous · des clous", "Seven take -x: bijoux, cailloux, choux, genoux, hiboux, joujoux, poux"],
+        ["-ail: mostly -s", "un détail · un rail", "des détails · des rails", "un travail → des travaux"],
+        ["Truly irregular (you hear it)", "un œil · monsieur · madame", "des yeux · messieurs · mesdames", "mademoiselle → mesdemoiselles"],
+        ["Final sound drops (you hear it)", "un œuf /œf/ · un os /ɔs/", "des œufs /ø/ · des os /o/", "Same with un bœuf → des bœufs /bø/"],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "gender",
+          title: "Every noun has a gender",
+          fr: "un livre · une table · un problème · une idée",
+          tone: "violet",
+          blurb:
+            "Masculine or feminine, for things and ideas as much as for people. You hear it in the little words around the noun, so getting it wrong is noticeable, but rarely confusing.",
+          ex: [
+            ["[Un] café, s'il vous plaît.", "A coffee, please."],
+            ["[Une] bière, s'il vous plaît.", "A beer, please."],
+            ["[La] voiture est garée devant.", "The car's parked out front."],
+            ["J'ai perdu [mon] portefeuille.", "I've lost my wallet."],
+            ["J'ai perdu [ma] clé.", "I've lost my key.", "Mon, ma, ton, ta change with the noun, not with the owner."],
+            ["[Mon] idée", "my idea", "Ma becomes mon before a vowel, even with a feminine noun: mon amie, mon école."],
+            ["C'est [une] bonne question.", "That's a good question.", "The adjective agrees too."],
+            ["— Tu as vu le film ? — Oui, je [l']ai vu.", "— Did you see the film? — Yes, I saw it.", "Pronouns follow the gender: le film → le, la série → la."],
+            ["[Cette] chaise est cassée.", "This chair is broken.", "ce, cet, cette: also by gender."],
+          ],
+          tip: "When unsure in speech, a quick un or une said clearly is better than hesitating. People will understand you either way.",
+        },
+        {
+          id: "meaning",
+          title: "Gender by meaning",
+          fr: "le lundi · le français · le rouge · le chêne",
+          tone: "sky",
+          blurb:
+            "Some whole groups of nouns share a gender because of what they mean, whatever their ending.",
+          ex: [
+            ["[Le] lundi, je travaille.", "On Mondays I work.", "Days, months and seasons are masculine."],
+            ["Je parle [le] français.", "I speak French.", "Languages are masculine."],
+            ["[Le] rouge te va bien.", "Red suits you.", "Colours as nouns are masculine."],
+            ["[Le] chêne, [le] sapin, [le] pommier", "the oak, the fir, the apple tree", "Trees are masculine."],
+            ["[La] pomme, [la] poire, [la] fraise", "the apple, the pear, the strawberry", "Most fruits ending in -e are feminine (but le citron, le raisin)."],
+            ["[La] France, [l']Italie", "France, Italy", "Countries ending in -e are mostly feminine."],
+            ["[Le] Japon, [le] Canada", "Japan, Canada", "Other countries are masculine."],
+            ["[Le] fer, [l']or, [l']argent", "iron, gold, silver", "Metals are masculine."],
+            ["[La] chimie, [la] biologie", "chemistry, biology", "School subjects in -ie are feminine (but le français, le sport)."],
+            ["[Le] tennis, [le] foot", "tennis, football", "Sports borrowed from English are masculine."],
+          ],
+        },
+        {
+          id: "people",
+          title: "People: two forms, one form, or a fixed gender",
+          fr: "un ami, une amie · un élève, une élève · une personne",
+          tone: "amber",
+          blurb:
+            "For people, the gender usually follows the person. Some nouns change their ending, some only change the article, and a few are fixed whoever they describe.",
+          ex: [
+            ["un ami → une [amie]", "a friend (man → woman)", "Add -e. You hear no difference."],
+            ["un voisin → une [voisine]", "a neighbour", "Here you hear the n: /vwazɛ̃/ → /vwazin/."],
+            ["un acteur → une [actrice]", "an actor → an actress", "-teur often → -trice."],
+            ["un vendeur → une [vendeuse]", "a shop assistant", "-eur → -euse."],
+            ["un boulanger → une [boulangère]", "a baker", "-er → -ère."],
+            ["un musicien → une [musicienne]", "a musician", "-ien → -ienne."],
+            ["un élève → une [élève]", "a pupil", "Same word, only the article changes: un/une enfant, un/une journaliste, un/une collègue."],
+            ["Elle est [prof].", "She's a teacher.", "Speech says une prof. Many job names now have feminine forms: une autrice, une docteure, une ingénieure."],
+            ["C'est [une] personne très gentille.", "He's a very kind person.", "Always feminine, even for a man. Also une victime, une star."],
+            ["C'est [un] bébé adorable.", "She's a lovely baby.", "Always masculine, even for a girl."],
+          ],
+        },
+        {
+          id: "hear",
+          title: "Hearing singular and plural",
+          fr: "le livre /lə/ · les livres /le/ · les amis /lezami/",
+          tone: "teal",
+          blurb:
+            "The final -s and -x are silent, so the noun itself usually sounds the same. The article, a linking z sound, or the verb tells you there is more than one.",
+          ex: [
+            ["[Le] livre · [les] livres", "the book · the books", "Only the article changes in sound."],
+            ["[Un] chien · [des] chiens", "a dog · some dogs"],
+            ["Les‿[amis]", "the friends", "Liaison: a z sound links les to a noun starting with a vowel: /lezami/."],
+            ["Des‿[enfants]", "some children", "/dezɑ̃fɑ̃/"],
+            ["Mes‿[affaires]", "my things", "Same with mes, tes, ses, nos, vos, leurs."],
+            ["Il [arrive] · ils [arrivent]", "he's coming · they're coming", "The verb usually sounds the same too…"],
+            ["Il [prend] · ils [prennent]", "he takes · they take", "…but irregular verbs often give it away."],
+            ["Un [cheval] · des [chevaux]", "a horse · horses", "Nouns in -al are among the few where you hear the plural."],
+            ["Un [œil] · des [yeux]", "an eye · eyes"],
+          ],
+        },
+        {
+          id: "plural-only",
+          title: "Plural in French, singular in English (and the reverse)",
+          fr: "les vacances · les gens · les cheveux · le pantalon",
+          tone: "rose",
+          blurb:
+            "Some nouns are always plural in French where English has a singular or an uncountable noun, and a few work the other way round.",
+          ex: [
+            ["Les [vacances] étaient super.", "The holiday was great.", "Always plural: les vacances."],
+            ["Les [gens] sont sympas ici.", "People are nice here.", "Les gens takes a plural verb."],
+            ["J'ai les [cheveux] longs.", "I have long hair.", "Hair on your head: plural. Un cheveu is one single hair."],
+            ["Tu as fait tes [devoirs] ?", "Have you done your homework?"],
+            ["T'as vu les [infos] ?", "Have you seen the news?", "Les infos = les informations."],
+            ["Il m'a donné des [conseils].", "He gave me some advice.", "Countable in French: un conseil, a piece of advice."],
+            ["J'ai acheté des [meubles].", "I bought some furniture.", "Un meuble: one piece of furniture."],
+            ["Où sont les [toilettes] ?", "Where's the toilet?"],
+            ["J'ai mis mon [pantalon] bleu.", "I put on my blue trousers.", "One pantalon = one pair of trousers. Same: un jean, un short, un pyjama."],
+            ["J'ai perdu mes [lunettes].", "I've lost my glasses.", "Plural in both languages."],
+          ],
+        },
+        {
+          id: "two-nouns",
+          title: "Two nouns together: de, à, en",
+          fr: "une tasse à café · une tasse de café · un gâteau au chocolat",
+          tone: "indigo",
+          blurb:
+            "English sticks nouns together (“kitchen table”, “coffee cup”). French reverses the order and links them with a small word. The word you choose changes the meaning.",
+          ex: [
+            ["La table [de la] cuisine.", "The kitchen table.", "The main noun comes first."],
+            ["Une tasse [à] café.", "A coffee cup.", "À: what it is for."],
+            ["Une tasse [de] café.", "A cup of coffee.", "De: what is in it."],
+            ["Un gâteau [au] chocolat.", "A chocolate cake.", "À + le → au: the main flavour or ingredient."],
+            ["Une cuillère [en] bois.", "A wooden spoon.", "En: what it is made of."],
+            ["Une balle [de] tennis.", "A tennis ball."],
+            ["L'arrêt [de] bus.", "The bus stop."],
+            ["Une machine [à] laver.", "A washing machine.", "À + infinitive: what the machine does."],
+            ["Une salle [de] bains.", "A bathroom."],
+            ["Une brosse [à] dents.", "A toothbrush."],
+            ["Un jus [d']orange.", "An orange juice."],
+          ],
+          more: ["../preposition/prepositions.html", "More on à and de"],
+        },
+        {
+          id: "possession",
+          title: "Whose? No 's in French",
+          fr: "le vélo de Paul · chez Marie · c'est à qui ?",
+          tone: "emerald",
+          blurb:
+            "French has no 's. The thing comes first, then de and the owner. De fuses with le and les as usual.",
+          ex: [
+            ["Le vélo [de] Paul.", "Paul's bike."],
+            ["La voiture [de] mes parents.", "My parents' car."],
+            ["Le bureau [du] directeur.", "The manager's office.", "de + le → du"],
+            ["La chambre [des] enfants.", "The children's room.", "de + les → des"],
+            ["Le frère [de] ma copine.", "My girlfriend's brother."],
+            ["On dîne [chez] Marie.", "We're having dinner at Marie's.", "Someone's home: chez."],
+            ["C'est [à] qui, ce sac ?", "Whose bag is this?"],
+            ["C'est [à] Léa.", "It's Léa's."],
+            ["Le vélo [à] Paul.", "Paul's bike.", "Casual speech. Careful French: le vélo de Paul."],
+          ],
+        },
+        {
+          id: "compound",
+          title: "Compound nouns",
+          fr: "un ouvre-boîte · une pomme de terre · un porte-monnaie",
+          tone: "violet",
+          blurb:
+            "Some French nouns are built from two or three words. The common patterns are verb + noun with a hyphen, and noun + de + noun.",
+          ex: [
+            ["Un [ouvre-boîte].", "A tin opener.", "Verb + noun: what the thing does."],
+            ["Un [tire-bouchon].", "A corkscrew."],
+            ["Un [porte-monnaie].", "A purse."],
+            ["Un [sèche-cheveux].", "A hairdryer."],
+            ["Un [grille-pain].", "A toaster."],
+            ["Une [pomme de terre].", "A potato.", "Literally “apple of the earth”. Plural: des pommes de terre."],
+            ["Un [arc-en-ciel].", "A rainbow."],
+            ["Un [chef-d'œuvre].", "A masterpiece.", "Plural: des chefs-d'œuvre."],
+            ["Le [week-end].", "The weekend.", "Borrowed words are usually masculine."],
+            ["Un [petit-déjeuner].", "A breakfast."],
+          ],
+          tip: "Verb + noun compounds are almost always masculine, whatever the gender of the noun inside: une boîte, but un ouvre-boîte.",
+        },
+        {
+          id: "count",
+          title: "Some, a piece of, a slice of",
+          fr: "du pain · un pain · un morceau de · une tranche de",
+          tone: "amber",
+          blurb:
+            "A mass noun (bread, water, cheese) takes du, de la, de l' for “some”. Add un or une and it means one whole item or one kind. To count a mass, use a measuring word with de.",
+          ex: [
+            ["Je prends [du] pain.", "I'll get some bread."],
+            ["Je prends [un] pain.", "I'll get a loaf.", "Un pain: one whole loaf."],
+            ["Tu veux [du] café ?", "Do you want some coffee?"],
+            ["[Un] café, s'il vous plaît.", "A coffee, please.", "In a café, un café means one cup."],
+            ["[Un morceau de] fromage.", "A piece of cheese."],
+            ["[Une tranche de] jambon.", "A slice of ham."],
+            ["[Une part de] gâteau.", "A slice of cake."],
+            ["[Un verre d']eau.", "A glass of water."],
+            ["[Une bouteille de] vin.", "A bottle of wine."],
+            ["[Un peu de] patience.", "A bit of patience."],
+          ],
+          more: ["../article/articles.html", "Du, de la, des and when to use them"],
+        },
+        {
+          id: "making",
+          title: "Making nouns from verbs and adjectives",
+          fr: "organiser → l'organisation · beau → la beauté",
+          tone: "sky",
+          blurb:
+            "A few endings turn verbs and adjectives into nouns, and each ending comes with its gender. Recognise the ending and you know the gender.",
+          ex: [
+            ["organiser → [l'organisation]", "to organise → organisation", "-tion: feminine."],
+            ["changer → [le changement]", "to change → a change", "-ment: masculine."],
+            ["laver → [le lavage]", "to wash → washing", "-age: masculine."],
+            ["arriver → [l'arrivée]", "to arrive → arrival", "-ée from a past participle: feminine. Also la sortie, l'entrée."],
+            ["ouvrir → [l'ouverture]", "to open → opening", "-ure: feminine."],
+            ["chanter → [le chanteur], [la chanteuse]", "to sing → singer"],
+            ["beau → [la beauté]", "beautiful → beauty", "-té: feminine."],
+            ["jeune → [la jeunesse]", "young → youth", "-esse: feminine."],
+            ["gentil → [la gentillesse]", "kind → kindness"],
+            ["dîner → [le dîner]", "to have dinner → dinner", "Some infinitives are nouns too: le déjeuner, le sourire, le savoir."],
+          ],
+        },
+        {
+          id: "short",
+          title: "Shortened nouns in everyday speech",
+          fr: "le resto · la fac · le frigo · la télé",
+          tone: "teal",
+          blurb:
+            "Spoken French clips long nouns, and the short form keeps the gender of the full word. That is why la photo, la moto and la radio are feminine despite the -o.",
+          ex: [
+            ["On va au [resto] ?", "Shall we go to a restaurant?", "le restaurant"],
+            ["Je suis à la [fac].", "I'm at uni.", "la faculté"],
+            ["Mets ça au [frigo].", "Put that in the fridge.", "le frigidaire"],
+            ["Y a quoi à la [télé] ?", "What's on TV?", "la télévision"],
+            ["Envoie-moi la [photo].", "Send me the photo.", "la photographie"],
+            ["Il a une [moto].", "He's got a motorbike.", "la motocyclette"],
+            ["Mon [ordi] est mort.", "My computer's dead.", "l'ordinateur (masculine)"],
+            ["On se voit au [ciné] ?", "See you at the cinema?", "le cinéma"],
+            ["Le [petit-déj] est prêt.", "Breakfast is ready.", "le petit-déjeuner"],
+            ["Tu peux mettre la [clim] ?", "Can you put the air con on?", "la climatisation"],
+            ["Mon [appart] est petit.", "My flat's small.", "l'appartement (masculine)"],
+            ["Passe-moi le [truc], là.", "Pass me the thingy.", "Le truc, le machin: “the thing”. Very common, casual."],
+          ],
+        },
+        {
+          id: "capitals",
+          title: "Capital letters: less than in English",
+          fr: "un Français · il est français · le français · lundi · juin",
+          tone: "rose",
+          blurb:
+            "French writes fewer capital letters. A capital marks a person from a place; the language, the adjective, days and months are all lower case.",
+          ex: [
+            ["C'est un [Français].", "He's a Frenchman.", "Noun for a person: capital."],
+            ["Il est [français].", "He's French.", "Adjective: lower case."],
+            ["Je parle [français].", "I speak French.", "Language: lower case."],
+            ["Les [Parisiens] sont pressés.", "Parisians are always in a hurry."],
+            ["On se voit [lundi].", "See you on Monday.", "Days: lower case."],
+            ["Je pars en [juin].", "I'm leaving in June.", "Months: lower case."],
+            ["La [rue] de la Paix", "rue de la Paix", "Street words: lower case; the name keeps its capital."],
+          ],
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["[Le] tour de France", "the Tour de France (a trip round)", "[La] tour Eiffel", "the Eiffel Tower"],
+        ["[Le] livre", "the book", "[La] livre", "the pound (money or weight)"],
+        ["[Le] poste", "the job · the TV set · the police station", "[La] poste", "the post office"],
+        ["[Le] mode d'emploi", "the instructions (the way to use it)", "[La] mode", "fashion"],
+        ["[Le] mémoire", "a dissertation", "[La] mémoire", "memory"],
+        ["[Le] poêle", "the stove", "[La] poêle", "the frying pan"],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["Le plage.", "[La] plage.", "The beach.", "-age is masculine, but plage is an exception."],
+        ["La problème.", "[Le] problème.", "The problem.", "-ème nouns are masculine."],
+        ["Le photo.", "[La] photo.", "The photo.", "Short for la photographie."],
+        ["Ma amie.", "[Mon] amie.", "My (female) friend.", "Ma → mon before a vowel."],
+        ["Les journals.", "Les [journaux].", "The newspapers.", "-al → -aux."],
+        ["Les œils.", "Les [yeux].", "The eyes.", "Irregular plural."],
+        ["Les gens est sympa.", "Les gens [sont] sympas.", "People are nice.", "Les gens is plural."],
+        ["Ma vacance.", "Mes [vacances].", "My holiday.", "Always plural."],
+        ["Mes pantalons.", "Mon [pantalon].", "My trousers.", "One pair = un pantalon."],
+        ["Un information.", "[Une] information.", "A piece of information.", "-tion is feminine."],
+        ["Un café tasse.", "Une tasse [à] café.", "A coffee cup.", "Main noun first, then à or de."],
+        ["Paul's vélo.", "Le vélo [de] Paul.", "Paul's bike.", "No 's: the thing, then de + owner."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [la] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- gender chart ---------- */
+      const badge = (g) =>
+        g === "m"
+          ? `<span class="inline-block rounded-full bg-sky-100 text-sky-800 px-2.5 py-0.5 text-sm font-semibold">masculine</span>`
+          : `<span class="inline-block rounded-full bg-rose-100 text-rose-800 px-2.5 py-0.5 text-sm font-semibold">feminine</span>`;
+      document.getElementById("chart-body").innerHTML = ENDINGS.map(
+        ([ending, g, examples, except]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 bg-violet-50 font-playfair italic font-semibold text-lg text-violet-800 whitespace-nowrap" lang="fr">${esc(ending)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 whitespace-nowrap">${badge(g)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-slate-900" lang="fr">${esc(examples)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-slate-600" lang="fr">${except ? esc(except) : `<span class="text-slate-400">—</span>`}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- plurals chart ---------- */
+      document.getElementById("plural-body").innerHTML = PLURALS.map(
+        ([rule, one, several, watch]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-semibold text-slate-700 text-sm">${esc(rule)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 text-slate-900" lang="fr">${esc(one)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 bg-violet-50 font-medium text-violet-800" lang="fr">${esc(several)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-slate-600" lang="fr">${watch ? esc(watch) : `<span class="text-slate-400">—</span>`}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-violet-100 border border-violet-200 px-3 py-1.5 text-sm font-medium text-violet-900 hover:bg-violet-200">The charts</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-violet-400 hover:text-violet-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-violet-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-violet-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-violet-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-violet-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+<script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

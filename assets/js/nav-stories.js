@@ -10,26 +10,35 @@
       name: "Stories",
       lessons: [
         { title: "Jack and the Beanstalk", href: "Jack_beanstalk.html" },
+        { title: "Jack and the Beanstalk: Story Quiz", href: "Jack_beanstalk_storyquiz.html" },
         { title: "The Three Little Pigs", href: "three_pigs.html" },
+        { title: "The Three Little Pigs: Story Quiz", href: "three_pigs_storyquiz.html" },
         { title: "Aladdin and the Magic Lamp", href: "Aladdin_lamp.html" },
+        { title: "Aladdin: Story Quiz", href: "Aladdin_lamp_storyquiz.html" },
         {
           title: "Tinker Bell and the Lost Fairy Light",
           href: "Tinkerbell_light.html",
         },
+        { title: "Tinker Bell: Story Quiz", href: "Tinkerbell_light_storyquiz.html" },
         {
           title: "Hansel and Gretel and the Gingerbread House",
           href: "Hansel_Gretel.html",
         },
+        { title: "Gingerbread House: Story Quiz", href: "Hansel_Gretel_storyquiz.html" },
         {
           title: "Hansel and Gretel and the Butterfly Forest",
           href: "butterfly.html",
         },
+        { title: "Butterfly Forest: Story Quiz", href: "butterfly_storyquiz.html" },
         { title: "The Little Mushroom House", href: "mushroom_house.html" },
+        { title: "The Little Mushroom House: Story Quiz", href: "mushroom_house_storyquiz.html" },
         {
           title: "Rosie and the Little People of Clover Valley",
           href: "Clover_valley.html",
         },
+        { title: "Clover Valley: Story Quiz", href: "Clover_valley_storyquiz.html" },
         { title: "The Mushroom House Orchestra", href: "Mushroom_house_orchestra.html" },
+        { title: "Mushroom House Orchestra: Story Quiz", href: "Mushroom_house_orchestra_storyquiz.html" },
       ],
     },
   ];

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Classroom English</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">CLASSROOM</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Classroom English
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          စာသင်ခန်းသုံး အင်္ဂလိပ်စကား
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">25</span> expressions · Classroom English
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 25.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/classroom/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Coming into class",
+          my: "စာသင်ခန်းထဲ ဝင်ခြင်း",
+          desc: "Short phrases for the start of the lesson.",
+          cards: [
+            ["May I come in?", "ဝင်လို့ ရမလား ဆရာ။", "Polite, at the classroom door, especially if the lesson has started.",
+              "Sorry I'm late. May I come in?", "နောက်ကျသွားလို့ ဆောရီးပါ။ ဝင်လို့ ရမလား ဆရာ။"],
+            ["Here!", "ရှိပါတယ်။", "The answer when the teacher reads your name from the list. Also: Present!",
+              "— Aung Aung? — Here!", "— အောင်အောင်။ — ရှိပါတယ်။"],
+            ["Can I sit next to <span class=gray>May</span>?", "မေ့ဘေးမှာ ထိုင်လို့ ရမလား။", "Next to = beside.",
+              "Can I sit next to the window?", "ပြတင်းပေါက်ဘေးမှာ ထိုင်လို့ ရမလား။"],
+            ["Is it break time?", "အားလပ်ချိန် ရောက်ပြီလား။", "Break = the short rest between lessons. American English: recess.",
+              "Is it break time yet? I'm hungry!", "အားလပ်ချိန် ရောက်ပြီလား။ ဗိုက်ဆာပြီ။"],
+          ],
+        },
+        {
+          en: "Asking the teacher",
+          my: "ဆရာ့ကို မေးခြင်း",
+          desc: "Asking for permission or help during the lesson.",
+          cards: [
+            ["Can I go to the toilet?", "အိမ်သာ သွားလို့ ရမလား။", "Polite enough for class. More polite: May I go to the toilet, please? American English: bathroom.",
+              "Excuse me, teacher. Can I go to the toilet?", "တဆိတ်လောက် ဆရာ။ အိမ်သာ သွားလို့ ရမလား။"],
+            ["I don't have a <span class=gray>pencil</span>.", "ခဲတံ မပါဘူး။", "Tells the teacher what you are missing.",
+              "Sorry, I don't have a ruler.", "ဆောရီး၊ ပေတံ မပါဘူး။"],
+            ["Can I borrow <span class=gray>an eraser</span>?", "ခဲဖျက် ငှားလို့ ရမလား။", "Borrow = take and give back. British English also says a rubber.",
+              "Can I borrow a pen? I'll give it back.", "ဘောပင် ငှားလို့ ရမလား။ ပြန်ပေးမယ်။"],
+            ["Which page?", "ဘယ်စာမျက်နှာလဲ။", "When you missed the page number. Also: What page are we on?",
+              "Sorry, which page?", "ဆောရီး၊ ဘယ်စာမျက်နှာလဲ။"],
+            ["Is this right?", "ဒါ မှန်လား။", "Asks the teacher to check your answer. Also: Is this correct?",
+              "I wrote cat with a k. Is this right?", "cat ကို k နဲ့ ရေးထားတယ်။ ဒါ မှန်လား။"],
+            ["Can you help me, please?", "ကူညီပေးလို့ ရမလား။", "Put up your hand first, then ask.",
+              "I'm stuck on number three. Can you help me, please?", "နံပါတ် သုံးမှာ ခက်နေတယ်။ ကူညီပေးလို့ ရမလား။"],
+          ],
+        },
+        {
+          en: "Working together",
+          my: "အတူတူ လုပ်ဆောင်ခြင်း",
+          desc: "Talking with classmates during group work and games.",
+          cards: [
+            ["I've finished.", "ပြီးပါပြီ။", "Tells the teacher your work is done. Not: I finish.",
+              "Teacher, I've finished. What can I do now?", "ဆရာ၊ ပြီးပါပြီ။ အခု ဘာလုပ်ရမလဲ။"],
+            ["Can we work together?", "အတူတူ လုပ်လို့ ရမလား။", "Asks a classmate or the teacher to work as a pair or group.",
+              "This is hard. Can we work together?", "ဒါ ခက်တယ်။ အတူတူ လုပ်လို့ ရမလား။"],
+            ["It's my turn.", "ကျွန်တော့်/ကျွန်မ အလှည့်ပါ။", "In a game or a line. Also: It's your turn.",
+              "You played already. It's my turn now!", "မင်း ကစားပြီးပြီ။ အခု ငါ့ အလှည့်။"],
+            ["Whose turn is it?", "ဘယ်သူ့ အလှည့်လဲ။", "Whose = belonging to who.",
+              "Whose turn is it to clean the board?", "သင်ပုန်း ဖျက်ဖို့ ဘယ်သူ့ အလှည့်လဲ။"],
+            ["I need more time.", "အချိန် ထပ်လိုသေးတယ်။", "When the teacher says time is up and you are not finished.",
+              "Can I have five more minutes? I need more time.", "နောက်ထပ် ငါးမိနစ် ရမလား။ အချိန် ထပ်လိုသေးတယ်။"],
+          ],
+        },
+        {
+          en: "What the teacher says",
+          my: "ဆရာ ပြောတတ်တာများ",
+          desc: "Instructions you will hear in every English lesson.",
+          cards: [
+            ["Open your books.", "စာအုပ်တွေ ဖွင့်ကြ။", "Often with a page: Open your books at page ten. The opposite: Close your books.",
+              "Good morning, class. Open your books at page twelve.", "မင်္ဂလာပါ ကျောင်းသားတို့။ စာအုပ်တွေ စာမျက်နှာ ဆယ့်နှစ် ဖွင့်ကြ။"],
+            ["Listen carefully.", "သေချာ နားထောင်ကြ။", "Before something important, or before audio.",
+              "Listen carefully and repeat after me.", "သေချာ နားထောင်ပြီး လိုက်ပြောကြ။"],
+            ["Work in pairs.", "နှစ်ယောက်တစ်တွဲ လုပ်ကြ။", "A pair = two people. In groups = three or more.",
+              "Work in pairs. Ask your partner the questions.", "နှစ်ယောက်တစ်တွဲ လုပ်ကြ။ ကိုယ့်အဖော်ကို မေးခွန်းတွေ မေးကြ။"],
+            ["Put up your hand.", "လက်ထောင်ပါ။", "Raise your hand before you speak. Also: Hands up!",
+              "If you know the answer, put up your hand.", "အဖြေ သိရင် လက်ထောင်ပါ။"],
+            ["Be quiet, please.", "တိတ်တိတ် နေကြပါ။", "The class is too noisy.",
+              "Be quiet, please. I can't hear Mia.", "တိတ်တိတ် နေကြပါ။ မီယာ့အသံ မကြားရဘူး။"],
+            ["Good work, everyone!", "အားလုံး တော်ကြတယ်။", "Praise for the whole class at the end of a task.",
+              "Good work, everyone! See you tomorrow.", "အားလုံး တော်ကြတယ်။ မနက်ဖြန် တွေ့မယ်။"],
+          ],
+        },
+        {
+          en: "Homework and tests",
+          my: "အိမ်စာနှင့် စာမေးပွဲ",
+          desc: "Asking about homework, and saying when there's a problem.",
+          cards: [
+            ["What's the homework?", "အိမ်စာ ဘာလဲ။", "Homework has no s: some homework, not a homework.",
+              "I was absent yesterday. What's the homework?", "မနေ့က ကျောင်း မလာခဲ့ဘူး။ အိမ်စာ ဘာလဲ။"],
+            ["I forgot my homework.", "အိမ်စာ မေ့ကျန်ခဲ့တယ်။", "You did it but left it at home, or you forgot to do it. Say sorry first.",
+              "Sorry, teacher, I forgot my homework. Can I bring it tomorrow?", "ဆောရီး ဆရာ၊ အိမ်စာ မေ့ကျန်ခဲ့တယ်။ မနက်ဖြန် ယူလာလို့ ရမလား။"],
+            ["When is the test?", "စာမေးပွဲ ဘယ်တော့လဲ။", "A test is small; an exam is big and important.",
+              "When is the spelling test?", "စာလုံးပေါင်း စာမေးပွဲ ဘယ်တော့လဲ။"],
+            ["Can I check my answers?", "အဖြေတွေ စစ်ကြည့်လို့ ရမလား။", "Before you hand in your work, or after the teacher marks it.",
+              "Can I check my answers before I give it to you?", "မပေးခင် အဖြေတွေ စစ်ကြည့်လို့ ရမလား။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

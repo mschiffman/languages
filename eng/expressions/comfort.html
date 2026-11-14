@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Comforting &amp; Encouraging</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">COMFORTING &amp; ENCOURAGING</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Comforting &amp; Encouraging
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          နှစ်သိမ့်ခြင်းနှင့် အားပေးခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">26</span> expressions · Comforting &amp; Encouraging
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 26.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/comfort/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "When someone is upset",
+          my: "စိတ်မကောင်းဖြစ်နေတဲ့အခါ",
+          desc: "Noticing that someone is sad or worried, and asking gently.",
+          cards: [
+            ["Are you OK?", "အဆင်ပြေရဲ့လား။", "The simplest way to show you care. Also: Are you all right?",
+              "You're very quiet today. Are you OK?", "ဒီနေ့ အရမ်း တိတ်နေတယ်။ အဆင်ပြေရဲ့လား။"],
+            ["What's wrong?", "ဘာဖြစ်လို့လဲ။", "Asks gently what the problem is. Kinder than What's your problem?, which sounds angry.",
+              "Why are you crying? What's wrong?", "ဘာလို့ ငိုနေတာလဲ။ ဘာဖြစ်လို့လဲ။"],
+            ["Do you want to talk about it?", "ပြောပြချင်လား။", "Offers to listen, but lets the other person decide.",
+              "You look sad. Do you want to talk about it?", "စိတ်မကောင်း ဖြစ်နေပုံ ရတယ်။ ပြောပြချင်လား။"],
+            ["You look worried.", "စိတ်ပူနေပုံ ရတယ်။", "Says what you notice, so the other person can explain.",
+              "You look worried. Is it the test?", "စိတ်ပူနေပုံ ရတယ်။ စာမေးပွဲကြောင့်လား။"],
+          ],
+        },
+        {
+          en: "Comforting",
+          my: "နှစ်သိမ့်ခြင်း",
+          desc: "Kind words to help someone feel better.",
+          cards: [
+            ["It's going to be OK.", "အဆင်ပြေသွားမှာပါ။", "The most common comforting words. Also: Everything will be fine.",
+              "Don't cry. It's going to be OK.", "မငိုပါနဲ့။ အဆင်ပြေသွားမှာပါ။"],
+            ["Don't be sad.", "စိတ်မကောင်း မဖြစ်ပါနဲ့။", "Simple and kind, often to a child or a close friend.",
+              "Don't be sad. We can play again tomorrow.", "စိတ်မကောင်း မဖြစ်ပါနဲ့။ မနက်ဖြန် ထပ်ကစားလို့ ရပါတယ်။"],
+            ["I'm here for you.", "ကျွန်တော်/ကျွန်မ အနားမှာ ရှိပါတယ်။", "You will help and listen, whatever happens.",
+              "Call me any time. I'm here for you.", "ဘယ်အချိန်ဖြစ်ဖြစ် ဖုန်းဆက်ပါ။ အနားမှာ ရှိပါတယ်။"],
+            ["It's OK to cry.", "ငိုချင်ရင် ငိုလို့ ရပါတယ်။", "Tells someone their feelings are normal.",
+              "It's OK to cry. I miss her too.", "ငိုချင်ရင် ငိုလို့ ရပါတယ်။ ကျွန်မလည်း သူ့ကို သတိရတယ်။"],
+            ["It could be worse.", "ဒီထက် ဆိုးနိုင်သေးတာပဲ။", "Helps someone see that a problem is small. Not for serious bad news.",
+              "— I lost my umbrella. — Oh well, it could be worse!", "— ထီး ပျောက်သွားတယ်။ — ကိစ္စမရှိပါဘူး၊ ဒီထက် ဆိုးနိုင်သေးတာပဲ။"],
+            ["These things happen.", "ဒီလို ကိစ္စတွေ ဖြစ်တတ်ပါတယ်။", "Says it's normal bad luck, not anyone's fault.",
+              "Your phone broke? These things happen.", "ဖုန်း ပျက်သွားတာလား။ ဒီလို ကိစ္စတွေ ဖြစ်တတ်ပါတယ်။"],
+          ],
+        },
+        {
+          en: "Encouraging",
+          my: "အားပေးခြင်း",
+          desc: "Before something hard: a test, a race, a performance.",
+          cards: [
+            ["You can do it!", "မင်း လုပ်နိုင်ပါတယ်။", "The classic encouragement. Teachers and parents say it all the time.",
+              "The race is starting. You can do it!", "ပြိုင်ပွဲ စတော့မယ်။ မင်း လုပ်နိုင်ပါတယ်။"],
+            ["Don't give up!", "လက်မလျှော့နဲ့။", "When something is difficult and someone wants to stop.",
+              "Maths is hard, but don't give up!", "သင်္ချာက ခက်တယ်၊ ဒါပေမဲ့ လက်မလျှော့နဲ့။"],
+            ["Just do your best.", "တတ်နိုင်သလောက် ကြိုးစားလိုက်ပါ။", "Takes away pressure: trying hard is what matters.",
+              "Don't worry about winning. Just do your best.", "နိုင်ဖို့ကို စိတ်မပူပါနဲ့။ တတ်နိုင်သလောက် ကြိုးစားလိုက်ပါ။"],
+            ["Believe in yourself.", "ကိုယ့်ကိုယ်ကို ယုံကြည်ပါ။", "For someone who doesn't feel confident.",
+              "You know the answers. Believe in yourself.", "အဖြေတွေ သိပါတယ်။ ကိုယ့်ကိုယ်ကို ယုံကြည်ပါ။"],
+            ["Take a deep breath.", "အသက်ကို ဝဝ ရှူလိုက်ပါ။", "Helps someone calm down when they are nervous.",
+              "Take a deep breath. Now, start again slowly.", "အသက်ကို ဝဝ ရှူလိုက်ပါ။ အခု ဖြည်းဖြည်း ပြန်စပါ။"],
+            ["You've got this!", "မင်း အဆင်ပြေမှာပါ။", "Casual and friendly: I'm sure you will succeed.",
+              "Big day today! You've got this!", "ဒီနေ့ အရေးကြီးတဲ့နေ့ပဲ။ မင်း အဆင်ပြေမှာပါ။"],
+          ],
+        },
+        {
+          en: "After a mistake",
+          my: "အမှား လုပ်မိတဲ့အခါ",
+          desc: "Helping someone try again instead of feeling bad.",
+          cards: [
+            ["Never mind.", "ကိစ္စမရှိပါဘူး။", "It doesn't matter, forget it.",
+              "— I dropped the cup! — Never mind. I'll get another one.", "— ခွက် ပြုတ်ကျသွားတယ်။ — ကိစ္စမရှိပါဘူး။ နောက်တစ်လုံး ယူလိုက်မယ်။"],
+            ["Try again!", "ထပ်ကြိုးစားကြည့်။", "Friendly and simple, often in class or games.",
+              "Almost! Try again!", "နီးပါပြီ။ ထပ်ကြိုးစားကြည့်။"],
+            ["Everyone makes mistakes.", "လူတိုင်း အမှား လုပ်တတ်ပါတယ်။", "Mistakes are normal. Not: Everyone does mistakes.",
+              "Don't worry. Everyone makes mistakes.", "စိတ်မပူပါနဲ့။ လူတိုင်း အမှား လုပ်တတ်ပါတယ်။"],
+            ["You'll do better next time.", "နောက်တစ်ခါ ပိုကောင်းလာမှာပါ။", "After a bad result: look forward, not back.",
+              "Your score was low, but you'll do better next time.", "အမှတ် နည်းသွားပေမဲ့ နောက်တစ်ခါ ပိုကောင်းလာမှာပါ။"],
+            ["Practice makes perfect.", "လေ့ကျင့်ရင် တော်လာမှာပါ။", "A saying: if you practise a lot, you will become very good.",
+              "Play it ten more times. Practice makes perfect!", "နောက်ထပ် ဆယ်ခါ တီးကြည့်။ လေ့ကျင့်ရင် တော်လာမှာပါ။"],
+          ],
+        },
+        {
+          en: "Praising effort",
+          my: "ကြိုးစားမှုကို ချီးကျူးခြင်း",
+          desc: "Noticing hard work and progress, not only results.",
+          cards: [
+            ["Keep it up!", "ဒီအတိုင်း ဆက်လုပ်။", "Continue doing this well.",
+              "Your writing is much better. Keep it up!", "စာရေးတာ အများကြီး ပိုကောင်းလာပြီ။ ဒီအတိုင်း ဆက်လုပ်။"],
+            ["You're getting better!", "ပိုတော်လာပြီ။", "Notices progress, even if it isn't perfect yet.",
+              "You're getting better at swimming!", "ရေကူးတာ ပိုတော်လာပြီ။"],
+            ["I'm proud of you.", "မင်းအတွက် ဂုဏ်ယူတယ်။", "Warm and personal. Parents and teachers say it to children.",
+              "You worked so hard. I'm proud of you.", "အရမ်း ကြိုးစားခဲ့တယ်။ မင်းအတွက် ဂုဏ်ယူတယ်။"],
+            ["Look how far you've come!", "ဘယ်လောက် တိုးတက်လာပြီလဲ ကြည့်စမ်း။", "Compares now with before, to show the progress.",
+              "A year ago you couldn't read. Look how far you've come!", "လွန်ခဲ့တဲ့ တစ်နှစ်က စာမဖတ်တတ်သေးဘူး။ ဘယ်လောက် တိုးတက်လာပြီလဲ ကြည့်စမ်း။"],
+            ["That was a good try.", "ကောင်းကောင်း ကြိုးစားခဲ့တာပဲ။", "Praises the effort when the result wasn't right.",
+              "Not quite, but that was a good try!", "မမှန်သေးဘူး၊ ဒါပေမဲ့ ကောင်းကောင်း ကြိုးစားခဲ့တာပဲ။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

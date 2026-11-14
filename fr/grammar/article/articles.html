@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Articles in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-sky-900 via-blue-800 to-indigo-900 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-sky-300 mb-4"
+        >
+          French grammar · Articles
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">le, un, du</span> … or nothing?
+        </h1>
+        <p class="text-lg md:text-xl text-sky-100 max-w-2xl mx-auto leading-relaxed">
+          English says “I like coffee”, “I'm a teacher”, “I have no car”.
+          French puts an article in the first, takes it out of the second, and
+          changes it in the third. Here is how articles really work in
+          everyday spoken French.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The four families ---------- -->
+      <section
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="key-title"
+      >
+        <h2 id="key-title" class="font-playfair text-2xl md:text-3xl font-bold text-sky-900 mb-2">
+          First, the big picture: four families
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          A French noun almost never stands alone. Before you say it, you
+          choose one of these, and the choice says how you see the thing:
+          a known one, any one, an amount of it, or none of it. The colours
+          are the same all the way down the page.
+        </p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="rounded-xl p-5 bg-sky-50 border-l-4 border-sky-500">
+            <p class="font-playfair italic font-semibold text-2xl text-sky-700" lang="fr">le · la · l' · les</p>
+            <p class="font-semibold text-sky-900 mt-1">Definite</p>
+            <p class="text-sm text-slate-600 mt-1 leading-relaxed">
+              “The one we both know”, and also the whole kind:
+              <i lang="fr">le café</i> = coffee in general.
+            </p>
+          </div>
+          <div class="rounded-xl p-5 bg-emerald-50 border-l-4 border-emerald-500">
+            <p class="font-playfair italic font-semibold text-2xl text-emerald-700" lang="fr">un · une · des</p>
+            <p class="font-semibold text-emerald-900 mt-1">Indefinite</p>
+            <p class="text-sm text-slate-600 mt-1 leading-relaxed">
+              One, or several, that you can count:
+              <i lang="fr">un café</i> = a cup of coffee.
+            </p>
+          </div>
+          <div class="rounded-xl p-5 bg-amber-50 border-l-4 border-amber-500">
+            <p class="font-playfair italic font-semibold text-2xl text-amber-700" lang="fr">du · de la · de l'</p>
+            <p class="font-semibold text-amber-900 mt-1">Partitive</p>
+            <p class="text-sm text-slate-600 mt-1 leading-relaxed">
+              An amount of something you don't count:
+              <i lang="fr">du café</i> = (some) coffee.
+            </p>
+          </div>
+          <div class="rounded-xl p-5 bg-rose-50 border-l-4 border-rose-500">
+            <p class="font-playfair italic font-semibold text-2xl text-rose-700" lang="fr">de · d'</p>
+            <p class="font-semibold text-rose-900 mt-1">Bare “de”</p>
+            <p class="text-sm text-slate-600 mt-1 leading-relaxed">
+              What un, une, des, du, de la turn into after “not” and after a
+              quantity: <i lang="fr">pas de café</i>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- One noun, every article (filled by the script from LADDER below) ---------- -->
+      <section id="ladder" class="mt-10" aria-labelledby="ladder-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-sky-700"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-sky-700 mb-2">
+              At a glance
+            </p>
+            <h2 id="ladder-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              One noun, seven sentences
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              The noun stays the same. Only the little word in front changes,
+              and the meaning changes with it.
+            </p>
+            <ul id="ladder-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- The trap ---------- -->
+      <section
+        id="trap"
+        class="bg-sky-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="trap-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The small word that changes everything
+        </p>
+        <h2 id="trap-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Same noun, different article, different meaning
+        </h2>
+        <p class="text-sky-100 leading-relaxed mb-6 max-w-3xl">
+          In each pair only the article moves. A French listener hears two
+          quite different things.
+        </p>
+        <div id="pairs" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-rose-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-rose-600 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Ten slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Each one comes from translating the English article word for
+              word. The crossed-out line is the slip; the line under it is
+              what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <a href="../index.html" class="text-sky-700 underline underline-offset-2 hover:text-sky-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the article you want
+         highlighted:  "Passe-moi [le] sel."
+         [∅] marks a place where French uses no article at all.
+
+         USES: one entry per use.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "definite",
+          title: "The one we both know",
+          fr: "le · la · l' · les",
+          tone: "sky",
+          blurb:
+            "Use le, la, les when the listener knows which one you mean: it is right there, it was already mentioned, or there is only one. This is the use that works like English “the”.",
+          ex: [
+            ["Passe-moi [le] sel.", "Pass me the salt.", "The salt on this table."],
+            ["T'as fermé [la] porte ?", "Did you shut the door?"],
+            ["Où sont [les] clés ?", "Where are the keys?"],
+            ["J'ai raté [le] bus.", "I missed the bus.", "My usual bus, the one I meant to take."],
+            ["T'as vu [le] match hier ?", "Did you see the match yesterday?"],
+            ["[L']appart est au troisième.", "The flat is on the third floor."],
+            ["[Les] enfants sont couchés.", "The kids are in bed.", "Our kids. French uses les where English might say “the” or “our”."],
+            ["C'est [la] meilleure boulangerie du coin.", "It's the best bakery around here."],
+          ],
+          tip: "Le and la shrink to l' before a vowel or a silent h: l'ami, l'eau, l'heure, l'hôtel. A few words with h refuse it: le haricot, le hamburger, la honte, le hasard. So do the numbers huit and onze: le huit, le onze.",
+        },
+        {
+          id: "general",
+          title: "Things in general (where English has no article)",
+          fr: "le · la · les = the whole kind",
+          tone: "sky",
+          blurb:
+            "This is the big difference from English. When you talk about a thing in general, as an idea or as a whole kind, French still needs le, la or les. It always follows verbs of liking: aimer, adorer, préférer, détester.",
+          ex: [
+            ["J'adore [le] chocolat.", "I love chocolate."],
+            ["J'aime pas [les] lundis.", "I don't like Mondays."],
+            ["Tu préfères [le] thé ou [le] café ?", "Do you prefer tea or coffee?"],
+            ["Je déteste [le] bruit.", "I hate noise."],
+            ["[Le] sport, c'est pas mon truc.", "Sport isn't my thing."],
+            ["[Les] chats, ça dort tout le temps.", "Cats sleep all the time.", "All cats, as a kind."],
+            ["[La] vie est chère ici.", "Life is expensive here."],
+            ["[L']argent fait pas [le] bonheur.", "Money doesn't buy happiness.", "Two ideas in general, so two articles."],
+          ],
+          tip: "Liking takes le, eating and drinking take du. J'aime le vin (wine as a kind) but Je bois du vin (an amount of it). “J'aime du vin” is wrong.",
+        },
+        {
+          id: "indefinite",
+          title: "A, an, some (things you can count)",
+          fr: "un · une · des",
+          tone: "emerald",
+          blurb:
+            "Un and une bring in one thing the listener doesn't know yet. Des is their plural. English often leaves the plural bare (“I bought strawberries”), but French cannot: the des has to be there.",
+          ex: [
+            ["J'ai [un] chat et [une] tortue.", "I've got a cat and a tortoise."],
+            ["Tu veux [un] café ?", "Do you want a coffee?", "One cup."],
+            ["J'ai [une] idée !", "I've got an idea!"],
+            ["Attends [une] seconde.", "Hang on a second."],
+            ["Y a [un] truc qui cloche.", "Something's not right.", "Un truc, “a thing”, is how people say “something” in casual speech."],
+            ["J'ai acheté [des] fraises.", "I bought strawberries.", "No article in English, des in French."],
+            ["On a [des] voisins super sympas.", "We've got really nice neighbours."],
+            ["T'as [des] frères et sœurs ?", "Do you have any brothers and sisters?", "Des also covers “any” in questions."],
+            ["C'est [des] amis à moi.", "They're friends of mine.", "Everyday speech. Careful French says Ce sont des amis."],
+          ],
+          tip: "Un and une are also the number one, so Je prends un café can mean “a coffee” or “one coffee”. The voice makes the difference. In the plural, des is linked to a vowel with a z sound: des‿amis, des‿idées.",
+        },
+        {
+          id: "partitive",
+          title: "Some (an amount you don't count)",
+          fr: "du · de la · de l'",
+          tone: "amber",
+          blurb:
+            "For food, drink, materials, weather, feelings and anything else you measure and don't count. English says “some”, or more often nothing at all. French always says du, de la or de l'.",
+          ex: [
+            ["Tu veux [du] pain ?", "Do you want some bread?"],
+            ["Je vais prendre [de la] soupe.", "I'll have soup."],
+            ["Bois [de l']eau.", "Drink some water."],
+            ["J'ai [du] boulot ce soir.", "I've got work to do tonight."],
+            ["Y a [du] monde !", "It's crowded!", "Du monde = an amount of people."],
+            ["T'as [de la] chance !", "You're lucky!", "Feelings and qualities are amounts too: de la chance, du courage, de la patience."],
+            ["Y a [du] vent aujourd'hui.", "It's windy today.", "Weather: du vent, du soleil, de la pluie, du brouillard."],
+            ["Mets [de la] musique.", "Put some music on."],
+            ["Je fais [du] vélo le dimanche.", "I go cycling on Sundays.", "Faire + du / de la for sports and hobbies: du yoga, de la natation, de la guitare."],
+            ["Ça fait [du] bien !", "That feels good!"],
+          ],
+          tip: "The same noun can be counted or measured. Un gâteau is a whole cake, du gâteau is some of it. Un poulet is a whole bird, du poulet is chicken on your plate. Un travail is a job, du travail is work to do.",
+        },
+        {
+          id: "contractions",
+          title: "When à and de swallow the article",
+          fr: "au · aux · du · des",
+          tone: "violet",
+          blurb:
+            "À and de join up with le and les. They leave la and l' alone. You cannot say “à le” or “de les”.",
+          ex: [
+            ["On va [au] ciné ce soir ?", "Shall we go to the cinema tonight?", "à + le = au"],
+            ["J'ai parlé [aux] voisins.", "I spoke to the neighbours.", "à + les = aux"],
+            ["Je suis [à la] maison.", "I'm at home.", "à la does not change."],
+            ["Elle est [à l']école.", "She's at school.", "à l' does not change."],
+            ["Je rentre [du] boulot.", "I'm coming home from work.", "de + le = du"],
+            ["Je reviens [des] courses.", "I'm back from the shopping.", "de + les = des"],
+            ["C'est la voiture [du] voisin.", "It's the neighbour's car.", "No 's in French: the car of the neighbour."],
+            ["C'est le chat [de la] voisine.", "It's the neighbour's cat.", "de la does not change."],
+            ["Un sandwich [au] jambon.", "A ham sandwich.", "Flavours and fillings take à + article: une tarte aux pommes, une glace à la vanille."],
+            ["Je pense [aux] vacances.", "I'm thinking about the holidays."],
+          ],
+          tip: "Du and des each have two jobs. Je bois du café (some coffee, partitive) but Je sors du café (out of the café, de + le). J'ai des amis (some friends) but Je parle des amis de Léa (about the friends, de + les). Only the articles join up, never the pronouns le and les: J'ai envie de le voir.",
+        },
+        {
+          id: "negation",
+          title: "After “not”: everything becomes de",
+          fr: "pas de · plus de · jamais de",
+          tone: "rose",
+          blurb:
+            "After a negative, un, une, des, du, de la and de l' all turn into de (d' before a vowel). Think of it as “not any”. Le, la, les do not change.",
+          ex: [
+            ["J'ai pas [de] voiture.", "I don't have a car.", "une voiture → pas de voiture"],
+            ["Y a pas [de] problème.", "No problem."],
+            ["J'ai pas [d']argent sur moi.", "I've got no money on me.", "de l'argent → pas d'argent"],
+            ["Je mange pas [de] viande.", "I don't eat meat."],
+            ["On a plus [de] lait.", "We're out of milk."],
+            ["Y a jamais [de] place ici.", "There's never any room here."],
+            ["J'aime pas [le] café.", "I don't like coffee.", "Le, la, les stay as they are."],
+            ["C'est pas [un] problème.", "It's not a problem.", "After être the article stays: you are saying what something is, not how much there is."],
+            ["C'est pas [du] thé, c'est [de la] tisane.", "It's not tea, it's herbal tea.", "Être again."],
+            ["J'ai pas [un] centime.", "I haven't got a single cent.", "Keeping un after pas means “not even one”."],
+          ],
+          tip: "“Only” is not a real negative, so the article stays: Je bois que de l'eau (I only drink water). In careful French: Je ne bois que de l'eau.",
+        },
+        {
+          id: "quantity",
+          title: "After a quantity, and after verbs with de",
+          fr: "beaucoup de · un peu de · un kilo de · besoin de",
+          tone: "rose",
+          blurb:
+            "Words that say how much are followed by plain de, with no article. The same thing happens after expressions built with de, such as avoir besoin de and avoir envie de: du, de la and des disappear into the de.",
+          ex: [
+            ["Y a beaucoup [de] monde.", "There are a lot of people."],
+            ["Un peu [de] sel ?", "A bit of salt?"],
+            ["Y a trop [de] bruit.", "There's too much noise."],
+            ["J'ai plein [de] trucs à faire.", "I've got loads of things to do.", "Plein de is the casual “lots of”."],
+            ["Il a pas mal [d']amis.", "He's got quite a few friends."],
+            ["Un kilo [de] tomates, s'il vous plaît.", "A kilo of tomatoes, please."],
+            ["Une bouteille [d']eau.", "A bottle of water."],
+            ["J'ai besoin [d']argent.", "I need money.", "de + de l'argent → d'argent"],
+            ["J'ai envie [de] frites.", "I fancy some chips.", "de + des frites → de frites"],
+            ["J'ai besoin [d'un] stylo.", "I need a pen.", "Un and une stay after de."],
+            ["La plupart [des] gens sont sympas.", "Most people are nice.", "The exception: la plupart always takes des."],
+            ["Beaucoup [des] gens que je connais sont partis.", "A lot of the people I know have left.", "A known group: “many of the…”, so de + les = des."],
+          ],
+          tip: "Encore keeps the full article: Tu veux encore du café ? (more coffee). So after a quantity word ask yourself: is it “a lot of” (de) or “a lot of the” (du, de la, des)?",
+        },
+        {
+          id: "de-adjective",
+          title: "des becomes de before an adjective",
+          fr: "de bons amis · d'autres idées",
+          tone: "rose",
+          blurb:
+            "When an adjective comes before a plural noun, des is supposed to become de. In writing, follow the rule. In casual speech you will hear both, and des is very common.",
+          ex: [
+            ["J'ai [de] bonnes nouvelles.", "I've got good news.", "Spoken: J'ai des bonnes nouvelles is heard all the time."],
+            ["On a passé [de] bons moments.", "We had some good times."],
+            ["Il a fait [de] gros progrès.", "He's made great progress."],
+            ["Y a [de] beaux endroits par ici.", "There are some lovely places round here."],
+            ["T'as [d']autres questions ?", "Do you have any other questions?", "Always d'autres here, in speech too."],
+            ["On a [des] amis formidables.", "We have wonderful friends.", "Adjective after the noun: des stays."],
+            ["Tu veux [des] petits pois ?", "Do you want some peas?", "Petits pois is one fixed word, so des stays."],
+          ],
+          tip: "Des stays when adjective and noun are one fixed unit: des petits pois, des petits pains, des jeunes gens, des grands-parents.",
+        },
+        {
+          id: "zero",
+          title: "No article at all",
+          fr: "Je suis prof · J'ai faim · en voiture · sans sucre",
+          tone: "slate",
+          blurb:
+            "A few places where English has “a” or “the” and French has nothing. The mark ∅ shows the empty spot.",
+          ex: [
+            ["Je suis [∅] prof.", "I'm a teacher.", "Jobs after être work like adjectives."],
+            ["Elle est [∅] infirmière.", "She's a nurse."],
+            ["C'est [un] super prof.", "He's a great teacher.", "With c'est, or with an adjective, the article comes back."],
+            ["J'ai [∅] faim.", "I'm hungry.", "Fixed pairs with avoir: faim, soif, sommeil, peur, froid, chaud, raison, tort."],
+            ["Fais [∅] attention !", "Be careful!"],
+            ["On y va en [∅] voiture ou à [∅] pied ?", "Shall we go by car or on foot?", "Transport: en train, en bus, en avion, à vélo."],
+            ["Un café sans [∅] sucre.", "A coffee without sugar.", "Sans is nearly always bare: sans problème, sans rendez-vous."],
+            ["Avec [∅] plaisir !", "With pleasure!", "Avec + a feeling is bare. With a thing the article returns: avec du lait."],
+            ["Je prends une salade comme [∅] entrée.", "I'll have a salad as a starter.", "Comme meaning “as a”."],
+            ["Quelle [∅] journée !", "What a day!", "No “a” after quel / quelle."],
+            ["J'habite à [∅] Lyon.", "I live in Lyon.", "Cities are bare. A few have the article in the name: Le Havre, Le Mans → Je vais au Mans."],
+            ["Trois fois par [∅] semaine.", "Three times a week."],
+          ],
+          tip: "Il est médecin and C'est un médecin both mean “He's a doctor”. After il / elle est: no article. After c'est: article. “Il est un médecin” is the classic slip.",
+        },
+        {
+          id: "body",
+          title: "Parts of the body: le, not mon",
+          fr: "les mains · la tête · les yeux",
+          tone: "sky",
+          blurb:
+            "When it is clear whose body it is, French uses le, la, les where English uses my, your, his, her. The owner shows up elsewhere in the sentence: in me, te, se, or in the subject.",
+          ex: [
+            ["Je me lave [les] mains.", "I'm washing my hands.", "Me already says whose hands."],
+            ["Je me brosse [les] dents.", "I'm brushing my teeth."],
+            ["J'ai mal à [la] tête.", "I've got a headache."],
+            ["J'ai mal [au] dos.", "My back hurts.", "à + le = au"],
+            ["Il s'est cassé [la] jambe.", "He broke his leg."],
+            ["Lève [la] main.", "Put your hand up."],
+            ["Elle a [les] yeux bleus.", "She has blue eyes.", "Describing someone: avoir + les."],
+            ["J'ai [les] mains gelées.", "My hands are frozen."],
+            ["J'ai [la] tête qui tourne.", "My head is spinning."],
+          ],
+          tip: "Mon, ton, son come back when nothing else shows the owner: Montre-moi tes mains (show me your hands). Clothes always keep them: Mets ton manteau.",
+        },
+        {
+          id: "time",
+          title: "Days, dates, times and prices",
+          fr: "lundi / le lundi · le 14 · le kilo",
+          tone: "amber",
+          blurb:
+            "With time words, the article often does the job of an English preposition (“on”, “in”, “per”).",
+          ex: [
+            ["Je bosse [∅] lundi.", "I'm working on Monday.", "No article: this coming Monday, once."],
+            ["Je bosse [le] lundi.", "I work on Mondays.", "Le + day: every Monday, a habit."],
+            ["[Le] matin, je prends juste un café.", "In the morning I just have a coffee.", "Le matin, le soir, la nuit: a habit, with no word for “in”."],
+            ["[Le] week-end, je fais rien.", "At the weekend I do nothing."],
+            ["On est [le] 14 novembre.", "It's the 14th of November.", "Dates always take le, and no “of”."],
+            ["Je pars [la] semaine prochaine.", "I'm leaving next week.", "La semaine prochaine, le mois dernier, l'année dernière. But lundi prochain: no article."],
+            ["Il est trois heures moins [le] quart.", "It's a quarter to three.", "Moins le quart, but et quart and et demie with no article."],
+            ["Les fraises sont à quatre euros [le] kilo.", "Strawberries are four euros a kilo.", "Le = “per” for weights and items."],
+            ["Je suis payé quinze euros [de l']heure.", "I'm paid fifteen euros an hour."],
+            ["En [∅] été, on va à la mer.", "In summer we go to the seaside.", "En été, en hiver, en automne, but au printemps."],
+          ],
+          tip: "Never translate “on Monday” with sur. It is lundi for one day and le lundi for the habit. Months are bare: en janvier.",
+        },
+        {
+          id: "countries",
+          title: "Countries and languages",
+          fr: "la France · au Japon · le français",
+          tone: "emerald",
+          blurb:
+            "Countries have an article and a gender. Most that end in -e are feminine. The gender then decides how you say “in”, “to” and “from”.",
+          ex: [
+            ["J'adore [l']Italie.", "I love Italy.", "Countries take the article: la France, le Japon, les États-Unis."],
+            ["[La] France me manque.", "I miss France."],
+            ["Je vais en [∅] Italie.", "I'm going to Italy.", "Feminine country: en, no article."],
+            ["Il habite [au] Canada.", "He lives in Canada.", "Masculine country: au."],
+            ["Elle bosse [aux] États-Unis.", "She works in the United States.", "Plural country: aux."],
+            ["Je viens [du] Maroc.", "I'm from Morocco.", "From: du (masculine), de (feminine: de France), des (plural)."],
+            ["J'apprends [le] français.", "I'm learning French.", "Languages take le."],
+            ["Je parle [∅] français.", "I speak French.", "Straight after parler the article drops. It often returns with an adverb: Il parle bien le français."],
+            ["C'est écrit en [∅] anglais.", "It's written in English.", "En + language: no article."],
+          ],
+          tip: "Careful with the few masculine countries that end in -e: le Mexique, le Cambodge, le Mozambique. So au Mexique, not en Mexique.",
+        },
+      ];
+
+      /* One noun, seven sentences: [French, English, family] */
+      const LADDER = [
+        ["Je prends [un] café.", "I'll have a coffee. (one cup)", "indefinite"],
+        ["Je bois [du] café.", "I'm drinking coffee. (some, an amount)", "partitive"],
+        ["J'adore [le] café.", "I love coffee. (coffee in general)", "definite"],
+        ["[Le] café est froid.", "The coffee is cold. (this one)", "definite"],
+        ["Je bois pas [de] café.", "I don't drink coffee. (not any)", "de"],
+        ["Je bois trop [de] café.", "I drink too much coffee. (a quantity)", "de"],
+        ["On se retrouve [au] café ?", "Shall we meet at the café? (à + le)", "contracted"],
+      ];
+
+      /* Same noun, two articles: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["J'ai [un] travail.", "I've got a job.", "J'ai [du] travail.", "I've got work to do."],
+        ["J'ai mangé [un] gâteau.", "I ate a whole cake.", "J'ai mangé [du] gâteau.", "I ate some cake."],
+        ["J'ai [le] temps.", "I've got time (for this).", "J'ai [du] temps.", "I've got some free time."],
+        ["Je bosse [∅] samedi.", "I'm working this Saturday.", "Je bosse [le] samedi.", "I work every Saturday."],
+        ["J'aime [le] poulet.", "I like chicken (to eat).", "J'aime [les] poulets.", "I like chickens (the birds)."],
+        ["Je bois [du] café.", "I'm drinking coffee.", "Je sors [du] café.", "I'm coming out of the café."],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["J'aime du café.", "J'aime [le] café.", "I like coffee.", "Liking = the whole kind = le."],
+        ["Je mange pain.", "Je mange [du] pain.", "I'm eating bread.", "A noun needs an article; an amount takes du."],
+        ["Je suis un étudiant.", "Je suis [∅] étudiant.", "I'm a student.", "No article with a job or status after être."],
+        ["J'ai pas un chat.", "J'ai pas [de] chat.", "I don't have a cat.", "After pas, un becomes de."],
+        ["J'ai beaucoup des amis.", "J'ai beaucoup [d']amis.", "I have a lot of friends.", "Quantity + plain de."],
+        ["Je vais à le marché.", "Je vais [au] marché.", "I'm going to the market.", "à + le = au."],
+        ["Je me lave mes mains.", "Je me lave [les] mains.", "I'm washing my hands.", "Me already says whose."],
+        ["Je travaille sur lundi.", "Je travaille [∅] lundi.", "I'm working on Monday.", "No word for “on” with days."],
+        ["J'ai acheté pommes.", "J'ai acheté [des] pommes.", "I bought apples.", "French needs des in the plural."],
+        ["Je vais à France.", "Je vais en [∅] France.", "I'm going to France.", "Feminine country: en."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        sky: { bar: "bg-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        emerald: { bar: "bg-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        amber: { bar: "bg-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        rose: { bar: "bg-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        violet: { bar: "bg-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        slate: { bar: "bg-slate-500", soft: "bg-slate-100", text: "text-slate-600", num: "bg-slate-600" },
+      };
+      const FAMILIES = {
+        definite: ["definite", "bg-sky-100 text-sky-800", "text-sky-700"],
+        indefinite: ["indefinite", "bg-emerald-100 text-emerald-800", "text-emerald-700"],
+        partitive: ["partitive", "bg-amber-100 text-amber-800", "text-amber-700"],
+        de: ["bare de", "bg-rose-100 text-rose-800", "text-rose-700"],
+        contracted: ["à + le", "bg-violet-100 text-violet-800", "text-violet-700"],
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [le] → highlighted article;  [∅] → a pale "nothing here" mark */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) =>
+          a === "∅"
+            ? `<span class="text-slate-400 font-normal" title="no article">∅</span>`
+            : `<b class="${cls} font-bold">${a}</b>`,
+        );
+
+      document.getElementById("toc").innerHTML =
+        `<a href="#ladder" class="rounded-full bg-sky-100 border border-sky-200 px-3 py-1.5 text-sm font-medium text-sky-900 hover:bg-sky-200">At a glance</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-sky-400 hover:text-sky-800">${k + 1}. ${esc(u.title)}</a>`,
+        ).join("") +
+        `<a href="#trap" class="rounded-full bg-sky-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-sky-700">Meaning pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-rose-100 border border-rose-200 px-3 py-1.5 text-sm font-medium text-rose-900 hover:bg-rose-200">Ten slips</a>`;
+
+      document.getElementById("ladder-list").innerHTML = LADDER.map(([fr, en, fam]) => {
+        const [label, chipCls, textCls] = FAMILIES[fam];
+        return `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-start justify-between gap-3">
+          <div>
+            <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, textCls)}</p>
+            <p class="text-slate-500">${esc(en)}</p>
+          </div>
+          <span class="shrink-0 rounded-full px-2.5 py-0.5 text-xs font-bold ${chipCls}">${label}</span>
+        </li>`;
+      }).join("");
+
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.bar.replace("bg-", "border-")} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      document.getElementById("pairs").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-sky-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-sky-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+  <script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

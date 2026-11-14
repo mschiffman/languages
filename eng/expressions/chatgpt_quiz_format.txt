@@ -1,0 +1,122 @@
+Paste everything below the line into ChatGPT, then paste the topic's cards under
+"CARDS". To get the cards as text, run (from the LANGUAGES folder):
+    python -E eng/expressions/new_expr_quiz.py --cards exclamation
+Save ChatGPT's answer in Desktop\story-md as <page>_quiz.md, then use the
+Quiz maker (stories\quiz_app.bat, right-hand button), or run:
+    python -E eng/expressions/new_expr_quiz.py ../story-md/<page>_quiz.md
+The script checks every phrase and tag and lists what to fix. Check the Burmese
+MY lines yourself before publishing.
+
+----------------------------------------------------------------------------
+
+You are writing a quiz for Burmese learners of English (teenagers and adults,
+beginner to lower-intermediate). The quiz tests the English expressions on the
+cards I paste at the end. Write it in exactly the format below, as plain text
+in one code block, with nothing before or after it.
+
+# <Topic>: Quiz
+type: expression-quiz
+page: <the page name given on the first line of the cards>
+
+## tags
+<tag> = <one-sentence tip for the learner>
+
+## match
+<card>
+<card>
+<card>
+<card>
+<card>
+
+## say
+SCENE: <emoji> <short part> · <emoji> <short part>
+MY: <the scene in Burmese>
++ <the card that is right here>
+- <wrong option> | <tag> | <why it is wrong here, one or two short sentences>
+- <wrong option> | <tag> | <why>
+- <wrong option> | <tag> | <why>
+
+## reply
+PROMPT: <a card: what the other person says>
++ <the card that answers it>
+- <wrong option> | <tag> | <why>
+- <wrong option> | <tag> | <why>
+
+## build
+CUE: <emoji> <the situation, a few words>
++ <a card of three or more words>
+- <one wrong word> | <tag> | <why that word is wrong>
+
+## judge
+SCENE: <emoji> <short part> · <emoji> <short part>
+MY: <the scene in Burmese>
+PHRASE: <a card>
+OK: yes
+TAG: <tag>
+NOTE: <only when OK is no: why it is wrong here, and what to say instead>
+
+What to write
+- 18 questions in all: 2 match, about 7 say, about 4 judge, about 3 build, and
+  reply questions only if the cards include answers to other cards (see below).
+  Mix the types; do not put all of one type together, except the two match
+  blocks, which come first.
+- Cover as many different cards as you can. Use the cards' notes: they say
+  when each phrase is used and what Burmese speakers get wrong.
+
+Rules for every block
+- A "card" means the English phrase of a card, copied EXACTLY, with its
+  capital letters and punctuation ("Good evening." "What a shame!").
+- The + answer, the PROMPT and the PHRASE must be cards. A wrong option (-)
+  may be a card or any other phrase.
+- Every wrong option and every judge block has a tag: the KIND of mistake.
+  Built-in tags:
+    time      wrong time of day
+    moment    wrong moment (arriving / leaving, before / after, first meeting / again)
+    register  too casual or too formal for this person
+    literal   translated word for word from Burmese
+    reply     doesn't answer what was said
+    words     wrong word, word form or word order
+    meaning   the phrase means something else
+  If the topic needs another kind of mistake, define it under "## tags"
+  (one short lowercase word = a tip). You may also give a built-in tag a new
+  tip there when its usual meaning doesn't fit the topic. Leave "## tags" out
+  if you need none.
+- A wrong option must be clearly wrong IN THIS SCENE. If a native speaker
+  could also say it here, do not use it as a wrong option. If you cannot name
+  the kind of mistake, it is not a wrong option.
+- Notes are short, plain English a learner can read: say why the option is
+  wrong here and, if useful, when it IS used. No grammar terms.
+
+match
+- 5 cards per block, one per line, nothing else. The learner matches each
+  English phrase with its Burmese.
+- Never put two cards with the same or nearly the same Burmese in one block.
+
+say
+- SCENE: two or three short parts joined by " · ", each starting with one
+  emoji: who, when or where, and what is happening. Example:
+  SCENE: 🌙 8 pm · 🍽️ At a restaurant · You walk in.
+- MY: the same scene in natural spoken Burmese (…တယ်။ style).
+- Exactly one + line and two or three - lines.
+
+reply
+- Use it only when both the PROMPT and the + answer are cards.
+- SCENE and MY are optional here.
+
+build
+- The learner taps the words of the + card into order. Choose a card of three
+  words or more, or two words when one of them is easy to get wrong.
+- Each - line is ONE extra word that makes a typical mistake (a wrong form,
+  a word translated from Burmese). One or two - lines. The decoy must not make
+  another correct English sentence.
+
+judge
+- The learner decides whether saying PHRASE in this scene is OK.
+- OK: yes or no. Make about half of them "no".
+- TAG is the kind of mistake the question is about, also when OK is yes.
+- NOTE is needed when OK is no.
+
+Do not add anything else: no numbering, no comments, no blank "TODO" lines.
+
+CARDS
+(paste the output of  new_expr_quiz.py --cards <page>  here)

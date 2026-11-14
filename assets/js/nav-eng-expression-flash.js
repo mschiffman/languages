@@ -19,7 +19,20 @@
     { label: "🙅 Polite Refusal", href: "polite_refusal.html" },
     { label: "❤️ Likes & Dislikes", href: "likes_dislikes.html" },
     { label: "💬 Opinions", href: "opinion.html" },
+    { label: "👍 Agreeing & Disagreeing", href: "agree_disagree.html" },
     { label: "☕ Small Talk", href: "small_talk.html" },
+    { label: "🎉 Wishes & Celebrations", href: "wishes_celebrations.html" },
+    { label: "📅 Invitations & Plans", href: "invitations.html" },
+    { label: "🤗 Comforting & Encouraging", href: "comfort.html" },
+    { label: "🌟 Compliments", href: "compliments.html" },
+    { label: "💡 Advice", href: "advice.html" },
+    { label: "🧭 Directions", href: "directions.html" },
+    { label: "🛍️ Shopping", href: "shopping.html" },
+    { label: "🍜 Café & Restaurant", href: "restaurant.html" },
+    { label: "📞 On the Phone", href: "phone.html" },
+    { label: "🤒 Health", href: "health.html" },
+    { label: "🏫 Classroom English", href: "classroom.html" },
+    { label: "🚨 Emergencies", href: "emergency.html" },
   ];
 
   // ── Insert hamburger, overlay and sidebar ──

@@ -135,7 +135,8 @@
    quiz       -> the "Test yourself" questions (expression-quiz.js has the
                  format); they reuse the cards' audio, no new clips
 --------------------------------------------------------------- */
-      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/greet_goodbye/";
+      const AUD_DIR =
+        "https://languages.rmlives.com/eng/expressions/greet_goodbye/";
       const AUD_EXT = "mp3?v=2611090647";
 
       const categories = [
@@ -144,18 +145,48 @@
           my: "တွေ့တွေ့ချင်း နှုတ်ဆက်ခြင်း",
           desc: "The first words: for friends, for strangers, at any time of day.",
           cards: [
-            ["Hello.", "မင်္ဂလာပါ။", "Safe with everyone: friends, teachers, strangers, customers. On the phone, it is how you answer: Hello?",
-              "Hello? Who's calling, please?", "ဟယ်လို။ ဘယ်သူ ဆက်တာလဲ ခင်ဗျာ။"],
-            ["Hi!", "ဟိုင်း။", "Friendly and casual: friends, classmates, coworkers. Fine for most everyday situations.",
-              "Hi, Thida! I didn't see you there.", "ဟိုင်း သီတာ။ သီတာ့ကို မမြင်လိုက်ဘူး။"],
-            ["Good morning.", "မင်္ဂလာနံနက်ခင်းပါ။", "Until about 12 noon. More polite than hi: for teachers, bosses and customers. Friends often just say Morning!",
-              "Good morning, everyone. Please sit down.", "မင်္ဂလာနံနက်ခင်းပါ အားလုံးပဲ။ ထိုင်ကြပါ။"],
-            ["Good afternoon.", "မင်္ဂလာနေ့လယ်ခင်းပါ။", "From 12 noon until about 6 pm. Polite: shops, offices, phone calls. Friends rarely say it.",
-              "Good afternoon. Can I help you?", "မင်္ဂလာနေ့လယ်ခင်းပါ။ ဘာကူညီပေးရမလဲ ခင်ဗျာ။"],
-            ["Good evening.", "မင်္ဂလာညနေခင်းပါ။", "After about 6 pm, when you arrive. It is hello, not goodbye. To say goodbye at night, use Good night.",
-              "Good evening. A table for two, please.", "မင်္ဂလာညနေခင်းပါ။ နှစ်ယောက်စာ စားပွဲတစ်လုံး ပေးပါ။"],
-            ["Hey!", "ဟေး။", "Very casual: close friends only. Shouted at a stranger, Hey! sounds rude. To a stranger, say Excuse me.",
-              "Hey, Aung! Wait for me!", "ဟေး အောင်။ စောင့်ဦး။"],
+            [
+              "Hello.",
+              "မင်္ဂလာပါ။",
+              "လူတကာနဲ့ သုံးလို့ရတယ်။ ဖုန်းထူးရင်လဲ Hello? လို့ထူးတယ်။",
+              "Hello? Who's calling, please?",
+              "ဟယ်လို။ ဘယ်သူ ဆက်တာလဲ ခင်ဗျာ။",
+            ],
+            [
+              "Hi!",
+              "ဟိုင်း။",
+              "ရင်းရင်းနှီးနှီးရှိတယ်။ သူငယ်ချင်းတွေ ၊ အတန်ဖော်တွေ ၊ လုပ်ဖော်ကိုင်ဖက်တွေနဲ့ နေ့တိုင်းသုံးလို့ရတယ်။",
+              "Hi, Thida! I didn't see you there.",
+              "ဟိုင်း သီတာ။ သီတာ့ကို မမြင်လိုက်ဘူး။",
+            ],
+            [
+              "Good morning.",
+              "မင်္ဂလာနံနက်ခင်းပါ။",
+              "၁၂ နာရီအထိသုံးလို့ရတယ်။ hi ထက်ယဥ်ကျေးတယ်။ ဆရာ(မ)တွေ ၊ အလုပ်ရှင်တွေ နဲ့ စျေးဝယ်လာသူတွေကို သုံးတယ်။ သူငယ်ချင်း အချင်းချင်းတော့ Morning! လို့ဘဲပြောတယ်။",
+              "Good morning, everyone. Please sit down.",
+              "မင်္ဂလာနံနက်ခင်းပါ အားလုံးပဲ။ ထိုင်ကြပါ။",
+            ],
+            [
+              "Good afternoon.",
+              "မင်္ဂလာနေ့လယ်ခင်းပါ။",
+              "၁၂ နာရီက ၆ နာရီအထိ သုံးတယ်။ ယဥ်ကျေးတယ်။ သူငယ်ချင်းအချင်းချင်းကြားထဲမှာ မသုံးဘူး။",
+              "Good afternoon. Can I help you?",
+              "မင်္ဂလာနေ့လယ်ခင်းပါ။ ဘာကူညီပေးရမလဲ ခင်ဗျာ။",
+            ],
+            [
+              "Good evening.",
+              "မင်္ဂလာညနေခင်းပါ။",
+              "၆ နာရီကျော်မှာ စစချင်းရောက်လာရင် ဒီလိုနှုတ်ဆက်ပါ။. hello ပေါ့နော် ၊ goodbye မဟုတ်ဘူး။ ညမှာ goodbye ပြောချင်ရင် Good night လို့ပြောပါ။",
+              "Good evening. A table for two, please.",
+              "မင်္ဂလာညနေခင်းပါ။ နှစ်ယောက်စာ စားပွဲတစ်လုံး ပေးပါ။",
+            ],
+            [
+              "Hey!",
+              "ဟေး။",
+              "သိပ်ရင်းနှီးတဲ့ သူငယ်ချင်းတွေနဲ့ သုံးတယ်။ တစိမ်းကို Hey! လို့အော်ပြောတာက ရိုင်းတယ်။ တစိမ်းဆိုရင် Excuse me လို့သုံးပါ။",
+              "Hey, Aung! Wait for me!",
+              "ဟေး အောင်။ စောင့်ဦး။",
+            ],
           ],
         },
         {
@@ -163,18 +194,47 @@
           my: "နေကောင်းလား",
           desc: "The question after hello. Most of the time it is part of the greeting, not a real question.",
           cards: [
-            ["How are you?", "နေကောင်းလား။", "Usually just part of hello: give a short, positive answer. In Burmese we greet with ထမင်းစားပြီးပြီလား or ဘယ်သွားမလို့လဲ, but Have you eaten? and Where are you going? sound strange or nosy in English. Use How are you? instead.",
-              "Hi, Tom. How are you?", "ဟိုင်း တွမ်။ နေကောင်းလား။"],
-            ["Good, thanks. And you?", "နေကောင်းပါတယ်၊ ကျေးဇူးပါ။ ခင်ဗျား/ရှင်ရော။", "The everyday answer. I'm fine, thank you is correct but sounds like a textbook. Always ask back: And you? or You? Not asking back sounds cold.",
-              "— How are you? — Good, thanks. And you?", "— နေကောင်းလား။ — နေကောင်းပါတယ်၊ ကျေးဇူးပါ။ ခင်ဗျားရော။"],
-            ["How's it going?", "ဘယ်လိုလဲ၊ အဆင်ပြေလား။", "A casual How are you? Answer the same way: Good, thanks. or Not bad.",
-              "Hey, Sarah! How's it going?", "ဟေး ဆာရာ။ ဘယ်လိုလဲ၊ အဆင်ပြေလား။"],
-            ["What's up?", "ဘာထူးလဲ။", "Very casual, for friends. It means What's new? The usual answer: Not much. You?",
-              "— What's up? — Not much. You?", "— ဘာထူးလဲ။ — ဘာမှမထူးပါဘူး။ မင်းရော။"],
-            ["Not bad.", "မဆိုးပါဘူး။", "It means good. English speakers often say good things in a small way. Also: Pretty good.",
-              "— How was your weekend? — Not bad, thanks.", "— ပိတ်ရက်က ဘယ်လိုလဲ။ — မဆိုးပါဘူး၊ ကျေးဇူးပါ။"],
-            ["Not so good.", "သိပ်မကောင်းဘူး။", "An honest answer for friends and family. They will ask What's wrong? With strangers, most people just say Fine.",
-              "— How are you? — Not so good. I have a cold.", "— နေကောင်းလား။ — သိပ်မကောင်းဘူး။ အအေးမိနေတယ်။"],
+            [
+              "How are you?",
+              "နေကောင်းလား။",
+              "တွေ့တွေ့ချင်း နှုတ်ဆက်စကားပါ။ တိုတိုဘဲပြန်ဖြေပါ။",
+              "Hi, Tom. How are you?",
+              "ဟိုင်း တွမ်။ နေကောင်းလား။",
+            ],
+            [
+              "Good, thanks. And you?",
+              "နေကောင်းပါတယ်၊ ကျေးဇူးပါ။ ခင်ဗျား/ရှင်ရော။",
+              "သာမန်ပြန်ဖြေတဲ့ စကားပါ။ I'm fine, thank you. ကမှန်ပေမယ့် စာအုပ်ကြီးအတိုင်း ပြောတဲ့အသံပေါက်ပါတယ်။ အမြဲ  And you? ဒါမှမဟုတ် You? လို့ပြန်မေးပါ။ မမေးရင် အေးဆက်ဆက်နိုင်ရာကျပါတယ်။",
+              "— How are you? — Good, thanks. And you?",
+              "— နေကောင်းလား။ — နေကောင်းပါတယ်၊ ကျေးဇူးပါ။ ခင်ဗျားရော။",
+            ],
+            [
+              "How's it going?",
+              "ဘယ်လိုလဲ၊ အဆင်ပြေလား။",
+              "နေကောင်းလား” လို့ ရင်းရင်းနှီးနှီး ၊ ပေါ့ပေါ့ပါးပါး မေးတဲ့ စကားပါ။ Good, thanks. ဒါမှမဟုတ် Not bad. လို့ပြန်ဖြေပါ။",
+              "Hey, Sarah! How's it going?",
+              "ဟေး ဆယ်ရာ။ ဘယ်လိုလဲ၊ အဆင်ပြေလား။",
+            ],
+            [
+              "What's up?",
+              "ဘာထူးလဲ။",
+              "သူငယ်ချင်း အချင်းချင်းကြား မေးတဲ့စကားပါ။ အဓိပ္ပာယ်က What's new? ဘာထူးသေးလဲ လို့မေးတာပါ။ Not much. You? လို့ပြန်ဖြေပါ။",
+              "— What's up? — Not much. You?, — ဘာထူးလဲ။ — ဘာမှမထူးပါဘူး။ မင်းရော။",
+            ],
+            [
+              "Not bad.",
+              "မဆိုးပါဘူး။",
+              "ကောင်းပါတယ်လို့ ဆိုလိုတာပါ။ Pretty good. လို့ပြောလဲ ရပါတယ်။",
+              "— How was your weekend? — Not bad, thanks.",
+              "— ပိတ်ရက်က ဘယ်လိုလဲ။ — မဆိုးပါဘူး၊ ကျေးဇူးပါ။",
+            ],
+            [
+              "Not so good.",
+              "သိပ်မကောင်းဘူး။",
+              "သူငယ်ချင်း ၊ မိသားစု တွေကို ပွင့်ပွင့်လင်းလင်း ပြန်ဖြေတာပါ။ သူတို့က် What's wrong? ဘာဖြစ်တာလဲလို့ ဆက်မေးပါလိမ့်မယ်။ တစိမ်းတွေနဲ့တော့ Fine. လို့ဘဲပြောပါ။",
+              "— How are you? — Not so good. I have a cold.",
+              "— နေကောင်းလား။ — သိပ်မကောင်းဘူး။ အအေးမိနေတယ်။",
+            ],
           ],
         },
         {
@@ -182,16 +242,45 @@
           my: "တွေ့ဆုံခြင်း",
           desc: "Meeting someone for the first time, or seeing them again.",
           cards: [
-            ["Nice to meet you.", "တွေ့ရတာ ဝမ်းသာပါတယ်။", "Only the first time you meet someone, often with a handshake. More formal: Pleased to meet you.",
-              "Hi, I'm Thida. Nice to meet you.", "ဟိုင်း၊ ကျွန်မ သီတာပါ။ တွေ့ရတာ ဝမ်းသာပါတယ်။"],
-            ["Nice to meet you too.", "ကျွန်တော်/ကျွန်မလည်း တွေ့ရတာ ဝမ်းသာပါတယ်။", "The answer. Shorter: You too. Put the stress on you: Nice to meet YOU too.",
-              "— Nice to meet you. — Nice to meet you too.", "— တွေ့ရတာ ဝမ်းသာပါတယ်။ — ကျွန်တော်လည်း တွေ့ရတာ ဝမ်းသာပါတယ်။"],
-            ["Good to see you.", "ပြန်တွေ့ရတာ ဝမ်းသာပါတယ်။", "For people you already know. Burmese uses the same words for meeting someone new and seeing them again, but English doesn't: Nice to meet you to an old friend sounds like you forgot them!",
-              "Hello, Aung! Good to see you again.", "မင်္ဂလာပါ အောင်။ ပြန်တွေ့ရတာ ဝမ်းသာပါတယ်။"],
-            ["Long time no see!", "မတွေ့တာ ကြာပြီနော်။", "Casual and warm, for a friend you haven't seen for months or years. The grammar is strange, but everyone says it.",
-              "Thida! Long time no see!", "သီတာ။ မတွေ့တာ ကြာပြီနော်။"],
-            ["How have you been?", "အခုတလော နေကောင်းရဲ့လား။", "How are you? for someone you haven't seen for a while. Spoken: How've you been? Answer: Good! Busy, but good.",
-              "— How have you been? — Busy, but good. You?", "— အခုတလော နေကောင်းရဲ့လား။ — အလုပ်များနေတယ်၊ ဒါပေမဲ့ အဆင်ပြေပါတယ်။ မင်းရော။"],
+            [
+              "Nice to meet you.",
+              "တွေ့ရတာ ဝမ်းသာပါတယ်။",
+              "တစ်ယောက်ယောက်နဲ့ ပထမဆုံးအကြိမ် တွေ့တဲ့အခါမှာပဲ သုံးတယ်။ လက်ဆွဲနှုတ်ဆက်ရင်း ပြောလေ့ရှိတယ်။ ပိုပြီး တရားဝင်ဆန်ချင်ရင် Pleased to meet you. လို့ ပြောနိုင်တယ်။",
+              "Hi, I'm Thida. Nice to meet you.",
+              "ဟိုင်း၊ ကျွန်မ သီတာပါ။ တွေ့ရတာ ဝမ်းသာပါတယ်။",
+            ],
+
+            [
+              "Nice to meet you too.",
+              "ကျွန်တော်/ကျွန်မလည်း တွေ့ရတာ ဝမ်းသာပါတယ်။",
+              "တစ်ဖက်လူက Nice to meet you. လို့ ပြောတဲ့အခါ ပြန်ဖြေတဲ့ စကားပါ။ အတိုချုံးပြီး You too. လို့လည်း ပြောနိုင်တယ်။ Nice to meet YOU too. လို့ ပြောတဲ့အခါ YOU ကို အသံဖိပြီး ပြောရတယ်။",
+              "— Nice to meet you. — Nice to meet you too.",
+              "— တွေ့ရတာ ဝမ်းသာပါတယ်။ — ကျွန်တော်လည်း တွေ့ရတာ ဝမ်းသာပါတယ်။",
+            ],
+
+            [
+              "Good to see you.",
+              "ပြန်တွေ့ရတာ ဝမ်းသာပါတယ်။",
+              "အရင်ကတည်းက သိပြီးသားသူတွေနဲ့ ပြန်တွေ့တဲ့အခါ သုံးတယ်။ မြန်မာလိုမှာ လူသစ်တစ်ယောက်နဲ့ ပထမဆုံး တွေ့တာရော၊ သိပြီးသားသူနဲ့ ပြန်တွေ့တာရော ဆင်တူတဲ့ စကားလုံးတွေ သုံးနိုင်ပေမဲ့ အင်္ဂလိပ်လိုမှာ မတူဘူး။ မိတ်ဆွေဟောင်းတစ်ယောက်ကို Nice to meet you. လို့ ပြောရင် သူ့ကို မမှတ်မိတော့သလို ဖြစ်သွားနိုင်တယ်။",
+              "Hello, Aung! Good to see you again.",
+              "မင်္ဂလာပါ အောင်။ ပြန်တွေ့ရတာ ဝမ်းသာပါတယ်။",
+            ],
+
+            [
+              "Long time no see!",
+              "မတွေ့တာ ကြာပြီနော်။",
+              "လပေါင်းများစွာ၊ ဒါမှမဟုတ် နှစ်ပေါင်းများစွာ မတွေ့ဖြစ်တဲ့ သူငယ်ချင်းနဲ့ ပြန်တွေ့တဲ့အခါ ရင်းရင်းနှီးနှီး၊ နွေးနွေးထွေးထွေး ပြောတဲ့ စကားပါ။ သဒ္ဒါပုံစံက ထူးဆန်းပေမဲ့ လူတိုင်းလိုလို သုံးကြတယ်။",
+              "Thida! Long time no see!",
+              "သီတာ။ မတွေ့တာ ကြာပြီနော်။",
+            ],
+
+            [
+              "How have you been?",
+              "အခုတလော နေကောင်းရဲ့လား။",
+              "မတွေ့တာ အတော်ကြာတဲ့သူကို How are you? ဆိုတဲ့ သဘောမျိုး မေးတဲ့ စကားပါ။ စကားပြောတဲ့အခါ How've you been? လို့ အတိုချုံးပြီး ပြောလေ့ရှိတယ်။ ပြန်ဖြေတဲ့အခါ Good! Busy, but good. (ကောင်းပါတယ်။ အလုပ်တော့ များတယ်၊ ဒါပေမဲ့ အဆင်ပြေပါတယ်။) လို့ ပြောနိုင်တယ်။",
+              "— How have you been? — Busy, but good. You?",
+              "— အခုတလော နေကောင်းရဲ့လား။ — အလုပ်များနေတယ်၊ ဒါပေမဲ့ အဆင်ပြေပါတယ်။ မင်းရော။",
+            ],
           ],
         },
         {
@@ -199,20 +288,61 @@
           my: "ပြန်ခါနီး နှုတ်ဆက်ခြင်း",
           desc: "Leaving: from a quick bye to a warm take care.",
           cards: [
-            ["Goodbye.", "နှုတ်ဆက်ပါတယ်။", "Correct, but a little formal or final. In everyday life, people usually say Bye! or See you!",
-              "Goodbye, and thank you for coming.", "နှုတ်ဆက်ပါတယ်၊ လာတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။"],
-            ["Bye!", "ဘိုင်ဘိုင်။", "The everyday goodbye: friends, shops, phone calls. Bye-bye! is softer and friendly, and also what you say to children.",
-              "OK, bye! See you on Monday.", "အိုကေ၊ ဘိုင်ဘိုင်။ တနင်္လာနေ့ တွေ့မယ်။"],
-            ["See you later.", "နောက်မှ တွေ့မယ်။", "A friendly goodbye, even with no plan to meet. Shorter: See you! In casual messages: See ya!",
-              "I'm going home now. See you later!", "အိမ်ပြန်တော့မယ်။ နောက်မှ တွေ့မယ်နော်။"],
-            ["See you tomorrow.", "မနက်ဖြန် တွေ့မယ်။", "Change the time: See you on Friday. See you next week. See you soon.",
-              "Thanks for today. See you tomorrow!", "ဒီနေ့အတွက် ကျေးဇူးပါ။ မနက်ဖြန် တွေ့မယ်။"],
-            ["Have a nice day.", "ကောင်းသောနေ့လေး ဖြစ်ပါစေ။", "Shop assistants and waiters say it all the time. Answer: Thanks, you too! Also: Have a good weekend.",
-              "— Here's your change. Have a nice day! — Thanks, you too!", "— ပြန်အမ်းငွေပါ။ ကောင်းသောနေ့လေး ဖြစ်ပါစေ။ — ကျေးဇူးပါ၊ ခင်ဗျားလည်း ဒီလိုပဲ ဖြစ်ပါစေ။"],
-            ["Take care.", "ဂရုစိုက်နော်။", "A warm goodbye: family, friends, someone who is sick or going on a trip. Answer: You too!",
-              "Have a safe trip. Take care!", "ခရီးသွားတာ ချောချောမောမော ဖြစ်ပါစေ။ ဂရုစိုက်နော်။"],
-            ["Good night.", "ကောင်းသောညပါ။", "Only for goodbye at night, or before bed. It is not hello: when you arrive in the evening, say Good evening.",
-              "It's late. Good night, everyone!", "နောက်ကျပြီ။ အားလုံးပဲ ကောင်းသောညပါ။"],
+            [
+              "Goodbye.",
+              "နှုတ်ဆက်ပါတယ်။",
+              "ဒီလိုပြောတာ မှန်ပေမဲ့ နည်းနည်း အေးဆက်ဆက်နဲ့ နောက်တစ်ခါ မတွေ့တော့သလို ခံစားရစေတယ်။ နေ့စဉ်သုံးမှာတော့ Bye! ဒါမှမဟုတ် See you! လို့ပဲ ပြောလေ့ရှိကြတယ်။",
+              "Goodbye, and thank you for coming.",
+              "နှုတ်ဆက်ပါတယ်၊ လာတဲ့အတွက် ကျေးဇူးတင်ပါတယ်။",
+            ],
+
+            [
+              "Bye!",
+              "ဘိုင်ဘိုင်။",
+              "နေ့စဉ်သုံး နှုတ်ဆက်စကားပါ။ သူငယ်ချင်းတွေနဲ့ ခွဲခွာတဲ့အခါ၊ ဆိုင်က ထွက်တဲ့အခါ၊ ဖုန်းချတဲ့အခါတွေမှာ သုံးတယ်။ Bye-bye! က ပိုနူးညံ့ပြီး ဖော်ရွေတယ်။ ကလေးတွေကို နှုတ်ဆက်တဲ့အခါမှာလည်း သုံးတယ်။",
+              "OK, bye! See you on Monday.",
+              "အိုကေ၊ ဘိုင်ဘိုင်။ တနင်္လာနေ့ တွေ့မယ်။",
+            ],
+
+            [
+              "See you later.",
+              "နောက်မှ တွေ့မယ်။",
+              "နောက်တစ်ခါ တွေ့ဖို့ အစီအစဉ် မရှိသေးရင်တောင် ဖော်ဖော်ရွေရွေ နှုတ်ဆက်တဲ့ စကားပါ။ အတိုချုံးပြီး See you! လို့လည်း ပြောနိုင်တယ်။ ရင်းနှီးတဲ့သူတွေနဲ့ စာတိုပို့တဲ့အခါ See ya! လို့လည်း ရေးကြတယ်။",
+              "I'm going home now. See you later!",
+              "အိမ်ပြန်တော့မယ်။ နောက်မှ တွေ့မယ်နော်။",
+            ],
+
+            [
+              "See you tomorrow.",
+              "မနက်ဖြန် တွေ့မယ်။",
+              "တွေ့မယ့်အချိန်ကို ပြောင်းပြီး ပြောနိုင်တယ်။ ဥပမာ See you on Friday. (သောကြာနေ့ တွေ့မယ်။)၊ See you next week. (နောက်အပတ် တွေ့မယ်။)၊ See you soon. (မကြာခင် ပြန်တွေ့မယ်။) လို့ ပြောနိုင်တယ်။",
+              "Thanks for today. See you tomorrow!",
+              "ဒီနေ့အတွက် ကျေးဇူးပါ။ မနက်ဖြန် တွေ့မယ်။",
+            ],
+
+            [
+              "Have a nice day.",
+              "ကောင်းသောနေ့လေး ဖြစ်ပါစေ။",
+              "ဆိုင်ဝန်ထမ်းတွေနဲ့ စားပွဲထိုးတွေ မကြာခဏ ပြောလေ့ရှိတဲ့ စကားပါ။ ပြန်ဖြေတဲ့အခါ Thanks, you too! (ကျေးဇူးပါ၊ ခင်ဗျားလည်း ဒီလိုပဲ ဖြစ်ပါစေ။) လို့ ပြောနိုင်တယ်။ Have a good weekend. (စနေ၊ တနင်္ဂနွေ ပိတ်ရက်လေးမှာ ပျော်ရွှင်ပါစေ။) လို့လည်း ပြောနိုင်တယ်။",
+              "— Here's your change. Have a nice day! — Thanks, you too!",
+              "— ပြန်အမ်းငွေပါ။ ကောင်းသောနေ့လေး ဖြစ်ပါစေ။ — ကျေးဇူးပါ၊ ခင်ဗျားလည်း ဒီလိုပဲ ဖြစ်ပါစေ။",
+            ],
+
+            [
+              "Take care.",
+              "ဂရုစိုက်နော်။",
+              "မိသားစုဝင်တွေ၊ သူငယ်ချင်းတွေ၊ နေမကောင်းတဲ့သူတွေ၊ ခရီးသွားမယ့်သူတွေကို နွေးနွေးထွေးထွေး နှုတ်ဆက်တဲ့ စကားပါ။ ပြန်ဖြေတဲ့အခါ You too! (နင်လည်း ဂရုစိုက်နော်။) လို့ ပြောနိုင်တယ်။",
+              "Have a safe trip. Take care!",
+              "ခရီးသွားတာ ချောချောမောမော ဖြစ်ပါစေ။ ဂရုစိုက်နော်။",
+            ],
+
+            [
+              "Good night.",
+              "ကောင်းသောညပါ။",
+              "ညဘက် ခွဲခွာတဲ့အခါ၊ ဒါမှမဟုတ် အိပ်ရာဝင်ခါနီးမှာပဲ နှုတ်ဆက်ဖို့ သုံးတယ်။ တွေ့တဲ့အခါ နှုတ်ဆက်ဖို့ မသုံးဘူး။ ညနေဘက် တစ်ယောက်ယောက်နဲ့ တွေ့တဲ့အခါ Good evening. လို့ ပြောရတယ်။",
+              "It's late. Good night, everyone!",
+              "နောက်ကျပြီ။ အားလုံးပဲ ကောင်းသောညပါ။",
+            ],
           ],
         },
         {
@@ -220,16 +350,41 @@
           my: "စကားပြောတာ အဆုံးသတ်ခြင်း",
           desc: "Leaving politely, so the goodbye doesn't feel sudden.",
           cards: [
-            ["I have to go.", "သွားရတော့မယ်။", "Shows the conversation is ending. Softer: Sorry, I have to go. or I'd better go.",
-              "Oh, it's three o'clock! I have to go.", "အိုး၊ သုံးနာရီ ထိုးပြီ။ သွားရတော့မယ်။"],
-            ["It was nice meeting you.", "တွေ့ရတာ ဝမ်းသာပါတယ်။", "The goodbye after a first meeting. At the start: Nice to meet you. At the end: It was nice meeting you.",
-              "Well, it was nice meeting you. Bye!", "ကဲ၊ တွေ့ရတာ ဝမ်းသာပါတယ်။ ဘိုင်ဘိုင်။"],
-            ["It was nice talking to you.", "စကားပြောရတာ ဝမ်းသာပါတယ်။", "A warm last line, for new people or old friends.",
-              "It was nice talking to you. Take care!", "စကားပြောရတာ ဝမ်းသာပါတယ်။ ဂရုစိုက်နော်။"],
-            ["Talk to you later.", "နောက်မှ ပြောမယ်နော်။", "For the end of a phone call or chat with a friend. In text messages: TTYL.",
-              "My bus is here. Talk to you later!", "ဘတ်စ်ကား ရောက်လာပြီ။ နောက်မှ ပြောမယ်နော်။"],
-            ["Say hello to Aung for me.", "အောင် ကို ကျွန်တော့်/ကျွန်မ ကိုယ်စား နှုတ်ဆက်ပေးပါ။", "Sends your greeting to someone's family or friends, just like in Burmese. Casual: Say hi to ___ for me.",
-              "Say hello to your parents for me.", "မိဘတွေကို ကျွန်တော့်ကိုယ်စား နှုတ်ဆက်ပေးပါ။"],
+            [
+              "I have to go.",
+              "သွားရတော့မယ်။",
+              "စကားပြောတာ အဆုံးသတ်လိုက်တာပါ။ ပိုပြီးယဥ်ကျေးချင်ရင် Sorry, I have to go. ဒါမှမဟုတ် I'd better go. လို့ပြောပါ။",
+              "Oh, it's three o'clock! I have to go.",
+              "အိုး၊ သုံးနာရီ ထိုးပြီ။ သွားရတော့မယ်။",
+            ],
+            [
+              "It was nice meeting you.",
+              "တွေ့ရတာ ဝမ်းသာပါတယ်။",
+              "ပထမဆုံးတွေ့တဲ့သူကို ပြန်ခါနီး ပြောတဲ့စကားပါ။ စစတွေ့ချင်းတော့ Nice to meet you လို့ပြောပါ။",
+              "Well, it was nice meeting you. Bye!",
+              "ကဲ၊ တွေ့ရတာ ဝမ်းသာပါတယ်။ ဘိုင်ဘိုင်။",
+            ],
+            [
+              "It was nice talking to you.",
+              "စကားပြောရတာ ဝမ်းသာပါတယ်။",
+              "သူငယ်ချင်း အချင်းချင်း ဒါမှမဟုတ် ပထမဆုံးတွေ့ဆုံတဲ့သူကို မပြန်ခင်ပြောတဲ့စကား။",
+              "It was nice talking to you. Take care!",
+              "စကားပြောရတာ ဝမ်းသာပါတယ်။ ဂရုစိုက်နော်။",
+            ],
+            [
+              "Talk to you later.",
+              "နောက်မှ ပြောမယ်နော်။",
+              "စကားပြောပြီး ၊ ဖုန်းပြောပြီး တဲ့အခါပြောတဲ့စကားပါ။ အတိုချုပ်ကိုတော့ TTYL လို့ ဖုန်းမှာရေးပါတယ်။",
+              "My bus is here. Talk to you later!",
+              "ဘတ်စ်ကား ရောက်လာပြီ။ နောက်မှ ပြောမယ်နော်။",
+            ],
+            [
+              "Say hello to Aung for me.",
+              "အောင် ကို ကျွန်တော့်/ကျွန်မ ကိုယ်စား နှုတ်ဆက်ပေးပါ။",
+              "အယောက်ယောက်ရဲ့ မိသားစု ၊ သူငယ်ချင်းတွေကို နှုတ်ဆက်ပေးခိုင်းတာပါ။ Say hi to ___ for me လို့လဲပြောလို့ရပါတယ်။",
+              "Say hello to your parents for me.",
+              "မိဘတွေကို ကျွန်တော့်ကိုယ်စား နှုတ်ဆက်ပေးပါ။",
+            ],
           ],
         },
       ];
@@ -238,14 +393,53 @@
          Tags: time, moment, register, literal, reply, words. */
       const quiz = [
         {
+          type: "match",
+          cards: [
+            "How are you?",
+            "Not bad.",
+            "What's up?",
+            "Long time no see!",
+            "Nice to meet you.",
+          ],
+        },
+        {
+          type: "match",
+          cards: [
+            "See you later.",
+            "See you tomorrow.",
+            "Take care.",
+            "I have to go.",
+            "Have a nice day.",
+          ],
+        },
+        {
+          type: "match",
+          pairs: {
+            "How are you?": "Good, thanks. And you?",
+            "Nice to meet you.": "Nice to meet you too.",
+            "What's up?": "Not much. You?",
+            "Have a nice day.": "Thanks, you too!",
+            "How have you been?": "Good! Busy, but good.",
+          },
+        },
+        {
           type: "say",
           scene: "👩‍🏫 Your teacher · ☀️ 9 am · You arrive at class.",
-          my: "မနက် ၉ နာရီ။ စာသင်ခန်းကို ရောက်လာပြီး ဆရာမကို နှုတ်ဆက်တယ်။",
+          my: "မနက် ၉ နာရီ။ စာသင်ခန်းကို ရောက်လာပြီး ဆရာမကို နှုတ်ဆက်မယ်။",
           answer: "Good morning.",
           wrong: {
-            "What's up?": ["register", "Very casual: for friends, not for a teacher."],
-            "Good evening.": ["time", "Good evening is for after about 6 pm. Before 12 noon, say Good morning."],
-            "Good night.": ["moment", "Good night is a goodbye, at night or before bed. You are arriving."],
+            "What's up?": [
+              "register",
+              "သိပ်ရင်းရင်းနှီးနှီးဆန်တယ်။ သူငယ်ချင်းတွေကြားထဲမှာဘဲ သုံးပါ။ ဆရာ(မ) တွေနဲ့မသုံးပါနဲ့။",
+            ],
+            "Good evening.": [
+              "time",
+              "Good evening က ၆ နာရီ ကျော်မှသုံးပါ။ နေ့လည် ၁၂ နာရီမတိုင်ခင်တော့ Good morning လို့ဘဲပြောပါ။",
+            ],
+            "Good night.": [
+              "moment",
+              "Good night က ည ၊ အိပ်ယာဝင်ခါနီး goodbye လို့ပြောတာ။ မင်းကအခုမှရောက်လာတာ။",
+            ],
           },
         },
         {
@@ -263,8 +457,14 @@
           answer: "Good evening.",
           wrong: {
             "Good night.": "moment",
-            "Good afternoon.": ["time", "Good afternoon is from 12 noon until about 6 pm. At 8 pm, say Good evening."],
-            "Hey!": ["register", "Too casual for a waiter. Hey! is for close friends."],
+            "Good afternoon.": [
+              "time",
+              "Good afternoon က နေ့လည် ၁၂ နာရီကနေ ၆ နာရီအထိ။ ၈ နာရီမှာတော့ Good evening လို့ပြောပါ။",
+            ],
+            "Hey!": [
+              "register",
+              "စားပွဲထိုးကို သိပ်ရင်းနှီးလွန်းတယ်။ Hey! ကသိပ်ရင်းနှီးတဲ့ သူငယ်ချင်းတွေအတွက်ဘဲသုံးပါ။",
+            ],
           },
         },
         {
@@ -272,27 +472,43 @@
           prompt: "Nice to meet you.",
           answer: "Nice to meet you too.",
           wrong: {
-            "Good to see you.": ["moment", "Good to see you is for people you already know. This is your first meeting."],
-            "Long time no see!": ["moment", "That's for an old friend you haven't seen for a long time. You have just met."],
-            "Good, thanks. And you?": ["reply", "That answers How are you?"],
+            "Good to see you.": [
+              "moment",
+              "Good to see you ကကိုယ်သိတဲ့ သူတွေအတွက်ပါ။ အခုက တစိမ်းကြီး။ ခုမှစတွေ့တာ။",
+            ],
+            "Long time no see!": [
+              "moment",
+              "ဒါက မတွေ့တာကြာပြီဖြစ်တဲ့ သူငယ်ချင်းတွေအတွက်သုံးတာ။ ဒီလူကတော့ အခုမှတွေ့ဘူးတာ။",
+            ],
+            "Good, thanks. And you?": [
+              "reply",
+              "ဒါက How are you? ကိုပြန်ဖြေတဲ့စကား။",
+            ],
           },
         },
         {
           type: "build",
           answer: "How have you been?",
-          cue: "👫 A friend you haven't seen for months",
+          cue: "👫 သူငယ်ချင်းကို မတွေ့ရတာ လနဲ့ချီနေပြီ။",
           decoys: {
-            are: ["words", "For someone you haven't seen for a while: How have you been? (How are you been? is not English.)"],
+            are: [
+              "words",
+              "မတွေ့တာကြာပြီ ဖြစ်တဲ့သူတွေကိုသုံးတာ။ How have you been? (How are you been? ကမမှန်ပါ။)",
+            ],
           },
         },
         {
           type: "say",
-          scene: "👫 An old friend · 📅 You last met 3 years ago · You meet in the street.",
+          scene:
+            "👫 An old friend · 📅 You last met 3 years ago · You meet in the street.",
           my: "လမ်းမှာ သူငယ်ချင်းဟောင်းတစ်ယောက်နဲ့ ဆုံတယ်။ မတွေ့တာ ၃ နှစ် ရှိပြီ။",
           answer: "Long time no see!",
           wrong: {
-            "Nice to meet you.": ["moment", "Only for the first time you meet someone. To an old friend, it sounds like you forgot them!"],
-            "Have a nice day.": ["moment", "That's a goodbye. You are just meeting."],
+            "Nice to meet you.": [
+              "moment",
+              "မထမဆုံးတွေ့ရင်‌ ပြောတဲ့စကား။ သူငယ်ချင်းအဟောင်းတွေအတွက် မသုံးပါ။",
+            ],
+            "Have a nice day.": ["moment", "ဒါက goodbye ပါ။. မင်းက ခုမှတွေ့တာ။"],
           },
         },
         {
@@ -308,46 +524,70 @@
           prompt: "How are you?",
           answer: "Good, thanks. And you?",
           wrong: {
-            "Nice to meet you.": ["moment", "That's for meeting someone for the first time."],
-            "Not much. You?": ["reply", "Not much answers What's up? To How are you?, say Good, thanks. And you?"],
+            "Nice to meet you.": ["moment", "ဒါက ပထမဆုံးတွေ့ဖူးတဲ့သူကို သုံးတာ။"],
+            "Not much. You?": [
+              "reply",
+              "Not much က What's up? ကိုပြန်ဖြေတဲ့စကား။ How are you? က Good, thanks. And you? လို့ပြန်ဖြေပါ။",
+            ],
           },
         },
         {
           type: "say",
-          scene: "🏢 At work · ☕ Morning · You meet a coworker and want to ask how she is.",
+          scene:
+            "🏢 At work · ☕ Morning · You meet a coworker and want to ask how she is.",
           my: "အလုပ်မှာ မနက်ပိုင်း လုပ်ဖော်ကိုင်ဖက်တစ်ယောက်နဲ့ တွေ့တယ်။ သူ နေကောင်းလား မေးချင်တယ်။",
           answer: "How are you?",
           wrong: {
-            "Have you eaten?": ["literal", "In Burmese, ထမင်းစားပြီးပြီလား is a greeting. In English, Have you eaten? is a real question about food. Say How are you?"],
-            "Where are you going?": ["literal", "In Burmese, ဘယ်သွားမလို့လဲ is a greeting. In English, it sounds nosy. Say How are you?"],
+            "Have you eaten?": [
+              "literal",
+              "မြန်မာစကားမှာ ထမင်းစားပြီးပြီလားကို နှုတ်ဆက်ဘို့ သုံးတယ်။ အင်္ဂလိပ်စကားမှာတော့ Have you eaten? က တကယ်စားပြီးပြီလားလို့ ဆိုလိုတာ။ How are you? လို့ဘဲသုံးပါ။",
+            ],
+            "Where are you going?": [
+              "literal",
+              "မြန်မာစကားမှာ ဘယ်သွားမလို့လဲကို နှုတ်ဆက်ဘို့ သုံးတယ်။ အင်္ဂလိပ်စကားမှာတော့ အဲလိုမေးတာ စပ်စုရာကျတယ်။ How are you? လို့ဘဲမေးပါ။",
+            ],
           },
         },
         {
           type: "build",
           answer: "Have a nice day.",
-          cue: "🛍️ A customer is leaving your shop",
+          cue: "🛍️ စျေးဝယ်သူက ပြန်တော့မယ်။",
           decoys: {
-            be: ["literal", "Burmese says ဖြစ်ပါစေ (may it be), but English says Have a nice day."],
+            be: [
+              "literal",
+              "မြန်မာစကားမှာ တာ့တာလို့ ပြောတယ်။ အင်္ဂလိပ်စကားမှာတော့ Have a nice day. လို့ပြောတယ်။",
+            ],
           },
         },
         {
           type: "judge",
-          scene: "🏢 7 pm · You're leaving the office. You say goodbye to your boss.",
+          scene:
+            "🏢 7 pm · You're leaving the office. You say goodbye to your boss.",
           my: "ည ၇ နာရီ။ ရုံးက ပြန်တော့မယ်။ သူဌေးကို နှုတ်ဆက်တယ်။",
           phrase: "Good evening.",
           ok: false,
           tag: "moment",
-          note: "Good evening is hello, when you arrive. When you leave in the evening, say Good night or Have a nice evening.",
+          note: "Good evening ကရောက်ရောက်ချင်းနှုတ်ဆက်စကားပါ။ ည(နေ)ပိုင်း ပြန်တော့မယ်ဆိုရင် Good night ဒါမှမဟုတ် Have a nice evening ကိုသုံးပါ။",
         },
         {
           type: "say",
-          scene: "🏠 At a friend's home · 👴 You met her father today, for the first time · You're leaving.",
+          scene:
+            "🏠 At a friend's home · 👴 You met her father today, for the first time · You're leaving.",
           my: "သူငယ်ချင်းအိမ်မှာ သူ့အဖေနဲ့ ဒီနေ့ ပထမဆုံး တွေ့ခဲ့တယ်။ အခု ပြန်တော့မယ်။",
           answer: "It was nice meeting you.",
           wrong: {
-            "Nice to meet you.": ["moment", "That's for the start, when you meet. At the end: It was nice meeting you."],
-            "Long time no see!": ["moment", "That's for old friends you haven't seen for a long time."],
-            "Talk to you later.": ["register", "For friends, at the end of a phone call or chat."],
+            "Nice to meet you.": [
+              "moment",
+              "စစချင်းတွေ့ရင် ပြောတဲ့စကားပါ။ It was nice meeting you ကပြန်ခါနီးပြောတဲ့စကားပါ။",
+            ],
+            "Long time no see!": [
+              "moment",
+              "ဒါက မတွေ့ရတာ ကြာပြီဖြစ်တဲ့ သူငယ်ချင်းတွေကို နှုတ်ဆက်တဲ့ စကားပါ။",
+            ],
+            "Talk to you later.": [
+              "register",
+              "သူငယ်ချင်းနဲ့ ဖုန်ပြောပြီး ၊ စကားပြောပြီး အဆုံးမှာပြောတဲ့စကားပါ။",
+            ],
           },
         },
         {
@@ -355,9 +595,18 @@
           prompt: "How's it going?",
           answer: "Not bad.",
           wrong: {
-            "I'm going to the market.": ["literal", "How's it going? is not about where you are going. It means How are you? Answer: Not bad. or Good, thanks."],
-            "Nice to meet you too.": ["reply", "That answers Nice to meet you."],
-            "Goodbye.": ["moment", "That ends the conversation. How's it going? asks how you are."],
+            "I'm going to the market.": [
+              "literal",
+              "How's it going? က ဘယ်သွားမှာလဲလို့ မေးတာမဟုတ်ပါ။ ဘယ်လိုနေလဲ လို့မေးတာပါ။ အဖြေ: Not bad. ဒါမှမဟုတ် Good, thanks.",
+            ],
+            "Nice to meet you too.": [
+              "reply",
+              "ဒါက 'Nice to meet you' ကိုပြန်ဖြေတဲ့ အသုံးအနှုံးပါ။",
+            ],
+            "Goodbye.": [
+              "moment",
+              "ဒါက သွားခါနီး နှုတ်ဆက်စကားပါ။ How's it going? ကဘယ်လိုနေလဲလို့မေးတာပါ။",
+            ],
           },
         },
         {
@@ -365,7 +614,10 @@
           answer: "It was nice talking to you.",
           cue: "👋 The end of a nice chat",
           decoys: {
-            talk: ["words", "After It was nice, use the -ing form: It was nice talking to you."],
+            talk: [
+              "words",
+              "nice အနောက်က ကြိယာတွေမှာ -ing ကိုသုံးပါ။ ဥပမာ - It was nice talking to you.",
+            ],
           },
         },
         {
@@ -375,7 +627,7 @@
           phrase: "Hey!",
           ok: false,
           tag: "register",
-          note: "Hey! is for close friends. To a teacher, say Hello or Good morning.",
+          note: "Hey! ကိုသူငယ်ချင်းတွေအတွက်သုံးပါ။ ဆရာ(မ) တွေကိုတော့ Hello ဒါမှမဟုတ် Good morning ကိုသုံးပါ။",
         },
       ];
     </script>

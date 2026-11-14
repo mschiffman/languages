@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Questions in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-indigo-950 via-blue-900 to-indigo-800 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-indigo-300 mb-4"
+        >
+          French grammar · Questions
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">Tu viens ?</span>
+        </h1>
+        <p class="text-lg md:text-xl text-indigo-100 max-w-2xl mx-auto leading-relaxed">
+          The textbook asks <i lang="fr">Viens-tu ?</i> Friends ask
+          <i lang="fr">Tu viens ?</i>: the same words as a statement, with
+          the voice going up at the end. French has three ways to ask almost
+          anything. Here is which one to use, and how people really ask
+          where, when, what and who.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The chart (filled by the script from WORDS below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-indigo-900 mb-2">
+          First, the chart: one question, three ways
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          Read across a row. All three columns ask the same thing; what
+          changes is who you are talking to. Most of what you hear in daily
+          life is in the first column.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[820px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold align-bottom">Word</th>
+                <th scope="col" class="bg-indigo-600 text-white px-3 py-2 font-semibold align-bottom">Everyday<span class="block text-xs font-normal opacity-90">friends, family, most talk</span></th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold align-bottom">Neutral<span class="block text-xs font-normal opacity-90">est-ce que · safe with anyone</span></th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 font-semibold align-bottom">Careful<span class="block text-xs font-normal opacity-90">inversion · formal, written</span></th>
+                <th scope="col" class="bg-emerald-600 text-white px-3 py-2 rounded-tr-xl font-semibold align-bottom">English</th>
+              </tr>
+            </thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the chart sideways to see every column.</p>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-indigo-800">Everyday.</b> Keep the word order of a
+            statement. The question word goes where the answer would go, or
+            at the front: <i lang="fr">Tu vas où ?</i> ·
+            <i lang="fr">Où tu vas ?</i>
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-indigo-800">Neutral.</b> <i lang="fr">Est-ce que</i>
+            at the front never sounds wrong. A good default with strangers,
+            in shops and at work.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-indigo-800">Careful.</b> Verb before pronoun, with
+            a hyphen. Mostly written, but a few set phrases use it every
+            day: <i lang="fr">Comment allez-vous ?</i>
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-indigo-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Almost the same question, not the same meaning
+        </h2>
+        <p class="text-indigo-100 leading-relaxed mb-6 max-w-3xl">
+          One small change, a qui for a que, a word added, or the voice
+          going down instead of up, and you are asking something else.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-indigo-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-indigo-600 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most come from mixing the three ways of asking, or from
+              translating “what” and “how” word for word. The crossed-out
+              line is the slip; the line under it is what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../preposition/prepositions.html" class="font-semibold text-indigo-700 underline underline-offset-2 hover:text-indigo-900">prepositions</a>
+          ·
+          <a href="../negation/negation.html" class="font-semibold text-indigo-700 underline underline-offset-2 hover:text-indigo-900">negation</a>
+          ·
+          <a href="../pronoun/pronouns.html" class="font-semibold text-indigo-700 underline underline-offset-2 hover:text-indigo-900">pronouns</a>
+          ·
+          <a href="../subjunctive/subjunctive.html" class="font-semibold text-indigo-700 underline underline-offset-2 hover:text-indigo-900">subjunctive</a>
+        </p>
+        <a href="../index.html" class="text-indigo-700 underline underline-offset-2 hover:text-indigo-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "Tu vas [où] ?"
+      --------------------------------------------------------------- */
+
+      /* Chart rows: [word, meaning, everyday, neutral, careful, English] */
+      const WORDS = [
+        ["—", "yes or no", "Tu [viens] ?", "[Est-ce que] tu viens ?", "[Viens-tu] ?", "Are you coming?"],
+        ["où", "where", "Tu vas [où] ?", "[Où] est-ce que tu vas ?", "[Où] vas-tu ?", "Where are you going?"],
+        ["quand", "when", "Tu pars [quand] ?", "[Quand] est-ce que tu pars ?", "[Quand] pars-tu ?", "When are you leaving?"],
+        ["comment", "how", "Tu t'appelles [comment] ?", "[Comment] est-ce que tu t'appelles ?", "[Comment] t'appelles-tu ?", "What's your name?"],
+        ["pourquoi", "why", "[Pourquoi] tu ris ?", "[Pourquoi] est-ce que tu ris ?", "[Pourquoi] ris-tu ?", "Why are you laughing?"],
+        ["combien", "how much, how many", "Ça coûte [combien] ?", "[Combien] est-ce que ça coûte ?", "[Combien] cela coûte-t-il ?", "How much does it cost?"],
+        ["qui", "who", "Tu appelles [qui] ?", "[Qui] est-ce que tu appelles ?", "[Qui] appelles-tu ?", "Who are you calling?"],
+        ["quoi · que", "what", "Tu fais [quoi] ?", "[Qu'est-ce que] tu fais ?", "[Que] fais-tu ?", "What are you doing?"],
+        ["quel", "which, what + noun", "Tu prends [quel] bus ?", "[Quel] bus est-ce que tu prends ?", "[Quel] bus prends-tu ?", "Which bus are you taking?"],
+        ["lequel", "which one", "Tu veux [lequel] ?", "[Lequel] est-ce que tu veux ?", "[Lequel] veux-tu ?", "Which one do you want?"],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "voice",
+          title: "Yes or no: just raise your voice",
+          fr: "Tu viens ? · Ça va ? · T'as faim ?",
+          tone: "indigo",
+          blurb:
+            "The most common question in French is a plain statement with the voice rising at the end. Nothing else changes. In writing, the question mark does the job.",
+          ex: [
+            ["Tu [viens] ?", "Are you coming?", "Same words as Tu viens (you're coming). Only the rising voice makes it a question."],
+            ["Ça [va] ?", "How are you? · Is that OK?"],
+            ["T'as [faim] ?", "Are you hungry?", "T'as = tu as, in speech."],
+            ["Tu [veux] un café ?", "Do you want a coffee?"],
+            ["C'est [bon] ?", "Is it good? · Are we done?"],
+            ["On [y va] ?", "Shall we go?", "On + verb: the everyday “shall we…?”"],
+            ["Vous êtes [prêts] ?", "Are you ready?"],
+            ["Il est [là], Paul ?", "Is Paul here?", "Speech often names the person at the end."],
+            ["Ça te [dit] ?", "Do you fancy it?"],
+            ["Je peux [entrer] ?", "Can I come in?"],
+            ["Tu l'as [vu] ?", "Did you see it?"],
+            ["C'est [vrai] ?", "Really?"],
+          ],
+          tip: "With the voice falling, the same words are a statement or even an order: Tu viens. (You're coming, end of discussion.)",
+        },
+        {
+          id: "est-ce-que",
+          title: "Est-ce que: the safe all-rounder",
+          fr: "Est-ce que tu viens ? · Où est-ce que tu vas ?",
+          tone: "sky",
+          blurb:
+            "Est-ce que (literally “is it that”) turns any sentence into a question without changing its word order. It sounds neither casual nor stiff, so it is right with anyone. Said fast it is just /ɛskə/.",
+          ex: [
+            ["[Est-ce que] tu viens ?", "Are you coming?"],
+            ["[Est-ce qu']il est là ?", "Is he here?", "Est-ce qu' before a vowel."],
+            ["[Est-ce que] vous avez une table pour deux ?", "Do you have a table for two?", "Good in shops and restaurants."],
+            ["[Est-ce que] je peux payer par carte ?", "Can I pay by card?"],
+            ["Où [est-ce que] tu habites ?", "Where do you live?", "Question word + est-ce que."],
+            ["Quand [est-ce qu']on mange ?", "When are we eating?"],
+            ["Comment [est-ce que] ça marche ?", "How does it work?"],
+            ["Pourquoi [est-ce que] c'est fermé ?", "Why is it closed?"],
+            ["[Qu'est-ce que] tu veux ?", "What do you want?", "Que + est-ce que → qu'est-ce que: the commonest way to ask “what” at the front."],
+            ["[Est-ce que] tu pourrais m'aider ?", "Could you help me?"],
+          ],
+          tip: "Use est-ce que or inversion, never both: Où est-ce que tu vas ? or Où vas-tu ?, not “où est-ce que vas-tu”.",
+        },
+        {
+          id: "inversion",
+          title: "Inversion: verb first",
+          fr: "Viens-tu ? · Comment allez-vous ? · A-t-il fini ?",
+          tone: "amber",
+          blurb:
+            "Putting the verb before the pronoun, joined by a hyphen, is the formal way to ask. You see it in writing and hear it in polite speech, and a handful of set phrases use it every day.",
+          ex: [
+            ["[Comment allez]-vous ?", "How are you?", "Polite set phrase, heard every day."],
+            ["[Quelle heure est]-il ?", "What time is it?", "Set phrase: everyone says it."],
+            ["[Voulez]-vous un café ?", "Would you like a coffee?"],
+            ["[Puis]-je vous aider ?", "Can I help you?", "Puis-je is a special je form of pouvoir, used only in inversion."],
+            ["[Avez]-vous des questions ?", "Do you have any questions?"],
+            ["[Pouvez]-vous répéter, s'il vous plaît ?", "Could you say that again, please?"],
+            ["[Où se trouve] la gare ?", "Where is the station?", "With a noun subject, the verb can simply go first."],
+            ["[A-t]-il fini ?", "Has he finished?", "A -t- goes between two vowels: a-t-il, va-t-elle, parle-t-on."],
+            ["[Parle-t]-elle français ?", "Does she speak French?"],
+            ["Paul [est-il] là ?", "Is Paul here?", "With a name: name first, then verb + pronoun."],
+            ["[Qu'en] penses-tu ?", "What do you think (of it)?"],
+          ],
+          tip: "Inversion with je is rare and sounds old-fashioned, except in a few verbs: puis-je, dois-je, suis-je.",
+        },
+        {
+          id: "words",
+          title: "Where, when, how, how much: at the end",
+          fr: "Tu vas où ? · Tu pars quand ? · C'est combien ?",
+          tone: "emerald",
+          blurb:
+            "In everyday speech the question word usually sits where the answer would go, at the end. Putting it at the front with no other change is just as common: Où tu vas ?",
+          ex: [
+            ["Tu habites [où] ?", "Where do you live?"],
+            ["[Où] t'es ?", "Where are you?", "Front position, no inversion: very common on the phone."],
+            ["On se voit [quand] ?", "When shall we meet?"],
+            ["Tu rentres [à quelle heure] ?", "What time are you coming home?"],
+            ["Tu t'appelles [comment] ?", "What's your name?"],
+            ["[Comment] ça s'écrit ?", "How do you spell it?"],
+            ["Ça s'est passé [comment] ?", "How did it go?"],
+            ["C'est [combien] ?", "How much is it?"],
+            ["T'en veux [combien] ?", "How many do you want?"],
+            ["Tu restes [combien de temps] ?", "How long are you staying?"],
+            ["Tu as [quel âge] ?", "How old are you?", "Age is avoir + quel âge, never “comment vieux”."],
+            ["Tu viens [d'où] ?", "Where are you from?", "The preposition stays with the question word."],
+          ],
+          tip: "With être and a noun, où usually stays in front: Où est la gare ? Où sont les toilettes ?",
+          more: ["../preposition/prepositions.html", "More on prepositions in questions"],
+        },
+        {
+          id: "pourquoi",
+          title: "Why: pourquoi, and the answers",
+          fr: "pourquoi · parce que · pour · comme",
+          tone: "rose",
+          blurb:
+            "Pourquoi usually stays at the front. The answers vary: parce que for a reason, pour + verb for a purpose, and comme at the start of a sentence for “since”.",
+          ex: [
+            ["[Pourquoi] tu ris ?", "Why are you laughing?"],
+            ["[Pourquoi] pas ?", "Why not?"],
+            ["Tu dis ça [pourquoi] ?", "Why are you saying that?", "End position exists too, with a slightly challenging tone."],
+            ["[Pourquoi] t'es pas venu ?", "Why didn't you come?"],
+            ["[Parce que] j'étais malade.", "Because I was ill."],
+            ["[Parce que] !", "Because!", "On its own: “I'm not telling you”."],
+            ["— Pourquoi tu sors ? — [Pour] acheter du pain.", "— Why are you going out? — To buy bread.", "A purpose: pour + infinitive."],
+            ["[Comme] il pleuvait, on est restés.", "Since it was raining, we stayed in.", "Comme for “since” goes at the start of the sentence."],
+            ["[À cause de] la grève.", "Because of the strike.", "À cause de + noun, usually for something bad."],
+            ["[Grâce à] toi.", "Thanks to you.", "Grâce à + noun, for something good."],
+            ["[Comment ça se fait] qu'il soit pas là ?", "How come he's not here?", "Spoken “how come”. It takes the subjunctive."],
+            ["[C'est pour ça que] je suis parti.", "That's why I left."],
+          ],
+        },
+        {
+          id: "what",
+          title: "What: quoi, qu'est-ce que, que",
+          fr: "Tu fais quoi ? · Qu'est-ce que tu fais ? · Que fais-tu ?",
+          tone: "violet",
+          blurb:
+            "“What” has the most forms. Quoi goes at the end or after a preposition. Qu'est-ce que goes at the front. Que appears only with inversion. And when “what” is the subject of the verb, it becomes qu'est-ce qui.",
+          ex: [
+            ["Tu fais [quoi] ?", "What are you doing?", "Everyday: quoi at the end."],
+            ["[Qu'est-ce que] tu fais ?", "What are you doing?", "Neutral."],
+            ["[Que] fais-tu ?", "What are you doing?", "Careful."],
+            ["C'est [quoi], ça ?", "What's that?"],
+            ["[Qu'est-ce que c'est] ?", "What is it?"],
+            ["[Qu'est-ce qui] se passe ?", "What's happening?", "“What” as the subject of the verb: qu'est-ce qui."],
+            ["[Qu'est-ce qui] t'arrive ?", "What's the matter with you?"],
+            ["[Qu'est-ce qui] te fait rire ?", "What's making you laugh?"],
+            ["Tu penses à [quoi] ?", "What are you thinking about?", "After a preposition: quoi."],
+            ["[Quoi] de neuf ?", "What's new?"],
+            ["[Quoi] ?", "What?", "Blunt. Comment ? or Pardon ? are politer."],
+            ["[Qu'est-ce que] tu veux que je te dise ?", "What do you want me to say?"],
+          ],
+          tip: "Quoi can start a question only in a few short set forms: Quoi de neuf ? Quoi d'autre ? Quoi faire ? Before a subject and verb, use qu'est-ce que.",
+        },
+        {
+          id: "who",
+          title: "Who: qui",
+          fr: "C'est qui ? · Qui est là ? · Tu appelles qui ?",
+          tone: "teal",
+          blurb:
+            "Qui is simpler than “what”: one word for subject and object, at the front or at the end. The long forms qui est-ce qui and qui est-ce que exist, but plain qui is far more common.",
+          ex: [
+            ["C'est [qui] ?", "Who is it?"],
+            ["[Qui] est là ?", "Who's there?"],
+            ["[Qui] veut du gâteau ?", "Who wants some cake?", "Qui as subject takes the il form of the verb."],
+            ["Tu appelles [qui] ?", "Who are you calling?"],
+            ["[Qui] t'a dit ça ?", "Who told you that?"],
+            ["Tu l'as vu avec [qui] ?", "Who did you see him with?"],
+            ["C'est à [qui] ?", "Whose is it? · Whose turn is it?"],
+            ["[Qui est-ce qui] a gagné ?", "Who won?", "Long subject form."],
+            ["[Qui est-ce que] tu as vu ?", "Who did you see?", "Long object form."],
+            ["C'est [qui] qui a fait ça ?", "Who did this?", "Very common in speech: c'est qui qui…"],
+            ["[De qui] tu parles ?", "Who are you talking about?"],
+          ],
+        },
+        {
+          id: "quel",
+          title: "Which, what: quel + a noun",
+          fr: "quel · quelle · quels · quelles",
+          tone: "indigo",
+          blurb:
+            "Quel asks you to pick one from a set. It agrees with its noun, but all four forms sound the same. It also starts exclamations.",
+          ex: [
+            ["Tu prends [quel] bus ?", "Which bus are you taking?"],
+            ["[Quelle] heure il est ?", "What time is it?"],
+            ["[Quel] temps il fait ?", "What's the weather like?"],
+            ["On est [quel] jour, aujourd'hui ?", "What day is it today?"],
+            ["[Quelle] est ton adresse ?", "What's your address?", "Quel + être + noun: asking for a piece of information."],
+            ["[Quel] est le problème ?", "What's the problem?"],
+            ["Tu préfères [quelles] chaussures ?", "Which shoes do you prefer?"],
+            ["C'est [quoi], ton numéro ?", "What's your number?", "Speech often uses c'est quoi … ? where careful French says quel est … ?"],
+            ["[Quelle] chance !", "How lucky!", "Exclamation, not a question."],
+            ["[Quel] dommage !", "What a shame!"],
+            ["[Quelle] idée !", "What an idea!"],
+          ],
+        },
+        {
+          id: "lequel",
+          title: "Which one: lequel",
+          fr: "lequel · laquelle · lesquels · lesquelles",
+          tone: "amber",
+          blurb:
+            "Lequel is quel without its noun: “which one”. It agrees with the noun you are leaving out.",
+          ex: [
+            ["Tu veux [lequel] ?", "Which one do you want?", "le gâteau → lequel"],
+            ["[Laquelle] tu préfères ?", "Which one do you prefer?", "la robe → laquelle"],
+            ["[Lesquels] sont à toi ?", "Which ones are yours?"],
+            ["— Passe-moi le livre. — [Lequel] ?", "— Pass me the book. — Which one?"],
+            ["[Lequel] des deux ?", "Which of the two?"],
+            ["[Laquelle] de tes sœurs ?", "Which of your sisters?"],
+            ["Tu parles [duquel] ?", "Which one are you talking about?", "de + lequel → duquel, like de + le → du."],
+            ["Tu penses [auquel] ?", "Which one are you thinking of?", "à + lequel → auquel."],
+            ["[N'importe lequel].", "Any of them. · Whichever."],
+          ],
+        },
+        {
+          id: "prep",
+          title: "With a preposition: à qui, avec quoi, d'où",
+          fr: "Tu parles à qui ? · De quoi tu parles ? · C'est pour quoi ?",
+          tone: "sky",
+          blurb:
+            "English leaves the preposition dangling: “Who are you talking to?” French keeps it glued to the question word, whether the pair goes at the front or at the end.",
+          ex: [
+            ["Tu parles [à qui] ?", "Who are you talking to?"],
+            ["[Avec qui] tu y vas ?", "Who are you going with?"],
+            ["C'est [pour qui] ?", "Who's it for?"],
+            ["[De quoi] tu parles ?", "What are you talking about?"],
+            ["Tu penses [à quoi] ?", "What are you thinking about?"],
+            ["Tu l'as ouvert [avec quoi] ?", "What did you open it with?"],
+            ["C'est [pour quoi] ?", "What's it for?", "Pour quoi in two words; pourquoi is “why”."],
+            ["Tu viens [d'où] ?", "Where are you from?"],
+            ["[Depuis quand] tu le sais ?", "How long have you known?"],
+            ["T'as peur [de quoi] ?", "What are you afraid of?"],
+          ],
+          more: ["../preposition/prepositions.html", "More on prepositions"],
+        },
+        {
+          id: "reactions",
+          title: "Short questions that keep a conversation going",
+          fr: "Ah bon ? · C'est vrai ? · Et toi ? · Comment ça ?",
+          tone: "emerald",
+          blurb:
+            "Most questions in a real conversation are a word or two long. These show you are listening, ask for a repeat, or push for more.",
+          ex: [
+            ["[Ah bon] ?", "Really?", "Surprise. Probably the most common reaction in French."],
+            ["[C'est vrai] ?", "Is that true?"],
+            ["[Et toi] ?", "And you?"],
+            ["[Comment] ?", "Sorry? · Pardon?", "Asking someone to repeat. Politer than Quoi ?"],
+            ["[Pardon] ?", "Sorry?"],
+            ["[Comment ça] ?", "What do you mean?"],
+            ["[Et alors] ?", "So what? · And then?", "The tone decides which."],
+            ["[Quoi d'autre] ?", "What else?"],
+            ["[T'es sûr] ?", "Are you sure?"],
+            ["[Tu rigoles] ?", "Are you kidding?"],
+            ["[Et après] ?", "And then what?"],
+            ["[Hein] ?", "Eh? · What?", "Very casual."],
+            ["[C'est-à-dire] ?", "Meaning what?"],
+          ],
+        },
+        {
+          id: "tags",
+          title: "Tags and softeners",
+          fr: "…, non ? · …, hein ? · Tu pourrais… ? · Ça vous dérange si… ?",
+          tone: "rose",
+          blurb:
+            "A tag at the end asks the listener to agree. A conditional or a polite opener softens a request. In French these matter more than word order.",
+          ex: [
+            ["Il fait chaud, [non] ?", "It's hot, isn't it?", "The everyday tag."],
+            ["C'est bon, [hein] ?", "It's good, eh?"],
+            ["Vous êtes française, [n'est-ce pas] ?", "You're French, aren't you?", "Careful French; it sounds formal in conversation."],
+            ["Tu viens, [oui ou non] ?", "Are you coming or not?", "Impatient."],
+            ["Tu [pourrais] fermer la fenêtre ?", "Could you close the window?", "Conditional: softer than Tu peux … ?"],
+            ["Vous [auriez] du feu ?", "Have you got a light?"],
+            ["[Ça vous dérange si] j'ouvre ?", "Do you mind if I open it?"],
+            ["[Je pourrais] avoir l'addition ?", "Could I have the bill?"],
+            ["[Ça te dirait] d'aller au ciné ?", "How about going to the cinema?"],
+            ["[Excusez-moi], vous savez où est la poste ?", "Excuse me, do you know where the post office is?", "Start with excusez-moi or pardon before asking a stranger."],
+          ],
+          more: ["../negation/negation.html", "Questions with pas: Tu veux pas un café ?"],
+        },
+        {
+          id: "indirect",
+          title: "Questions inside sentences",
+          fr: "Je sais pas où il est · Dis-moi ce que tu veux · Je me demande si…",
+          tone: "violet",
+          blurb:
+            "When a question sits inside another sentence (“I don't know where he is”), French uses plain statement order. Est-ce que becomes si, and qu'est-ce que becomes ce que.",
+          ex: [
+            ["Je sais pas [où] il est.", "I don't know where he is.", "Normal word order, no est-ce que."],
+            ["Dis-moi [quand] tu arrives.", "Tell me when you're arriving."],
+            ["Je me demande [si] elle viendra.", "I wonder whether she'll come.", "Est-ce que → si."],
+            ["Tu sais [s']il est là ?", "Do you know if he's here?", "si + il → s'il"],
+            ["Dis-moi [ce que] tu veux.", "Tell me what you want.", "Qu'est-ce que → ce que."],
+            ["Je sais pas [ce qui] se passe.", "I don't know what's going on.", "Qu'est-ce qui → ce qui."],
+            ["Je comprends pas [pourquoi] il est parti.", "I don't understand why he left."],
+            ["Tu sais [combien] ça coûte ?", "Do you know how much it costs?"],
+            ["Je sais pas [quoi] faire.", "I don't know what to do.", "Quoi + infinitive."],
+            ["Je sais pas [qui] appeler.", "I don't know who to call."],
+          ],
+          tip: "In casual speech you will hear Dis-moi qu'est-ce que tu veux. It is common but counted as a mistake; ce que is the safe choice.",
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["[Qui est-ce qui] t'aide ?", "Who's helping you?", "[Qui est-ce que] tu aides ?", "Who are you helping?"],
+        ["[Qu'est-ce qui] sent bon ?", "What smells good?", "[Qu'est-ce que] tu sens ?", "What can you smell?"],
+        ["Tu [viens] ? ↗", "Are you coming? (voice goes up)", "Tu [viens]. ↘", "You're coming. · Come on. (voice goes down)"],
+        ["[Comment] ?", "Sorry? (say that again)", "[Comment ça] ?", "What do you mean?"],
+        ["Tu sais [quoi] ?", "Guess what?", "Tu sais [quoi faire] ?", "Do you know what to do?"],
+        ["[Quelle] est ta couleur préférée ?", "What's your favourite colour? (pick one)", "[C'est quoi], le safran ?", "What is saffron? (explain it)"],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["Quoi tu fais ?", "Tu fais [quoi] ?", "What are you doing?", "Quoi goes at the end. At the front, use qu'est-ce que."],
+        ["Que tu fais ?", "[Qu'est-ce que] tu fais ?", "What are you doing?", "Que at the front needs est-ce que or inversion."],
+        ["Qu'est-ce que se passe ?", "[Qu'est-ce qui] se passe ?", "What's happening?", "“What” as subject: qu'est-ce qui."],
+        ["Où est-ce que vas-tu ?", "Où [est-ce que] tu vas ?", "Where are you going?", "Est-ce que or inversion, not both."],
+        ["Parle-il français ?", "Parle[-t-]il français ?", "Does he speak French?", "Add -t- between two vowels."],
+        ["Comment vieux es-tu ?", "Tu as [quel âge] ?", "How old are you?", "Age uses avoir + quel âge."],
+        ["Qui tu parles à ?", "Tu parles [à qui] ?", "Who are you talking to?", "The preposition stays with qui."],
+        ["Quel est ça ?", "C'est [quoi], ça ?", "What's that?", "Quel needs a noun; for “what's that” use quoi."],
+        ["Lequel livre ?", "[Quel] livre ?", "Which book?", "Lequel stands alone; quel goes with a noun."],
+        ["Je sais pas où est-ce qu'il est.", "Je sais pas [où] il est.", "I don't know where he is.", "No est-ce que inside a sentence."],
+        ["Tu as faim, oui ?", "Tu as faim, [non] ?", "You're hungry, aren't you?", "The tag is non ? or hein ?"],
+        ["Comment tu as aimé le film ?", "Le film t'a [plu] ?", "How did you like the film?", "Ask whether it pleased you: Ça t'a plu ? or T'as aimé ?"],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [où] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- chart ---------- */
+      document.getElementById("chart-body").innerHTML = WORDS.map(
+        ([word, meaning, everyday, neutral, careful, en]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 align-top">
+            <span class="block font-playfair italic font-semibold text-lg text-slate-700 whitespace-nowrap" lang="fr">${esc(word)}</span>
+            <span class="block text-xs font-normal text-slate-500">${esc(meaning)}</span>
+          </th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-indigo-50 font-medium text-slate-900 whitespace-nowrap" lang="fr">${mark(everyday, "text-indigo-700")}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-slate-800 whitespace-nowrap" lang="fr">${mark(neutral, "text-sky-700")}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-slate-800 whitespace-nowrap" lang="fr">${mark(careful, "text-amber-700")}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-slate-500">${esc(en)}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-indigo-100 border border-indigo-200 px-3 py-1.5 text-sm font-medium text-indigo-900 hover:bg-indigo-200">The chart</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-indigo-400 hover:text-indigo-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-indigo-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-indigo-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-indigo-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-indigo-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+<script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

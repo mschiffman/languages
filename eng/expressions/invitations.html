@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Invitations &amp; Plans</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">INVITATIONS &amp; PLANS</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Invitations &amp; Plans
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ဖိတ်ခေါ်ခြင်းနှင့် ချိန်းဆိုခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">31</span> expressions · Invitations &amp; Plans
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 31.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/invitations/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Inviting",
+          my: "ဖိတ်ခေါ်ခြင်း",
+          desc: "Asking someone to come along or do something with you.",
+          cards: [
+            ["Are you free on <span class=gray>Saturday</span>?", "စနေနေ့ အားလား။", "A friendly first step before you invite someone. It gives them an easy way to say no.",
+              "Are you free on Saturday? We're having a picnic.", "စနေနေ့ အားလား။ ပျော်ပွဲစား သွားမလို့။"],
+            ["Would you like to come to <span class=gray>my party</span>?", "ကျွန်တော့်/ကျွန်မ ပါတီကို လာချင်လား။", "The polite way to invite: good with anyone. Would you like to + verb.",
+              "Would you like to come to my birthday party on Sunday?", "တနင်္ဂနွေနေ့ ကျွန်မ မွေးနေ့ပါတီကို လာချင်လား။"],
+            ["Do you want to <span class=gray>see a movie</span>?", "ရုပ်ရှင် သွားကြည့်ချင်လား။", "More casual: with friends and family.",
+              "Do you want to play football after school?", "ကျောင်းဆင်းရင် ဘောလုံး ကန်ချင်လား။"],
+            ["Let's <span class=gray>go to the market</span>!", "ဈေး သွားကြရအောင်။", "A suggestion for you and the other person together. Let's + verb, with no to.",
+              "It's a sunny day. Let's go to the beach!", "နေသာတယ်။ ကမ်းခြေ သွားကြရအောင်။"],
+            ["Why don't you come over?", "အိမ်ကို လာလည်ပါလား။", "A warm invitation to your home. Come over means come to my house.",
+              "I'm making noodles tonight. Why don't you come over?", "ဒီည ခေါက်ဆွဲ ချက်မလို့။ အိမ်ကို လာလည်ပါလား။"],
+            ["You're welcome to join us.", "ကျွန်တော်တို့နဲ့ လိုက်ခဲ့ချင်ရင် ရပါတယ်။", "An open, polite invitation with no pressure.",
+              "We're going for lunch. You're welcome to join us.", "ထမင်း သွားစားမလို့။ လိုက်ခဲ့ချင်ရင် ရပါတယ်။"],
+          ],
+        },
+        {
+          en: "Saying yes",
+          my: "လက်ခံခြင်း",
+          desc: "Happy ways to accept an invitation.",
+          cards: [
+            ["I'd love to!", "သိပ်လာချင်တာပေါ့။", "The warmest yes. I'd love to = I would love to.",
+              "— Would you like to come to the festival? — I'd love to!", "— ပွဲတော်ကို လာချင်လား။ — သိပ်လာချင်တာပေါ့။"],
+            ["Sounds great!", "ကောင်းသားပဲ။", "Casual and happy. Also: Sounds good!",
+              "— Let's have dinner at my place. — Sounds great!", "— ငါ့အိမ်မှာ ညစာ စားကြရအောင်။ — ကောင်းသားပဲ။"],
+            ["Count me in!", "ကျွန်တော်/ကျွန်မလည်း ပါမယ်။", "Casual: add me to the group. The opposite is Count me out.",
+              "— We're playing football on Sunday. — Count me in!", "— တနင်္ဂနွေ ဘောလုံး ကန်မလို့။ — ငါလည်း ပါမယ်။"],
+            ["Sure, what time?", "ရတာပေါ့၊ ဘယ်အချိန်လဲ။", "Says yes and moves straight to the plan.",
+              "— Do you want to study together? — Sure, what time?", "— အတူတူ စာကျက်ချင်လား။ — ရတာပေါ့၊ ဘယ်အချိန်လဲ။"],
+            ["I'll be there.", "ရောက်အောင် လာခဲ့မယ်။", "A promise that you will come.",
+              "— The party starts at seven. — Great, I'll be there.", "— ပါတီက ခုနစ်နာရီ စမယ်။ — ကောင်းပြီ၊ ရောက်အောင် လာခဲ့မယ်။"],
+          ],
+        },
+        {
+          en: "Making the plan",
+          my: "ချိန်းဆိုခြင်း",
+          desc: "Agreeing on the time and the place.",
+          cards: [
+            ["What time is good for you?", "ဘယ်အချိန် အဆင်ပြေလဲ။", "Lets the other person choose. Polite and friendly.",
+              "Let's meet tomorrow. What time is good for you?", "မနက်ဖြန် တွေ့ကြရအောင်။ ဘယ်အချိန် အဆင်ပြေလဲ။"],
+            ["Where shall we meet?", "ဘယ်မှာ တွေ့ကြမလဲ။", "Asks about the place. Also: Where should we meet?",
+              "— Let's go to the cinema. — OK. Where shall we meet?", "— ရုပ်ရှင် သွားကြည့်ကြရအောင်။ — အိုကေ။ ဘယ်မှာ တွေ့ကြမလဲ။"],
+            ["How about <span class=gray>6 o'clock</span>?", "ခြောက်နာရီ ဆိုရင်ကော။", "Suggests a time or a place. How about + time, place or -ing.",
+              "— When shall we go? — How about after lunch?", "— ဘယ်အချိန် သွားကြမလဲ။ — နေ့လယ်စာ စားပြီးရင်ကော။"],
+            ["Let's meet at <span class=gray>the bus stop</span>.", "ဘတ်စ်ကားမှတ်တိုင်မှာ တွေ့ကြရအောင်။", "Fixes the place. At + place: at the gate, at the market, at my house.",
+              "Let's meet at the school gate at four.", "လေးနာရီ ကျောင်းဂိတ်မှာ တွေ့ကြရအောင်။"],
+            ["Does <span class=gray>Friday</span> work for you?", "သောကြာနေ့ အဆင်ပြေလား။", "Asks if a day or time is OK. Work for you means suit you.",
+              "Does Friday work for you, or is Saturday better?", "သောကြာနေ့ အဆင်ပြေလား၊ စနေနေ့က ပိုအဆင်ပြေလား။"],
+            ["Shall I pick you up?", "လာကြိုရမလား။", "Offers to come and get someone, by car, motorbike or bicycle.",
+              "It's a long way. Shall I pick you up at six?", "ဝေးတယ်။ ခြောက်နာရီ လာကြိုရမလား။"],
+          ],
+        },
+        {
+          en: "Not sure yet",
+          my: "မသေချာသေးတဲ့အခါ",
+          desc: "When you can't say yes or no right away.",
+          cards: [
+            ["Can I let you know later?", "နောက်မှ ပြောလို့ ရမလား။", "Polite: you need time before you answer.",
+              "— Are you coming to the wedding? — Can I let you know later?", "— မင်္ဂလာဆောင် လာမလား။ — နောက်မှ ပြောလို့ ရမလား။"],
+            ["I'll get back to you.", "နောက်မှ ပြန်ပြောမယ်။", "A promise to answer soon. Common at work too.",
+              "I'll check with my family and get back to you.", "မိသားစုကို မေးပြီး နောက်မှ ပြန်ပြောမယ်။"],
+            ["I need to ask my parents.", "မိဘကို အရင် မေးရမယ်။", "What children and young people say before they agree to a plan.",
+              "— Can you come to the zoo with us? — I need to ask my parents.", "— ငါတို့နဲ့ တိရစ္ဆာန်ရုံ လိုက်ခဲ့မလား။ — မိဘကို အရင် မေးရမယ်။"],
+            ["Let me check my calendar.", "ကျွန်တော့်/ကျွန်မ အချိန်ဇယား ကြည့်လိုက်ဦးမယ်။", "Checking if you're free that day. People often look at their phone.",
+              "Next Tuesday? Let me check my calendar.", "နောက်အင်္ဂါနေ့လား။ အချိန်ဇယား ကြည့်လိုက်ဦးမယ်။"],
+          ],
+        },
+        {
+          en: "Changing plans",
+          my: "အစီအစဉ် ပြောင်းခြင်း",
+          desc: "Checking, running late, or cancelling.",
+          cards: [
+            ["Are we still on for <span class=gray>tonight</span>?", "ဒီည ချိန်းထားတာ ဖြစ်တုန်းပဲလား။", "Checks that the plan hasn't changed.",
+              "Hi! Are we still on for tonight?", "ဟိုင်း၊ ဒီည ချိန်းထားတာ ဖြစ်တုန်းပဲလား။"],
+            ["I'm running a bit late.", "နည်းနည်း နောက်ကျနေတယ်။", "Tells the other person before they start waiting. Say how late: I'll be ten minutes late.",
+              "Sorry, I'm running a bit late. See you at ten past.", "ဆောရီး၊ နည်းနည်း နောက်ကျနေတယ်။ ဆယ်မိနစ်လောက်ကျရင် တွေ့မယ်။"],
+            ["Something's come up.", "အရေးကြီးတာ တစ်ခု ပေါ်လာလို့။", "Something unexpected happened, so you can't come. You don't have to explain.",
+              "I'm so sorry, something's come up. Can we meet next week?", "တကယ် ဆောရီး၊ အရေးကြီးတာ တစ်ခု ပေါ်လာလို့။ နောက်အပတ် တွေ့လို့ ရမလား။"],
+            ["Sorry, I have to cancel.", "ဆောရီး၊ ဖျက်ရတော့မယ်။", "Direct but polite. Give a short reason, and suggest another day.",
+              "Sorry, I have to cancel. My little brother is sick.", "ဆောရီး၊ ဖျက်ရတော့မယ်။ ညီလေး နေမကောင်းဖြစ်နေလို့။"],
+            ["Can we make it a bit later?", "နည်းနည်း နောက်ဆုတ်လို့ ရမလား။", "Moves the time, not the day. The opposite: Can we make it earlier?",
+              "Can we make it a bit later? Seven instead of six?", "နည်းနည်း နောက်ဆုတ်လို့ ရမလား။ ခြောက်နာရီအစား ခုနစ်နာရီ ဆိုရင်ကော။"],
+          ],
+        },
+        {
+          en: "Before and after",
+          my: "မတွေ့ခင်နဲ့ တွေ့ပြီးနောက်",
+          desc: "Finishing the plan, and thanking afterwards.",
+          cards: [
+            ["See you there!", "အဲဒီမှာ တွေ့မယ်နော်။", "When you will meet at the place, not before.",
+              "OK, the park at four. See you there!", "အိုကေ၊ လေးနာရီ ပန်းခြံမှာ။ အဲဒီမှာ တွေ့မယ်နော်။"],
+            ["Don't be late!", "နောက်မကျနဲ့နော်။", "Friendly with friends and family. With adults you don't know well, it can sound bossy.",
+              "The bus leaves at eight. Don't be late!", "ဘတ်စ်ကားက ရှစ်နာရီ ထွက်မယ်။ နောက်မကျနဲ့နော်။"],
+            ["Thanks for inviting me.", "ဖိတ်တဲ့အတွက် ကျေးဇူးပါ။", "Said when you accept, and again when you leave.",
+              "Thanks for inviting me. I had a lovely time.", "ဖိတ်တဲ့အတွက် ကျေးဇူးပါ။ အရမ်း ပျော်ခဲ့တယ်။"],
+            ["I had a great time!", "အရမ်း ပျော်ခဲ့တယ်။", "Said at the end, or in a message the next day. Had, because it is finished.",
+              "Thank you for the party. I had a great time!", "ပါတီအတွက် ကျေးဇူးပါ။ အရမ်း ပျော်ခဲ့တယ်။"],
+            ["We should do this again!", "နောက်လည်း ဒီလို ထပ်လုပ်ကြရအောင်။", "A warm way to end: you'd like to meet again.",
+              "That was so much fun. We should do this again!", "အရမ်း ပျော်ဖို့ ကောင်းတယ်။ နောက်လည်း ဒီလို ထပ်လုပ်ကြရအောင်။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

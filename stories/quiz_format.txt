@@ -1,0 +1,116 @@
+How to write a quiz.md for a mixed vocabulary quiz (six formats, Alpine.js).
+Save it in Desktop\story-md and type its name in the story app (Process), or run:
+    python -E stories/new_quiz.py <that file>
+
+============================================================================
+A. A quiz for a lesson that already exists
+   (its words, pictures and audio are reused: nothing new to make)
+============================================================================
+
+# At School: Mixed Quiz
+type: quiz
+page: voc_atSchool_quiz_mix
+from: voc_atSchool
+menu: ytstory
+
+## quiz
+pick: 5
+listen: 5
+match: 2 x 4
+article: 4
+spell: 4, max 10
+type: 4
+
+## similar
+a pen, a pencil, a crayon, a colored pencil, a highlighter
+a desk, a chair
+
+## also
+a piece of paper = a sheet of paper
+a colored pencil = a coloured pencil
+
+============================================================================
+B. A quiz for a new set of words (no lesson page)
+============================================================================
+
+# Fruit: Quiz
+type: quiz
+page: voc_fruit_quiz_mix
+slug: voc-fruit
+menu: ytstory
+
+## words
+1 | apple | an apple
+2 | banana | a banana
+3 | grapes | a bunch of grapes
+4 | orange | an orange
+
+## quiz
+pick: 4
+listen: 4
+match: 1 x 4
+type: 4
+
+============================================================================
+Every line
+============================================================================
+
+Header (before the first "## " line)
+  # <title>     The page title and the menu title. The header of the quiz shows
+                it without ": Quiz" / ": Mixed Quiz".
+  type: quiz    Tells the story app this is a quiz, not a story.
+  page:         File name of the quiz page, without .html.
+  from:         A: the lesson page whose words to use (stories/<from>.html).
+  slug:         B: folder name for the pictures (img/ytstory/<slug>/) and audio.
+  menu:         Optional. ytstory, science, stories ... adds the quiz to that menu:
+                after its lesson (A), or at the end of the Vocabulary group (B).
+  group:        Optional (B). Another menu group than Vocabulary.
+  pictures:     Optional (B). Folder in G:\My Drive\_YOUTUBE with the hi-res
+                1.png, 2.png ... when it isn't named like the slug.
+  size:         Optional (B). Longest side of the converted pictures in pixels
+                (size: 800). Left out: 80% of the PNG, like the lessons.
+  audio:        Optional (B). Clip folder under eng/yt when it isn't the slug,
+                to point at clips that already exist.
+
+## quiz     Optional. Left out: pick 5, listen 5, match 2 x 4, article 4, spell 4, type 4.
+  One line per block; the quiz asks the blocks in this order.
+    pick: 5              picture -> choose the word (4 options)
+    listen: 5            hear the word -> tap the right picture (4 pictures)
+    match: 2 x 4         2 questions, each 4 pictures to match with 4 words (2 to 6 pairs)
+    article: 4           picture + "___ eraser" -> a or an
+    spell: 4, max 10     picture -> tap the letters in order; words up to 10 letters
+    type: 4              picture -> type "a book"
+  The number is how many questions. The words are picked at random on every play.
+  To choose the words yourself, list them instead of the number:
+    pick: a desk, a chair, a pen
+    match: a pen, a pencil, a crayon, a highlighter      (one question with these pairs)
+  The same format can appear more than once.
+
+## similar  Optional. One line per group of words that are easy to mix up.
+            They are used as each other's wrong options, which makes pick and
+            listen harder. Without it, the wrong options are random.
+
+## also     Optional. Other spellings marked right in the typing questions:
+            <answer> = <other form>, <another form>
+
+## words    B only. One line per word:
+              <picture number> | <word> | <phrase>
+            - picture number: N for N.png / N.jpg
+            - word: the bare word ("apple"): spelled in "spell", and what a/an goes with
+            - phrase: what the learner sees and types ("an apple", "a bunch of grapes").
+              Optional: without it the word is used everywhere.
+            The clips are numbered in the order of the lines, the word first, then
+            the phrase: 01 apple, 02 an apple, 03 banana, 04 a banana ...
+            You don't write clip numbers or file names. To use clips that already
+            exist, name their folder with "audio:" in the header and keep the words
+            in the same order as the clips; for a lesson's clips, use "from:" (A).
+
+Pictures (B): put the hi-res 1.png, 2.png ... in G:\My Drive\_YOUTUBE\<slug> (the
+story app's step 0 does that from Downloads). new_quiz.py converts the ones that
+are missing to small JPGs in img/ytstory/<slug>/.
+Audio (B): story_audio.py makes the missing clips with ElevenLabs, exactly as for
+a story (the story app's step 2). Clips that already exist are not made again.
+
+Rules the script checks: every word in quiz / similar / also is a word of the
+quiz; there are enough words for each block (article needs "a/an + word"
+phrases, spell needs words short enough); pick and listen need 4 words or more.

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <title>Animals: Mixed Quiz</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/ytstory.css" />
+    <link rel="stylesheet" href="/assets/css/ytquiz.css" />
+    <link rel="stylesheet" href="/assets/css/vocquiz.css" />
+  </head>
+  <body>
+    <div class="stage">
+      <header>
+        <a class="brand" href="voc_animals_1.html">
+          <svg class="leaf-mark" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>Animals</span>
+          <span class="tag">Quiz</span>
+        </a>
+        <div class="counter">1 / 12</div>
+      </header>
+      <!-- vocquiz.js adds the quiz here -->
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+         Mixed vocabulary quiz (assets/js/vocquiz.js; its header explains
+         every field). Made from voc_animals_1_quiz_mix.md by stories/new_quiz.py.
+      --------------------------------------------------------------- */
+      const IMG_DIR = "/img/ytstory/voc-animals/";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/voc-animals/";
+      const IMG_EXT = "jpg";
+      const AUD_EXT = "mp3?v=2610290758";
+
+      /* pages: pasted from voc_animals_1.html, unchanged. */
+      const pages = [
+        {
+          img: 1,
+          sentences: [[["Animals", 1]], [["dog", 2]], [["a dog", 3]]],
+        },
+        {
+          img: 2,
+          sentences: [[["cat", 4]], [["a cat", 5]]],
+        },
+        {
+          img: 3,
+          sentences: [[["cow", 6]], [["a cow", 7]]],
+        },
+        {
+          img: 4,
+          sentences: [[["pig", 8]], [["a pig", 9]]],
+        },
+        {
+          img: 5,
+          sentences: [[["horse", 10]], [["a horse", 11]]],
+        },
+        {
+          img: 6,
+          sentences: [[["sheep", 12]], [["a sheep", 13]]],
+        },
+        {
+          img: 7,
+          sentences: [[["goat", 14]], [["a goat", 15]]],
+        },
+        {
+          img: 8,
+          sentences: [[["chicken", 16]], [["a chicken", 17]]],
+        },
+        {
+          img: 9,
+          sentences: [[["duck", 18]], [["a duck", 19]]],
+        },
+        {
+          img: 10,
+          sentences: [[["rabbit", 20]], [["a rabbit", 21]]],
+        },
+        {
+          img: 11,
+          sentences: [[["lion", 22]], [["a lion", 23]]],
+        },
+        {
+          img: 12,
+          sentences: [[["tiger", 24]], [["a tiger", 25]]],
+        },
+        {
+          img: 13,
+          sentences: [[["elephant", 26]], [["an elephant", 27]]],
+        },
+        {
+          img: 14,
+          sentences: [[["monkey", 28]], [["a monkey", 29]]],
+        },
+        {
+          img: 15,
+          sentences: [[["giraffe", 30]], [["a giraffe", 31]]],
+        },
+      ];
+
+      /* The plan: which formats, in this order, and how many questions of each. */
+      const quiz = [
+        { type: "pick", count: 3 },
+        { type: "listen", count: 3 },
+        { type: "match", count: 1, pairs: 4 },
+        { type: "article", words: ["an elephant", "a horse"] },
+        { type: "spell", count: 2, max: 7 },
+        { type: "type", count: 1 },
+      ];
+
+      /* Words that are easy to mix up: they become each other's wrong options. */
+      const SIMILAR = [
+        ["a lion", "a tiger"],
+        ["a sheep", "a goat"],
+        ["a chicken", "a duck"],
+        ["a cow", "a horse"],
+        ["a dog", "a cat", "a rabbit"],
+      ];
+
+      /* Typed forms that are also marked right. */
+      const ALSO = {
+        "a chicken": ["a hen"],
+        "a rabbit": ["a bunny"],
+      };
+    </script>
+    <script src="/assets/js/nav-ytstory.js"></script>
+    <script src="/assets/js/vocquiz.js"></script>
+    <script defer src="/assets/js/alpine.min.js"></script>
+  </body>
+</html>

@@ -412,6 +412,40 @@ Add it to the menu next to its reader, build the offline copy as usual
 (`python -I eng/build_single.py voc_atSchool_quiz`; `build_single.py` knows a
 quiz page only uses the answer clips), and copy both to Google Drive (Step 6).
 
+### Mixed quiz (several formats, Alpine.js)
+
+`voc_<set>_quiz_mix.html` (model: `voc_atSchool_quiz_mix.html`, 2026-11-13) asks
+about the same words in six formats, generated in the browser on every play:
+`pick` (picture → choose the word), `listen` (hear it → tap the picture),
+`match` (pictures ↔ words), `article` (a / an), `spell` (tap the letters),
+`type` (type "a book").
+
+| File | Path |
+|---|---|
+| Engine (its header documents every field) | `assets/js/vocquiz.js` |
+| Styles (on top of `ytstory.css` + `ytquiz.css`) | `assets/css/vocquiz.css` |
+| Alpine.js, local | `assets/js/alpine.min.js` (loaded last, with `defer`) |
+
+The page holds only data: the reader's `IMG_DIR` / `AUD_DIR` / `pages`, pasted
+unchanged; `quiz`, the plan (`{ type: "pick", count: 5 }`, … in the order
+asked); and optionally `SIMILAR` (words easy to mix up, used as each other's
+wrong options) and `ALSO` (typed forms also marked right). The engine builds
+the whole screen inside `.stage`, after the page's `<header>`.
+`?order=mixed` shuffles the questions instead of asking block by block.
+`python -I eng/build_single.py voc_atSchool_quiz_mix` builds the offline copy
+(both clips of every word are embedded, about 2 MB).
+
+Pages are made from a quiz.md by `stories/new_quiz.py` (format:
+`stories/quiz_format.txt`; example: `Desktop\story-md\voc_atSchool_quiz_mix.md`).
+`from: <lesson page>` reuses a lesson's words, pictures and clips; a `## words`
+section with `slug:` makes a new set (pictures converted from
+`G:\My Drive\_YOUTUBE\<slug>`, clips made by `story_audio.py`, numbered in the
+order of the lines). The story app sends a .md with the header line
+`type: quiz` to `new_quiz.py` instead of `new_story.py`; the other steps are
+the same. `publish_story.py` knows these pages: it ignores the cache tag in
+`AUD_EXT`, commits and copies the engine files with the page, and checks the
+offline copy by its questions instead of the reader's chunks.
+
 ### Time quiz (two answers per picture)
 
 `time_quiz.html` (2026-11-02) uses clocks 9–18 from `img/ytstory/time/` and its

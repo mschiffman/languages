@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Adverbs in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-cyan-900 via-sky-800 to-blue-900 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-cyan-300 mb-4"
+        >
+          French grammar · Adverbs
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">vraiment, souvent, ici, déjà</span>
+        </h1>
+        <p class="text-lg md:text-xl text-cyan-100 max-w-2xl mx-auto leading-relaxed">
+          Adverbs say how, when, where, how often and how much. The good
+          news: they never agree with anything. The two things to learn are
+          how the <i lang="fr">-ment</i> ones are built and where an adverb
+          goes, because French will not let it sit between the subject and
+          the verb.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The charts (filled by the script from FORMS and PLACES below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-cyan-900 mb-2">
+          Chart 1: from adjective to adverb
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          English adds “-ly”. French adds <b lang="fr">-ment</b>, normally to
+          the <b>feminine</b> form of the adjective. Four small patterns
+          cover nearly everything, and a handful of very common adverbs are
+          irregular.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Pattern</th>
+                <th scope="col" class="bg-violet-600 text-white px-3 py-2 font-semibold">Adjective</th>
+                <th scope="col" class="bg-cyan-700 text-white px-3 py-2 font-semibold">Adverb</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold">Meaning</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold">More like it</th>
+              </tr>
+            </thead>
+            <tbody id="form-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the chart sideways to see every column.</p>
+
+        <h2 id="chart-place" class="font-playfair text-2xl md:text-3xl font-bold text-cyan-900 mt-10 mb-2">
+          Chart 2: where the adverb goes
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          The golden rule: <b>never between the subject and the verb</b>.
+          English says “I often eat here”; French says
+          <i lang="fr">Je mange souvent ici</i>. The coloured box is the
+          adverb's slot.
+        </p>
+        <div id="place-list" class="space-y-3"></div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Same adverb, several meanings ---------- -->
+      <section
+        id="jobs"
+        class="bg-cyan-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="jobs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The slippery six
+        </p>
+        <h2 id="jobs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Same adverb, several meanings
+        </h2>
+        <p class="text-cyan-100 leading-relaxed mb-6 max-w-3xl">
+          Six of the most common adverbs each cover two or three English
+          words. The situation tells you which one is meant.
+        </p>
+        <div id="job-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-rose-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-rose-600 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most are English word order, or an English-looking word that
+              means something else. The crossed-out line is the slip; the
+              line under it is what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          One adverb in depth:
+          <a href="plus_usage.html" class="font-semibold text-cyan-700 underline underline-offset-2 hover:text-cyan-900">the many uses of « plus »</a>
+          ·
+          <a href="plus.html" class="font-semibold text-cyan-700 underline underline-offset-2 hover:text-cyan-900">« plus » mind map</a>
+        </p>
+        <p class="mb-3">
+          Related:
+          <a href="../comparative/comparatives.html" class="font-semibold text-cyan-700 underline underline-offset-2 hover:text-cyan-900">comparatives</a>
+          ·
+          <a href="../negation/negation.html" class="font-semibold text-cyan-700 underline underline-offset-2 hover:text-cyan-900">negation</a>
+          ·
+          <a href="../adjective/adjectives.html" class="font-semibold text-cyan-700 underline underline-offset-2 hover:text-cyan-900">adjectives</a>
+        </p>
+        <a href="../index.html" class="text-cyan-700 underline underline-offset-2 hover:text-cyan-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "Je mange [souvent] ici."
+      --------------------------------------------------------------- */
+
+      /* Chart 1: [pattern, adjective, adverb, meaning, more like it] */
+      const FORMS = [
+        ["Feminine + ment", "lent → lente", "lentement", "slowly", "heureuse → heureusement · douce → doucement · franche → franchement"],
+        ["Ends in a vowel: just + ment", "vrai", "vraiment", "really", "poli → poliment · absolu → absolument · facile → facilement"],
+        ["-ant → -amment", "courant", "couramment", "fluently", "constant → constamment · méchant → méchamment"],
+        ["-ent → -emment", "évident", "évidemment", "obviously", "récent → récemment · différent → différemment · patient → patiemment"],
+        ["A few take -ément", "énorme", "énormément", "enormously", "précis → précisément · profond → profondément"],
+        ["Irregular", "bon", "bien", "well", "mauvais → mal · meilleur → mieux"],
+        ["Irregular", "gentil", "gentiment", "kindly", "bref → brièvement"],
+        ["A different word", "rapide", "vite", "fast, quickly", "rapidement also exists; vite is the everyday word"],
+      ];
+
+      /* Chart 2: [situation, slots, example French, example English]
+         A slot that starts with * is the adverb's place. */
+      const PLACES = [
+        ["One-word verb", ["subject", "verb", "*adverb", "the rest"], "Je mange [souvent] ici.", "I often eat here."],
+        ["With pas", ["subject", "verb", "pas", "*adverb", "the rest"], "Je comprends pas [bien].", "I don't understand very well."],
+        ["Past tense: short, common adverbs", ["subject", "avoir / être", "*adverb", "participle"], "J'ai [bien] dormi.", "I slept well."],
+        ["Past tense: time and place, and long ones", ["subject", "avoir / être", "participle", "*adverb"], "Je l'ai vu [hier].", "I saw him yesterday."],
+        ["Two verbs", ["subject", "verb", "*adverb", "infinitive"], "Je vais [bien] dormir.", "I'm going to sleep well."],
+        ["Describing an adjective or adverb", ["*adverb", "adjective / adverb"], "C'est [très] bon.", "It's very good."],
+        ["Commenting on the whole sentence", ["*adverb", ",", "sentence"], "[Heureusement], il était là.", "Luckily, he was there."],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           scale (optional: [word, percent, English] rows drawn as bars),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "ment",
+          title: "The -ment adverbs in real life",
+          fr: "vraiment · franchement · évidemment · heureusement",
+          tone: "cyan",
+          blurb:
+            "The -ment family is where English “-ly” lives. In conversation a small set does most of the work, often at the start of the sentence to give your opinion.",
+          ex: [
+            ["[Vraiment] ?", "Really?", "vrai + ment"],
+            ["Parle plus [lentement], s'il te plaît.", "Speak more slowly, please.", "lente + ment"],
+            ["J'ai [complètement] oublié.", "I completely forgot.", "complète + ment"],
+            ["C'est [exactement] ça.", "That's exactly it."],
+            ["[Franchement], je sais pas.", "Honestly, I don't know.", "franche + ment. A very common way to open a sentence."],
+            ["[Heureusement] que t'es là !", "Thank goodness you're here!", "Heureusement que + sentence = “luckily”."],
+            ["[Évidemment] !", "Obviously!", "-emment is pronounced exactly like -amment: “a-man”."],
+            ["[Apparemment], c'est fermé.", "Apparently it's closed."],
+            ["Je parle [couramment] espagnol.", "I speak Spanish fluently.", "courant → couramment"],
+            ["[Normalement], il arrive à huit heures.", "He should be here at eight.", "Normalement = “if all goes as usual”. It does not mean “in a normal way”."],
+            ["[Doucement] !", "Gently! · Easy does it!", "douce + ment. Also “quietly” and “slowly”."],
+            ["[Honnêtement], j'en sais rien.", "Honestly, I have no idea."],
+            ["[Absolument] pas.", "Absolutely not."],
+          ],
+          tip: "Not every adjective makes a -ment adverb. There is no “contentement” as an adverb, and for “interestingly” or “hopefully” French uses a phrase: ce qui est intéressant…, j'espère que…. When in doubt, d'une façon + adjective works: d'une façon bizarre.",
+        },
+        {
+          id: "short",
+          title: "The short ones, and adjectives used as adverbs",
+          fr: "bien · mal · vite · fort · cher · dur · exprès",
+          tone: "violet",
+          blurb:
+            "The most frequent adverbs have no -ment at all. And after certain verbs French uses a bare adjective as an adverb. It stays masculine singular.",
+          ex: [
+            ["[Vite] !", "Quick!", "Vite is the adverb, rapide the adjective: Il court vite. Il est rapide."],
+            ["Ça sent [bon] !", "That smells good!", "Sentir bon / mauvais: adjective used as an adverb."],
+            ["Parle moins [fort].", "Don't talk so loud.", "Parler fort, parler bas."],
+            ["Ça coûte [cher].", "It's expensive.", "No agreement: Ces chaussures coûtent cher."],
+            ["Il bosse [dur].", "He works hard."],
+            ["Va tout [droit].", "Go straight on."],
+            ["Il chante [faux].", "He sings out of tune."],
+            ["J'y vois pas [clair].", "I can't see properly."],
+            ["Je l'ai pas fait [exprès].", "I didn't do it on purpose."],
+            ["[Volontiers] !", "Gladly! · I'd love to."],
+            ["On y va [ensemble] ?", "Shall we go together?"],
+            ["J'y vais [direct] après le boulot.", "I'm going straight there after work.", "Casual speech clips directement to direct."],
+            ["Ça prend [facile] une heure.", "It easily takes an hour.", "Casual again: facile for facilement."],
+          ],
+          tip: "Bon or bien? Bon is the adjective (un bon film), bien is the adverb (il joue bien). After sentir and after c'est for taste, it is bon: Ça sent bon. C'est bon.",
+        },
+        {
+          id: "simple",
+          title: "Placement: straight after the verb",
+          fr: "Je mange souvent ici · Il parle bien français",
+          tone: "sky",
+          blurb:
+            "With a one-word verb, the adverb comes right after it. This is the biggest difference from English, which likes the adverb before the verb. With pas, the adverb follows the pas.",
+          ex: [
+            ["Je mange [souvent] ici.", "I often eat here.", "Not “Je souvent mange”."],
+            ["Il parle [bien] français.", "He speaks French well.", "The adverb comes before the object, not after it as in English."],
+            ["J'aime [beaucoup] ce film.", "I like this film a lot."],
+            ["Je connais [bien] Paris.", "I know Paris well."],
+            ["Elle arrive [toujours] en retard.", "She always arrives late."],
+            ["On va [rarement] au ciné.", "We rarely go to the cinema."],
+            ["Tu parles [trop vite].", "You talk too fast."],
+            ["Je dors [mal] en ce moment.", "I'm sleeping badly at the moment."],
+            ["Je comprends pas [bien].", "I don't understand very well.", "After pas."],
+            ["Je sais pas [encore].", "I don't know yet."],
+            ["Il fait [vraiment] froid.", "It's really cold."],
+          ],
+          tip: "If the object is long, the adverb still hugs the verb: J'aime beaucoup les films des années quatre-vingt.",
+        },
+        {
+          id: "compound",
+          title: "Placement: in the past, and with two verbs",
+          fr: "J'ai bien dormi · Je l'ai vu hier · Je vais bien dormir",
+          tone: "sky",
+          blurb:
+            "In the passé composé, short adverbs of manner, quantity and frequency slip in between avoir or être and the participle. Adverbs of time and place go after the participle. With two verbs, the short ones go before the infinitive.",
+          ex: [
+            ["J'ai [bien] dormi.", "I slept well.", "Between avoir and the participle."],
+            ["J'ai [trop] mangé.", "I've eaten too much."],
+            ["T'as [déjà] fini ?", "Have you finished already?"],
+            ["J'ai [beaucoup] aimé.", "I liked it a lot."],
+            ["J'ai [toujours] voulu y aller.", "I've always wanted to go there."],
+            ["Il a [vite] compris.", "He soon understood."],
+            ["J'ai [presque] fini.", "I've nearly finished."],
+            ["J'ai [vraiment] adoré.", "I really loved it.", "Common -ment adverbs of degree go in the middle too: vraiment, complètement, probablement."],
+            ["Il a répondu [gentiment].", "He answered kindly.", "Longer adverbs of manner usually go after."],
+            ["Je l'ai vu [hier].", "I saw him yesterday.", "Time: after the participle."],
+            ["Il est arrivé [tard].", "He arrived late."],
+            ["J'ai cherché [partout].", "I've looked everywhere.", "Place: after the participle."],
+            ["Je vais [bien] dormir.", "I'm going to sleep well.", "Two verbs: before the infinitive."],
+            ["Je veux [vraiment] y aller.", "I really want to go.", "It follows the verb it applies to: I really want."],
+          ],
+          tip: "Time words are the freest. They can also open the sentence: Hier, je l'ai vu. Demain, je bosse.",
+        },
+        {
+          id: "time",
+          title: "When: adverbs of time",
+          fr: "maintenant · tout de suite · bientôt · déjà · encore · tôt · tard",
+          tone: "amber",
+          blurb:
+            "They go at the start or the end of the sentence, never in the middle of the verb group. Several of them are built into everyday goodbyes.",
+          ex: [
+            ["On se voit [demain] ?", "See you tomorrow?", "hier, aujourd'hui, demain; avant-hier, après-demain."],
+            ["J'arrive [tout de suite].", "I'll be right there.", "Tout de suite = immediately."],
+            ["À [tout à l'heure] !", "See you in a bit!", "Tout à l'heure = a short time from now…"],
+            ["Je l'ai vu [tout à l'heure].", "I saw him a little while ago.", "…or a short time ago. The verb tense tells you which."],
+            ["À [bientôt] !", "See you soon!"],
+            ["[Maintenant] ou jamais.", "Now or never."],
+            ["[En ce moment], je bosse beaucoup.", "I'm working a lot at the moment.", "Maintenant = now, this instant. En ce moment = these days."],
+            ["T'as [déjà] mangé ?", "Have you eaten already?"],
+            ["Il dort [encore].", "He's still asleep."],
+            ["[D'abord] on mange, [ensuite] on y va.", "First we eat, then we go.", "d'abord, ensuite / puis / après, enfin: the storytelling set."],
+            ["[Enfin] !", "At last!"],
+            ["J'ai attendu [longtemps].", "I waited a long time."],
+            ["[Avant], j'habitais à Lyon.", "I used to live in Lyon.", "Avant on its own = “before, in the past”."],
+            ["Il est [tôt]. · C'est trop [tard].", "It's early. · It's too late."],
+            ["Je viens de finir [à l'instant].", "I've only just finished."],
+          ],
+          tip: "Actuellement means “currently”, not “actually”. For “actually” say en fait.",
+        },
+        {
+          id: "frequency",
+          title: "How often: adverbs of frequency",
+          fr: "toujours · souvent · parfois · rarement · jamais",
+          tone: "emerald",
+          blurb:
+            "One-word frequency adverbs go right after the verb. The longer phrases (d'habitude, de temps en temps, une fois par semaine) go at the start or the end.",
+          scale: [
+            ["toujours · tout le temps", 100, "always · all the time"],
+            ["presque toujours", 90, "nearly always"],
+            ["d'habitude · en général", 80, "usually · in general"],
+            ["souvent", 65, "often"],
+            ["parfois · des fois", 40, "sometimes"],
+            ["de temps en temps", 30, "from time to time"],
+            ["rarement", 15, "rarely"],
+            ["presque jamais", 6, "hardly ever"],
+            ["jamais", 0, "never"],
+          ],
+          ex: [
+            ["Je prends [toujours] le métro.", "I always take the metro."],
+            ["Il est [tout le temps] en retard.", "He's late all the time.", "Tout le temps is the casual, slightly annoyed “always”."],
+            ["[D'habitude], je me lève à sept heures.", "I usually get up at seven."],
+            ["[En général], ça marche.", "It generally works."],
+            ["On se voit [souvent].", "We see each other often."],
+            ["[Des fois], j'oublie.", "Sometimes I forget.", "Des fois is the everyday word. Parfois and quelquefois are a little more careful."],
+            ["Ça m'arrive [parfois].", "It happens to me sometimes."],
+            ["Je cuisine [de temps en temps].", "I cook now and then."],
+            ["On sort [rarement] en semaine.", "We rarely go out on weekdays."],
+            ["Je le vois [presque jamais].", "I hardly ever see him."],
+            ["Je bois [jamais] de café.", "I never drink coffee.", "Careful French: Je ne bois jamais de café."],
+            ["J'y vais [une fois par semaine].", "I go once a week.", "X fois par jour / semaine / mois / an."],
+            ["Je cours [tous les jours].", "I run every day.", "Tous les + time word = every."],
+          ],
+          tip: "Toujours also means “still”: Il est toujours là ? = Is he still here? And le lundi, with the article, already means “every Monday”.",
+          more: ["../negation/negation.html", "More on jamais and the other negatives"],
+        },
+        {
+          id: "place",
+          title: "Where: adverbs of place",
+          fr: "ici · là · là-bas · partout · dehors · en haut · à côté",
+          tone: "teal",
+          blurb:
+            "They go after the verb, or after the participle in the past. The surprise is là: in spoken French it has largely taken over from ici, so it often means “here”.",
+          ex: [
+            ["Viens [ici] !", "Come here!"],
+            ["Je suis [là].", "I'm here.", "Là = here, in everyday speech. Il est pas là = he's not in."],
+            ["C'est [là-bas].", "It's over there.", "For something at a distance, là-bas."],
+            ["— T'es où ? — Je suis [en bas].", "— Where are you? — I'm downstairs.", "en haut / en bas = upstairs / downstairs, up / down."],
+            ["J'ai cherché [partout].", "I've looked everywhere."],
+            ["Je l'ai vu [quelque part].", "I've seen him somewhere.", "quelque part, nulle part, ailleurs: somewhere, nowhere, elsewhere."],
+            ["On mange [dehors] ?", "Shall we eat outside?", "dehors / dedans = outside / inside."],
+            ["Mets-le [dessus].", "Put it on top.", "Dessus and dessous stand alone. Sur and sous need a noun: sur la table."],
+            ["C'est juste [à côté].", "It's right next door."],
+            ["C'est pas [loin].", "It's not far.", "près / loin = near / far. Tout près = very near."],
+            ["Va [tout droit], puis [à gauche].", "Go straight on, then left."],
+            ["Il habite [en face].", "He lives opposite."],
+            ["Passe [devant], je te suis.", "Go ahead, I'll follow you.", "devant / derrière = in front / behind."],
+            ["On va [ailleurs] ?", "Shall we go somewhere else?"],
+          ],
+          tip: "“There” as in “I'm going there” is usually the pronoun y, not là: J'y vais.",
+          more: ["../pronoun/pronouns.html", "More on y in the pronouns page"],
+        },
+        {
+          id: "manner",
+          title: "How: adverbs of manner",
+          fr: "bien · mal · doucement · comme ça · exprès · par hasard",
+          tone: "violet",
+          blurb:
+            "How something is done. Bien and mal are everywhere, and a number of everyday “adverbs” are really short phrases.",
+          ex: [
+            ["Ça va [bien].", "I'm fine. · It's going well."],
+            ["Ça s'est [mal] passé.", "It went badly."],
+            ["Écoute [bien].", "Listen carefully."],
+            ["Fais [comme ça].", "Do it like this."],
+            ["Vas-y [doucement].", "Go easy."],
+            ["On fait [autrement] ?", "Shall we do it another way?"],
+            ["Je suis resté [debout].", "I stayed standing.", "Debout never changes: Elle est debout."],
+            ["Je l'ai croisé [par hasard].", "I ran into him by chance."],
+            ["Tu l'as fait [exprès] !", "You did that on purpose!"],
+            ["Il a fait ça [n'importe comment].", "He did it any old how."],
+            ["Je l'ai fait [à la main].", "I did it by hand."],
+            ["Il roule [à fond].", "He drives flat out."],
+            ["On y va [à pied] ?", "Shall we walk there?"],
+          ],
+          tip: "English “-ly” is often a phrase in French: avec soin (carefully), sans problème (easily), d'un coup (suddenly, in one go), en vitesse (quickly).",
+        },
+        {
+          id: "degree",
+          title: "How much: quantity and degree",
+          fr: "très · trop · assez · beaucoup · peu · un peu · presque",
+          tone: "rose",
+          blurb:
+            "They set the strength of an adjective, an adverb or a verb. The key split: très goes with adjectives and adverbs, beaucoup goes with verbs, and the two never combine.",
+          ex: [
+            ["C'est [très] bon.", "It's very good.", "Très + adjective or adverb."],
+            ["Merci [beaucoup].", "Thanks a lot.", "Beaucoup + verb. “Très beaucoup” does not exist."],
+            ["J'ai [trop] mangé.", "I've eaten too much."],
+            ["C'est [trop] bien !", "It's so good!", "In casual speech trop means “really” when the idea is positive."],
+            ["T'as [assez] mangé ?", "Have you had enough to eat?"],
+            ["J'en ai [assez] !", "I've had enough!"],
+            ["Je suis [un peu] fatigué.", "I'm a bit tired.", "Un peu = a bit, a little."],
+            ["Il mange [peu].", "He doesn't eat much.", "Peu without un is negative: little, not much."],
+            ["C'est [tellement] bon !", "It's so good!"],
+            ["J'ai [presque] fini.", "I've nearly finished."],
+            ["Je le connais [à peine].", "I hardly know him."],
+            ["Ça fait [environ] une heure.", "It's been about an hour."],
+            ["C'est [tout] près.", "It's very near.", "Tout = quite, completely."],
+            ["Y a [beaucoup de] monde.", "There are a lot of people.", "Before a noun, these take de: beaucoup de, trop de, assez de, un peu de."],
+          ],
+          more: ["../comparative/comparatives.html", "Plus, moins, aussi and autant: the comparatives page"],
+        },
+        {
+          id: "opinion",
+          title: "Maybe, probably, luckily: commenting on the sentence",
+          fr: "peut-être · sans doute · bien sûr · en fait · du coup · quand même",
+          tone: "indigo",
+          blurb:
+            "These don't describe the verb; they give your view of the whole sentence. They are the glue of conversation, and several do not mean what they look like.",
+          ex: [
+            ["[Peut-être].", "Maybe."],
+            ["[Peut-être qu']il viendra.", "Maybe he'll come.", "At the start of a sentence, add que. Or put it after the verb: Il viendra peut-être."],
+            ["Il est [sans doute] malade.", "He's probably ill.", "Sans doute = probably. “Without a doubt” is sans aucun doute."],
+            ["Il a [sûrement] oublié.", "He must have forgotten.", "Sûrement also means “probably”, not “surely”."],
+            ["[Bien sûr] !", "Of course!"],
+            ["Pas [forcément].", "Not necessarily."],
+            ["[Malheureusement], je peux pas.", "Unfortunately I can't."],
+            ["[En fait], j'ai changé d'avis.", "Actually, I've changed my mind.", "En fait = actually, in fact."],
+            ["[Au fait], t'as appelé ta mère ?", "By the way, did you call your mum?", "Au fait = by the way. One letter away from en fait."],
+            ["[Du coup], on fait quoi ?", "So what do we do?", "Du coup = so, as a result. Extremely common in speech."],
+            ["Merci [quand même].", "Thanks anyway.", "Quand même = anyway, all the same, still."],
+            ["[Justement], j'allais t'appeler.", "Funny you should say that, I was about to call you.", "Justement = precisely, as it happens."],
+            ["[Finalement], on est restés.", "In the end we stayed.", "Finalement = in the end, after all. “At last” is enfin."],
+            ["[D'ailleurs], il me l'a dit.", "Besides, he told me so."],
+          ],
+        },
+        {
+          id: "question",
+          title: "Where? When? How? Why? How much?",
+          fr: "où · quand · comment · pourquoi · combien",
+          tone: "amber",
+          blurb:
+            "The question words are adverbs too. In casual speech they usually stay where the answer would go, at the end, with normal word order.",
+          ex: [
+            ["T'es [où] ?", "Where are you?", "Careful French: Où es-tu ? or Où est-ce que tu es ?"],
+            ["Tu viens [d'où] ?", "Where are you from?"],
+            ["C'est [quand], ton anniv ?", "When's your birthday?"],
+            ["[Depuis quand] ?", "Since when?"],
+            ["Tu fais [comment] ?", "How do you do it?"],
+            ["[Comment] ça ?", "What do you mean?"],
+            ["Ça s'écrit [comment] ?", "How do you spell it?"],
+            ["[Pourquoi] pas ?", "Why not?"],
+            ["[Pourquoi] tu dis ça ?", "Why do you say that?", "Pourquoi normally stays at the start."],
+            ["C'est [combien] ?", "How much is it?"],
+            ["Vous êtes [combien] ?", "How many of you are there?"],
+            ["Ça fait [combien de temps] ?", "How long has it been?"],
+          ],
+        },
+      ];
+
+      /* Same adverb, several meanings: word, then [French, English, meaning] */
+      const JOBS = [
+        {
+          word: "encore",
+          lines: [
+            ["Il dort [encore].", "He's still asleep.", "still"],
+            ["[Encore] toi !", "You again!", "again"],
+            ["Tu veux [encore] du café ?", "Do you want more coffee?", "more"],
+            ["J'ai pas [encore] mangé.", "I haven't eaten yet.", "pas encore = not yet"],
+          ],
+        },
+        {
+          word: "toujours",
+          lines: [
+            ["Il est [toujours] en retard.", "He's always late.", "always"],
+            ["Il est [toujours] là ?", "Is he still here?", "still"],
+            ["Il est [toujours pas] là.", "He's still not here.", "toujours pas = still not"],
+          ],
+        },
+        {
+          word: "déjà",
+          lines: [
+            ["J'ai [déjà] mangé.", "I've already eaten.", "already"],
+            ["T'es [déjà] allé au Japon ?", "Have you ever been to Japan?", "ever"],
+            ["C'est quoi, ton nom, [déjà] ?", "What's your name again?", "…again? (I've forgotten)"],
+          ],
+        },
+        {
+          word: "bien",
+          lines: [
+            ["Elle chante [bien].", "She sings well.", "well"],
+            ["C'est [bien] lui.", "It really is him.", "really, indeed"],
+            ["Je veux [bien].", "Yes, I'd like that. · I don't mind.", "softens: gladly"],
+            ["Il est [bien] tard.", "It's very late.", "very"],
+          ],
+        },
+        {
+          word: "là",
+          lines: [
+            ["Je suis [là].", "I'm here.", "here"],
+            ["Mets-le [là].", "Put it there.", "there"],
+            ["[Là], je peux pas.", "Right now I can't.", "now, at this point"],
+          ],
+        },
+        {
+          word: "tout à l'heure",
+          lines: [
+            ["Je l'ai vu [tout à l'heure].", "I saw him a little while ago.", "past tense: earlier"],
+            ["Je le vois [tout à l'heure].", "I'm seeing him in a bit.", "present or future: later"],
+          ],
+        },
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["Je souvent mange ici.", "Je mange [souvent] ici.", "I often eat here.", "Never between subject and verb."],
+        ["J'ai dormi bien.", "J'ai [bien] dormi.", "I slept well.", "Short adverbs go before the participle."],
+        ["Je parle français bien.", "Je parle [bien] français.", "I speak French well.", "The adverb hugs the verb."],
+        ["Il court rapide.", "Il court [vite].", "He runs fast.", "Rapide is the adjective."],
+        ["Il parle fortement.", "Il parle [fort].", "He talks loudly.", "Parler fort: no -ment."],
+        ["Merci très beaucoup.", "Merci [beaucoup].", "Thank you very much.", "Très and beaucoup don't combine."],
+        ["C'est bon fait.", "C'est [bien] fait.", "It's well made.", "Bien is the adverb."],
+        ["Peut-être il viendra.", "[Peut-être qu']il viendra.", "Maybe he'll come.", "Peut-être que at the start."],
+        ["Actuellement, j'aime pas ça.", "[En fait], j'aime pas ça.", "Actually, I don't like it.", "Actuellement = currently."],
+        ["Finalement ! Te voilà.", "[Enfin] ! Te voilà.", "At last! There you are.", "Finalement = in the end."],
+        ["évidentement", "[évidemment]", "obviously", "-ent → -emment."],
+        ["J'ai déjà pas mangé.", "J'ai pas [encore] mangé.", "I haven't eaten yet.", "Not yet = pas encore."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        cyan: { bar: "bg-cyan-600", edge: "border-cyan-500", soft: "bg-cyan-50", text: "text-cyan-700", num: "bg-cyan-700" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [souvent] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- chart 1 ---------- */
+      document.getElementById("form-body").innerHTML = FORMS.map(
+        ([pattern, adj, adv, meaning, more]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 text-sm font-semibold text-slate-600">${esc(pattern)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 font-playfair italic text-lg text-violet-700 whitespace-nowrap" lang="fr">${esc(adj)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 bg-cyan-50 font-playfair italic font-semibold text-lg text-cyan-800 whitespace-nowrap" lang="fr">${esc(adv)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-slate-700 whitespace-nowrap">${esc(meaning)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-slate-600" lang="fr">${esc(more)}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- chart 2 ---------- */
+      document.getElementById("place-list").innerHTML = PLACES.map(
+        ([when, slots, fr, en]) => `
+        <div class="rounded-xl bg-slate-50 border border-slate-100 p-4 md:grid md:grid-cols-12 md:gap-4 md:items-center">
+          <p class="md:col-span-3 text-sm font-semibold text-slate-700 mb-2 md:mb-0">${esc(when)}</p>
+          <div class="md:col-span-5 flex flex-wrap items-center gap-1.5 mb-2 md:mb-0">
+            ${slots
+              .map((s) =>
+                s.startsWith("*")
+                  ? `<span class="rounded-md bg-cyan-700 text-white text-sm font-bold px-2.5 py-1">${esc(s.slice(1))}</span>`
+                  : `<span class="rounded-md bg-white border border-slate-200 text-slate-600 text-sm px-2.5 py-1">${esc(s)}</span>`,
+              )
+              .join("")}
+          </div>
+          <div class="md:col-span-4">
+            <p class="font-medium text-slate-900" lang="fr">${mark(fr, "text-cyan-700")}</p>
+            <p class="text-sm text-slate-500">${esc(en)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-cyan-100 border border-cyan-200 px-3 py-1.5 text-sm font-medium text-cyan-900 hover:bg-cyan-200">How they're formed</a>` +
+        `<a href="#chart-place" class="rounded-full bg-cyan-100 border border-cyan-200 px-3 py-1.5 text-sm font-medium text-cyan-900 hover:bg-cyan-200">Where they go</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-cyan-400 hover:text-cyan-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#jobs" class="rounded-full bg-cyan-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-cyan-700">Several meanings</a>` +
+        `<a href="#slips" class="rounded-full bg-rose-100 border border-rose-200 px-3 py-1.5 text-sm font-medium text-rose-900 hover:bg-rose-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            ${
+              u.scale
+                ? `<div class="mb-6 rounded-xl ${t.soft} p-4 md:p-5">
+                    <p class="text-sm font-semibold ${t.text} mb-3">From always to never</p>
+                    <ul class="space-y-2">
+                      ${u.scale
+                        .map(
+                          ([word, pct, en]) => `
+                      <li class="grid grid-cols-12 items-center gap-2">
+                        <span class="col-span-5 md:col-span-3 font-playfair italic font-semibold text-slate-900" lang="fr">${esc(word)}</span>
+                        <span class="col-span-7 md:col-span-6 h-3 rounded-full bg-white border border-slate-200 overflow-hidden" aria-hidden="true"><span class="block h-full ${t.bar}" style="width:${pct}%"></span></span>
+                        <span class="col-span-12 md:col-span-3 text-sm text-slate-600">${esc(en)}</span>
+                      </li>`,
+                        )
+                        .join("")}
+                    </ul>
+                  </div>`
+                : ""
+            }
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- same adverb, several meanings ---------- */
+      document.getElementById("job-list").innerHTML = JOBS.map(
+        (j) => `
+        <div class="bg-white/10 rounded-xl p-5">
+          <p class="font-playfair italic font-bold text-2xl text-amber-300 mb-3" lang="fr">${esc(j.word)}</p>
+          <ul class="space-y-3">
+            ${j.lines
+              .map(
+                ([fr, en, job]) => `
+            <li>
+              <p class="flex flex-wrap items-baseline gap-x-3"><span class="text-lg font-semibold" lang="fr">${mark(fr, "text-amber-300")}</span>
+                <span class="text-xs font-semibold uppercase tracking-wide text-cyan-200">${esc(job)}</span></p>
+              <p class="text-cyan-100">${esc(en)}</p>
+            </li>`,
+              )
+              .join("")}
+          </ul>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+  <script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Compliments</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">COMPLIMENTS</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Compliments
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ချီးကျူးခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">24</span> expressions · Compliments
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 24.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/compliments/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Looks and clothes",
+          my: "အသွင်အပြင်နှင့် အဝတ်အစား",
+          desc: "Saying something nice about how someone looks or what they wear.",
+          cards: [
+            ["You look great!", "အရမ်း ကြည့်ကောင်းတယ်။", "Friendly and safe. Also: You look nice today!",
+              "You look great! Is that a new shirt?", "အရမ်း ကြည့်ကောင်းတယ်။ ရှပ်အင်္ကျီ အသစ်လား။"],
+            ["I love your <span class=gray>dress</span>!", "ဝတ်စုံလေး အရမ်း လှတယ်။", "Love here means I really like. Very common for clothes, bags, shoes.",
+              "I love your bag! It's so pretty.", "အိတ်လေး အရမ်း ကြိုက်တယ်။ အရမ်း လှတယ်။"],
+            ["That colour really suits you.", "အဲဒီအရောင်က အရမ်း လိုက်တယ်။", "Suits you means looks good on you. American spelling: color.",
+              "Blue really suits you.", "အပြာရောင်က အရမ်း လိုက်တယ်။"],
+            ["Nice haircut!", "ဆံပင်ပုံစံ လှတယ်။", "Short and friendly. People notice a new haircut and say so.",
+              "Nice haircut! When did you get it?", "ဆံပင်ပုံစံ လှတယ်။ ဘယ်တုန်းက ညှပ်ခဲ့တာလဲ။"],
+            ["Where did you get it?", "ဘယ်က ဝယ်ခဲ့တာလဲ။", "A compliment in a question: I like it so much, I want one too.",
+              "Your watch is beautiful. Where did you get it?", "လက်ပတ်နာရီ အရမ်း လှတယ်။ ဘယ်က ဝယ်ခဲ့တာလဲ။"],
+          ],
+        },
+        {
+          en: "Skills and work",
+          my: "အရည်အချင်းနှင့် လုပ်ဆောင်ချက်",
+          desc: "Praising what someone can do or has made.",
+          cards: [
+            ["Great job!", "အရမ်း တော်တယ်။", "After someone does something well. Also: Good job! Nice work!",
+              "You cleaned the whole room? Great job!", "အခန်း တစ်ခုလုံး သန့်ရှင်းရေး လုပ်ပြီးပြီလား။ အရမ်း တော်တယ်။"],
+            ["You're so good at <span class=gray>drawing</span>!", "ပုံဆွဲတာ အရမ်း တော်တယ်။", "Good at + noun or -ing: good at maths, good at singing.",
+              "You're so good at football!", "ဘောလုံး ကန်တာ အရမ်း တော်တယ်။"],
+            ["You're a fast learner.", "မြန်မြန် တတ်တယ်။", "Praises how quickly someone picks up something new.",
+              "You can already ride a bike? You're a fast learner!", "စက်ဘီး စီးတတ်နေပြီလား။ မြန်မြန် တတ်တာပဲ။"],
+            ["Your English is really good!", "အင်္ဂလိပ်စကား အရမ်း ကောင်းတယ်။", "You may hear this a lot. The best answer is a simple Thank you!",
+              "Your English is really good! Where did you learn it?", "အင်္ဂလိပ်စကား အရမ်း ကောင်းတယ်။ ဘယ်မှာ သင်ခဲ့တာလဲ။"],
+            ["How did you do that?", "ဘယ်လို လုပ်လိုက်တာလဲ။", "Said with surprise, it is a compliment: that was amazing.",
+              "Wow, that's a beautiful picture. How did you do that?", "ဝိုး၊ ပုံလေး အရမ်း လှတယ်။ ဘယ်လို လုပ်လိုက်တာလဲ။"],
+          ],
+        },
+        {
+          en: "Food, homes and things",
+          my: "အစားအစာ၊ အိမ်နှင့် ပစ္စည်းများ",
+          desc: "What guests say about food, a home, or something someone made.",
+          cards: [
+            ["This is delicious!", "ဒါ အရမ်း စားကောင်းတယ်။", "The best thing a guest can say about food. Also: This is so good!",
+              "Mmm, this curry is delicious!", "မ်မ်၊ ဒီဟင်းက အရမ်း စားကောင်းတယ်။"],
+            ["You're a great cook!", "ဟင်းချက် အရမ်း တော်တယ်။", "Praises the person, not just the food.",
+              "Thank you for dinner. You're a great cook!", "ညစာအတွက် ကျေးဇူးပါ။ ဟင်းချက် အရမ်း တော်တယ်။"],
+            ["What a lovely home!", "အိမ်လေးက အရမ်း လှတာပဲ။", "A guest's first words when they arrive. What a + adjective + noun.",
+              "Thank you for inviting us. What a lovely home!", "ဖိတ်တဲ့အတွက် ကျေးဇူးပါ။ အိမ်လေးက အရမ်း လှတာပဲ။"],
+            ["Your garden is beautiful.", "ပန်းခြံလေးက လှလိုက်တာ။", "For a garden, flowers, plants. Also: Your flowers are beautiful!",
+              "Your garden is beautiful. Did you plant all these?", "ပန်းခြံလေးက လှလိုက်တာ။ ဒါတွေ အကုန် ကိုယ်တိုင် စိုက်ခဲ့တာလား။"],
+            ["Nice photo!", "ဓာတ်ပုံ လှတယ်။", "Common in messages and online. Also: Great picture!",
+              "Nice photo! Where was it taken?", "ဓာတ်ပုံ လှတယ်။ ဘယ်မှာ ရိုက်ထားတာလဲ။"],
+          ],
+        },
+        {
+          en: "Who someone is",
+          my: "စိတ်ထားနှင့် အကျင့်စရိုက်",
+          desc: "The kindest compliments are about the person, not their things.",
+          cards: [
+            ["You're so kind.", "အရမ်း သဘောကောင်းတယ်။", "When someone does something nice for you or for others.",
+              "You helped that old man with his bags. You're so kind.", "အဘိုးကြီးရဲ့ အိတ်တွေကို ကူသယ်ပေးတယ်။ အရမ်း သဘောကောင်းတယ်။"],
+            ["You're really funny!", "အရမ်း ရယ်ရတယ်။", "You make people laugh. Funny means makes you laugh; fun means enjoyable.",
+              "Ha ha! You're really funny!", "ဟားဟား၊ အရမ်း ရယ်ရတယ်။"],
+            ["You're a good friend.", "မင်းက သူငယ်ချင်းကောင်း တစ်ယောက်ပဲ။", "Thanks someone for being there for you.",
+              "Thanks for listening. You're a good friend.", "နားထောင်ပေးတဲ့အတွက် ကျေးဇူးပါ။ မင်းက သူငယ်ချင်းကောင်း တစ်ယောက်ပဲ။"],
+            ["You always make me smile.", "မင်းက အမြဲ ပြုံးအောင် လုပ်ပေးတယ်။", "Warm and personal: for family and close friends.",
+              "Thank you for the card. You always make me smile.", "ကတ်ပြားအတွက် ကျေးဇူးပါ။ မင်းက အမြဲ ပြုံးအောင် လုပ်ပေးတယ်။"],
+          ],
+        },
+        {
+          en: "Answering a compliment",
+          my: "ချီးကျူးစကားကို ပြန်ဖြေခြင်း",
+          desc: "In English, the usual answer to a compliment is to accept it with a thank you.",
+          cards: [
+            ["Thanks, that's nice of you to say.", "ကျေးဇူးပါ၊ အဲလို ပြောပေးတာ သဘောကောင်းလိုက်တာ။", "A warm, modest way to accept praise.",
+              "— Your speech was excellent. — Thanks, that's nice of you to say.", "— မိန့်ခွန်းက အရမ်း ကောင်းတယ်။ — ကျေးဇူးပါ၊ အဲလို ပြောပေးတာ သဘောကောင်းလိုက်တာ။"],
+            ["I'm glad you like it.", "ကြိုက်တယ်ဆိုလို့ ဝမ်းသာပါတယ်။", "When someone praises something you made, cooked or gave.",
+              "— This cake is amazing! — I'm glad you like it.", "— ဒီကိတ်မုန့်က အရမ်း ကောင်းတယ်။ — ကြိုက်တယ်ဆိုလို့ ဝမ်းသာပါတယ်။"],
+            ["You're too kind.", "သိပ်သဘောကောင်းတာပဲ။", "Modest and a little formal: you're being very generous to me.",
+              "— You're the best teacher in the school. — Oh, you're too kind.", "— ဆရာက ကျောင်းမှာ အကောင်းဆုံး ဆရာပဲ။ — အို၊ သိပ်သဘောကောင်းတာပဲ။"],
+            ["Thanks! I like yours too.", "ကျေးဇူးပါ။ မင်းဟာလည်း ကြိုက်တယ်။", "Returns the compliment, if you mean it.",
+              "— Nice shoes! — Thanks! I like yours too.", "— ဖိနပ် လှတယ်။ — ကျေးဇူးပါ။ မင်းဟာလည်း ကြိုက်တယ်။"],
+            ["Oh, it's nothing special.", "အို၊ ဘာမှ မထူးခြားပါဘူး။", "Careful: in Burmese we often say no to a compliment to be polite. In English that can sound like you are disagreeing. A simple Thank you! is usually better.",
+              "— Your house is so beautiful! — Thank you! (Better than: Oh, it's nothing special.)", "— အိမ်က အရမ်း လှတယ်။ — ကျေးဇူးပါ။ (အို၊ ဘာမှ မထူးခြားပါဘူး ထက် ပိုကောင်းတယ်။)"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

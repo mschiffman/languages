@@ -1,0 +1,386 @@
+/* ---------------------------------------------------------------
+   Vocabulary quiz with several formats (assets/js/vocquiz.js), on top of
+   ytstory.css (stage, header, footer buttons) and ytquiz.css (progress,
+   feedback, results). Everything here is under .vq and prefixed vq-.
+--------------------------------------------------------------- */
+[x-cloak] {
+  display: none !important;
+}
+.vq .quiz-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.vq-q {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.vq .quiz-body .art {
+  flex: 0 1 min(36dvh, 320px);
+  min-height: 110px;
+}
+.vq-type .art,
+.vq-article .art {
+  flex-basis: min(40dvh, 360px);
+}
+.vq button {
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.vq button:disabled {
+  cursor: default;
+}
+.vq .play-page:disabled {
+  opacity: 0.45;
+  box-shadow: 0 5px 0 var(--paper-edge);
+}
+
+.vq-problems {
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  background: var(--wrong-tint);
+  color: var(--miss);
+  font-size: 0.9rem;
+}
+
+/* ---- the question line ---- */
+.vq-ask {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.1rem 0.6rem;
+  line-height: 1.3;
+}
+.vq-ask b {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+}
+.vq-ask [lang="my"] {
+  font-family: "Noto Sans Myanmar", "Myanmar Text", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--forest-soft);
+}
+
+/* ---- options: words (pick, a/an) ---- */
+.vq-opts,
+.vq-ab {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+.vq-opt {
+  min-height: 56px;
+  padding: 0.35rem 0.6rem;
+  border: 3px solid var(--forest);
+  border-radius: 18px;
+  background: #fff;
+  font-family: "Andika", sans-serif !important;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 4.6vw, 1.35rem);
+  line-height: 1.2;
+  box-shadow: 0 4px 0 var(--paper-edge);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.2s,
+    transform 0.1s;
+}
+.vq-opt:active,
+.vq-pic:active,
+.vq-mitem:active {
+  transform: translateY(2px);
+}
+.vq-opt.sel,
+.vq-pic.sel,
+.vq-mitem.sel {
+  background: #fff6dc;
+  border-color: var(--gold-deep);
+  box-shadow: 0 0 0 4px rgba(246, 185, 59, 0.4);
+}
+.vq-opt.right,
+.vq-pic.right,
+.vq-mitem.right {
+  background: var(--right-tint);
+  border-color: var(--right);
+  box-shadow: none;
+}
+.vq-opt.wrong,
+.vq-pic.wrong,
+.vq-mitem.wrong {
+  background: var(--wrong-tint);
+  border-color: var(--wrong);
+  box-shadow: none;
+}
+.vq-opt.wrong {
+  color: var(--miss);
+  text-decoration: line-through;
+}
+.vq-opt.dim,
+.vq-pic.dim {
+  opacity: 0.45;
+  box-shadow: none;
+}
+
+/* ---- listen ---- */
+.vq-hear {
+  flex: 0 0 auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.4rem 0.55rem 1.1rem;
+  border: 3px solid var(--forest);
+  border-radius: 999px;
+  background: var(--leaf-tint);
+  font-family: "Fredoka", sans-serif !important;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.vq-hear svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+.vq-hear.playing {
+  background: var(--gold);
+  border-color: var(--gold-deep);
+}
+.vq-pics {
+  flex: 1 1 auto;
+  min-height: 0;
+  align-self: center;
+  width: min(100%, 62dvh);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+.vq-pic {
+  aspect-ratio: 1;
+  padding: 6%;
+  border: 3px solid var(--forest);
+  border-radius: 20px;
+  background: #fff;
+  overflow: hidden;
+  transition:
+    border-color 0.15s ease,
+    opacity 0.2s,
+    transform 0.1s;
+}
+.vq-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ---- match: pictures left, words right; a pair shares a number and a colour ---- */
+.vq-match {
+  flex: 0 0 auto;
+  display: grid;
+  gap: 0.55rem;
+  padding-top: 0.4rem;
+}
+.vq-mrow {
+  display: grid;
+  grid-template-columns: minmax(84px, 0.6fr) 1fr;
+  gap: 0.9rem;
+}
+.vq-mitem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: clamp(64px, 13dvh, 104px);
+  padding: 0.3rem 0.6rem;
+  border: 3px solid var(--forest);
+  border-radius: 18px;
+  background: #fff;
+  font-family: "Andika", sans-serif !important;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 4.6vw, 1.3rem);
+  line-height: 1.2;
+  transition:
+    border-color 0.15s ease,
+    transform 0.1s;
+}
+.vq-mitem.pic img {
+  height: clamp(54px, 11dvh, 92px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.vq-mitem.paired {
+  border-color: var(--mc, var(--forest));
+  background: #fff;
+}
+.vq-mitem.shown {
+  background: var(--paper);
+  border-color: var(--paper-edge);
+  cursor: default;
+}
+.vq-mbadge {
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--mc, var(--forest));
+  color: #fff;
+  font: 700 0.85rem/1 "Fredoka", sans-serif;
+  font-style: normal;
+  box-shadow: 0 0 0 2px #fff;
+}
+.vq-mark {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.right .vq-mark {
+  color: var(--right);
+}
+.wrong .vq-mark {
+  color: var(--miss);
+}
+
+/* ---- a / an ---- */
+.vq-art {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.vq-gap {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--reading);
+  line-height: 1.3;
+}
+.vq-blank {
+  display: inline-block;
+  min-width: 2.2em;
+  min-height: 1.3em;
+  padding: 0 0.25em;
+  border-bottom: 4px solid var(--forest);
+  border-radius: 0.3em 0.3em 0 0;
+  color: var(--forest-soft);
+  vertical-align: bottom;
+}
+.vq-blank.full {
+  background: #fff6dc;
+  border-color: var(--gold-deep);
+}
+.vq-blank.right {
+  background: var(--right-tint);
+  border-color: var(--right);
+  color: var(--right);
+}
+
+/* ---- spell ---- */
+.vq-spell {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.vq-slots,
+.vq-bank {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+}
+.vq-slot,
+.vq-tile {
+  width: clamp(34px, 9.2vw, 48px);
+  height: clamp(42px, 11vw, 56px);
+  padding: 0;
+  border-radius: 12px;
+  font-family: "Andika", sans-serif !important;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 5.4vw, 1.7rem);
+  line-height: 1;
+}
+.vq-slot {
+  border: 0;
+  border-bottom: 4px solid var(--forest);
+  border-radius: 8px 8px 0 0;
+  background: var(--paper);
+  color: var(--forest) !important;
+}
+.vq-slot.full {
+  background: #fff;
+}
+.vq-slot.sp {
+  width: clamp(12px, 3vw, 20px);
+  border: 0;
+  background: none;
+}
+.vq-slots.right .vq-slot:not(.sp) {
+  background: var(--right-tint);
+  border-color: var(--right);
+}
+.vq-slots.wrong .vq-slot:not(.sp) {
+  background: var(--wrong-tint);
+  border-color: var(--wrong);
+  color: var(--miss) !important;
+}
+.vq-tile {
+  border: 3px solid var(--forest);
+  background: #fff;
+  box-shadow: 0 4px 0 var(--paper-edge);
+  transition:
+    transform 0.1s,
+    opacity 0.15s;
+}
+.vq-tile:not(:disabled):active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--paper-edge);
+}
+/* a used tile leaves an empty place, so the others don't jump */
+.vq-tile.ghost {
+  border-color: var(--paper-edge);
+  background: var(--paper);
+  color: transparent !important;
+  box-shadow: none;
+}
+
+/* ---- feedback and results ---- */
+.vq .feedback {
+  flex: 0 0 auto;
+  min-height: 2.6em;
+}
+.vq-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.vq .pair .row:first-child .lbl {
+  grid-column: 1 / -1;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.9rem;
+}
+.vq .correct .chunk {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vq * {
+    transition: none !important;
+  }
+}

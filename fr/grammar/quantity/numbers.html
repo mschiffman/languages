@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Numbers, Time and Quantity in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-zinc-900 via-zinc-800 to-red-900 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-red-300 mb-4"
+        >
+          French grammar · Numbers, time &amp; quantity
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">quatre-vingt-dix-neuf</span>
+        </h1>
+        <p class="text-lg md:text-xl text-red-100 max-w-2xl mx-auto leading-relaxed">
+          In France, 99 is “four-twenty-ten-nine”. Numbers, prices, the time
+          and words like <i lang="fr">beaucoup</i>, <i lang="fr">tous</i> and
+          <i lang="fr">chaque</i> come up in every conversation, and each has
+          a trap or two. Here they are as people use them in shops, on the
+          phone and when making plans.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The charts (filled by the script from NUMBERS, CLOCK, AMOUNTS below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-red-900 mb-2">
+          First, the chart: the numbers that break the pattern
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          Up to 69, French counts much like English. The tiles below are the
+          ones to learn by heart: the teens, the <i lang="fr">et un</i>
+          numbers, and the 70s to 90s, which are built on twenty.
+        </p>
+
+        <div id="number-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"></div>
+
+        <p class="mt-4 rounded-xl bg-slate-50 border border-slate-100 p-4 text-sm text-slate-700 leading-relaxed">
+          <b class="text-red-800">Belgium and Switzerland</b> say
+          <i lang="fr">septante</i> (70) and <i lang="fr">nonante</i> (90), and
+          parts of Switzerland say <i lang="fr">huitante</i> (80). Everyone in
+          France understands them.
+        </p>
+
+        <p class="text-sm mt-4">
+          <a href="../../fundamental/numbers/index.html" class="font-semibold text-red-700 underline underline-offset-2">Number practice pages →</a>
+          <span class="text-slate-400 mx-1">·</span>
+          <a href="../../fundamental/time/index.html" class="font-semibold text-red-700 underline underline-offset-2">Time →</a>
+          <span class="text-slate-400 mx-1">·</span>
+          <a href="../../fundamental/dates/index.html" class="font-semibold text-red-700 underline underline-offset-2">Dates →</a>
+        </p>
+
+        <!-- Clock -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-red-900 mt-10 mb-2">
+          Telling the time: everyday and 24-hour
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          In conversation people use a 12-hour clock with <i lang="fr">et
+          quart</i>, <i lang="fr">et demie</i>, <i lang="fr">moins le
+          quart</i>. Timetables, appointments and the radio use the 24-hour
+          clock, and many people say it in daily life too.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[640px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Time</th>
+                <th scope="col" class="bg-red-700 text-white px-3 py-2 font-semibold">Everyday</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 rounded-tr-xl font-semibold">24-hour (timetables)</th>
+              </tr>
+            </thead>
+            <tbody id="clock-body"></tbody>
+          </table>
+        </div>
+
+        <!-- Amounts -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-red-900 mt-10 mb-2">
+          How much, how many: the quantity words
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          The middle column is the one to watch. Most quantity words take
+          plain <i lang="fr">de</i>, never <i lang="fr">des</i>; a few take
+          the noun directly; <i lang="fr">la plupart</i> is the odd one out.
+        </p>
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[760px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold">Word</th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold">Meaning</th>
+                <th scope="col" class="bg-red-700 text-white px-3 py-2 font-semibold">Then</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 rounded-tr-xl font-semibold">In a sentence</th>
+              </tr>
+            </thead>
+            <tbody id="amount-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the charts sideways to see every column.</p>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-red-800">Comma and space.</b> French writes
+            <i lang="fr">3,5</i> for 3.5 and <i lang="fr">10 000</i> for
+            10,000. Say <i lang="fr">trois virgule cinq</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-red-800">Phone numbers in pairs.</b>
+            <i lang="fr">06 12 34 56 78</i> is read <i lang="fr">zéro six,
+            douze, trente-quatre, cinquante-six, soixante-dix-huit</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-red-800">Dates: day first.</b>
+            <i lang="fr">14/11</i> is 14 November. Only the 1st is an
+            ordinal: <i lang="fr">le premier mai</i>, but <i lang="fr">le deux
+            mai</i>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-red-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Almost the same words, not the same amount
+        </h2>
+        <p class="text-red-100 leading-relaxed mb-6 max-w-3xl">
+          One small word, or one sound, changes how much or how long.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-red-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-red-700 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most are spelling rules for the numbers, <i lang="fr">des</i>
+              where French wants <i lang="fr">de</i>, or an English way of
+              saying the time. The crossed-out line is the slip; the line
+              under it is what people say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../article/articles.html" class="font-semibold text-red-700 underline underline-offset-2 hover:text-red-900">articles</a>
+          ·
+          <a href="../noun/nouns.html" class="font-semibold text-red-700 underline underline-offset-2 hover:text-red-900">nouns</a>
+          ·
+          <a href="../preposition/prepositions.html" class="font-semibold text-red-700 underline underline-offset-2 hover:text-red-900">prepositions</a>
+          ·
+          <a href="../others/french-y-en.html" class="font-semibold text-red-700 underline underline-offset-2 hover:text-red-900">y and en</a>
+        </p>
+        <a href="../index.html" class="text-red-700 underline underline-offset-2 hover:text-red-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "J'ai [vingt et un] ans."
+      --------------------------------------------------------------- */
+
+      /* Number tiles: [digits, French, note] */
+      const NUMBERS = [
+        ["11–16", "onze, douze, treize, quatorze, quinze, seize", "own words"],
+        ["17", "dix-sept", "ten-seven"],
+        ["21", "vingt et un", "et, no hyphens"],
+        ["22", "vingt-deux", "hyphen, no et"],
+        ["70", "soixante-dix", "sixty-ten"],
+        ["71", "soixante et onze", "sixty and eleven"],
+        ["77", "soixante-dix-sept", "sixty-ten-seven"],
+        ["80", "quatre-vingts", "four twenties, with s"],
+        ["81", "quatre-vingt-un", "no s, no et"],
+        ["90", "quatre-vingt-dix", "four-twenty-ten"],
+        ["99", "quatre-vingt-dix-neuf", "four-twenty-ten-nine"],
+        ["100 · 101", "cent · cent un", "never un cent"],
+        ["200 · 250", "deux cents · deux cent cinquante", "s only at the end"],
+        ["1 000 · 2 000", "mille · deux mille", "never un mille, never an s"],
+        ["1 000 000", "un million (de)", "un million d'euros"],
+        ["1er · 2e · 3e", "premier · deuxième · troisième", "le premier mai, le deux mai"],
+      ];
+
+      /* Clock: [time, everyday, 24-hour] */
+      const CLOCK = [
+        ["3:00", "Il est trois heures.", "quinze heures"],
+        ["3:15", "trois heures et quart", "quinze heures quinze"],
+        ["3:30", "trois heures et demie", "quinze heures trente"],
+        ["3:45", "quatre heures moins le quart", "quinze heures quarante-cinq"],
+        ["3:50", "quatre heures moins dix", "quinze heures cinquante"],
+        ["3:05", "trois heures cinq", "quinze heures cinq"],
+        ["12:00 · 0:00", "midi · minuit", "douze heures · zéro heure"],
+        ["12:30", "midi et demi", "douze heures trente"],
+        ["8:00 / 20:00", "huit heures du matin · huit heures du soir", "huit heures · vingt heures"],
+      ];
+
+      /* Quantity words: [word, meaning, then, example French, example English] */
+      const AMOUNTS = [
+        ["beaucoup", "a lot, many, much", "de + noun", "Y a [beaucoup de] monde.", "There are lots of people."],
+        ["plein · pas mal", "loads · quite a lot (spoken)", "de + noun", "J'ai [plein de] trucs à faire.", "I've got loads to do."],
+        ["un peu · peu", "a little · not much", "de + noun", "J'ai [un peu de] temps.", "I've got a bit of time."],
+        ["trop · assez", "too much · enough", "de + noun", "Y a [trop de] sel.", "There's too much salt."],
+        ["combien", "how much, how many", "de + noun", "T'as [combien de] frères ?", "How many brothers have you got?"],
+        ["quelques · plusieurs", "a few · several", "noun directly", "J'ai [quelques] questions.", "I have a few questions."],
+        ["chaque", "each, every", "singular noun", "[Chaque] matin, je cours.", "Every morning I go running."],
+        ["tout · toute · tous · toutes", "all, every, the whole", "le, la, les + noun", "[Tous les] jours.", "Every day."],
+        ["la plupart", "most", "des + noun", "[La plupart des] gens sont sympas.", "Most people are nice."],
+        ["aucun · aucune", "no, not a single", "singular noun + ne", "J'ai [aucune] idée.", "I've no idea."],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "counting",
+          title: "Counting: et un, hyphens, and agreement",
+          fr: "vingt et un · vingt-deux · une pomme",
+          tone: "rose",
+          blurb:
+            "Numbers are mostly regular, with three small rules: et appears only with un (and onze in 71), hyphens join everything else under 100, and un becomes une before a feminine noun.",
+          ex: [
+            ["J'ai [vingt et un] ans.", "I'm twenty-one.", "21, 31, 41, 51, 61: et un."],
+            ["Il a [vingt-deux] ans.", "He's twenty-two.", "Everything else under 100: hyphens."],
+            ["[Soixante et onze].", "Seventy-one.", "The only et in the 70s."],
+            ["[Quatre-vingt-un].", "Eighty-one.", "No et in the 80s and 90s."],
+            ["[Une] pomme, [deux] pommes.", "One apple, two apples.", "Un → une with a feminine noun: vingt et une pages."],
+            ["Il est [une] heure.", "It's one o'clock.", "Heure is feminine."],
+            ["[Zéro], c'est zéro.", "Zero means zero."],
+            ["On est [trois].", "There are three of us.", "On est + number: how many people."],
+            ["Les [deux] sont bien.", "Both are good.", "Les deux = both."],
+            ["T'en veux [combien] ? — [Deux].", "How many do you want? — Two."],
+          ],
+          tip: "Since the 1990 spelling reform, hyphens everywhere are also correct: vingt-et-un, deux-cent-cinquante, trois-mille. You will see both spellings; the older one is still the more common.",
+        },
+        {
+          id: "seventy",
+          title: "70, 80, 90: counting in twenties",
+          fr: "soixante-dix · quatre-vingts · quatre-vingt-dix",
+          tone: "sky",
+          blurb:
+            "From 70 to 99, French counts in twenties: 70 is sixty-ten, 80 is four twenties, 90 is four-twenty-ten. Practise them aloud: they come up in every phone number and price.",
+          ex: [
+            ["[Soixante-dix] euros.", "Seventy euros."],
+            ["[Soixante-quinze].", "Seventy-five.", "Sixty + fifteen."],
+            ["[Quatre-vingts] ans.", "Eighty years old.", "80 alone takes an s."],
+            ["[Quatre-vingt-cinq].", "Eighty-five.", "The s goes when another number follows."],
+            ["[Quatre-vingt-dix] minutes.", "Ninety minutes."],
+            ["[Quatre-vingt-dix-neuf] centimes.", "Ninety-nine cents."],
+            ["Les années [quatre-vingt].", "The eighties.", "Years and pages don't take the s: page quatre-vingt."],
+            ["[Septante], [nonante].", "70, 90 (Belgium, Switzerland)."],
+            ["C'est le [zéro six, soixante-dix-huit]…", "It's 06 78…", "Phone numbers are read in pairs."],
+          ],
+        },
+        {
+          id: "sounds",
+          title: "Saying numbers: the final consonant",
+          fr: "six /sis/ · six livres /si/ · six euros /siz/",
+          tone: "amber",
+          blurb:
+            "Several numbers change their last sound depending on what follows: full on their own, silent before a consonant, linked before a vowel. This is where learners are easiest to spot.",
+          ex: [
+            ["J'en ai [six].", "I've got six.", "Alone: /sis/. Same for dix: /dis/."],
+            ["[Six] livres.", "Six books.", "Before a consonant: /si/. Dix livres: /di/."],
+            ["[Six] euros.", "Six euros.", "Before a vowel: /siz/, linked."],
+            ["[Huit] jours.", "A week.", "Huit: /ɥit/ alone and before a vowel, often /ɥi/ before a consonant."],
+            ["[Cinq] minutes.", "Five minutes.", "Cinq keeps its k in everyday speech: /sɛ̃k/."],
+            ["[Neuf] ans.", "Nine years old.", "Neuf + ans or heures: /nœv/."],
+            ["[Deux] enfants.", "Two children.", "Liaison: /døzɑ̃fɑ̃/. Also trois‿enfants."],
+            ["[Vingt] ans.", "Twenty years old.", "Vingt: /vɛ̃/ alone, /vɛ̃t/ before a vowel and in 21–29."],
+            ["[Cent] ans.", "A hundred years.", "Linked: /sɑ̃tɑ̃/."],
+          ],
+        },
+        {
+          id: "big",
+          title: "Big numbers, decimals and percentages",
+          fr: "deux cents · deux mille · un million de · 3,5 · 10 %",
+          tone: "violet",
+          blurb:
+            "Cent takes an s only when it is multiplied and nothing follows. Mille never does. Million is a noun, so it takes de. Decimals use a comma.",
+          ex: [
+            ["[Cent] personnes.", "A hundred people.", "Never un cent."],
+            ["[Deux cents] euros.", "Two hundred euros.", "Multiplied and last: s."],
+            ["[Deux cent cinquante] euros.", "Two hundred and fifty euros.", "Something follows: no s."],
+            ["[Mille] mercis !", "Thanks a million!", "Never un mille."],
+            ["[Trois mille] habitants.", "Three thousand inhabitants.", "Mille never takes s."],
+            ["[Un million d']euros.", "A million euros.", "Million, milliard: + de."],
+            ["En [deux mille vingt-six].", "In 2026.", "Years are said in full."],
+            ["[Trois virgule cinq].", "Three point five.", "Written 3,5."],
+            ["[Dix pour cent].", "Ten per cent.", "Written 10 %, with a space."],
+            ["Il y avait [des milliers de] personnes.", "There were thousands of people."],
+          ],
+        },
+        {
+          id: "dates",
+          title: "Ordinals and dates",
+          fr: "premier · deuxième · le 14 juillet · le XXIe siècle",
+          tone: "emerald",
+          blurb:
+            "Add -ième to make an ordinal, except premier. Dates use ordinary numbers, except the 1st. Kings and centuries are written in Roman numerals but said as normal numbers.",
+          ex: [
+            ["C'est la [première] fois.", "It's the first time.", "Premier, première."],
+            ["Au [deuxième] étage.", "On the second floor.", "French counts from the ground floor: le rez-de-chaussée, then le premier étage."],
+            ["La [troisième] rue à gauche.", "The third street on the left."],
+            ["Le [premier] mai.", "The first of May."],
+            ["Le [deux] mai.", "The second of May.", "Not “le deuxième mai”."],
+            ["On est le [quatorze] juillet.", "It's the fourteenth of July."],
+            ["C'est le [combien] aujourd'hui ?", "What's the date today?"],
+            ["Le [vingt et unième] siècle.", "The twenty-first century.", "Written le XXIe siècle."],
+            ["Louis [Quatorze].", "Louis XIV.", "Kings: plain numbers, except François Ier (premier)."],
+            ["Né le [3/4/1990].", "Born on 3 April 1990.", "Day, month, year."],
+          ],
+          tip: "Days and months take no capital letter: le lundi 3 avril.",
+        },
+        {
+          id: "time",
+          title: "Telling the time",
+          fr: "Il est quelle heure ? · à huit heures · vers midi",
+          tone: "teal",
+          blurb:
+            "Always il est + heure(s), even for one o'clock. Et quart, et demie, moins le quart, moins dix for everyday talk; the 24-hour clock for anything official.",
+          ex: [
+            ["Il est [quelle heure] ?", "What time is it?", "Careful: Quelle heure est-il ? Polite to a stranger: Vous avez l'heure ?"],
+            ["Il est [trois heures].", "It's three o'clock.", "Heures is always said."],
+            ["Il est [une heure et quart].", "It's quarter past one."],
+            ["Il est [deux heures et demie].", "It's half past two.", "Demie after heure(s), demi after midi and minuit."],
+            ["Il est [cinq heures moins le quart].", "It's quarter to five."],
+            ["Il est [midi et demi].", "It's half past twelve."],
+            ["Le train part à [dix-huit heures douze].", "The train leaves at 18:12."],
+            ["On se voit [à huit heures] ?", "Shall we meet at eight?"],
+            ["[Vers] huit heures.", "Around eight."],
+            ["À huit heures [pile].", "At eight on the dot."],
+            ["[Huit heures du soir].", "Eight in the evening.", "du matin, de l'après-midi, du soir instead of am/pm."],
+            ["J'arrive dans [un quart d'heure].", "I'll be there in a quarter of an hour.", "Also une demi-heure, trois quarts d'heure."],
+          ],
+        },
+        {
+          id: "when",
+          title: "Days, weeks, how often",
+          fr: "ce soir · la semaine prochaine · tous les jours · un jour sur deux",
+          tone: "indigo",
+          blurb:
+            "The words that place things in the week, and say how often they happen.",
+          ex: [
+            ["[Lundi], je travaille.", "On Monday I'm working.", "Lundi alone: this coming Monday."],
+            ["[Le lundi], je travaille.", "On Mondays I work.", "Le lundi: every Monday."],
+            ["[Ce soir], on sort.", "We're going out tonight."],
+            ["[Demain matin].", "Tomorrow morning."],
+            ["[La semaine prochaine].", "Next week."],
+            ["[Le mois dernier].", "Last month."],
+            ["[Tous les jours].", "Every day."],
+            ["[Une fois par] semaine.", "Once a week."],
+            ["[Un jour sur deux].", "Every other day."],
+            ["[De temps en temps].", "From time to time."],
+            ["[Huit jours].", "A week.", "French counts a week as huit jours."],
+            ["[Quinze jours].", "A fortnight, two weeks.", "Also une quinzaine."],
+          ],
+          more: ["../preposition/prepositions.html", "Depuis, pendant, il y a, dans"],
+        },
+        {
+          id: "de",
+          title: "Quantity + de: beaucoup de, trop de, plein de",
+          fr: "beaucoup de gens · un peu de temps · pas de pain",
+          tone: "rose",
+          blurb:
+            "After a word of quantity, French uses plain de, whatever the noun: no le, la, les, des. D' before a vowel.",
+          ex: [
+            ["Y a [beaucoup de] monde.", "There are a lot of people."],
+            ["J'ai [beaucoup d']amis ici.", "I have lots of friends here.", "D' before a vowel."],
+            ["J'ai [un peu de] temps.", "I've got a bit of time."],
+            ["J'ai [peu de] temps.", "I haven't got much time.", "Peu without un: not much."],
+            ["Y a [trop de] bruit.", "It's too noisy."],
+            ["T'as [assez d']argent ?", "Have you got enough money?"],
+            ["J'ai [plein de] choses à te dire.", "I've got loads to tell you.", "Plein de: spoken, very common."],
+            ["Y avait [pas mal de] monde.", "There were quite a lot of people.", "Pas mal de: spoken."],
+            ["[Combien de] temps ?", "How long?"],
+            ["[Moins de] sucre, s'il vous plaît.", "Less sugar, please."],
+            ["[La plupart des] gens.", "Most people.", "The exception: la plupart des + plural verb."],
+            ["J'ai [pas de] voiture.", "I don't have a car.", "Pas de works the same way."],
+          ],
+          more: ["../article/articles.html", "More on de after quantities"],
+        },
+        {
+          id: "tout",
+          title: "Tout, tous, toute, toutes",
+          fr: "tout le monde · tous les jours · toute la journée · c'est tout",
+          tone: "sky",
+          blurb:
+            "Tout agrees with its noun: tout le, toute la, tous les, toutes les. On its own as “all of them”, tous sounds its s.",
+          ex: [
+            ["[Tout le monde] est là.", "Everyone's here.", "Tout le monde takes a singular verb."],
+            ["[Tous les] jours.", "Every day."],
+            ["[Toute la] journée.", "All day long."],
+            ["[Toutes les] semaines.", "Every week."],
+            ["[Tout le] temps.", "All the time."],
+            ["Ils sont [tous] là.", "They're all here.", "Tous as a pronoun: /tus/, s pronounced."],
+            ["Merci à [tous] !", "Thanks, everyone!", "/tus/"],
+            ["C'est [tout] ?", "Is that everything?", "In a shop: Ce sera tout ?"],
+            ["J'ai [tout] compris.", "I understood everything."],
+            ["Je suis [tout] seul.", "I'm all alone.", "Tout before an adjective: completely."],
+            ["[Tous les deux].", "Both of them.", "Toutes les deux for two women."],
+          ],
+        },
+        {
+          id: "few",
+          title: "A few, several, each, none",
+          fr: "quelques · plusieurs · chaque · chacun · aucun · certains",
+          tone: "amber",
+          blurb:
+            "These go straight before the noun, with no de. Chaque and aucun take a singular noun.",
+          ex: [
+            ["J'ai [quelques] questions.", "I've got a few questions."],
+            ["J'en ai pris [quelques-uns].", "I took a few.", "Without a noun: quelques-uns, quelques-unes."],
+            ["Je l'ai vu [plusieurs] fois.", "I've seen it several times."],
+            ["[Chaque] jour, c'est pareil.", "Every day it's the same.", "Chaque + singular."],
+            ["[Chacun] son tour.", "Everyone in turn.", "Chacun, chacune: each one."],
+            ["Ça coûte cinq euros [chacun].", "They're five euros each."],
+            ["J'ai [aucune] idée.", "I've no idea.", "Aucun + singular, with or without ne."],
+            ["[Certains] pensent que…", "Some people think that…"],
+            ["[Quelqu'un] a appelé.", "Somebody called."],
+            ["Y a [quelque chose] qui va pas.", "Something's wrong."],
+          ],
+          more: ["../negation/negation.html", "Aucun and other negatives"],
+        },
+        {
+          id: "about",
+          title: "Roughly: une dizaine, environ, dans les…",
+          fr: "une dizaine · une vingtaine · à peu près · dans les 20 euros",
+          tone: "emerald",
+          blurb:
+            "French has neat words for round numbers: add -aine to make “about ten”, “about twenty”. They take de, like any quantity.",
+          ex: [
+            ["[Une dizaine de] personnes.", "About ten people."],
+            ["[Une vingtaine d']euros.", "About twenty euros."],
+            ["Elle a [la trentaine].", "She's in her thirties."],
+            ["[Une centaine de] mètres.", "About a hundred metres."],
+            ["[Une douzaine d']œufs.", "A dozen eggs.", "Douzaine is exact: twelve."],
+            ["[Une quinzaine de] jours.", "About two weeks."],
+            ["Ça coûte [environ] dix euros.", "It costs about ten euros."],
+            ["[À peu près] une heure.", "About an hour."],
+            ["Ça fait [dans les] vingt euros.", "That's around twenty euros.", "Dans les + number: spoken."],
+            ["Il a [quarante ans et quelques].", "He's forty-something."],
+          ],
+        },
+        {
+          id: "money",
+          title: "Prices, halves and measures",
+          fr: "Ça fait combien ? · douze euros cinquante · un kilo et demi",
+          tone: "violet",
+          blurb:
+            "Prices drop the word centimes: euros first, then the cents. Demi goes before a noun with a hyphen and doesn't change; after a noun it agrees.",
+          ex: [
+            ["[Ça fait combien] ?", "How much is that?", "At the till. Also C'est combien ?"],
+            ["Ça fait [douze euros cinquante].", "That's twelve fifty.", "Written 12,50 €."],
+            ["[Deux euros] pièce.", "Two euros each."],
+            ["[Une demi]-heure.", "Half an hour.", "Demi before the noun: invariable, with a hyphen."],
+            ["Une heure [et demie].", "An hour and a half.", "After the noun: agrees, et demie."],
+            ["[Un kilo et demi] de pommes.", "A kilo and a half of apples."],
+            ["[La moitié] du gâteau.", "Half of the cake."],
+            ["[Un tiers], [un quart].", "A third, a quarter."],
+            ["C'est [deux fois plus] cher.", "It's twice as expensive."],
+            ["[Le double].", "Double."],
+            ["Je fais [un mètre soixante-dix].", "I'm 1.70 m tall.", "Height with faire, said with no comma."],
+          ],
+        },
+        {
+          id: "en",
+          title: "How many? Use en with a number",
+          fr: "J'en ai deux · Il y en a trois · T'en veux combien ?",
+          tone: "teal",
+          blurb:
+            "When the noun has already been mentioned, French can't just leave it out like English (“I've got two”). It replaces it with en, before the verb.",
+          ex: [
+            ["— T'as des frères ? — J'[en] ai deux.", "— Have you got brothers? — I've got two.", "En stands for des frères."],
+            ["Il y [en] a trois.", "There are three (of them)."],
+            ["T'[en] veux combien ?", "How many do you want?"],
+            ["J'[en] prends un kilo.", "I'll take a kilo."],
+            ["J'[en] ai beaucoup.", "I've got lots."],
+            ["J'[en] ai pas.", "I haven't got any."],
+            ["Il [en] reste un peu.", "There's a bit left."],
+            ["J'[en] ai mangé la moitié.", "I ate half of it."],
+          ],
+          more: ["../others/french-y-en.html", "The pronouns y and en"],
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["J'ai [un peu de] temps.", "I've got a bit of time.", "J'ai [peu de] temps.", "I haven't got much time."],
+        ["[Tous les] jours", "every day", "[Toute la] journée", "all day long"],
+        ["[Tout le monde]", "everyone", "[Le monde entier]", "the whole world"],
+        ["Il est [trois heures].", "It's three o'clock.", "Ça fait [trois heures].", "It's been three hours."],
+        ["Deux [fois]", "twice", "Deux fois [plus]", "twice as much"],
+        ["Le [premier] mai", "the first of May (ordinal)", "Le [deux] mai", "the second of May (plain number)"],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["vingt-et-deux", "[vingt-deux]", "twenty-two", "Et only with un."],
+        ["quatre-vingt ans", "[quatre-vingts] ans", "eighty years", "80 alone takes an s."],
+        ["deux milles euros", "deux [mille] euros", "two thousand euros", "Mille never takes s."],
+        ["un cent euros", "[cent] euros", "a hundred euros", "No un before cent or mille."],
+        ["Beaucoup des gens.", "Beaucoup [de] gens.", "Lots of people.", "Quantity + de."],
+        ["La plupart de gens.", "La plupart [des] gens.", "Most people.", "La plupart des."],
+        ["Tout le monde sont là.", "Tout le monde [est] là.", "Everyone's here.", "Singular verb."],
+        ["Le un mai.", "Le [premier] mai.", "The first of May.", "The 1st is an ordinal."],
+        ["Trois heures et quinze.", "Trois heures [et quart].", "Quarter past three.", "Et quart, or trois heures quinze."],
+        ["Deux et demi heures.", "Deux heures [et demie].", "Two and a half hours.", "Heures, then et demie."],
+        ["Il a vingt.", "Il a vingt [ans].", "He's twenty.", "Always say ans."],
+        ["— T'as des frères ? — J'ai deux.", "— T'as des frères ? — J'[en] ai deux.", "— Brothers? — I've got two.", "En replaces the noun."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [vingt] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- number tiles ---------- */
+      document.getElementById("number-grid").innerHTML = NUMBERS.map(
+        ([digits, fr, note]) => `
+        <div class="rounded-xl bg-red-50 border border-red-100 p-4">
+          <p class="text-2xl font-bold text-red-800 tabular-nums">${esc(digits)}</p>
+          <p class="font-playfair italic text-lg text-slate-900 leading-snug" lang="fr">${esc(fr)}</p>
+          <p class="text-xs text-slate-500 mt-1">${esc(note)}</p>
+        </div>`,
+      ).join("");
+
+      /* ---------- clock ---------- */
+      document.getElementById("clock-body").innerHTML = CLOCK.map(
+        ([time, everyday, h24]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-bold text-slate-700 tabular-nums whitespace-nowrap">${esc(time)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-red-50 font-medium text-red-900" lang="fr">${esc(everyday)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 text-sky-800" lang="fr">${esc(h24)}</td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quantity words ---------- */
+      document.getElementById("amount-body").innerHTML = AMOUNTS.map(
+        ([word, meaning, then, fr, en]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-playfair italic font-semibold text-lg text-red-800 align-top" lang="fr">${esc(word)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 text-sm text-slate-700 align-top">${esc(meaning)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 bg-red-50 text-sm font-semibold text-red-900 whitespace-nowrap align-top">${esc(then)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 align-top">
+            <span class="block font-medium text-slate-900" lang="fr">${mark(fr, "text-red-700")}</span>
+            <span class="block text-sm text-slate-500">${esc(en)}</span>
+          </td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-red-100 border border-red-200 px-3 py-1.5 text-sm font-medium text-red-900 hover:bg-red-200">The charts</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-red-400 hover:text-red-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-red-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-red-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-red-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-red-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+<script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Health</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">HEALTH</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Health
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ကျန်းမာရေး
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">23</span> expressions · Health
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 23.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/health/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "How you feel",
+          my: "ဘယ်လို ခံစားရလဲ",
+          desc: "Telling someone that you are not well, or better again.",
+          cards: [
+            ["I don't feel well.", "နေမကောင်းဘူး။", "The everyday way to say you are ill. Also: I'm not feeling well.",
+              "Mum, I don't feel well. Can I stay home?", "မေမေ၊ နေမကောင်းဘူး။ အိမ်မှာ နေလို့ ရမလား။"],
+            ["I feel sick.", "အန်ချင်သလို ဖြစ်နေတယ်။", "In British English it usually means you might vomit. In American English it can just mean ill.",
+              "I feel sick. I think I ate too much.", "အန်ချင်သလို ဖြစ်နေတယ်။ အများကြီး စားမိသွားလို့ ထင်တယ်။"],
+            ["I feel dizzy.", "ခေါင်းမူးတယ်။", "Everything seems to turn around you. Sit down!",
+              "I feel dizzy. I need to sit down.", "ခေါင်းမူးတယ်။ ထိုင်ဖို့ လိုတယ်။"],
+            ["I feel better now.", "အခု သက်သာသွားပြီ။", "After you were ill. Also: I'm much better, thanks.",
+              "— How are you today? — I feel better now, thanks.", "— ဒီနေ့ ဘယ်လိုလဲ။ — အခု သက်သာသွားပြီ၊ ကျေးဇူးပါ။"],
+          ],
+        },
+        {
+          en: "Pain",
+          my: "နာကျင်ခြင်း",
+          desc: "Saying where it hurts.",
+          cards: [
+            ["I have a headache.", "ခေါင်းကိုက်တယ်။", "Some pains are one word with -ache: headache, stomachache, toothache, earache.",
+              "I have a headache. It's too noisy here.", "ခေါင်းကိုက်တယ်။ ဒီမှာ ဆူညံလွန်းတယ်။"],
+            ["I have a stomachache.", "ဗိုက်နာတယ်။", "Stomach sounds like stum-uk. Children often say tummy ache.",
+              "I have a stomachache. I don't want any lunch.", "ဗိုက်နာတယ်။ နေ့လယ်စာ မစားချင်ဘူး။"],
+            ["I have a sore throat.", "လည်ချောင်း နာတယ်။", "Sore = painful. Also: sore eyes, a sore back.",
+              "I have a sore throat. It hurts when I swallow.", "လည်ချောင်း နာတယ်။ မျိုချရင် နာတယ်။"],
+            ["It hurts here.", "ဒီနေရာ နာတယ်။", "Point to the place. Useful when you don't know the English word.",
+              "— Where does it hurt? — It hurts here.", "— ဘယ်နေရာ နာလဲ။ — ဒီနေရာ နာတယ်။"],
+            ["My <span class=gray>leg</span> hurts.", "ခြေထောက် နာတယ်။", "Body part + hurts. For two: My feet hurt.",
+              "I ran too much. My legs hurt.", "အများကြီး ပြေးမိလို့ ခြေထောက်တွေ နာတယ်။"],
+          ],
+        },
+        {
+          en: "Colds and fever",
+          my: "အအေးမိခြင်းနှင့် ဖျားခြင်း",
+          desc: "The illnesses everyone gets.",
+          cards: [
+            ["I have a cold.", "အအေးမိနေတယ်။", "A cold, with a. Not: I have cold, which means I feel cold.",
+              "I have a cold, so I'll stay at home today.", "အအေးမိနေလို့ ဒီနေ့ အိမ်မှာပဲ နေမယ်။"],
+            ["I have a fever.", "ဖျားနေတယ်။", "Your body is very hot. British English also says I have a temperature.",
+              "I have a fever and my head hurts.", "ဖျားနေပြီး ခေါင်းလည်း ကိုက်တယ်။"],
+            ["I have a cough.", "ချောင်းဆိုးနေတယ်။", "Cough sounds like koff.",
+              "I have a bad cough at night.", "ညဘက်ဆို ချောင်း အရမ်း ဆိုးတယ်။"],
+            ["I have a runny nose.", "နှာရည် ယိုနေတယ်။", "Water keeps coming from your nose. You need a tissue!",
+              "I have a runny nose. Do you have a tissue?", "နှာရည် ယိုနေတယ်။ တစ်ရှူး ပါလား။"],
+          ],
+        },
+        {
+          en: "At the doctor and the pharmacy",
+          my: "ဆရာဝန်နှင့် ဆေးဆိုင်မှာ",
+          desc: "What you say, and what the doctor or pharmacist asks.",
+          cards: [
+            ["I need to see a doctor.", "ဆရာဝန်နဲ့ ပြဖို့ လိုတယ်။", "See a doctor = visit a doctor. Not: I need to meet a doctor.",
+              "I've had a fever for three days. I need to see a doctor.", "သုံးရက်လောက် ဖျားနေတယ်။ ဆရာဝန်နဲ့ ပြဖို့ လိုတယ်။"],
+            ["What's the matter?", "ဘယ်လို ဖြစ်နေလဲ။", "What a doctor or nurse asks first. Answer with the problem: I have a…",
+              "— What's the matter? — I have a sore throat.", "— ဘယ်လို ဖြစ်နေလဲ။ — လည်ချောင်း နာတယ်။"],
+            ["How long have you felt like this?", "ဒီလို ဖြစ်နေတာ ဘယ်လောက် ကြာပြီလဲ။", "Answer with for or since: For two days. Since Monday.",
+              "— How long have you felt like this? — Since yesterday.", "— ဒီလို ဖြစ်နေတာ ဘယ်လောက် ကြာပြီလဲ။ — မနေ့ကတည်းကပါ။"],
+            ["Take this medicine twice a day.", "ဒီဆေးကို တစ်နေ့ နှစ်ခါ သောက်ပါ။", "Once a day, twice a day, three times a day.",
+              "Take this medicine twice a day, after meals.", "ဒီဆေးကို တစ်နေ့ နှစ်ခါ၊ ထမင်းစားပြီးမှ သောက်ပါ။"],
+            ["Do you have something for <span class=gray>a headache</span>?", "ခေါင်းကိုက်တာအတွက် ဆေး ရှိလား။", "At a pharmacy, when you don't know the medicine's name.",
+              "Do you have something for a cough?", "ချောင်းဆိုးတာအတွက် ဆေး ရှိလား။"],
+            ["Are you allergic to anything?", "ဘာနဲ့ မတည့်တာ ရှိလဲ။", "Allergic = your body reacts badly to it. Answer: I'm allergic to peanuts.",
+              "— Are you allergic to anything? — Yes, to penicillin.", "— ဘာနဲ့ မတည့်တာ ရှိလဲ။ — ဟုတ်ကဲ့၊ ပင်နီစလင်နဲ့ မတည့်ပါဘူး။"],
+          ],
+        },
+        {
+          en: "Small accidents",
+          my: "အသေးစား မတော်တဆမှုများ",
+          desc: "Cuts, falls and bumps, at home, at school or playing.",
+          cards: [
+            ["I cut my finger.", "လက်ချောင်း ရှသွားတယ်။", "Cut is the same in the past: I cut it yesterday.",
+              "Ouch! I cut my finger on the paper.", "အား၊ စက္ကူနဲ့ လက်ချောင်း ရှသွားတယ်။"],
+            ["I fell over.", "လဲကျသွားတယ်။", "You fell to the ground. Also: I fell off my bike.",
+              "I fell over in the playground.", "ကစားကွင်းမှာ လဲကျသွားတယ်။"],
+            ["I hurt my <span class=gray>knee</span>.", "ဒူး ဒဏ်ရာ ရသွားတယ်။", "Hurt + body part = injured it. Hurt is the same in the past.",
+              "I hurt my knee playing football.", "ဘောလုံး ကန်ရင်း ဒူး ဒဏ်ရာ ရသွားတယ်။"],
+            ["Can I have a plaster?", "ပလာစတာ တစ်ခု ရနိုင်မလား။", "A small sticky bandage for a cut. American English: a Band-Aid.",
+              "My finger is bleeding. Can I have a plaster?", "လက်ချောင်းက သွေးထွက်နေတယ်။ ပလာစတာ တစ်ခု ရနိုင်မလား။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

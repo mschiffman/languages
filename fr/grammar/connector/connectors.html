@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>French Linking Words in Everyday Speech</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .font-playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .font-inter {
+        font-family: "Inter", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+    </style>
+  </head>
+
+  <body class="bg-slate-50 font-inter text-slate-800">
+    <!-- ---------- Header ---------- -->
+    <header
+      class="bg-gradient-to-br from-stone-900 via-amber-900 to-yellow-800 text-white"
+    >
+      <div class="max-w-5xl mx-auto px-6 pt-16 pb-24 text-center">
+        <p
+          class="text-sm font-semibold tracking-[0.25em] uppercase text-amber-300 mb-4"
+        >
+          French grammar · Linking words
+        </p>
+        <h1 class="font-playfair text-5xl md:text-6xl font-bold mb-5">
+          <span class="italic text-amber-300">En fait… du coup…</span>
+        </h1>
+        <p class="text-lg md:text-xl text-amber-100 max-w-2xl mx-auto leading-relaxed">
+          Linking words turn short sentences into real speech:
+          <i lang="fr">Il pleuvait, du coup on est restés, mais bon, c'était
+          sympa quand même.</i> Spoken and written French use quite different
+          sets. Here are both, grouped by the job they do, with the ones
+          that change the verb after them.
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6">
+      <!-- ---------- The chart (filled by the script from JOBS below) ---------- -->
+      <section
+        id="chart"
+        class="bg-white rounded-2xl shadow-lg p-6 md:p-10 -mt-14 relative z-10"
+        aria-labelledby="chart-title"
+      >
+        <h2 id="chart-title" class="font-playfair text-2xl md:text-3xl font-bold text-amber-900 mb-2">
+          First, the chart: linking words by job
+        </h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          Each row is one job. The middle columns show what you'll hear in
+          conversation and what you'll read in an article or a formal
+          email. Using the written ones in speech sounds stiff; using
+          <i lang="fr">du coup</i> in an essay sounds chatty.
+        </p>
+
+        <div class="overflow-x-auto -mx-2 px-2">
+          <table class="w-full min-w-[820px] border-separate border-spacing-0 text-left">
+            <thead>
+              <tr>
+                <th scope="col" class="bg-slate-700 text-white px-3 py-2 rounded-tl-xl font-semibold align-bottom">Job</th>
+                <th scope="col" class="bg-amber-600 text-white px-3 py-2 font-semibold align-bottom">Spoken<span class="block text-xs font-normal opacity-90">everyday conversation</span></th>
+                <th scope="col" class="bg-sky-600 text-white px-3 py-2 font-semibold align-bottom">Written<span class="block text-xs font-normal opacity-90">careful or formal</span></th>
+                <th scope="col" class="bg-emerald-600 text-white px-3 py-2 rounded-tr-xl font-semibold align-bottom">In a sentence</th>
+              </tr>
+            </thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+        <p class="sm:hidden text-xs text-slate-500 mt-2">Slide the chart sideways to see every column.</p>
+
+        <!-- Mood after the linking word -->
+        <h3 class="font-playfair text-xl md:text-2xl font-bold text-amber-900 mt-10 mb-2">
+          Watch the verb after it
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+          A few linking words need the subjunctive after them. Their
+          lookalikes don't. Learn the left box as a list.
+        </p>
+        <div class="grid md:grid-cols-2 gap-3" lang="fr">
+          <div class="rounded-xl bg-pink-50 border border-pink-100 p-4">
+            <p class="font-semibold text-pink-800 mb-2" lang="en">+ subjunctive</p>
+            <p class="font-playfair italic text-lg text-slate-800 leading-relaxed">bien que · pour que · avant que · à moins que · sans que · jusqu'à ce que · à condition que</p>
+            <p class="text-sm text-slate-600 mt-2">Bien qu'il <b class="text-pink-700">soit</b> tard…</p>
+          </div>
+          <div class="rounded-xl bg-sky-50 border border-sky-100 p-4">
+            <p class="font-semibold text-sky-800 mb-2" lang="en">+ ordinary indicative</p>
+            <p class="font-playfair italic text-lg text-slate-800 leading-relaxed">parce que · même si · pendant que · après que · alors que · depuis que · dès que · si</p>
+            <p class="text-sm text-slate-600 mt-2">Même s'il <b class="text-sky-700">est</b> tard…</p>
+          </div>
+        </div>
+        <p class="text-sm mt-3">
+          <a href="../subjunctive/subjunctive.html" class="font-semibold text-amber-700 underline underline-offset-2">More on the subjunctive →</a>
+        </p>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-3 text-sm text-slate-700 leading-relaxed">
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-amber-800">Clause or noun?</b> Many come in
+            pairs: <i lang="fr">parce que</i> + a sentence,
+            <i lang="fr">à cause de</i> + a noun; <i lang="fr">pendant
+            que</i> / <i lang="fr">pendant</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-amber-800">Same person?</b> Use the
+            infinitive form: <i lang="fr">avant de partir</i>,
+            <i lang="fr">pour comprendre</i>, <i lang="fr">sans dire</i>.
+          </p>
+          <p class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+            <b class="text-amber-800">Fillers count.</b>
+            <i lang="fr">En fait, bon, bref, genre</i> carry no meaning of
+            their own, but they make you sound fluent.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- Quick links (filled by the script) ---------- -->
+      <nav
+        id="toc"
+        class="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 mt-8 bg-slate-50/95 backdrop-blur border-b border-slate-200 flex gap-2 overflow-x-auto whitespace-nowrap"
+        aria-label="Categories"
+      ></nav>
+
+      <!-- ---------- Categories (filled by the script from USES below) ---------- -->
+      <div id="uses" class="space-y-10 py-10"></div>
+
+      <!-- ---------- Close pairs ---------- -->
+      <section
+        id="pairs"
+        class="bg-amber-900 text-white rounded-2xl p-6 md:p-10 mb-10"
+        aria-labelledby="pairs-title"
+      >
+        <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-300 mb-2">
+          The classic trap
+        </p>
+        <h2 id="pairs-title" class="font-playfair text-2xl md:text-3xl font-bold mb-3">
+          Almost the same word, not the same job
+        </h2>
+        <p class="text-amber-100 leading-relaxed mb-6 max-w-3xl">
+          A <i lang="fr">que</i> added, one letter changed, or a different
+          tone of voice, and the link means something else.
+        </p>
+        <div id="pair-list" class="grid md:grid-cols-2 gap-4"></div>
+      </section>
+
+      <!-- ---------- Common slips ---------- -->
+      <section id="slips" class="mb-10" aria-labelledby="slips-title">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 bg-amber-500"></div>
+          <div class="p-6 md:p-8">
+            <p class="text-sm font-semibold tracking-[0.2em] uppercase text-amber-700 mb-2">
+              Check yourself
+            </p>
+            <h2 id="slips-title" class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Twelve slips English speakers make
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6 max-w-3xl">
+              Most come from putting a sentence where a noun belongs (or the
+              reverse), or from the wrong verb form after the link. The
+              crossed-out line is the slip; the line under it is what people
+              say.
+            </p>
+            <ul id="slip-list" class="grid md:grid-cols-2 gap-3"></ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="pb-14 text-center text-sm text-slate-500">
+        <p class="mb-3">
+          Related:
+          <a href="../subjunctive/subjunctive.html" class="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900">subjunctive</a>
+          ·
+          <a href="../question/questions.html" class="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900">questions</a>
+          ·
+          <a href="../preposition/prepositions.html" class="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900">prepositions</a>
+          ·
+          <a href="../adverb/adverbs.html" class="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900">adverbs</a>
+        </p>
+        <a href="../index.html" class="text-amber-700 underline underline-offset-2 hover:text-amber-900">← Back to grammar</a>
+      </footer>
+    </main>
+
+    <script>
+      /* ---------------------------------------------------------------
+         The page is drawn from these lists.
+
+         In the French, put square brackets round the word you want
+         highlighted:  "Il pleuvait, [du coup] on est restés."
+      --------------------------------------------------------------- */
+
+      /* Chart rows: [job, spoken, written, example French, example English] */
+      const JOBS = [
+        ["Adding", "et · aussi · en plus", "de plus · également · en outre", "Il pleut, et [en plus] j'ai pas de parapluie.", "It's raining, and on top of that I've got no umbrella."],
+        ["Contrast", "mais · par contre", "cependant · pourtant · en revanche", "C'est cher, [mais] c'est bon.", "It's expensive, but it's good."],
+        ["Cause", "parce que · comme · vu que", "car · puisque · étant donné que", "Je reste, [parce qu']il pleut.", "I'm staying because it's raining."],
+        ["Result", "du coup · donc · alors", "c'est pourquoi · par conséquent · ainsi", "Il pleuvait, [du coup] on est restés.", "It was raining, so we stayed in."],
+        ["Even so", "quand même · même si", "bien que · malgré · néanmoins", "Il pleut, mais on y va [quand même].", "It's raining, but we're going anyway."],
+        ["Time", "quand · après · pendant que", "lorsque · dès que · tandis que", "[Quand] j'arrive, je t'appelle.", "I'll call you when I get there."],
+        ["Condition", "si · sinon · au cas où", "à condition que · à moins que", "Dépêche-toi, [sinon] on va le rater.", "Hurry up, or we'll miss it."],
+        ["Purpose", "pour · pour que", "afin de · afin que", "Je t'appelle [pour] te prévenir.", "I'm calling to let you know."],
+        ["Clarifying", "en fait · genre · c'est-à-dire", "en effet · notamment · autrement dit", "[En fait], je suis pas d'accord.", "Actually, I don't agree."],
+        ["Wrapping up", "bref · au final · bon", "enfin · en conclusion · finalement", "[Bref], on s'est bien amusés.", "Anyway, we had a great time."],
+      ];
+
+      /* ---------------------------------------------------------------
+         USES: one entry per topic.
+           id, title (English), fr (French label), blurb, tone (colour set),
+           tip (optional note under the examples),
+           more (optional [link, label] after the note),
+           ex: [French, English, nuance (optional)]
+      --------------------------------------------------------------- */
+      const USES = [
+        {
+          id: "basic",
+          title: "And, or, but: et, ou, mais",
+          fr: "et · ou · mais · et puis · ou bien · mais bon",
+          tone: "amber",
+          blurb:
+            "The three basics work much as in English. In speech they often take a small word after them: et puis, ou bien, mais bon.",
+          ex: [
+            ["Du pain [et] du fromage.", "Bread and cheese."],
+            ["Thé [ou] café ?", "Tea or coffee?"],
+            ["C'est petit, [mais] c'est joli.", "It's small, but it's pretty."],
+            ["[Et puis] après, on est rentrés.", "And then after that, we went home.", "Et puis: and then. Very common when telling a story."],
+            ["Je sais pas, [et puis] j'ai pas envie.", "I don't know, and anyway I don't feel like it.", "Et puis also adds a last reason."],
+            ["Tu viens [ou bien] tu restes ?", "Are you coming, or are you staying?", "Ou bien: a stronger “or”."],
+            ["C'était long, [mais bon], ça valait le coup.", "It was long, but still, it was worth it.", "Mais bon: “but there you go”, shrugging something off."],
+            ["[Mais] non !", "Of course not!", "Mais adds force: mais oui, mais si, mais enfin."],
+            ["J'ai [ni] faim [ni] soif.", "I'm neither hungry nor thirsty.", "Ni … ni: neither … nor."],
+            ["[Soit] tu viens, [soit] tu restes.", "Either you come or you stay.", "Soit … soit: either … or."],
+          ],
+        },
+        {
+          id: "because",
+          title: "Because: parce que, comme, car, puisque",
+          fr: "parce que · comme · car · puisque · vu que · à cause de",
+          tone: "sky",
+          blurb:
+            "Parce que is the everyday “because”. Comme gives a reason at the start of a sentence. Car is mostly written. Puisque gives a reason the listener already knows. Before a noun, use à cause de or grâce à.",
+          ex: [
+            ["Je suis en retard [parce qu']il y avait des bouchons.", "I'm late because there was traffic."],
+            ["— Pourquoi ? — [Parce que] j'ai pas le temps.", "— Why? — Because I haven't got time.", "Only parce que can answer pourquoi."],
+            ["[Comme] il pleuvait, on est restés.", "As it was raining, we stayed in.", "Comme goes at the start of the sentence."],
+            ["Je reste, [car] il est tard.", "I'm staying, for it's late.", "Car: written, or careful speech. Never at the start."],
+            ["[Puisque] tu es là, aide-moi.", "Since you're here, help me.", "Puisque: the reason is obvious or already known."],
+            ["[Vu que] c'est fermé, on rentre.", "Seeing as it's closed, let's go home.", "Vu que: spoken, very common."],
+            ["On est en retard [à cause de] la grève.", "We're late because of the strike.", "À cause de + noun."],
+            ["J'ai réussi [grâce à] toi.", "I passed thanks to you.", "Grâce à + noun, for something good."],
+            ["C'est [pour ça que] je suis parti.", "That's why I left."],
+          ],
+          tip: "Parce que and à cause de come in a pair: a whole sentence after parce que, a noun after à cause de. Parce que la pluie is a slip.",
+        },
+        {
+          id: "so",
+          title: "So: donc, alors, du coup",
+          fr: "donc · alors · du coup · c'est pour ça que · résultat",
+          tone: "emerald",
+          blurb:
+            "All three mean “so”. Donc is neutral and works everywhere. Alors is softer and also means “then”. Du coup is the spoken favourite, so common that some people use it in every sentence.",
+          ex: [
+            ["Il était malade, [donc] il est pas venu.", "He was ill, so he didn't come."],
+            ["Je pense, [donc] je suis.", "I think, therefore I am."],
+            ["Viens [donc] !", "Do come!", "Donc after a command adds friendly insistence."],
+            ["[Alors], on y va ?", "So, shall we go?"],
+            ["[Alors] il m'a dit non.", "So then he said no.", "Alors also moves a story forward."],
+            ["[Alors] ?", "Well? · So?", "Alone: asking for news or an answer."],
+            ["J'ai raté le bus, [du coup] je suis venu à pied.", "I missed the bus, so I walked."],
+            ["[Du coup], tu fais quoi ce soir ?", "So, what are you doing tonight?", "Also used just to restart a conversation."],
+            ["J'ai pas dormi. [Résultat], je suis crevé.", "I didn't sleep. Result: I'm exhausted.", "Spoken, a bit humorous."],
+            ["[C'est pour ça qu']il est fâché.", "That's why he's cross."],
+          ],
+          tip: "Du coup is fine in conversation but sounds very casual in writing. In an email, use donc.",
+        },
+        {
+          id: "but",
+          title: "But, however, whereas",
+          fr: "mais · par contre · pourtant · alors que · sauf que",
+          tone: "rose",
+          blurb:
+            "Beyond mais, French has a contrast word for each tone. Par contre is the everyday “on the other hand”. Pourtant means “and yet”. Alors que compares two things side by side.",
+          ex: [
+            ["Le resto est bon. [Par contre], c'est cher.", "The restaurant's good. On the other hand, it's pricey.", "Par contre: very common in speech."],
+            ["Il a tout pour être heureux, et [pourtant]…", "He has everything to be happy, and yet…"],
+            ["C'est [pourtant] simple !", "It's simple, though!", "In the middle of a sentence: “though, really”."],
+            ["Il dort [alors que] je travaille.", "He's sleeping while I'm working.", "Alors que: whereas, while (contrast)."],
+            ["J'aimerais venir, [sauf que] j'ai pas de voiture.", "I'd love to come, except I've got no car.", "Sauf que: except that. Spoken."],
+            ["Tout le monde [sauf] lui.", "Everyone except him.", "Sauf + noun or pronoun."],
+            ["[Cependant], il faut rester prudent.", "However, we must remain careful.", "Cependant: written or formal."],
+            ["[En revanche], les prix ont baissé.", "On the other hand, prices have fallen.", "En revanche: the written twin of par contre."],
+            ["[Au contraire] !", "On the contrary!"],
+          ],
+        },
+        {
+          id: "anyway",
+          title: "Even so: quand même, même si, bien que",
+          fr: "quand même · même si · bien que · malgré · n'empêche",
+          tone: "violet",
+          blurb:
+            "For something that happens despite an obstacle. Quand même is the everyday “anyway, still”. Même si takes the ordinary indicative; bien que takes the subjunctive; malgré takes a noun.",
+          ex: [
+            ["Il pleut, mais on y va [quand même].", "It's raining, but we're going anyway."],
+            ["T'aurais pu m'appeler [quand même] !", "You could at least have called me!", "Quand même also adds reproach."],
+            ["C'est [quand même] bizarre.", "It's pretty weird, all the same."],
+            ["[Même s']il pleut, on y va.", "Even if it rains, we're going.", "Même si + indicative."],
+            ["[Bien qu']il soit tard, je reste.", "Although it's late, I'm staying.", "Bien que + subjunctive. A bit formal."],
+            ["[Malgré] la pluie, on est sortis.", "Despite the rain, we went out.", "Malgré + noun."],
+            ["[Malgré tout], c'était une bonne journée.", "All the same, it was a good day."],
+            ["[N'empêche], il a raison.", "Still, he's right.", "Spoken: “that said”."],
+            ["J'ai [tout de même] réussi.", "I managed it all the same.", "Tout de même: slightly more careful than quand même."],
+          ],
+          more: ["../subjunctive/subjunctive.html", "Bien que and the subjunctive"],
+        },
+        {
+          id: "time",
+          title: "When, while, before, after",
+          fr: "quand · pendant que · avant de · après avoir · dès que · depuis que",
+          tone: "teal",
+          blurb:
+            "Time links come in pairs: one form before a whole sentence, one before a noun or an infinitive. Pick by what follows.",
+          ex: [
+            ["[Quand] j'étais petit, j'habitais à Lyon.", "When I was little, I lived in Lyon."],
+            ["Je t'appelle [quand] j'arrive.", "I'll call you when I get there.", "Speech often uses the present. Careful French: quand j'arriverai."],
+            ["[Lorsque] le train arrive, …", "When the train arrives, …", "Lorsque: written twin of quand."],
+            ["[Pendant que] tu dors, je travaille.", "While you sleep, I work.", "Pendant que + sentence."],
+            ["[Pendant] le film, il a dormi.", "He slept during the film.", "Pendant + noun."],
+            ["Mange [avant de] partir.", "Eat before you go.", "Avant de + infinitive (same person)."],
+            ["Rentre [avant qu']il fasse nuit.", "Come home before it gets dark.", "Avant que + subjunctive (another subject)."],
+            ["[Après avoir] mangé, on est sortis.", "After eating, we went out.", "Après + avoir or être + participle."],
+            ["[Dès que] je sais, je te dis.", "As soon as I know, I'll tell you."],
+            ["[Depuis qu']il est parti, c'est calme.", "Since he left, it's been quiet.", "Depuis que + sentence; depuis + time or noun."],
+            ["[En attendant], on prend un café.", "In the meantime, let's have a coffee."],
+            ["[Une fois que] t'as fini, appelle-moi.", "Once you've finished, call me."],
+          ],
+          more: ["../preposition/prepositions.html", "Depuis, pendant, il y a: time prepositions"],
+        },
+        {
+          id: "story",
+          title: "Telling a story: d'abord, ensuite, et là…",
+          fr: "d'abord · ensuite · puis · après · et là · tout à coup · finalement",
+          tone: "indigo",
+          blurb:
+            "These put events in order. In conversation, après and et là do most of the work; ensuite and puis are a little more careful.",
+          ex: [
+            ["[D'abord], on a mangé.", "First, we ate."],
+            ["[Ensuite], on est allés au ciné.", "Then we went to the cinema."],
+            ["[Puis] il est parti.", "Then he left.", "Puis: slightly literary on its own. Speech prefers et puis or après."],
+            ["[Après], on est rentrés.", "Afterwards, we went home.", "Après: the everyday “then”."],
+            ["[Et là], il me regarde et il dit…", "And then he looks at me and says…", "Et là: very spoken, builds suspense. Often with the present tense."],
+            ["[Tout à coup], la lumière s'éteint.", "Suddenly, the light goes out."],
+            ["[Au début], j'aimais pas.", "At first, I didn't like it."],
+            ["[Finalement], on a décidé de rester.", "In the end, we decided to stay.", "Finalement: in the end, eventually. Not “finally” in a list."],
+            ["[Au final], c'était bien.", "In the end, it was good.", "Spoken twin of finalement."],
+            ["[Enfin] !", "At last!", "Enfin alone: relief."],
+          ],
+        },
+        {
+          id: "if",
+          title: "If, otherwise, in case",
+          fr: "si · sinon · au cas où · sauf si · à moins que",
+          tone: "amber",
+          blurb:
+            "Si is the basic “if”; it never takes the future or the conditional right after it. Sinon means “otherwise”. Au cas où, “in case”, takes the conditional.",
+          ex: [
+            ["[Si] tu veux, on y va.", "If you like, let's go."],
+            ["[S']il pleut, on reste.", "If it rains, we'll stay in.", "Si + il → s'il. Not with elle: si elle."],
+            ["[Si] j'avais le temps, je viendrais.", "If I had time, I'd come.", "Si + imparfait, then conditional."],
+            ["[Si] j'avais su, je serais venu.", "If I'd known, I'd have come.", "Si + plus-que-parfait, then past conditional."],
+            ["Dépêche-toi, [sinon] on va être en retard.", "Hurry up, otherwise we'll be late."],
+            ["[Sinon], ça va ?", "Apart from that, how are you?", "Sinon also changes the subject."],
+            ["Prends un parapluie, [au cas où].", "Take an umbrella, just in case."],
+            ["[Au cas où] tu changerais d'avis, appelle-moi.", "In case you change your mind, call me.", "Au cas où + conditional."],
+            ["On y va, [sauf s']il pleut.", "We'll go, unless it rains.", "Sauf si + indicative: the spoken “unless”."],
+            ["On y va, [à moins qu']il pleuve.", "We'll go, unless it rains.", "À moins que + subjunctive: more careful."],
+          ],
+          tip: "After si meaning “if”, never use the future or the conditional: si j'avais su, not “si j'aurais su”. Many French speakers slip here too, but it is always counted as a mistake.",
+        },
+        {
+          id: "purpose",
+          title: "So that, in order to",
+          fr: "pour · pour que · afin de · histoire de",
+          tone: "sky",
+          blurb:
+            "Pour + infinitive is “in order to”. If someone else does the action, use pour que + subjunctive. Afin de and afin que are the written versions.",
+          ex: [
+            ["Je t'appelle [pour] te prévenir.", "I'm calling to let you know."],
+            ["Je travaille [pour] payer le loyer.", "I work to pay the rent."],
+            ["Je parle lentement [pour que] tu comprennes.", "I'm speaking slowly so that you understand.", "Pour que + subjunctive."],
+            ["Je te le dis [pour que] tu saches.", "I'm telling you so you know."],
+            ["[Afin de] réduire les coûts, …", "In order to reduce costs, …", "Afin de: written."],
+            ["On sort, [histoire de] prendre l'air.", "Let's go out, just to get some fresh air.", "Histoire de + infinitive: spoken, “just to”."],
+            ["J'ai pris un pull, [comme ça] j'aurai pas froid.", "I took a jumper so I won't be cold.", "Comme ça: spoken “that way”."],
+          ],
+        },
+        {
+          id: "adding",
+          title: "Adding and clarifying",
+          fr: "en plus · d'ailleurs · de toute façon · en tout cas · en gros",
+          tone: "emerald",
+          blurb:
+            "Words that add a point, give an example, or set something aside. Most are spoken; the note marks the written ones.",
+          ex: [
+            ["C'est loin, et [en plus] c'est cher.", "It's far, and on top of that it's expensive."],
+            ["[D'ailleurs], je voulais te demander…", "By the way, I wanted to ask you…", "D'ailleurs: besides, by the way, actually."],
+            ["[De toute façon], c'est trop tard.", "Anyway, it's too late.", "De toute façon: whatever happens."],
+            ["[En tout cas], merci !", "Anyway, thanks!", "En tout cas: in any case, at any rate."],
+            ["[En gros], il a dit non.", "Basically, he said no."],
+            ["Des fruits, [par exemple] des pommes.", "Fruit, for example apples."],
+            ["Demain, [c'est-à-dire] samedi.", "Tomorrow, that is, Saturday."],
+            ["J'aime les sports, [surtout] le foot.", "I like sports, especially football."],
+            ["Plusieurs pays, [notamment] la France.", "Several countries, notably France.", "Notamment: written, or careful speech."],
+            ["Il est malade. [En effet], il a de la fièvre.", "He's ill. Indeed, he has a temperature.", "En effet confirms what was just said."],
+          ],
+        },
+        {
+          id: "fillers",
+          title: "Fillers that make you sound fluent",
+          fr: "en fait · bon · ben · bref · genre · quoi · tu vois · voilà",
+          tone: "rose",
+          blurb:
+            "These mean little on their own, but every French conversation is full of them. They give you thinking time and sound natural. All are casual; the notes say how casual.",
+          ex: [
+            ["[En fait], c'est pas si simple.", "Actually, it's not that simple.", "En fait: actually, in fact. The commonest filler of all."],
+            ["[Bon], on y va ?", "Right, shall we go?", "Bon: right, OK, well."],
+            ["[Ben] oui !", "Well, yeah!", "Ben (also bah): well. Very spoken."],
+            ["[Bref], c'était nul.", "Anyway, it was rubbish.", "Bref: long story short."],
+            ["C'était [genre] super loin.", "It was like, really far.", "Genre: “like”. Young and casual."],
+            ["C'est trop cher, [quoi].", "It's just too expensive, you know.", "Quoi at the end: rounds off a statement. Casual."],
+            ["Il est sympa, [tu vois], mais…", "He's nice, you see, but…"],
+            ["Je l'ai appelé, il a dit oui, et [voilà].", "I called him, he said yes, and that's it.", "Voilà: there you go, that's it."],
+            ["[Enfin], je veux dire…", "Well, I mean…", "Enfin to correct yourself."],
+            ["[Bon ben], j'y vais.", "Right then, I'm off.", "Bon ben: closing a conversation."],
+            ["[Franchement], c'était génial.", "Honestly, it was great."],
+            ["[Du coup]…", "So…", "Restarting the conversation after a pause."],
+          ],
+          tip: "Use them, but not all at once: one or two per sentence sounds natural; five sounds nervous.",
+        },
+        {
+          id: "written",
+          title: "Written and formal links",
+          fr: "cependant · toutefois · néanmoins · par conséquent · d'une part… d'autre part",
+          tone: "violet",
+          blurb:
+            "You will meet these in articles, formal emails and exams. In speech they sound stiff, except in a presentation or a meeting.",
+          ex: [
+            ["[Cependant], la situation reste difficile.", "However, the situation remains difficult."],
+            ["[Toutefois], il convient de rester prudent.", "Nevertheless, caution is advisable."],
+            ["Le projet est risqué ; il est [néanmoins] intéressant.", "The project is risky; it is nonetheless interesting."],
+            ["Les prix ont augmenté. [Par conséquent], les ventes ont baissé.", "Prices rose. As a result, sales fell."],
+            ["[Ainsi], nous avons pu terminer à temps.", "In this way, we were able to finish on time."],
+            ["[De plus], le coût est élevé.", "Moreover, the cost is high."],
+            ["[D'une part] c'est cher, [d'autre part] c'est loin.", "On the one hand it's expensive, on the other it's far."],
+            ["[En effet], les chiffres le confirment.", "Indeed, the figures confirm it."],
+            ["[En conclusion], …", "In conclusion, …"],
+            ["[Or], il n'était pas là.", "But (as it happens) he wasn't there.", "Or: “now, but”, introducing a decisive fact. Written."],
+          ],
+        },
+      ];
+
+      /* Nearly the same words: [French A, English A, French B, English B] */
+      const PAIRS = [
+        ["[En fait], je suis pas français.", "Actually, I'm not French. (correcting)", "[En effet], il est français.", "Indeed, he's French. (confirming)"],
+        ["[Pendant] le film", "during the film", "[Pendant que] tu dors", "while you're sleeping"],
+        ["[Avant de] partir", "before leaving (same person)", "[Avant que] tu partes", "before you leave (someone else)"],
+        ["[Même s']il pleut", "even if it rains (indicative)", "[Bien qu']il pleuve", "although it's raining (subjunctive)"],
+        ["[Alors], il est parti.", "So then he left.", "[Alors] ?", "Well? (waiting for news)"],
+        ["[Enfin] !", "At last!", "[Enfin], je veux dire…", "Well, I mean…"],
+      ];
+
+      /* Slips: [wrong, right, English, why] */
+      const SLIPS = [
+        ["Parce que la pluie, on reste.", "[À cause de] la pluie, on reste.", "Because of the rain, we're staying in.", "Parce que + sentence; à cause de + noun."],
+        ["Pendant que le film, j'ai dormi.", "[Pendant] le film, j'ai dormi.", "I slept during the film.", "Pendant + noun; pendant que + sentence."],
+        ["Avant que partir, mange.", "[Avant de] partir, mange.", "Eat before you leave.", "Same person: avant de + infinitive."],
+        ["Après je mange, je sors.", "[Après avoir] mangé, je sors.", "After eating, I go out.", "Après + avoir or être + participle."],
+        ["Bien qu'il est tard, je reste.", "Bien qu'il [soit] tard, je reste.", "Although it's late, I'm staying.", "Bien que + subjunctive."],
+        ["Même s'il soit tard, je reste.", "Même s'il [est] tard, je reste.", "Even if it's late, I'm staying.", "Même si + indicative."],
+        ["Si il vient, on mange.", "[S']il vient, on mange.", "If he comes, we'll eat.", "Si + il → s'il."],
+        ["Si j'aurais su…", "Si j'[avais] su…", "If I'd known…", "No conditional after si."],
+        ["Actuellement, je suis pas d'accord.", "[En fait], je suis pas d'accord.", "Actually, I don't agree.", "Actuellement means “currently”."],
+        ["Depuis que deux ans.", "[Depuis] deux ans.", "For two years.", "Depuis + time; depuis que + sentence."],
+        ["— Pourquoi ? — Car il pleut.", "— Pourquoi ? — [Parce qu']il pleut.", "— Why? — Because it's raining.", "Only parce que answers pourquoi."],
+        ["Malgré il pleut, on sort.", "[Malgré] la pluie, on sort.", "Despite the rain, we're going out.", "Malgré + noun. With a sentence: même si."],
+      ];
+
+      /* Tailwind classes per colour set (written out in full so Tailwind sees them) */
+      const TONES = {
+        rose: { bar: "bg-rose-500", edge: "border-rose-500", soft: "bg-rose-50", text: "text-rose-700", num: "bg-rose-600" },
+        sky: { bar: "bg-sky-500", edge: "border-sky-500", soft: "bg-sky-50", text: "text-sky-700", num: "bg-sky-600" },
+        amber: { bar: "bg-amber-500", edge: "border-amber-500", soft: "bg-amber-50", text: "text-amber-700", num: "bg-amber-600" },
+        violet: { bar: "bg-violet-500", edge: "border-violet-500", soft: "bg-violet-50", text: "text-violet-700", num: "bg-violet-600" },
+        emerald: { bar: "bg-emerald-500", edge: "border-emerald-500", soft: "bg-emerald-50", text: "text-emerald-700", num: "bg-emerald-600" },
+        teal: { bar: "bg-teal-500", edge: "border-teal-500", soft: "bg-teal-50", text: "text-teal-700", num: "bg-teal-600" },
+        indigo: { bar: "bg-indigo-500", edge: "border-indigo-500", soft: "bg-indigo-50", text: "text-indigo-700", num: "bg-indigo-600" },
+      };
+
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      /* [du coup] → highlighted word */
+      const mark = (s, cls) =>
+        esc(s).replace(/\[([^\]]+)\]/g, (m, a) => `<b class="${cls} font-bold">${a}</b>`);
+
+      /* ---------- chart ---------- */
+      document.getElementById("chart-body").innerHTML = JOBS.map(
+        ([job, spoken, written, fr, en]) => `
+        <tr>
+          <th scope="row" class="px-3 py-2 border-b border-slate-100 font-semibold text-slate-700 whitespace-nowrap align-top">${esc(job)}</th>
+          <td class="px-3 py-2 border-b border-slate-100 bg-amber-50 font-playfair italic font-semibold text-amber-800 align-top" lang="fr">${esc(spoken)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 font-playfair italic text-sky-800 align-top" lang="fr">${esc(written)}</td>
+          <td class="px-3 py-2 border-b border-slate-100 align-top">
+            <span class="block font-medium text-slate-900" lang="fr">${mark(fr, "text-amber-700")}</span>
+            <span class="block text-sm text-slate-500">${esc(en)}</span>
+          </td>
+        </tr>`,
+      ).join("");
+
+      /* ---------- quick links ---------- */
+      document.getElementById("toc").innerHTML =
+        `<a href="#chart" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">The chart</a>` +
+        USES.map(
+          (u, k) =>
+            `<a href="#${u.id}" class="rounded-full bg-white border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-amber-400 hover:text-amber-800">${k + 1}. ${esc(u.title.split(":")[0])}</a>`,
+        ).join("") +
+        `<a href="#pairs" class="rounded-full bg-amber-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-amber-700">Close pairs</a>` +
+        `<a href="#slips" class="rounded-full bg-amber-100 border border-amber-200 px-3 py-1.5 text-sm font-medium text-amber-900 hover:bg-amber-200">Twelve slips</a>`;
+
+      /* ---------- sections ---------- */
+      document.getElementById("uses").innerHTML = USES.map((u, k) => {
+        const t = TONES[u.tone];
+        return `
+        <section id="${u.id}" class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+          <div class="h-1.5 ${t.bar}"></div>
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="shrink-0 w-10 h-10 rounded-full ${t.num} text-white font-bold flex items-center justify-center">${k + 1}</span>
+              <div>
+                <h2 class="font-playfair text-2xl md:text-3xl font-bold text-slate-900 leading-tight">${esc(u.title)}</h2>
+                <p class="font-playfair italic text-lg ${t.text}" lang="fr">${esc(u.fr)}</p>
+              </div>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 max-w-3xl">${esc(u.blurb)}</p>
+            <ul class="divide-y divide-slate-100 border-y border-slate-100">
+              ${u.ex
+                .map(
+                  ([fr, en, note]) => `
+              <li class="py-3 md:flex md:items-start md:justify-between md:gap-6">
+                <div>
+                  <p class="text-lg font-medium text-slate-900" lang="fr">${mark(fr, t.text)}</p>
+                  <p class="text-slate-500">${esc(en)}</p>
+                </div>
+                ${note ? `<p class="mt-1 md:mt-0.5 md:w-2/5 md:shrink-0 text-sm text-slate-600 leading-relaxed border-l-2 ${t.edge} pl-3">${esc(note)}</p>` : ""}
+              </li>`,
+                )
+                .join("")}
+            </ul>
+            ${u.tip ? `<p class="mt-5 rounded-xl ${t.soft} px-4 py-3 text-sm text-slate-700 leading-relaxed"><b class="${t.text}">Note:</b> ${esc(u.tip)}</p>` : ""}
+            ${u.more ? `<p class="mt-3 text-sm"><a href="${u.more[0]}" class="font-semibold ${t.text} underline underline-offset-2">${esc(u.more[1])} →</a></p>` : ""}
+          </div>
+        </section>`;
+      }).join("");
+
+      /* ---------- close pairs ---------- */
+      document.getElementById("pair-list").innerHTML = PAIRS.map(
+        ([frA, enA, frB, enB]) => `
+        <div class="bg-white/10 rounded-xl p-5 space-y-3">
+          <div>
+            <p class="text-xl font-semibold" lang="fr">${mark(frA, "text-amber-300")}</p>
+            <p class="text-amber-100">${esc(enA)}</p>
+          </div>
+          <div class="border-t border-white/20 pt-3">
+            <p class="text-xl font-semibold" lang="fr">${mark(frB, "text-amber-300")}</p>
+            <p class="text-amber-100">${esc(enB)}</p>
+          </div>
+        </div>`,
+      ).join("");
+
+      /* ---------- slips ---------- */
+      document.getElementById("slip-list").innerHTML = SLIPS.map(
+        ([wrong, right, en, why]) => `
+        <li class="rounded-xl bg-slate-50 border border-slate-100 p-4">
+          <p class="text-rose-700 line-through decoration-rose-400" lang="fr"><span class="sr-only">Wrong: </span>${esc(wrong)}</p>
+          <p class="text-lg font-medium text-slate-900" lang="fr"><span class="sr-only">Right: </span>${mark(right, "text-emerald-700")}</p>
+          <p class="text-slate-500">${esc(en)}</p>
+          <p class="text-sm text-slate-600 mt-1">${esc(why)}</p>
+        </li>`,
+      ).join("");
+    </script>
+<script src="../../../assets/js/nav-grammar.js?v=261114"></script>
+</body>
+</html>

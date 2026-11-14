@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Emergencies</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">EMERGENCIES</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Emergencies
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          အရေးပေါ်အခြေအနေ
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">24</span> expressions · Emergencies
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 24.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/emergency/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Getting help fast",
+          my: "အမြန် အကူအညီ ရယူခြင်း",
+          desc: "Short, loud phrases for a real emergency. In Myanmar: police 199, fire 191, ambulance 192.",
+          cards: [
+            ["Call an ambulance!", "လူနာတင်ကား ခေါ်ပါ။", "When someone is badly hurt or very ill. Say it loudly and point at one person: You! Call an ambulance!",
+              "He's not moving! Call an ambulance!", "သူ မလှုပ်တော့ဘူး။ လူနာတင်ကား ခေါ်ပါ။"],
+            ["Call the police!", "ရဲ ခေါ်ပါ။", "For a crime, a fight, or someone in danger.",
+              "Someone is breaking into the shop! Call the police!", "တစ်ယောက်ယောက် ဆိုင်ထဲ ဖောက်ဝင်နေတယ်။ ရဲ ခေါ်ပါ။"],
+            ["Somebody help me!", "တစ်ယောက်ယောက် ကူညီပါဦး။", "Shout it when you need anyone nearby to come.",
+              "My friend fell in the water! Somebody help me!", "သူငယ်ချင်း ရေထဲ ကျသွားတယ်။ တစ်ယောက်ယောက် ကူညီပါဦး။"],
+            ["There's a fire!", "မီးလောင်နေတယ်။", "Warns everyone at once. Then get out.",
+              "There's a fire in the kitchen! Get out!", "မီးဖိုချောင်မှာ မီးလောင်နေတယ်။ ထွက်ကြ။"],
+            ["It's an emergency.", "အရေးပေါ်ပါ။", "Tells someone it can't wait: on the phone, or to get to the front of a line.",
+              "Please hurry, it's an emergency!", "မြန်မြန် လုပ်ပေးပါ၊ အရေးပေါ်ပါ။"],
+          ],
+        },
+        {
+          en: "Saying what happened",
+          my: "ဖြစ်ပျက်ပုံကို ပြောခြင်း",
+          desc: "Short sentences to explain the problem to helpers or on the phone.",
+          cards: [
+            ["Someone is hurt.", "တစ်ယောက် ဒဏ်ရာ ရထားတယ်။", "Then say where: Someone is hurt on the main road.",
+              "Come quickly! Someone is hurt.", "မြန်မြန် လာပါ။ တစ်ယောက် ဒဏ်ရာ ရထားတယ်။"],
+            ["There's been an accident.", "မတော်တဆမှု ဖြစ်သွားတယ်။", "A car crash, a fall, any sudden bad event.",
+              "There's been an accident near the bridge.", "တံတားနားမှာ မတော်တဆမှု ဖြစ်သွားတယ်။"],
+            ["He can't breathe.", "သူ အသက် ရှူလို့ မရဘူး။", "Very serious: call for help at once.",
+              "Help! He can't breathe!", "ကူညီပါ။ သူ အသက် ရှူလို့ မရဘူး။"],
+            ["She fainted.", "သူ မူးလဲသွားတယ်။", "She suddenly fell down and isn't awake.",
+              "She fainted in the heat. She needs water.", "အပူကြောင့် သူ မူးလဲသွားတယ်။ ရေ လိုတယ်။"],
+            ["He's bleeding.", "သူ သွေးထွက်နေတယ်။", "Blood is coming out. Press on the cut with a clean cloth.",
+              "He's bleeding a lot from his arm.", "သူ့လက်မောင်းက သွေး အများကြီး ထွက်နေတယ်။"],
+          ],
+        },
+        {
+          en: "Lost things and people",
+          my: "ပျောက်ဆုံးခြင်း",
+          desc: "When something or someone is missing, or was stolen.",
+          cards: [
+            ["I've lost my <span class=gray>passport</span>.", "ပတ်စ်ပို့ ပျောက်သွားတယ်။", "I've lost = it's gone and I still don't have it.",
+              "I've lost my phone. Can I use yours to call my mum?", "ဖုန်း ပျောက်သွားတယ်။ မေမေ့ကို ဖုန်းဆက်ဖို့ မင်းဖုန်း သုံးလို့ ရမလား။"],
+            ["Someone stole my <span class=gray>bag</span>.", "တစ်ယောက်ယောက်က အိတ် ခိုးသွားတယ်။", "Steal → stole. Tell a police officer or a shop guard.",
+              "Someone stole my bike from outside the school.", "ကျောင်းအပြင်ဘက်ကနေ တစ်ယောက်ယောက်က စက်ဘီး ခိုးသွားတယ်။"],
+            ["I can't find my <span class=gray>little brother</span>.", "ညီလေးကို ရှာမတွေ့ဘူး။", "For a child who is lost. Say what they look like and what they are wearing.",
+              "I can't find my little sister. She's six, and she's wearing a red dress.", "ညီမလေးကို ရှာမတွေ့ဘူး။ ခြောက်နှစ်၊ အနီရောင် ဝတ်စုံ ဝတ်ထားတယ်။"],
+            ["Where's the police station?", "ရဲစခန်း ဘယ်မှာလဲ။", "Where to report something lost or stolen.",
+              "Excuse me, where's the police station?", "တဆိတ်လောက်၊ ရဲစခန်း ဘယ်မှာလဲ။"],
+          ],
+        },
+        {
+          en: "Staying safe",
+          my: "ဘေးကင်းအောင် နေခြင်း",
+          desc: "Instructions that adults or rescuers may shout. Do what they say.",
+          cards: [
+            ["Stay calm.", "စိတ်ကို တည်ငြိမ်အောင် ထားပါ။", "Don't panic. Breathe slowly and listen.",
+              "Stay calm. Help is coming.", "စိတ်ကို တည်ငြိမ်အောင် ထားပါ။ အကူအညီ လာနေပြီ။"],
+            ["Don't move.", "မလှုပ်ပါနဲ့။", "Said to someone who may be badly hurt, especially the neck or back.",
+              "Don't move. Wait for the doctor.", "မလှုပ်ပါနဲ့။ ဆရာဝန်ကို စောင့်ပါ။"],
+            ["Get out of the building!", "အဆောက်အအုံထဲက ထွက်ပါ။", "In a fire or earthquake. Don't stop to take your things.",
+              "Fire! Get out of the building now!", "မီး! အဆောက်အအုံထဲက အခုပဲ ထွက်ပါ။"],
+            ["Keep away from the fire.", "မီးနဲ့ ဝေးဝေး နေပါ။", "Keep away from = don't go near: the water, the wires, the dog.",
+              "Keep away from the river. The water is very high.", "မြစ်နဲ့ ဝေးဝေး နေပါ။ ရေ အရမ်း တက်နေတယ်။"],
+            ["Go to a safe place.", "လုံခြုံတဲ့ နေရာကို သွားပါ။", "Away from danger: higher ground in a flood, outside in a fire.",
+              "The flood is coming. Go to a safe place!", "ရေကြီးလာနေပြီ။ လုံခြုံတဲ့ နေရာကို သွားပါ။"],
+          ],
+        },
+        {
+          en: "Helping someone",
+          my: "အခြားသူကို ကူညီခြင်း",
+          desc: "What to say when you find someone in trouble.",
+          cards: [
+            ["Are you hurt?", "ဒဏ်ရာ ရသလား။", "The first question to someone who fell or had an accident.",
+              "Are you hurt? Can you stand up?", "ဒဏ်ရာ ရသလား။ မတ်တပ် ရပ်နိုင်လား။"],
+            ["Do you need help?", "အကူအညီ လိုလား။", "Offers help to someone who looks lost, ill or in trouble.",
+              "You look lost. Do you need help?", "လမ်းပျောက်နေပုံ ရတယ်။ အကူအညီ လိုလား။"],
+            ["I'll call for help.", "အကူအညီ ခေါ်လိုက်မယ်။", "Tells them you will phone or fetch someone.",
+              "Stay here. I'll call for help.", "ဒီမှာ နေခဲ့။ အကူအညီ ခေါ်လိုက်မယ်။"],
+            ["Help is on the way.", "အကူအညီ လာနေပြီ။", "Calms someone: the ambulance or police are coming.",
+              "Don't worry, help is on the way.", "စိတ်မပူပါနဲ့၊ အကူအညီ လာနေပြီ။"],
+            ["What's your address?", "လိပ်စာ ဘာလဲ။", "What the emergency service asks on the phone. Learn to say your own address in English.",
+              "— What's your address? — 12 Bogyoke Road, Mandalay.", "— လိပ်စာ ဘာလဲ။ — ဗိုလ်ချုပ်လမ်း၊ အမှတ် ၁၂၊ မန္တလေး။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Directions</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">DIRECTIONS</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Directions
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          လမ်းညွှန်ခြင်း
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">24</span> expressions · Directions
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 24.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/directions/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Asking the way",
+          my: "လမ်း မေးခြင်း",
+          desc: "Start with Excuse me, then ask your question.",
+          cards: [
+            ["Excuse me, where's <span class=gray>the bank</span>?", "တဆိတ်လောက်၊ ဘဏ် ဘယ်မှာလဲ။", "Excuse me first gets a stranger's attention politely. Where's = where is.",
+              "Excuse me, where's the bus station?", "တဆိတ်လောက်၊ ဘတ်စ်ကားဂိတ် ဘယ်မှာလဲ။"],
+            ["How do I get to <span class=gray>the station</span>?", "ဘူတာကို ဘယ်လို သွားရမလဲ။", "Asks for the way, not just the place. Get to = arrive at.",
+              "Excuse me, how do I get to the hospital?", "တဆိတ်လောက်၊ ဆေးရုံကို ဘယ်လို သွားရမလဲ။"],
+            ["Is there <span class=gray>a pharmacy</span> near here?", "ဒီနားမှာ ဆေးဆိုင် ရှိလား။", "When you need any shop of that kind, not one in particular.",
+              "Is there a toilet near here?", "ဒီနားမှာ အိမ်သာ ရှိလား။"],
+            ["Is it far?", "ဝေးလား။", "Asks about the distance. Also: How far is it?",
+              "— The temple is up the hill. — Is it far?", "— ဘုရားက တောင်ပေါ်မှာ။ — ဝေးလား။"],
+            ["Can you show me on the map?", "မြေပုံပေါ်မှာ ပြပေးလို့ ရမလား။", "Useful when the directions are hard to follow. Hold out your phone or map.",
+              "Sorry, I don't understand. Can you show me on the map?", "ဆောရီး၊ နားမလည်ဘူး။ မြေပုံပေါ်မှာ ပြပေးလို့ ရမလား။"],
+          ],
+        },
+        {
+          en: "Giving directions",
+          my: "လမ်း ညွှန်ခြင်း",
+          desc: "Short commands that tell someone which way to go.",
+          cards: [
+            ["Go straight on.", "တည့်တည့် သွားပါ။", "Keep going forward. American English: Go straight ahead.",
+              "Go straight on for about two hundred metres.", "မီတာ နှစ်ရာလောက် တည့်တည့် သွားပါ။"],
+            ["Turn left.", "ဘယ်ဘက် ကွေ့ပါ။", "Left and right are from the walker's side, not yours. Point to help.",
+              "Turn left after the bridge.", "တံတားကျော်ရင် ဘယ်ဘက် ကွေ့ပါ။"],
+            ["Turn right at <span class=gray>the traffic lights</span>.", "မီးပွိုင့်ကနေ ညာဘက် ကွေ့ပါ။", "At + a landmark tells them where to turn.",
+              "Turn right at the big tree.", "သစ်ပင်ကြီးကနေ ညာဘက် ကွေ့ပါ။"],
+            ["Take the second street on the left.", "ဘယ်ဘက် ဒုတိယ လမ်းထဲ ဝင်ပါ။", "Count the streets: first, second, third.",
+              "Take the first street on the right. The shop is there.", "ညာဘက် ပထမ လမ်းထဲ ဝင်ပါ။ ဆိုင်က အဲဒီမှာပါ။"],
+            ["Cross the road.", "လမ်း ကူးပါ။", "Go to the other side. Look both ways first!",
+              "Cross the road at the zebra crossing.", "လူကူးမျဉ်းကြားမှာ လမ်း ကူးပါ။"],
+            ["Go past <span class=gray>the school</span>.", "ကျောင်းကို ကျော်သွားပါ။", "Walk by it without stopping.",
+              "Go past the market and turn left.", "ဈေးကို ကျော်ပြီး ဘယ်ဘက် ကွေ့ပါ။"],
+          ],
+        },
+        {
+          en: "Where it is",
+          my: "ဘယ်နေရာမှာ ရှိလဲ",
+          desc: "Describing the place when they get close.",
+          cards: [
+            ["It's on your right.", "ညာဘက်မှာ ရှိတယ်။", "On your left / on your right: which side they will see it.",
+              "Walk for two minutes. The library is on your right.", "နှစ်မိနစ်လောက် လျှောက်ပါ။ စာကြည့်တိုက်က ညာဘက်မှာ ရှိတယ်။"],
+            ["It's next to <span class=gray>the post office</span>.", "စာတိုက်ဘေးမှာ ရှိတယ်။", "Next to = beside, right by.",
+              "The bakery is next to the bank.", "မုန့်ဆိုင်က ဘဏ်ဘေးမှာ ရှိတယ်။"],
+            ["It's opposite <span class=gray>the market</span>.", "ဈေးရဲ့ မျက်နှာချင်းဆိုင်မှာ ရှိတယ်။", "On the other side of the road, facing it. American English also says across from.",
+              "The clinic is opposite the school.", "ဆေးခန်းက ကျောင်းရဲ့ မျက်နှာချင်းဆိုင်မှာ ရှိတယ်။"],
+            ["It's between <span class=gray>the bank and the café</span>.", "ဘဏ်နဲ့ ကော်ဖီဆိုင် ကြားမှာ ရှိတယ်။", "Between + two places, joined with and.",
+              "The shoe shop is between the pharmacy and the bookshop.", "ဖိနပ်ဆိုင်က ဆေးဆိုင်နဲ့ စာအုပ်ဆိုင် ကြားမှာ ရှိတယ်။"],
+            ["It's at the end of the street.", "လမ်းအဆုံးမှာ ရှိတယ်။", "Where the street stops.",
+              "Our house is at the end of the street, with a red gate.", "ကျွန်တော်တို့ အိမ်က လမ်းအဆုံးမှာ၊ တံခါးနီနဲ့ပါ။"],
+            ["You can't miss it.", "သေချာပေါက် တွေ့မှာပါ။", "It's very easy to see. Friendly, at the end of directions.",
+              "It's a big yellow building. You can't miss it.", "အဝါရောင် အဆောက်အအုံ ကြီးပါ။ သေချာပေါက် တွေ့မှာပါ။"],
+          ],
+        },
+        {
+          en: "How far",
+          my: "ဘယ်လောက် ဝေးလဲ",
+          desc: "Saying how near or far, and how long it takes.",
+          cards: [
+            ["It's just around the corner.", "ဒီနားလေးတင်ပါ။", "Very close, maybe just after the next turn.",
+              "— Is the shop far? — No, it's just around the corner.", "— ဆိုင်က ဝေးလား။ — မဝေးပါဘူး၊ ဒီနားလေးတင်ပါ။"],
+            ["It's about five minutes on foot.", "လမ်းလျှောက်ရင် ငါးမိနစ်လောက်ပဲ။", "On foot = walking. By car, by bus, by bike for other ways.",
+              "The beach is about ten minutes by bike.", "ကမ်းခြေက စက်ဘီးနဲ့ဆို ဆယ်မိနစ်လောက်ပဲ။"],
+            ["It's a long way.", "တော်တော် ဝေးတယ်။", "Too far to walk easily.",
+              "It's a long way. You should take a bus.", "တော်တော် ဝေးတယ်။ ဘတ်စ်ကား စီးသင့်တယ်။"],
+            ["You can walk there.", "လမ်းလျှောက်ပြီး သွားလို့ ရတယ်။", "It's close enough to walk.",
+              "The museum is near. You can walk there.", "ပြတိုက်က နီးပါတယ်။ လမ်းလျှောက်ပြီး သွားလို့ ရတယ်။"],
+          ],
+        },
+        {
+          en: "Lost or not sure",
+          my: "လမ်းပျောက်ခြင်း",
+          desc: "When you are lost, or when you can't help.",
+          cards: [
+            ["I'm lost.", "လမ်း ပျောက်နေတယ်။", "You don't know where you are. Ask for help: I'm lost. Can you help me?",
+              "Excuse me, I'm lost. Where is the main road?", "တဆိတ်လောက်၊ လမ်း ပျောက်နေလို့။ လမ်းမကြီး ဘယ်မှာလဲ။"],
+            ["I'm not from around here.", "ကျွန်တော်/ကျွန်မ ဒီနားက မဟုတ်ဘူး။", "Explains why you don't know the way, or why you're asking.",
+              "Sorry, I'm not from around here. Try asking at the shop.", "ဆောရီး၊ ဒီနားက မဟုတ်ဘူး။ ဆိုင်မှာ မေးကြည့်ပါ။"],
+            ["Sorry, I don't know.", "ဆောရီး၊ မသိဘူး။", "Honest and polite when someone asks you the way and you can't help.",
+              "— Where's the post office? — Sorry, I don't know.", "— စာတိုက် ဘယ်မှာလဲ။ — ဆောရီး၊ မသိဘူး။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

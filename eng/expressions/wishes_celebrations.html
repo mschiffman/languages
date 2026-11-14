@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Wishes &amp; Celebrations</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">WISHES &amp; CELEBRATIONS</span>
+        </div>
+        <h1
+          class="text-5xl sm:text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Wishes &amp; Celebrations
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          ဆုတောင်းစကားနှင့် ပွဲတော်များ
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">28</span> expressions · Wishes &amp; Celebrations
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 28.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/wishes_celebrations/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Birthdays",
+          my: "မွေးနေ့",
+          desc: "Wishes for someone's birthday, on the day or a little late.",
+          cards: [
+            ["Happy birthday!", "မွေးနေ့ မင်္ဂလာပါ။", "The everyday birthday wish, said or written. Add a name: Happy birthday, Mia!",
+              "Happy birthday, Grandma! This is for you.", "မွေးနေ့ မင်္ဂလာပါ အဖွား။ ဒါ အဖွားအတွက်ပါ။"],
+            ["Many happy returns!", "ဒီလို မွေးနေ့တွေ အများကြီး ကြုံပါစေ။", "An older, warm birthday wish: may you have many more happy birthdays. More common in British English.",
+              "Happy birthday, and many happy returns!", "မွေးနေ့ မင်္ဂလာပါ၊ ဒီလို မွေးနေ့တွေ အများကြီး ကြုံပါစေ။"],
+            ["Make a wish!", "ဆုတောင်းလိုက်ပါ။", "Said before the birthday person blows out the candles on the cake. The wish is a secret.",
+              "Here's your cake. Make a wish!", "ကိတ်မုန့် ရောက်ပြီ။ ဆုတောင်းလိုက်ပါ။"],
+            ["Happy belated birthday!", "နောက်ကျသွားပေမဲ့ မွေးနေ့ မင်္ဂလာပါ။", "When you forgot, or couldn't say it on the day. Belated means late.",
+              "Happy belated birthday! Sorry I missed it.", "နောက်ကျသွားပေမဲ့ မွေးနေ့ မင်္ဂလာပါ။ မေ့သွားလို့ ဆောရီးနော်။"],
+            ["Thanks for the birthday wishes!", "မွေးနေ့ ဆုတောင်းပေးတဲ့အတွက် ကျေးဇူးပါ။", "What you say or post after people wish you a happy birthday.",
+              "Thanks for the birthday wishes, everyone!", "မွေးနေ့ ဆုတောင်းပေးကြတဲ့အတွက် အားလုံးကို ကျေးဇူးပါ။"],
+          ],
+        },
+        {
+          en: "Holidays and festivals",
+          my: "ပွဲတော်များ",
+          desc: "Greetings for New Year and other festivals.",
+          cards: [
+            ["Happy New Year!", "နှစ်သစ် မင်္ဂလာပါ။", "Said around 1 January, from the last days of December to the first week of January.",
+              "Happy New Year! I hope it's a great one.", "နှစ်သစ် မင်္ဂလာပါ။ ကောင်းတဲ့ နှစ်တစ်နှစ် ဖြစ်ပါစေ။"],
+            ["Merry Christmas!", "ခရစ္စမတ် မင်္ဂလာပါ။", "Said in the days before Christmas and on 25 December. Merry is only used in this greeting.",
+              "Merry Christmas and a happy New Year!", "ခရစ္စမတ် မင်္ဂလာပါ၊ နှစ်သစ်မှာလည်း ပျော်ရွှင်ပါစေ။"],
+            ["Happy holidays!", "ပျော်ရွှင်ဖွယ် အားလပ်ရက်များ ဖြစ်ပါစေ။", "A December greeting for everyone, whatever festival they celebrate.",
+              "Happy holidays! See you in January.", "ပျော်ရွှင်ဖွယ် အားလပ်ရက်များ ဖြစ်ပါစေ။ ဇန်နဝါရီမှာ တွေ့မယ်။"],
+            ["Happy Thingyan!", "ပျော်ရွှင်ဖွယ် သင်္ကြန် ဖြစ်ပါစေ။", "English uses Happy + the festival's name: Happy Thingyan, Happy Diwali, Happy Eid. Also: Happy Myanmar New Year!",
+              "Happy Thingyan! Don't get too wet!", "ပျော်ရွှင်ဖွယ် သင်္ကြန် ဖြစ်ပါစေ။ သိပ်မစိုစေနဲ့နော်။"],
+          ],
+        },
+        {
+          en: "Big days and good news",
+          my: "အထူးနေ့များနှင့် သတင်းကောင်း",
+          desc: "Weddings, new jobs, babies, exams: sharing someone's happiness.",
+          cards: [
+            ["Congratulations on your <span class=gray>new job</span>!", "အလုပ်သစ် ရတဲ့အတွက် ဂုဏ်ယူပါတယ်။", "Congratulations on + the good news: on your wedding, on your new baby, on passing your exam.",
+              "Congratulations on your wedding! You look wonderful.", "မင်္ဂလာဆောင်အတွက် ဂုဏ်ယူပါတယ်။ အရမ်း လှတယ်။"],
+            ["I'm so happy for you!", "အရမ်း ဝမ်းသာပေးပါတယ်။", "Shows you share their joy. Warm and personal.",
+              "— I got into university! — I'm so happy for you!", "— တက္ကသိုလ် ဝင်ခွင့် ရပြီ။ — အရမ်း ဝမ်းသာပေးပါတယ်။"],
+            ["You deserve it!", "ထိုက်တန်ပါတယ်။", "Says they worked hard for this good thing.",
+              "— I won the prize! — Well, you deserve it!", "— ဆုရသွားပြီ။ — ထိုက်တန်ပါတယ်။"],
+            ["Happy anniversary!", "နှစ်ပတ်လည် မင်္ဂလာပါ။", "For the day someone got married, or started a job or a business, years ago.",
+              "Happy anniversary! Twenty years together!", "နှစ်ပတ်လည် မင်္ဂလာပါ။ အတူတူ နှစ်ဆယ်နှစ် ရှိပြီ။"],
+            ["All the best!", "အားလုံး အဆင်ပြေပါစေ။", "A warm wish for the future: for someone leaving, starting something new, or at the end of a card.",
+              "Good luck in your new school. All the best!", "ကျောင်းသစ်မှာ ကံကောင်းပါစေ။ အားလုံး အဆင်ပြေပါစေ။"],
+          ],
+        },
+        {
+          en: "Good wishes for what's next",
+          my: "ရှေ့ဆက်အတွက် ဆုတောင်းစကား",
+          desc: "Wishes for a trip, a meal, a night's sleep or a big moment.",
+          cards: [
+            ["Have a safe trip!", "ခရီး ချောမောပါစေ။", "Said to someone leaving on a journey. Also: Safe travels!",
+              "Have a safe trip! Call me when you get there.", "ခရီး ချောမောပါစေ။ ရောက်ရင် ဖုန်းဆက်နော်။"],
+            ["Enjoy your meal!", "အရသာရှိရှိ စားပါ။", "What a waiter, a cook or a host says when the food arrives.",
+              "Here's your soup. Enjoy your meal!", "ဟင်းချို ရပါပြီ။ အရသာရှိရှိ စားပါ။"],
+            ["Have fun!", "ပျော်ပျော် နေနော်။", "Said to someone going to a party, a trip or a game.",
+              "— I'm going to the zoo today! — Have fun!", "— ဒီနေ့ တိရစ္ဆာန်ရုံ သွားမယ်။ — ပျော်ပျော် နေနော်။"],
+            ["Enjoy your holiday!", "အားလပ်ရက်ကို ပျော်ပျော် ဖြတ်သန်းပါ။", "Said to someone going away or taking time off. American English often says vacation.",
+              "Enjoy your holiday! Send us a photo.", "အားလပ်ရက်ကို ပျော်ပျော် ဖြတ်သန်းပါ။ ဓာတ်ပုံ ပို့ပေးနော်။"],
+            ["Sleep well!", "ကောင်းကောင်း အိပ်ပျော်ပါစေ။", "Said at bedtime, after Good night. To children: Sweet dreams!",
+              "Good night, sleep well!", "ကောင်းသောညပါ၊ ကောင်းကောင်း အိပ်ပျော်ပါစေ။"],
+            ["Fingers crossed!", "ကံကောင်းပါစေလို့ ဆုတောင်းပေးမယ်။", "Hoping something goes well. People often cross two fingers when they say it.",
+              "— My exam results come out tomorrow. — Fingers crossed!", "— မနက်ဖြန် စာမေးပွဲ အဖြေ ထွက်မယ်။ — ကံကောင်းပါစေလို့ ဆုတောင်းပေးမယ်။"],
+          ],
+        },
+        {
+          en: "When someone is ill",
+          my: "နေမကောင်းတဲ့အခါ",
+          desc: "Kind words for someone who is sick or going through a hard time.",
+          cards: [
+            ["Get well soon!", "မြန်မြန် နေကောင်းပါစေ။", "The usual wish for someone who is ill or in hospital. Also written on cards.",
+              "I heard you're in hospital. Get well soon!", "ဆေးရုံ တက်နေတယ်လို့ ကြားတယ်။ မြန်မြန် နေကောင်းပါစေ။"],
+            ["I hope you feel better soon.", "မြန်မြန် သက်သာပါစေလို့ မျှော်လင့်ပါတယ်။", "Softer and a little longer. Good for a cold, a headache, a bad day.",
+              "Sorry you've got a cold. I hope you feel better soon.", "အအေးမိနေတယ်ဆိုလို့ စိတ်မကောင်းဘူး။ မြန်မြန် သက်သာပါစေ။"],
+            ["Take it easy.", "အေးအေးဆေးဆေး နေပါ။", "Rest and don't work too hard. Also a casual goodbye.",
+              "Stay in bed today and take it easy.", "ဒီနေ့ အိပ်ရာထဲမှာပဲ အေးအေးဆေးဆေး နေပါ။"],
+            ["I'm thinking of you.", "သတိရနေပါတယ်။", "For someone having a hard time: you care about them, even from far away.",
+              "I'm thinking of you. Call me if you need anything.", "သတိရနေပါတယ်။ ဘာလိုလို ဖုန်းဆက်နော်။"],
+          ],
+        },
+        {
+          en: "Answering good wishes",
+          my: "ဆုတောင်းစကားကို ပြန်ဖြေခြင်း",
+          desc: "What to say back when someone wishes you well.",
+          cards: [
+            ["Same to you!", "ခင်ဗျား/ရှင့်အတွက်လည်း ဒီလိုပဲ ဖြစ်ပါစေ။", "Returns the same wish. Good for Happy New Year! and Merry Christmas! Not for Happy birthday!",
+              "— Happy New Year! — Thanks, same to you!", "— နှစ်သစ် မင်္ဂလာပါ။ — ကျေးဇူးပါ၊ ခင်ဗျားအတွက်လည်း ဒီလိုပဲ ဖြစ်ပါစေ။"],
+            ["You too!", "ခင်ဗျား/ရှင်လည်းပဲ။", "Short and friendly. Very common after Have a nice day! or Have a good weekend!",
+              "— Have a great weekend! — You too!", "— ပျော်စရာ ပိတ်ရက် ဖြစ်ပါစေ။ — ခင်ဗျားလည်းပဲ။"],
+            ["Thanks, I will!", "ကျေးဇူးပါ၊ ဒီလိုပဲ နေမှာပါ။", "The answer to Have fun! or Enjoy your holiday!",
+              "— Have fun at the party! — Thanks, I will!", "— ပါတီမှာ ပျော်ပျော် နေနော်။ — ကျေးဇူးပါ၊ ပျော်အောင် နေမှာပါ။"],
+            ["Thanks, it means a lot.", "ကျေးဇူးပါ၊ အရမ်း တန်ဖိုးထားပါတယ်။", "When someone's kind words really touch you.",
+              "— I'm so proud of you. — Thanks, it means a lot.", "— မင်းအတွက် အရမ်း ဂုဏ်ယူတယ်။ — ကျေးဇူးပါ၊ အရမ်း တန်ဖိုးထားပါတယ်။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>

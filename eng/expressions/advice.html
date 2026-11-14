@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions — Advice</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <!-- Favicons -->
+    <link href="/img/favicon.png" rel="icon" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/pimsleur.css" />
+  </head>
+  <body class="min-h-screen bg-grid relative">
+    <!-- Background decorative blobs -->
+    <div
+      class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-0"
+    >
+      <div
+        class="absolute top-[-80px] left-[-80px] w-96 h-96 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.18) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute bottom-[-60px] right-[-60px] w-80 h-80 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(0, 200, 255, 0.14) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div
+        class="absolute top-1/2 right-1/4 w-64 h-64 rounded-full"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(26, 110, 245, 0.08) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full px-6 py-12">
+      <!-- Header -->
+      <div class="text-center mb-14">
+        <div class="flex items-center justify-center gap-4 mb-3">
+          <span class="badge">EXPRESSIONS</span>
+          <span class="badge">ADVICE</span>
+        </div>
+        <h1
+          class="text-7xl font-bold tracking-tight mb-2 header-glow"
+          style="
+            font-family: &quot;Playfair Display&quot;, serif;
+            font-style: italic;
+            color: white;
+            letter-spacing: -0.02em;
+          "
+        >
+          Advice
+        </h1>
+        <p
+          class="text-2xl mb-4"
+          style="
+            color: var(--cyan);
+            opacity: 0.85;
+            font-family: &quot;Playfair Display&quot;, serif;
+          "
+        >
+          အကြံဉာဏ်
+        </p>
+        <div class="header-line w-64 mx-auto"></div>
+        <p
+          class="mt-4 text-sm tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.4);
+            font-family: &quot;Roboto&quot;, sans-serif;
+          "
+        >
+          Expression Flashcards
+        </p>
+      </div>
+
+      <!-- Cards are rendered from `categories` below by expression-flash.js -->
+      <div id="cards"></div>
+
+      <!-- Footer -->
+      <div class="mt-14 text-center">
+        <div class="header-line w-48 mx-auto mb-5"></div>
+        <p
+          class="text-xs tracking-widest uppercase"
+          style="
+            color: rgba(255, 255, 255, 0.25);
+            font-family: &quot;Space Mono&quot;, monospace;
+          "
+        >
+          <span id="count">23</span> expressions · Advice
+        </p>
+      </div>
+    </div>
+
+    <script>
+      /* ---------------------------------------------------------------
+   Media:
+     audio : 01.mp3 … 23.mp3 in AUD_DIR (one per card, in reading order)
+   categories -> cards: [English, Burmese, note, example EN, example MY]
+--------------------------------------------------------------- */
+      const AUD_DIR = "https://languages.rmlives.com/eng/expressions/advice/";
+      const AUD_EXT = "mp3?v=2611090823";
+
+const categories = [
+        {
+          en: "Asking for advice",
+          my: "အကြံဉာဏ် တောင်းခြင်း",
+          desc: "When you have a problem and want someone's help to decide.",
+          cards: [
+            ["What should I do?", "ဘာလုပ်ရမလဲ။", "The everyday way to ask for advice. Not: What I should do?",
+              "I lost my bus ticket. What should I do?", "ဘတ်စ်ကား လက်မှတ် ပျောက်သွားတယ်။ ဘာလုပ်ရမလဲ။"],
+            ["Can I ask your advice?", "အကြံဉာဏ် တောင်းလို့ ရမလား။", "Polite, before you explain the problem. Advice has no s: some advice, a piece of advice.",
+              "Can I ask your advice about something?", "တစ်ခုခုအကြောင်း အကြံဉာဏ် တောင်းလို့ ရမလား။"],
+            ["What would you do?", "မင်းဆိုရင် ဘာလုပ်မလဲ။", "Asks the other person to imagine they are in your place.",
+              "He keeps taking my pencils. What would you do?", "သူက ကျွန်မ ခဲတံတွေ ယူယူသွားတယ်။ မင်းဆိုရင် ဘာလုပ်မလဲ။"],
+            ["Do you have any tips?", "အကြံပြုချက်လေးတွေ ရှိလား။", "Tips are small, useful pieces of advice.",
+              "I want to learn English faster. Do you have any tips?", "အင်္ဂလိပ်စာ ပိုမြန်မြန် တတ်ချင်တယ်။ အကြံပြုချက်လေးတွေ ရှိလား။"],
+            ["Is it a good idea to <span class=gray>buy this phone</span>?", "ဒီဖုန်း ဝယ်တာ ကောင်းမလား။", "Asks for an opinion about a plan. Is it a good idea to + verb.",
+              "Is it a good idea to go now, or should we wait?", "အခု သွားတာ ကောင်းမလား၊ ဒါမှမဟုတ် စောင့်သင့်လား။"],
+          ],
+        },
+        {
+          en: "Giving advice",
+          my: "အကြံပေးခြင်း",
+          desc: "Telling someone what you think they should do.",
+          cards: [
+            ["You should <span class=gray>see a doctor</span>.", "ဆရာဝန်နဲ့ ပြသင့်တယ်။", "The most common way to give advice. Should + verb, with no to.",
+              "You've had a cough for a week. You should see a doctor.", "တစ်ပတ်လောက် ချောင်းဆိုးနေတာ။ ဆရာဝန်နဲ့ ပြသင့်တယ်။"],
+            ["Why don't you <span class=gray>ask your teacher</span>?", "ဆရာ့ကို မေးကြည့်ပါလား။", "A friendly suggestion that sounds like a question. Not a real question about why.",
+              "You don't understand the homework? Why don't you ask your teacher?", "အိမ်စာ နားမလည်ဘူးလား။ ဆရာ့ကို မေးကြည့်ပါလား။"],
+            ["If I were you, I'd <span class=gray>wait</span>.", "ကျွန်တော်/ကျွန်မ သာဆိုရင် စောင့်မယ်။", "Imagining yourself in their place. Use were, not was, in this phrase.",
+              "It's raining hard. If I were you, I'd wait a bit.", "မိုး သည်းနေတယ်။ ကျွန်မသာဆိုရင် ခဏ စောင့်မယ်။"],
+            ["Have you tried <span class=gray>turning it off and on</span>?", "ပိတ်ပြီး ပြန်ဖွင့်ကြည့်ပြီးပြီလား။", "Suggests something they may not have done yet. Have you tried + -ing.",
+              "Your phone is frozen? Have you tried turning it off and on?", "ဖုန်း ရပ်သွားတာလား။ ပိတ်ပြီး ပြန်ဖွင့်ကြည့်ပြီးပြီလား။"],
+          ],
+        },
+        {
+          en: "Gentle suggestions",
+          my: "အပျော့ အကြံပြုချက်",
+          desc: "Softer advice, for adults, older people, or when you aren't sure.",
+          cards: [
+            ["Maybe you could <span class=gray>call her</span>.", "သူ့ကို ဖုန်းဆက်ကြည့်ရင် ကောင်းမလား။", "Very soft: an idea, not an order.",
+              "She's not answering messages. Maybe you could call her.", "သူက မက်ဆေ့ချ် ပြန်မပို့ဘူး။ ဖုန်းဆက်ကြည့်ရင် ကောင်းမလား။"],
+            ["It might be a good idea to <span class=gray>leave early</span>.", "စောစော ထွက်တာ ကောင်းမယ် ထင်တယ်။", "Polite and careful: good at work or with older people.",
+              "The roads are busy today. It might be a good idea to leave early.", "ဒီနေ့ လမ်းတွေ ကားများတယ်။ စောစော ထွက်တာ ကောင်းမယ် ထင်တယ်။"],
+            ["You could always <span class=gray>ask for help</span>.", "အကူအညီ တောင်းလို့ အမြဲ ရပါတယ်။", "Reminds someone of an easy option they have.",
+              "If it's too heavy, you could always ask for help.", "သိပ်လေးရင် အကူအညီ တောင်းလို့ အမြဲ ရပါတယ်။"],
+            ["It's worth a try.", "ကြိုးစားကြည့်ဖို့ တန်ပါတယ်။", "Even if it might not work, trying is a good idea.",
+              "Maybe they'll say no, but it's worth a try.", "ငြင်းချင် ငြင်းမယ်၊ ဒါပေမဲ့ ကြိုးစားကြည့်ဖို့ တန်ပါတယ်။"],
+          ],
+        },
+        {
+          en: "Strong advice and warnings",
+          my: "ပြင်းထန်သော အကြံပေးချက်နှင့် သတိပေးချက်",
+          desc: "When something is important, or there could be a problem.",
+          cards: [
+            ["You'd better <span class=gray>hurry</span>.", "မြန်မြန် လုပ်မှ ဖြစ်မယ်။", "Strong: if you don't, something bad will happen. You'd better = you had better.",
+              "The bus leaves in five minutes. You'd better hurry!", "ဘတ်စ်ကား ငါးမိနစ်နေရင် ထွက်မယ်။ မြန်မြန် လုပ်မှ ဖြစ်မယ်။"],
+            ["You shouldn't <span class=gray>stay up so late</span>.", "ဒီလောက် ညနက်အောင် မနေသင့်ဘူး။", "Advice not to do something.",
+              "You look tired. You shouldn't stay up so late.", "ပင်ပန်းနေပုံ ရတယ်။ ဒီလောက် ညနက်အောင် မနေသင့်ဘူး။"],
+            ["Make sure you <span class=gray>lock the door</span>.", "တံခါး သော့ခတ်ဖို့ သေချာလုပ်နော်။", "Don't forget, and check that you did it.",
+              "Make sure you lock the door when you leave.", "ထွက်သွားရင် တံခါး သော့ခတ်ဖို့ သေချာလုပ်နော်။"],
+            ["Don't forget to <span class=gray>bring your book</span>.", "စာအုပ် ယူလာဖို့ မမေ့နဲ့။", "A reminder. Don't forget to + verb.",
+              "Don't forget to bring your book tomorrow.", "မနက်ဖြန် စာအုပ် ယူလာဖို့ မမေ့နဲ့။"],
+            ["You have to <span class=gray>wear a helmet</span>.", "ဦးထုပ် ဆောင်းရမယ်။", "Not advice but a rule: there is no choice.",
+              "You have to wear a helmet on a motorbike.", "ဆိုင်ကယ် စီးရင် ဦးထုပ် ဆောင်းရမယ်။"],
+          ],
+        },
+        {
+          en: "Answering advice",
+          my: "အကြံဉာဏ်ကို ပြန်ဖြေခြင်း",
+          desc: "Thanking someone for advice, and saying what you'll do.",
+          cards: [
+            ["That's a good idea.", "အကြံကောင်းပဲ။", "You like the suggestion. Also: Good idea!",
+              "— Why don't you take a taxi? — That's a good idea.", "— တက္ကစီ စီးပါလား။ — အကြံကောင်းပဲ။"],
+            ["Thanks for the advice.", "အကြံပေးတဲ့အတွက် ကျေးဇူးပါ။", "Polite, whether or not you will follow it.",
+              "Thanks for the advice. I'll ask my teacher tomorrow.", "အကြံပေးတဲ့အတွက် ကျေးဇူးပါ။ မနက်ဖြန် ဆရာ့ကို မေးလိုက်မယ်။"],
+            ["I'll try that.", "အဲဒါ စမ်းကြည့်မယ်။", "You will follow the advice.",
+              "— Drink some warm water with honey. — OK, I'll try that.", "— ပျားရည်နဲ့ ရေနွေး သောက်ကြည့်။ — အိုကေ၊ အဲဒါ စမ်းကြည့်မယ်။"],
+            ["I'll think about it.", "စဉ်းစားကြည့်မယ်။", "You haven't decided yet. Sometimes a polite way of saying no.",
+              "— You should join the football team. — I'll think about it.", "— ဘောလုံးအသင်းမှာ ဝင်သင့်တယ်။ — စဉ်းစားကြည့်မယ်။"],
+            ["I'm not sure that would work.", "အဲဒါ အဆင်ပြေမလား မသေချာဘူး။", "Politely doubts the advice. Then say why.",
+              "I'm not sure that would work. The shop is closed on Mondays.", "အဲဒါ အဆင်ပြေမလား မသေချာဘူး။ ဆိုင်က တနင်္လာနေ့ ပိတ်တယ်။"],
+          ],
+        },
+      ];
+    </script>
+    <script src="../../assets/js/expression-flash.js"></script>
+    <script src="../../assets/js/nav-eng-expression-flash.js"></script>
+  </body>
+</html>
