@@ -1,0 +1,258 @@
+PRONOUNS — audio clips to record
+Each number is the file name (01.mp3, 02.mp3 …), in the order the page plays them.
+
+
+=== pronouns_1 (26 clips) ===
+Note: this page puts the 7 words first (01–07), then the 14 sentences (08–21),
+then 5 sentences with a name instead of the short word (22–26).
+
+01 I.
+02 You.
+03 He.
+04 She.
+05 It.
+06 We.
+07 They.
+08 I am reading.
+09 You are jumping.
+10 He is running.
+11 She is drinking.
+12 It is sleeping.
+13 We are walking.
+14 They are eating.
+15 I am drinking.
+16 You are reading.
+17 He is sleeping.
+18 She is jumping.
+19 It is running.
+20 We are eating.
+21 They are walking.
+22 The boy is running.
+23 The girl is drinking.
+24 The dog is sleeping.
+25 My friend and I are walking.
+26 The children are eating.
+
+
+=== pronouns_2 (16 clips) ===
+
+01 My.
+02 It is my hat.
+03 Your.
+04 It is your hat.
+05 His.
+06 It is his bag.
+07 Her.
+08 It is her bag.
+09 My.
+10 It is my book.
+11 Your.
+12 It is your book.
+13 His.
+14 It is his ball.
+15 Her.
+16 It is her ball.
+
+
+=== pronouns_3 (16 clips) ===
+
+01 My.
+02 I am washing my hands.
+03 Your.
+04 You are reading your book.
+05 His.
+06 He is kicking his ball.
+07 Her.
+08 She is carrying her bag.
+09 Its.
+10 It is eating its food.
+11 Our.
+12 We are cleaning our room.
+13 Their.
+14 They are flying their kite.
+15 Our.
+16 We are eating our lunch.
+
+
+=== pronouns_4 (20 clips) ===
+
+01 Me.
+02 The dog likes me.
+03 You.
+04 The dog likes you.
+05 Him.
+06 The dog likes him.
+07 Her.
+08 The dog likes her.
+09 Me.
+10 The teacher is helping me.
+11 You.
+12 The teacher is helping you.
+13 Him.
+14 The girl is helping him.
+15 Her.
+16 The boy is helping her.
+17 The dog likes the boy.
+18 The dog likes the girl.
+19 The girl is helping the boy.
+20 The boy is helping the girl.
+
+
+=== pronouns_5 (20 clips) ===
+
+01 Us.
+02 The teacher is helping us.
+03 Them.
+04 The teacher is helping them.
+05 Us.
+06 The dog likes us.
+07 Them.
+08 The dog likes them.
+09 It.
+10 The boy is kicking it.
+11 Them.
+12 The girl is carrying them.
+13 It.
+14 The girl is reading it.
+15 Them.
+16 The boy is washing them.
+17 The boy is kicking the ball.
+18 The girl is carrying the books.
+19 The girl is reading the book.
+20 The boy is washing the cups.
+
+
+=== pronouns_6 (16 clips) ===
+
+01 This.
+02 This is a cat.
+03 That.
+04 That is a cat.
+05 These.
+06 These are cats.
+07 Those.
+08 Those are cats.
+09 This.
+10 This is my bag.
+11 That.
+12 That is your bag.
+13 These.
+14 These are my shoes.
+15 Those.
+16 Those are his shoes.
+
+
+=== pronouns_7 (16 clips) ===
+
+01 Mine.
+02 The hat is mine.
+03 Yours.
+04 The hat is yours.
+05 His.
+06 The bag is his.
+07 Hers.
+08 The bag is hers.
+09 Ours.
+10 The house is ours.
+11 Theirs.
+12 The house is theirs.
+13 Mine.
+14 The shoes are mine.
+15 Hers.
+16 The shoes are hers.
+
+
+=== pronouns_8 (24 clips) ===
+
+01 Whose?
+02 Whose hat is it? It is his.
+03 Whose?
+04 Whose bag is it? It is hers.
+05 Whose?
+06 Whose book is it? It is mine.
+07 Whose?
+08 Whose ball is it? It is yours.
+09 Whose?
+10 Whose house is it? It is ours.
+11 Whose?
+12 Whose kite is it? It is theirs.
+13 Whose?
+14 Whose shoes are they? They are his.
+15 Whose?
+16 Whose shoes are they? They are hers.
+17 Whose hat is it? It is hers.
+18 Whose bag is it? It is his.
+19 Whose book is it? It is yours.
+20 Whose ball is it? It is mine.
+21 Whose house is it? It is theirs.
+22 Whose kite is it? It is ours.
+23 Whose shoes are they? They are hers.
+24 Whose shoes are they? They are his.
+
+
+=== pronouns_9 (24 clips) ===
+
+01 Who?
+02 Who is running? The boy.
+03 Who?
+04 Who is singing? The girl.
+05 Who?
+06 Who is sleeping? The baby.
+07 Who?
+08 Who is helping the girl? The teacher.
+09 What?
+10 What is the boy eating? A mango.
+11 What?
+12 What is the girl carrying? A bag.
+13 What?
+14 What is the boy kicking? A ball.
+15 What?
+16 What is the girl reading? A book.
+17 Who is running? A ball.
+18 Who is singing? A book.
+19 Who is sleeping? A bag.
+20 Who is helping the girl? A mango.
+21 What is the boy eating? A ball.
+22 What is the girl carrying? A book.
+23 What is the boy kicking? A mango.
+24 What is the girl reading? A bag.
+
+
+=== pronouns_10 (16 clips) ===
+
+01 Myself.
+02 I am washing myself.
+03 Yourself.
+04 You are washing yourself.
+05 Himself.
+06 He is drying himself.
+07 Herself.
+08 She is looking at herself.
+09 Itself.
+10 It is washing itself.
+11 Ourselves.
+12 We are drying ourselves.
+13 Themselves.
+14 They are washing themselves.
+15 Himself.
+16 He is feeding himself.
+
+
+=== pronouns_11 (16 clips) ===
+
+01 Someone.
+02 Someone is at the door.
+03 No one.
+04 No one is at the door.
+05 Something.
+06 Something is in the box.
+07 Nothing.
+08 Nothing is in the box.
+09 Everyone.
+10 Everyone is sitting.
+11 No one.
+12 No one is sitting.
+13 Everything.
+14 Everything is on the table.
+15 Nothing.
+16 Nothing is on the table.

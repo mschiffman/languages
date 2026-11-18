@@ -1,0 +1,241 @@
+ADVERBS — audio clips to record
+Each number is the file name (01.mp3, 02.mp3 …), in the order the page plays them.
+
+
+=== adverbs_1 (18 clips) ===
+Note: this page puts the 6 words first (01–06), then the 12 sentences (07–18).
+
+01 Quickly.
+02 Slowly.
+03 Loudly.
+04 Quietly.
+05 Happily.
+06 Sadly.
+07 The boy is walking quickly.
+08 The boy is walking slowly.
+09 The girl is reading loudly.
+10 The girl is reading quietly.
+11 The boy is eating happily.
+12 The boy is eating sadly.
+13 The girl is running quickly.
+14 The girl is running slowly.
+15 The girl is walking loudly.
+16 The girl is walking quietly.
+17 The dog is sitting happily.
+18 The dog is sitting sadly.
+
+
+=== adverbs_2 (16 clips) ===
+
+01 Carefully.
+02 The girl is carrying the eggs carefully.
+03 Carelessly.
+04 The girl is carrying the eggs carelessly.
+05 Gently.
+06 The boy is closing the door gently.
+07 Roughly.
+08 The boy is closing the door roughly.
+09 Neatly.
+10 The girl is writing neatly.
+11 Messily.
+12 The girl is writing messily.
+13 Calmly.
+14 The boy is talking calmly.
+15 Angrily.
+16 The boy is talking angrily.
+
+
+=== adverbs_3 (16 clips) ===
+
+01 Fast.
+02 The boy is running fast.
+03 Hard.
+04 The girl is working hard.
+05 Well.
+06 The girl is singing well.
+07 Badly.
+08 The boy is singing badly.
+09 High.
+10 The girl is jumping high.
+11 Low.
+12 The bird is flying low.
+13 Early.
+14 The boy is getting up early.
+15 Late.
+16 The girl is getting up late.
+
+
+=== adverbs_4 (16 clips) ===
+
+01 Outside.
+02 The girl is playing outside.
+03 Inside.
+04 The boy is reading inside.
+05 Up.
+06 The cat is climbing up.
+07 Down.
+08 The cat is climbing down.
+09 Here.
+10 The boy is standing here.
+11 There.
+12 The girl is standing there.
+13 Away.
+14 The bird is flying away.
+15 Back.
+16 The dog is coming back.
+
+
+=== adverbs_5 (16 clips) ===
+
+01 Now.
+02 The boy is eating now.
+03 Today.
+04 The girl is going to school today.
+05 Tonight.
+06 The boy is going to read tonight.
+07 Yesterday.
+08 The girl cooked rice yesterday.
+09 Tomorrow.
+10 The boy is going to swim tomorrow.
+11 Soon.
+12 The bus is coming soon.
+13 Later.
+14 The girl is going to play later.
+15 Still.
+16 The boy is still sleeping.
+
+
+=== adverbs_6 (16 clips) ===
+
+01 Always.
+02 The boy always brushes his teeth.
+03 Usually.
+04 The girl usually walks to school.
+05 Often.
+06 The boy often plays football.
+07 Sometimes.
+08 The girl sometimes cooks rice.
+09 Never.
+10 The cat never swims.
+11 Every day.
+12 The girl studies every day.
+13 Once.
+14 The boy jumps once.
+15 Twice.
+16 The girl jumps twice.
+
+
+=== adverbs_7 (16 clips) ===
+
+01 A little.
+02 The boy is eating a little.
+03 A lot.
+04 The boy is eating a lot.
+05 Very.
+06 The tea is very hot.
+07 Too.
+08 The tea is too hot.
+09 Almost.
+10 The cup is almost full.
+11 Completely.
+12 The cup is completely full.
+13 More.
+14 The girl is drinking more.
+15 Less.
+16 The boy is drinking less.
+
+
+=== adverbs_8 (16 clips) ===
+
+01 Quick.
+02 The boy is quick.
+03 Quickly.
+04 The boy is running quickly.
+05 Careful.
+06 The girl is careful.
+07 Carefully.
+08 The girl is writing carefully.
+09 Happy.
+10 The dog is happy.
+11 Happily.
+12 The dog is playing happily.
+13 Good.
+14 The song is good.
+15 Well.
+16 The girl is singing well.
+
+
+=== adverbs_9 (24 clips) ===
+
+01 Faster.
+02 The dog is running faster than the snail.
+03 Higher.
+04 The girl is jumping higher than the boy.
+05 Harder.
+06 The girl is working harder than the boy.
+07 Earlier.
+08 The boy is getting up earlier than the girl.
+09 Better.
+10 The girl is singing better than the boy.
+11 More slowly.
+12 The snail is moving more slowly than the dog.
+13 More loudly.
+14 The boy is singing more loudly than the girl.
+15 More carefully.
+16 The girl is writing more carefully than the boy.
+17 The snail is running faster than the dog.
+18 The boy is jumping higher than the girl.
+19 The boy is working harder than the girl.
+20 The girl is getting up earlier than the boy.
+21 The boy is singing better than the girl.
+22 The dog is moving more slowly than the snail.
+23 The girl is singing more loudly than the boy.
+24 The boy is writing more carefully than the girl.
+
+
+=== adverbs_10 (24 clips) ===
+
+01 How?
+02 How is the boy walking? Slowly.
+03 How?
+04 How is the girl singing? Well.
+05 Where?
+06 Where is the girl playing? Outside.
+07 Where?
+08 Where is the cat climbing? Up.
+09 When?
+10 When is the boy going to swim? Tomorrow.
+11 When?
+12 When did the girl cook rice? Yesterday.
+13 How often?
+14 How often does the boy brush his teeth? Always.
+15 How much?
+16 How much is the boy eating? A lot.
+17 How is the boy walking? Tomorrow.
+18 How is the girl singing? Outside.
+19 Where is the girl playing? Slowly.
+20 Where is the cat climbing? Yesterday.
+21 When is the boy going to swim? Up.
+22 When did the girl cook rice? Well.
+23 How often does the boy brush his teeth? Outside.
+24 How much is the boy eating? Always.
+
+
+=== adverbs_11 (16 clips) ===
+
+01 First.
+02 First the girl wakes up.
+03 Then.
+04 Then she washes her face.
+05 Next.
+06 Next she eats breakfast.
+07 After that.
+08 After that she goes to school.
+09 Later.
+10 Later she plays with her friends.
+11 Soon.
+12 Soon she comes home.
+13 Finally.
+14 Finally she goes to bed.
+15 Again.
+16 The next day she wakes up again.

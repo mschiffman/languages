@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <title>Quiz formats (sample)</title>
+
+    <link href="/img/favicon.png" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      /* Same colours and fonts as the lesson pages. */
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              paper: "#f1f6ea",
+              edge: "#e3edd6",
+              forest: "#274b2f",
+              moss: "#3c6b45",
+              leaf: "#8fc07e",
+              gold: "#f6b93b",
+              golddeep: "#e39b12",
+            },
+            fontFamily: {
+              display: ["Fredoka", "sans-serif"],
+              body: ["Andika", "Segoe UI", "system-ui", "sans-serif"],
+              my: ["Noto Sans Myanmar", "Padauk", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      [x-cloak] { display: none !important; }
+      button { -webkit-tap-highlight-color: transparent; }
+      .shake { animation: shake 0.4s; }
+      @keyframes shake {
+        20%, 60% { transform: translateX(-6px); }
+        40%, 80% { transform: translateX(6px); }
+      }
+      /* "Record and compare": the red button breathes while recording */
+      .recording { animation: recording 1s ease-in-out infinite; }
+      @keyframes recording { 50% { transform: scale(1.12); } }
+    </style>
+  </head>
+
+  <body class="bg-edge font-body text-forest antialiased">
+    <div class="mx-auto flex min-h-screen max-w-xl flex-col bg-paper px-4 pb-5" x-data="quiz()" x-cloak>
+      <!-- ---------- title ---------- -->
+      <a
+        class="mt-2 inline-flex min-h-[2rem] items-center gap-1 self-start rounded-full py-0.5 pl-1.5 pr-3 font-display font-semibold text-moss hover:bg-edge hover:text-forest"
+        href="/english.html"
+      >
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 5l-7 7 7 7" />
+        </svg>
+        English
+      </a>
+      <header class="flex items-center justify-between gap-2 pt-1">
+        <div class="flex items-center gap-2 font-display text-xl font-semibold">
+          <span>Quiz formats</span>
+          <span class="rounded-full bg-gold px-2.5 py-0.5 text-sm">Sample</span>
+        </div>
+        <button
+          class="h-10 rounded-full border-2 px-3 font-my text-sm"
+          :class="showMy ? 'border-forest bg-forest text-white' : 'border-edge bg-white text-moss'"
+          @click="showMy = !showMy"
+          :aria-pressed="showMy"
+        >
+          မြန်မာ
+        </button>
+      </header>
+
+      <!-- ---------- one button per format: tap to jump straight to it ---------- -->
+      <nav class="mt-3 grid grid-cols-10 gap-1" aria-label="Formats">
+        <template x-for="(f, k) in QUESTIONS" :key="k">
+          <button
+            class="flex h-9 items-center justify-center rounded-full border-2 text-base"
+            :class="chipCls(k)"
+            @click="jump(k)"
+            :aria-label="(k + 1) + '. ' + f.title"
+            :title="f.title"
+            x-text="f.icon"
+          ></button>
+        </template>
+      </nav>
+
+      <div class="mt-4" x-show="!done">
+        <div class="flex items-baseline justify-between gap-2">
+          <h1 class="font-display text-2xl font-semibold leading-tight" x-text="item.title"></h1>
+          <span class="flex-none font-display text-base font-semibold text-moss">
+            <span class="rounded-full bg-rose-100 px-2 py-0.5 text-sm text-rose-700" x-show="item.again">again</span>
+            <span x-text="(i + 1) + ' / ' + queue.length"></span>
+          </span>
+        </div>
+        <p class="text-base text-moss" x-text="item.how"></p>
+      </div>
+
+      <main class="mt-3 flex-1">
+        <!-- The question on screen. x-for over a one-item list with a key makes
+             Alpine build a fresh component for every question, also when the
+             same format comes twice in a row. Each format sends "answered" once. -->
+        <template x-for="it in (done ? [] : [item])" :key="it.uid">
+          <div @answered="finish($event.detail)">
+            <!-- ================= 1 · MATCH THE PAIRS  (fmtMatch) ================= -->
+            <template x-if="it.type === 'match'">
+              <section x-data="fmtMatch(it)" class="grid grid-cols-2 gap-3">
+                <div class="flex flex-col gap-2">
+                  <template x-for="n in left" :key="'L' + n">
+                    <button class="h-24 overflow-hidden rounded-2xl border-4 transition" :class="cls('L', n)" @click="tap('L', n)" :aria-label="'Picture ' + n" x-html="pic(n)"></button>
+                  </template>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <template x-for="n in right" :key="'R' + n">
+                    <button class="h-24 rounded-2xl border-4 font-display text-2xl font-semibold text-rose-600 transition" :class="cls('R', n)" @click="tap('R', n)" x-text="S(n).verb.ing"></button>
+                  </template>
+                </div>
+              </section>
+            </template>
+
+            <!-- ====== 2 · LISTEN AND BUILD and 10 · TRANSLATE WITH TILES  (fmtBuild) ====== -->
+            <template x-if="it.type === 'build'">
+              <section x-data="fmtBuild(it)" class="flex flex-col gap-4">
+                <!-- what the child starts from: the sound, or the Burmese sentence -->
+                <div class="flex items-center justify-center gap-3 rounded-3xl bg-white px-4 py-4">
+                  <button x-show="it.mode === 'listen'" :class="SPK" @click="play(sc.clip)" aria-label="Hear the sentence" x-html="SPK_ICON"></button>
+                  <p x-show="it.mode === 'listen'" class="font-display text-lg font-semibold text-moss">Tap to hear it again</p>
+                  <p x-show="it.mode === 'translate'" class="text-center font-my text-2xl leading-loose" x-text="sc.my"></p>
+                </div>
+
+                <!-- the line the child builds: tap a tile here to take it back -->
+                <div
+                  class="flex min-h-[4.5rem] flex-wrap items-center gap-2 rounded-2xl border-b-4 px-2 py-2"
+                  :class="[state === 'bad' ? 'shake border-rose-500' : state === 'ok' ? 'border-emerald-600 bg-emerald-50' : state === 'shown' ? 'border-rose-500 bg-rose-50' : 'border-forest', '']"
+                >
+                  <template x-for="t in line" :key="t.k">
+                    <button class="h-12 rounded-xl border-2 border-forest bg-white px-3 text-xl font-bold shadow-[0_3px_0_#274b2f]" @click="remove(t)" x-text="t.w"></button>
+                  </template>
+                  <span class="text-2xl font-bold" x-show="line.length">.</span>
+                </div>
+
+                <!-- the word bank: the right words plus a few extra ones -->
+                <div class="flex flex-wrap justify-center gap-2" x-show="!locked()">
+                  <template x-for="t in bank" :key="t.k">
+                    <button
+                      class="h-12 rounded-xl border-2 px-3 text-xl font-bold"
+                      :class="used(t) ? 'border-edge bg-edge text-transparent' : 'border-forest bg-white shadow-[0_3px_0_#274b2f]'"
+                      :disabled="used(t)"
+                      @click="add(t)"
+                      x-text="t.w"
+                    ></button>
+                  </template>
+                </div>
+                <button
+                  class="mx-auto h-12 rounded-full bg-forest px-8 font-display text-lg font-semibold text-white disabled:opacity-30"
+                  x-show="!locked()"
+                  :disabled="!line.length"
+                  @click="check()"
+                >
+                  Check
+                </button>
+                <p class="text-center text-moss" x-show="state === 'shown'">This is the right sentence.</p>
+              </section>
+            </template>
+
+            <!-- ================= 3 · SORT INTO BASKETS  (fmtSort) ================= -->
+            <template x-if="it.type === 'sort'">
+              <section x-data="fmtSort(it)" class="flex flex-col gap-4">
+                <div class="flex h-24 items-center justify-center rounded-3xl bg-white">
+                  <span class="font-display text-4xl font-bold" x-show="cur()" x-text="cur() ? cur().w : ''"></span>
+                  <span class="font-display text-2xl font-semibold text-moss" x-show="!cur()">All sorted!</span>
+                </div>
+                <p class="text-center text-sm text-moss" x-show="cur()" x-text="(k + 1) + ' of ' + words.length"></p>
+                <div class="grid grid-cols-2 gap-3">
+                  <template x-for="b in BASKETS" :key="b.id">
+                    <button
+                      class="flex min-h-[7rem] flex-col items-center gap-1 rounded-3xl border-4 px-2 py-2"
+                      :class="[b.box, bad === b.id ? 'shake' : '']"
+                      @click="drop(b)"
+                    >
+                      <span class="font-display text-lg font-semibold" x-text="'🧺 ' + b.label"></span>
+                      <span class="flex flex-wrap justify-center gap-x-2 text-lg font-bold" :class="b.text">
+                        <template x-for="w in got[b.id]" :key="w"><span x-text="w"></span></template>
+                      </span>
+                    </button>
+                  </template>
+                </div>
+              </section>
+            </template>
+
+            <!-- ================= 4 · CHOOSE THE SENTENCE  (fmtChoose) ================= -->
+            <template x-if="it.type === 'choose'">
+              <section x-data="fmtChoose(it)" class="flex flex-col gap-3">
+                <div class="aspect-[4/3] overflow-hidden rounded-3xl border-4 border-forest bg-white" x-html="pic(sc.n)"></div>
+                <template x-for="n in opts" :key="n">
+                  <button class="min-h-[3.5rem] rounded-2xl border-4 px-4 text-left text-xl font-bold transition" :class="cls(n)" @click="pick(n)" x-text="S(n).text"></button>
+                </template>
+              </section>
+            </template>
+
+            <!-- ================= 5 · FIX THE MISTAKE  (fmtFix) ================= -->
+            <template x-if="it.type === 'fix'">
+              <section x-data="fmtFix(it)" class="flex flex-col gap-4">
+                <div class="aspect-[4/3] overflow-hidden rounded-3xl border-4 border-forest bg-white" x-html="pic(sc.n)"></div>
+                <div class="flex flex-wrap justify-center gap-2">
+                  <template x-for="(w, k) in it.words" :key="k">
+                    <button
+                      class="h-14 rounded-xl border-2 px-3 text-2xl font-bold"
+                      :class="wordCls(k)"
+                      @click="tapWord(k)"
+                      x-text="k === it.bad && fixed ? it.right : w"
+                    ></button>
+                  </template>
+                </div>
+                <p class="text-center font-display text-lg font-semibold text-moss" x-text="!found ? 'Which word is wrong? Tap it.' : !fixed ? 'Now pick the right word.' : ''"></p>
+                <div class="flex justify-center gap-3" x-show="found && !fixed">
+                  <template x-for="o in opts" :key="o">
+                    <button
+                      class="h-14 min-w-[4.5rem] rounded-2xl border-4 border-amber-700 bg-white px-4 text-2xl font-bold text-amber-700"
+                      :class="shaking === 'o' + o ? 'shake' : ''"
+                      @click="tapOpt(o)"
+                      x-text="o"
+                    ></button>
+                  </template>
+                </div>
+              </section>
+            </template>
+
+            <!-- ================= 6 · ODD ONE OUT  (fmtOdd) ================= -->
+            <template x-if="it.type === 'odd'">
+              <section x-data="fmtOdd(it)" class="flex flex-col gap-4">
+                <div class="grid grid-cols-2 gap-3">
+                  <template x-for="(o, k) in opts" :key="o.w">
+                    <button class="h-24 rounded-3xl border-4 font-display text-3xl font-semibold transition" :class="cls(o)" @click="pick(o)" x-text="o.w"></button>
+                  </template>
+                </div>
+                <p class="rounded-2xl bg-white px-4 py-3 text-center text-lg" x-show="chosen !== null" x-text="it.why"></p>
+              </section>
+            </template>
+
+            <!-- ================= 7 · TAP WHAT YOU HEAR  (fmtHear) ================= -->
+            <template x-if="it.type === 'hear'">
+              <section x-data="fmtHear(it)" class="flex flex-col items-center gap-5">
+                <button
+                  class="flex h-28 w-28 items-center justify-center rounded-full bg-gold text-forest shadow-[0_6px_0_#e39b12] active:translate-y-0.5"
+                  @click="play(V(it.verb).clip)"
+                  aria-label="Hear the word"
+                >
+                  <span class="scale-[2]" x-html="SPK_ICON"></span>
+                </button>
+                <div class="flex w-full gap-3">
+                  <template x-for="o in opts" :key="o">
+                    <button class="h-20 flex-1 rounded-3xl border-4 font-display text-3xl font-semibold transition" :class="cls(o)" @click="pick(o)" x-text="o"></button>
+                  </template>
+                </div>
+              </section>
+            </template>
+
+            <!-- ================= 8 · RECORD AND COMPARE  (fmtRecord) ================= -->
+            <template x-if="it.type === 'record'">
+              <section x-data="fmtRecord(it)" class="flex flex-col gap-4">
+                <div class="aspect-[4/3] overflow-hidden rounded-3xl border-4 border-forest bg-white" x-html="pic(sc.n)"></div>
+                <p class="text-center text-2xl font-bold" x-html="sentenceHtml(sc)"></p>
+                <div class="flex items-start justify-center gap-6 text-center font-display text-sm font-semibold text-moss">
+                  <div>
+                    <button :class="SPK" class="mx-auto" @click="play(sc.clip)" aria-label="Hear the sentence" x-html="SPK_ICON"></button>
+                    1 Listen
+                  </div>
+                  <div>
+                    <button
+                      class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-rose-600 text-2xl text-white shadow-[0_4px_0_#9f1239] active:translate-y-0.5"
+                      :class="recording ? 'recording' : ''"
+                      @click="recording ? stop() : start()"
+                      :aria-label="recording ? 'Stop recording' : 'Record my voice'"
+                      x-text="recording ? '■' : '●'"
+                    ></button>
+                    <span x-text="recording ? 'Stop' : '2 Say it'"></span>
+                  </div>
+                  <div>
+                    <button
+                      class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-forest text-2xl text-white shadow-[0_4px_0_#16301c] active:translate-y-0.5 disabled:opacity-30 disabled:shadow-none"
+                      :disabled="!mine"
+                      @click="playMine()"
+                      aria-label="Hear my voice"
+                    >
+                      ▶
+                    </button>
+                    3 Hear me
+                  </div>
+                </div>
+                <p class="rounded-2xl bg-white px-4 py-3 text-center" x-show="error" x-text="error"></p>
+              </section>
+            </template>
+
+            <!-- ================= 9 · MEMORY GAME  (fmtMemory) ================= -->
+            <template x-if="it.type === 'memory'">
+              <section x-data="fmtMemory(it)" class="flex flex-col gap-3">
+                <div class="grid grid-cols-4 gap-2">
+                  <template x-for="c in cards" :key="c.id">
+                    <button
+                      class="aspect-square overflow-hidden rounded-2xl border-4 transition"
+                      :class="isMatched(c) ? 'border-emerald-600 bg-emerald-50' : isOpen(c) ? 'border-gold bg-white' : 'border-forest bg-forest'"
+                      @click="flip(c)"
+                      :aria-label="isOpen(c) || isMatched(c) ? (c.kind === 'word' ? S(c.n).verb.id : 'Picture') : 'Hidden card'"
+                    >
+                      <span class="font-display text-3xl font-semibold text-leaf" x-show="!isOpen(c) && !isMatched(c)">?</span>
+                      <span class="block h-full w-full" x-show="(isOpen(c) || isMatched(c)) && c.kind === 'pic'" x-html="pic(c.n)"></span>
+                      <span class="font-display text-xl font-semibold text-rose-600" x-show="(isOpen(c) || isMatched(c)) && c.kind === 'word'" x-text="S(c.n).verb.id"></span>
+                    </button>
+                  </template>
+                </div>
+                <p class="text-center font-display text-base font-semibold text-moss" x-text="'Turns: ' + turns"></p>
+              </section>
+            </template>
+          </div>
+        </template>
+
+        <!-- ---------- what the child hears back after each question ---------- -->
+        <div
+          class="mt-4 rounded-2xl px-4 py-3 text-center font-display text-lg font-semibold"
+          :class="answered && answered.unmarked ? 'bg-gold/30' : answered && answered.right ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'"
+          x-show="answered && !done"
+          x-text="feedback()"
+          aria-live="polite"
+        ></div>
+
+        <!-- ---------- score page ---------- -->
+        <section class="flex flex-col items-center gap-4 pt-4" x-show="done">
+          <h1 class="font-display text-3xl font-semibold">Well done!</h1>
+          <p class="text-xl">
+            Right the first time: <b x-text="score()"></b> of <b x-text="QUESTIONS.length"></b>
+          </p>
+          <ul class="w-full divide-y divide-edge rounded-2xl bg-white">
+            <template x-for="(f, k) in QUESTIONS" :key="k">
+              <li class="flex items-center gap-3 px-4 py-2 text-lg">
+                <span x-text="f.icon"></span>
+                <span class="flex-1" x-text="f.title"></span>
+                <span class="font-bold" :class="mark(k) === '✓' ? 'text-emerald-700' : 'text-rose-600'" x-text="mark(k)"></span>
+              </li>
+            </template>
+          </ul>
+          <button class="h-14 min-w-[230px] rounded-full bg-gold px-6 font-display text-xl font-semibold shadow-[0_5px_0_#e39b12] active:translate-y-0.5" @click="start()">
+            ↻ Start again
+          </button>
+        </section>
+      </main>
+
+      <!-- ---------- next ---------- -->
+      <footer class="mt-5" x-show="!done">
+        <button
+          class="h-14 w-full rounded-full bg-gold font-display text-xl font-semibold shadow-[0_5px_0_#e39b12] transition active:translate-y-0.5 disabled:opacity-40 disabled:shadow-none"
+          :disabled="!answered"
+          @click="next()"
+          x-text="i + 1 < queue.length || (answered && !answered.right && !item.again) ? 'Next →' : 'See my score'"
+        ></button>
+      </footer>
+    </div>
+
+    <script>
+      /* =====================================================================
+         QUIZ FORMATS — a sample page with ten question formats, one of each,
+         built from the Action Words 1 pictures and clips (eng/verbs/verbs_1.html).
+         It is not linked from the site map or the menu.
+
+         HOW IT IS PUT TOGETHER
+           QUESTIONS   the list of questions. Each has a "type"; the type picks
+                       the format.
+           quiz()      the page: which question is showing, the feedback line,
+                       Next, the score page. It knows nothing about the formats.
+           fmtXxx(q)   one small Alpine component per format, further down.
+                       It gets its question and, when the child has finished,
+                       says so ONCE with
+                           this.$dispatch("answered", { right, mistakes })
+                       right     true / false
+                       mistakes  how many wrong taps on the way (optional)
+                       unmarked  true when the page cannot mark it (recording)
+                       note      a few words to show after the cheer (optional)
+
+         TO COPY ONE FORMAT INTO ANOTHER QUIZ take three pieces:
+           1 its <template x-if="it.type === '…'"> block from the page above
+           2 its fmtXxx function from below
+           3 a line of that type in the quiz's question list
+         and let the quiz listen for "answered" on an element around the
+         block (here: <div @answered="finish($event.detail)">). The helpers
+         the formats share are S, V, pic, play, shuffle, wobbler and the
+         colour lists; they are plain functions, not part of quiz().
+
+         The ten formats:
+            1 match     Match the pairs          picture ↔ word
+            2 build     Listen and build         mode "listen": hear, build from tiles
+            3 sort      Sort into baskets        word types
+            4 choose    Choose the sentence      one picture, three sentences
+            5 fix       Fix the mistake          tap the wrong word, pick the right one
+            6 odd       Odd one out
+            7 hear      Tap what you hear
+            8 record    Record and compare       the child's own voice; never leaves the phone
+            9 memory    Memory game              picture and word cards
+           10 build     Translate with tiles     mode "translate": the same component as 2
+
+         One Duolingo habit is built into quiz(): a question the child got
+         wrong comes back once at the end (marked "again"). The score counts
+         only the first try.
+
+         Alpine wraps the state in proxies: compare by number or word, never
+         by object, and keep browser objects (MediaRecorder, Audio) out of
+         the component's state.
+         ===================================================================== */
+
+      const IMG_DIR = "/img/ytstory/verb_1/";
+      const IMG_EXT = "jpg";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/verbs_1/";
+      const AUD_EXT = "mp3?v=261115";
+
+      /* ---------------- the words and pictures (copied from Action Words 1) ---------------- */
+      const SUBJECTS = {
+        boy: { en: "boy", my: "ကောင်လေး" },
+        girl: { en: "girl", my: "ကောင်မလေး" },
+      };
+      /* word clip: 01 Eat. 03 Drink. … 15 Sleep. */
+      const VERBS = [
+        { id: "eat", ing: "eating", myIng: "စားနေတယ်" },
+        { id: "drink", ing: "drinking", myIng: "ရေသောက်နေတယ်" },
+        { id: "sit", ing: "sitting", myIng: "ထိုင်နေတယ်" },
+        { id: "walk", ing: "walking", myIng: "လမ်းလျှောက်နေတယ်" },
+        { id: "run", ing: "running", myIng: "ပြေးနေတယ်" },
+        { id: "jump", ing: "jumping", myIng: "ခုန်နေတယ်" },
+        { id: "read", ing: "reading", myIng: "စာဖတ်နေတယ်" },
+        { id: "sleep", ing: "sleeping", myIng: "အိပ်နေတယ်" },
+      ];
+      VERBS.forEach((v, k) => (v.clip = 2 * k + 1));
+
+      /* one line per picture, in picture order; sentence clip: 02, 04 … 16 */
+      const SCENES = [
+        ["boy", "eat"], ["boy", "drink"], ["boy", "sit"], ["girl", "walk"],
+        ["boy", "run"], ["girl", "jump"], ["girl", "read"], ["boy", "sleep"],
+      ].map(([s, v], k) => {
+        const subj = SUBJECTS[s];
+        const verb = VERBS.find((x) => x.id === v);
+        return {
+          n: k + 1,
+          clip: 2 * k + 2,
+          subj,
+          verb,
+          text: "The " + subj.en + " is " + verb.ing + ".",
+          my: subj.my + "က " + verb.myIng + "။",
+        };
+      });
+      const S = (n) => SCENES[n - 1]; // the scene of picture n
+      const V = (id) => VERBS.find((v) => v.id === id);
+
+      /* word types and their colours, the same in every lesson */
+      const BASKETS = [
+        { id: "who", label: "Who", box: "border-sky-700 bg-sky-50 text-sky-700", text: "text-sky-700" },
+        { id: "action", label: "Action", box: "border-rose-600 bg-rose-50 text-rose-600", text: "text-rose-600" },
+        { id: "like", label: "What it is like", box: "border-emerald-700 bg-emerald-50 text-emerald-700", text: "text-emerald-700" },
+        { id: "how", label: "How", box: "border-orange-600 bg-orange-50 text-orange-600", text: "text-orange-600" },
+      ];
+      const KIND_TEXT = Object.fromEntries(BASKETS.map((b) => [b.id, b.text]));
+
+      /* ---------------- the questions: one of each format ---------------- */
+      const QUESTIONS = [
+        { type: "match", icon: "🔗", title: "Match the pairs", how: "Tap a picture, then its word.", scenes: [1, 5, 6, 7, 8] },
+        { type: "build", mode: "listen", icon: "🎧", title: "Listen and build", how: "Listen. Tap the words in order.", scene: 4, extra: ["boy", "running", "are"] },
+        {
+          type: "sort", icon: "🧺", title: "Sort into baskets", how: "Tap the basket for each word.",
+          words: [
+            { w: "boy", kind: "who" }, { w: "girl", kind: "who" },
+            { w: "eating", kind: "action" }, { w: "jumping", kind: "action" },
+            { w: "big", kind: "like" }, { w: "happy", kind: "like" },
+            { w: "quickly", kind: "how" }, { w: "slowly", kind: "how" },
+          ],
+        },
+        { type: "choose", icon: "💬", title: "Choose the sentence", how: "Which sentence goes with the picture?", scene: 7, wrong: [4, 6] },
+        { type: "fix", icon: "🔧", title: "Fix the mistake", how: "One word is wrong.", scene: 5, words: ["The", "boy", "are", "running."], bad: 2, right: "is", options: ["is", "am", "be"] },
+        {
+          type: "odd", icon: "🔍", title: "Odd one out", how: "Three words are the same kind. Tap the other one.",
+          words: [{ w: "running", kind: "action" }, { w: "sleeping", kind: "action" }, { w: "happy", kind: "like" }, { w: "reading", kind: "action" }],
+          odd: "happy",
+          why: "“happy” is a describing word. The others are action words.",
+        },
+        { type: "hear", icon: "👂", title: "Tap what you hear", how: "Listen. Which word is it?", verb: "sit", options: ["sit", "sleep", "eat"] },
+        { type: "record", icon: "🎙️", title: "Record and compare", how: "Listen, say it, then hear yourself.", scene: 6 },
+        { type: "memory", icon: "🃏", title: "Memory game", how: "Find each picture and its word.", scenes: [2, 3, 4, 8] },
+        { type: "build", mode: "translate", icon: "🔤", title: "Translate with tiles", how: "Build the sentence in English.", scene: 1, extra: ["girl", "drinking", "are"] },
+      ];
+
+      const CHEERS = ["Great job!", "Well done!", "Yes!", "Super!", "You got it!"];
+
+      /* ---------------- helpers every format may use ---------------- */
+      function shuffle(a) {
+        a = a.slice();
+        for (let k = a.length - 1; k > 0; k--) {
+          const j = Math.floor(Math.random() * (k + 1));
+          [a[k], a[j]] = [a[j], a[k]];
+        }
+        return a;
+      }
+
+      /* one clip at a time */
+      let player = null;
+      function play(n) {
+        if (player) player.pause();
+        player = new Audio(AUD_DIR + String(n).padStart(2, "0") + "." + AUD_EXT);
+        player.play().catch(() => {});
+      }
+
+      /* picture n, filling its box (no alt text: it would give the answer away) */
+      function pic(n) {
+        return '<img src="' + IMG_DIR + n + "." + IMG_EXT + '" alt="" class="h-full w-full object-cover" draggable="false" />';
+      }
+
+      /* "The boy is eating." with who in blue and the action in red */
+      function sentenceHtml(sc) {
+        return 'The <span class="text-sky-700">' + sc.subj.en + '</span> is <span class="text-rose-600">' + sc.verb.ing + "</span>.";
+      }
+
+      const SPK = "flex h-14 w-14 flex-none items-center justify-center rounded-full bg-gold text-forest shadow-[0_4px_0_#e39b12] active:translate-y-0.5";
+      const SPK_ICON =
+        '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>';
+
+      /* three classes for a one-try choice: before / the right one / the wrong one tapped / the rest */
+      function choiceCls(answered, isRight, isChosen) {
+        if (!answered) return "border-edge bg-white";
+        if (isRight) return "border-emerald-600 bg-emerald-50 text-emerald-800";
+        if (isChosen) return "border-rose-500 bg-rose-50 text-rose-700";
+        return "border-edge bg-white opacity-40";
+      }
+
+      /* =====================================================================
+         THE PAGE
+         ===================================================================== */
+      let uid = 0;
+      function quiz() {
+        return {
+          showMy: true,
+          queue: [], // the questions still to come; a missed one is added once more at the end
+          i: 0,
+          answered: null, // null, or what the format sent: { right, mistakes, unmarked, note }
+          cheer: "",
+          done: false,
+
+          init() {
+            this.start();
+          },
+          start() {
+            this.queue = QUESTIONS.map((q, k) => ({ ...q, src: k, uid: ++uid }));
+            this.i = 0;
+            this.answered = null;
+            this.done = false;
+            window.scrollTo(0, 0);
+          },
+          get item() {
+            return this.queue[this.i];
+          },
+          /* a format has finished */
+          finish(d) {
+            if (this.answered) return;
+            this.answered = d;
+            this.item.result = d;
+            this.cheer = CHEERS[Math.floor(Math.random() * CHEERS.length)];
+          },
+          feedback() {
+            const a = this.answered;
+            if (!a) return "";
+            if (a.unmarked) return a.note || "You are the judge. Do you sound the same?";
+            if (a.right) return this.cheer + (a.note ? " " + a.note : "");
+            const first = a.mistakes ? "All done! " + a.mistakes + (a.mistakes === 1 ? " mistake" : " mistakes") + " on the way." : "Not quite.";
+            return first + (this.item.again ? "" : " It comes back at the end.");
+          },
+          next() {
+            const it = this.item;
+            /* mistakes come back: once, at the end */
+            if (this.answered && !this.answered.right && !it.again) {
+              this.queue.push({ ...QUESTIONS[it.src], src: it.src, uid: ++uid, again: true });
+            }
+            if (this.i + 1 < this.queue.length) {
+              this.i++;
+              this.answered = null;
+            } else this.done = true;
+            window.scrollTo(0, 0);
+          },
+          /* the row of round buttons: go straight to a format */
+          jump(k) {
+            this.i = this.queue.findIndex((q) => q.src === k);
+            this.queue[this.i] = { ...QUESTIONS[k], src: k, uid: ++uid }; // a fresh copy, so it starts again
+            this.answered = null;
+            this.done = false;
+          },
+          first(k) {
+            return this.queue.find((q) => q.src === k && !q.again);
+          },
+          chipCls(k) {
+            if (!this.done && this.item.src === k) return "border-forest bg-forest";
+            const r = this.first(k) && this.first(k).result;
+            if (!r) return "border-edge bg-white";
+            return r.right ? "border-leaf bg-leaf/40" : "border-rose-300 bg-rose-100";
+          },
+          score() {
+            return this.queue.filter((q) => !q.again && q.result && q.result.right).length;
+          },
+          mark(k) {
+            const r = this.first(k) && this.first(k).result;
+            return !r ? "–" : r.right ? "✓" : "✗";
+          },
+        };
+      }
+
+      /* =====================================================================
+         THE FORMATS — each one stands alone
+         ===================================================================== */
+
+      /* shared by the formats that let the child try again: shake one thing briefly */
+      function wobbler() {
+        return {
+          shaking: null,
+          wobble(id) {
+            this.shaking = id;
+            setTimeout(() => {
+              if (this.shaking === id) this.shaking = null;
+            }, 450);
+          },
+        };
+      }
+
+      /* ---------- 1 · MATCH THE PAIRS ----------
+         q.scenes  picture numbers; the picture goes left, its word right.
+         Tap one, then its partner: a right pair disappears. */
+      function fmtMatch(q) {
+        return {
+          left: shuffle(q.scenes),
+          right: shuffle(q.scenes),
+          side: null, // the card waiting for its partner
+          n: null,
+          gone: [],
+          bad: [], // the two cards of a wrong pair, e.g. ["L3", "R5"]
+          mistakes: 0,
+
+          tap(side, n) {
+            if (this.bad.length || this.gone.includes(n)) return;
+            if (this.side === null || this.side === side) {
+              this.side = side;
+              this.n = n;
+              return;
+            }
+            if (this.n === n) {
+              this.gone.push(n);
+              play(S(n).verb.clip);
+              this.side = this.n = null;
+              if (this.gone.length === q.scenes.length) this.$dispatch("answered", { right: this.mistakes === 0, mistakes: this.mistakes });
+            } else {
+              this.mistakes++;
+              this.bad = [this.side + this.n, side + n];
+              setTimeout(() => {
+                this.bad = [];
+                this.side = this.n = null;
+              }, 450);
+            }
+          },
+          cls(side, n) {
+            if (this.gone.includes(n)) return "invisible";
+            if (this.bad.includes(side + n)) return "shake border-rose-500 bg-rose-50";
+            if (this.side === side && this.n === n) return "border-gold bg-gold/30";
+            return "border-edge bg-white";
+          },
+        };
+      }
+
+      /* ---------- 2 · LISTEN AND BUILD  /  10 · TRANSLATE WITH TILES ----------
+         q.scene  the sentence to build
+         q.extra  words that do not belong
+         q.mode   "listen" (the clip is the question) or "translate" (the Burmese is)
+         Three tries; after the third the right sentence is shown. */
+      function fmtBuild(q) {
+        const sc = S(q.scene);
+        const answer = sc.text.replace(".", "").split(" ");
+        return {
+          sc,
+          bank: shuffle([...answer, ...q.extra]).map((w, k) => ({ k, w })),
+          line: [],
+          mistakes: 0,
+          state: "", // "", "bad" (shaking), "ok", "shown"
+
+          init() {
+            if (q.mode === "listen") play(sc.clip);
+          },
+          locked() {
+            return this.state === "ok" || this.state === "shown";
+          },
+          used(t) {
+            return this.line.some((x) => x.k === t.k);
+          },
+          add(t) {
+            if (!this.locked()) this.line.push(t);
+          },
+          remove(t) {
+            if (!this.locked()) this.line = this.line.filter((x) => x.k !== t.k);
+          },
+          check() {
+            if (this.line.map((t) => t.w).join(" ") === answer.join(" ")) {
+              this.state = "ok";
+              play(sc.clip);
+              this.$dispatch("answered", { right: this.mistakes === 0, mistakes: this.mistakes });
+            } else if (++this.mistakes >= 3) {
+              this.state = "shown";
+              this.line = answer.map((w, k) => ({ k: "a" + k, w }));
+              play(sc.clip);
+              this.$dispatch("answered", { right: false });
+            } else {
+              this.state = "bad";
+              setTimeout(() => {
+                if (this.state === "bad") this.state = "";
+              }, 450);
+            }
+          },
+        };
+      }
+
+      /* ---------- 3 · SORT INTO BASKETS ----------
+         q.words  [{ w, kind }], kind = the id of a basket in BASKETS.
+         One word at a time; a wrong basket shakes and the word stays. */
+      function fmtSort(q) {
+        return {
+          words: shuffle(q.words),
+          k: 0,
+          got: Object.fromEntries(BASKETS.map((b) => [b.id, []])),
+          bad: null,
+          mistakes: 0,
+
+          cur() {
+            return this.words[this.k];
+          },
+          drop(b) {
+            const w = this.cur();
+            if (!w) return;
+            if (w.kind === b.id) {
+              this.got[b.id].push(w.w);
+              this.k++;
+              if (!this.cur()) this.$dispatch("answered", { right: this.mistakes === 0, mistakes: this.mistakes });
+            } else {
+              this.mistakes++;
+              this.bad = b.id;
+              setTimeout(() => (this.bad = null), 450);
+            }
+          },
+        };
+      }
+
+      /* ---------- 4 · CHOOSE THE SENTENCE ----------
+         q.scene  the picture; q.wrong  picture numbers whose sentences are the wrong answers.
+         One try. */
+      function fmtChoose(q) {
+        const sc = S(q.scene);
+        return {
+          sc,
+          opts: shuffle([q.scene, ...q.wrong]),
+          chosen: null,
+
+          pick(n) {
+            if (this.chosen !== null) return;
+            this.chosen = n;
+            play(sc.clip);
+            this.$dispatch("answered", { right: n === q.scene });
+          },
+          cls(n) {
+            return choiceCls(this.chosen !== null, n === q.scene, n === this.chosen);
+          },
+        };
+      }
+
+      /* ---------- 5 · FIX THE MISTAKE ----------
+         q.words    the sentence with one wrong word, word by word
+         q.bad      the position of the wrong word (0 = first)
+         q.right    the word that belongs there; q.options  the words to pick from
+         Two taps: find the wrong word, then pick the right one. */
+      function fmtFix(q) {
+        return {
+          ...wobbler(),
+          sc: S(q.scene),
+          opts: shuffle(q.options),
+          found: false,
+          fixed: false,
+          mistakes: 0,
+
+          tapWord(k) {
+            if (this.found) return;
+            if (k === q.bad) this.found = true;
+            else {
+              this.mistakes++;
+              this.wobble("w" + k);
+            }
+          },
+          tapOpt(o) {
+            if (this.fixed) return;
+            if (o === q.right) {
+              this.fixed = true;
+              play(this.sc.clip);
+              this.$dispatch("answered", { right: this.mistakes === 0, mistakes: this.mistakes });
+            } else {
+              this.mistakes++;
+              this.wobble("o" + o);
+            }
+          },
+          wordCls(k) {
+            if (k === q.bad && this.fixed) return "border-emerald-600 bg-emerald-50 text-amber-700";
+            if (k === q.bad && this.found) return "border-rose-500 bg-rose-50 text-rose-600 line-through";
+            return "border-edge bg-white" + (this.shaking === "w" + k ? " shake" : "");
+          },
+        };
+      }
+
+      /* ---------- 6 · ODD ONE OUT ----------
+         q.words  [{ w, kind }]; q.odd  the word that does not belong; q.why  shown afterwards.
+         One try; afterwards every word takes the colour of its type. */
+      function fmtOdd(q) {
+        return {
+          opts: shuffle(q.words),
+          chosen: null,
+
+          pick(o) {
+            if (this.chosen !== null) return;
+            this.chosen = o.w;
+            this.$dispatch("answered", { right: o.w === q.odd });
+          },
+          cls(o) {
+            if (this.chosen === null) return "border-edge bg-white";
+            const box = o.w === q.odd ? "border-emerald-600 bg-emerald-50" : o.w === this.chosen ? "border-rose-500 bg-rose-50" : "border-edge bg-white";
+            return box + " " + KIND_TEXT[o.kind];
+          },
+        };
+      }
+
+      /* ---------- 7 · TAP WHAT YOU HEAR ----------
+         q.verb  the word that is played; q.options  the words to choose from.
+         One try. */
+      function fmtHear(q) {
+        return {
+          opts: shuffle(q.options),
+          chosen: null,
+
+          init() {
+            play(V(q.verb).clip);
+          },
+          pick(o) {
+            if (this.chosen !== null) return;
+            this.chosen = o;
+            this.$dispatch("answered", { right: o === q.verb });
+          },
+          cls(o) {
+            return choiceCls(this.chosen !== null, o === q.verb, o === this.chosen);
+          },
+        };
+      }
+
+      /* ---------- 8 · RECORD AND COMPARE ----------
+         q.scene  the sentence to say.
+         The recording is kept only in this page's memory: it is never sent
+         anywhere and is gone when the question closes. The page cannot mark
+         it; the child compares by ear. Needs https (or localhost) and the
+         microphone permission; without them the child just says it aloud. */
+      function fmtRecord(q) {
+        let rec = null; // MediaRecorder: kept out of the state on purpose (see the note on proxies)
+        let chunks = [];
+        let timer = null;
+        let mineAudio = null;
+        return {
+          sc: S(q.scene),
+          recording: false,
+          mine: null, // address of the child's recording
+          error: "",
+          told: false,
+
+          init() {
+            play(this.sc.clip);
+          },
+          tell(note) {
+            if (!this.told) this.$dispatch("answered", { right: true, unmarked: true, note });
+            this.told = true;
+          },
+          async start() {
+            if (player) player.pause();
+            try {
+              const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+              chunks = [];
+              rec = new MediaRecorder(stream);
+              rec.ondataavailable = (e) => chunks.push(e.data);
+              rec.onstop = () => {
+                stream.getTracks().forEach((t) => t.stop()); // let go of the microphone
+                if (this.mine) URL.revokeObjectURL(this.mine);
+                this.mine = URL.createObjectURL(new Blob(chunks, { type: rec.mimeType }));
+                this.recording = false;
+                this.tell();
+              };
+              rec.start();
+              this.recording = true;
+              timer = setTimeout(() => this.stop(), 6000); // six seconds is plenty for one sentence
+            } catch (e) {
+              this.error = "The microphone is not available here.";
+              this.tell("Say the sentence aloud instead.");
+            }
+          },
+          stop() {
+            clearTimeout(timer);
+            if (rec && rec.state === "recording") rec.stop();
+          },
+          playMine() {
+            if (player) player.pause();
+            if (mineAudio) mineAudio.pause();
+            mineAudio = new Audio(this.mine);
+            mineAudio.play().catch(() => {});
+          },
+          /* the question is closing: stop the microphone and throw the recording away */
+          destroy() {
+            this.stop();
+            if (mineAudio) mineAudio.pause();
+            if (this.mine) URL.revokeObjectURL(this.mine);
+          },
+        };
+      }
+
+      /* ---------- 9 · MEMORY GAME ----------
+         q.scenes  picture numbers; each gives a picture card and a word card.
+         Two cards a turn; a pair stays open. It cannot be wrong, so it only counts the turns. */
+      function fmtMemory(q) {
+        return {
+          cards: shuffle(q.scenes.flatMap((n) => [{ id: "p" + n, n, kind: "pic" }, { id: "w" + n, n, kind: "word" }])),
+          open: [], // ids of the cards face up this turn
+          matched: [], // picture numbers already found
+          turns: 0,
+          busy: false,
+
+          isOpen(c) {
+            return this.open.includes(c.id);
+          },
+          isMatched(c) {
+            return this.matched.includes(c.n);
+          },
+          flip(c) {
+            if (this.busy || this.isOpen(c) || this.isMatched(c)) return;
+            this.open.push(c.id);
+            if (c.kind === "word") play(S(c.n).verb.clip);
+            if (this.open.length < 2) return;
+            this.turns++;
+            const [a, b] = this.open.map((id) => this.cards.find((x) => x.id === id));
+            if (a.n === b.n) {
+              this.matched.push(a.n);
+              this.open = [];
+              if (this.matched.length === q.scenes.length) this.$dispatch("answered", { right: true, note: "(" + this.turns + " turns)" });
+            } else {
+              this.busy = true;
+              setTimeout(() => {
+                this.open = [];
+                this.busy = false;
+              }, 900);
+            }
+          },
+        };
+      }
+    </script>
+    <script src="/assets/js/alpine.min.js"></script>
+  </body>
+</html>

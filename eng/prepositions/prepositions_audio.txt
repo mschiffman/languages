@@ -1,0 +1,229 @@
+PREPOSITIONS — audio clips to record
+Each number is the file name (01.mp3, 02.mp3 …), in the order the page plays them.
+
+
+=== prepositions_1 (18 clips) ===
+Note: this page puts the 6 words first (01–06), then the 12 sentences (07–18).
+
+01 In.
+02 On.
+03 Under.
+04 Behind.
+05 In front of.
+06 Next to.
+07 The cat is in the box.
+08 The cat is on the box.
+09 The cat is under the box.
+10 The cat is behind the box.
+11 The cat is in front of the box.
+12 The cat is next to the box.
+13 The dog is in the car.
+14 The dog is on the car.
+15 The dog is under the car.
+16 The dog is behind the car.
+17 The dog is in front of the car.
+18 The dog is next to the car.
+
+
+=== prepositions_2 (16 clips) ===
+
+01 Above.
+02 The bird is above the tree.
+03 Below.
+04 The fish is below the boat.
+05 Near.
+06 The dog is near the house.
+07 Far from.
+08 The dog is far from the house.
+09 Inside.
+10 The cat is inside the house.
+11 Outside.
+12 The cat is outside the house.
+13 Between.
+14 The ball is between the boxes.
+15 Against.
+16 The bike is against the wall.
+
+
+=== prepositions_3 (16 clips) ===
+
+01 Into.
+02 The cat is jumping into the box.
+03 Out of.
+04 The cat is jumping out of the box.
+05 Onto.
+06 The cat is jumping onto the table.
+07 Off.
+08 The cat is jumping off the table.
+09 Up.
+10 The boy is walking up the hill.
+11 Down.
+12 The boy is walking down the hill.
+13 To.
+14 The girl is walking to the school.
+15 From.
+16 The girl is walking from the school.
+
+
+=== prepositions_4 (16 clips) ===
+
+01 Through.
+02 The dog is running through the tunnel.
+03 Over.
+04 The dog is jumping over the wall.
+05 Across.
+06 The girl is walking across the road.
+07 Along.
+08 The boy is walking along the river.
+09 Around.
+10 The dog is running around the tree.
+11 Past.
+12 The bus is going past the school.
+13 Toward.
+14 The dog is running toward the girl.
+15 Away from.
+16 The dog is running away from the girl.
+
+
+=== prepositions_5 (16 clips) ===
+
+01 At.
+02 The boy gets up at six.
+03 At.
+04 The girl sleeps at night.
+05 On.
+06 The girl swims on Sunday.
+07 In.
+08 The boy reads in the morning.
+09 In.
+10 The girl cooks in the evening.
+11 Before.
+12 The boy washes his hands before lunch.
+13 After.
+14 The girl plays after school.
+15 Until.
+16 The boy sleeps until seven.
+
+
+=== prepositions_6 (16 clips) ===
+
+01 With.
+02 The boy is walking with an umbrella.
+03 Without.
+04 The boy is walking without an umbrella.
+05 For.
+06 The present is for the girl.
+07 From.
+08 The present is from the boy.
+09 By.
+10 The girl is going to school by bus.
+11 By.
+12 The boy is going home by boat.
+13 About.
+14 The book is about a dog.
+15 Of.
+16 The cup is full of tea.
+
+
+=== prepositions_7 (16 clips) ===
+
+01 In.
+02 The cat is in the box.
+03 Not in.
+04 The cat is not in the box.
+05 On.
+06 The dog is on the car.
+07 Not on.
+08 The dog is not on the car.
+09 Under.
+10 The ball is under the table.
+11 Not under.
+12 The ball is not under the table.
+13 Behind.
+14 The boy is behind the tree.
+15 Not behind.
+16 The boy is not behind the tree.
+
+
+=== prepositions_8 (20 clips) ===
+
+01 Where?
+02 Where is the cat? In the box.
+03 Where?
+04 Where is the dog? Under the car.
+05 Where?
+06 Where is the ball? Behind the tree.
+07 Where?
+08 Where is the bird? Above the house.
+09 Is it?
+10 Is the cat on the table? Yes, it is.
+11 Is it?
+12 Is the cat on the table? No, it is not.
+13 Is it?
+14 Is the ball next to the box? Yes, it is.
+15 Is it?
+16 Is the ball next to the box? No, it is not.
+17 Where is the cat? On the box.
+18 Where is the dog? In the car.
+19 Where is the ball? In front of the tree.
+20 Where is the bird? Behind the house.
+
+
+=== prepositions_9 (16 clips) ===
+
+01 There is.
+02 There is a cat in the box.
+03 There are.
+04 There are two cats in the box.
+05 There is.
+06 There is a bird on the wall.
+07 There are.
+08 There are two birds on the wall.
+09 There is.
+10 There is a ball under the table.
+11 There are.
+12 There are two balls under the table.
+13 There is.
+14 There is a dog behind the tree.
+15 There are.
+16 There are two dogs behind the tree.
+
+
+=== prepositions_10 (16 clips) ===
+
+01 In.
+02 The boy is in the kitchen.
+03 In.
+04 The fish is in the river.
+05 On.
+06 The picture is on the wall.
+07 On.
+08 The book is on the floor.
+09 On.
+10 The girl is on the bus.
+11 At.
+12 The girl is at school.
+13 At.
+14 The boy is at home.
+15 At.
+16 The woman is at the market.
+
+
+=== prepositions_11 (16 clips) ===
+
+01 Look at.
+02 The boy is looking at the bird.
+03 Listen to.
+04 The girl is listening to the teacher.
+05 Point at.
+06 The boy is pointing at the kite.
+07 Wait for.
+08 The girl is waiting for the bus.
+09 Think about.
+10 The boy is thinking about the mangoes.
+11 Play with.
+12 The girl is playing with the ball.
+13 Go to.
+14 The boy is going to the market.
+15 Come from.
+16 The girl is coming from the market.

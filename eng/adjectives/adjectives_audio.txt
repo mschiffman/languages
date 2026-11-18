@@ -1,0 +1,253 @@
+ADJECTIVES — audio clips to record
+Each number is the file name (01.mp3, 02.mp3 …), in the order the page plays them.
+
+
+=== adjectives_1 (24 clips) ===
+Note: this page puts the 8 words first (01–08), then the 16 sentences (09–24).
+
+01 Big.
+02 Small.
+03 Long.
+04 Short.
+05 Happy.
+06 Sad.
+07 Hot.
+08 Cold.
+09 The dog is big.
+10 The dog is small.
+11 The pencil is long.
+12 The pencil is short.
+13 The girl is happy.
+14 The girl is sad.
+15 The water is hot.
+16 The water is cold.
+17 The ball is big.
+18 The ball is small.
+19 The snake is long.
+20 The snake is short.
+21 The boy is happy.
+22 The boy is sad.
+23 The soup is hot.
+24 The soup is cold.
+
+
+=== adjectives_2 (16 clips) ===
+
+01 Old.
+02 The bag is old.
+03 New.
+04 The bag is new.
+05 Fast.
+06 The boy is fast.
+07 Slow.
+08 The boy is slow.
+09 Clean.
+10 The shirt is clean.
+11 Dirty.
+12 The shirt is dirty.
+13 Full.
+14 The cup is full.
+15 Empty.
+16 The cup is empty.
+
+
+=== adjectives_3 (16 clips) ===
+
+01 Red.
+02 The ball is red.
+03 Blue.
+04 The bag is blue.
+05 Yellow.
+06 The banana is yellow.
+07 Green.
+08 The leaf is green.
+09 Black.
+10 The cat is black.
+11 White.
+12 The rice is white.
+13 Brown.
+14 The dog is brown.
+15 Pink.
+16 The flower is pink.
+
+
+=== adjectives_4 (16 clips) ===
+
+01 Hungry.
+02 The boy is hungry.
+03 Thirsty.
+04 The girl is thirsty.
+05 Tired.
+06 The boy is tired.
+07 Angry.
+08 The girl is angry.
+09 Scared.
+10 The boy is scared.
+11 Sick.
+12 The girl is sick.
+13 Surprised.
+14 The boy is surprised.
+15 Excited.
+16 The girl is excited.
+
+
+=== adjectives_5 (16 clips) ===
+
+01 Heavy.
+02 The bag is heavy.
+03 Light.
+04 The bag is light.
+05 Hard.
+06 The stone is hard.
+07 Soft.
+08 The pillow is soft.
+09 Wet.
+10 The dog is wet.
+11 Dry.
+12 The dog is dry.
+13 Sweet.
+14 The mango is sweet.
+15 Sour.
+16 The lime is sour.
+
+
+=== adjectives_6 (16 clips) ===
+
+01 A big dog.
+02 It is a big dog.
+03 A small cat.
+04 It is a small cat.
+05 A red ball.
+06 It is a red ball.
+07 A blue bag.
+08 It is a blue bag.
+09 A long snake.
+10 It is a long snake.
+11 A new hat.
+12 It is a new hat.
+13 An old car.
+14 It is an old car.
+15 A happy girl.
+16 It is a happy girl.
+
+
+=== adjectives_7 (16 clips) ===
+
+01 Hot.
+02 The water is hot.
+03 Not hot.
+04 The water is not hot.
+05 Clean.
+06 The shirt is clean.
+07 Not clean.
+08 The shirt is not clean.
+09 Full.
+10 The cup is full.
+11 Not full.
+12 The cup is not full.
+13 Happy.
+14 The girl is happy.
+15 Not happy.
+16 The girl is not happy.
+
+
+=== adjectives_8 (16 clips) ===
+
+01 Big.
+02 The dog is big.
+03 Very big.
+04 The elephant is very big.
+05 Tall.
+06 The boy is tall.
+07 Very tall.
+08 The man is very tall.
+09 Hot.
+10 The tea is hot.
+11 Very hot.
+12 The fire is very hot.
+13 Tired.
+14 The girl is tired.
+15 Very tired.
+16 The girl is very tired.
+
+
+=== adjectives_9 (24 clips) ===
+
+01 Bigger.
+02 The elephant is bigger than the dog.
+03 Smaller.
+04 The mouse is smaller than the cat.
+05 Longer.
+06 The snake is longer than the pencil.
+07 Shorter.
+08 The pencil is shorter than the snake.
+09 Taller.
+10 The man is taller than the boy.
+11 Faster.
+12 The dog is faster than the snail.
+13 Slower.
+14 The snail is slower than the dog.
+15 Older.
+16 The man is older than the boy.
+17 The dog is bigger than the elephant.
+18 The cat is smaller than the mouse.
+19 The pencil is longer than the snake.
+20 The snake is shorter than the pencil.
+21 The boy is taller than the man.
+22 The snail is faster than the dog.
+23 The dog is slower than the snail.
+24 The boy is older than the man.
+
+
+=== adjectives_10 (24 clips) ===
+
+01 The biggest.
+02 The elephant is the biggest.
+03 The smallest.
+04 The mouse is the smallest.
+05 The longest.
+06 The snake is the longest.
+07 The tallest.
+08 The man is the tallest.
+09 The fastest.
+10 The dog is the fastest.
+11 The slowest.
+12 The snail is the slowest.
+13 The oldest.
+14 The grandfather is the oldest.
+15 The youngest.
+16 The baby is the youngest.
+17 The elephant is the smallest.
+18 The mouse is the biggest.
+19 The snake is the shortest.
+20 The man is the shortest.
+21 The dog is the slowest.
+22 The snail is the fastest.
+23 The grandfather is the youngest.
+24 The baby is the oldest.
+
+
+=== adjectives_11 (22 clips) ===
+
+01 Good.
+02 The first drawing is good.
+03 Better.
+04 The second drawing is better.
+05 The best.
+06 The third drawing is the best.
+07 Bad.
+08 The weather is bad.
+09 Worse.
+10 The weather is worse.
+11 The worst.
+12 The weather is the worst.
+13 More beautiful.
+14 The red flower is more beautiful.
+15 The most beautiful.
+16 The pink flower is the most beautiful.
+17 The first drawing is the best.
+18 The second drawing is the best.
+19 The third drawing is bad.
+20 The weather is good.
+21 The red flower is the most beautiful.
+22 The pink flower is the worst.

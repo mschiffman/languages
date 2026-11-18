@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>How Words 1</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <link href="/img/favicon.png" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      /* Same colours and fonts as the story pages (ytstory.css). */
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              paper: "#f1f6ea",
+              edge: "#e3edd6",
+              forest: "#274b2f",
+              moss: "#3c6b45",
+              leaf: "#8fc07e",
+              gold: "#f6b93b",
+              golddeep: "#e39b12",
+            },
+            fontFamily: {
+              display: ["Fredoka", "sans-serif"],
+              body: ["Andika", "Segoe UI", "system-ui", "sans-serif"],
+              my: ["Noto Sans Myanmar", "Padauk", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      [x-cloak] { display: none !important; }
+      button { -webkit-tap-highlight-color: transparent; }
+      .shake { animation: shake 0.4s; }
+      @keyframes shake {
+        20%, 60% { transform: translateX(-6px); }
+        40%, 80% { transform: translateX(6px); }
+      }
+      /* empty slot in "Make the sentence" */
+      .slot { display: inline-block; min-width: 3em; border-bottom: 4px solid currentColor; text-align: center; line-height: 1.2; }
+    </style>
+  </head>
+
+  <body class="bg-edge font-body text-forest antialiased">
+    <div class="mx-auto flex min-h-screen max-w-xl flex-col bg-paper px-4 pb-5" x-data="lesson()" x-cloak>
+      <a
+        class="mt-2 inline-flex min-h-[2rem] items-center gap-1 self-start rounded-full py-0.5 pl-1.5 pr-3 font-display font-semibold text-moss hover:bg-edge hover:text-forest"
+        href="/english.html"
+      >
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        English
+      </a>
+      <!-- ---------- title ---------- -->
+      <header class="flex items-center justify-between gap-2 pt-1">
+        <div class="flex items-center gap-2 font-display text-xl font-semibold">
+          <svg class="h-6 w-6 flex-none" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path d="M8 16C11 12 14 9 18 7" stroke="#274B2F" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+          <span class="leading-tight">How Words</span>
+          <span class="whitespace-nowrap rounded-full bg-gold px-2.5 py-0.5 text-sm">Adverbs 1</span>
+        </div>
+        <button
+          class="h-10 flex-none rounded-full border-2 px-3 font-my text-sm"
+          :class="showMy ? 'border-forest bg-forest text-white' : 'border-edge bg-white text-moss'"
+          @click="showMy = !showMy"
+          :aria-pressed="showMy"
+        >မြန်မာ</button>
+      </header>
+
+      <!-- ---------- the four steps ---------- -->
+      <nav class="mt-3 flex gap-1.5" aria-label="Lesson steps">
+        <template x-for="(s, k) in STEPS" :key="k">
+          <button
+            class="flex h-11 flex-1 items-center justify-center gap-1 rounded-full border-2 font-display text-base font-semibold"
+            :class="k === step ? 'border-forest bg-forest text-white' : k < step ? 'border-leaf bg-leaf/40 text-forest' : 'border-edge bg-white text-moss'"
+            @click="go(k)"
+            :aria-label="'Step ' + (k + 1) + ': ' + s.en"
+            :aria-current="k === step ? 'step' : false"
+          >
+            <span x-text="s.icon" aria-hidden="true"></span><span x-text="k + 1"></span>
+          </button>
+        </template>
+      </nav>
+
+      <div class="mt-3 flex items-baseline justify-between gap-3">
+        <h1 class="font-display text-2xl font-semibold leading-tight" x-text="done ? 'Well done!' : STEPS[step].en"></h1>
+        <span class="whitespace-nowrap font-display font-semibold text-moss" x-show="!done" x-text="(i + 1) + ' / ' + total()"></span>
+      </div>
+      <p class="font-my text-base leading-loose text-moss" x-show="showMy && !done" x-text="STEPS[step].my"></p>
+
+      <div class="mb-4 mt-1 flex gap-1" x-show="!done" aria-hidden="true">
+        <template x-for="k in total()" :key="k">
+          <span class="h-2 flex-1 rounded" :class="k - 1 < i ? 'bg-leaf' : k - 1 === i ? 'bg-gold' : 'bg-edge'"></span>
+        </template>
+      </div>
+
+      <p class="mb-3 rounded-xl bg-white px-3 py-1.5 text-sm text-moss" x-show="!AUDIO_READY && !done">
+        🔇 The voices are not recorded yet. Read the words for now.
+      </p>
+
+      <main class="flex flex-1 flex-col">
+        <!-- ========== 1 · Look and listen: picture, word, sentence, and its opposite ========== -->
+        <template x-if="step === 0">
+          <section class="flex flex-col gap-3">
+            <div class="aspect-[4/3] overflow-hidden rounded-3xl border-4 border-forest bg-white" x-html="pic(sc)"></div>
+
+            <div class="flex items-center gap-3 rounded-3xl border-2 border-edge bg-white p-3">
+              <button :class="SPK" :disabled="!AUDIO_READY" @click="play(sc.word.clip)" aria-label="Hear the word" x-html="SPK_ICON"></button>
+              <div class="min-w-0 flex-1">
+                <div class="font-display text-4xl font-bold leading-tight text-orange-600" x-text="sc.word.id"></div>
+                <!-- how the word is made: quick + ly -->
+                <div class="text-base font-bold text-moss">
+                  <span class="text-emerald-700" x-text="sc.word.from"></span> → <span class="text-orange-600" x-text="sc.word.id"></span>
+                </div>
+                <div class="font-my text-lg leading-loose text-moss" x-show="showMy" x-text="sc.word.my"></div>
+              </div>
+              <!-- the opposite, small: the pair is learnt together -->
+              <div class="flex flex-none flex-col items-center gap-0.5 text-moss">
+                <div class="aspect-[4/3] w-20 overflow-hidden rounded-lg border-2 border-edge" x-html="pic(other(sc), true, true)"></div>
+                <span class="text-sm font-bold">↔ <span x-text="sc.word.opp"></span></span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 rounded-3xl border-2 border-edge bg-white p-3">
+              <button :class="SPK" :disabled="!AUDIO_READY" @click="play(sc.clip)" aria-label="Hear the sentence" x-html="SPK_ICON"></button>
+              <div>
+                <p class="text-2xl font-bold leading-snug" x-html="sentence(sc)"></p>
+                <p class="font-my text-base leading-loose text-moss" x-show="showMy" x-text="sc.my"></p>
+              </div>
+            </div>
+          </section>
+        </template>
+
+        <!-- ========== 2 · Tap the picture: hear (or read) the word, find it ========== -->
+        <template x-if="step === 1">
+          <section class="flex flex-col gap-3">
+            <div class="flex items-center gap-3 rounded-3xl border-[3px] border-dashed border-leaf bg-white p-3">
+              <button :class="SPK" :disabled="!AUDIO_READY" @click="play(sc.word.clip)" aria-label="Hear the word again" x-html="SPK_ICON"></button>
+              <div class="font-display text-4xl font-bold text-orange-600" x-text="sc.word.id"></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <template x-for="o in opts" :key="o.n">
+                <button
+                  class="relative aspect-[4/3] overflow-hidden rounded-2xl border-4 bg-white transition"
+                  :class="[
+                    solved && o.n === sc.n ? 'border-green-600 ring-4 ring-green-200'
+                      : solved || wrong.includes(o.n) ? 'border-edge opacity-40'
+                      : 'border-forest active:translate-y-0.5',
+                    shaking === o.n ? 'shake' : '',
+                  ]"
+                  :disabled="solved || wrong.includes(o.n)"
+                  @click="pickPic(o)"
+                  :aria-label="'Picture ' + o.n"
+                  x-html="pic(o, true)"
+                ></button>
+              </template>
+            </div>
+
+            <div class="rounded-2xl border-2 border-green-600 bg-green-50 px-4 py-2.5 text-lg" x-show="solved" aria-live="polite">
+              <b class="font-display" x-text="cheer"></b> <span x-html="sentence(sc)"></span>
+            </div>
+          </section>
+        </template>
+
+        <!-- ========== 3 · Make the sentence: same frame, new person, new action ========== -->
+        <template x-if="step === 2">
+          <section class="flex flex-col gap-3">
+            <div class="aspect-[4/3] overflow-hidden rounded-3xl border-4 border-forest bg-white" x-html="pic(sc)"></div>
+
+            <div class="flex items-center gap-3 rounded-3xl border-[3px] border-dashed border-leaf bg-white p-3">
+              <button :class="SPK" :disabled="!AUDIO_READY || !(gotS && gotW)" @click="play(sc.clip)" aria-label="Hear the sentence" x-html="SPK_ICON"></button>
+              <p class="text-2xl font-bold leading-relaxed">
+                The <span class="slot text-sky-700" x-text="gotS ? sc.subj.en : ' '"></span> is
+                <span class="text-rose-600" x-text="sc.verb.ing"></span>
+                <span class="slot text-orange-600" x-text="gotW ? sc.word.id : ' '"></span>.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <template x-for="s in SWAP_SUBJECTS" :key="s.en">
+                <button
+                  class="min-h-[56px] rounded-2xl border-[3px] text-xl font-bold transition"
+                  :class="[
+                    gotS && s.en === sc.subj.en ? 'border-sky-700 bg-sky-700 text-white'
+                      : gotS ? 'border-edge bg-white text-sky-700 opacity-40'
+                      : 'border-sky-700 bg-white text-sky-700 shadow-[0_4px_0_#e3edd6] active:translate-y-0.5',
+                    shaking === s.en ? 'shake' : '',
+                  ]"
+                  :disabled="gotS"
+                  @click="pickSubject(s)"
+                  x-text="s.en"
+                ></button>
+              </template>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <template x-for="w in wopts" :key="w.id">
+                <button
+                  class="min-h-[56px] rounded-2xl border-[3px] text-xl font-bold transition"
+                  :class="[
+                    gotW && w.id === sc.word.id ? 'border-orange-600 bg-orange-600 text-white'
+                      : gotW ? 'border-edge bg-white text-orange-600 opacity-40'
+                      : 'border-orange-600 bg-white text-orange-600 shadow-[0_4px_0_#e3edd6] active:translate-y-0.5',
+                    shaking === w.id ? 'shake' : '',
+                  ]"
+                  :disabled="gotW"
+                  @click="pickWord(w)"
+                  x-text="w.id"
+                ></button>
+              </template>
+            </div>
+
+            <div class="rounded-2xl border-2 border-green-600 bg-green-50 px-4 py-2.5 text-lg" x-show="gotS && gotW" aria-live="polite">
+              <b class="font-display" x-text="cheer"></b>
+              <span class="font-my leading-loose text-moss" x-show="showMy" x-text="sc.my"></span>
+            </div>
+          </section>
+        </template>
+
+        <!-- ========== 4 · Yes or no?: does the sentence match the picture? ========== -->
+        <template x-if="step === 3 && !done">
+          <section class="flex flex-col gap-3">
+            <div class="aspect-[4/3] overflow-hidden rounded-3xl border-4 border-forest bg-white" x-html="pic(sc)"></div>
+
+            <div class="flex items-center gap-3 rounded-3xl border-[3px] border-dashed border-leaf bg-white p-3">
+              <button :class="SPK" :disabled="!AUDIO_READY" @click="play(said.clip)" aria-label="Hear the sentence" x-html="SPK_ICON"></button>
+              <p class="text-2xl font-bold leading-snug" x-html="sentence(said)"></p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <template x-for="val in [true, false]" :key="val">
+                <button
+                  class="min-h-[60px] rounded-2xl border-[3px] text-2xl font-bold transition"
+                  :class="chosen === null ? 'border-forest bg-white shadow-[0_4px_0_#e3edd6] active:translate-y-0.5'
+                    : val === truth ? 'border-green-600 bg-green-50 text-green-800'
+                    : val === chosen ? 'border-orange-400 bg-orange-50 text-orange-800 line-through'
+                    : 'border-edge bg-white opacity-40'"
+                  :disabled="chosen !== null"
+                  @click="answer(val)"
+                  x-text="val ? '✓ Yes' : '✗ No'"
+                ></button>
+              </template>
+            </div>
+
+            <div
+              class="rounded-2xl border-2 px-4 py-2.5 text-lg"
+              :class="chosen === truth ? 'border-green-600 bg-green-50' : 'border-orange-400 bg-orange-50'"
+              x-show="chosen !== null"
+              aria-live="polite"
+            >
+              <b class="font-display" x-text="chosen === truth ? cheer : 'Not quite.'"></b>
+              <span x-html="sentence(sc)"></span>
+            </div>
+          </section>
+        </template>
+
+        <!-- ========== the end: score, wrong answers next to the right ones ========== -->
+        <template x-if="done">
+          <section class="flex flex-col gap-4" aria-live="polite">
+            <div class="rounded-3xl border-2 border-edge bg-white px-4 py-5 text-center">
+              <div class="text-5xl tracking-widest" aria-hidden="true">
+                <template x-for="s in 3" :key="s"><span :class="s <= stars() ? '' : 'opacity-30 grayscale'">⭐</span></template>
+              </div>
+              <p class="mt-1 font-display text-5xl font-bold" x-text="score() + ' / ' + yn.length"></p>
+              <p class="mt-2 text-lg" x-text="message()"></p>
+            </div>
+
+            <div class="flex flex-col gap-2" x-show="missed().length">
+              <h2 class="font-display text-xl font-semibold">
+                Look again <span class="rounded-full bg-orange-400 px-2 text-base text-white" x-text="missed().length"></span>
+              </h2>
+              <template x-for="(m, k) in missed()" :key="k">
+                <div class="flex items-center gap-3 rounded-xl border-l-[6px] border-orange-400 bg-white p-2.5">
+                  <div class="aspect-[4/3] w-24 flex-none overflow-hidden rounded-lg border-2 border-forest" x-html="pic(m.scene, true, true)"></div>
+                  <div class="min-w-0 leading-snug">
+                    <p class="font-bold" x-html="sentence(m.said)"></p>
+                    <p class="text-orange-800">You said <s x-text="m.truth ? 'No' : 'Yes'"></s></p>
+                    <p class="font-bold text-green-800">
+                      <span x-text="m.truth ? '✓ Yes' : '✓ No.'"></span> <span x-show="!m.truth" x-html="sentence(m.scene)"></span>
+                    </p>
+                  </div>
+                </div>
+              </template>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h2 class="font-display text-xl font-semibold">Your 6 how words</h2>
+              <div class="grid grid-cols-1 gap-2">
+                <template x-for="p in PAIRS" :key="p[0].id">
+                  <div class="flex items-center justify-center gap-3 rounded-xl border-2 border-edge bg-white px-2 py-2 text-lg font-bold text-orange-600">
+                    <button :disabled="!AUDIO_READY" @click="play(p[0].clip)" x-text="p[0].id"></button>
+                    <span class="text-moss">↔</span>
+                    <button :disabled="!AUDIO_READY" @click="play(p[1].clip)" x-text="p[1].id"></button>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <div class="mt-2 flex flex-col items-center gap-3">
+              <button
+                class="h-14 min-w-[230px] rounded-full bg-gold px-6 font-display text-xl font-semibold shadow-[0_5px_0_#e39b12] active:translate-y-0.5"
+                x-show="missed().length"
+                @click="startPractice()"
+                x-text="'Practice these (' + missed().length + ')'"
+              ></button>
+              <button
+                class="h-14 min-w-[230px] rounded-full px-6 font-display text-xl font-semibold active:translate-y-0.5"
+                :class="missed().length ? 'bg-leaf/30 shadow-[0_5px_0_#8fc07e]' : 'bg-gold shadow-[0_5px_0_#e39b12]'"
+                @click="go(0)"
+              >↻ Start the lesson again</button>
+            </div>
+          </section>
+        </template>
+      </main>
+
+      <!-- ---------- back / next ---------- -->
+      <footer class="mt-5 flex items-center gap-3" x-show="!done">
+        <button
+          class="h-14 w-14 flex-none rounded-full border-2 border-edge bg-white text-2xl text-moss disabled:opacity-30"
+          :disabled="step === 0 && i === 0"
+          @click="back()"
+          aria-label="Back"
+        >←</button>
+        <button
+          class="h-14 flex-1 rounded-full bg-gold font-display text-xl font-semibold shadow-[0_5px_0_#e39b12] transition active:translate-y-0.5 disabled:opacity-40 disabled:shadow-none"
+          :disabled="!canGoOn()"
+          @click="main()"
+          x-text="mainLabel()"
+        ></button>
+      </footer>
+    </div>
+
+    <script>
+      /* =====================================================================
+         HOW WORDS 1 — six adverbs of manner in three opposite pairs,
+         one sentence frame: "The ___ is ___ing ___."
+         (the frame of Action Words 1 with one more word at the end)
+
+         The four steps:
+           1 Look and listen    picture + word + sentence; "quick → quickly" and
+                                the opposite shown beside the word
+           2 Tap the picture    hear the word, find it among four pictures
+           3 Make the sentence  same frame, new person and action
+                                (blue = who, red = action, orange = how)
+           4 Yes or no?         does the sentence match the picture?  -> score page
+         "Listen and do" ("Clap quickly!") is not on the page:
+         the teacher in the room does that part with the children.
+
+         ---------------------------------------------------------------------
+         PICTURES — 12 files, IMG_DIR/1.jpg … 12.jpg, 4:3 (e.g. 1200×900).
+         The same boy, girl and dog as in Action Words 1. Each pair is the SAME
+         child doing the SAME thing on the same background; only HOW differs,
+         and it must be clear at thumbnail size (speed lines, sound lines,
+         the face).
+            1 boy walking quickly (long strides, speed lines)
+            2 boy walking slowly (small steps, a snail beside him)
+            3 girl reading loudly (mouth wide open, big sound lines)
+            4 girl reading quietly (whispering, tiny sound lines)
+            5 boy eating happily (big smile)
+            6 boy eating sadly (tears, mouth turned down)
+            7 girl running quickly (speed lines, hair flying)
+            8 girl running slowly (tired jog, drooping arms)
+            9 girl walking loudly (stomping, big sound lines at her feet)
+           10 girl walking quietly (on tiptoe, finger on her lips)
+           11 dog sitting happily (tongue out, tail wagging)
+           12 dog sitting sadly (ears and tail down)
+         When the files are uploaded, set IMAGES_READY = true.
+
+         AUDIO — 18 clips, AUD_DIR/01.mp3 … 18.mp3.
+           01–06  the word alone:
+                  quickly · slowly · loudly · quietly · happily · sadly
+           07–18  the sentence for picture 1–12 (clip number = picture number + 6):
+                  07 The boy is walking quickly.    08 The boy is walking slowly.
+                  09 The girl is reading loudly.    10 The girl is reading quietly.
+                  11 The boy is eating happily.     12 The boy is eating sadly.
+                  13 The girl is running quickly.   14 The girl is running slowly.
+                  15 The girl is walking loudly.    16 The girl is walking quietly.
+                  17 The dog is sitting happily.    18 The dog is sitting sadly.
+         When the clips are uploaded, set AUDIO_READY = true.
+
+         While a switch is false the page never asks the server for those
+         files, so no "not found" answer gets cached (4 hours on Cloudflare).
+         ===================================================================== */
+      const IMAGES_READY = false;
+      const AUDIO_READY = false;
+
+      const IMG_DIR = "/img/lessons/adverbs-1/";
+      const IMG_EXT = "jpg";
+      const AUD_DIR = "https://languages.rmlives.com/eng/lessons/adverbs-1/";
+      const AUD_EXT = "mp3";
+
+      /* who: blue in every lesson */
+      const SUBJECTS = {
+        boy: { en: "boy", my: "ကောင်လေး" },
+        girl: { en: "girl", my: "ကောင်မလေး" },
+        dog: { en: "dog", my: "ခွေး" },
+      };
+      const SWAP_SUBJECTS = [SUBJECTS.girl, SUBJECTS.dog];
+
+      /* the actions of Action Words 1 (red) */
+      const VERBS = {
+        walk: { ing: "walking", myIng: "လမ်းလျှောက်နေတယ်" },
+        read: { ing: "reading", myIng: "စာဖတ်နေတယ်" },
+        eat: { ing: "eating", myIng: "စားနေတယ်" },
+        run: { ing: "running", myIng: "ပြေးနေတယ်" },
+        sit: { ing: "sitting", myIng: "ထိုင်နေတယ်" },
+      };
+
+      /* the how words: orange in every lesson, written in opposite pairs.
+         Word clip = position in this list (1–6).
+         from = the describing word it is made from (green, as in Describing Words 1). */
+      const WORDS = [
+        { id: "quickly", opp: "slowly", from: "quick", my: "မြန်မြန်" },
+        { id: "slowly", opp: "quickly", from: "slow", my: "ဖြည်းဖြည်း" },
+        { id: "loudly", opp: "quietly", from: "loud", my: "ကျယ်ကျယ်" },
+        { id: "quietly", opp: "loudly", from: "quiet", my: "တိုးတိုး" },
+        { id: "happily", opp: "sadly", from: "happy", my: "ပျော်ပျော်ရွှင်ရွှင်" },
+        { id: "sadly", opp: "happily", from: "sad", my: "ဝမ်းနည်းစွာ" },
+      ];
+      WORDS.forEach((w, k) => {
+        w.clip = k + 1;
+      });
+      const PAIRS = [0, 2, 4].map((k) => [WORDS[k], WORDS[k + 1]]);
+
+      /* one line per picture, in picture order: [who, action, how].
+         Every who + action comes twice, once for each word of a pair. */
+      const SCENES = [
+        ["boy", "walk", "quickly"], ["boy", "walk", "slowly"],
+        ["girl", "read", "loudly"], ["girl", "read", "quietly"],
+        ["boy", "eat", "happily"], ["boy", "eat", "sadly"],
+        ["girl", "run", "quickly"], ["girl", "run", "slowly"],
+        ["girl", "walk", "loudly"], ["girl", "walk", "quietly"],
+        ["dog", "sit", "happily"], ["dog", "sit", "sadly"],
+      ].map(([s, v, w], k) => {
+        const subj = SUBJECTS[s];
+        const verb = Object.assign({ id: v }, VERBS[v]);
+        const word = WORDS.find((x) => x.id === w);
+        return {
+          n: k + 1, // picture number
+          clip: k + 7, // sentence audio
+          subj,
+          verb,
+          word,
+          text: "The " + subj.en + " is " + verb.ing + " " + word.id + ".",
+          my: subj.my + "က " + word.my + " " + verb.myIng + "။",
+          desc: subj.en + " " + verb.ing + " " + word.id,
+        };
+      });
+      const LEARN = SCENES.slice(0, 6); // steps 1–2: one picture per word
+      const SWAP = SCENES.slice(6); // step 3: the same words with a new person and action
+
+      const STEPS = [
+        { icon: "👀", en: "Look and listen", my: "ကြည့်ပြီး နားထောင်ပါ" },
+        { icon: "👆", en: "Tap the picture", my: "ပုံကို နှိပ်ပါ" },
+        { icon: "🧩", en: "Make the sentence", my: "ဝါကျ တည်ဆောက်ပါ" },
+        { icon: "✅", en: "Yes or no?", my: "မှန်သလား၊ မှားသလား" },
+      ];
+      const CHEERS = ["Great job!", "Well done!", "Yes!", "Super!", "You got it!"];
+
+      function shuffle(a) {
+        a = a.slice();
+        for (let k = a.length - 1; k > 0; k--) {
+          const j = Math.floor(Math.random() * (k + 1));
+          [a[k], a[j]] = [a[j], a[k]];
+        }
+        return a;
+      }
+
+      /* ---------------- audio: one clip at a time, nothing fetched until AUDIO_READY ---------------- */
+      let player = null;
+      function play(n) {
+        if (!AUDIO_READY) return;
+        if (player) player.pause();
+        player = new Audio(AUD_DIR + String(n).padStart(2, "0") + "." + AUD_EXT);
+        player.play().catch(() => {});
+      }
+
+      const SPK_ICON =
+        '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>';
+
+      /* Alpine wraps the state in proxies: always compare by number (n) or word (id), never by object. */
+      function lesson() {
+        return {
+          IMAGES_READY,
+          AUDIO_READY,
+          STEPS,
+          PAIRS,
+          SWAP_SUBJECTS,
+          SPK_ICON,
+          SPK: "flex h-14 w-14 flex-none items-center justify-center rounded-full bg-gold text-forest shadow-[0_4px_0_#e39b12] active:translate-y-0.5 disabled:opacity-35 disabled:shadow-none",
+
+          showMy: true,
+          step: 0,
+          i: 0,
+          rounds: LEARN,
+          sc: LEARN[0], // the scene in the picture
+          cheer: "",
+          shaking: null,
+          /* step 2 */
+          opts: [],
+          wrong: [],
+          solved: false,
+          /* step 3 */
+          wopts: [],
+          gotS: false,
+          gotW: false,
+          /* step 4 */
+          yn: [],
+          said: LEARN[0], // the sentence shown (may not match the picture)
+          truth: true,
+          chosen: null,
+          results: [],
+          practice: false,
+          done: false,
+
+          init() {
+            this.go(0);
+          },
+
+          /* ---------- moving about ---------- */
+          go(s) {
+            this.step = s;
+            this.i = 0;
+            this.done = false;
+            this.practice = false;
+            if (s === 0) this.rounds = LEARN;
+            if (s === 1) this.rounds = shuffle(LEARN);
+            if (s === 2) this.rounds = shuffle(SWAP);
+            if (s === 3) {
+              this.yn = this.makeYesNo();
+              this.results = [];
+            }
+            this.load();
+          },
+          total() {
+            return this.step === 3 ? this.yn.length : this.rounds.length;
+          },
+          /* the same person and action with the opposite word (walking quickly -> walking slowly) */
+          other(sc) {
+            return SCENES.find((x) => x.subj.en === sc.subj.en && x.verb.id === sc.verb.id && x.word.id === sc.word.opp);
+          },
+          load() {
+            this.solved = false;
+            this.wrong = [];
+            this.shaking = null;
+            this.gotS = this.gotW = false;
+            this.chosen = null;
+            this.cheer = CHEERS[Math.floor(Math.random() * CHEERS.length)];
+
+            if (this.step === 3) {
+              const q = this.yn[this.i];
+              this.sc = q.scene;
+              this.said = q.said;
+              this.truth = q.truth;
+              play(q.said.clip);
+            } else {
+              const sc = (this.sc = this.rounds[this.i]);
+              if (this.step === 0) play(sc.word.clip);
+              if (this.step === 1) {
+                /* always with its opposite, plus two from other pairs */
+                const rest = LEARN.filter((x) => x.word.id !== sc.word.id && x.word.id !== sc.word.opp);
+                this.opts = shuffle([sc, this.other(sc), ...shuffle(rest).slice(0, 2)]);
+                play(sc.word.clip);
+              }
+              if (this.step === 2) {
+                /* the right word, its opposite, and two from other pairs */
+                const rest = WORDS.filter((w) => w.id !== sc.word.id && w.id !== sc.word.opp);
+                this.wopts = shuffle([sc.word, WORDS.find((w) => w.id === sc.word.opp), ...shuffle(rest).slice(0, 2)]);
+              }
+            }
+            window.scrollTo(0, 0);
+          },
+          canGoOn() {
+            if (this.step === 1) return this.solved;
+            if (this.step === 2) return this.gotS && this.gotW;
+            if (this.step === 3) return this.chosen !== null;
+            return true;
+          },
+          mainLabel() {
+            if (this.i + 1 < this.total()) return "Next →";
+            if (this.step === 3) return this.practice ? "Finish" : "See my score";
+            return "Next: " + STEPS[this.step + 1].en + " →";
+          },
+          main() {
+            if (this.i + 1 < this.total()) {
+              this.i++;
+              this.load();
+            } else if (this.step < 3) this.go(this.step + 1);
+            else {
+              this.done = true;
+              window.scrollTo(0, 0);
+            }
+          },
+          back() {
+            if (this.i > 0) {
+              this.i--;
+              this.load();
+            } else if (this.step > 0) this.go(this.step - 1);
+          },
+          wobble(id) {
+            this.shaking = null;
+            this.$nextTick(() => {
+              this.shaking = id;
+              setTimeout(() => {
+                if (this.shaking === id) this.shaking = null;
+              }, 450);
+            });
+          },
+
+          /* ---------- step 2 ---------- */
+          pickPic(o) {
+            if (o.n === this.sc.n) {
+              this.solved = true;
+              play(this.sc.clip);
+            } else {
+              this.wobble(o.n);
+              setTimeout(() => this.wrong.push(o.n), 400);
+            }
+          },
+
+          /* ---------- step 3 ---------- */
+          pickSubject(s) {
+            if (s.en === this.sc.subj.en) this.gotS = true;
+            else this.wobble(s.en);
+            this.checkBuilt();
+          },
+          pickWord(w) {
+            if (w.id === this.sc.word.id) this.gotW = true;
+            else this.wobble(w.id);
+            this.checkBuilt();
+          },
+          checkBuilt() {
+            if (this.gotS && this.gotW) play(this.sc.clip);
+          },
+
+          /* ---------- step 4 ---------- */
+          /* Eight pictures; four get their own sentence, four get the
+             opposite one ("…walking slowly." under the boy walking quickly),
+             so every sentence has a clip and only the how word is wrong. */
+          makeYesNo() {
+            const truths = shuffle([true, true, true, true, false, false, false, false]);
+            return shuffle(SCENES)
+              .slice(0, 8)
+              .map((scene, k) => ({ scene, truth: truths[k], said: truths[k] ? scene : this.other(scene) }));
+          },
+          answer(val) {
+            this.chosen = val;
+            this.results[this.i] = val === this.truth;
+          },
+          score() {
+            return this.results.filter((r) => r === true).length;
+          },
+          missed() {
+            return this.yn.filter((q, k) => this.results[k] === false);
+          },
+          startPractice() {
+            this.yn = this.missed();
+            this.results = [];
+            this.practice = true;
+            this.i = 0;
+            this.done = false;
+            this.load();
+          },
+          stars() {
+            const p = this.score() / this.yn.length;
+            return p >= 0.9 ? 3 : p >= 0.6 ? 2 : 1;
+          },
+          message() {
+            if (this.practice) return this.missed().length ? "Keep going. Try these once more." : "You got them all this time!";
+            const s = this.stars();
+            return s === 3 ? "Excellent! You know your how words." : s === 2 ? "Good work! Do the lesson again tomorrow." : "Good try! Go back to step 1 and listen again.";
+          },
+
+          /* ---------- drawing ---------- */
+          play,
+          /* "The boy is walking quickly." with who in blue, the action in red and how in orange */
+          sentence(sc) {
+            return (
+              'The <span class="text-sky-700">' + sc.subj.en + '</span> is <span class="text-rose-600">' + sc.verb.ing +
+              '</span> <span class="text-orange-600">' + sc.word.id + "</span>."
+            );
+          },
+          /* the picture, or a labelled box until the picture exists (tiny = thumbnail: number only) */
+          pic(sc, small, tiny) {
+            if (IMAGES_READY) return '<img src="' + IMG_DIR + sc.n + "." + IMG_EXT + '" alt="" class="block h-full w-full object-cover" />';
+            return (
+              '<div class="flex h-full w-full flex-col items-center justify-center gap-1 bg-[repeating-linear-gradient(45deg,#fff,#fff_12px,#f1f6ea_12px,#f1f6ea_24px)] p-1 text-center text-moss">' +
+              (small ? "" : '<svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 15.5l-5-5-8.5 9"/></svg>') +
+              '<span class="font-display font-semibold ' + (small ? "text-sm" : "text-lg") + '">' + sc.n + "." + IMG_EXT + "</span>" +
+              (tiny ? "" : '<span class="' + (small ? "text-sm leading-tight" : "text-base") + ' font-bold text-forest">' + sc.desc + "</span>") +
+              "</div>"
+            );
+          },
+        };
+      }
+    </script>
+    <script src="/assets/js/alpine.min.js"></script>
+  </body>
+</html>

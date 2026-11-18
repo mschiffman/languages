@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Franc-parler: French homepage design</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Playwrite+FR+Moderne:wght@300;400&display=swap" rel="stylesheet">
+
+<!-- Play CDN for the prototype. For production, compile with the Tailwind CLI and move this config into your CSS/config file. -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper:   '#FAFAFF',  // cool notebook white
+          ink:     '#2A2590',  // school fountain-pen violet-blue
+          inkdeep: '#15123F',  // body text
+          seyes:   '#C9C6EE',  // ruling lines
+          margin:  '#C8234A',  // red margin line and teacher's pen
+          stabilo: '#FFE55C',  // highlighter
+          juste:   '#1B7550',  // correct answer
+        },
+        fontFamily: {
+          display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+          body:    ['"Atkinson Hyperlegible Next"', 'system-ui', 'sans-serif'],
+          cursive: ['"Playwrite FR Moderne"', '"Segoe Script"', 'cursive'],
+        },
+      },
+    },
+  }
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
+<style>
+  [x-cloak] { display: none !important; }
+
+  /* French school "Seyès" ruling: fine lines every 8px, a strong line every 32px, vertical lines, red margin */
+  .seyes {
+    --m: 44px;
+    background-color: #fff;
+    background-image:
+      linear-gradient(90deg, transparent var(--m), #C8234A var(--m), #C8234A calc(var(--m) + 1.5px), transparent calc(var(--m) + 1.5px)),
+      repeating-linear-gradient(0deg, transparent 0 31px, #B5B1E8 31px 32px),
+      repeating-linear-gradient(0deg, transparent 0 7px, #E6E4F8 7px 8px),
+      repeating-linear-gradient(90deg, transparent 0 31px, #DDDAF6 31px 32px);
+  }
+  @media (min-width: 640px) { .seyes { --m: 72px; } }
+
+  .surligne { /* highlighter stroke behind handwriting */
+    background: linear-gradient(transparent 22%, #FFE55C 22%, #FFE55C 86%, transparent 86%);
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+    padding: 0 .2em;
+  }
+
+  :focus-visible { outline: 3px solid #2A2590; outline-offset: 3px; border-radius: 4px; }
+  .on-ink :focus-visible { outline-color: #FFE55C; }
+</style>
+</head>
+
+<body class="bg-paper font-body text-inkdeep text-[17px] leading-relaxed antialiased">
+
+<!-- ───────────── Header ───────────── -->
+<header x-data="{ open: false }" class="border-b border-seyes bg-paper">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4">
+    <a href="#" class="font-display text-2xl font-extrabold tracking-tight text-ink">Franc-parler</a>
+
+    <nav class="hidden items-center gap-7 text-[15px] font-semibold lg:flex" aria-label="Main">
+      <a href="#levels" class="hover:text-ink">Lessons by level</a>
+      <a href="#topics" class="hover:text-ink">Topics</a>
+      <a href="#quiz" class="hover:text-ink">Quizzes</a>
+      <a href="#listen" class="hover:text-ink">Listening</a>
+      <a href="#about" class="hover:text-ink">About</a>
+    </nav>
+
+    <div class="hidden items-center gap-3 lg:flex">
+      <a href="#levels" class="rounded-full bg-ink px-5 py-2.5 text-[15px] font-bold text-white hover:bg-inkdeep">Start learning</a>
+    </div>
+
+    <button @click="open = !open" :aria-expanded="open" aria-controls="mobile-nav"
+            class="rounded-md border border-seyes px-3 py-2 text-[15px] font-semibold lg:hidden">
+      <span x-text="open ? 'Close' : 'Menu'">Menu</span>
+    </button>
+  </div>
+
+  <nav id="mobile-nav" x-show="open" x-cloak class="border-t border-seyes px-5 py-3 lg:hidden" aria-label="Mobile">
+    <a @click="open=false" href="#levels" class="block py-2.5 font-semibold">Lessons by level</a>
+    <a @click="open=false" href="#topics" class="block py-2.5 font-semibold">Topics</a>
+    <a @click="open=false" href="#quiz" class="block py-2.5 font-semibold">Quizzes</a>
+    <a @click="open=false" href="#listen" class="block py-2.5 font-semibold">Listening</a>
+    <a @click="open=false" href="#about" class="block py-2.5 font-semibold">About</a>
+    <a @click="open=false" href="#levels" class="mt-2 block rounded-full bg-ink px-5 py-3 text-center font-bold text-white">Start learning</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ───────────── Hero ───────────── -->
+<section class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-12 lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:py-20">
+  <div>
+    <h1 class="font-display text-[2.6rem] font-extrabold leading-[1.02] tracking-tight text-ink sm:text-6xl">
+      Learn the French people actually speak.
+    </h1>
+    <p class="mt-6 max-w-[34rem] text-lg">
+      Free lessons with native audio and a quiz at the end of each one. Start at your first
+      <span lang="fr" class="italic">bonjour</span> and keep going until you get the jokes nobody explains.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="#quiz" class="rounded-full bg-ink px-6 py-3 font-bold text-white hover:bg-inkdeep">Try a quiz</a>
+      <a href="#levels" class="rounded-full border-2 border-ink px-6 py-3 font-bold text-ink hover:bg-ink hover:text-white">Browse lessons</a>
+    </div>
+    <p class="mt-6 text-[15px] text-inkdeep/75">Everything is free. No account, no paywall.</p>
+  </div>
+
+  <!-- Signature element: one sentence, three registers, on a French school notebook page -->
+  <div x-data="registerDemo()" class="seyes rounded-md border border-seyes shadow-[6px_8px_0_#2A2590]">
+    <div class="pb-8 pl-[60px] pr-5 pt-8 sm:pl-[96px] sm:pr-8">
+      <p class="h-8 leading-8 text-[15px] font-semibold">
+        How do you say “<span x-text="phrase.en"></span>”?
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Register">
+        <template x-for="(r, i) in registers" :key="r.id">
+          <button role="tab" @click="reg = i" :aria-selected="reg === i"
+                  :class="reg === i ? 'bg-ink text-white border-ink' : 'bg-white text-ink border-ink/40 hover:border-ink'"
+                  class="h-8 rounded-full border-2 px-4 text-[15px] font-bold leading-none" x-text="r.label"></button>
+        </template>
+      </div>
+
+      <p lang="fr" class="mt-8 min-h-[128px] font-cursive text-[1.55rem] leading-[64px] text-ink sm:text-[1.9rem]" aria-live="polite">
+        <span class="surligne" x-text="phrase.fr[reg]"></span>
+      </p>
+
+      <p class="min-h-[64px] font-cursive text-[0.82rem] leading-8 text-margin" x-text="phrase.note[reg]"></p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-2">
+        <button @click="play(1)" class="flex h-10 items-center gap-2 rounded-full bg-ink px-5 font-bold text-white hover:bg-inkdeep">
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 1l11 6-11 6z" fill="currentColor"/></svg>
+          <span x-text="playing ? 'Playing' : 'Listen'"></span>
+        </button>
+        <button @click="play(0.6)" class="h-10 rounded-full border-2 border-ink bg-white px-5 font-bold text-ink hover:bg-ink hover:text-white">Slow</button>
+        <button @click="next()" class="ml-auto h-10 rounded-full bg-white px-4 font-bold text-ink underline underline-offset-4 hover:no-underline">Another phrase</button>
+      </div>
+      <p x-show="noAudio" x-cloak class="mt-3 bg-white text-[14px] text-margin">Audio isn't available in this browser preview.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── Lessons by level ───────────── -->
+<section id="levels" class="border-t border-seyes" x-data="levels()">
+  <div class="mx-auto max-w-6xl px-5 py-16">
+    <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Start where you are</h2>
+    <p class="mt-3 max-w-[38rem]">Lessons follow the European CEFR levels. Not sure of yours? Pick the one whose lessons look just slightly too hard.</p>
+
+    <div class="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Level">
+      <template x-for="(l, i) in list" :key="l.code">
+        <button role="tab" @click="tab = i" :aria-selected="tab === i"
+                :class="tab === i ? 'bg-ink text-white' : 'bg-white text-ink hover:bg-ink/10'"
+                class="rounded-md border-2 border-ink px-4 py-2 text-left">
+          <span class="font-display text-xl font-extrabold" x-text="l.code"></span>
+          <span class="ml-1.5 text-[15px]" x-text="l.name"></span>
+        </button>
+      </template>
+    </div>
+
+    <div class="mt-8 grid gap-10 lg:grid-cols-[1fr_2fr]">
+      <p class="text-lg" x-text="list[tab].can"></p>
+      <ul class="border-t-2 border-ink">
+        <template x-for="lesson in list[tab].lessons" :key="lesson.t">
+          <li class="border-b border-seyes">
+            <a href="#" class="group flex items-baseline justify-between gap-4 py-4">
+              <span class="text-lg font-semibold group-hover:text-ink group-hover:underline" x-text="lesson.t"></span>
+              <span class="shrink-0 text-[15px] text-inkdeep/70" x-text="lesson.k"></span>
+            </a>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Ad slot: fixed height reserved so the page doesn't jump when the ad loads -->
+<div class="mx-auto max-w-6xl px-5 ">
+  <p class="mb-1 text-[13px] text-inkdeep/60">Advertisement</p>
+  <div class="flex h-[250px] items-center justify-center rounded-md border-2 border-dashed border-seyes text-[15px] text-inkdeep/60 sm:h-[90px]">
+    <span class="sm:hidden">Ad space, 300 × 250</span><span class="hidden sm:inline">Ad space, 728 × 90</span>
+  </div>
+</div>
+
+<!-- ───────────── Topics ───────────── -->
+<section id="topics" class="mx-auto max-w-6xl px-5 py-16">
+  <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Or follow what you need today</h2>
+  <dl class="mt-8 grid gap-x-12 sm:grid-cols-2">
+    <template x-for="t in [
+      { n: 'Grammar',        d: 'Tenses, moods and agreement, explained with the sentences you will actually build.' },
+      { n: 'Vocabulary',     d: 'Words grouped by situation, each one with audio and an example.' },
+      { n: 'Expressions',    d: 'What to say to greet, refuse, complain, tease and thank, at every level of politeness.' },
+      { n: 'Dialogues',      d: 'Short everyday conversations in casual French, with register notes.' },
+      { n: 'Listening',      d: 'Read first, then listen. Transcripts and translations you can show or hide.' },
+      { n: 'Pronunciation',  d: 'Liaisons, silent letters, the French r, and the sounds English lacks.' },
+      { n: 'Humour',         d: 'Le second degré, la vanne, the litote: how the French joke, and how to join in.' },
+      { n: 'Film French',    d: 'Lines from real film dialogue, slowed down and taken apart.' },
+    ]" :key="t.n">
+      <a href="#" class="group block border-t border-seyes py-5">
+        <dt class="font-display text-xl font-bold text-ink group-hover:underline" x-text="t.n"></dt>
+        <dd class="mt-1 max-w-[30rem]" x-text="t.d"></dd>
+      </a>
+    </template>
+  </dl>
+</section>
+
+<!-- ───────────── Quiz ───────────── -->
+<section id="quiz" class="border-y border-seyes bg-white">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1fr_1.4fr]">
+    <div>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Check what stuck</h2>
+      <p class="mt-3 max-w-[26rem]">Every lesson ends with a short quiz. Each answer comes with the reason, so a wrong one still teaches you something.</p>
+    </div>
+
+    <div x-data="quiz()" class="rounded-md border-2 border-ink bg-paper p-6 sm:p-8">
+      <!-- Question -->
+      <div x-show="!done">
+        <p class="text-[15px] font-semibold text-inkdeep/70">Question <span x-text="i + 1"></span> of <span x-text="questions.length"></span></p>
+        <p class="mt-3 text-xl font-semibold" x-html="q.prompt"></p>
+
+        <div class="mt-5 grid gap-2.5">
+          <template x-for="(opt, n) in q.options" :key="i + '-' + n">
+            <button @click="choose(n)" :disabled="picked !== null" :class="optionClass(n)"
+                    class="rounded-md border-2 px-4 py-3 text-left font-semibold disabled:cursor-default">
+              <span x-text="opt"></span>
+              <span x-show="picked !== null && n === q.answer" class="ml-2 text-[15px] font-bold">Correct answer</span>
+            </button>
+          </template>
+        </div>
+
+        <div x-show="picked !== null" x-cloak class="mt-5" aria-live="polite">
+          <p class="font-cursive text-[0.95rem] leading-8" :class="picked === q.answer ? 'text-juste' : 'text-margin'"
+             x-text="picked === q.answer ? 'Très bien !' : 'Pas tout à fait.'"></p>
+          <p class="mt-1" x-html="q.why"></p>
+          <button @click="next()" class="mt-5 rounded-full bg-ink px-6 py-2.5 font-bold text-white hover:bg-inkdeep"
+                  x-text="i === questions.length - 1 ? 'See my score' : 'Next question'"></button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div x-show="done" x-cloak>
+        <p class="font-cursive text-4xl leading-[1.6] text-margin"><span x-text="score"></span>/<span x-text="questions.length"></span></p>
+        <p class="mt-2 font-cursive text-[0.95rem] leading-8 text-margin" x-text="verdict"></p>
+        <p class="mt-4">Every lesson ends with a quiz like this one.</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button @click="restart()" class="rounded-full bg-ink px-6 py-2.5 font-bold text-white hover:bg-inkdeep">Try again</button>
+          <a href="#levels" class="rounded-full border-2 border-ink px-6 py-2.5 font-bold text-ink hover:bg-ink hover:text-white">Browse lessons</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ad slot: fixed height reserved so the page doesn't jump when the ad loads -->
+<div class="mx-auto max-w-6xl px-5 py-10">
+  <p class="mb-1 text-[13px] text-inkdeep/60">Advertisement</p>
+  <div class="flex h-[250px] items-center justify-center rounded-md border-2 border-dashed border-seyes text-[15px] text-inkdeep/60 sm:h-[90px]">
+    <span class="sm:hidden">Ad space, 300 × 250</span><span class="hidden sm:inline">Ad space, 728 × 90</span>
+  </div>
+</div>
+
+<!-- ───────────── Listening ───────────── -->
+<section id="listen" class="on-ink bg-ink text-white">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1fr_1.4fr]">
+    <div>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Read it, then hear it</h2>
+      <p class="mt-3 max-w-[26rem] text-white/90">Read a line, play it, then hide the text and listen again. Tap any line to hear it on its own.</p>
+      <p class="mt-6 max-w-[26rem] text-white/90">New dialogues also go out as a free podcast.</p>
+      <a href="#" class="mt-3 inline-block font-bold text-stabilo underline underline-offset-4 hover:no-underline">Find the podcast</a>
+    </div>
+
+    <div x-data="dialogue()" class="rounded-md bg-white p-6 text-inkdeep sm:p-8">
+      <div class="flex flex-wrap items-center gap-2">
+        <h3 class="mr-auto font-display text-xl font-bold text-ink">Deux amis se croisent <span class="font-body text-[15px] font-normal text-inkdeep/70">A2, casual</span></h3>
+        <button @click="playing === null ? playFrom(0) : stop()"
+                class="rounded-full bg-ink px-5 py-2 font-bold text-white hover:bg-inkdeep"
+                x-text="playing === null ? 'Play all' : 'Stop'"></button>
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-[15px] font-semibold">
+        <label class="flex items-center gap-2"><input type="checkbox" x-model="showFr" class="h-4 w-4 accent-[#2A2590]"> French text</label>
+        <label class="flex items-center gap-2"><input type="checkbox" x-model="showEn" class="h-4 w-4 accent-[#2A2590]"> English</label>
+        <label class="flex items-center gap-2"><input type="checkbox" x-model="slow" class="h-4 w-4 accent-[#2A2590]"> Slow audio</label>
+      </div>
+
+      <ol class="mt-5">
+        <template x-for="(line, n) in lines" :key="n">
+          <li class="border-t border-seyes">
+            <button @click="playOne(n)" class="flex w-full gap-4 py-3.5 text-left"
+                    :class="playing === n ? 'bg-stabilo/50' : 'hover:bg-paper'">
+              <span class="w-12 shrink-0 font-bold text-ink" x-text="line.who"></span>
+              <span>
+                <span lang="fr" class="block text-lg font-semibold" x-show="showFr" x-text="line.fr"></span>
+                <span class="block text-lg text-inkdeep/50" x-show="!showFr">Listen…</span>
+                <span class="block text-[15px] text-inkdeep/75" x-show="showEn" x-text="line.en"></span>
+              </span>
+            </button>
+          </li>
+        </template>
+      </ol>
+      <p x-show="noAudio" x-cloak class="mt-3 text-[14px] text-margin">Audio isn't available in this browser preview.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── About: free, paid for by ads ───────────── -->
+<section id="about" class="mx-auto max-w-6xl px-5 py-16">
+  <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+    <div>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Free for everyone, and staying that way</h2>
+      <p class="mt-4 max-w-[36rem] text-lg">Learning a language should not depend on what you can pay. Every lesson, every recording and every quiz on this site is free, with no account and nothing held back for subscribers.</p>
+      <p class="mt-4 max-w-[36rem]">The ads you see pay for the audio and the hosting. They sit between sections and never interrupt a lesson, a recording or a quiz.</p>
+    </div>
+    <ul class="self-start border-t-2 border-ink text-lg font-semibold">
+      <li class="border-b border-seyes py-4">Every lesson, at every level</li>
+      <li class="border-b border-seyes py-4">Audio at normal and slow speed</li>
+      <li class="border-b border-seyes py-4">A quiz with explanations in every lesson</li>
+      <li class="border-b border-seyes py-4">Transcripts and translations</li>
+      <li class="border-b border-seyes py-4">The weekly podcast</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ───────────── Newsletter ───────────── -->
+<section class="border-t border-seyes bg-stabilo/40">
+  <div class="mx-auto grid max-w-6xl items-center gap-8 px-5 py-14 lg:grid-cols-2"
+       x-data="{ email: '', state: 'idle', error: '',
+                 submit() {
+                   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) { this.error = 'Enter an email address, like nom@exemple.fr'; return }
+                   this.error = ''; this.state = 'done'   // TODO: POST to your mailing-list provider here
+                 } }">
+    <div>
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-ink">One expression a week</h2>
+      <p class="mt-2 max-w-[30rem]">A French expression, what it really means, and when not to use it. Sent on Sundays.</p>
+    </div>
+    <div>
+      <form x-show="state === 'idle'" @submit.prevent="submit()" novalidate class="flex flex-wrap gap-3">
+        <label for="nl-email" class="sr-only">Email address</label>
+        <input id="nl-email" type="email" x-model="email" placeholder="nom@exemple.fr" autocomplete="email"
+               class="min-w-0 flex-1 basis-60 rounded-full border-2 border-ink bg-white px-5 py-3 placeholder:text-inkdeep/50">
+        <button class="rounded-full bg-ink px-6 py-3 font-bold text-white hover:bg-inkdeep">Subscribe</button>
+        <p x-show="error" x-cloak x-text="error" class="basis-full font-semibold text-margin" role="alert"></p>
+      </form>
+      <p x-show="state === 'done'" x-cloak class="font-semibold" role="status">
+        Design preview: this is where “Subscribed. Check your inbox to confirm.” appears once the form is connected.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ───────────── Footer ───────────── -->
+<footer class="on-ink bg-inkdeep text-white">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <p class="font-display text-2xl font-extrabold">Franc-parler</p>
+      <p class="mt-2 text-[15px] text-white/80">French as it is spoken, free for anyone who wants to learn it.</p>
+    </div>
+    <div>
+      <p class="font-bold">Learn</p>
+      <ul class="mt-3 space-y-2 text-[15px] text-white/85">
+        <li><a href="#levels" class="hover:underline">Lessons by level</a></li>
+        <li><a href="#topics" class="hover:underline">Topics</a></li>
+        <li><a href="#quiz" class="hover:underline">Quizzes</a></li>
+        <li><a href="#listen" class="hover:underline">Listening</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-bold">Site</p>
+      <ul class="mt-3 space-y-2 text-[15px] text-white/85">
+        <li><a href="#" class="hover:underline">About</a></li>
+        <li><a href="#about" class="hover:underline">Why it is free</a></li>
+        <li><a href="#" class="hover:underline">Podcast</a></li>
+        <li><a href="#" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-bold">Legal</p>
+      <ul class="mt-3 space-y-2 text-[15px] text-white/85">
+        <li><a href="#" class="hover:underline">Privacy</a></li>
+        <li><a href="#" class="hover:underline">Terms</a></li>
+        <li><a href="#" class="hover:underline">Advertising disclosure</a></li>
+        <li><a href="#" class="hover:underline">Cookie settings</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Audio ─────────────────────────────────────────────────────────────
+   playClip({ src, text, rate, onend })
+   - With `src` (your ElevenLabs mp3), it plays the file.
+   - Without `src`, it falls back to the browser's French voice, which is
+     what this prototype uses. Returns false if nothing can play.        */
+let _audio = null;
+function stopClip() {
+  try { if (_audio) { _audio.pause(); _audio = null } window.speechSynthesis && speechSynthesis.cancel() } catch (e) {}
+}
+function playClip({ src = null, text = '', rate = 1, onend = () => {} }) {
+  stopClip();
+  try {
+    if (src) {
+      _audio = new Audio(src);
+      _audio.playbackRate = rate;
+      _audio.onended = onend; _audio.onerror = onend;
+      _audio.play().catch(onend);
+      return true;
+    }
+    if (!('speechSynthesis' in window)) { onend(); return false }
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR'; u.rate = rate;
+    const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.toLowerCase().startsWith('fr'));
+    if (v) u.voice = v;
+    u.onend = onend; u.onerror = onend;
+    speechSynthesis.speak(u);
+    return true;
+  } catch (e) { onend(); return false }
+}
+
+/* ── Hero: one sentence, three registers ── */
+function registerDemo() {
+  return {
+    reg: 2, n: 0, playing: false, noAudio: false,
+    registers: [
+      { id: 'soutenu',  label: 'Formal' },
+      { id: 'courant',  label: 'Everyday' },
+      { id: 'familier', label: 'Casual' },
+    ],
+    phrases: [
+      { en: "I don't know",
+        fr: ["Je l'ignore.", "Je ne sais pas.", "Chais pas."],
+        note: ["À l'écrit, ou pour faire sérieux.", "La forme des manuels.", "À l'oral, le « ne » disparaît presque toujours."] },
+      { en: "What are you doing?",
+        fr: ["Que faites-vous ?", "Qu'est-ce que tu fais ?", "Tu fais quoi ?"],
+        note: ["Inversion : très poli, un peu distant.", "Passe partout, avec tout le monde.", "Entre amis : le mot interrogatif à la fin."] },
+      { en: "It doesn't matter",
+        fr: ["Cela n'a aucune importance.", "Ce n'est pas grave.", "C'est pas grave, t'inquiète."],
+        note: ["« Cela » plutôt que « ça » : registre soigné.", "Neutre, toujours correct.", "« T'inquiète » = ne t'inquiète pas."] },
+    ],
+    get phrase() { return this.phrases[this.n] },
+    next() { this.n = (this.n + 1) % this.phrases.length },
+    play(rate) {
+      this.playing = true;
+      const ok = playClip({ text: this.phrase.fr[this.reg], rate, onend: () => this.playing = false });
+      if (!ok) this.noAudio = true;
+    },
+  }
+}
+
+/* ── Lessons by level ── */
+function levels() {
+  return {
+    tab: 0,
+    list: [
+      { code: 'A1', name: 'Beginner', can: 'You are starting from zero, or nearly. You will learn to greet people, introduce yourself and get through a shop or a café.',
+        lessons: [
+          { t: 'Bonjour, salut, coucou: which hello, and when', k: 'Expressions' },
+          { t: 'Être and avoir, the two verbs behind everything', k: 'Grammar' },
+          { t: 'At the boulangerie', k: 'Dialogue' },
+          { t: 'Silent letters at the ends of words', k: 'Pronunciation' },
+        ] },
+      { code: 'A2', name: 'Elementary', can: 'You can handle simple exchanges. Now you will talk about the past, make plans and start to sound less like a textbook.',
+        lessons: [
+          { t: 'Passé composé or imparfait?', k: 'Grammar' },
+          { t: 'Why nobody says the “ne”', k: 'Spoken French' },
+          { t: 'Ça te dit ? Making and turning down plans', k: 'Expressions' },
+          { t: 'Deux amis se croisent', k: 'Dialogue' },
+        ] },
+      { code: 'B1', name: 'Intermediate', can: 'You get by. You will learn to give opinions, tell stories and follow people who are not slowing down for you.',
+        lessons: [
+          { t: 'The subjunctive after il faut que', k: 'Grammar' },
+          { t: 'Râler: the art of complaining', k: 'Expressions' },
+          { t: 'The verlan you will really hear', k: 'Vocabulary' },
+          { t: 'Liaisons: required, optional, forbidden', k: 'Pronunciation' },
+        ] },
+      { code: 'B2', name: 'Upper intermediate', can: 'You understand most of what is said. What is left is what is meant: irony, understatement and tone.',
+        lessons: [
+          { t: 'Le second degré: when the French do not mean it', k: 'Humour' },
+          { t: 'C’est pas mal: praise by understatement', k: 'Humour' },
+          { t: 'Si clauses, all three kinds', k: 'Grammar' },
+          { t: 'A film scene, line by line', k: 'Film French' },
+        ] },
+      { code: 'C1', name: 'Advanced', can: 'You are fluent. You will work on moving between registers and keeping your own personality in French.',
+        lessons: [
+          { t: 'Writing in the registre soutenu', k: 'Grammar' },
+          { t: 'L’autodérision: laughing at yourself, in French', k: 'Humour' },
+          { t: 'The ne explétif, and what it adds', k: 'Grammar' },
+          { t: 'La vanne: teasing without wounding', k: 'Humour' },
+        ] },
+    ],
+  }
+}
+
+/* ── Quiz ── */
+function quiz() {
+  return {
+    i: 0, picked: null, score: 0, done: false,
+    questions: [
+      { prompt: 'A friend texts: <span lang="fr" class="text-ink">« Ça te dit d’aller au ciné ? »</span> What are they asking?',
+        options: ['Do you feel like going to the cinema?', 'Did someone tell you about the cinema?', 'Are you saying you went to the cinema?'],
+        answer: 0,
+        why: '<span lang="fr" class="italic">Ça te dit ?</span> means “does that appeal to you?” It is the everyday way to suggest a plan.' },
+      { prompt: 'Complete the sentence: <span lang="fr" class="text-ink">« Il faut que tu ___ à l’heure. »</span>',
+        options: ['es', 'sois', 'seras'],
+        answer: 1,
+        why: '<span lang="fr" class="italic">Il faut que</span> is always followed by the subjunctive, and the subjunctive of <span lang="fr" class="italic">être</span> for <span lang="fr" class="italic">tu</span> is <span lang="fr" class="italic">sois</span>.' },
+      { prompt: 'Your French colleague looks at your work and says <span lang="fr" class="text-ink">« C’est pas mal ! »</span> They most likely mean:',
+        options: ['It is mediocre.', 'It is bad, but they are being polite.', 'It is good.'],
+        answer: 2,
+        why: 'This is a litote: saying less to mean more. <span lang="fr" class="italic">Pas mal</span> is real praise, and <span lang="fr" class="italic">pas mal du tout</span> is higher still.' },
+      { prompt: 'You moved here three years ago and still live here: <span lang="fr" class="text-ink">« J’habite ici ___ trois ans. »</span>',
+        options: ['pendant', 'pour', 'depuis'],
+        answer: 2,
+        why: '<span lang="fr" class="italic">Depuis</span> with the present tense describes something that started in the past and is still going on.' },
+    ],
+    get q() { return this.questions[this.i] },
+    get verdict() {
+      const r = this.score / this.questions.length;
+      return r === 1 ? 'Excellent travail !' : r >= 0.75 ? 'Très bien !' : r >= 0.5 ? 'Pas mal. Encore un effort.' : 'À revoir. Courage !';
+    },
+    choose(n) { if (this.picked !== null) return; this.picked = n; if (n === this.q.answer) this.score++ },
+    next() { if (this.i === this.questions.length - 1) { this.done = true } else { this.i++; this.picked = null } },
+    restart() { this.i = 0; this.picked = null; this.score = 0; this.done = false },
+    optionClass(n) {
+      if (this.picked === null) return 'border-ink/40 bg-white hover:border-ink';
+      if (n === this.q.answer) return 'border-juste bg-juste/10 text-juste';
+      if (n === this.picked) return 'border-margin bg-margin/10 text-margin line-through';
+      return 'border-seyes bg-white text-inkdeep/50';
+    },
+  }
+}
+
+/* ── Dialogue player ── */
+function dialogue() {
+  return {
+    showFr: true, showEn: false, slow: false, playing: null, noAudio: false,
+    lines: [
+      // add `src: '/audio/a2-amis-01.mp3'` to each line when the recordings exist
+      { who: 'Léa',  fr: 'Salut ! Ça fait longtemps, dis donc.',                         en: "Hi! It's been ages." },
+      { who: 'Hugo', fr: 'Grave ! Tu deviens quoi ?',                                    en: 'Totally! What have you been up to?' },
+      { who: 'Léa',  fr: 'Bah, je bosse toujours au même endroit. Et toi ?',             en: "Oh, I'm still working at the same place. You?" },
+      { who: 'Hugo', fr: "Moi, j'ai changé de boîte. Je te raconte autour d'un café ?",  en: "I've changed companies. Shall I tell you about it over a coffee?" },
+      { who: 'Léa',  fr: "Carrément. C'est moi qui invite.",                             en: 'Absolutely. My treat.' },
+    ],
+    _clip(n, onend) {
+      const l = this.lines[n];
+      this.playing = n;
+      const ok = playClip({ src: l.src || null, text: l.fr, rate: this.slow ? 0.6 : 1, onend });
+      if (!ok) { this.noAudio = true; this.playing = null }
+      return ok;
+    },
+    playOne(n) { this._clip(n, () => { if (this.playing === n) this.playing = null }) },
+    playFrom(n) {
+      if (n >= this.lines.length) { this.playing = null; return }
+      this._clip(n, () => { if (this.playing === n) this.playFrom(n + 1) });
+    },
+    stop() { this.playing = null; stopClip() },
+  }
+}
+</script>
+</body>
+</html>

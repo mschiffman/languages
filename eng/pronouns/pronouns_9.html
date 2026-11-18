@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Who? What?</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CHXHM9CZKM"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-CHXHM9CZKM");
+    </script>
+
+    <link href="/img/favicon.png" rel="icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Andika:wght@400;700&family=Noto+Sans+Myanmar:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      /* Same colours and fonts as the story pages (ytstory.css). */
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              paper: "#f1f6ea",
+              edge: "#e3edd6",
+              forest: "#274b2f",
+              moss: "#3c6b45",
+              leaf: "#8fc07e",
+              gold: "#f6b93b",
+              golddeep: "#e39b12",
+            },
+            fontFamily: {
+              display: ["Fredoka", "sans-serif"],
+              body: ["Andika", "Segoe UI", "system-ui", "sans-serif"],
+              my: ["Noto Sans Myanmar", "Padauk", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+      button {
+        -webkit-tap-highlight-color: transparent;
+      }
+      .shake {
+        animation: shake 0.4s;
+      }
+      @keyframes shake {
+        20%,
+        60% {
+          transform: translateX(-6px);
+        }
+        40%,
+        80% {
+          transform: translateX(6px);
+        }
+      }
+      /* empty slot in "Make the sentence" */
+      .slot {
+        display: inline-block;
+        min-width: 3.2em;
+        border-bottom: 4px solid currentColor;
+        text-align: center;
+        line-height: 1.2;
+      }
+    </style>
+  </head>
+
+  <body class="bg-edge font-body text-forest antialiased">
+    <div
+      class="mx-auto flex min-h-screen max-w-xl flex-col bg-paper px-4 pb-5"
+      x-data="lesson()"
+      x-cloak
+    >
+      <!-- ---------- title ---------- -->
+      <a
+        class="mt-2 inline-flex min-h-[2rem] items-center gap-1 self-start rounded-full py-0.5 pl-1.5 pr-3 font-display font-semibold text-moss hover:bg-edge hover:text-forest"
+        href="/english.html"
+      >
+        <svg
+          class="h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M15 5l-7 7 7 7" />
+        </svg>
+        English
+      </a>
+      <header class="flex items-center justify-between gap-2 pt-1">
+        <div class="flex items-center gap-2 font-display text-xl font-semibold">
+          <svg
+            class="h-6 w-6 flex-none"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#8FC07E" />
+            <path
+              d="M8 16C11 12 14 9 18 7"
+              stroke="#274B2F"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span class="leading-tight">Who? What?</span>
+          <span class="whitespace-nowrap rounded-full bg-gold px-2.5 py-0.5 text-sm"
+            >Pronouns 9</span
+          >
+        </div>
+        <button
+          class="h-10 flex-none rounded-full border-2 px-3 font-my text-sm"
+          :class="showMy ? 'border-forest bg-forest text-white' : 'border-edge bg-white text-moss'"
+          @click="showMy = !showMy"
+          :aria-pressed="showMy"
+        >
+          မြန်မာ
+        </button>
+      </header>
+
+      <!-- ---------- the steps ---------- -->
+      <nav class="mt-3 flex gap-1.5" aria-label="Lesson steps">
+        <template x-for="(s, k) in STEPS" :key="k">
+          <button
+            class="flex h-11 flex-1 items-center justify-center gap-1 rounded-full border-2 font-display text-base font-semibold"
+            :class="k === step ? 'border-forest bg-forest text-white' : k < step ? 'border-leaf bg-leaf/40 text-forest' : 'border-edge bg-white text-moss'"
+            @click="go(k)"
+            :aria-label="'Step ' + (k + 1) + ': ' + s.en"
+            :aria-current="k === step ? 'step' : false"
+          >
+            <span x-text="s.icon" aria-hidden="true"></span
+            ><span x-text="k + 1"></span>
+          </button>
+        </template>
+      </nav>
+
+      <div class="mt-3 flex items-baseline justify-between gap-3">
+        <h1
+          class="font-display text-2xl font-semibold leading-tight"
+          x-text="done ? 'Well done!' : STEPS[step].en"
+        ></h1>
+        <span
+          class="whitespace-nowrap font-display font-semibold text-moss"
+          x-show="!done"
+          x-text="(i + 1) + ' / ' + total()"
+        ></span>
+      </div>
+      <p
+        class="font-my text-base leading-loose text-moss"
+        x-show="showMy && !done"
+        x-text="STEPS[step].my"
+      ></p>
+
+      <div class="mb-4 mt-1 flex gap-1" x-show="!done" aria-hidden="true">
+        <template x-for="k in total()" :key="k">
+          <span
+            class="h-2 flex-1 rounded"
+            :class="k - 1 < i ? 'bg-leaf' : k - 1 === i ? 'bg-gold' : 'bg-edge'"
+          ></span>
+        </template>
+      </div>
+
+      <p
+        class="mb-3 rounded-xl bg-white px-3 py-1.5 text-sm text-moss"
+        x-show="!AUDIO_READY && !done"
+      >
+        🔇 The voices are not recorded yet. Read the words for now.
+      </p>
+
+      <main class="flex flex-1 flex-col">
+        <!-- ========== Look and listen: picture, word, sentence ========== -->
+        <template x-if="kind() === 'look'">
+          <section class="flex flex-col gap-3">
+            <div
+              class="aspect-[4/3] overflow-hidden rounded-3xl border-4 border-forest bg-white"
+              x-html="pic(sc)"
+            ></div>
+
+            <div
+              class="flex items-center gap-3 rounded-3xl border-2 border-edge bg-white p-3"
+            >
+              <button
+                :class="SPK"
+                :disabled="!AUDIO_READY"
+                @click="play(sc.wclip)"
+                aria-label="Hear the word"
+                x-html="SPK_ICON"
+              ></button>
+              <div class="min-w-0 flex-1">
+                <div
+                  class="font-display text-4xl font-bold leading-tight"
+                  x-html="sc.whtml"
+                ></div>
+                <!-- a rule or a note about the word -->
+                <div
+                  class="text-base font-bold text-moss"
+                  x-show="sc.note"
+                  x-html="sc.note"
+                ></div>
+                <div
+                  class="font-my text-lg leading-loose text-moss"
+                  x-show="showMy"
+                  x-text="sc.wmy"
+                ></div>
+              </div>
+              <!-- the opposite, small: the pair is learnt together -->
+              <template x-if="SHOW_OPP && !sc.solo">
+                <div
+                  class="flex flex-none flex-col items-center gap-0.5 text-moss"
+                >
+                  <div
+                    class="aspect-[4/3] w-20 overflow-hidden rounded-lg border-2 border-edge"
+                    x-html="pic(SCENES[sc.pair - 1], true, true)"
+                  ></div>
+                  <span class="text-sm font-bold"
+                    >↔ <span x-text="SCENES[sc.pair - 1].key"></span
+                  ></span>
+                </div>
+              </template>
+            </div>
+
+            <div
+              class="flex items-center gap-3 rounded-3xl border-2 border-edge bg-white p-3"
+            >
+              <button
+                :class="SPK"
+                :disabled="!AUDIO_READY"
+                @click="play(sc.clip)"
+                aria-label="Hear the sentence"
+                x-html="SPK_ICON"
+              ></button>
+              <div>
+                <p class="text-2xl font-bold leading-snug" x-html="sc.html"></p>
+                <p
+                  class="font-my text-base leading-loose text-moss"
+                  x-show="showMy"
+                  x-text="sc.my"
+                ></p>
+              </div>
+            </div>
+          </section>
+        </template>
+
+        <!-- ========== Tap the picture: hear (or read) the word, find it ========== -->
+        <template x-if="kind() === 'tap'">
+          <section class="flex flex-col gap-3">
+            <div
+              class="flex items-center gap-3 rounded-3xl border-[3px] border-dashed border-leaf bg-white p-3"
+            >
+              <button
+                :class="SPK"
+                :disabled="!AUDIO_READY"
+                @click="play(sc.tclip)"
+                aria-label="Hear it again"
+                x-html="SPK_ICON"
+              ></button>
+              <div
+                class="font-bold"
+                :class="sc.tbig ? 'font-display text-4xl leading-tight' : 'text-2xl leading-snug'"
+                x-html="sc.thtml"
+              ></div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <template x-for="o in opts" :key="o.n">
+                <button
+                  class="relative aspect-[4/3] overflow-hidden rounded-2xl border-4 bg-white transition"
+                  :class="[
+                    solved && o.n === sc.n ? 'border-green-600 ring-4 ring-green-200'
+                      : solved || wrong.includes(o.n) ? 'border-edge opacity-40'
+                      : 'border-forest active:translate-y-0.5',
+                    shaking === o.n ? 'shake' : '',
+                  ]"
+                  :disabled="solved || wrong.includes(o.n)"
+                  @click="pickPic(o)"
+                  :aria-label="'Picture ' + o.n"
+                  x-html="pic(o, true)"
+                ></button>
+              </template>
+            </div>
+
+            <div
+              class="rounded-2xl border-2 border-green-600 bg-green-50 px-4 py-2.5 text-lg"
+              x-show="solved"
+              aria-live="polite"
+            >
+              <b class="font-display" x-text="cheer"></b>
+              <span x-html="sc.html"></span>
+            </div>
+          </section>
+        </template>
+
+        <!-- ========== Put in order: tap the pictures from first to last ========== -->
+        <template x-if="kind() === 'order'">
+          <section class="flex flex-col gap-3">
+            <div
+              class="rounded-3xl border-[3px] border-dashed border-leaf bg-white px-4 py-2.5 text-xl font-bold"
+            >
+              <span x-show="placed.length < SCENES.length">
+                Tap picture
+                <span
+                  class="text-orange-600"
+                  x-text="placed.length + 1"
+                ></span>
+                of the day.
+              </span>
+              <span x-show="placed.length === SCENES.length" x-text="cheer"></span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <template x-for="o in grid" :key="o.n">
+                <button
+                  class="relative aspect-[4/3] overflow-hidden rounded-2xl border-4 bg-white transition"
+                  :class="[
+                    placed.includes(o.n) ? 'border-green-600' : 'border-forest active:translate-y-0.5',
+                    shaking === o.n ? 'shake' : '',
+                  ]"
+                  :disabled="placed.includes(o.n)"
+                  @click="pickOrder(o)"
+                  :aria-label="'Picture ' + o.n"
+                >
+                  <span class="block h-full w-full" x-html="pic(o, true)"></span>
+                  <span
+                    class="absolute left-1.5 top-1.5 flex h-8 w-8 items-center justify-center rounded-full bg-green-600 font-display text-lg font-bold text-white"
+                    x-show="placed.includes(o.n)"
+                    x-text="o.n"
+                  ></span>
+                </button>
+              </template>
+            </div>
+
+            <ol class="flex flex-col gap-1.5" aria-live="polite">
+              <template x-for="n in placed" :key="n">
+                <li
+                  class="rounded-xl border-2 border-edge bg-white px-3 py-1.5 text-lg font-bold"
+                >
+                  <span class="text-moss" x-text="n + '.'"></span>
+                  <span x-html="SCENES[n - 1].html"></span>
+                </li>
+              </template>
+            </ol>
+          </section>
+        </template>
+
+        <!-- ========== Make the sentence: one row of buttons for each gap ========== -->
+        <template x-if="kind() === 'make'">
+          <section class="flex flex-col gap-3">
+            <div
+              class="aspect-[4/3] overflow-hidden rounded-3xl border-4 border-forest bg-white"
+              x-html="pic(sc)"
+            ></div>
+
+            <div
+              class="flex items-center gap-3 rounded-3xl border-[3px] border-dashed border-leaf bg-white p-3"
+            >
+              <button
+                :class="SPK"
+                :disabled="!AUDIO_READY || (!built() && !STEPS[step].swap)"
+                @click="play(built() || !STEPS[step].swap ? sc.clip : sc.nclip)"
+                aria-label="Hear the sentence"
+                x-html="SPK_ICON"
+              ></button>
+              <p
+                class="text-2xl font-bold leading-relaxed"
+                x-html="gapHtml()"
+              ></p>
+            </div>
+
+            <template x-for="g in groups" :key="g.id">
+              <div class="grid gap-2" :class="g.cols">
+                <template x-for="o in sopts[g.id]" :key="o">
+                  <button
+                    class="min-h-[56px] rounded-2xl border-[3px] text-xl font-bold transition"
+                    :class="[
+                      got[g.id] && o === sc.parts[g.id] ? g.on
+                        : got[g.id] ? 'border-edge bg-white opacity-40 ' + g.text
+                        : g.off + ' bg-white shadow-[0_4px_0_#e3edd6] active:translate-y-0.5',
+                      shaking === g.id + o ? 'shake' : '',
+                    ]"
+                    :disabled="!!got[g.id]"
+                    @click="pick(g, o)"
+                    x-text="o"
+                  ></button>
+                </template>
+              </div>
+            </template>
+
+            <div
+              class="rounded-2xl border-2 border-green-600 bg-green-50 px-4 py-2.5 text-lg"
+              x-show="built()"
+              aria-live="polite"
+            >
+              <b class="font-display" x-text="cheer"></b>
+              <span
+                class="font-my leading-loose text-moss"
+                x-show="showMy"
+                x-text="sc.my"
+              ></span>
+            </div>
+          </section>
+        </template>
+
+        <!-- ========== Yes or no?: does the sentence match the picture? ========== -->
+        <template x-if="kind() === 'yn' && !done">
+          <section class="flex flex-col gap-3">
+            <div
+              class="aspect-[4/3] overflow-hidden rounded-3xl border-4 border-forest bg-white"
+              x-html="pic(sc)"
+            ></div>
+
+            <div
+              class="flex items-center gap-3 rounded-3xl border-[3px] border-dashed border-leaf bg-white p-3"
+            >
+              <button
+                :class="SPK"
+                :disabled="!AUDIO_READY"
+                @click="play(said.clip)"
+                aria-label="Hear the sentence"
+                x-html="SPK_ICON"
+              ></button>
+              <p class="text-2xl font-bold leading-snug" x-html="said.html"></p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <template x-for="val in [true, false]" :key="val">
+                <button
+                  class="min-h-[60px] rounded-2xl border-[3px] text-2xl font-bold transition"
+                  :class="chosen === null ? 'border-forest bg-white shadow-[0_4px_0_#e3edd6] active:translate-y-0.5'
+                    : val === truth ? 'border-green-600 bg-green-50 text-green-800'
+                    : val === chosen ? 'border-orange-400 bg-orange-50 text-orange-800 line-through'
+                    : 'border-edge bg-white opacity-40'"
+                  :disabled="chosen !== null"
+                  @click="answer(val)"
+                  x-text="val ? '✓ Yes' : '✗ No'"
+                ></button>
+              </template>
+            </div>
+
+            <div
+              class="rounded-2xl border-2 px-4 py-2.5 text-lg"
+              :class="chosen === truth ? 'border-green-600 bg-green-50' : 'border-orange-400 bg-orange-50'"
+              x-show="chosen !== null"
+              aria-live="polite"
+            >
+              <b
+                class="font-display"
+                x-text="chosen === truth ? cheer : 'Not quite.'"
+              ></b>
+              <span x-html="sc.html"></span>
+            </div>
+          </section>
+        </template>
+
+        <!-- ========== the end: score, wrong answers next to the right ones ========== -->
+        <template x-if="done">
+          <section class="flex flex-col gap-4" aria-live="polite">
+            <div
+              class="rounded-3xl border-2 border-edge bg-white px-4 py-5 text-center"
+            >
+              <div class="text-5xl tracking-widest" aria-hidden="true">
+                <template x-for="s in 3" :key="s"
+                  ><span :class="s <= stars() ? '' : 'opacity-30 grayscale'"
+                    >⭐</span
+                  ></template
+                >
+              </div>
+              <p
+                class="mt-1 font-display text-5xl font-bold"
+                x-text="score() + ' / ' + yn.length"
+              ></p>
+              <p class="mt-2 text-lg" x-text="message()"></p>
+            </div>
+
+            <div class="flex flex-col gap-2" x-show="missed().length">
+              <h2 class="font-display text-xl font-semibold">
+                Look again
+                <span
+                  class="rounded-full bg-orange-400 px-2 text-base text-white"
+                  x-text="missed().length"
+                ></span>
+              </h2>
+              <template x-for="(m, k) in missed()" :key="k">
+                <div
+                  class="flex items-center gap-3 rounded-xl border-l-[6px] border-orange-400 bg-white p-2.5"
+                >
+                  <div
+                    class="aspect-[4/3] w-24 flex-none overflow-hidden rounded-lg border-2 border-forest"
+                    x-html="pic(m.scene, true, true)"
+                  ></div>
+                  <div class="min-w-0 leading-snug">
+                    <p class="font-bold" x-html="m.said.html"></p>
+                    <p class="text-orange-800">
+                      You said <s x-text="m.truth ? 'No' : 'Yes'"></s>
+                    </p>
+                    <p class="font-bold text-green-800">
+                      <span x-text="m.truth ? '✓ Yes' : '✓ No.'"></span>
+                      <span x-show="!m.truth" x-html="m.scene.html"></span>
+                    </p>
+                  </div>
+                </div>
+              </template>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <h2
+                class="font-display text-xl font-semibold"
+                x-text="CARDS_TITLE"
+              ></h2>
+              <div class="grid grid-cols-2 gap-2">
+                <template x-for="c in CARDS" :key="c.clip">
+                  <button
+                    class="rounded-xl border-2 border-edge bg-white px-1 py-2 text-center text-lg font-bold"
+                    :disabled="!AUDIO_READY"
+                    @click="play(c.clip)"
+                    x-html="c.html"
+                  ></button>
+                </template>
+              </div>
+            </div>
+
+            <div class="mt-2 flex flex-col items-center gap-3">
+              <button
+                class="h-14 min-w-[230px] rounded-full bg-gold px-6 font-display text-xl font-semibold shadow-[0_5px_0_#e39b12] active:translate-y-0.5"
+                x-show="missed().length"
+                @click="startPractice()"
+                x-text="'Practice these (' + missed().length + ')'"
+              ></button>
+              <button
+                class="h-14 min-w-[230px] rounded-full px-6 font-display text-xl font-semibold active:translate-y-0.5"
+                :class="missed().length ? 'bg-leaf/30 shadow-[0_5px_0_#8fc07e]' : 'bg-gold shadow-[0_5px_0_#e39b12]'"
+                @click="go(0)"
+              >
+                ↻ Start the lesson again
+              </button>
+            </div>
+          </section>
+        </template>
+      </main>
+
+      <!-- ---------- back / next ---------- -->
+      <footer class="mt-5 flex items-center gap-3" x-show="!done">
+        <button
+          class="h-14 w-14 flex-none rounded-full border-2 border-edge bg-white text-2xl text-moss disabled:opacity-30"
+          :disabled="step === 0 && i === 0"
+          @click="back()"
+          aria-label="Back"
+        >
+          ←
+        </button>
+        <button
+          class="h-14 flex-1 rounded-full bg-gold font-display text-xl font-semibold shadow-[0_5px_0_#e39b12] transition active:translate-y-0.5 disabled:opacity-40 disabled:shadow-none"
+          :disabled="!canGoOn()"
+          @click="main()"
+          x-text="mainLabel()"
+        ></button>
+      </footer>
+    </div>
+
+    <script>
+      /* =====================================================================
+         WHO? WHAT? (Pronouns 9) — "who" asks about a person, "what" asks
+         about a thing. Frames: "Who is ___ing? The ___." /
+         "What is the ___ ___ing? A ___." The build of Adverbs 10; teach after it.
+
+         The four steps on this page:
+           1 Look and listen   picture + question word + the question and its answer
+           2 Tap the answer    the question is shown; tap its answer among two people
+                               and two things, so the question word decides half of it
+           3 Which question?   the answer is shown; tap Who or What
+                               (amber = question word, blue = answer)
+           4 Yes or no?        is it a good answer? The picture's own question with its
+                               answer; or a who-question answered with a thing
+                               ("Who is running? A ball.") and a what-question
+                               answered with the wrong thing, clips 17 to 24
+
+         ---------------------------------------------------------------------
+         PICTURES — 8 files, IMG_DIR/1.jpg … 8.jpg, shown 4:3.
+         Pictures can be used again from the verb lessons.
+         Record the question and the answer in two voices if possible.
+            1 boy running          2 girl singing
+            3 baby sleeping        4 teacher helping the girl
+            5 boy eating a mango   6 girl carrying a bag
+            7 boy kicking a ball   8 girl reading a book
+         When the files are uploaded, set IMAGES_READY = true.
+
+         AUDIO — 24 clips, AUD_DIR/01.mp3 … 24.mp3.
+           01–16  In pairs, one pair per picture: the word alone (odd number),
+           then the sentence (even).
+                  01 Who?    02 Who is running? The boy.
+                  03 Who?    04 Who is singing? The girl.
+                  05 Who?    06 Who is sleeping? The baby.
+                  07 Who?    08 Who is helping the girl? The teacher.
+                  09 What?   10 What is the boy eating? A mango.
+                  11 What?   12 What is the girl carrying? A bag.
+                  13 What?   14 What is the boy kicking? A ball.
+                  15 What?   16 What is the girl reading? A book.
+           17–24  the untrue sentence for picture 1–8, for "Yes or no?" (clip number = picture number + 16):
+                  17 Who is running? A ball.
+                  18 Who is singing? A book.
+                  19 Who is sleeping? A bag.
+                  20 Who is helping the girl? A mango.
+                  21 What is the boy eating? A ball.
+                  22 What is the girl carrying? A book.
+                  23 What is the boy kicking? A mango.
+                  24 What is the girl reading? A bag.
+         When the clips are uploaded, set AUDIO_READY = true.
+
+         While a switch is false the page never asks the server for those
+         files, so no "not found" answer gets cached (4 hours on Cloudflare).
+
+         The Burmese on this page has not been checked by a Burmese speaker.
+         ===================================================================== */
+      const IMAGES_READY = false;
+      const AUDIO_READY = false;
+
+      const IMG_DIR = "/img/ytstory/pronouns_9/";
+      const IMG_EXT = "jpg";
+      const AUD_DIR = "https://languages.rmlives.com/eng/yt/pronouns_9/";
+      const AUD_EXT = "mp3";
+
+      /* the kinds of word and their colours, the same on every lesson page:
+         who / what blue, actions red, describing words green, how words orange, helping words amber, place words purple */
+      const INK = { B: "text-sky-700", R: "text-rose-600", G: "text-emerald-700", O: "text-orange-600", A: "text-amber-700", D: "text-forest", P: "text-violet-700" };
+      const BTN = (c, base) => ({ text: INK[c], on: "border-" + base + " bg-" + base + " text-white", off: "border-" + base + " " + INK[c] });
+      const BLUE = BTN("B", "sky-700");
+      const RED = BTN("R", "rose-600");
+      const ORANGE = BTN("O", "orange-600");
+      const AMBER = BTN("A", "amber-700");
+      const DARK = BTN("D", "forest");
+      const PURPLE = BTN("P", "violet-700");
+      const ink = (c, w) => '<span class="' + INK[c] + '">' + w + "</span>";
+
+      function shuffle(a) {
+        a = a.slice();
+        for (let k = a.length - 1; k > 0; k--) {
+          const j = Math.floor(Math.random() * (k + 1));
+          [a[k], a[j]] = [a[j], a[k]];
+        }
+        return a;
+      }
+      const uniq = (a) => [...new Set(a)];
+      /* the right choice and up to three others from a list, mixed; "must" is always one of them */
+      function four(right, list, must) {
+        const keep = must && must !== right ? [must] : [];
+        const more = shuffle(uniq(list).filter((x) => x !== right && !keep.includes(x))).slice(0, 3 - keep.length);
+        return shuffle([right, ...keep, ...more]);
+      }
+      /* every word the lesson uses in one gap, less the words that would also be true of this picture (sc.avoid) */
+      const words = (g, sc) => uniq(SCENES.map((s) => s.parts[g]).filter((w) => w && !(sc && sc.avoid.includes(w))));
+
+      /* A sentence is a list of pieces:
+           "plain words"            fixed
+           { c: "R", t: "eating" }  fixed, coloured
+           { g: "who", w: "boy" }   a gap of "Make the sentence" (g = its row of buttons in GROUPS);
+                                    c gives the word another colour than its row
+         Words are joined with spaces; a piece that starts with . , ? ! is joined without one. */
+      function join(segs) {
+        let text = "";
+        let html = "";
+        const parts = {};
+        segs = segs.map((s) => (typeof s === "string" ? { t: s } : Object.assign({}, s)));
+        segs.forEach((s) => {
+          const w = s.g ? s.w : s.t;
+          s.sp = text && !/^[.,?!]/.test(w) ? " " : "";
+          s.cls = s.c ? INK[s.c] : s.g ? GROUPS[s.g].text : "";
+          text += s.sp + w;
+          html += s.sp + (s.cls ? '<span class="' + s.cls + '">' + w + "</span>" : w);
+          if (s.g) parts[s.g] = w;
+        });
+        return { segs, text, html, parts };
+      }
+      /* picture k (0 = first): clips in pairs, the word alone (odd) then the sentence (even).
+         word = [colour, the word]; from = the word it is made from, shown as "careful → carefully";
+         to = the word to show after the arrow when it is not this picture's own;
+         pre = [colour, a word in front of it] ("not in"); rule = a line shown under the word;
+         opts = the words to offer for the place-word gap; solo = no partner picture to show;
+         name / nclip = the name the word stands for ("the boy") and the clip of the sentence with it, for "Swap the name";
+         tapSentence: "Tap the picture" gives the whole sentence instead of the word. */
+      function scene(o, k) {
+        const j = join(o.segs);
+        const whtml = (o.pre ? ink(o.pre[0], o.pre[1]) + " " : "") + ink(o.word[0], o.word[1]);
+        const from = o.from ? (typeof o.from === "string" ? ink("G", o.from) : ink(o.from[0], o.from[1])) : "";
+        return Object.assign({ avoid: [], set: "" }, o, j, {
+          n: k + 1,
+          wclip: 2 * k + 1,
+          clip: 2 * k + 2,
+          pair: k % 2 === 0 ? k + 2 : k, // pictures 1+2, 3+4 … are partners
+          key: (o.pre ? o.pre[1] + " " : "") + o.word[1],
+          groups: j.segs.filter((s) => s.g).map((s) => s.g),
+          whtml,
+          note: o.rule ? o.rule : from ? from + " → " + (o.to ? ink(o.to[0], o.to[1]) : whtml) : "",
+          thtml: o.tapSentence ? j.html : whtml,
+          tclip: o.tapSentence ? 2 * k + 2 : 2 * k + 1,
+          tbig: !o.tapSentence,
+        });
+      }
+      /* an untrue sentence for "Yes or no?": the scene's own with some gap words changed, and its own clip */
+      function lie(sc, clip, change) {
+        const j = join(sc.segs.map((s) => (s.g && change[s.g] ? Object.assign({}, s, { w: change[s.g] }) : s)));
+        return { n: 0, clip, text: j.text, html: j.html };
+      }
+      const partner = (sc) => SCENES[sc.pair - 1];
+      /* "Tap the picture": the right picture and three others. Never a picture the word
+         would also fit (sc.avoid), nor one that shows the same thing (same set). */
+      function tapWith(sc, first) {
+        const taken = [sc.n, ...first.map((x) => x.n)];
+        const rest = SCENES.filter((x) => !taken.includes(x.n) && !sc.avoid.includes(x.key) && !(sc.set && x.set === sc.set));
+        return shuffle([SCENES[sc.n - 1], ...first, ...shuffle(rest).slice(0, 3 - first.length)]);
+      }
+
+      /* the rows of buttons of "Make the sentence", by gap: their colour and the words they offer */
+      const GROUPS = {
+        q: { id: "q", cols: "grid-cols-2", ...AMBER, options: () => ["Who", "What"] },
+        a: { id: "a", cols: "grid-cols-2", ...BLUE, options: (sc) => shuffle(sc.opts) },
+      };
+
+      /* one line per picture, in picture order */
+      const SCENES = [
+        { segs: [{ g: "q", w: "Who" }, "is", { c: "R", t: "running" }, "?", { g: "a", w: "The boy" }, "."], word: ["A", "Who?"], opts: ["The boy", "The girl", "A ball", "A bag"], wmy: "ဘယ်သူ", my: "ဘယ်သူ ပြေးနေလဲ။ ကောင်လေး။", desc: "boy running" },
+        { segs: [{ g: "q", w: "Who" }, "is", { c: "R", t: "singing" }, "?", { g: "a", w: "The girl" }, "."], word: ["A", "Who?"], opts: ["The girl", "The boy", "A book", "A mango"], wmy: "ဘယ်သူ", my: "ဘယ်သူ သီချင်းဆိုနေလဲ။ ကောင်မလေး။", desc: "girl singing" },
+        { segs: [{ g: "q", w: "Who" }, "is", { c: "R", t: "sleeping" }, "?", { g: "a", w: "The baby" }, "."], word: ["A", "Who?"], opts: ["The baby", "The teacher", "A bag", "A ball"], wmy: "ဘယ်သူ", my: "ဘယ်သူ အိပ်နေလဲ။ ကလေးငယ်။", desc: "baby sleeping" },
+        { segs: [{ g: "q", w: "Who" }, "is", { c: "R", t: "helping" }, "the", { c: "B", t: "girl" }, "?", { g: "a", w: "The teacher" }, "."], word: ["A", "Who?"], opts: ["The teacher", "The baby", "A book", "A mango"], wmy: "ဘယ်သူ", my: "ဘယ်သူက ကောင်မလေးကို ကူညီနေလဲ။ ဆရာမ။", desc: "teacher helping the girl" },
+        { segs: [{ g: "q", w: "What" }, "is the", { c: "B", t: "boy" }, { c: "R", t: "eating" }, "?", { g: "a", w: "A mango" }, "."], word: ["A", "What?"], opts: ["A mango", "A ball", "The boy", "The teacher"], wmy: "ဘာ", my: "ကောင်လေးက ဘာစားနေလဲ။ သရက်သီး။", desc: "boy eating a mango" },
+        { segs: [{ g: "q", w: "What" }, "is the", { c: "B", t: "girl" }, { c: "R", t: "carrying" }, "?", { g: "a", w: "A bag" }, "."], word: ["A", "What?"], opts: ["A bag", "A book", "The girl", "The teacher"], wmy: "ဘာ", my: "ကောင်မလေးက ဘာသယ်နေလဲ။ အိတ်။", desc: "girl carrying a bag" },
+        { segs: [{ g: "q", w: "What" }, "is the", { c: "B", t: "boy" }, { c: "R", t: "kicking" }, "?", { g: "a", w: "A ball" }, "."], word: ["A", "What?"], opts: ["A ball", "A mango", "The boy", "The teacher"], wmy: "ဘာ", my: "ကောင်လေးက ဘာကန်နေလဲ။ ဘောလုံး။", desc: "boy kicking a ball" },
+        { segs: [{ g: "q", w: "What" }, "is the", { c: "B", t: "girl" }, { c: "R", t: "reading" }, "?", { g: "a", w: "A book" }, "."], word: ["A", "What?"], opts: ["A book", "A bag", "The girl", "The teacher"], wmy: "ဘာ", my: "ကောင်မလေးက ဘာဖတ်နေလဲ။ စာအုပ်။", desc: "girl reading a book" },
+      ].map(scene);
+
+      const tapOptions = (sc) => tapWith(sc, []); // not used on this page
+      /* the untrue one is the picture's own question with a wrong answer. Clip = picture number + 16. */
+      const WRONG = ["A ball", "A book", "A bag", "A mango", "A ball", "A book", "A mango", "A bag"];
+      const LIES = SCENES.map((sc) => lie(sc, sc.n + 16, { a: WRONG[sc.n - 1] }));
+      const liar = (sc) => LIES[sc.n - 1];
+
+      const SHOW_OPP = false; // the partner picture beside the word in "Look and listen"
+      /* each word once */
+      const CARDS = uniq(SCENES.map((s) => s.key)).map((k) => SCENES.find((s) => s.key === k)).map((s) => ({ html: s.whtml, clip: s.wclip }));
+      const CARDS_TITLE = "Your 2 question words";
+      const WIN = "Excellent! You know who and what.";
+
+      const STEPS = [
+        { kind: "look", icon: "👀", en: "Look and listen", my: "ကြည့်ပြီး နားထောင်ပါ" },
+        { kind: "make", gaps: ["a"], icon: "💬", en: "Tap the answer", my: "အဖြေကို နှိပ်ပါ" },
+        { kind: "make", gaps: ["q"], icon: "❓", en: "Which question?", my: "ဘယ်မေးခွန်းလဲ" },
+        { kind: "yn", icon: "✅", en: "Yes or no?", my: "မှန်သလား၊ မှားသလား" },
+      ];
+
+      const CHEERS = ["Great job!", "Well done!", "Yes!", "Super!", "You got it!"];
+
+      /* ---------------- audio: one clip at a time, nothing fetched until AUDIO_READY ---------------- */
+      let player = null;
+      function play(n) {
+        if (!AUDIO_READY) return;
+        if (player) player.pause();
+        player = new Audio(AUD_DIR + String(n).padStart(2, "0") + "." + AUD_EXT);
+        player.play().catch(() => {});
+      }
+
+      const SPK_ICON =
+        '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>';
+
+      /* Each step has a kind: look, tap, order, make or yn (the last one, with the score page).
+         Alpine wraps the state in proxies: compare scenes by number (n) and choices by their text. */
+      function lesson() {
+        return {
+          IMAGES_READY,
+          AUDIO_READY,
+          STEPS,
+          SCENES,
+          CARDS,
+          CARDS_TITLE,
+          SHOW_OPP,
+          SPK_ICON,
+          SPK: "flex h-14 w-14 flex-none items-center justify-center rounded-full bg-gold text-forest shadow-[0_4px_0_#e39b12] active:translate-y-0.5 disabled:opacity-35 disabled:shadow-none",
+
+          showMy: true,
+          step: 0,
+          i: 0,
+          rounds: SCENES,
+          sc: SCENES[0], // the scene in the picture
+          cheer: "",
+          shaking: null,
+          /* tap */
+          opts: [],
+          wrong: [],
+          solved: false,
+          /* make */
+          groups: [], // the gaps of this step
+          sopts: {}, // the buttons offered for each gap
+          got: {}, // the gaps already filled
+          /* order */
+          grid: [],
+          placed: [],
+          /* yn */
+          yn: [],
+          said: SCENES[0], // the sentence shown (may not match the picture)
+          truth: true,
+          chosen: null,
+          results: [],
+          practice: false,
+          done: false,
+
+          init() {
+            this.go(0);
+          },
+
+          /* ---------- moving about ---------- */
+          kind() {
+            return STEPS[this.step].kind;
+          },
+          go(s) {
+            this.step = s;
+            this.i = 0;
+            this.done = false;
+            this.practice = false;
+            const k = this.kind();
+            if (k === "look") this.rounds = SCENES;
+            if (k === "tap" || k === "make") this.rounds = shuffle(SCENES);
+            if (k === "make" && STEPS[s].swap) this.rounds = shuffle(SCENES.filter((x) => x.name)); // only the pictures that have a name sentence
+            if (k === "order") {
+              this.rounds = [SCENES[0]];
+              this.grid = shuffle(SCENES);
+              this.placed = [];
+            }
+            if (k === "yn") {
+              this.yn = this.makeYesNo();
+              this.results = [];
+            }
+            this.load();
+          },
+          total() {
+            return this.kind() === "yn" ? this.yn.length : this.rounds.length;
+          },
+          load() {
+            this.solved = false;
+            this.wrong = [];
+            this.shaking = null;
+            this.got = {};
+            this.chosen = null;
+            this.cheer = CHEERS[Math.floor(Math.random() * CHEERS.length)];
+            const k = this.kind();
+
+            if (k === "yn") {
+              const q = this.yn[this.i];
+              this.sc = q.scene;
+              this.said = q.said;
+              this.truth = q.truth;
+              play(q.said.clip);
+            } else {
+              const sc = (this.sc = this.rounds[this.i]);
+              if (k === "look") play(sc.wclip);
+              if (k === "tap") {
+                this.opts = tapOptions(sc);
+                play(sc.tclip);
+              }
+              if (k === "make") {
+                /* the step may ask for only some of the gaps; the others are shown filled in */
+                const ids = STEPS[this.step].gaps || sc.groups;
+                this.groups = sc.groups.filter((g) => ids.includes(g)).map((g) => GROUPS[g]);
+                const o = {};
+                this.groups.forEach((g) => (o[g.id] = g.options(sc)));
+                this.sopts = o;
+                if (STEPS[this.step].swap) play(sc.nclip);
+              }
+            }
+            window.scrollTo(0, 0);
+          },
+          canGoOn() {
+            const k = this.kind();
+            if (k === "tap") return this.solved;
+            if (k === "make") return this.built();
+            if (k === "order") return this.placed.length === SCENES.length;
+            if (k === "yn") return this.chosen !== null;
+            return true;
+          },
+          mainLabel() {
+            if (this.i + 1 < this.total()) return "Next →";
+            if (this.kind() === "yn") return this.practice ? "Finish" : "See my score";
+            return "Next: " + STEPS[this.step + 1].en + " →";
+          },
+          main() {
+            if (this.i + 1 < this.total()) {
+              this.i++;
+              this.load();
+            } else if (this.step < STEPS.length - 1) this.go(this.step + 1);
+            else {
+              this.done = true;
+              window.scrollTo(0, 0);
+            }
+          },
+          back() {
+            if (this.i > 0) {
+              this.i--;
+              this.load();
+            } else if (this.step > 0) this.go(this.step - 1);
+          },
+          wobble(id) {
+            this.shaking = null;
+            this.$nextTick(() => {
+              this.shaking = id;
+              setTimeout(() => {
+                if (this.shaking === id) this.shaking = null;
+              }, 450);
+            });
+          },
+
+          /* ---------- tap ---------- */
+          pickPic(o) {
+            if (o.n === this.sc.n) {
+              this.solved = true;
+              play(this.sc.clip);
+            } else {
+              this.wobble(o.n);
+              setTimeout(() => this.wrong.push(o.n), 400);
+            }
+          },
+
+          /* ---------- order ---------- */
+          pickOrder(o) {
+            if (o.n === this.placed.length + 1) {
+              this.placed.push(o.n);
+              play(o.clip);
+            } else this.wobble(o.n);
+          },
+
+          /* ---------- make ---------- */
+          pick(g, o) {
+            if (o === this.sc.parts[g.id]) this.got[g.id] = true;
+            else this.wobble(g.id + o);
+            if (this.built()) play(this.sc.clip);
+          },
+          built() {
+            return this.groups.every((g) => this.got[g.id]);
+          },
+          /* the sentence with a line for each gap of this step that is still empty */
+          gapHtml() {
+            const open = this.groups.map((g) => g.id);
+            return this.sc.segs
+              .map((s) => {
+                const w = s.g ? s.w : s.t;
+                if (!s.g || !open.includes(s.g)) return s.sp + (s.cls ? '<span class="' + s.cls + '">' + w + "</span>" : w);
+                const filled = !!this.got[s.g];
+                return s.sp + '<span class="slot ' + (filled ? s.cls : GROUPS[s.g].text) + '">' + (filled ? w : STEPS[this.step].swap ? this.sc.name : "&nbsp;") + "</span>";
+              })
+              .join("");
+          },
+
+          /* ---------- yn ---------- */
+          /* Eight pictures; four get their own sentence, four get the
+             untrue one from liar() above (every sentence has a clip). */
+          makeYesNo() {
+            const truths = shuffle([true, true, true, true, false, false, false, false]);
+            return shuffle(SCENES)
+              .slice(0, 8)
+              .map((scene, k) => {
+                const truth = truths[k];
+                return { scene, truth, said: truth ? scene : liar(scene) };
+              });
+          },
+          answer(val) {
+            this.chosen = val;
+            this.results[this.i] = val === this.truth;
+          },
+          score() {
+            return this.results.filter((r) => r === true).length;
+          },
+          missed() {
+            return this.yn.filter((q, k) => this.results[k] === false);
+          },
+          startPractice() {
+            this.yn = this.missed();
+            this.results = [];
+            this.practice = true;
+            this.i = 0;
+            this.done = false;
+            this.load();
+          },
+          stars() {
+            const p = this.score() / this.yn.length;
+            return p >= 0.9 ? 3 : p >= 0.6 ? 2 : 1;
+          },
+          message() {
+            if (this.practice) return this.missed().length ? "Keep going. Try these once more." : "You got them all this time!";
+            const s = this.stars();
+            return s === 3 ? WIN : s === 2 ? "Good work! Do the lesson again tomorrow." : "Good try! Go back to step 1 and listen again.";
+          },
+
+          /* ---------- drawing ---------- */
+          play,
+          /* the picture, or a labelled box until the picture exists (tiny = thumbnail: number only) */
+          pic(sc, small, tiny) {
+            if (IMAGES_READY) return '<img src="' + IMG_DIR + sc.n + "." + IMG_EXT + '" alt="" class="block h-full w-full object-cover" />';
+            return (
+              '<div class="flex h-full w-full flex-col items-center justify-center gap-1 bg-[repeating-linear-gradient(45deg,#fff,#fff_12px,#f1f6ea_12px,#f1f6ea_24px)] p-1 text-center text-moss">' +
+              (small ? "" : '<svg viewBox="0 0 24 24" class="h-10 w-10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 15.5l-5-5-8.5 9"/></svg>') +
+              '<span class="font-display font-semibold ' + (small ? "text-sm" : "text-lg") + '">' + sc.n + "." + IMG_EXT + "</span>" +
+              (tiny ? "" : '<span class="' + (small ? "text-sm leading-tight" : "text-base") + ' font-bold text-forest">' + sc.desc + "</span>") +
+              "</div>"
+            );
+          },
+        };
+      }
+    </script>
+    <script src="/assets/js/alpine.min.js"></script>
+  </body>
+</html>

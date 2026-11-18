@@ -1,0 +1,275 @@
+VERBS — audio clips to record
+Each number is the file name (01.mp3, 02.mp3 …), in the order the page plays them.
+verbs_1 and verbs_2 are not listed: their audio is already on the site.
+
+
+=== verbs_3 (16 clips) ===
+
+01 Stand.
+02 The boy is standing.
+03 Sing.
+04 The girl is singing.
+05 Dance.
+06 The girl is dancing.
+07 Swim.
+08 The boy is swimming.
+09 Climb.
+10 The boy is climbing.
+11 Cry.
+12 The girl is crying.
+13 Laugh.
+14 The boy is laughing.
+15 Play.
+16 The girl is playing.
+
+
+=== verbs_4 (16 clips) ===
+
+01 Open.
+02 The boy is opening the door.
+03 Close.
+04 The girl is closing the window.
+05 Carry.
+06 The boy is carrying a bag.
+07 Throw.
+08 The boy is throwing the ball.
+09 Catch.
+10 The girl is catching the ball.
+11 Kick.
+12 The boy is kicking the ball.
+13 Cut.
+14 The girl is cutting the paper.
+15 Wash.
+16 The girl is washing her hands.
+
+
+=== verbs_5 (16 clips) ===
+
+01 Write.
+02 The girl is writing a letter.
+03 Draw.
+04 The boy is drawing a cat.
+05 Paint.
+06 The girl is painting a flower.
+07 Count.
+08 The boy is counting the mangoes.
+09 Listen.
+10 The girl is listening to the teacher.
+11 Look.
+12 The boy is looking at the board.
+13 Point.
+14 The girl is pointing at the bird.
+15 Think.
+16 The boy is thinking.
+
+
+=== verbs_6 (16 clips) ===
+
+01 Cook.
+02 The girl is cooking rice.
+03 Clean.
+04 The boy is cleaning the table.
+05 Sweep.
+06 The girl is sweeping the floor.
+07 Feed.
+08 The boy is feeding the dog.
+09 Water.
+10 The girl is watering the plants.
+11 Make.
+12 The boy is making the bed.
+13 Fold.
+14 The girl is folding the clothes.
+15 Help.
+16 The boy is helping his mother.
+
+
+=== verbs_7 (16 clips) ===
+
+01 Eating.
+02 The boy is eating.
+03 Not eating.
+04 The boy is not eating.
+05 Sleeping.
+06 The girl is sleeping.
+07 Not sleeping.
+08 The girl is not sleeping.
+09 Running.
+10 The boy is running.
+11 Not running.
+12 The boy is not running.
+13 Reading.
+14 The girl is reading.
+15 Not reading.
+16 The girl is not reading.
+
+
+=== verbs_8 (16 clips) ===
+
+01 Wake up.
+02 The boy wakes up.
+03 Brush.
+04 The boy brushes his teeth.
+05 Wash.
+06 The girl washes her face.
+07 Go.
+08 The girl goes to school.
+09 Study.
+10 The girl studies English.
+11 Play.
+12 The boy plays football.
+13 Come.
+14 The girl comes home.
+15 Do.
+16 The boy does his homework.
+
+
+=== verbs_9 (24 clips) ===
+Note: 17–24 are the untrue sentences for step 4 ("Yes or no?") — record them as written.
+
+01 Can fly.
+02 The bird can fly.
+03 Can't fly.
+04 The dog can't fly.
+05 Can ride.
+06 The girl can ride a bike.
+07 Can't ride.
+08 The baby can't ride a bike.
+09 Can reach.
+10 The girl can reach the mango.
+11 Can't reach.
+12 The boy can't reach the mango.
+13 Can lift.
+14 The man can lift the box.
+15 Can't lift.
+16 The boy can't lift the box.
+17 The bird can't fly.
+18 The dog can fly.
+19 The girl can't ride a bike.
+20 The baby can ride a bike.
+21 The girl can't reach the mango.
+22 The boy can reach the mango.
+23 The man can't lift the box.
+24 The boy can lift the box.
+
+
+=== verbs_10 (16 clips) ===
+Note: Let the three sounds of -ed be heard: walk-t, jump-t, cook-t, wash-t / play-d, clean-d, climb-d / paint-id.
+
+01 Walked.
+02 Yesterday the girl walked to school.
+03 Jumped.
+04 Yesterday the girl jumped.
+05 Played.
+06 Yesterday the boy played football.
+07 Cooked.
+08 Yesterday the girl cooked rice.
+09 Washed.
+10 Yesterday the boy washed his hands.
+11 Cleaned.
+12 Yesterday the boy cleaned the table.
+13 Painted.
+14 Yesterday the girl painted a flower.
+15 Climbed.
+16 Yesterday the boy climbed the tree.
+
+
+=== verbs_11 (16 clips) ===
+Note: "read" is written like today's word but said "red": clip 09 matters most.
+
+01 Ate.
+02 Yesterday the boy ate a mango.
+03 Drank.
+04 Yesterday the boy drank water.
+05 Sat.
+06 Yesterday the boy sat on the chair.
+07 Ran.
+08 Yesterday the boy ran home.
+09 Read.
+10 Yesterday the girl read a book.
+11 Slept.
+12 Yesterday the boy slept.
+13 Went.
+14 Yesterday the girl went to the market.
+15 Saw.
+16 Yesterday the girl saw a bird.
+
+
+=== verbs_12 (16 clips) ===
+Note: Say "going to" clearly, not "gonna".
+
+01 Going to swim.
+02 Tomorrow the boy is going to swim.
+03 Going to dance.
+04 Tomorrow the girl is going to dance.
+05 Going to draw.
+06 Tomorrow the boy is going to draw.
+07 Going to cook.
+08 Tomorrow the girl is going to cook.
+09 Going to play.
+10 Tomorrow the boy is going to play football.
+11 Going to ride.
+12 Tomorrow the girl is going to ride a bike.
+13 Going to visit.
+14 Tomorrow the boy is going to visit his grandmother.
+15 Going to buy.
+16 Tomorrow the girl is going to buy a hat.
+
+
+=== verbs_13 (16 clips) ===
+
+01 Brush his teeth.
+02 The boy is brushing his teeth.
+03 Wash her hands.
+04 The girl is washing her hands.
+05 Wash his face.
+06 The boy is washing his face.
+07 Take a shower.
+08 The boy is taking a shower.
+09 Wash her hair.
+10 The girl is washing her hair.
+11 Dry her hair.
+12 The girl is drying her hair.
+13 Comb her hair.
+14 The girl is combing her hair.
+15 Cut his nails.
+16 The boy is cutting his nails.
+
+
+=== verbs_14 (16 clips) ===
+
+01 Get up.
+02 The boy is getting up.
+03 Get dressed.
+04 The girl is getting dressed.
+05 Put on.
+06 The boy is putting on his shoes.
+07 Eat.
+08 The girl is eating breakfast.
+09 Pack.
+10 The boy is packing his bag.
+11 Say goodbye.
+12 The girl is saying goodbye.
+13 Wait.
+14 The boy is waiting for the bus.
+15 Take.
+16 The girl is taking the bus.
+
+
+=== verbs_15 (16 clips) ===
+
+01 Take off.
+02 The boy is taking off his shoes.
+03 Tidy.
+04 The girl is tidying her room.
+05 Walk.
+06 The boy is walking the dog.
+07 Eat.
+08 The girl is eating dinner.
+09 Wash.
+10 The boy is washing the dishes.
+11 Watch.
+12 The girl is watching TV.
+13 Listen.
+14 The boy is listening to music.
+15 Go to bed.
+16 The girl is going to bed.
